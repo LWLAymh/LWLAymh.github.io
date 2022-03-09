@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>LWLAymh的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="反演：\\ 假设有两个函数f和g满足：\\ f(n)&#x3D;\sum_{k}a_{n,k}g(k)\\ 已知f求g的过程称为反演\\ 一般情况下，求反演只能高斯消元，但是有一些形式的反演有巧妙解法二项式反演 Example：\\ n个有编号的人站成一排，求他们都没有站到自己编号对应位置的方案数\\ Solve：\\ 设f(n)为n个人随便站的方案数\\ g(n)为n个人都站错的方案数\\ 如果知道g的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LWLAymh的博客">
+<meta property="og:url" content="http://lwlaymh.github.io/2022/03/09/%E5%8F%8D%E6%BC%94/index.html">
+<meta property="og:site_name" content="LWLAymh的博客">
+<meta property="og:description" content="反演：\\ 假设有两个函数f和g满足：\\ f(n)&#x3D;\sum_{k}a_{n,k}g(k)\\ 已知f求g的过程称为反演\\ 一般情况下，求反演只能高斯消元，但是有一些形式的反演有巧妙解法二项式反演 Example：\\ n个有编号的人站成一排，求他们都没有站到自己编号对应位置的方案数\\ Solve：\\ 设f(n)为n个人随便站的方案数\\ g(n)为n个人都站错的方案数\\ 如果知道g的">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-09T10:28:27.058Z">
+<meta property="article:modified_time" content="2022-03-09T03:20:19.794Z">
+<meta property="article:author" content="LWLAymh">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="LWLAymh的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LWLAymh的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://LWLAymh.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-反演" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/09/%E5%8F%8D%E6%BC%94/" class="article-date">
+  <time class="dt-published" datetime="2022-03-09T10:28:27.058Z" itemprop="datePublished">2022-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <script type="math/tex; mode=display">
+反演：\\
+假设有两个函数f和g满足：\\
+f(n)=\sum_{k}a_{n,k}g(k)\\
+已知f求g的过程称为反演\\
+一般情况下，求反演只能高斯消元，但是有一些形式的反演有巧妙解法</script><h3 id="二项式反演"><a href="#二项式反演" class="headerlink" title="二项式反演"></a>二项式反演</h3><script type="math/tex; mode=display">
+Example：\\
+n个有编号的人站成一排，求他们都没有站到自己编号对应位置的方案数\\
+Solve：\\
+设f(n)为n个人随便站的方案数\\
+g(n)为n个人都站错的方案数\\
+如果知道g的表达式，我们可以通过枚举有多少人站错位置来得到f\\
+即：f(n)=\sum_{k=0}^nC_n^kg(k)\\
+接下来我们要用f表示g，即反演\\
+首先有g(n)=\sum_{m=0}^n[n-m=0]C_n^mg(m)\\
+根据二项式定理，有\sum_{k=0}^n(-1)^kC_n^k=[n=0]\\
+显然可以带入，知：g(n)=\sum_{m=0}^n\sum_{k=0}^{n-m}(-1)^kC_{n-m}^kC_n^mg(m)\\
+考虑组合意义，C_{n-m}^kC_n^m意为在n中选出两个大小分别为m和k的子集\\因而等价于C_n^kC_{n-k}^m\\
+原式=\sum_{m=0}^n\sum_{k=0}^{n-m}(-1)^kC_n^kC_{n-k}^mg(m)=\sum_{k=0}^n(-1)^kC_n^k\sum_{m=0}^{n-k}C_{n-k}^mg(m)\\
+=\sum_{k=0}^n(-1)^kC_n^kf(n-k)=\sum_{k=0}^n(-1)^{n-k}C_n^kf(k)\\
+因而，我们将以上过程称为：二项式反演\\
+一般形式如下：\\
+若f(n)=\sum_{k=0}^nC_n^kg(k)\\
+有g(n)=\sum_{k=0}^n(-1)^{n-k}C_n^kf(k)</script><h3 id="斯特林反演"><a href="#斯特林反演" class="headerlink" title="斯特林反演"></a>斯特林反演</h3><script type="math/tex; mode=display">
+Example：\\
+已知f(n)=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}g(k)\\
+求g(n)\\
+\\
+反转公式：
+\sum_{k=0}^n\left[ \begin{array}{c}n\\k\end{array} \right]\left\{ \begin{array}{c}k\\m\end{array} \right\}(-1)^{n-k}=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}\left[ \begin{array}{c}k\\m\end{array} \right](-1)^{n-k}=[m=n]\\
+证明见“特殊的数.md”文件\\
+那么g(n)=\sum_{m=0}^n[m=n]g(m)\\
+=\sum_{m=0}^n\sum_{k=0}^n\left[ \begin{array}{c}n\\k\end{array} \right]\left\{ \begin{array}{c}k\\m\end{array} \right\}(-1)^{n-k}g(m)\\
+=\sum_{k=0}^n\left[ \begin{array}{c}n\\k\end{array} \right](-1)^{n-k}\sum_{m=0}^k\left\{ \begin{array}{c}k\\m\end{array} \right\}g(m)=\sum_{k=0}^n\left[ \begin{array}{c}n\\k\end{array} \right](-1)^{n-k}f(k)\\
+由于反转公式的对称性，交换第一类第二类斯特林数也是成立的\\
+Example：\\
+已知f(m)=\sum_{n=m}^M(-1)^{m-n}\left[ \begin{array}{c}n\\m\end{array} \right]g(n)\\
+求g(m)\\
+g(m)=\sum_{n=m}^M[n=m]g(n)\\
+=\sum_{n=m}^M\sum_{k=0}^M\left[ \begin{array}{c}n\\k\end{array} \right]\left\{ \begin{array}{c}k\\m\end{array} \right\}(-1)^{n-k}g(n)\\
+=\sum_{k=0}^M\left\{ \begin{array}{c}k\\m\end{array} \right\}f(k)\\</script><h3 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h3><script type="math/tex; mode=display">
+Example：\\
+求长度为n且仅包含小写英文字母且循环节长度恰为n的字符串个数\\
+不妨设f(n)表示长度为n的字符串个数\\
+g(n)表示长度为n且周期为n的字符串个数\\
+有f(n)=\sum_{d|n}g(d)\\
+不妨定义\mu(n)满足\sum_{d|n}\mu(d)=[n=1]\\
+根据下文多重子集卷积的内容\\
+可知\mu(\prod_{p\in prime}p^\alpha)=\prod_p[\alpha=1](-1)\\
+那么我们有g(n)=\sum_{m|n}[\frac n m=1]g(m)\\
+带入，有g(n)=\sum_{m|n}\sum_{d|\frac n m}\mu(d)g(m)\\
+注意到[d|\frac n m]=[md|n]=[m|\frac n d]\\
+有g(n)=\sum_{d|n}\mu(d)\sum_{m|\frac n d}g(m)=\sum_{d|n}\mu(d)f(\frac n d)=\sum_{d|n}\mu(\frac n d)f(d)\\
+以上被称为莫比乌斯反演，\mu被称为莫比乌斯函数\\
+一般形式如下：\\
+f(n)=\sum_{d|n}g(d)\\g(n)=\sum_{d|n}\mu(\frac n d)f(d)\\
+ps:\\考虑\sum_{d|n}\mu(d)=[n=1]的性质\\
+我们实际上使用的是[m|n]\sum_{d|\frac n m}\mu(d)=[n=m]\\
+令c=md，左边=\sum_{c|n}[m|c]\mu(\frac c m)=\sum([c|n])([m|c]\mu(\frac c m))\\
+令A_{c,n}=[c|n]，B_{m,c}=[m|c]\mu(\frac c m)\\
+那我们有BA=I\\
+刚才的过程相当于：
+已知Ax=b\\
+x=Ix\\
+x=(BA)x\\
+x=B(Ax)\\
+x=Bb\\
+\\
+Example：\\
+已知f(n)=\sum_{n|d}g(d)\\
+求g(n)\\
+g(n)=\sum_{n|d}[\frac d n=1]g(d)=\sum_{n|d}\sum_{c|\frac d n}\mu(c)g(d)=\\\sum_{c|d}\sum_{nc|d}\mu(c)g(d)=\sum_{c}\mu(c)f(nc)
+=\sum_{n|d}\mu(\frac d n)f(d)\\</script><h3 id="一般情况"><a href="#一般情况" class="headerlink" title="一般情况"></a>一般情况</h3><script type="math/tex; mode=display">
+无论是二项式反演还是莫比乌斯反演，他们都满足f(n)所依赖的g(k)有k\leq n\\
+根据上面的情况，我们发现A是一个下三角矩阵，B是A^{-1}，很可求\\
+现在来推导满足k\leq n的一般情况反演\\
+f(n)=\sum_{k=1}^na_{n,k}g(k)\\
+不妨设算子\mu(n,m)，满足\sum_{k=1}^na_{n,k}\mu(k,m)=\sum_{k=1}^n\mu(n,k)a_{k,m}=[n=m]\\
+即AB=BA=I\\
+g(n)=\sum_{m=1}^n[n=m]g(m)=\sum_{m=1}^n\sum_{k=1}^n\mu(n,k)a_{k,m}g(m)=\sum_{k=1}^n\mu(n,k)f(k)</script><h3 id="集合幂级数"><a href="#集合幂级数" class="headerlink" title="集合幂级数"></a>集合幂级数</h3><script type="math/tex; mode=display">
+见同文件夹“集合幂级数.md”文件\\
+Example：\\
+多重子集反演：允许元素出现多次\\
+已知f(S)=\sum_{T\subseteq S}g(T)\\
+求g(S)\\
+定义\mu(S)，若S包含重复元素则为0，否则为(-1)^{|S|}\\
+可以知道\sum_{T\subseteq S}\mu(T)=[S=0]\\
+于是f(S)=\sum_{T\subseteq S}g(T)\\
+g(S)=\sum_{T\subseteq S}\mu(S-T)f(T)\\</script><h3 id="单位根反演（离散傅里叶变换）"><a href="#单位根反演（离散傅里叶变换）" class="headerlink" title="单位根反演（离散傅里叶变换）"></a>单位根反演（离散傅里叶变换）</h3><script type="math/tex; mode=display">
+Example：\\
+给定两个长度为n的数列a和b\\
+求数列c，其中c_r=\sum_{p,q}[(p+q)\mod n=r]a_pb_q\\
+其中n=2^k\\
+考虑单位根\epsilon满足\epsilon^n=1，即\epsilon=e^{-\frac{2\pi i}{n}}\\
+根据等比数列求和，如果\epsilon^v\ne 1，即v\mod n\ne 0\\
+我们有\sum_{k=0}^{n-1}\epsilon^{vk}=\frac {\epsilon ^{nv}-1}{\epsilon^v-1}\\
+那么我们有：\frac1 n\sum_{k=0}^{n-1}\epsilon^{vk}=[v\mod n=0]\\
+注意到[(p+q)\mod n=r]=[(p+q-r)\mod n]\\
+=\frac 1 n \sum_{k=0}^{n-1}\epsilon ^{(p+q-r)k}=\frac 1 n\sum_{k=0}^{n-1}\epsilon^{-rk}\epsilon^{pk}\epsilon^{qk}\\
+c_r=\sum_{p,q}[(p+q)\mod n=r]a_pb_q\\
+=\sum_{p,q}\frac 1 n\sum_{k=0}^{n-1}\epsilon^{-rk}\epsilon^{pk}\epsilon^{qk}=\frac 1 n\sum_{k=0}^{n-1}\epsilon^{-rk}\sum_{p}\epsilon^{pk}a_p\sum_{q}\epsilon^{qk}b_q\\
+不妨令f_m=\sum_{k=0}^{n-1}\epsilon^{mk}g_k\\
+g_m=\frac 1 n\sum_{k=0}^{n-1}\epsilon^{-mk}f_k</script><h3 id="一般情况-1"><a href="#一般情况-1" class="headerlink" title="一般情况"></a>一般情况</h3><script type="math/tex; mode=display">
+由上我们发现，反演解决了一些在下标上的二元运算卷积\\
+c_r=\sum_{p,q}[f(p,q)=r]a_pb_q\\
+而我们需要把f分成两个独立的部分，通常正变换一下，处理一下，逆变换回来\\</script><h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><script type="math/tex; mode=display">
+Problem：UOJ\ ROUND5\ C\\
+给出多项式f,g,h\\
+有\sum_{j=1}^nf(gcd(i,j))g(i)h(j)x_j\equiv b_i(\mod p)\\
+已知b，求x\\
+\\
+Solve：\\
+考虑使用莫比乌斯反演求f_r(n)使得f(n)=\sum_{d|n}f_r(d)\\
+则原式即\sum_{j=1}^n\sum_{d}[d|i][d|j]f_r(d)g(i)h(j)x_j\equiv b_i(\mod p)\\
+\sum_{d|i}f_r(d)\sum_{j=1}^n[d|j]h(j)x_j\equiv \frac{b_i}{g(i)}(\mod p)\\
+令z_d=\sum_{j=1}^n[d|j]h(j)x_j\\
+有\sum_{d|i}f_r(d)z_d\equiv \frac{b_i}{g(i)}(\mod p)\\
+可以用莫比乌斯反演求左边，进而求出z_d\\
+而z_d=\sum_{j=1}^n[d|j]h(j)x_j，我们可以再次使用莫比乌斯反演求出h(j)x_j，进而求x_j\\</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lwlaymh.github.io/2022/03/09/%E5%8F%8D%E6%BC%94/" data-id="cl0jf7eci0001d0vtetrxewsj" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/03/09/%E5%A4%9A%E9%A1%B9%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/03/09/%E5%8F%8D%E6%BC%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/09/%E5%A4%9A%E9%A1%B9%E5%BC%8F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/09/%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF%E4%B8%8E%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/09/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/09/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 LWLAymh<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>LWLAymh的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="集合幂级数：形如\sum_{i&#x3D;0}^{2^n-1}a_ix^i，其中二进制数i表示\{1,2,...,n\}的一个子集，用|i|表示该子集大小\\ 下述级数如无特别说明均为集合幂级数 高维前缀和： c_i&#x3D;\sum_{j\subseteq i}a_j\\ 高维后缀和： c_i&#x3D;\sum_{j\supseteq i}a_j\\ 上述过程又称快速莫比乌斯变换（FMT）1234567for(int">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LWLAymh的博客">
+<meta property="og:url" content="http://lwlaymh.github.io/2022/03/09/%E9%9B%86%E5%90%88%E5%B9%82%E7%BA%A7%E6%95%B0/index.html">
+<meta property="og:site_name" content="LWLAymh的博客">
+<meta property="og:description" content="集合幂级数：形如\sum_{i&#x3D;0}^{2^n-1}a_ix^i，其中二进制数i表示\{1,2,...,n\}的一个子集，用|i|表示该子集大小\\ 下述级数如无特别说明均为集合幂级数 高维前缀和： c_i&#x3D;\sum_{j\subseteq i}a_j\\ 高维后缀和： c_i&#x3D;\sum_{j\supseteq i}a_j\\ 上述过程又称快速莫比乌斯变换（FMT）1234567for(int">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-09T10:28:26.849Z">
+<meta property="article:modified_time" content="2022-02-20T03:13:41.650Z">
+<meta property="article:author" content="LWLAymh">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="LWLAymh的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LWLAymh的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://LWLAymh.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-集合幂级数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/09/%E9%9B%86%E5%90%88%E5%B9%82%E7%BA%A7%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2022-03-09T10:28:26.849Z" itemprop="datePublished">2022-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <script type="math/tex; mode=display">
+集合幂级数：形如\sum_{i=0}^{2^n-1}a_ix^i，其中二进制数i表示\{1,2,...,n\}的一个子集，用|i|表示该子集大小\\
+下述级数如无特别说明均为集合幂级数</script><script type="math/tex; mode=display">
+高维前缀和：
+c_i=\sum_{j\subseteq i}a_j\\
+高维后缀和：
+c_i=\sum_{j\supseteq i}a_j\\
+上述过程又称快速莫比乌斯变换（FMT）</script><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;(<span class="number">1</span>&lt;&lt;n);j++)</span><br><span class="line">		<span class="keyword">if</span>(j&amp;(<span class="number">1</span>&lt;&lt;i)) a[j]+=a[j^(<span class="number">1</span>&lt;&lt;i)];<span class="comment">//高维前缀和</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;(<span class="number">1</span>&lt;&lt;n);j++)</span><br><span class="line">		<span class="keyword">if</span>(j&amp;(<span class="number">1</span>&lt;&lt;i)) a[j^(<span class="number">1</span>&lt;&lt;i)]+=a[j];<span class="comment">//高维后缀和</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="与-或卷积"><a href="#与-或卷积" class="headerlink" title="与/或卷积"></a>与/或卷积</h3><script type="math/tex; mode=display">
+或卷积：c_i=\sum_{j}\sum_{k}[j \or k=i]a_jb_k\\
+与卷积：c_i=\sum_{j}\sum_{k}[j\and k=i]a_jb_k\\
+考虑如何求a和b的或卷积：\\
+引理：\\
+若j,k\subseteq i,则j\or k\subseteq i，逆命题同样成立\\
+若j,k\supseteq i,则j\and k\supseteq i，逆命题同样成立\\
+\\
+设a，b，c的高维前缀和分别为A，B，C\\
+A_iB_i=(\sum_{j\subseteq i}a_j)(\sum_{k\subseteq i}b_k)=\sum_{j,k\subseteq i}a_ib_k=\sum_{k\or j\subseteq i}a_ib_k=C_i\\
+现在考虑已知C求c，本质上是一个反演\\
+注意到\sum_{r\subseteq p}(-1)^{|r|}=\sum_{k=0}^{|p|}C_{|p|}^k(-1)^k=[p=0]\\
+c(p)=\sum_{q\subseteq p}[p-q=0]c(q)=\sum_{q\subseteq p}\sum_{r\subseteq (p-q)}(-1)^{|r|}c(q)\\
+=\sum_{r\subseteq p}(-1)^{|r|}\sum_{q\subseteq (p-r)}c(q)=\sum_{r\subseteq p}(-1)^{r}f(p-r)=\sum_{r\subseteq p}(-1)^{|p|-|r|}C(r)\\
+于是C(S)=\sum_{T\subseteq S}c(T)\\
+c(S)=\sum_{T\subseteq S}(-1)^{|S|-|T|}C(T)\\
+\\
+因而做两遍高维前缀和再反推回去即可\\
+复杂度O(2^nn)\\
+与卷积即改为高维后缀和</script><h3 id="异或卷积"><a href="#异或卷积" class="headerlink" title="异或卷积"></a>异或卷积</h3><script type="math/tex; mode=display">
+c_i=\sum_j\sum_k[j\oplus k=i]a_jb_k\\
+快速沃尔什变换（FWT）：\\
+定义集合幂级数FWT(a)，满足FWT(a)_i=\sum_{j=0}^{2^n-1}(-1)^{|i\and j|}a_j\\
+那么有：FWT(c)_i=\sum_{j=0}^{2^n-1}(-1)^{|i\and j|}c_j=\sum_{j=0}^{2^n-1}(-1)^{|i\and j|}\sum_{k=0}^{2^n-1}\sum_{l=0}^{2^n-1}[k\oplus l=j]a_kb_l\\
+=\sum_{k=0}^{2^n-1}\sum_{l=0}^{2^n-1}(-1)^{|(k\oplus l)\and i|}a_kb_l=\sum_{k=0}^{2^n-1}\sum_{l=0}^{2^n-1}(-1)^{|k\and i|}a_k(-1)^{|l\and i|}b_l\\
+=FWT(a)_iFWT(b)_i\\
+时间复杂度O(2^nn)\\
+FMT可以看作是FWT在解决或卷积，与卷积时的特例</script><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;(<span class="number">1</span>&lt;&lt;n);i&lt;&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;(<span class="number">1</span>&lt;&lt;n);j+=(i&lt;&lt;<span class="number">1</span>))&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> k=j;k&lt;j+i;k++)&#123;<span class="comment">//k不包含i</span></span><br><span class="line">			<span class="type">int</span> x=a[k],y=a[k+i];</span><br><span class="line">			a[k]=x+y; a[k+i]=x-y;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="子集卷积"><a href="#子集卷积" class="headerlink" title="子集卷积"></a>子集卷积</h3><script type="math/tex; mode=display">
+c_i=\sum_{j}\sum_{k}[j\and k=\phi,j\or k=i]a_jb_k\\
+意识到该卷积与或卷积的差别在于，或卷积会多累加一些[j\and k\ne \phi]的答案\\
+而[j\and k=\phi,j\or k=i]=[|j|+|k|=|i|,j\or k=i]\\
+因而可以将原集合按照元素个数分组，做FMT，然后再n^2次结合，并做IFMT，最终将结果累计\\
+复杂度O(2^nn^2)</script><script type="math/tex; mode=display">
+多重</script><script type="math/tex; mode=display">
+子集卷积exp：c_i=\sum_{\{w\}}[\sum |w_j|=|i|,\bigvee w_j=i]\prod a_{w_j}\\</script><script type="math/tex; mode=display">
+多项式符合集合幂级数：\sum_{i=0}^nf_ia^i，其中a^i为子集卷积</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lwlaymh.github.io/2022/03/09/%E9%9B%86%E5%90%88%E5%B9%82%E7%BA%A7%E6%95%B0/" data-id="cl0jf7eco0004d0vtarq67eeb" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/09/%E7%AD%9B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/09/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/03/09/%E5%8F%8D%E6%BC%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/09/%E5%A4%9A%E9%A1%B9%E5%BC%8F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/09/%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF%E4%B8%8E%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/09/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/09/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 LWLAymh<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

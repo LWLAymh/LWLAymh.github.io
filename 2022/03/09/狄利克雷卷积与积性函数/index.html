@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>LWLAymh的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="迪利克雷卷积：f*g&#x3D;\sum_{d|n}{f(d)g(\cfrac n d)} \begin{array}{c} 交换律：f*g&#x3D;g*f\\ 结合律：f*(g*h)&#x3D;(f*g)*h\\ 分配律：f*(g+h)&#x3D;f*g+f*h \end{array} 设id(x)&#x3D;x，I(x)&#x3D;1，\epsilon(x)&#x3D;[x&#x3D;1] \begin{array}{c} 莫比乌斯函数\mu:\\ \mu(1)&#x3D;1\">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LWLAymh的博客">
+<meta property="og:url" content="http://lwlaymh.github.io/2022/03/09/%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF%E4%B8%8E%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:site_name" content="LWLAymh的博客">
+<meta property="og:description" content="迪利克雷卷积：f*g&#x3D;\sum_{d|n}{f(d)g(\cfrac n d)} \begin{array}{c} 交换律：f*g&#x3D;g*f\\ 结合律：f*(g*h)&#x3D;(f*g)*h\\ 分配律：f*(g+h)&#x3D;f*g+f*h \end{array} 设id(x)&#x3D;x，I(x)&#x3D;1，\epsilon(x)&#x3D;[x&#x3D;1] \begin{array}{c} 莫比乌斯函数\mu:\\ \mu(1)&#x3D;1\">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-09T10:28:27.019Z">
+<meta property="article:modified_time" content="2022-03-07T03:55:01.299Z">
+<meta property="article:author" content="LWLAymh">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="LWLAymh的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LWLAymh的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://LWLAymh.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-狄利克雷卷积与积性函数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/09/%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF%E4%B8%8E%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2022-03-09T10:28:27.019Z" itemprop="datePublished">2022-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <script type="math/tex; mode=display">
+迪利克雷卷积：f*g=\sum_{d|n}{f(d)g(\cfrac n d)}</script><script type="math/tex; mode=display">
+\begin{array}{c}
+交换律：f*g=g*f\\
+结合律：f*(g*h)=(f*g)*h\\
+分配律：f*(g+h)=f*g+f*h
+\end{array}</script><script type="math/tex; mode=display">
+设id(x)=x，I(x)=1，\epsilon(x)=[x=1]</script><script type="math/tex; mode=display">
+\begin{array}{c}
+莫比乌斯函数\mu:\\
+\mu(1)=1\\
+当n\ne1且\exist p（p\in prime）使得p^2|b时，\mu(n)=0\\
+反之，n=\prod_{i=1}^k{p_i}，其中p_i\in prime，\mu(n)=(-1)^k\\
+莫比乌斯函数也是积性函数\\
+\end{array}</script><script type="math/tex; mode=display">
+\begin{array}{c}
+f*\epsilon=f\\
+\\
+证明：f*\epsilon=\sum_{d|n}{f(d)\epsilon(\frac n d)}=f(n)
+\end{array}</script><script type="math/tex; mode=display">
+\begin{array}{c}
+\mu*id=\varphi\\
+\\
+证明：令g=id，f=\varphi，下面已证明\varphi*I=id，于是根据莫比乌斯反演有\varphi=id*\mu
+\end{array}</script><script type="math/tex; mode=display">
+\begin{array}{c}
+\mu*I=\epsilon\\
+\\
+证明：\mu*I=\sum_{d|n}\mu(d)\\
+当n=1时，显然此时满足条件\\
+当n\ne1时，设n=\prod_{i=1}^kp_i^{q_i}\\
+去除\mu(d)=0的情况，原式=\sum_{i=0}^k{(-1)^i\times C_k^i}=\sum_{i=1}^k{(-1)^i\times1^{k-i}\times C_k^i}=0
+\end{array}</script><script type="math/tex; mode=display">
+\begin{array}{c}
+\varphi*I=id\\
+\\
+证明：由于\varphi是积性函数，若n\ne1，设n=\prod_{i=1}^kp_i^{q_i}，则有\varphi(n)=\prod_{i=1}^k\varphi(p_i^{q_i})\\
+\varphi*I=\sum_{d|n}\varphi(d)=\sum_{w_1=0}^{q_1}\sum_{w_2=0}^{q_2}......\sum_{w_k=0}^{q_k}{p_1^{w_1}p_2^{w_2}......p_k^{w_k}}\\
+=\sum_{w_1=0}^{q_1}......\sum_{w_{k-1}=0}^{q_{k-1}}{p_1^{w_1}......p_{k-1}^{w_{k-1}}\sum_{w_k=0}^{q_k}p_k^{w_k}}\\
+
+根据\varphi的定义，则有\varphi(p^q)=p^q-p^{q-1}\\
+于是有\sum_{i=1}^{q_i}{(p_x^i-p_x^{i-1})}=(p_x^{q_x}-1)\\
+则有\sum_{i=0}^{q_x}\varphi(p_x^{i})=p_x^{q_x}\\
+则原式等于\prod_{i=1}^kp_i^{q_i}=n=id(n)
+\end{array}</script><script type="math/tex; mode=display">
+\begin{array}{c}
+Problem5：求\sum_{i=1}^{n}\sum_{j=1}^mgcd(i,j)\\
+\\
+技巧1：增加枚举量\\
+原式=\sum_{i=1}^n\sum_{j=1}^mid[gcd(i,j)]=\sum_{i=1}^n\sum_{j=1}^m\sum_{d|gcd(i,j)}\varphi(d)\\
+技巧2：交换枚举顺序\\
+原式=\sum_{d=1}^{\min(n,m)}\sum^{\lfloor\frac n d\rfloor}_{i=1}\sum^{\lfloor\frac m d\rfloor}_{j=1}\varphi(d)\\
+技巧3：分离无关变量\\
+原式=\sum^{\min(n,m)}_{d=1}\varphi(d)\times\lfloor\cfrac n d\rfloor\times \lfloor\cfrac m d\rfloor\\
+
+考虑由于\lfloor \cfrac n d\rfloor和\lfloor \cfrac m d\rfloor所对应的取值最多只有\sqrt{n}+\sqrt{m}种不同的取值\\因此只需处理出\varphi(d)的前缀和即可在O(\sqrt{n}+\sqrt{m})的复杂度解决此问题\\
+至于处理出\lfloor \cfrac n d\rfloor和\lfloor \cfrac m d\rfloor所对应的取值则需要用到数论分块
+\end{array}\\</script><script type="math/tex; mode=display">
+数论分块：考虑处理出\lfloor\cfrac n d\rfloor的所有不同取值，意识到这最多\sqrt{n}种</script><script type="math/tex; mode=display">
+考虑如何计算变化的地方，设目前从x-1变化到x，则有\lfloor\cfrac n d\rfloor=x，则dx\leq n，则d_{max}=\lfloor\cfrac n x\rfloor</script><script type="math/tex; mode=display">
+\begin{array}{c}
+Problem6：求\sum_{i=1}^{n}\sum_{j=1}^m[gcd(i,j)=1]\\
+\\
+和Problem5几乎没区别，唯一不同的是需要处理的函数从id变为了\epsilon
+\end{array}</script><script type="math/tex; mode=display">
+\begin{array}{c}
+Problem7：求\sum_{i=1}^{n}\sum_{j=1}^m[gcd(i,j)\in prime]\\
+\\
+考虑增加枚举量，则原式=\sum_{i=1}^{n}\sum_{j=1}^m\sum_{p\in prime}[gcd(i,j)=p]\\
+=\sum_{p\in prime}\sum^{\lfloor\cfrac n d\rfloor}_{i=1}\sum^{\lfloor\cfrac m d\rfloor}_{j=1}[gcd(pi,pj)=p]\\
+=\sum_{p\in prime}\sum^{\lfloor\cfrac n p\rfloor}_{i=1}\sum^{\lfloor\cfrac m p\rfloor}_{j=1}[gcd(i,j)=1]=\sum_{p\in prime}\sum_{d=1}^{\min(\lfloor\cfrac m p\rfloor,\lfloor\cfrac n p\rfloor)}\mu(d)\lfloor\cfrac n {pd}\rfloor\lfloor\cfrac m {pd}\rfloor\\
+于是转化为Problem6，但复杂度仍不可接受\\
+技巧4：换元\\考虑设x=pd，则变为\sum_{x=1}^{\min(n,m)}\sum_{p\in prime且p|x}
+\end{array}</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lwlaymh.github.io/2022/03/09/%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF%E4%B8%8E%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0/" data-id="cl0jf7ecr0007d0vt1ap7cz9c" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/09/%E5%A4%9A%E9%A1%B9%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/09/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/03/09/%E5%8F%8D%E6%BC%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/09/%E5%A4%9A%E9%A1%B9%E5%BC%8F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/09/%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF%E4%B8%8E%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/09/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/09/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 LWLAymh<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

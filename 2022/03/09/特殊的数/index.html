@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>LWLAymh的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="组合数一些性质 n数中选r个数，选的数可以重复方案：C_{n+r-1}^r n数中选r个数，但是选的数不能相邻方案：C_{n-r+1}^r \begin{array}{c} 一些性质：\\ C_{n}^m&#x3D;C_{n-1}^m+C_{n-1}^{m-1}\\ C^l_nC_l^r&#x3D;C_n^rC_{n-r}^{l-r}\\ \sum_{i&#x3D;r}^nC_{i}^r&#x3D;C_{n+1}^{r+1}\\ C_m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LWLAymh的博客">
+<meta property="og:url" content="http://lwlaymh.github.io/2022/03/09/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/index.html">
+<meta property="og:site_name" content="LWLAymh的博客">
+<meta property="og:description" content="组合数一些性质 n数中选r个数，选的数可以重复方案：C_{n+r-1}^r n数中选r个数，但是选的数不能相邻方案：C_{n-r+1}^r \begin{array}{c} 一些性质：\\ C_{n}^m&#x3D;C_{n-1}^m+C_{n-1}^{m-1}\\ C^l_nC_l^r&#x3D;C_n^rC_{n-r}^{l-r}\\ \sum_{i&#x3D;r}^nC_{i}^r&#x3D;C_{n+1}^{r+1}\\ C_m">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-09T10:28:26.955Z">
+<meta property="article:modified_time" content="2022-03-09T03:27:18.021Z">
+<meta property="article:author" content="LWLAymh">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="LWLAymh的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LWLAymh的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://LWLAymh.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-特殊的数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/09/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2022-03-09T10:28:26.955Z" itemprop="datePublished">2022-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="组合数"><a href="#组合数" class="headerlink" title="组合数"></a>组合数</h2><h3 id="一些性质"><a href="#一些性质" class="headerlink" title="一些性质"></a>一些性质</h3><script type="math/tex; mode=display">
+n数中选r个数，选的数可以重复方案：C_{n+r-1}^r</script><script type="math/tex; mode=display">
+n数中选r个数，但是选的数不能相邻方案：C_{n-r+1}^r</script><script type="math/tex; mode=display">
+\begin{array}{c}
+一些性质：\\
+C_{n}^m=C_{n-1}^m+C_{n-1}^{m-1}\\
+C^l_nC_l^r=C_n^rC_{n-r}^{l-r}\\
+\sum_{i=r}^nC_{i}^r=C_{n+1}^{r+1}\\
+C_m^n=\sum_{i=0}^kC_{n-k}^{m-i}C_k^i
+\end{array}</script><script type="math/tex; mode=display">
+\sum_{k=0}^n(C_n^k)^2=\sum_{k=0}^nC_{n}^k\times C_{n}^{n-k}=C_n^{2n}</script><script type="math/tex; mode=display">
+
+求：\sum_{k=1}^nk^2C_n^k\\
+\\
+二项式求导：\\
+((1+x)^n)=(\sum_{k=0}^nC_n^kx^{k})\\
+((1+x)^n)'=(\sum_{k=0}^nC_n^kx^{k})'\\
+n(1+x)^{n-1}=\sum_{k=0}^nkC_n^kx^{k-1}\\
+nx(1+x)^{n-1}=\sum_{k=0}^nkC_n^kx^{k}\\
+(nx(1+x)^{n-1})'=(\sum_{k=0}^nkC_n^kx^{k})'\\
+n((1+x)^{n-1}+(n-1)x(1+x)^{n-2})=\sum_{k=0}^nk^2C_n^kx^{k-1}\\
+取x=1，则原式=n(n+1)2^{n-2}</script><script type="math/tex; mode=display">
+
+Problem3：求(\sum^{+\infty}_{i=0}C^{ik+r}_{nk})\mod p\\
+考虑设f(n,r)=\sum^{+\infty}_{i=0}C^{ik+r}_{nk}\\
+则有f(n,r)=\sum^{+\infty}_{i=0}C^{ik+r}_{nk}=\sum_{i=0}^{+\infty}\sum_{j=0}^k C_{nk-k}^{ik+r-j}\times C_k^j\\
+=\sum^k_{j=0}C_k^j\sum_{i=0}^{+\infty}C_{nk-k}^{ik+r-j}=\sum_{j=0}^kC_k^jf(n-1,r-j)\\
+整理上式，得到：f(n,r)=\sum_{j=0}^kC_k^jf(n-1,r-j)\\
+于是我们得到了关于f的转移方程，可以矩阵加速</script><h3 id="Lucas定理"><a href="#Lucas定理" class="headerlink" title="Lucas定理"></a>Lucas定理</h3><script type="math/tex; mode=display">
+若p是质数，则C_n^m\mod p=C_{n\mod p}^{m\mod p}\times C_{\lfloor\frac n p\rfloor}^{\lfloor\frac m p\rfloor}\mod p\\
+或者说，将n和m在p进制下分解，再逐位求组合数并相乘\\
+证明：\\
+首先，若i\ne 0且i\ne p，C_{p}^i\equiv\frac p iC_{p-1}^{i-1}\equiv 0(\mod p)\\
+而根据二项式定理，(1+x)^p\equiv \sum_{i=0}^pC_{p}^ix^i=1+x^p(\mod p)\\
+令n=k_1p+b_1，m=k_2p+b_2\\
+则(1+x)^n=(1+x)^{k_1p}(1+x)^{b_1}\\
+而(1+x)^{k_1p}\equiv (1+x^p)^{k_1}(\mod p)\\
+则(1+x)^n\equiv (1+x^p)^{k_1}(1+x)^{b_1}\\
+根据二项式定理，C_n^m\mod p即x^m项的系数\\
+我们可以得出，C_n^mx^m\equiv C_{k_1}^{k_2}x^{k_2p}C_{b1}^{b_2}x^{b_2}(\mod p)\\
+那么有C_a^b\equiv C_{k_1}^{k_2}C_{b_1}^{b_2}(\mod p)\\</script><h3 id="扩展Lucas定理"><a href="#扩展Lucas定理" class="headerlink" title="扩展Lucas定理"></a>扩展Lucas定理</h3><script type="math/tex; mode=display">
+令p=\prod p_i^{e_i}\\
+那我们只要对于每个i求出\\
+C_n^m\mod p_i^{e_i}\\
+然后使用中国剩余定理合并即可\\
+那现在问题转化为要求C_n^m\mod p^k，其中p\in prime\\
+原式=\frac{n!}{m!(n-m)!}\mod p^k=\frac {\frac {n!}{p^x}}{\frac{m!}{p^y}\frac{(n-m)!}{p^z}}p^{x-y-z}\mod p^k\\
+现在问题转化为求\frac{n!}{p^x}\mod p^k以及p^x\\
+注意到n!=\prod_{i=1}i=(\prod_{i=wp,w\in \mathbb{Z}}i)(\prod_{i\ne wp,w\in\mathbb{Z}}i)= p^{\lfloor n p\rfloor}(\lfloor n p\rfloor!)(\prod_{i\ne wp,w\in\mathbb{Z}}i)\\
+\equiv p^{\lfloor n p\rfloor}(\lfloor n p\rfloor!)(\prod_{i=1,i\ne wp,w\in\mathbb{Z}}^{p^k}i)^{\lfloor \frac n {p^k}\rfloor}(\prod^n_{i=p^k\lfloor\frac n {p^k}\rfloor,i\ne wp,w\in\mathbb{Z}}i)(\mod p^k)\\
+递归求解即可\\
+ps：\\
+这样摆式子可能非常难以理解\\
+我们考虑将1-n的所有数全部排成一个宽为p^k的矩阵\\
+那右边第一项就是把那些p的倍数的列拿出来\\第二项是那些填满的行\\第三项是最后没填满的一行</script><h3 id="卡特兰数"><a href="#卡特兰数" class="headerlink" title="卡特兰数"></a>卡特兰数</h3><script type="math/tex; mode=display">
+卡特兰数f_n表示：长度为2n的合法括号序列个数\\
+卡特兰数的前几项为1，1，2，5，14，42，132...\\</script><script type="math/tex; mode=display">
+接下来，我们通过这个定义来证明以下其他定义方式\\
+\\
+递归定义：f_n=\sum_{i=0}^{n-1}f_if_{n-1-i}\\
+不妨考虑枚举一个括号序列的第一个断点，则该括号序列应形如(A)B\\
+考虑将其删成A和B，则A一定合法，因为若A不合法，那么这里一定不是第一个断点\\
+\\
+通项公式：f_n=\frac 1 {n+1}C_{2n}^n=C_{2n}^n-C_{2n}^{n-1}\\
+考虑平面直角坐标系，我们将'('认为是向右上走一单位长度，将')'认为是向右下走一单位长度\\
+那么卡特兰数就相当于从(0,0)走到(2n,0)不经过第四象限的方案数\\
+考虑容斥，如果只是走到(2n,0)的方案数是C_{2n}^n\\
+而如果到达第四象限，说明在这条这线上存在一个点(x,-1)\\
+考虑将x以后的折线以直线y=-1为对称轴反转，那么终点到了(2n,-2)\\
+不难发现，任意从(0,0)走到(2n,-2)的方案一定唯一对应了一种从(0,0)走到(2n,0)的不合法方案\\
+（从(0,0)走到(2n,-2)一定会经过直线y=-1，将后半部分对称后就是其对应方案\\
+而从(0,0)走到(2n,-2)的方案数为C_{2n}^{n-1}\\
+因而f_n=C_{2n}^n-C_{2n}^{n-1}\\
+而C_{2n}^n-C_{2n}^{n-1}=\frac{(2n)!}{n!n!}-\frac{(2n)!}{(n-1)!(n+1)!}=\frac{(2n)!}{n!(n+1)!}=\frac{C_{2n}^n}{n+1}\\
+\\
+递推定义：f_n=\frac {4n-2}{n+1}f_{n-1}\\
+使用一下上一步的通项公式：\\
+\begin{cases}
+f_n=\frac{(2n)!}{n!(n+1)!}\\
+f_{n-1}=\frac{(2n-2)!}{(n-1)!(n)!}
+\end{cases}\\
+不难发现f_n=\frac{(2n-1)(2n)}{n(n+1)}f_{n-1}\\
+整理，得到f_n=\frac{4n-2}{n+1}f_{n-1}\\</script><h2 id="斯特林数"><a href="#斯特林数" class="headerlink" title="斯特林数"></a>斯特林数</h2><h3 id="上升幂和下降幂"><a href="#上升幂和下降幂" class="headerlink" title="上升幂和下降幂"></a>上升幂和下降幂</h3><script type="math/tex; mode=display">
+定义下降幂x^{\underline{k}}=\prod_{i=0}^{k-1}(x-i)=\frac{x!}{(x-k)!}=C_x^kk!\\
+定义上升幂x^{\overline{k}}\prod_{i=0}^{k-1}(x+i)=\frac{(x+k-1)!}{(x-1)!}=\\
+上升幂和下降幂的定义是可以引申到复数域的\\
+他们之间是存在转换的：\\x^{\underline{n}}=(-1)^n(-x)^{\overline{n}}\\
+同时存在大小关系：x^{\underline{n}}\leq x^n\leq x^{\overline{n}}，其中0\leq n<x</script><h3 id="第一类斯特林数"><a href="#第一类斯特林数" class="headerlink" title="第一类斯特林数"></a>第一类斯特林数</h3><script type="math/tex; mode=display">
+第一类斯特林数：\left[ \begin{array}{c}n\\k\end{array} \right]：长度为n的排列划分成k个轮换的方案数\\
+递推式：\\
+考虑现在已经将n-1个数分成了若干轮换，现在新加入第n个数\\
+这个数要么和其他的数一起组成轮换，要么自己形成自环\\
+而由于它可以插入前面轮换的任意位置\\
+显然\left[ \begin{array}{c}n\\k\end{array} \right]=(n-1)\left[ \begin{array}{c}n-1\\k\end{array} \right]+\left[ \begin{array}{c}n-1\\k-1\end{array} \right]\\
+特别地，我们定义\left[ \begin{array}{c}0\\k\end{array} \right]=[k=0]\\
+由于所有的排列都至少存在一个轮换，因此我们有：\\
+\sum_{k=0}^n\left[ \begin{array}{c}n\\k\end{array} \right]=n!</script><h3 id="第二类斯特林数"><a href="#第二类斯特林数" class="headerlink" title="第二类斯特林数"></a>第二类斯特林数</h3><script type="math/tex; mode=display">
+第二类斯特林数：\left\{ \begin{array}{c}n\\k\end{array} \right\}：将n个本质不同的物品划分成k个非空集合的方案数\\
+递推式：\\
+考虑现在已经放好n-1个物品，正要放入第n个物品\\
+那么这个物品要么单独放在一起，要么和其他物品放在一起\\
+显然\left\{ \begin{array}{c}n\\k\end{array} \right\}=k\left\{ \begin{array}{c}n-1\\k\end{array} \right\}+\left\{ \begin{array}{c}n-1\\k-1\end{array} \right\}\\
+特别地，我们定义\left\{ \begin{array}{c}0\\k\end{array} \right\}=[k=0]\\</script><h3 id="斯特林恒等式"><a href="#斯特林恒等式" class="headerlink" title="斯特林恒等式"></a>斯特林恒等式</h3><p><del>有点多说实话</del></p>
+<script type="math/tex; mode=display">
+(1)\\
+x^n=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}x^{\underline{k}}=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}(-1)^{n-k}x^{\overline{k}}\\
+证明：\\先考虑前半段，不妨使用数学归纳\\
+若x^{n-1}=\sum_{k=0}^{n-1}\left\{ \begin{array}{c}n-1\\k\end{array} \right\}x^{\underline{k}}\\
+我们要证明x^{n}=\sum_{k=0}^{n}\left\{ \begin{array}{c}n\\k\end{array} \right\}x^{\underline{k}}
+\\\\
+也就是证明x\sum_{k=0}^{n-1}\left\{ \begin{array}{c}n-1\\k\end{array} \right\}x^{\underline{k}}=\sum_{k=0}^{n}\left\{ \begin{array}{c}n\\k\end{array} \right\}x^{\underline{k}}\\
+考虑(x-k)x^{\underline{k}}=x^{\underline{k+1}}，所以x\cdot x^{\underline{k}}=x^{\underline{k+1}}+kx^{\underline{k}}\\
+那么左边=\sum_{k=0}^{n-1}\left\{ \begin{array}{c}n-1\\k\end{array} \right\}x^{\underline{k+1}}+\sum_{k=0}^{n-1}\left\{ \begin{array}{c}n-1\\k\end{array} \right\}kx^{\underline{k}}\\
+由于n\ne1\\
+原式=\sum_{k=1}^{n}\left\{ \begin{array}{c}n-1\\k-1\end{array} \right\}x^{\underline{k}}+\sum_{k=1}^{n}\left\{ \begin{array}{c}n-1\\k\end{array} \right\}kx^{\underline{k}}\\
+=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}x^{\underline{k}}\\
+\\
+至于后半段，由于x^{\underline{n}}=(-1)^n(-x)^{\overline{n}}\\
+所以x^n=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}(-1)^k(-x)^{\overline{k}}\\
+不妨用x来代替-x，我们有(-x)^n=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}(-1)^k(x)^{\overline{k}}=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}(-1)^{n-k}x^{\overline{k}}</script><script type="math/tex; mode=display">
+(2)\\
+x^{\overline{n}}=\sum_{k=0}^n\left[ \begin{array}{c}n\\k\end{array} \right]x^k\\
+x^{\underline{n}}=\sum_{k=0}^n\left[ \begin{array}{c}n\\k\end{array} \right](-1)^{n-k}x^k\\
+证明：\\
+先考虑前者，由于(x+n-1)x^k=x^{k+1}+(n-1)x^k\\
+所以类似于(1)前半段的推导即可得到\\
+后者同样可以使用下降幂和上升幂的转化来得到\\</script><script type="math/tex; mode=display">
+(3)\\
+\sum_{k=0}^n\left[ \begin{array}{c}n\\k\end{array} \right]\left\{ \begin{array}{c}k\\m\end{array} \right\}(-1)^{n-k}=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}\left[ \begin{array}{c}k\\m\end{array} \right](-1)^{n-k}=[m=n]\\
+（反转公式）\\
+
+证明：\\
+考虑先证明后半部分，将(2)带入(1)，得到x^n=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}x^{\underline{k}}=\sum_{k=0}^n\sum_{m=0}^k\left\{ \begin{array}{c}n\\k\end{array} \right\}
+\left[ \begin{array}{c}k\\m\end{array} \right](-1)^{n-k}x^m\\
+由于这对任意x都成立，因此右边除了x^n以外的项系数均为0，而x^n的系数为1\\
+前半部分是同理的\\</script><script type="math/tex; mode=display">
+(4)\\
+\left\{ \begin{array}{c}n+1\\m+1\end{array} \right\}=\sum_{k=m}^n\left( \begin{array}{c}n\\k\end{array} \right)\left\{ \begin{array}{c}k\\m\end{array} \right\}\\
+\left[ \begin{array}{c}n+1\\m+1\end{array} \right]=\sum_{k=m}^n\left( \begin{array}{c}n\\k\end{array} \right)\left[ \begin{array}{c}k\\m\end{array} \right]\\
+证明：\\
+对于前者，考虑组合意义，将n+1个分为m+1组，也就是先找一部分分成m组，再把剩下的分到一组\\
+对于后者，也可以同样考虑组合意义</script><script type="math/tex; mode=display">
+(5)\\
+\left\{ \begin{array}{c}n\\m\end{array} \right\}=\sum_{k=m}^n\left( \begin{array}{c}n\\k\end{array} \right)\left\{ \begin{array}{c}k+1\\m+1\end{array} \right\}(-1)^{n-k}\\
+\left[ \begin{array}{c}n\\m\end{array} \right]=\sum_{k=m}^n\left( \begin{array}{c}n\\k\end{array} \right)\left[ \begin{array}{c}k+1\\m+1\end{array} \right](-1)^{n-k}\\
+证明：\\
+由(4)，根据二项式反演可知</script><script type="math/tex; mode=display">
+(6)\\
+m!\left\{ \begin{array}{c}n\\m\end{array} \right\}=\sum_{k=0}^mC_m^kk^n(-1)^{m-k}\\
+证明：\\
+首先有m^n=\sum_{k=0}^mm^{\underline{k}}\left\{ \begin{array}{c}m\\k\end{array} \right\}=\sum_{k=0}^mk!C_m^k\left\{ \begin{array}{c}m\\k\end{array} \right\}\\
+对这个式子进行二项式反演即可</script><script type="math/tex; mode=display">
+(7)\\
+\left\{ \begin{array}{c}n+1\\m+1\end{array} \right\}=\sum_{k=0}^n\left\{ \begin{array}{c}k\\m\end{array} \right\}(m+1)^{n-k}\\
+证明：\\
+考虑组合意义，相当于先把前k个分为m组，把第k+1个数放到第m+1组\\
+然后剩下(n+1)-(k+1)=n-k个随便放\\
+相当于我们按照每组所放的数的最小值区分每组\\
+由于这么做，第m+1组（最小值最大的那组）在k不同的时候最小值是不同的，因此一定不重不漏</script><script type="math/tex; mode=display">
+(8)\\
+\left[\begin{array}{c}n+1\\m+1\end{array} \right]=\sum_{k=0}^n\left[ \begin{array}{c}k\\m\end{array} \right]C_{n}^k(n-k)!=n!\sum_{k=0}^n\frac{\left[ \begin{array}{c}k\\m\end{array} \right]}{k!}\\
+证明：\\
+先考虑前半部分，首先如果n>0，我们有\left[ \begin{array}{c}n\\1\end{array} \right]=(n-1)!\\
+这个式子很显然，我们现在有一个长度为n-1的环，想要往里插入第n个数有n-1种选择，所以我们有\\
+\left[ \begin{array}{c}n\\1\end{array} \right]=\left[ \begin{array}{c}n-1\\1\end{array} \right](n-1)\\
+数学归纳一下即可\\
+那么前半部分的组合意义就是：考虑将n+1个数划分成m+1个环\\
+我们先将其中k个数划分成m个环，剩下n+1-k个数划分成另一个环\\
+但是这样算显然会算重，所以我们只需要勒令第n+1个数在最后一个环里即可\\
+该证明就显然了\\
+而由于C_n^k(n-k)!=C_n^{n-k}(n-k)!=n^{\underline{n-k}}=\frac{n!}{k!}\\
+因此后半部分也得证\\</script><script type="math/tex; mode=display">
+(9)\\
+\left\{ \begin{array}{c}n+m+1\\m\end{array} \right\}=\sum_{k=0}^mk\left\{ \begin{array}{c}n+k\\k\end{array} \right\}\\
+\left[ \begin{array}{c}n+m+1\\m\end{array} \right]\sum_{k=0}^m(n+k)\left[ \begin{array}{c}n+k\\k\end{array} \right]\\
+证明：\\
+先考虑前者，我们将n+k个位置分到k个集合之后\\
+还剩下(n+m+1)-(n+k)=(m-k+1)个数，剩下(m-k)个集合\\
+拿出来(n+k+1)这个数，剩下的数刚好够每个集合放一个\\
+最后枚举一下把(n+k+1)放在哪里即可\\
+由于每个划分一定存在一段（可能是0）单独自己集合的后缀\\
+所以这个递推成立\\
+后者也可以同样证明</script><script type="math/tex; mode=display">
+(10)\\
+C_n^m(n-1)^{\underline{n-m}}=\sum_{k=m}^n\left[ \begin{array}{c}n\\k\end{array} \right]\left\{ \begin{array}{c}k\\m\end{array} \right\}\\
+证明：\\
+考虑(n-1)^{\underline{n-m}}=\frac{(n-1)!}{(m-1)!}\\
+不妨设f(n,m)=\sum_{k=m}^n\left[ \begin{array}{c}n\\k\end{array} \right]\left\{ \begin{array}{c}k\\m\end{array} \right\}\\
+相当于将n个数分成非空m组，然后组内的数要形成若干轮换的方案数\\
+那么知道f(n,m)=f(n-1,m-1)+(n-1+m)f(n-1,m)\\
+设g(n,m)=C_n^m\frac{(n-1)!}{(m-1)!}=\frac{n!(n-1)!}{m!(n-m)!(m-1)!}\\
+那么知道\\
+g(n-1,m-1)=\frac{(n-1)!(n-2)!}{(m-1)!(n-m)!(m-2)!}\\
+g(n-1,m)=\frac{(n-1)!(n-2)!}{m!(n-1-m)!(m-2)!}\\
+显然g(n,m)=g(n-1,m-1)+(n-1+m)g(n-1,m)\\
+数学归纳即可</script><script type="math/tex; mode=display">
+(11)\\
+C_n^m=\frac{n!}{m!(n-m)!}=\sum_{k=m}^n\left\{ \begin{array}{c}n+1\\k+1\end{array} \right\}\left[ \begin{array}{c}k\\m\end{array} \right](-1)^{m-k}\\
+n^{\underline{n-m}}=\frac{n!}{m!}=\sum_{k=m}^n\left[ \begin{array}{c}n+1\\k+1\end{array} \right]\left\{ \begin{array}{c}k\\m\end{array} \right\}(-1)^{m-k}，其中m\leq n\\
+证明：\\
+考虑(4)，对其做一遍斯特林反演即可</script><script type="math/tex; mode=display">
+(12)\\
+\left\{ \begin{array}{c}n\\l+m\end{array} \right\}C_{l+m}^l=\sum_{k=l}^n\left\{ \begin{array}{c}k\\l\end{array} \right\}\left\{ \begin{array}{c}n-k\\m\end{array} \right\}C_n^k\\
+\left[ \begin{array}{c}n\\l+m\end{array} \right]C_{l+m}^l=\sum_{k=l}^n\left[ \begin{array}{c}k\\l\end{array} \right]\left[ \begin{array}{c}n-k\\m\end{array} \right]C_n^k\\
+证明：\\
+先考虑前者，左边即先将n个数分为l+m个集合，然后再挑出l个集合\\
+那不妨枚举这l个集合中是哪些数，然后再进行分配\\
+后者同理</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lwlaymh.github.io/2022/03/09/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/" data-id="cl0jf7ecp0005d0vtcx7g37r2" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/09/%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF%E4%B8%8E%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/09/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/03/09/%E5%8F%8D%E6%BC%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/09/%E5%A4%9A%E9%A1%B9%E5%BC%8F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/09/%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF%E4%B8%8E%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/09/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/09/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 LWLAymh<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

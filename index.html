@@ -71,6 +71,1028 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-反演" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/09/%E5%8F%8D%E6%BC%94/" class="article-date">
+  <time class="dt-published" datetime="2022-03-09T10:28:27.058Z" itemprop="datePublished">2022-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <script type="math/tex; mode=display">
+反演：\\
+假设有两个函数f和g满足：\\
+f(n)=\sum_{k}a_{n,k}g(k)\\
+已知f求g的过程称为反演\\
+一般情况下，求反演只能高斯消元，但是有一些形式的反演有巧妙解法</script><h3 id="二项式反演"><a href="#二项式反演" class="headerlink" title="二项式反演"></a>二项式反演</h3><script type="math/tex; mode=display">
+Example：\\
+n个有编号的人站成一排，求他们都没有站到自己编号对应位置的方案数\\
+Solve：\\
+设f(n)为n个人随便站的方案数\\
+g(n)为n个人都站错的方案数\\
+如果知道g的表达式，我们可以通过枚举有多少人站错位置来得到f\\
+即：f(n)=\sum_{k=0}^nC_n^kg(k)\\
+接下来我们要用f表示g，即反演\\
+首先有g(n)=\sum_{m=0}^n[n-m=0]C_n^mg(m)\\
+根据二项式定理，有\sum_{k=0}^n(-1)^kC_n^k=[n=0]\\
+显然可以带入，知：g(n)=\sum_{m=0}^n\sum_{k=0}^{n-m}(-1)^kC_{n-m}^kC_n^mg(m)\\
+考虑组合意义，C_{n-m}^kC_n^m意为在n中选出两个大小分别为m和k的子集\\因而等价于C_n^kC_{n-k}^m\\
+原式=\sum_{m=0}^n\sum_{k=0}^{n-m}(-1)^kC_n^kC_{n-k}^mg(m)=\sum_{k=0}^n(-1)^kC_n^k\sum_{m=0}^{n-k}C_{n-k}^mg(m)\\
+=\sum_{k=0}^n(-1)^kC_n^kf(n-k)=\sum_{k=0}^n(-1)^{n-k}C_n^kf(k)\\
+因而，我们将以上过程称为：二项式反演\\
+一般形式如下：\\
+若f(n)=\sum_{k=0}^nC_n^kg(k)\\
+有g(n)=\sum_{k=0}^n(-1)^{n-k}C_n^kf(k)</script><h3 id="斯特林反演"><a href="#斯特林反演" class="headerlink" title="斯特林反演"></a>斯特林反演</h3><script type="math/tex; mode=display">
+Example：\\
+已知f(n)=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}g(k)\\
+求g(n)\\
+\\
+反转公式：
+\sum_{k=0}^n\left[ \begin{array}{c}n\\k\end{array} \right]\left\{ \begin{array}{c}k\\m\end{array} \right\}(-1)^{n-k}=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}\left[ \begin{array}{c}k\\m\end{array} \right](-1)^{n-k}=[m=n]\\
+证明见“特殊的数.md”文件\\
+那么g(n)=\sum_{m=0}^n[m=n]g(m)\\
+=\sum_{m=0}^n\sum_{k=0}^n\left[ \begin{array}{c}n\\k\end{array} \right]\left\{ \begin{array}{c}k\\m\end{array} \right\}(-1)^{n-k}g(m)\\
+=\sum_{k=0}^n\left[ \begin{array}{c}n\\k\end{array} \right](-1)^{n-k}\sum_{m=0}^k\left\{ \begin{array}{c}k\\m\end{array} \right\}g(m)=\sum_{k=0}^n\left[ \begin{array}{c}n\\k\end{array} \right](-1)^{n-k}f(k)\\
+由于反转公式的对称性，交换第一类第二类斯特林数也是成立的\\
+Example：\\
+已知f(m)=\sum_{n=m}^M(-1)^{m-n}\left[ \begin{array}{c}n\\m\end{array} \right]g(n)\\
+求g(m)\\
+g(m)=\sum_{n=m}^M[n=m]g(n)\\
+=\sum_{n=m}^M\sum_{k=0}^M\left[ \begin{array}{c}n\\k\end{array} \right]\left\{ \begin{array}{c}k\\m\end{array} \right\}(-1)^{n-k}g(n)\\
+=\sum_{k=0}^M\left\{ \begin{array}{c}k\\m\end{array} \right\}f(k)\\</script><h3 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h3><script type="math/tex; mode=display">
+Example：\\
+求长度为n且仅包含小写英文字母且循环节长度恰为n的字符串个数\\
+不妨设f(n)表示长度为n的字符串个数\\
+g(n)表示长度为n且周期为n的字符串个数\\
+有f(n)=\sum_{d|n}g(d)\\
+不妨定义\mu(n)满足\sum_{d|n}\mu(d)=[n=1]\\
+根据下文多重子集卷积的内容\\
+可知\mu(\prod_{p\in prime}p^\alpha)=\prod_p[\alpha=1](-1)\\
+那么我们有g(n)=\sum_{m|n}[\frac n m=1]g(m)\\
+带入，有g(n)=\sum_{m|n}\sum_{d|\frac n m}\mu(d)g(m)\\
+注意到[d|\frac n m]=[md|n]=[m|\frac n d]\\
+有g(n)=\sum_{d|n}\mu(d)\sum_{m|\frac n d}g(m)=\sum_{d|n}\mu(d)f(\frac n d)=\sum_{d|n}\mu(\frac n d)f(d)\\
+以上被称为莫比乌斯反演，\mu被称为莫比乌斯函数\\
+一般形式如下：\\
+f(n)=\sum_{d|n}g(d)\\g(n)=\sum_{d|n}\mu(\frac n d)f(d)\\
+ps:\\考虑\sum_{d|n}\mu(d)=[n=1]的性质\\
+我们实际上使用的是[m|n]\sum_{d|\frac n m}\mu(d)=[n=m]\\
+令c=md，左边=\sum_{c|n}[m|c]\mu(\frac c m)=\sum([c|n])([m|c]\mu(\frac c m))\\
+令A_{c,n}=[c|n]，B_{m,c}=[m|c]\mu(\frac c m)\\
+那我们有BA=I\\
+刚才的过程相当于：
+已知Ax=b\\
+x=Ix\\
+x=(BA)x\\
+x=B(Ax)\\
+x=Bb\\
+\\
+Example：\\
+已知f(n)=\sum_{n|d}g(d)\\
+求g(n)\\
+g(n)=\sum_{n|d}[\frac d n=1]g(d)=\sum_{n|d}\sum_{c|\frac d n}\mu(c)g(d)=\\\sum_{c|d}\sum_{nc|d}\mu(c)g(d)=\sum_{c}\mu(c)f(nc)
+=\sum_{n|d}\mu(\frac d n)f(d)\\</script><h3 id="一般情况"><a href="#一般情况" class="headerlink" title="一般情况"></a>一般情况</h3><script type="math/tex; mode=display">
+无论是二项式反演还是莫比乌斯反演，他们都满足f(n)所依赖的g(k)有k\leq n\\
+根据上面的情况，我们发现A是一个下三角矩阵，B是A^{-1}，很可求\\
+现在来推导满足k\leq n的一般情况反演\\
+f(n)=\sum_{k=1}^na_{n,k}g(k)\\
+不妨设算子\mu(n,m)，满足\sum_{k=1}^na_{n,k}\mu(k,m)=\sum_{k=1}^n\mu(n,k)a_{k,m}=[n=m]\\
+即AB=BA=I\\
+g(n)=\sum_{m=1}^n[n=m]g(m)=\sum_{m=1}^n\sum_{k=1}^n\mu(n,k)a_{k,m}g(m)=\sum_{k=1}^n\mu(n,k)f(k)</script><h3 id="集合幂级数"><a href="#集合幂级数" class="headerlink" title="集合幂级数"></a>集合幂级数</h3><script type="math/tex; mode=display">
+见同文件夹“集合幂级数.md”文件\\
+Example：\\
+多重子集反演：允许元素出现多次\\
+已知f(S)=\sum_{T\subseteq S}g(T)\\
+求g(S)\\
+定义\mu(S)，若S包含重复元素则为0，否则为(-1)^{|S|}\\
+可以知道\sum_{T\subseteq S}\mu(T)=[S=0]\\
+于是f(S)=\sum_{T\subseteq S}g(T)\\
+g(S)=\sum_{T\subseteq S}\mu(S-T)f(T)\\</script><h3 id="单位根反演（离散傅里叶变换）"><a href="#单位根反演（离散傅里叶变换）" class="headerlink" title="单位根反演（离散傅里叶变换）"></a>单位根反演（离散傅里叶变换）</h3><script type="math/tex; mode=display">
+Example：\\
+给定两个长度为n的数列a和b\\
+求数列c，其中c_r=\sum_{p,q}[(p+q)\mod n=r]a_pb_q\\
+其中n=2^k\\
+考虑单位根\epsilon满足\epsilon^n=1，即\epsilon=e^{-\frac{2\pi i}{n}}\\
+根据等比数列求和，如果\epsilon^v\ne 1，即v\mod n\ne 0\\
+我们有\sum_{k=0}^{n-1}\epsilon^{vk}=\frac {\epsilon ^{nv}-1}{\epsilon^v-1}\\
+那么我们有：\frac1 n\sum_{k=0}^{n-1}\epsilon^{vk}=[v\mod n=0]\\
+注意到[(p+q)\mod n=r]=[(p+q-r)\mod n]\\
+=\frac 1 n \sum_{k=0}^{n-1}\epsilon ^{(p+q-r)k}=\frac 1 n\sum_{k=0}^{n-1}\epsilon^{-rk}\epsilon^{pk}\epsilon^{qk}\\
+c_r=\sum_{p,q}[(p+q)\mod n=r]a_pb_q\\
+=\sum_{p,q}\frac 1 n\sum_{k=0}^{n-1}\epsilon^{-rk}\epsilon^{pk}\epsilon^{qk}=\frac 1 n\sum_{k=0}^{n-1}\epsilon^{-rk}\sum_{p}\epsilon^{pk}a_p\sum_{q}\epsilon^{qk}b_q\\
+不妨令f_m=\sum_{k=0}^{n-1}\epsilon^{mk}g_k\\
+g_m=\frac 1 n\sum_{k=0}^{n-1}\epsilon^{-mk}f_k</script><h3 id="一般情况-1"><a href="#一般情况-1" class="headerlink" title="一般情况"></a>一般情况</h3><script type="math/tex; mode=display">
+由上我们发现，反演解决了一些在下标上的二元运算卷积\\
+c_r=\sum_{p,q}[f(p,q)=r]a_pb_q\\
+而我们需要把f分成两个独立的部分，通常正变换一下，处理一下，逆变换回来\\</script><h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><script type="math/tex; mode=display">
+Problem：UOJ\ ROUND5\ C\\
+给出多项式f,g,h\\
+有\sum_{j=1}^nf(gcd(i,j))g(i)h(j)x_j\equiv b_i(\mod p)\\
+已知b，求x\\
+\\
+Solve：\\
+考虑使用莫比乌斯反演求f_r(n)使得f(n)=\sum_{d|n}f_r(d)\\
+则原式即\sum_{j=1}^n\sum_{d}[d|i][d|j]f_r(d)g(i)h(j)x_j\equiv b_i(\mod p)\\
+\sum_{d|i}f_r(d)\sum_{j=1}^n[d|j]h(j)x_j\equiv \frac{b_i}{g(i)}(\mod p)\\
+令z_d=\sum_{j=1}^n[d|j]h(j)x_j\\
+有\sum_{d|i}f_r(d)z_d\equiv \frac{b_i}{g(i)}(\mod p)\\
+可以用莫比乌斯反演求左边，进而求出z_d\\
+而z_d=\sum_{j=1}^n[d|j]h(j)x_j，我们可以再次使用莫比乌斯反演求出h(j)x_j，进而求x_j\\</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lwlaymh.github.io/2022/03/09/%E5%8F%8D%E6%BC%94/" data-id="cl0jf7eci0001d0vtetrxewsj" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-多项式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/09/%E5%A4%9A%E9%A1%B9%E5%BC%8F/" class="article-date">
+  <time class="dt-published" datetime="2022-03-09T10:28:27.044Z" itemprop="datePublished">2022-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="多项式基础"><a href="#多项式基础" class="headerlink" title="多项式基础"></a>多项式基础</h2><h3 id="复数相关"><a href="#复数相关" class="headerlink" title="复数相关"></a>复数相关</h3><script type="math/tex; mode=display">
+令i^2=-1，我们将形如a+bi这样的数叫做复数，复数集合用\mathbb{C}来表示\\
+其中a称为实部，b称为虚部\\
+考虑建立一个复平面坐标系，将每一个复数对应平面上的一个点/向量(a,b)\\
+复数的四则运算：\\
+(a+bi)+(c+di)=(a+c)+(b+d)i\\
+(a+bi)-(c+di)=(a-c)+(b-d)i\\
+(a+bi)\times(c+di)=ac+adi+bci-bd=(ac-bd)+(ad+bc)i\\
+\frac {a+bi}{c+di}=\frac{(a+bi)(c-di)}{c^2+d^2}=\frac{ac+bd}{c^2+d^2}+\frac{(bc-ad)i}{c^2+d^2}\\</script><script type="math/tex; mode=display">
+欧拉公式：e^{i\pi}=-1\\
+也就是e^{2i\pi}=1\\
+同时又有e^{i\theta}=cos\theta+i·sin\theta，证明使用复平面的单位圆\\
+单位根：\\
+对于x^n=1，我们会有n个根，设第k个根为\omega_n^k\\
+那么我们有：\omega_n^k=e^{2\pi\frac k ni}=cos(2\pi\frac kn)+i·sin(2\pi\frac kn)\\
+单位根有以下性质：\\
+1.折半引理：\omega_{2n}^{2k}=\omega_n^k\\
+由我们上面推导的通项公式即可证明\\
+\\
+2.消去引理\\
+\omega_n^{k+\frac n 2}=-\omega_n^k\\
+同样使用通项，运用三角恒等变换可证明\\</script><h3 id="点值表示法和系数表示法"><a href="#点值表示法和系数表示法" class="headerlink" title="点值表示法和系数表示法"></a>点值表示法和系数表示法</h3><script type="math/tex; mode=display">
+代数基本定理：一个n-1次多项式在复数域上有且只有n-1个根\\
+多项式有点值表示法和系数表示法两种\\
+系数表示法：A(x)=\sum_{i=0}^{n-1}a_ix^i\\
+点值表示法：y_i=\sum_{j=0}^{n-1}a_jx_i^j\\
+\\
+定理：一个n-1次多项式在n个不同点的取值唯一确定了该多项式\\
+证明：\\
+考虑反证法，假设命题不成立，则存在两个n-1次多项式A(x)和B(x)\\
+且\forall i\in[0,n-1],A(x_i)=B(x_i)\\
+令C(x)=A(x)-B(x)，那么C(x)至多是一个n-1次多项式\\
+且\forall i\in[0,n-1]，C(x_i)=0\\
+也就是C(x)有n个根，与代数基本定理不符合\\
+\\
+已知多项式点值表示法求系数表示法的过程被称为插值\\</script><h3 id="拉格朗日插值"><a href="#拉格朗日插值" class="headerlink" title="拉格朗日插值"></a>拉格朗日插值</h3><script type="math/tex; mode=display">
+构造多项式\sum_{i=0}^{n-1}y_i(\sum_{j=0且j\ne i}^{n-1}\frac {x-x_j}{x_i-x_j})\\
+显然当x=x_i时，该多项式的答案为y_i</script><h2 id="多项式乘法"><a href="#多项式乘法" class="headerlink" title="多项式乘法"></a>多项式乘法</h2><script type="math/tex; mode=display">
+考虑两个多项式相乘，如果我们已知他们的点值表示法，显然可以直接相乘\\
+这为我们提供了一种思路：先将系数表示法转化为点值表示法，进行相乘之后再转化回系数表示法\\</script><h3 id="快速傅里叶变换"><a href="#快速傅里叶变换" class="headerlink" title="快速傅里叶变换"></a>快速傅里叶变换</h3><h4 id="DFT"><a href="#DFT" class="headerlink" title="DFT"></a>DFT</h4><script type="math/tex; mode=display">
+将n次单位根（n=2^w）分别带入A(x)得到点值向量A(\omega_n^k)\\
+如果朴素带入，复杂度显然不可接受\\
+考虑A(x)=\sum_{i=0}^{n-1}a_ix^i=\sum_{i=2k,k\in\mathbb{N}}^{n-2}a_ix^i+\sum_{i=2k+1,k\in\mathbb{N}}^{n-1}a_ix^i\\
+=\sum_{i=2k,k\in\mathbb{N}}^{n-2}a_ix^{2k}+x\sum_{i=2k+1,k\in\mathbb{N}}^{n-1}a_ix^{2k}\\
+令A_1(x)=\sum_{i=2k,k\in\mathbb{N}}^{n-2}a_ix^{k}\\
+A_2(x)=\sum_{i=2k+1,k\in\mathbb{N}}^{n-1}a_ix^{k}\\
+那么A(x)=A_1(x^2)+xA_2(x^2)\\
+接下来分类讨论：\\
+\forall 0\leq k\leq \frac n 2-1，k\in\mathbb{N}\\
+我们有A(\omega_n^k)=A_1(\omega_n^{2k})+\omega_n^kA_2(\omega_n^{2k})\\
+根据折半引理，
+A(\omega_n^k)=A_1(\omega_{\frac n 2}^k)+\omega_n^kA_2(\omega^k_{\frac n 2})\\
+\forall \frac n 2\leq k+\frac n 2\leq n-1\\
+A(\omega_n^{k+\frac n 2})=A_1(\omega_n^{2k+n})+\omega_n^{k+\frac n 2}A_2(\omega_n^{2k+n})\\
+根据消去引理，A(\omega_n^{k+\frac n 2})=A_1(\omega_{\frac n 2}^k)-\omega_n^kA_2(\omega_{\frac n 2}^k)\\
+以上，我们可以递归处理A_1和A_2，然后合并得到A的答案，可以分治</script><h4 id="IDFT"><a href="#IDFT" class="headerlink" title="IDFT"></a>IDFT</h4><script type="math/tex; mode=display">
+设A(\omega_n^k)=d_k\\
+构造多项式F(x)=\sum_{i=0}^{n-1}d_ix^i\\
+我们求出F(x)的点值表示，设c_k=F(\omega_n^{-k})\\
+也即c_k=\sum_{i=0}^{n-1}d_i(\omega_n^{-k})^i=\sum_{i=0}^{n-1}(\sum_{j=0}^{n-1}a_j(\omega_n^i)^j)(\omega_n^{-k})^i\\
+=\sum_{j=0}^{n-1}a_j\sum_{i=0}^{n-1}(\omega_n^i)^{j-k}\\
+当j=k时，显然\sum_{i=0}^{n-1}(\omega_n^i)^{j-k}=n\\
+否则根据等比数列求和公式，\sum_{i=0}^{n-1}(\omega_n^i)^{j-k}=\frac{\omega^0_n[(\omega_n^{j-k})^n-1]}{\omega_n^{j-k}-1}=0\\
+所以，\sum_{i=0}^{n-1}(\omega_n^i)^{j-k}=n[j=k]\\
+那么我们有c_k=a_kn\\
+a_k=\frac{c_k}{n}</script><h4 id="写法"><a href="#写法" class="headerlink" title="写法"></a>写法</h4><script type="math/tex; mode=display">
+递归写法显然\\
+递归过程中，第k层相当于在根据数在第k位的二进制数是1还是0来分类\\
+那显然可以求出最后一层的数组，然后向上合并\\
+合并的过程被称为蝴蝶操作\\
+假设A_1(\omega_{\frac n 2}^k)和A_2(\omega_{\frac n 2}^k)分别存在a[k]和a[\frac n 2+k]中，我们设t=\omega_n^ka[k+\frac n 2]\\
+那么可以写出合并：\\
+a[k+\frac n 2]:=a[k]-t\\
+a[k]:=a[k]+t</script><h3 id="快速数论变换"><a href="#快速数论变换" class="headerlink" title="快速数论变换"></a>快速数论变换</h3><script type="math/tex; mode=display">
+由于FFT中的单位根会产生精度误差，因此在膜意义下，通常会选择NTT来进行多项式乘法\\</script><script type="math/tex; mode=display">
+NTT与FFT的运算过程基本相同，证明过程基本相同，唯一不同的是将单位根改为了原根\\
+根据上面FFT的证明过程，我们知道：只需要证明原根满足以下条件，就可以进行变换\\
+设原根为g，g_n=g^{\frac {p-1}n}\\
+那需要满足：\\
+1. g_n^n=g_n^0=1，证明显然\\
+2. 折半引理，g_{2n}^{2k}=g_{n}^k，证明显然\\
+3. 消去引理，g_{n}^{k+\frac n 2}=-g^k_n\\
+由于g^{\frac {p-1}2}=-1，该结论显然成立\\
+由上我们证明了，我们完全可以使用g_n代替\omega_n进行变换\\
+ps：注意到998244352=2^{23}\times 7\times 17\\
+而2^{23}\approx 8\times 10^6\\
+因而，当n\leq 8\times 10^6的时候，g_n可以直接求出\\
+（这也是为什么大部分ntt题目都使用998244353作为模数的原因</script><h3 id="分治FFT"><a href="#分治FFT" class="headerlink" title="分治FFT"></a>分治FFT</h3><script type="math/tex; mode=display">
+给定g(x)，求f(x)=\sum_{y=1}^xf(x-y)g(y)，答案对998244353取膜\\</script><script type="math/tex; mode=display">
+假如我们已经知道了f(x)，x\in[1,\frac n 2]\\
+那我们可以计算出这段部分对f(y)，y\in[\frac n 2+1,n]的贡献\\
+这显然是一个卷积的形式，我们直接计算f和g的乘积并贡献上去</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lwlaymh.github.io/2022/03/09/%E5%A4%9A%E9%A1%B9%E5%BC%8F/" data-id="cl0jf7ecm0002d0vtd4sccjo0" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-狄利克雷卷积与积性函数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/09/%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF%E4%B8%8E%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2022-03-09T10:28:27.019Z" itemprop="datePublished">2022-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <script type="math/tex; mode=display">
+迪利克雷卷积：f*g=\sum_{d|n}{f(d)g(\cfrac n d)}</script><script type="math/tex; mode=display">
+\begin{array}{c}
+交换律：f*g=g*f\\
+结合律：f*(g*h)=(f*g)*h\\
+分配律：f*(g+h)=f*g+f*h
+\end{array}</script><script type="math/tex; mode=display">
+设id(x)=x，I(x)=1，\epsilon(x)=[x=1]</script><script type="math/tex; mode=display">
+\begin{array}{c}
+莫比乌斯函数\mu:\\
+\mu(1)=1\\
+当n\ne1且\exist p（p\in prime）使得p^2|b时，\mu(n)=0\\
+反之，n=\prod_{i=1}^k{p_i}，其中p_i\in prime，\mu(n)=(-1)^k\\
+莫比乌斯函数也是积性函数\\
+\end{array}</script><script type="math/tex; mode=display">
+\begin{array}{c}
+f*\epsilon=f\\
+\\
+证明：f*\epsilon=\sum_{d|n}{f(d)\epsilon(\frac n d)}=f(n)
+\end{array}</script><script type="math/tex; mode=display">
+\begin{array}{c}
+\mu*id=\varphi\\
+\\
+证明：令g=id，f=\varphi，下面已证明\varphi*I=id，于是根据莫比乌斯反演有\varphi=id*\mu
+\end{array}</script><script type="math/tex; mode=display">
+\begin{array}{c}
+\mu*I=\epsilon\\
+\\
+证明：\mu*I=\sum_{d|n}\mu(d)\\
+当n=1时，显然此时满足条件\\
+当n\ne1时，设n=\prod_{i=1}^kp_i^{q_i}\\
+去除\mu(d)=0的情况，原式=\sum_{i=0}^k{(-1)^i\times C_k^i}=\sum_{i=1}^k{(-1)^i\times1^{k-i}\times C_k^i}=0
+\end{array}</script><script type="math/tex; mode=display">
+\begin{array}{c}
+\varphi*I=id\\
+\\
+证明：由于\varphi是积性函数，若n\ne1，设n=\prod_{i=1}^kp_i^{q_i}，则有\varphi(n)=\prod_{i=1}^k\varphi(p_i^{q_i})\\
+\varphi*I=\sum_{d|n}\varphi(d)=\sum_{w_1=0}^{q_1}\sum_{w_2=0}^{q_2}......\sum_{w_k=0}^{q_k}{p_1^{w_1}p_2^{w_2}......p_k^{w_k}}\\
+=\sum_{w_1=0}^{q_1}......\sum_{w_{k-1}=0}^{q_{k-1}}{p_1^{w_1}......p_{k-1}^{w_{k-1}}\sum_{w_k=0}^{q_k}p_k^{w_k}}\\
+
+根据\varphi的定义，则有\varphi(p^q)=p^q-p^{q-1}\\
+于是有\sum_{i=1}^{q_i}{(p_x^i-p_x^{i-1})}=(p_x^{q_x}-1)\\
+则有\sum_{i=0}^{q_x}\varphi(p_x^{i})=p_x^{q_x}\\
+则原式等于\prod_{i=1}^kp_i^{q_i}=n=id(n)
+\end{array}</script><script type="math/tex; mode=display">
+\begin{array}{c}
+Problem5：求\sum_{i=1}^{n}\sum_{j=1}^mgcd(i,j)\\
+\\
+技巧1：增加枚举量\\
+原式=\sum_{i=1}^n\sum_{j=1}^mid[gcd(i,j)]=\sum_{i=1}^n\sum_{j=1}^m\sum_{d|gcd(i,j)}\varphi(d)\\
+技巧2：交换枚举顺序\\
+原式=\sum_{d=1}^{\min(n,m)}\sum^{\lfloor\frac n d\rfloor}_{i=1}\sum^{\lfloor\frac m d\rfloor}_{j=1}\varphi(d)\\
+技巧3：分离无关变量\\
+原式=\sum^{\min(n,m)}_{d=1}\varphi(d)\times\lfloor\cfrac n d\rfloor\times \lfloor\cfrac m d\rfloor\\
+
+考虑由于\lfloor \cfrac n d\rfloor和\lfloor \cfrac m d\rfloor所对应的取值最多只有\sqrt{n}+\sqrt{m}种不同的取值\\因此只需处理出\varphi(d)的前缀和即可在O(\sqrt{n}+\sqrt{m})的复杂度解决此问题\\
+至于处理出\lfloor \cfrac n d\rfloor和\lfloor \cfrac m d\rfloor所对应的取值则需要用到数论分块
+\end{array}\\</script><script type="math/tex; mode=display">
+数论分块：考虑处理出\lfloor\cfrac n d\rfloor的所有不同取值，意识到这最多\sqrt{n}种</script><script type="math/tex; mode=display">
+考虑如何计算变化的地方，设目前从x-1变化到x，则有\lfloor\cfrac n d\rfloor=x，则dx\leq n，则d_{max}=\lfloor\cfrac n x\rfloor</script><script type="math/tex; mode=display">
+\begin{array}{c}
+Problem6：求\sum_{i=1}^{n}\sum_{j=1}^m[gcd(i,j)=1]\\
+\\
+和Problem5几乎没区别，唯一不同的是需要处理的函数从id变为了\epsilon
+\end{array}</script><script type="math/tex; mode=display">
+\begin{array}{c}
+Problem7：求\sum_{i=1}^{n}\sum_{j=1}^m[gcd(i,j)\in prime]\\
+\\
+考虑增加枚举量，则原式=\sum_{i=1}^{n}\sum_{j=1}^m\sum_{p\in prime}[gcd(i,j)=p]\\
+=\sum_{p\in prime}\sum^{\lfloor\cfrac n d\rfloor}_{i=1}\sum^{\lfloor\cfrac m d\rfloor}_{j=1}[gcd(pi,pj)=p]\\
+=\sum_{p\in prime}\sum^{\lfloor\cfrac n p\rfloor}_{i=1}\sum^{\lfloor\cfrac m p\rfloor}_{j=1}[gcd(i,j)=1]=\sum_{p\in prime}\sum_{d=1}^{\min(\lfloor\cfrac m p\rfloor,\lfloor\cfrac n p\rfloor)}\mu(d)\lfloor\cfrac n {pd}\rfloor\lfloor\cfrac m {pd}\rfloor\\
+于是转化为Problem6，但复杂度仍不可接受\\
+技巧4：换元\\考虑设x=pd，则变为\sum_{x=1}^{\min(n,m)}\sum_{p\in prime且p|x}
+\end{array}</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lwlaymh.github.io/2022/03/09/%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF%E4%B8%8E%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0/" data-id="cl0jf7ecr0007d0vt1ap7cz9c" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-特殊的数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/09/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2022-03-09T10:28:26.955Z" itemprop="datePublished">2022-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="组合数"><a href="#组合数" class="headerlink" title="组合数"></a>组合数</h2><h3 id="一些性质"><a href="#一些性质" class="headerlink" title="一些性质"></a>一些性质</h3><script type="math/tex; mode=display">
+n数中选r个数，选的数可以重复方案：C_{n+r-1}^r</script><script type="math/tex; mode=display">
+n数中选r个数，但是选的数不能相邻方案：C_{n-r+1}^r</script><script type="math/tex; mode=display">
+\begin{array}{c}
+一些性质：\\
+C_{n}^m=C_{n-1}^m+C_{n-1}^{m-1}\\
+C^l_nC_l^r=C_n^rC_{n-r}^{l-r}\\
+\sum_{i=r}^nC_{i}^r=C_{n+1}^{r+1}\\
+C_m^n=\sum_{i=0}^kC_{n-k}^{m-i}C_k^i
+\end{array}</script><script type="math/tex; mode=display">
+\sum_{k=0}^n(C_n^k)^2=\sum_{k=0}^nC_{n}^k\times C_{n}^{n-k}=C_n^{2n}</script><script type="math/tex; mode=display">
+
+求：\sum_{k=1}^nk^2C_n^k\\
+\\
+二项式求导：\\
+((1+x)^n)=(\sum_{k=0}^nC_n^kx^{k})\\
+((1+x)^n)'=(\sum_{k=0}^nC_n^kx^{k})'\\
+n(1+x)^{n-1}=\sum_{k=0}^nkC_n^kx^{k-1}\\
+nx(1+x)^{n-1}=\sum_{k=0}^nkC_n^kx^{k}\\
+(nx(1+x)^{n-1})'=(\sum_{k=0}^nkC_n^kx^{k})'\\
+n((1+x)^{n-1}+(n-1)x(1+x)^{n-2})=\sum_{k=0}^nk^2C_n^kx^{k-1}\\
+取x=1，则原式=n(n+1)2^{n-2}</script><script type="math/tex; mode=display">
+
+Problem3：求(\sum^{+\infty}_{i=0}C^{ik+r}_{nk})\mod p\\
+考虑设f(n,r)=\sum^{+\infty}_{i=0}C^{ik+r}_{nk}\\
+则有f(n,r)=\sum^{+\infty}_{i=0}C^{ik+r}_{nk}=\sum_{i=0}^{+\infty}\sum_{j=0}^k C_{nk-k}^{ik+r-j}\times C_k^j\\
+=\sum^k_{j=0}C_k^j\sum_{i=0}^{+\infty}C_{nk-k}^{ik+r-j}=\sum_{j=0}^kC_k^jf(n-1,r-j)\\
+整理上式，得到：f(n,r)=\sum_{j=0}^kC_k^jf(n-1,r-j)\\
+于是我们得到了关于f的转移方程，可以矩阵加速</script><h3 id="Lucas定理"><a href="#Lucas定理" class="headerlink" title="Lucas定理"></a>Lucas定理</h3><script type="math/tex; mode=display">
+若p是质数，则C_n^m\mod p=C_{n\mod p}^{m\mod p}\times C_{\lfloor\frac n p\rfloor}^{\lfloor\frac m p\rfloor}\mod p\\
+或者说，将n和m在p进制下分解，再逐位求组合数并相乘\\
+证明：\\
+首先，若i\ne 0且i\ne p，C_{p}^i\equiv\frac p iC_{p-1}^{i-1}\equiv 0(\mod p)\\
+而根据二项式定理，(1+x)^p\equiv \sum_{i=0}^pC_{p}^ix^i=1+x^p(\mod p)\\
+令n=k_1p+b_1，m=k_2p+b_2\\
+则(1+x)^n=(1+x)^{k_1p}(1+x)^{b_1}\\
+而(1+x)^{k_1p}\equiv (1+x^p)^{k_1}(\mod p)\\
+则(1+x)^n\equiv (1+x^p)^{k_1}(1+x)^{b_1}\\
+根据二项式定理，C_n^m\mod p即x^m项的系数\\
+我们可以得出，C_n^mx^m\equiv C_{k_1}^{k_2}x^{k_2p}C_{b1}^{b_2}x^{b_2}(\mod p)\\
+那么有C_a^b\equiv C_{k_1}^{k_2}C_{b_1}^{b_2}(\mod p)\\</script><h3 id="扩展Lucas定理"><a href="#扩展Lucas定理" class="headerlink" title="扩展Lucas定理"></a>扩展Lucas定理</h3><script type="math/tex; mode=display">
+令p=\prod p_i^{e_i}\\
+那我们只要对于每个i求出\\
+C_n^m\mod p_i^{e_i}\\
+然后使用中国剩余定理合并即可\\
+那现在问题转化为要求C_n^m\mod p^k，其中p\in prime\\
+原式=\frac{n!}{m!(n-m)!}\mod p^k=\frac {\frac {n!}{p^x}}{\frac{m!}{p^y}\frac{(n-m)!}{p^z}}p^{x-y-z}\mod p^k\\
+现在问题转化为求\frac{n!}{p^x}\mod p^k以及p^x\\
+注意到n!=\prod_{i=1}i=(\prod_{i=wp,w\in \mathbb{Z}}i)(\prod_{i\ne wp,w\in\mathbb{Z}}i)= p^{\lfloor n p\rfloor}(\lfloor n p\rfloor!)(\prod_{i\ne wp,w\in\mathbb{Z}}i)\\
+\equiv p^{\lfloor n p\rfloor}(\lfloor n p\rfloor!)(\prod_{i=1,i\ne wp,w\in\mathbb{Z}}^{p^k}i)^{\lfloor \frac n {p^k}\rfloor}(\prod^n_{i=p^k\lfloor\frac n {p^k}\rfloor,i\ne wp,w\in\mathbb{Z}}i)(\mod p^k)\\
+递归求解即可\\
+ps：\\
+这样摆式子可能非常难以理解\\
+我们考虑将1-n的所有数全部排成一个宽为p^k的矩阵\\
+那右边第一项就是把那些p的倍数的列拿出来\\第二项是那些填满的行\\第三项是最后没填满的一行</script><h3 id="卡特兰数"><a href="#卡特兰数" class="headerlink" title="卡特兰数"></a>卡特兰数</h3><script type="math/tex; mode=display">
+卡特兰数f_n表示：长度为2n的合法括号序列个数\\
+卡特兰数的前几项为1，1，2，5，14，42，132...\\</script><script type="math/tex; mode=display">
+接下来，我们通过这个定义来证明以下其他定义方式\\
+\\
+递归定义：f_n=\sum_{i=0}^{n-1}f_if_{n-1-i}\\
+不妨考虑枚举一个括号序列的第一个断点，则该括号序列应形如(A)B\\
+考虑将其删成A和B，则A一定合法，因为若A不合法，那么这里一定不是第一个断点\\
+\\
+通项公式：f_n=\frac 1 {n+1}C_{2n}^n=C_{2n}^n-C_{2n}^{n-1}\\
+考虑平面直角坐标系，我们将'('认为是向右上走一单位长度，将')'认为是向右下走一单位长度\\
+那么卡特兰数就相当于从(0,0)走到(2n,0)不经过第四象限的方案数\\
+考虑容斥，如果只是走到(2n,0)的方案数是C_{2n}^n\\
+而如果到达第四象限，说明在这条这线上存在一个点(x,-1)\\
+考虑将x以后的折线以直线y=-1为对称轴反转，那么终点到了(2n,-2)\\
+不难发现，任意从(0,0)走到(2n,-2)的方案一定唯一对应了一种从(0,0)走到(2n,0)的不合法方案\\
+（从(0,0)走到(2n,-2)一定会经过直线y=-1，将后半部分对称后就是其对应方案\\
+而从(0,0)走到(2n,-2)的方案数为C_{2n}^{n-1}\\
+因而f_n=C_{2n}^n-C_{2n}^{n-1}\\
+而C_{2n}^n-C_{2n}^{n-1}=\frac{(2n)!}{n!n!}-\frac{(2n)!}{(n-1)!(n+1)!}=\frac{(2n)!}{n!(n+1)!}=\frac{C_{2n}^n}{n+1}\\
+\\
+递推定义：f_n=\frac {4n-2}{n+1}f_{n-1}\\
+使用一下上一步的通项公式：\\
+\begin{cases}
+f_n=\frac{(2n)!}{n!(n+1)!}\\
+f_{n-1}=\frac{(2n-2)!}{(n-1)!(n)!}
+\end{cases}\\
+不难发现f_n=\frac{(2n-1)(2n)}{n(n+1)}f_{n-1}\\
+整理，得到f_n=\frac{4n-2}{n+1}f_{n-1}\\</script><h2 id="斯特林数"><a href="#斯特林数" class="headerlink" title="斯特林数"></a>斯特林数</h2><h3 id="上升幂和下降幂"><a href="#上升幂和下降幂" class="headerlink" title="上升幂和下降幂"></a>上升幂和下降幂</h3><script type="math/tex; mode=display">
+定义下降幂x^{\underline{k}}=\prod_{i=0}^{k-1}(x-i)=\frac{x!}{(x-k)!}=C_x^kk!\\
+定义上升幂x^{\overline{k}}\prod_{i=0}^{k-1}(x+i)=\frac{(x+k-1)!}{(x-1)!}=\\
+上升幂和下降幂的定义是可以引申到复数域的\\
+他们之间是存在转换的：\\x^{\underline{n}}=(-1)^n(-x)^{\overline{n}}\\
+同时存在大小关系：x^{\underline{n}}\leq x^n\leq x^{\overline{n}}，其中0\leq n<x</script><h3 id="第一类斯特林数"><a href="#第一类斯特林数" class="headerlink" title="第一类斯特林数"></a>第一类斯特林数</h3><script type="math/tex; mode=display">
+第一类斯特林数：\left[ \begin{array}{c}n\\k\end{array} \right]：长度为n的排列划分成k个轮换的方案数\\
+递推式：\\
+考虑现在已经将n-1个数分成了若干轮换，现在新加入第n个数\\
+这个数要么和其他的数一起组成轮换，要么自己形成自环\\
+而由于它可以插入前面轮换的任意位置\\
+显然\left[ \begin{array}{c}n\\k\end{array} \right]=(n-1)\left[ \begin{array}{c}n-1\\k\end{array} \right]+\left[ \begin{array}{c}n-1\\k-1\end{array} \right]\\
+特别地，我们定义\left[ \begin{array}{c}0\\k\end{array} \right]=[k=0]\\
+由于所有的排列都至少存在一个轮换，因此我们有：\\
+\sum_{k=0}^n\left[ \begin{array}{c}n\\k\end{array} \right]=n!</script><h3 id="第二类斯特林数"><a href="#第二类斯特林数" class="headerlink" title="第二类斯特林数"></a>第二类斯特林数</h3><script type="math/tex; mode=display">
+第二类斯特林数：\left\{ \begin{array}{c}n\\k\end{array} \right\}：将n个本质不同的物品划分成k个非空集合的方案数\\
+递推式：\\
+考虑现在已经放好n-1个物品，正要放入第n个物品\\
+那么这个物品要么单独放在一起，要么和其他物品放在一起\\
+显然\left\{ \begin{array}{c}n\\k\end{array} \right\}=k\left\{ \begin{array}{c}n-1\\k\end{array} \right\}+\left\{ \begin{array}{c}n-1\\k-1\end{array} \right\}\\
+特别地，我们定义\left\{ \begin{array}{c}0\\k\end{array} \right\}=[k=0]\\</script><h3 id="斯特林恒等式"><a href="#斯特林恒等式" class="headerlink" title="斯特林恒等式"></a>斯特林恒等式</h3><p><del>有点多说实话</del></p>
+<script type="math/tex; mode=display">
+(1)\\
+x^n=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}x^{\underline{k}}=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}(-1)^{n-k}x^{\overline{k}}\\
+证明：\\先考虑前半段，不妨使用数学归纳\\
+若x^{n-1}=\sum_{k=0}^{n-1}\left\{ \begin{array}{c}n-1\\k\end{array} \right\}x^{\underline{k}}\\
+我们要证明x^{n}=\sum_{k=0}^{n}\left\{ \begin{array}{c}n\\k\end{array} \right\}x^{\underline{k}}
+\\\\
+也就是证明x\sum_{k=0}^{n-1}\left\{ \begin{array}{c}n-1\\k\end{array} \right\}x^{\underline{k}}=\sum_{k=0}^{n}\left\{ \begin{array}{c}n\\k\end{array} \right\}x^{\underline{k}}\\
+考虑(x-k)x^{\underline{k}}=x^{\underline{k+1}}，所以x\cdot x^{\underline{k}}=x^{\underline{k+1}}+kx^{\underline{k}}\\
+那么左边=\sum_{k=0}^{n-1}\left\{ \begin{array}{c}n-1\\k\end{array} \right\}x^{\underline{k+1}}+\sum_{k=0}^{n-1}\left\{ \begin{array}{c}n-1\\k\end{array} \right\}kx^{\underline{k}}\\
+由于n\ne1\\
+原式=\sum_{k=1}^{n}\left\{ \begin{array}{c}n-1\\k-1\end{array} \right\}x^{\underline{k}}+\sum_{k=1}^{n}\left\{ \begin{array}{c}n-1\\k\end{array} \right\}kx^{\underline{k}}\\
+=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}x^{\underline{k}}\\
+\\
+至于后半段，由于x^{\underline{n}}=(-1)^n(-x)^{\overline{n}}\\
+所以x^n=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}(-1)^k(-x)^{\overline{k}}\\
+不妨用x来代替-x，我们有(-x)^n=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}(-1)^k(x)^{\overline{k}}=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}(-1)^{n-k}x^{\overline{k}}</script><script type="math/tex; mode=display">
+(2)\\
+x^{\overline{n}}=\sum_{k=0}^n\left[ \begin{array}{c}n\\k\end{array} \right]x^k\\
+x^{\underline{n}}=\sum_{k=0}^n\left[ \begin{array}{c}n\\k\end{array} \right](-1)^{n-k}x^k\\
+证明：\\
+先考虑前者，由于(x+n-1)x^k=x^{k+1}+(n-1)x^k\\
+所以类似于(1)前半段的推导即可得到\\
+后者同样可以使用下降幂和上升幂的转化来得到\\</script><script type="math/tex; mode=display">
+(3)\\
+\sum_{k=0}^n\left[ \begin{array}{c}n\\k\end{array} \right]\left\{ \begin{array}{c}k\\m\end{array} \right\}(-1)^{n-k}=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}\left[ \begin{array}{c}k\\m\end{array} \right](-1)^{n-k}=[m=n]\\
+（反转公式）\\
+
+证明：\\
+考虑先证明后半部分，将(2)带入(1)，得到x^n=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}x^{\underline{k}}=\sum_{k=0}^n\sum_{m=0}^k\left\{ \begin{array}{c}n\\k\end{array} \right\}
+\left[ \begin{array}{c}k\\m\end{array} \right](-1)^{n-k}x^m\\
+由于这对任意x都成立，因此右边除了x^n以外的项系数均为0，而x^n的系数为1\\
+前半部分是同理的\\</script><script type="math/tex; mode=display">
+(4)\\
+\left\{ \begin{array}{c}n+1\\m+1\end{array} \right\}=\sum_{k=m}^n\left( \begin{array}{c}n\\k\end{array} \right)\left\{ \begin{array}{c}k\\m\end{array} \right\}\\
+\left[ \begin{array}{c}n+1\\m+1\end{array} \right]=\sum_{k=m}^n\left( \begin{array}{c}n\\k\end{array} \right)\left[ \begin{array}{c}k\\m\end{array} \right]\\
+证明：\\
+对于前者，考虑组合意义，将n+1个分为m+1组，也就是先找一部分分成m组，再把剩下的分到一组\\
+对于后者，也可以同样考虑组合意义</script><script type="math/tex; mode=display">
+(5)\\
+\left\{ \begin{array}{c}n\\m\end{array} \right\}=\sum_{k=m}^n\left( \begin{array}{c}n\\k\end{array} \right)\left\{ \begin{array}{c}k+1\\m+1\end{array} \right\}(-1)^{n-k}\\
+\left[ \begin{array}{c}n\\m\end{array} \right]=\sum_{k=m}^n\left( \begin{array}{c}n\\k\end{array} \right)\left[ \begin{array}{c}k+1\\m+1\end{array} \right](-1)^{n-k}\\
+证明：\\
+由(4)，根据二项式反演可知</script><script type="math/tex; mode=display">
+(6)\\
+m!\left\{ \begin{array}{c}n\\m\end{array} \right\}=\sum_{k=0}^mC_m^kk^n(-1)^{m-k}\\
+证明：\\
+首先有m^n=\sum_{k=0}^mm^{\underline{k}}\left\{ \begin{array}{c}m\\k\end{array} \right\}=\sum_{k=0}^mk!C_m^k\left\{ \begin{array}{c}m\\k\end{array} \right\}\\
+对这个式子进行二项式反演即可</script><script type="math/tex; mode=display">
+(7)\\
+\left\{ \begin{array}{c}n+1\\m+1\end{array} \right\}=\sum_{k=0}^n\left\{ \begin{array}{c}k\\m\end{array} \right\}(m+1)^{n-k}\\
+证明：\\
+考虑组合意义，相当于先把前k个分为m组，把第k+1个数放到第m+1组\\
+然后剩下(n+1)-(k+1)=n-k个随便放\\
+相当于我们按照每组所放的数的最小值区分每组\\
+由于这么做，第m+1组（最小值最大的那组）在k不同的时候最小值是不同的，因此一定不重不漏</script><script type="math/tex; mode=display">
+(8)\\
+\left[\begin{array}{c}n+1\\m+1\end{array} \right]=\sum_{k=0}^n\left[ \begin{array}{c}k\\m\end{array} \right]C_{n}^k(n-k)!=n!\sum_{k=0}^n\frac{\left[ \begin{array}{c}k\\m\end{array} \right]}{k!}\\
+证明：\\
+先考虑前半部分，首先如果n>0，我们有\left[ \begin{array}{c}n\\1\end{array} \right]=(n-1)!\\
+这个式子很显然，我们现在有一个长度为n-1的环，想要往里插入第n个数有n-1种选择，所以我们有\\
+\left[ \begin{array}{c}n\\1\end{array} \right]=\left[ \begin{array}{c}n-1\\1\end{array} \right](n-1)\\
+数学归纳一下即可\\
+那么前半部分的组合意义就是：考虑将n+1个数划分成m+1个环\\
+我们先将其中k个数划分成m个环，剩下n+1-k个数划分成另一个环\\
+但是这样算显然会算重，所以我们只需要勒令第n+1个数在最后一个环里即可\\
+该证明就显然了\\
+而由于C_n^k(n-k)!=C_n^{n-k}(n-k)!=n^{\underline{n-k}}=\frac{n!}{k!}\\
+因此后半部分也得证\\</script><script type="math/tex; mode=display">
+(9)\\
+\left\{ \begin{array}{c}n+m+1\\m\end{array} \right\}=\sum_{k=0}^mk\left\{ \begin{array}{c}n+k\\k\end{array} \right\}\\
+\left[ \begin{array}{c}n+m+1\\m\end{array} \right]\sum_{k=0}^m(n+k)\left[ \begin{array}{c}n+k\\k\end{array} \right]\\
+证明：\\
+先考虑前者，我们将n+k个位置分到k个集合之后\\
+还剩下(n+m+1)-(n+k)=(m-k+1)个数，剩下(m-k)个集合\\
+拿出来(n+k+1)这个数，剩下的数刚好够每个集合放一个\\
+最后枚举一下把(n+k+1)放在哪里即可\\
+由于每个划分一定存在一段（可能是0）单独自己集合的后缀\\
+所以这个递推成立\\
+后者也可以同样证明</script><script type="math/tex; mode=display">
+(10)\\
+C_n^m(n-1)^{\underline{n-m}}=\sum_{k=m}^n\left[ \begin{array}{c}n\\k\end{array} \right]\left\{ \begin{array}{c}k\\m\end{array} \right\}\\
+证明：\\
+考虑(n-1)^{\underline{n-m}}=\frac{(n-1)!}{(m-1)!}\\
+不妨设f(n,m)=\sum_{k=m}^n\left[ \begin{array}{c}n\\k\end{array} \right]\left\{ \begin{array}{c}k\\m\end{array} \right\}\\
+相当于将n个数分成非空m组，然后组内的数要形成若干轮换的方案数\\
+那么知道f(n,m)=f(n-1,m-1)+(n-1+m)f(n-1,m)\\
+设g(n,m)=C_n^m\frac{(n-1)!}{(m-1)!}=\frac{n!(n-1)!}{m!(n-m)!(m-1)!}\\
+那么知道\\
+g(n-1,m-1)=\frac{(n-1)!(n-2)!}{(m-1)!(n-m)!(m-2)!}\\
+g(n-1,m)=\frac{(n-1)!(n-2)!}{m!(n-1-m)!(m-2)!}\\
+显然g(n,m)=g(n-1,m-1)+(n-1+m)g(n-1,m)\\
+数学归纳即可</script><script type="math/tex; mode=display">
+(11)\\
+C_n^m=\frac{n!}{m!(n-m)!}=\sum_{k=m}^n\left\{ \begin{array}{c}n+1\\k+1\end{array} \right\}\left[ \begin{array}{c}k\\m\end{array} \right](-1)^{m-k}\\
+n^{\underline{n-m}}=\frac{n!}{m!}=\sum_{k=m}^n\left[ \begin{array}{c}n+1\\k+1\end{array} \right]\left\{ \begin{array}{c}k\\m\end{array} \right\}(-1)^{m-k}，其中m\leq n\\
+证明：\\
+考虑(4)，对其做一遍斯特林反演即可</script><script type="math/tex; mode=display">
+(12)\\
+\left\{ \begin{array}{c}n\\l+m\end{array} \right\}C_{l+m}^l=\sum_{k=l}^n\left\{ \begin{array}{c}k\\l\end{array} \right\}\left\{ \begin{array}{c}n-k\\m\end{array} \right\}C_n^k\\
+\left[ \begin{array}{c}n\\l+m\end{array} \right]C_{l+m}^l=\sum_{k=l}^n\left[ \begin{array}{c}k\\l\end{array} \right]\left[ \begin{array}{c}n-k\\m\end{array} \right]C_n^k\\
+证明：\\
+先考虑前者，左边即先将n个数分为l+m个集合，然后再挑出l个集合\\
+那不妨枚举这l个集合中是哪些数，然后再进行分配\\
+后者同理</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lwlaymh.github.io/2022/03/09/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/" data-id="cl0jf7ecp0005d0vtcx7g37r2" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-数论基础" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/09/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80/" class="article-date">
+  <time class="dt-published" datetime="2022-03-09T10:28:26.919Z" itemprop="datePublished">2022-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="一些性质"><a href="#一些性质" class="headerlink" title="一些性质"></a>一些性质</h3><script type="math/tex; mode=display">
+唯一分解定理（算术基本定理）：任何大于1的正整数都可以唯一分解为几个质数的乘积\\
+素数有无限多个\\
+{\lim_{n\rightarrow+\infty}\cfrac{\pi(n)\times \ln n}{n}}=1，\pi(n)为[1,n]之间的质数个数\\
+切比雪夫定理:若n>1，\exist p\in prime,p\in(n,2n)\\\\
+\sum_{1\leq p\leq n且p\in prime}\cfrac{1}{p}\approx \log\log n，证明如下\\
+\sum_{1\leq p\leq n且p\in prime}\cfrac{1}{p}=\sum^n_{k=1}\cfrac{\pi(k)-\pi(k-1)}{k}=\sum^n_{k=1}\cfrac{\pi(k)}{k}-\sum^n_{k=1}\cfrac{\pi(k-1)}{k}\\
+=\sum^n_{k=1}\cfrac{\pi(k)}{k}-\sum^{n-1}_{k=0}\cfrac{\pi(k)}{k+1}\\
+=\sum^{n-1}_{k=1}\cfrac{\pi(k)}{k}+\cfrac{\pi(n)}{n}-\sum^{n-1}_{k=1}\cfrac{\pi(k)}{k+1}+\cfrac{\pi(0)}{1}\\
+=\sum^{n-1}_{k=1}\cfrac{\pi(k)}{k(k+1)}+\cfrac{\pi(n)}{n}\\
+= \sum^{n-1}_{k=1}{(\cfrac{1}{k\log k})}+O(1)= O(\log \log n)+O(1)</script><script type="math/tex; mode=display">
+欧几里得引理：\\
+若p|ab,则p|a或p|b\\
+若a|bc且a\perp b则a|c\\
+若a|c,b|c且a\perp b,则ab|c\\
+\\
+\gcd(a,b)=\gcd(a-b,b)=\gcd(a\mod b,b)\\
+\gcd(a,b)\times lcm(a,b)=ab\\
+\\
+若a\equiv b(\mod m)且a\equiv b(\mod n)，则a\equiv b(\mod lcm(n,m))\\
+若\gcd(k,m)=d且ka\equiv kb(\mod m)，则a\equiv b(\mod \cfrac{m}{d})</script><h3 id="威尔逊定理"><a href="#威尔逊定理" class="headerlink" title="威尔逊定理"></a>威尔逊定理</h3><script type="math/tex; mode=display">
+(p-1)!\equiv \begin{cases}
+-1(\mod p)&p\in prime\\
+2(\mod p)&p=4\\
+0(\mod p)&other
+\end{cases}\\
+证明：\\
+当p为质数时，考虑对于a和b=a^{-1}(\mod p)，若a=b，此时可证明a=1或p-1\\
+如果a\ne b那么一定可以在[1,p-1]找到一对，相乘为1\\
+（若a_1\ne a_2，那么a_1^{-1}\ne a_2^{-1}）\\
+若p不是质数，则设p=ab，当a\ne b时，由于a,b\leq p，因此(p-1)!一定是p的倍数\\
+若a=b，除非p=4，不然一定能在[1,p-1]里找到a和2a，此时(p-1)!也是p的倍数</script><h3 id="裴蜀定理"><a href="#裴蜀定理" class="headerlink" title="裴蜀定理"></a>裴蜀定理</h3><script type="math/tex; mode=display">
+\forall a,b,m\in\mathbb{Z}，则\exists x,y\in \mathbb{Z}满足ax+by=m，当且仅当\gcd(a,b)|m\\证明如下\\
+若a=0或b=0，显然成立\\
+不然，设集合A=\{xa+yb|x,y\in\mathbb{Z}\}中的最小正元素d_0=x_0a+y_0b\\（由于该集合中一定有正元素\\
+考虑任意d=x_1a+y_1b\in A，设p=qd_0+r，其中0\leq r<d_0\\
+可以发现r=p-qd_0=ax_1+by_1-qax_0-qby_0\\=a(x_1-qx_0)+b(y_1-qy_0)，发现r\in A\\
+由于d_0是A中最小的正元素，所以r=0，所以p=qd_0\\
+由于p可以=a也可以=b，所以d_0|a且d_0|b\\
+又因为对于一个数d_1|a且d_1|b\\
+则a=k_1d_1，b=k_2d_1,d_0=(x_0k_1+y_0k_2)d_1\\
+由于d_0和d_1都是正整数，所以可得到d_1是d_0的约数\\
+也就是说d_0=\gcd(a,b)，则原方程化为h_1d_0x+h_2d_0y=m\\
+由于x和y都是整数，所以若\gcd(a,b)\nmid m，也就是d_0\nmid m，原方程定无解\\
+不然，考虑刚才的过程中的q，显然可以取任意整数，因而必定有解</script><h3 id="类欧几里得算法"><a href="#类欧几里得算法" class="headerlink" title="类欧几里得算法"></a>类欧几里得算法</h3><script type="math/tex; mode=display">
+要求\sum^n_{i=0}\lfloor\cfrac{ai+b}{c}\rfloor\\
+若c\leq a，原式化为\sum^n_{i=0}{i\times\lfloor\cfrac{(a-c)i+b}{c}\rfloor}\\
+若c\leq b，原式化为\sum^n_{i=0}{\lfloor\cfrac{b}{c}\rfloor+\lfloor\cfrac{ai+(b\mod c)}{c}\rfloor}\\
+考虑a,b<c的情况，设m=\lfloor\cfrac{an+b}{c}\rfloor，原式化为\sum^n_{i=0}\sum^m_{j=1}[j\leq \lfloor\cfrac{ai+b}{c}\rfloor]\\
+=\sum^n_{i=0}\sum^m_{j=1}[cj\leq ai+b]=nm-\sum^n_{i=0}\sum^m_{j=1}[ai\leq cj-b-1]=nm-\sum^m_{i=1}\lfloor\cfrac{ci-b-1}{a}\rfloor</script><h3 id="一种预处理最大公约数的算法"><a href="#一种预处理最大公约数的算法" class="headerlink" title="一种预处理最大公约数的算法"></a>一种预处理最大公约数的算法</h3><script type="math/tex; mode=display">
+存在一种O(n)预处理，O(1)求任意两个小于等于n的数的gcd的方法\\
+引理：\\
+对于任意整数n=abc，那么abc三个数要么是质数，要么\leq \sqrt n\\
+证明：\\
+如果n存在一个大于等于\sqrt n的质因子，显然成立\\
+否则，使用数学归纳，我们考虑n的最小质因子为p，设\frac n p=xyz\\
+不妨设x\leq y\leq z\\
+如果x=1，显然成立。
+不然有p\leq x\leq y\leq z\\
+而pxyz=n，那么p^4\leq n\\
+p\leq n^{\frac 1 4}\\
+现在我们想要证明不存在xp>\sqrt n，yp>\sqrt n，zp>\sqrt n\\
+如果存在，我们有xyzp^3>n^{\frac 3 2}\\
+np^2>n^{\frac 3 2}\\
+p^2>\sqrt n\\
+p>n^{\frac 1 4}，与我们前面的结论不符合\\
+因而该引理一定成立，并且给出了O(n)预处理所有数abc的方法\\
+接下来，设m=\sqrt n，考虑使用O(n)的时间求出每个小于等于m的数对的gcd\\
+接下来，如果我们要求\gcd(x,y)，设x=abc\\
+显然\gcd(x,y)=\gcd(a,y)\times\gcd(b,\frac{y}{\gcd(a,y)})\times\gcd(c,\frac{y}{\gcd(ab,y)})\\
+如果a是质数，只需要判断a是否整除y\\
+否则\gcd(a,y)=\gcd(y\mod a,a)，因为a\leq \sqrt n，因而可以直接查表</script><h3 id="exGCD"><a href="#exGCD" class="headerlink" title="exGCD"></a>exGCD</h3><script type="math/tex; mode=display">
+求ax+by=\gcd(a,b)的一组特解\\
+首先有
+\left[\begin{matrix}
+a\\
+b
+\end{matrix}\right]
+=\left[\begin{matrix}
+a\\
+b
+\end{matrix}\right]\\
+令q=\lfloor\frac a b\rfloor\\
+那么我们有
+\left[\begin{matrix}
+0&1\\
+1&-q
+\end{matrix}\right]
+\left[\begin{matrix}
+a\\
+b
+\end{matrix}\right]=
+\left[\begin{matrix}
+b\\
+a\mod b
+\end{matrix}\right]\\
+同样我们可以得到：\\
+\left[\begin{matrix}
+x_1&y_1\\
+x_2&y_2
+\end{matrix}\right]
+\left[\begin{matrix}
+a\\
+b
+\end{matrix}\right]=
+\left[\begin{matrix}
+\gcd(a,b)\\
+0
+\end{matrix}\right]\\
+即ax_1+by_1=\gcd(a,b)\\
+(x_1,y_1)就是一组特解\\</script><h3 id="Miller-Rabin算法"><a href="#Miller-Rabin算法" class="headerlink" title="Miller-Rabin算法"></a>Miller-Rabin算法</h3><script type="math/tex; mode=display">
+如果判断n是否是质数，取a<n，设n-1=d\times2^r\\
+则要么a^d\equiv 1(\mod n)\\
+要么\exists i，使得0\leq i<r，a^{d\times 2^i}\equiv -1(\mod n)\\
+若一个都不满足，则n一定不是质数，不然可能是质数\\
+但是若取足够多的不同的a（如果选m个），那么n是质数的可能性更大\\
+此为Miller-Rabin算法，复杂度O(m\times log_2n)，不保证正确性\\
+其中a通常取质数，原因不详\\
+（事实上，如果a取前八个小质数，在2^{64}内是不会出错的）</script><h3 id="Pollard-Rho算法"><a href="#Pollard-Rho算法" class="headerlink" title="Pollard-Rho算法"></a>Pollard-Rho算法</h3><script type="math/tex; mode=display">
+对n做质因数分解，若能找到a使得a|n，则考虑对\cfrac{n}{a}和a分别进行质因数分解\\
+考虑随机a，若n有m个因数，那么显然随机到a使得a|n的概率为\cfrac{m}{n}，显然不太优秀\\
+考虑改变随机策略，我们考虑随机一个a使得\gcd(a,n)\ne 1，那么\gcd(a,n)就是n的一个因子\\
+这种情况下，随机的概率是\cfrac{\varphi(n)}{n}，仍然很不优秀\\
+考虑使用生日悖论优化，随机k个数a，两两匹配得到k^2个值，这些值全都不整除n的概率可以用生日悖论来计算\\
+当k=10\sqrt{n}时，错误的概率会很小，但是复杂度仍然很高，无法接受\\
+考虑构造a_i=[(a_{i-1})^2+b]\mod n\\
+考虑该数列的性值，当b确定时，a一定有循环节\\
+显然当x|(a_i-a_j)，则x|[(a_i-a_j)\times(a_i+a_j)-b+b]，x|(a_{i+1}-a_{j+1})\\
+因此，我们可以利用floyd判环法（双指针法）找出循环节\\
+并且在这个过程中，我们可以预处理出大量的a_{i+len}-a_i\\
+复杂度极其玄学，但是实际应用中不差</script><h3 id="欧拉函数与欧拉定理"><a href="#欧拉函数与欧拉定理" class="headerlink" title="欧拉函数与欧拉定理"></a>欧拉函数与欧拉定理</h3><script type="math/tex; mode=display">
+定义欧拉函数\varphi(m)为所有满足1\leq n\leq m且n\perp m的n个数\\
+\varphi是积性函数\\
+若n=\prod^{k}_{i=1}p_i^{a_i}，则\varphi(n)=\prod^k_{i=1}\varphi(p_i^{a_i})=\prod^k_{i=1}{p_i^{a_i}-p_i^{a_i-1}}=\prod^k_{i=1}{p^{a_i-1}(p_i-1)}\\
+考虑改变枚举方式，则n=\prod_{p|n}p^{a_p}\\
+则\varphi(n)=\prod_{p|n}{p^{a_p-1}(p-1)}=\prod_{p|n}{(p^{a_p}\times \cfrac{p-1}{p})}=n\times\prod_{p|n}\cfrac{p-1}{p}
+\\
+欧拉定理：\\
+当a\perp m时，a^{\varphi(m)}\equiv 1(\mod m)\\</script><h3 id="扩展欧拉定理"><a href="#扩展欧拉定理" class="headerlink" title="扩展欧拉定理"></a>扩展欧拉定理</h3><script type="math/tex; mode=display">
+扩展欧拉定理：\\
+a^b\equiv a^c(\mod m)\\
+
+其中c=
+\begin{cases}
+b\mod \varphi(m) &a\perp m\\
+b &b<\varphi(m)\\
+b\mod \varphi(m)+\varphi(m) &other
+\end{cases}\\
+证明如下：\\
+设m=\prod^k_{i=1}p_i^{e_i}\\
+则要证a^b\equiv a^{(b\mod \varphi(m))+\varphi(m)}(\mod m)\\
+即证\forall i都有a^b\equiv a^{(b\mod \varphi(m))+\varphi(m)}(\mod p_i^{e_i})\\
+分情况讨论，若p_i^{e_i}\perp a，则为普通欧拉定理情况，即证明b-c是\varphi(p_i^{e_i})的因数\\
+由于\varphi(p_i^{e_i})是\varphi(m)的因数，而\varphi(m)是b-c的因数，显然得证\\
+不然，发现a_i\leq\varphi(p_i^{e_i})\leq\varphi(m)\leq b且\varphi(m)\leq c\\
+又发现p_i^{e_i}|a^{e_i}，所以p_i^{e_i}|a^b，p_i^{e_i}|a^c，左右两边均为0，得证</script><h3 id="逆元"><a href="#逆元" class="headerlink" title="逆元"></a>逆元</h3><script type="math/tex; mode=display">
+欧拉定理求逆元：\\
+a^{\varphi(p)}\equiv 1(\mod p)，则有a^{-1}\equiv a^{\varphi(p)-1}(\mod p)\\
+\\
+线性求膜p意义下逆元：\\
+考虑1\leq i\leq n，设p=ki+r，则有ki+r\equiv 0(\mod p)，则有kr^{-1}+i^{-1}\equiv 0(\mod p)\\
+于是有i^{-1}\equiv -kr^{-1}(\mod p)，即i^{-1}\equiv -\lfloor\cfrac{p}{i}\rfloor\times r^{-1}(\mod p)\\</script><h3 id="原根和阶"><a href="#原根和阶" class="headerlink" title="原根和阶"></a>原根和阶</h3><script type="math/tex; mode=display">
+阶：找到一个最小的k使得a^k\equiv1(\mod p)，则称k是a在膜p意义下的阶\\
+原根：如果a在膜p意义下的阶是p且a<p，则称a是p的一个原根\\
+若m有原根，则m一定是2,4或是p^a，2p^a，其中p\in prime且2\nmid p\\
+由于对于大部分m来说，都存在一个很小的原根，所以在实际应用中只需要暴力找就可以了\\
+根据阶的定义，我们如果要判断一个a不是p的原根，只需判断是否\exists i使得a^i\equiv 1(\mod p)\\
+而由于a^{\varphi(p)}\equiv 1(\mod p)，因此一定有i|\varphi(p)，因此只需判断\varphi(p)的所有因数，复杂度O(\sqrt{\varphi(p)})\\
+\\
+Problem1：给定k，p，a，求x^k\equiv a(\mod p)的所有解，其中p\in prime，1\leq k \leq 10^5\\
+\\
+解：考虑求出p的原根g，得到g^r\equiv a(\mod p)，同时由于x\equiv g^y(\mod p)，因此原方程变为：\\
+g^{yk}\equiv g^r(\mod p)
+于是有：yk\equiv r(\mod p-1)，即可求解</script><h3 id="BSGS"><a href="#BSGS" class="headerlink" title="BSGS"></a>BSGS</h3><script type="math/tex; mode=display">
+求a^x\equiv b(\mod p)的一组解，其中p\in prime且1\leq p\leq 10^9\\
+直接枚举显然是O(p)的，非常不合理，考虑如何优化\\
+求出s=\lfloor\sqrt{p}\rfloor，并求出所有a^i，其中i\in [0,s-1]\\
+若x\leq s-1，则可以直接判断是否被求出来过\\
+否则，则将x=x\mod (s-1)，一直操作直到x\leq s-1\\</script><h3 id="exBSGS"><a href="#exBSGS" class="headerlink" title="exBSGS"></a>exBSGS</h3><script type="math/tex; mode=display">
+求a^x\equiv b(\mod p)的一组解，其中1\leq p\leq 10^9\\
+设g=\gcd(a,p)，那么根据膜的性质，原方程即\frac {a^x} g\equiv \frac b g (\mod \frac p g)\\
+显然若g\nmid b并且b\ne 1，方程定无解\\
+（若b=1，那么x=0就是一个解）\\
+那么现在的方程就是a^{x-1}\frac a g\equiv \frac b g(\mod \frac p g)\\
+继续进行这个过程，不断求a和当前模数的gcd，并将当前模数除以该gcd，这样最后我们得到了方程：\\
+a^{x-k}\prod_{i=1}^k \frac a {g_i}\equiv \frac b {\prod_{i=1}^k g_i}(\mod \frac p {\prod_{i=1}^k g_i})\\
+不妨设A=\prod_{i=1}^k \frac a {g_i},B=\frac b {\prod_{i=1}^k g_i},P=\frac p {\prod_{i=1}^k g_i}\\
+那么现在方程就是a^{x-k}\equiv \frac B A(\mod p)\\
+可以使用BSGS求解\\
+ps：\\
+p=1的时候要特判\\</script><h3 id="CRT"><a href="#CRT" class="headerlink" title="CRT"></a>CRT</h3><script type="math/tex; mode=display">
+对于方程组x\equiv a_i(\mod m_i)，其中m_i两两互质时\\
+令m=\prod^k_{i=1}m_i，设M_i=\cfrac{m}{m_i}，N_i是M_i在\mod m_i意义下逆元\\
+则x\equiv \sum^k_{i=1}M_iN_ia_i(\mod m)\\
+中国剩余定理的证明类似拉格朗日插值\\
+由于x在\mod m_i意义下，\sum中枚举的所有不等于i的项都会成0，等于i的项会成a_i</script><h3 id="exCRT"><a href="#exCRT" class="headerlink" title="exCRT"></a>exCRT</h3><script type="math/tex; mode=display">
+对于方程组x\equiv a_i(\mod m_i)，若m_i两两不互质\\
+我们考虑每次合并两个方程
+\begin{cases}
+x\equiv a_1(\mod m_1)\\
+x\equiv a_2(\mod m_2)
+\end{cases}\\
+那这个方程组等价于
+\begin{cases}
+x=k_1m_1+a_1\\
+x=k_2m_2+a_2
+\end{cases}\\
+合并上下方程，有k_1m_1+a_1=k_2m_2+a_2\\
+a_2-a_1=k_1m_1-k_2m_2\\
+设g=\gcd(m_1,m_2)，显然若g\nmid (a_2-a_1)，方程无解\\
+不然，\frac {a_2-a_1}g=k_1\frac {m_1}{g}-k_2\frac{m_2}{g}\\
+k_1\frac{m_1}{g}=k_2\frac {m_2}g+\frac {a_2-a_1}g\\
+k_1\frac{m_1}g\equiv \frac {a_2-a_1}{g}(\mod \frac {m_2}g)\\
+令inv(a,p)表示a在\mod p意义下的逆元\\
+k_1\equiv inv(\frac {m_1}{g},\frac {m_2}g)\frac{a_2-a_1}{g}(\mod \frac {m_2}g)\\
+k_1=inv(\frac{m_1}g,\frac{m_2}g)\frac{a_2-a_1}g+k_3\frac{m_2}g\\
+带回第一个方程\\
+x=m_1(inv(\frac{m_1}g,\frac{m_2}g)\frac{a_2-a_1}g+k_3\frac{m_2}g)+a_1\\
+x\equiv m_1inv(\frac{m_1}g,\frac{m_2}g)\frac{a_2-a_1}g+a_1(\mod \frac{m_1m_2}g)</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lwlaymh.github.io/2022/03/09/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80/" data-id="cl0jf7ecn0003d0vtdev15b1d" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-筛" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/09/%E7%AD%9B/" class="article-date">
+  <time class="dt-published" datetime="2022-03-09T10:28:26.900Z" itemprop="datePublished">2022-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="min25筛"><a href="#min25筛" class="headerlink" title="min25筛"></a>min25筛</h2><script type="math/tex; mode=display">
+\sum_{i=1}^nf(i)=\sum_{p\in prime}f(p)+\sum_{p\notin prime\and p\ne 1}f(p)+f(1)</script><script type="math/tex; mode=display">
+令g(N,i)=\sum_{j=1}^N[j\ is\ prime\ or\ Min_j>prime_i]F(j)\\其中Min_j表示j最小的质因数
+\\prime_i表示第i个质数\\
+意识到g(N,i)实际上就是N以内的数在第i轮埃氏筛后剩余的数的k次方和\\
+F(i)表示若干完全积性函数之和且当p\in prime 时，F(i)=f(i)\\
+下文为了方便书写，直接认为F是完全积性函数\\
+而g(N,\sqrt N)实际上就是N以内的质数之和\\
+那么有g(i,0)=\sum_{i=2}^nF(i)\\
+g(i,j)=g(i,j-1)-F(p_j)[g(\lfloor\frac{i}{p_j}\rfloor,j-1)-\sum_{2\leq p\leq \min(p_{j-1},\lfloor\frac{i}{p_j}\rfloor),p\in prime}F(p)]\\
+ps1：第j个质数会比第j-1多筛若干个数，即最小质因数是p_j的数\\
+这些数形如\{p_j,2p_j,3p_j...\}\\
+同时除以p_j得到\{1,2,3...\}\\
+我们要的就是其中最小质因数大于等于p_j的数，也就是最小质因数大于p_{j-1}的数\\
+因而就是g(\lfloor\frac{i}{p_j}\rfloor,j-1)\\
+但还有一些质数会被重复计算，我们把他删掉就可以了\\
+ps2：注意到以下事实：\lfloor\frac{\lfloor\frac{a}{b}\rfloor}{c}\rfloor=\lfloor\frac{a}{bc}\rfloor\\
+因而，如果我们有以下代码</script><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(f[n])<span class="keyword">return</span> f[n];</span><br><span class="line">    <span class="keyword">else</span> f[n]=......;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">        <span class="built_in">solve</span>(n/i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="built_in">solve</span>(n);</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">
+该代码复杂度为O(\sqrt n)
+原因在于，根据整数分块，\lfloor\frac{n}{i}\rfloor有\sqrt n种取值\\
+而如果递归下去，继续枚举j，并往下递归到\lfloor\frac{\lfloor\frac{n}{i}\rfloor}{j}\rfloor\\
+那他就相当于枚举k=ij，并递归到\lfloor\frac{n}{k}\rfloor\\
+因而复杂度得到保证\\
+由此可知，求g的复杂度为O(\sqrt n\times \sqrt {\sqrt n})=O(n^{\frac3 4})</script><script type="math/tex; mode=display">
+令S(i,j)表示前i个数中，最小质因数大于等于p_j的数的f之和\\
+可知：\\
+S(i,j)=\\
+g(i,+\infty)-\sum_{k=1}^{j-1}f(p_k)+\sum_{k\geq j,e\geq 1,p_k^{e+1}\leq i}f(p_k^e)S(\lfloor\frac{i}{p_k^e}\rfloor,k+1)+\sum_{e=2,p_k^e\leq i}f(p_k^e)\\
+=g(i,+\infty)-\sum_{k=1}^{j-1}f(p_k)+\sum_{k\geq j,e\geq 1,p_k^{e+1}\leq i}[f(p_k^e) S(\lfloor\frac{i}{p_k^e}\rfloor,k+1)+f(p_k^{e+1})]\\
+ps1：前半段求出质数部分的和，后半段开始枚举最小质因子\\
+由于p_k是当前数的最小质因子，e是他的幂\\
+则这个数其他的质因子应该均大于p_k，因而大于等于p_{k+1}\\
+注意到由于S中不包含1，所以应特殊处理只含有p_k一个质因子的情况\\
+又注意到，如果p_k^e< i<p_k^{e+1}，那么此时\lfloor\frac{i}{p_k^e}\rfloor一定小于p_k\\
+则无论如何不可能拥有比p_k更大的质因子\\
+该形式与上面一致，因而复杂度同样为O(n^{\frac 3 4})\\
+而我们最终要求的答案即S(n,1)+f(1)</script><script type="math/tex; mode=display">
+一些后记：\\
+1.事实上，复杂度的计算只是上限，实际上应该约为O(\frac{n^{\frac3 4}}{\log_2 n})\\
+2.如果使用map会导致复杂度较差，考虑如下事实：\\
+(1).\forall 1\leq x\leq n，则要么x\leq \sqrt n，要么\lfloor\frac{n}{x}\rfloor\leq \sqrt n\\
+(2).\forall a形如\lfloor\frac{n}{x}\rfloor，则\lfloor\frac{n}{a}\rfloor应为x_{max}，互不相同\\
+因而可以分别特判，从而做到比map/离散化都优秀的复杂度\\
+3.我们在代码中所求出的w是倒序的，而我们转移的过程也是倒序的\\
+因而枚举的时候可以直接正序枚举\\
+4.考虑做的时候由于进行了滚动数组，因而继承操作可以直接使用\\
+为了方便可以直接判掉可以直接继承的情况，这样g转移式子后面的\min就可以不用写了\\
+5.求S的过程可以使用递归，因为我们只关心一个S的量\\</script><h2 id="杜教筛"><a href="#杜教筛" class="headerlink" title="杜教筛"></a>杜教筛</h2><script type="math/tex; mode=display">
+令F(n)=\sum_{i=1}^nf(i)\\
+我们考虑构造两个函数g和s，使得f*g=s\\
+令G(n)=\sum_{i=1}^ng(i),S(n)=\sum_{i=1}^ns(i)\\
+若G(i)和S(i)都很方便求，g(1)=1，我们就可以求出F(n)</script><script type="math/tex; mode=display">
+f*g=s\\
+\sum_{j|i}f(j)g(\frac i j)=s(i)\\
+由于g(1)=1，我们有f(i)=s(i)-\sum_{j|i,j\ne i}f(j)g(\frac i j)\\
+F(n)=\sum_{i=1}^nf(i)=\sum_{i=1}^n(s(i)-\sum_{j|i,j\ne i}f(j)g(\frac i j))\\
+=S(n)-\sum_{j=1}^n\sum_{k=2}^{\lfloor\frac n j\rfloor}g(k)f(j)=S(n)-\sum_{k=2}^ng(k)\sum_{j=1}^{\lfloor\frac n k\rfloor}f(j)\\
+=S(n)-\sum_{k=2}^ng(k)F(\lfloor\frac n k\rfloor)\\
+复杂度证明和min25筛是一样的\\
+不同点在于我们可以预处理n^{\frac 2 3}以内的F，这样复杂度可以降到O(n^{\frac 2 3})</script><script type="math/tex; mode=display">
+\begin{array}{c}
+Example1：\sum_{i=1}^N\mu(i)\\
+由于\mu*I=\epsilon，于是考虑g=I\\
+\\
+Example2：\sum_{i=1}^N\varphi(i)\\
+由于\varphi*I=id，于是考虑g=I\\
+\\
+Example3：\sum_{i=1}^N{\varphi(i)\times i}\\
+由于\sum^N_{i=1}(f*g)(i)=\sum_{d|N}{f(i)\times g(\cfrac n d)}=\sum_{d|N}{\varphi(d)\times d\times g(\cfrac n d)}\\
+由于中间过程中乘出来的d很难处理，考虑消掉它\\
+于是考虑g=id
+\\
+Example4：\sum_{i=1}^N{\varphi(i)\times i^2}\\
+由Example3，于是考虑g=id^2
+\end{array}</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lwlaymh.github.io/2022/03/09/%E7%AD%9B/" data-id="cl0jf7ecq0006d0vt6b3h9py2" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-集合幂级数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/09/%E9%9B%86%E5%90%88%E5%B9%82%E7%BA%A7%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2022-03-09T10:28:26.849Z" itemprop="datePublished">2022-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <script type="math/tex; mode=display">
+集合幂级数：形如\sum_{i=0}^{2^n-1}a_ix^i，其中二进制数i表示\{1,2,...,n\}的一个子集，用|i|表示该子集大小\\
+下述级数如无特别说明均为集合幂级数</script><script type="math/tex; mode=display">
+高维前缀和：
+c_i=\sum_{j\subseteq i}a_j\\
+高维后缀和：
+c_i=\sum_{j\supseteq i}a_j\\
+上述过程又称快速莫比乌斯变换（FMT）</script><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;(<span class="number">1</span>&lt;&lt;n);j++)</span><br><span class="line">		<span class="keyword">if</span>(j&amp;(<span class="number">1</span>&lt;&lt;i)) a[j]+=a[j^(<span class="number">1</span>&lt;&lt;i)];<span class="comment">//高维前缀和</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;(<span class="number">1</span>&lt;&lt;n);j++)</span><br><span class="line">		<span class="keyword">if</span>(j&amp;(<span class="number">1</span>&lt;&lt;i)) a[j^(<span class="number">1</span>&lt;&lt;i)]+=a[j];<span class="comment">//高维后缀和</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="与-或卷积"><a href="#与-或卷积" class="headerlink" title="与/或卷积"></a>与/或卷积</h3><script type="math/tex; mode=display">
+或卷积：c_i=\sum_{j}\sum_{k}[j \or k=i]a_jb_k\\
+与卷积：c_i=\sum_{j}\sum_{k}[j\and k=i]a_jb_k\\
+考虑如何求a和b的或卷积：\\
+引理：\\
+若j,k\subseteq i,则j\or k\subseteq i，逆命题同样成立\\
+若j,k\supseteq i,则j\and k\supseteq i，逆命题同样成立\\
+\\
+设a，b，c的高维前缀和分别为A，B，C\\
+A_iB_i=(\sum_{j\subseteq i}a_j)(\sum_{k\subseteq i}b_k)=\sum_{j,k\subseteq i}a_ib_k=\sum_{k\or j\subseteq i}a_ib_k=C_i\\
+现在考虑已知C求c，本质上是一个反演\\
+注意到\sum_{r\subseteq p}(-1)^{|r|}=\sum_{k=0}^{|p|}C_{|p|}^k(-1)^k=[p=0]\\
+c(p)=\sum_{q\subseteq p}[p-q=0]c(q)=\sum_{q\subseteq p}\sum_{r\subseteq (p-q)}(-1)^{|r|}c(q)\\
+=\sum_{r\subseteq p}(-1)^{|r|}\sum_{q\subseteq (p-r)}c(q)=\sum_{r\subseteq p}(-1)^{r}f(p-r)=\sum_{r\subseteq p}(-1)^{|p|-|r|}C(r)\\
+于是C(S)=\sum_{T\subseteq S}c(T)\\
+c(S)=\sum_{T\subseteq S}(-1)^{|S|-|T|}C(T)\\
+\\
+因而做两遍高维前缀和再反推回去即可\\
+复杂度O(2^nn)\\
+与卷积即改为高维后缀和</script><h3 id="异或卷积"><a href="#异或卷积" class="headerlink" title="异或卷积"></a>异或卷积</h3><script type="math/tex; mode=display">
+c_i=\sum_j\sum_k[j\oplus k=i]a_jb_k\\
+快速沃尔什变换（FWT）：\\
+定义集合幂级数FWT(a)，满足FWT(a)_i=\sum_{j=0}^{2^n-1}(-1)^{|i\and j|}a_j\\
+那么有：FWT(c)_i=\sum_{j=0}^{2^n-1}(-1)^{|i\and j|}c_j=\sum_{j=0}^{2^n-1}(-1)^{|i\and j|}\sum_{k=0}^{2^n-1}\sum_{l=0}^{2^n-1}[k\oplus l=j]a_kb_l\\
+=\sum_{k=0}^{2^n-1}\sum_{l=0}^{2^n-1}(-1)^{|(k\oplus l)\and i|}a_kb_l=\sum_{k=0}^{2^n-1}\sum_{l=0}^{2^n-1}(-1)^{|k\and i|}a_k(-1)^{|l\and i|}b_l\\
+=FWT(a)_iFWT(b)_i\\
+时间复杂度O(2^nn)\\
+FMT可以看作是FWT在解决或卷积，与卷积时的特例</script><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;(<span class="number">1</span>&lt;&lt;n);i&lt;&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;(<span class="number">1</span>&lt;&lt;n);j+=(i&lt;&lt;<span class="number">1</span>))&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> k=j;k&lt;j+i;k++)&#123;<span class="comment">//k不包含i</span></span><br><span class="line">			<span class="type">int</span> x=a[k],y=a[k+i];</span><br><span class="line">			a[k]=x+y; a[k+i]=x-y;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="子集卷积"><a href="#子集卷积" class="headerlink" title="子集卷积"></a>子集卷积</h3><script type="math/tex; mode=display">
+c_i=\sum_{j}\sum_{k}[j\and k=\phi,j\or k=i]a_jb_k\\
+意识到该卷积与或卷积的差别在于，或卷积会多累加一些[j\and k\ne \phi]的答案\\
+而[j\and k=\phi,j\or k=i]=[|j|+|k|=|i|,j\or k=i]\\
+因而可以将原集合按照元素个数分组，做FMT，然后再n^2次结合，并做IFMT，最终将结果累计\\
+复杂度O(2^nn^2)</script><script type="math/tex; mode=display">
+多重</script><script type="math/tex; mode=display">
+子集卷积exp：c_i=\sum_{\{w\}}[\sum |w_j|=|i|,\bigvee w_j=i]\prod a_{w_j}\\</script><script type="math/tex; mode=display">
+多项式符合集合幂级数：\sum_{i=0}^nf_ia^i，其中a^i为子集卷积</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lwlaymh.github.io/2022/03/09/%E9%9B%86%E5%90%88%E5%B9%82%E7%BA%A7%E6%95%B0/" data-id="cl0jf7eco0004d0vtarq67eeb" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/03/09/hello-world/" class="article-date">
@@ -95,22 +1117,18 @@
       
         <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/03/09/hello-world/" data-id="cl0jbnxac0000ucvt2vplfds0" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/03/09/hello-world/" data-id="cl0jf7ecc0000d0vtbdaf02ns" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -153,7 +1171,23 @@
       <ul>
         
           <li>
-            <a href="/2022/03/09/hello-world/">Hello World</a>
+            <a href="/2022/03/09/%E5%8F%8D%E6%BC%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/09/%E5%A4%9A%E9%A1%B9%E5%BC%8F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/09/%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF%E4%B8%8E%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/09/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/09/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80/">(no title)</a>
           </li>
         
       </ul>
