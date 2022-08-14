@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>LWLAymh的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Example Example1（Bash游戏）：\\ A和B，有n颗石子，每次可以取x颗，其中1\leq x\leq m\\ 求A是否能赢\\ 考虑直接令石子数量为状态\\ 有SG(x)&#x3D;mex\{SG(y)|\max\{0,x-m\}\leq y\leq x-1\}\\ 注意到SG(x)&#x3D;0当且仅当x\equiv 0(\mod m+1)\\ 我们使用数学归纳证明：\\ 当0\leq x\leq">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LWLAymh的博客">
+<meta property="og:url" content="http://lwlaymh.github.io/2022/08/14/%E5%8D%9A%E5%BC%88%E8%AE%BA/index.html">
+<meta property="og:site_name" content="LWLAymh的博客">
+<meta property="og:description" content="Example Example1（Bash游戏）：\\ A和B，有n颗石子，每次可以取x颗，其中1\leq x\leq m\\ 求A是否能赢\\ 考虑直接令石子数量为状态\\ 有SG(x)&#x3D;mex\{SG(y)|\max\{0,x-m\}\leq y\leq x-1\}\\ 注意到SG(x)&#x3D;0当且仅当x\equiv 0(\mod m+1)\\ 我们使用数学归纳证明：\\ 当0\leq x\leq">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-14T14:25:04.464Z">
+<meta property="article:modified_time" content="2022-05-11T00:10:02.953Z">
+<meta property="article:author" content="LWLAymh">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="LWLAymh的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LWLAymh的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://LWLAymh.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-博弈论" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/08/14/%E5%8D%9A%E5%BC%88%E8%AE%BA/" class="article-date">
+  <time class="dt-published" datetime="2022-08-14T14:25:04.464Z" itemprop="datePublished">2022-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><script type="math/tex; mode=display">
+Example1（Bash游戏）：\\
+A和B，有n颗石子，每次可以取x颗，其中1\leq x\leq m\\
+求A是否能赢\\
+考虑直接令石子数量为状态\\
+有SG(x)=mex\{SG(y)|\max\{0,x-m\}\leq y\leq x-1\}\\
+注意到SG(x)=0当且仅当x\equiv 0(\mod m+1)\\
+我们使用数学归纳证明：\\
+当0\leq x\leq m时，显然成立\\
+而对于x，如果x\equiv 0(\mod m+1)\\
+那么\{y\in \mathbb{Z}|\max\{0,x-m\}\leq y\leq x-1\}中一定不存在y满足y\equiv0(\mod m+1)\\
+也就是不存在y满足SG(y)=0，那么SG(x)=0\\
+反之，一定存在</script><script type="math/tex; mode=display">
+Example2：\\
+A和B，有n颗石子，每次可以取x颗，其中1\leq x\leq \lceil\frac n 2\rceil\\
+仍然令石子数量为状态，注意到SG(x)=0当且仅当x+1=2^k-1，也即x=2^k-2\\
+首先,n-\lceil\frac n 2\rceil=\lfloor\frac{n}{2}\rfloor\\
+SG(n)=mex\{SG(y)|\lfloor\frac{n}{2}\rfloor\leq y\leq n-1\}\\
+设n=2^k-w，其中-2^{k-1}+2\leq w\leq 2\\
+\lfloor \frac {2^k-w}2\rfloor=2^{k-1}-\lfloor\frac w 2\rfloor\\
+当w=2时，原式=2^{k-1}-1>2^{k-1}-2\\
+反之，2^k-2\leq 原式
+因此数学归纳即可证明\\</script><script type="math/tex; mode=display">
+Example3（Nim游戏）：\\
+A和B，有n堆石子，第i堆石子有x_i个石子\\
+每次可以任选一堆取走若干个石子，最后不能取的人输\\
+求先手是否必胜\\
+注意到，首先如果x均等于0一定先手必败\\
+考虑令w=x_1\oplus x_2\oplus...\oplus x_n（w即为全游戏的SG值）\\
+那么先手必败当且仅当w=0\\
+证明：\\
+只需证明当w\ne 0时一定存在一种方法使得w=0\\
+考虑w的最高位为第k位\\
+那么一定存在一个x_i的第k位为1\\
+将它改为0，然后这个x_i的后面几位可以随意更改\\</script><script type="math/tex; mode=display">
+Example4（Nimk游戏）：\\
+A和B，有n堆石子，第i堆石子有x_i个石子\\
+每次可以任选不超过k堆取走若干个石子，最后不能取的人输\\
+将x_i写成二进制，如果每一位的1的个数均是k+1的倍数，那么先手一定必败\\
+道理是差不多的</script><script type="math/tex; mode=display">
+Example5（Sprague-Grundy）：\\
+n个DAG，每个DAG只有一个起始点，起始点上有一枚棋子\\
+A和B每次可以选一个图，将上面的棋子沿DAG移动一条边，不能移动的人输\\
+直接使用SG(u)=mex\{SG(v)|u\rightarrow v\}\\
+那么先手必败当且仅当所有DAG初始节点的SG异或起来是0\\
+首先如果SG(u)=x，那么\forall 0\leq y<x，\exist v使得u\rightarrow v且SG(v)=y\\
+可以发现这就如同Nim游戏了\\
+但是与Nim游戏不同的是，可能\exist y>x，但是仍然可以转移到\\
+但在这种情况下，我可以继续转移到一个u'使得SG(u')=x\\
+因此异或值不变</script><script type="math/tex; mode=display">
+Example6（Anti-SG）：\\
+SG游戏，但是不能取的人赢\\
+SJ定理：\\
+先手必胜当且仅当下面两个条件满足一个：\\
+1.游戏的SG函数不为0且游戏中某个单一游戏的SG函数大于1\\
+2.游戏的SG函数为0且游戏中没有单一游戏的SG函数大于1\\
+如果没有单一游戏的SG函数大于1，那么显然游戏的SG函数为0就赢了，否则就输了\\
+那么如果有呢？我们仍然可以使得全游戏的SG值一直为0，按照普通SG游戏的做法\\
+但是，如果接下来这一步，使局面变成了全1的局面\\
+这一步要么把他改成0要么把他改成1
+那么我们把这一步稍微改一下\\
+原本想把他变成1，现在就改成0，反之亦然\\
+而如果SG函数为0且存在某个单一游戏的SG函数大于1，一定是输的\\
+因为这个情况下，最后一定会剩两堆一样的，无论你怎么选，对手都可以压着你，直到你把一堆全选了\\
+此时对手就可以把另一堆剩下一个，这样就必输</script><script type="math/tex; mode=display">
+Example7（Multi-Nim）：\\
+Nim游戏\\
+但是玩家每回合可以不拿而将任意一堆石子数量大于等于2的石子堆分成任意两堆不为空的石子堆\\
+没法操作的人输\\
+本质仍然是SG游戏，我们正常做就行\\
+SG(x)=mex\{\{SG(v)|x\rightarrow v\},\{SG(x-i)\oplus SG(i)|1\leq i<x\}\}\\
+找一下规律可以发现：\\
+SG(x)=\begin{cases}
+x-1&x\equiv 0(\mod 4)\\
+x&x\equiv 1或2(\mod 4)\\
+x+1&x\equiv 3(\mod 4)\\
+\end{cases}\\
+不妨设当x\leq 4k时结论成立\\
+当x=4k+1时，前半部分一定是取遍了[1,4k]\\
+但是一定不存在a和b满足a+b=4k+1并且SG(a)\oplus SG(b)=4k+1\\
+讨论一下a和b在\mod 4意义下的值就会发现不可能\\
+其他的是同理的</script><script type="math/tex; mode=display">
+Example8（Every-SG）：\\
+SG游戏，但是每次每个能移动的游戏都必须移动，不能移动任何游戏的人输\\
+对于每个子游戏，如果先手必胜，先手一定会尽可能多争取时间\\
+反之，先手一定会尽可能早结束游戏\\
+在DAG上dp的时候除了SG我们再加一维表示时间耗费，就可以dp了</script><script type="math/tex; mode=display">
+Example9（Nim\ on\ tree）：\\
+一棵有根树两个人，每次可以挑一棵真子树删掉\\
+不能操作者输\\
+结论：SG(u)=\bigoplus_{u\rightarrow v}(SG(v)+1)\\
+考虑归纳假设，如果u只有v一个儿子\\
+那么要么将v子树全删，要么删一部分\\
+SG(u)=mex(x|x=0或0\leq x-1< SG(v))=SG(v)+1\\
+而如果有多个儿子，则每个儿子都相当于是一个SG子游戏，异或起来即可</script><script type="math/tex; mode=display">
+Example10：\\
+n个有根仙人掌，保证所有的环与树的结构只有一个公共点（环只有一条连到环外的边）\\
+两个人分别操作删边，与根不连通的边都被删掉\\
+结论：奇环SG=1，偶环SG=0\\
+这么考虑：边数为k的链的SG为k\\
+而拆开奇环后，你得到的两条链奇偶性一定相同，因而不可能得到1\\
+偶环同理，不可能得到0</script><script type="math/tex; mode=display">
+Example11：\\
+无向图，每次删掉一条边以及与根节点不连通的部分\\
+无法操作者输\\
+考虑Example11\\
+Fusion定理：将偶环替换成一个新点，奇环替换成一个新点连出去一条边，做边双\\
+对于一个边双，SG值只和他边的奇偶性有关\\
+证明大概和上面一样</script><script type="math/tex; mode=display">
+Example12（斐波那契博弈）：\\
+一个数N，两个人轮流令他减去一个数，第一次不能减完，每次减的不能超过上一次的两倍\\
+不能操作者输\\
+Solve：\\
+结论为：当且仅当N是斐波那契数时，先手必败\\
+考虑归纳证明：\\
+先证明当N是斐波那契数时必败，不妨假设N=N_0+N_1\\
+考虑将N看成两堆，因为如果第一次取走了大于N_1颗石子，由于N_0\leq N_1\\
+则后手第二步可以全取走，必败\\
+并且一开始先手一定要在N_0堆取石子，原因是如果取了大于N_0颗石子，由于N=N_0+N_1\leq 3N_0\\
+这样下一步后手就可以全取完\\
+那么现在先手应该开始取N_0这一堆\\
+如果在这一堆取的过程中，先手一直取得不超过N_0剩下的数\\
+那么根据归纳假设，后手一定可以取走N_0堆的最后一个石子\\
+此时局面变成了只剩N_1颗石子\\
+只要此时先手不能一次取走N_1颗石子，先手就必败\\
+而后手最后一步拿走石子最多会拿走\frac 2 3N_0的石子\\
+但是，\frac 4 3N_0<N_1，因此一定不可能\\
+否则，仍然是先手取走了N_0全部石子，又当了先手取N_1的石子\\
+仍然是必败的
+\\
+齐肯多夫定理：任意一个正整数都可以被表示成若干不连续的斐波那契数之和\\
+设N=\sum_{i=1}^k f_{p_i}，其中p_1<p_2<p_3<...<p_k\\
+先手取走f_{p_1}\\
+由于2f_{p_1}<f_{p_2}，因此后手接下来无论如何不可能取得大于等于f_{p_2}\\
+问题转化为一堆大小为f_{p_2}的石子，此时先手必败\\
+因此原问题的先手必胜\\</script><h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><script type="math/tex; mode=display">
+Problem1：\\
+n个游戏，每个游戏两堆石子，每次可以从大的那堆中取小的那堆石子大小的整数倍的石子\\
+Solve：\\
+Every-SG游戏</script><script type="math/tex; mode=display">
+Problem2：\\
+给一个“日”字型图，七条边，每条边有一堆石子\\
+每次可以选任意多条不构成环的边，然后将这些边上的石子堆取走任意多个石子\\
+求先手必胜策略，以及如果每条边的石子数量在[l_i,r_i]，那么有多少种先手必胜的情况\\
+Solve：\\
+考虑将这个图分成三部分，上面三条边，中间一条边，下面三条边\\
+那么这三部分一定不能全选至少两部分，不然会构成环\\
+反之一定构不成环\\
+先手必败当且仅当，这三部分内部的边上石子均相等，并且所有边异或值为0\\
+否则，考虑将上部分和下部分三条边先全改成相等的，会修改较大的两条边\\
+接下来，我们剩了三条边，我们只能选择改其中一条，使得他们仨异或值为0\\
+换句话说，我们现在有x_1,x_2,x_3，我们要将其中一个x_i改为y_i，其他不变，使得他们仨异或值为0\\
+和Nim游戏类似，假设他们仨异或值的最高位为k\\
+那么一定有一个x_i的第k位为1，将它改为0，后面就可以随意变换\\
+思路具体怎么想到的呢，可以发现整个图只有三个环，并且这三个环都可以由这几部分组成\\
+接下来就可以每个部分的[l_i,r_i]求个交\\
+用FWT做一遍异或卷积\\
+数位dp也可以做</script><script type="math/tex; mode=display">
+Problem3：\\
+Nim游戏，但是每堆石子有一个K_i\\
+如果这堆石子剩x_i个每次最多取\lfloor\frac {x_i} {K_i}\rfloor个石子\\
+求先手是否必胜\\
+Solve：\\
+看上去像Example2和Example5的结合体\\
+结论是SG(n,k)=\begin{cases}
+SG(n-\lfloor\frac n k\rfloor,k)&n\ne 0(\mod k)\\
+\frac n k&n=0(\mod k)\\
+\end{cases}\\
+考虑数学归纳就可以证明\\
+然后我们就只需要对于k是否大于\sqrt n讨论一下\\
+如果k<\sqrt n,暴力，最多只会做\sqrt n次\\
+否则，意识到此时可以通过求一个区间[l,r]，满足\forall x\in [l,r],\lfloor\frac x k\rfloor均相等，加速一下\\
+这种区间最多只会有\sqrt n个\\</script><script type="math/tex; mode=display">
+Problem4：\\
+一个数N，两个人轮流令他减去一个数，第一次不能减完，每次减的不能超过上一次\\
+不能操作者输\\
+Solve：\\
+先手必败当且仅当N=2^k\\
+不然，每次选lowbit即可\\</script><script type="math/tex; mode=display">
+Problem5：\\
+一个数N，两个人轮流令他减去一个数，第一次不能减完，每次减的不能超过上一次的k倍\\
+不能操作者输\\
+Solve：\\
+k=1即Problem4\\
+k=2即Example12\\
+令f(x)=kx（事实上，凡是动态减法问题，都可以类似假设，但是需要满足x\leq f(x)）\\
+令H_i表示第i个先手必败的数是多少，不妨假设H_1=1\\
+令S_{i+1}=\min\{H_x|H_i\leq f(H_x)\}，那么H_{i+1}=S_{i+1}+H_i\\
+只需证明H有fib的以上性质，此题就可以做了\\
+证明暂时不会</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lwlaymh.github.io/2022/08/14/%E5%8D%9A%E5%BC%88%E8%AE%BA/" data-id="cl6tfaafj0000rovt4jc8aslj" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/08/14/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/08/14/%E5%8D%9A%E5%BC%88%E8%AE%BA/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/14/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/14/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/14/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/14/%E5%9B%9B%E8%BE%B9%E5%BD%A2%E4%B8%8D%E7%AD%89%E5%BC%8F/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 LWLAymh<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

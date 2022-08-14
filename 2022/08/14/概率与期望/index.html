@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>LWLAymh的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="随机试验：\\不能预先确知结果，但是可以知道可能的结果和范围，可以在相同条件下重复实验 样本空间：随机试验所有可能结果组成的集合 样本空间的任意一个子集称之为事件 事件发生：在一次试验中，事件的一个样本点发生 独立事件：如果P(AB)&#x3D;P(A)P(B)，则称A和B是独立的 \begin{array}{c} 积：交\cap\\ 和：并\cup\\ 差：-\\ 补：总集-A\\ 互斥：A\cap B">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LWLAymh的博客">
+<meta property="og:url" content="http://lwlaymh.github.io/2022/08/14/%E6%A6%82%E7%8E%87%E4%B8%8E%E6%9C%9F%E6%9C%9B/index.html">
+<meta property="og:site_name" content="LWLAymh的博客">
+<meta property="og:description" content="随机试验：\\不能预先确知结果，但是可以知道可能的结果和范围，可以在相同条件下重复实验 样本空间：随机试验所有可能结果组成的集合 样本空间的任意一个子集称之为事件 事件发生：在一次试验中，事件的一个样本点发生 独立事件：如果P(AB)&#x3D;P(A)P(B)，则称A和B是独立的 \begin{array}{c} 积：交\cap\\ 和：并\cup\\ 差：-\\ 补：总集-A\\ 互斥：A\cap B">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-14T14:25:04.238Z">
+<meta property="article:modified_time" content="2022-05-11T02:32:25.510Z">
+<meta property="article:author" content="LWLAymh">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="LWLAymh的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LWLAymh的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://LWLAymh.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-概率与期望" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/08/14/%E6%A6%82%E7%8E%87%E4%B8%8E%E6%9C%9F%E6%9C%9B/" class="article-date">
+  <time class="dt-published" datetime="2022-08-14T14:25:04.238Z" itemprop="datePublished">2022-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <script type="math/tex; mode=display">
+随机试验：\\不能预先确知结果，但是可以知道可能的结果和范围，可以在相同条件下重复实验</script><script type="math/tex; mode=display">
+样本空间：随机试验所有可能结果组成的集合</script><script type="math/tex; mode=display">
+样本空间的任意一个子集称之为事件</script><script type="math/tex; mode=display">
+事件发生：在一次试验中，事件的一个样本点发生</script><script type="math/tex; mode=display">
+独立事件：如果P(AB)=P(A)P(B)，则称A和B是独立的</script><script type="math/tex; mode=display">
+\begin{array}{c}
+积：交\cap\\
+和：并\cup\\
+差：-\\
+补：总集-A\\
+互斥：A\cap B=\empty\\
+包含：\subseteq\\
+相等：=
+\end{array}</script><script type="math/tex; mode=display">
+\begin{array}{c}
+交换律：A\cup B=B\cup A，A\cap B=B\cap A\\
+结合律：A\cup(B\cup C)=(A\cup B)\cup C，A\cap(B\cap C)=(A\cap B)\cap C\\
+分配律：A\cup(B\cap C)=(A\cup B)\cap (A\cup C)\\
+A\cap(B\cup C)=(A\cap B)\cup (A\cap C)\\
+对欧律：\overline{A\cup B}=\overline{A}\cap\overline{B}，\overline{A\cap B}=\overline{A}\cup\overline{B}
+\end{array}</script><script type="math/tex; mode=display">
+\begin{array}{c}
+0\leq P(A)\\
+\sum P(A)=1\\
+若\forall i,j，有A_i\cap A_j=\empty（互不相容），则有P(\bigcup_{i=1}^nA_i)=\sum_{i=1}^nP(A_i)\\
+如果A\subset B，则有P(B-A)=P(B)-P(A)\\
+P(A\cup B)=P(A)+P(B)-P(AB)
+\end{array}</script><script type="math/tex; mode=display">
+条件概率：已知事件B发生时事件A发生的概率为P(A|B)=\frac{P(AB)}{P(B)}\\
+乘法原理：P(AB)=P(A|B)P(B)</script><script type="math/tex; mode=display">
+条件概率可以仍然可以使用概率的其他性值</script><script type="math/tex; mode=display">
+期望E[f(X)]=\sum f(x)P(X=x)\\
+E[\sum c_iX_i]=\sum c_iE[X_i]\\
+E[A+B]=E[A]+E[B]</script><script type="math/tex; mode=display">
+贝叶斯公式：如果有\{B_i\}是样本空间的一个划分\\
+即\forall i,j，有B_i\cap B_j=\empty\\
+并且有\bigcup_{i=1}^nB_i=全集\\
+则有P(B_i|A)=\frac{P(AB_i)}{P(A)}=\frac{P(AB_i)}{P(A)\sum P(B_j)}=\frac{P(A B_i)}{\sum_{j=1}^n P(A\cap B_j)}=\frac{P(A|B_i)P(B_i)}{\sum_{j=1}^n P(A|B_j)P(B_j)}\\
+简化形式：P(B|A)=\frac{P(A|B)P(B)}{P(A)}</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lwlaymh.github.io/2022/08/14/%E6%A6%82%E7%8E%87%E4%B8%8E%E6%9C%9F%E6%9C%9B/" data-id="cl6tfaafv0008rovt71aadft8" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/08/14/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/08/14/%E5%8F%8D%E6%BC%94/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/08/14/%E5%8D%9A%E5%BC%88%E8%AE%BA/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/14/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/14/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/14/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/14/%E5%9B%9B%E8%BE%B9%E5%BD%A2%E4%B8%8D%E7%AD%89%E5%BC%8F/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 LWLAymh<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

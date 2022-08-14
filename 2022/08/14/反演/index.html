@@ -6,15 +6,15 @@
   
   <title>LWLAymh的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="反演：\\ 假设有两个函数f和g满足：\\ f(n)&#x3D;\sum_{k}a_{n,k}g(k)\\ 已知f求g的过程称为反演\\ 一般情况下，求反演只能高斯消元，但是有一些形式的反演有巧妙解法二项式反演 Example：\\ n个有编号的人站成一排，求他们都没有站到自己编号对应位置的方案数\\ Solve：\\ 设f(n)为n个人随便站的方案数\\ g(n)为n个人都站错的方案数\\ 如果知道g的">
+  <meta name="description" content="反演: 假设有两个函数$f$和$g$满足:$f(n)&#x3D;\sum_{k}a_{n,k}g(k)$,已知f求g的过程称为反演. 一般情况下,求反演只能高斯消元,但是有一些形式的反演有巧妙解法. 二项式反演Example$n$个有编号的人站成一排,求他们都没有站到自己编号对应位置的方案数. 设$f(n)$为$n$个人随便站的方案数,$g(n)$为$n$个人都站错的方案数. 如果知道$g$的表达式,我们可">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LWLAymh的博客">
-<meta property="og:url" content="http://lwlaymh.github.io/2022/03/09/%E5%8F%8D%E6%BC%94/index.html">
+<meta property="og:url" content="http://lwlaymh.github.io/2022/08/14/%E5%8F%8D%E6%BC%94/index.html">
 <meta property="og:site_name" content="LWLAymh的博客">
-<meta property="og:description" content="反演：\\ 假设有两个函数f和g满足：\\ f(n)&#x3D;\sum_{k}a_{n,k}g(k)\\ 已知f求g的过程称为反演\\ 一般情况下，求反演只能高斯消元，但是有一些形式的反演有巧妙解法二项式反演 Example：\\ n个有编号的人站成一排，求他们都没有站到自己编号对应位置的方案数\\ Solve：\\ 设f(n)为n个人随便站的方案数\\ g(n)为n个人都站错的方案数\\ 如果知道g的">
+<meta property="og:description" content="反演: 假设有两个函数$f$和$g$满足:$f(n)&#x3D;\sum_{k}a_{n,k}g(k)$,已知f求g的过程称为反演. 一般情况下,求反演只能高斯消元,但是有一些形式的反演有巧妙解法. 二项式反演Example$n$个有编号的人站成一排,求他们都没有站到自己编号对应位置的方案数. 设$f(n)$为$n$个人随便站的方案数,$g(n)$为$n$个人都站错的方案数. 如果知道$g$的表达式,我们可">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-03-09T10:28:27.058Z">
-<meta property="article:modified_time" content="2022-03-09T03:20:19.794Z">
+<meta property="article:published_time" content="2022-08-14T14:25:04.208Z">
+<meta property="article:modified_time" content="2022-07-26T13:47:48.203Z">
 <meta property="article:author" content="LWLAymh">
 <meta name="twitter:card" content="summary">
   
@@ -75,8 +75,8 @@
       <div class="outer">
         <section id="main"><article id="post-反演" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/03/09/%E5%8F%8D%E6%BC%94/" class="article-date">
-  <time class="dt-published" datetime="2022-03-09T10:28:27.058Z" itemprop="datePublished">2022-03-09</time>
+    <a href="/2022/08/14/%E5%8F%8D%E6%BC%94/" class="article-date">
+  <time class="dt-published" datetime="2022-08-14T14:25:04.208Z" itemprop="datePublished">2022-08-14</time>
 </a>
     
   </div>
@@ -85,30 +85,30 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <script type="math/tex; mode=display">
-反演：\\
-假设有两个函数f和g满足：\\
-f(n)=\sum_{k}a_{n,k}g(k)\\
-已知f求g的过程称为反演\\
-一般情况下，求反演只能高斯消元，但是有一些形式的反演有巧妙解法</script><h3 id="二项式反演"><a href="#二项式反演" class="headerlink" title="二项式反演"></a>二项式反演</h3><script type="math/tex; mode=display">
-Example：\\
-n个有编号的人站成一排，求他们都没有站到自己编号对应位置的方案数\\
-Solve：\\
-设f(n)为n个人随便站的方案数\\
-g(n)为n个人都站错的方案数\\
-如果知道g的表达式，我们可以通过枚举有多少人站错位置来得到f\\
-即：f(n)=\sum_{k=0}^nC_n^kg(k)\\
-接下来我们要用f表示g，即反演\\
-首先有g(n)=\sum_{m=0}^n[n-m=0]C_n^mg(m)\\
-根据二项式定理，有\sum_{k=0}^n(-1)^kC_n^k=[n=0]\\
-显然可以带入，知：g(n)=\sum_{m=0}^n\sum_{k=0}^{n-m}(-1)^kC_{n-m}^kC_n^mg(m)\\
-考虑组合意义，C_{n-m}^kC_n^m意为在n中选出两个大小分别为m和k的子集\\因而等价于C_n^kC_{n-k}^m\\
-原式=\sum_{m=0}^n\sum_{k=0}^{n-m}(-1)^kC_n^kC_{n-k}^mg(m)=\sum_{k=0}^n(-1)^kC_n^k\sum_{m=0}^{n-k}C_{n-k}^mg(m)\\
-=\sum_{k=0}^n(-1)^kC_n^kf(n-k)=\sum_{k=0}^n(-1)^{n-k}C_n^kf(k)\\
-因而，我们将以上过程称为：二项式反演\\
-一般形式如下：\\
-若f(n)=\sum_{k=0}^nC_n^kg(k)\\
-有g(n)=\sum_{k=0}^n(-1)^{n-k}C_n^kf(k)</script><h3 id="斯特林反演"><a href="#斯特林反演" class="headerlink" title="斯特林反演"></a>斯特林反演</h3><script type="math/tex; mode=display">
+        <p>反演:</p>
+<p>假设有两个函数$f$和$g$满足:$f(n)=\sum_{k}a_{n,k}g(k)$,已知f求g的过程称为反演.</p>
+<p>一般情况下,求反演只能高斯消元,但是有一些形式的反演有巧妙解法.</p>
+<h3 id="二项式反演"><a href="#二项式反演" class="headerlink" title="二项式反演"></a>二项式反演</h3><h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><p>$n$个有编号的人站成一排,求他们都没有站到自己编号对应位置的方案数.</p>
+<p>设$f(n)$为$n$个人随便站的方案数,$g(n)$为$n$个人都站错的方案数.</p>
+<p>如果知道$g$的表达式,我们可以通过枚举有多少人站错位置来得到$f$,即:$f(n)=\sum_{k=0}^nC_n^kg(k)$.</p>
+<p>接下来我们要用$f$表示$g$:</p>
+<p>首先有$g(n)=\sum_{m=0}^n[n-m=0]C_n^mg(m)\\$</p>
+<p>根据二项式定理,有$\sum_{k=0}^n(-1)^kC_n^k=[n=0]\\$</p>
+<p>显然可以带入,知:$g(n)=\sum_{m=0}^n\sum_{k=0}^{n-m}(-1)^kC_{n-m}^kC_n^mg(m)\\$.</p>
+<p>考虑组合意义,$C_{n-m}^kC_n^m$意为在$n$中选出两个大小分别为$m$和$k$的子集,因而等价于$C_n^kC_{n-k}^m$.</p>
+<script type="math/tex; mode=display">
+g(n)=\sum_{m=0}^n\sum_{k=0}^{n-m}(-1)^kC_n^kC_{n-k}^mg(m)\\=\sum_{k=0}^n(-1)^kC_n^k\sum_{m=0}^{n-k}C_{n-k}^mg(m)\\
+=\sum_{k=0}^n(-1)^kC_n^kf(n-k)\\=\sum_{k=0}^n(-1)^{n-k}C_n^kf(k)\\</script><p>我们将以上过程称为二项式反演,一般形式如下:</p>
+<script type="math/tex; mode=display">
+f(n)=\sum_{k=0}^nC_n^kg(k)\Leftrightarrow g(n)=\sum_{k=0}^n(-1)^{n-k}C_n^kf(k)</script><p>二项式反演还有另一个形式,即:</p>
+<script type="math/tex; mode=display">
+f(n)=\sum_{k=0}^n(-1)^k\binom{n}{k}g(k)\Leftrightarrow g(n)=\sum_{k=0}^n(-1)^k\binom{n}{k}f(k)</script><p>值得一提的是,我们再观察一下最后得到的错排公式并进行一定的化简,可以得到:$g(n)=n!\sum_{0\leq k\leq n}\cfrac{(-1)^k}{k!}\\$.</p>
+<p>不难发现$n!$的后面形如$e^{-1}$的泰勒展开,我们考虑直接将泰勒展开的公式带入,可以得到:</p>
+<script type="math/tex; mode=display">
+g(n)=\cfrac{n!}{e}-n!\sum_{k>n}\cfrac{(-1)^k}{k!}\\
+=\cfrac{n!}{e}-\cfrac{(-1)^{n+1}}{n+1}\sum_{0\leq k}(-1)^k\cfrac{(n+1)!}{(k+n+1)!}</script><p>用一些我不会的方法分析误差,会发现后面的项所能带来的误差很小,于是有$g(n)=\lfloor\cfrac{n!}{e}+\cfrac{1}{2}\rfloor+[n=0]$.</p>
+<p>另外,观察$g$关于$f$的表达式,不难求出$g$的递推式:$g(n)=ng(n-1)+(-1)^n$.</p>
+<h3 id="斯特林反演"><a href="#斯特林反演" class="headerlink" title="斯特林反演"></a>斯特林反演</h3><script type="math/tex; mode=display">
 Example：\\
 已知f(n)=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}g(k)\\
 求g(n)\\
@@ -157,7 +157,40 @@ Example：\\
 已知f(n)=\sum_{n|d}g(d)\\
 求g(n)\\
 g(n)=\sum_{n|d}[\frac d n=1]g(d)=\sum_{n|d}\sum_{c|\frac d n}\mu(c)g(d)=\\\sum_{c|d}\sum_{nc|d}\mu(c)g(d)=\sum_{c}\mu(c)f(nc)
-=\sum_{n|d}\mu(\frac d n)f(d)\\</script><h3 id="一般情况"><a href="#一般情况" class="headerlink" title="一般情况"></a>一般情况</h3><script type="math/tex; mode=display">
+=\sum_{n|d}\mu(\frac d n)f(d)\\
+Example:\\
+若g(x)=\sum_{1\leq d}f(\cfrac x d),求f(x).\\
+\\
+Solution:\\
+我们有\sum_{1\leq d}g(\cfrac{x}d)\mu(d)=\sum_{d\geq 1}\mu(d)\sum_{k\geq 1}f(\cfrac{x}{kd})\\
+=\sum_{m\geq 1}f(\cfrac{x}{m})\sum_{d,k\geq 1}[m=dk]\mu(d)\\
+=\sum_{m\geq 1}f(\cfrac{x}{m})\sum_{d|m}\mu(d)\\
+=f(x)
+\\\\
+Problem：求\sum_{i=1}^{n}\sum_{j=1}^mgcd(i,j)\\
+\\
+技巧1：增加枚举量\\
+原式=\sum_{i=1}^n\sum_{j=1}^mid[gcd(i,j)]=\sum_{i=1}^n\sum_{j=1}^m\sum_{d|gcd(i,j)}\varphi(d)\\
+技巧2：交换枚举顺序\\
+原式=\sum_{d=1}^{\min(n,m)}\sum^{\lfloor\frac n d\rfloor}_{i=1}\sum^{\lfloor\frac m d\rfloor}_{j=1}\varphi(d)\\
+技巧3：分离无关变量\\
+原式=\sum^{\min(n,m)}_{d=1}\varphi(d)\times\lfloor\cfrac n d\rfloor\times \lfloor\cfrac m d\rfloor\\
+
+考虑由于\lfloor \cfrac n d\rfloor和\lfloor \cfrac m d\rfloor所对应的取值最多只有\sqrt{n}+\sqrt{m}种不同的取值\\因此只需处理出\varphi(d)的前缀和即可在O(\sqrt{n}+\sqrt{m})的复杂度解决此问题\\
+至于处理出\lfloor \cfrac n d\rfloor和\lfloor \cfrac m d\rfloor所对应的取值则需要用到数论分块\\
+\\
+Problem：求\sum_{i=1}^{n}\sum_{j=1}^m[gcd(i,j)=1]\\
+\\
+和上一道题几乎没区别，唯一不同的是需要处理的函数从id变为了\epsilon
+\\
+\\
+Problem：求\sum_{i=1}^{n}\sum_{j=1}^m[gcd(i,j)\in prime]\\
+\\
+考虑增加枚举量，则原式=\sum_{i=1}^{n}\sum_{j=1}^m\sum_{p\in prime}[gcd(i,j)=p]\\
+=\sum_{p\in prime}\sum^{\lfloor\cfrac n d\rfloor}_{i=1}\sum^{\lfloor\cfrac m d\rfloor}_{j=1}[gcd(pi,pj)=p]\\
+=\sum_{p\in prime}\sum^{\lfloor\cfrac n p\rfloor}_{i=1}\sum^{\lfloor\cfrac m p\rfloor}_{j=1}[gcd(i,j)=1]=\sum_{p\in prime}\sum_{d=1}^{\min(\lfloor\cfrac m p\rfloor,\lfloor\cfrac n p\rfloor)}\mu(d)\lfloor\cfrac n {pd}\rfloor\lfloor\cfrac m {pd}\rfloor\\
+于是转化为上一道题，但复杂度仍不可接受\\
+技巧4：换元\\考虑设x=pd，则变为\sum_{x=1}^{\min(n,m)}\sum_{p\in prime且p|x}</script><h3 id="一般情况"><a href="#一般情况" class="headerlink" title="一般情况"></a>一般情况</h3><script type="math/tex; mode=display">
 无论是二项式反演还是莫比乌斯反演，他们都满足f(n)所依赖的g(k)有k\leq n\\
 根据上面的情况，我们发现A是一个下三角矩阵，B是A^{-1}，很可求\\
 现在来推导满足k\leq n的一般情况反演\\
@@ -207,7 +240,7 @@ Solve：\\
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/03/09/%E5%8F%8D%E6%BC%94/" data-id="cl0jf7eci0001d0vtetrxewsj" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/08/14/%E5%8F%8D%E6%BC%94/" data-id="cl6tfaafp0001rovt5yku3wzx" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -217,8 +250,17 @@ Solve：\\
     
 <nav id="article-nav">
   
+    <a href="/2022/08/14/%E6%A6%82%E7%8E%87%E4%B8%8E%E6%9C%9F%E6%9C%9B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
-    <a href="/2022/03/09/%E5%A4%9A%E9%A1%B9%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2022/08/14/%E5%A4%9A%E9%A1%B9%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title"></div>
     </a>
@@ -245,7 +287,7 @@ Solve：\\
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li></ul>
     </div>
   </div>
 
@@ -258,23 +300,23 @@ Solve：\\
       <ul>
         
           <li>
-            <a href="/2022/03/09/%E5%8F%8D%E6%BC%94/">(no title)</a>
+            <a href="/2022/08/14/%E5%8D%9A%E5%BC%88%E8%AE%BA/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2022/03/09/%E5%A4%9A%E9%A1%B9%E5%BC%8F/">(no title)</a>
+            <a href="/2022/08/14/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2022/03/09/%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF%E4%B8%8E%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0/">(no title)</a>
+            <a href="/2022/08/14/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2022/03/09/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/">(no title)</a>
+            <a href="/2022/08/14/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2022/03/09/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80/">(no title)</a>
+            <a href="/2022/08/14/%E5%9B%9B%E8%BE%B9%E5%BD%A2%E4%B8%8D%E7%AD%89%E5%BC%8F/">(no title)</a>
           </li>
         
       </ul>

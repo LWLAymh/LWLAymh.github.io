@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>LWLAymh的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="整值函数定义若$x\in\mathbb{R}$,则: $\lfloor x\rfloor&#x3D;$小于等于x的最大的整数. $\lceil x\rceil&#x3D;$大于等于x的最大的整数. 我们有时称$\lfloor x\rfloor$为$x$的整数部分,并定义$x-\lfloor x\rfloor$为分数部分,有时记作$\{x\}$. 我们定义$x\mod y&#x3D;x-y\lfloor\cfrac{x}{y}\">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LWLAymh的博客">
+<meta property="og:url" content="http://lwlaymh.github.io/2022/08/14/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:site_name" content="LWLAymh的博客">
+<meta property="og:description" content="整值函数定义若$x\in\mathbb{R}$,则: $\lfloor x\rfloor&#x3D;$小于等于x的最大的整数. $\lceil x\rceil&#x3D;$大于等于x的最大的整数. 我们有时称$\lfloor x\rfloor$为$x$的整数部分,并定义$x-\lfloor x\rfloor$为分数部分,有时记作$\{x\}$. 我们定义$x\mod y&#x3D;x-y\lfloor\cfrac{x}{y}\">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-14T14:25:04.431Z">
+<meta property="article:modified_time" content="2022-07-15T11:21:39.937Z">
+<meta property="article:author" content="LWLAymh">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="LWLAymh的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LWLAymh的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://LWLAymh.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-整值函数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/08/14/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2022-08-14T14:25:04.431Z" itemprop="datePublished">2022-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="整值函数"><a href="#整值函数" class="headerlink" title="整值函数"></a>整值函数</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>若$x\in\mathbb{R}$,则:</p>
+<p>$\lfloor x\rfloor=$小于等于x的最大的整数.</p>
+<p>$\lceil x\rceil=$大于等于x的最大的整数.</p>
+<p>我们有时称$\lfloor x\rfloor$为$x$的整数部分,并定义$x-\lfloor x\rfloor$为分数部分,有时记作$\{x\}$.</p>
+<p>我们定义$x\mod y=x-y\lfloor\cfrac{x}{y}\rfloor$,$x mumble y=y\lceil\cfrac{x}{y}\rceil-x$,其中$x,y\in \mathbb{N_+}$.</p>
+<p>当然,我们也可以使用上述定义将$mod$和$mumble$的定义扩展到实数域,不过$y=0$的时候需要特殊处理.</p>
+<h3 id="整值函数的基本性值"><a href="#整值函数的基本性值" class="headerlink" title="整值函数的基本性值"></a>整值函数的基本性值</h3><p>若$x\in \mathbb{R},n\in \mathbb{Z}$,则有:</p>
+<ol>
+<li>$\lfloor x\rfloor=x \Leftrightarrow \lceil x\rceil=x\Leftrightarrow x\in \mathbb{Z}$.</li>
+<li>$\lceil x\rceil-\lfloor x\rfloor=[x\notin \mathbb{Z}]$.</li>
+<li>$x-1&lt;\lfloor x\rfloor\leq x\leq \lceil x\rceil&lt;x+1$.</li>
+<li>$\lfloor-x\rfloor=-\lceil x\rceil,\lceil -x\rceil=-\lfloor x\rfloor$.</li>
+<li>$\lfloor x \rfloor=n\Leftrightarrow n\leq x&lt;n+1 \Leftrightarrow x-1&lt;n\leq x$.</li>
+<li>$\lceil x\rceil =n\Leftrightarrow n-1&lt;x\leq n\Leftrightarrow x\leq n&lt;x+1$.</li>
+<li>$x&lt;n\Leftrightarrow \lfloor x\rfloor&lt;n$.</li>
+<li>$x\leq n\Leftrightarrow \lceil x\rceil\leq n$.</li>
+<li>$x&gt;n\Leftrightarrow \lceil x\rceil&gt;n$.</li>
+<li>$x\geq n\Leftrightarrow \lfloor x\rfloor\geq n$.</li>
+<li>$\lfloor x+n\rfloor=\lfloor x\rfloor+n$.</li>
+<li>$\lceil x+n\rceil=\lceil x\rceil+n$.</li>
+<li>$\lfloor nx\rfloor=n\lfloor x\rfloor\Leftrightarrow n=0\or x-\lfloor x\rfloor&lt; \cfrac{1}n$.</li>
+<li>$\lceil nx\rceil=n\lceil x\rceil\Leftrightarrow n=0\or x-\lceil x\rceil&lt; \cfrac{1}n$.</li>
+<li>$\lceil\cfrac{n}{m}\rceil=\lfloor\cfrac{n-1}{m}\rfloor+1,m\in\mathbb{N_+}$.</li>
+<li>$m\lceil x\rceil-\lceil m(\lceil x\rceil-x)\rceil=\lfloor mx\rfloor$.</li>
+<li>$(x\mod ny)\mod y=x\mod y,n\in\mathbb{N_+}$.</li>
+<li>$c(x\mod y)=(cx)\mod (cy)$(分配律).</li>
+</ol>
+<h3 id="整值函数的应用"><a href="#整值函数的应用" class="headerlink" title="整值函数的应用"></a>整值函数的应用</h3><h4 id="一类函数与整值函数"><a href="#一类函数与整值函数" class="headerlink" title="一类函数与整值函数"></a>一类函数与整值函数</h4><p>设$f(x)$是一个有以下性质且在一个实数区间连续的单调递增函数:</p>
+<p>$f(x)\in \mathbb{Z}\Rightarrow x\in \mathbb{Z}$.</p>
+<p>那么,只要$f(x),f(\lfloor x\rfloor),f(\lceil x\rceil)$都有定义,我们有:</p>
+<p>$\lfloor f(x)\rfloor=\lfloor f(\lfloor x\rfloor) \rfloor$和$\lceil f(x)\rceil=\lceil f(\lceil x\rceil) \rceil$.</p>
+<p>由于底和顶是类似的,我们考虑先对顶进行证明,这样也可以类似证明底:</p>
+<p>若$x=\lceil x\rceil$,显然得证;</p>
+<p>不然,有$x&lt;\lceil x\rceil$,那么有$f(x)&lt;f(\lceil x\rceil)$,也就有$\lceil f(x)\rceil\leq \lceil f(\lceil x\rceil) \rceil$.</p>
+<p>考虑反证法,不妨令$\lceil f(x)\rceil&lt;\lceil f(x\lceil x\rceil) \rceil$.则一定存在一个整数$y$使得$\lceil f(x)\rceil=y&lt;\lceil f(\lceil x\rceil) \rceil$,此时必有$x\leq y&lt;\lceil x\rceil$.由于$f$的性值,显然有$y$是整数,但根据整值函数的性值,不可能存在这样一个整数$y$满足$x\leq y&lt;\lceil x\rceil$,因此得证.</p>
+<p>另外,我们考虑函数$f(x)=\cfrac{x+m}{n}$,显然这是一个满足条件的函数,因此显然满足上述的条件.再考虑$m=0$的特殊情况:$\lfloor \cfrac{\lfloor\cfrac{x}{n}\rfloor}{m}\rfloor=\lfloor\cfrac{x}{nm}\rfloor$.</p>
+<p>而单调递减函数可以取相反数转化为单调递增函数.</p>
+<h4 id="迪利克雷抽屉原理"><a href="#迪利克雷抽屉原理" class="headerlink" title="迪利克雷抽屉原理"></a>迪利克雷抽屉原理</h4><p>$n$个物体放进$m$个盒子里,那么必定有一个盒子中放入了大于等于$\lceil\cfrac n m\rceil$个物品,有一个盒子放入了小于等于$\lfloor\cfrac n m\rfloor$个物体.</p>
+<h4 id="计算区间内整数个数"><a href="#计算区间内整数个数" class="headerlink" title="计算区间内整数个数"></a>计算区间内整数个数</h4><p>整值函数的另一个应用是计算区间内整数个数:</p>
+<p>考虑基本性值$7,8,9,10$,不难发现:</p>
+<ol>
+<li>$[\alpha,\beta]$包含$\lfloor\beta\rfloor-\lceil\alpha\rceil+1$个整数.</li>
+<li>$(\alpha,\beta)$包含$\lceil\beta\rceil-\lfloor\alpha\rfloor-1$个整数.</li>
+<li>$(\alpha,\beta]$包含$\lfloor\beta\rfloor-\lfloor\alpha\rfloor$个整数.</li>
+<li>$[\alpha,\beta)$包含$\lceil\beta\rceil-\lceil\alpha\rceil$个整数.</li>
+</ol>
+<h4 id="谱"><a href="#谱" class="headerlink" title="谱"></a>谱</h4><p>我们定义一个实数$\alpha$的<strong>谱</strong>是以下集合:</p>
+<p>$Spec(\alpha)=\{\lfloor\alpha\rfloor,\lfloor2\alpha\rfloor,\lfloor3\alpha\rfloor…\}$.</p>
+<p>不难发现,只要$\alpha\ne\beta$,则$Spec(\alpha)\ne Spec(\beta)$.</p>
+<h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><p>求证:$Spec(\sqrt2)\cup Spec(2+\sqrt2)=\mathbb{N_+}$且$Spec(\sqrt2)\cap Spec(2+\sqrt2)=\phi$,即这两个集合构成了正整数集的一个划分.</p>
+<p>我们考虑这样一个事实:对于任意正整数$n$,如果我们能求出来$Spec(\sqrt2)$中有$a$个元素$\leq n$,$Spec(2+\sqrt2)$中有$b$个元素$\leq n$,并且$a+b=n$,则结论显然成立.</p>
+<p>不妨令函数$N(\alpha,n)$表示$Spec(\alpha)$中有多少个元素$\leq n$,其中$\alpha$是正数,我们有:</p>
+<script type="math/tex; mode=display">
+N(\alpha,n)=\sum_{k\in\mathbb{N_+}}[\lfloor k\alpha\rfloor\leq n]\\
+=\sum_{k\in\mathbb{N_+}}[\lfloor k\alpha\rfloor< n+1]\\
+=\sum_{k\in\mathbb{N_+}}[k\alpha< n+1]\\
+=\sum_k[0<k<(n+1)/\alpha]\\
+=\lceil(n+1)/\alpha\rceil-1</script><p>则我们要证明的就是:</p>
+<script type="math/tex; mode=display">
+\lceil\cfrac{n+1}{\sqrt2}\rceil-1+\lceil\cfrac{n+1}{2+\sqrt2}\rceil-1=n\\
+\lfloor\cfrac{n+1}{\sqrt2}\rfloor+\lfloor\cfrac{n+1}{2+\sqrt2}\rfloor=n\\
+\cfrac{n+1}{\sqrt2}-\{\cfrac{n+1}{\sqrt2}\}+\cfrac{n+1}{2+\sqrt2}-\{\cfrac{n+1}{2+\sqrt2}\}=n</script><p>而由于我们有恒等式:$\cfrac1{\sqrt2}+\cfrac{1}{2+\sqrt2}$,且两个相加为整数的数的分数部分相加显然为$1$,原式得证.</p>
+<p>事实上,如果两个集合$Spec(\alpha)$和$Spac(\beta)$构成正整数集一个划分,可以同上证明$\cfrac1\alpha+\cfrac1\beta=1$且$\alpha$和$\beta$都是无理数.</p>
+<h4 id="整值函数的递归式"><a href="#整值函数的递归式" class="headerlink" title="整值函数的递归式"></a>整值函数的递归式</h4><p>得到递归式的封闭形式的确很有用,它可以让我们在很快的时间内求出答案,但大部分时候是很麻烦的.</p>
+<p>而如果我们对时间的要求没有那么紧,我们不妨考虑一种较慢但更容易的方法:</p>
+<h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h5><p>约瑟夫问题,但是每隔两个人处死一个人,求最后存活者的编号.</p>
+<p>我们不妨这样考虑:我们每略过两个人,就将他们重新编号.</p>
+<p>例如,我们杀掉了三号,就将一号和二号重新编号为$n+1$号和$n+2$号,杀掉了六号,就将四号和五号重新编号为$n+3$号和$n+4$号,这样,我们在做游戏的时候,场上人员的编号一定是连续的.</p>
+<p>我们把最后存活者改为最后死亡者,这样它的最后编号就是$3n$.</p>
+<p>并且不难发现,第$k$个死亡的人的最后编号就是$3k$.</p>
+<p>我们考虑已知新编号如何求旧编号,设新编号为$N$:</p>
+<p>如果$N\leq n$,则$N$是初始编号,反之,我们考虑在编号$N$的时候被杀死的人的编号.</p>
+<p>令$N=n+2k+w$,其中$w\in[1,2]$,则编号$N$的时候被杀死的即是$3k$,那么$N$之前的编号就是$3k+w=N-n+k$.</p>
+<p>而$k=\lfloor\cfrac {(N-n-1)}{2}\rfloor$,我们可以不断进行迭代.</p>
+<p>如果我们令$D=3n+1-N$,换句话说即改变编号的顺序,我们可以有以下的赋值操作:</p>
+<p>$3n+1-D’=3n+1-D-n+\lfloor\cfrac {(3n+1-D-n-1)}{2}\rfloor$.</p>
+<p>化简这个式子,我们有:$D’=D+n-\lfloor\cfrac {(2n-D)}{2}\rfloor=D+\lceil\cfrac{D}{2}\rceil=\lceil\cfrac{3D}2\rceil$.</p>
+<p>事实上,我们可以证明:如果我们每隔$q$个人就杀掉一个人的话,那么$D’=\lceil\cfrac{(q+1)D}{q}\rceil$,一直迭代到$D’&gt;qn$时.</p>
+<p>而最后的答案就是$(q+1)n+1-D$.</p>
+<h4 id="整值函数的恒等式"><a href="#整值函数的恒等式" class="headerlink" title="整值函数的恒等式"></a>整值函数的恒等式</h4><p>考虑公式$\lceil\cfrac{n-k+1}{m}\rceil$,不难发现它在$1\leq k\leq n\mod m$时的值为$\lceil\cfrac{n}{m}\rceil$,而在$n\mod m&lt;k\leq m$的值为$\lfloor\cfrac n m\rfloor$.</p>
+<p>那么我们可以得到以下恒等式:</p>
+<p>$n=\sum_{k=1}^m\lceil\cfrac{n-k+1}{m}\rceil$.</p>
+<p>类似地,有:</p>
+<p>$n=\sum_{k=1}^m\lfloor\cfrac{n+k-1}{m}\rfloor$.</p>
+<p>用$\lfloor mx\rfloor$替换上面的$n$有$\lfloor mx\rfloor=\sum_{k=1}^m\lfloor x+\cfrac{k-1}{m}\rfloor$.</p>
+<p>同样的,有$\lceil mx\rceil=\sum_{k=1}^m\lceil x-\cfrac{k-1}{m}\rceil$.</p>
+<h4 id="整值函数的和式"><a href="#整值函数的和式" class="headerlink" title="整值函数的和式"></a>整值函数的和式</h4><p>通常情况下,处理含整值函数的和式时,通过引入新变量进行代替以及通过转化为区间进行化简.</p>
+<p>如果遇到难以处理的情况,我们不妨考虑直接处理其中一段的和,使得剩下部分求和更为简单.</p>
+<p>处理整值函数的另一个方法是:考虑将整值函数内的东西移出,并且让里面的东西形如等差序列,这样我们就可以尝试使用恒等式来化简.</p>
+<h5 id="Example1"><a href="#Example1" class="headerlink" title="Example1"></a>Example1</h5><p>求$\sum_{k=0}^{n-1}\lfloor\sqrt k\rfloor$.</p>
+<p>我们有:</p>
+<script type="math/tex; mode=display">
+\sum_{k=0}^{n-1}\lfloor\sqrt k\rfloor=\sum_{0\leq k,m}[k<n][m=\lfloor\sqrt k\rfloor]m\\
+=\sum_{0\leq k,m}[k<n][m^2\leq k<(m+1)^2]m\\
+=\sum_{0\leq k,m}m[m^2\leq k<n<(m+1)^2]+\sum_{0\leq k,m}m[m^2\leq k<(m+1)^2\leq n]</script><p>考虑$n=a^2$的特殊情况,则前面那一项显然是$0$,那么:</p>
+<script type="math/tex; mode=display">
+原式=\sum_{0\leq k,m}m[m^2\leq k<(m+1)^2\leq n]\\
+=\sum_{0\leq m}m(2m+1)[m<a]\\
+=\sum_{m=0}^{a-1}(2m^2+m)\\
+=\cfrac{(a-1)a(2a-1)}{3}+\cfrac{a(a-1)}{2}\\
+=\cfrac{(4a+1)a(a-1)}{6}</script><p>而如果$n\ne a^2$,我们令$a=\lfloor\sqrt n\rfloor$,而当$k\in [a^2,n)$的部分的贡献显然是$a(n-a^2)$.</p>
+<p>于是最后的结果就是:$\cfrac{(4a+1)a(a-1)}{6}+a(n-a^2),a=\lfloor\sqrt n\rfloor$.</p>
+<p>另一个做法是,我们考虑增加枚举量,有:</p>
+<script type="math/tex; mode=display">
+\sum_{k=0}^{n-1}\lfloor\sqrt k\rfloor=\sum_{j,k}[1\leq j\leq \sqrt k][0\leq k<a^2]\\
+=\sum_{1\leq j<a}\sum_{k}[j^2\leq k<a^2]\\
+=\sum_{1\leq j<a}a^2-j^2=a^3-\cfrac{a(2a+1)(a+1)}{6}</script><h5 id="Example2"><a href="#Example2" class="headerlink" title="Example2"></a>Example2</h5><p>求$\sum_{k=0}^{m-1}\lfloor\cfrac{nk+x}{m}\rfloor,m\in\mathbb{N_+},n\in \mathbb{Z}$.</p>
+<p>由于$kn-(kn\mod m)=m\lfloor\cfrac{kn}{m}\rfloor$,我们有:</p>
+<p>$\lfloor\cfrac{x+kn}{m}\rfloor=\lfloor\cfrac{x+(kn\mod m)}{m}\rfloor+\cfrac{kn}{m}-\cfrac{kn\mod m}{m}$.</p>
+<p>这样,我们将整个式子的求和分为了三部分,第二项显然是等差数列求和,而如果我们令$g=\gcd(n,m)$,不难发现第三项是一个等差数列$0,g,2g,…m-g$重复了$g$次,而且正因为这,第一项里面的数也就自然组成了等差数列,由于我们有恒等式,那么这一项也就自然可以计算了.</p>
+<p>分别求和后加起来,得到答案为$g\lfloor\cfrac{x}{g}\rfloor+\cfrac{(m-1)n}{2}+\cfrac{g-m}{2}$.</p>
+<p>另外,对这个式子进行化简,我们可以得到:$g\lfloor\cfrac{x}{g}\rfloor+\cfrac{(m-1)(n-1)}{2}+\cfrac{g-1}2$,而这个式子关于$n$和$m$是对称的.</p>
+<p>也就是说:$\sum_{k=0}^{m-1}\lfloor\cfrac{nk+x}{m}\rfloor=\sum_{k=0}^{n-1}\lfloor\cfrac{mk+x}{n}\rfloor,m,n\in\mathbb{N_+}$.</p>
+<p>另外,如果要求$\sum^n_{i=0}\lfloor\cfrac{ai+b}{c}\rfloor$,我们也有一种$O(\log n)$的做法:</p>
+<p>若$c\leq a$,原式化为$\sum^n_{i=0}{(i\times\lfloor\frac{a}{c}\rfloor+\lfloor\cfrac{(a\mod c)i+b}{c}\rfloor)}$.</p>
+<p>若$c\leq b$,原式化为$\sum^n_{i=0}{\lfloor\cfrac{b}{c}\rfloor+\lfloor\cfrac{ai+(b\mod c)}{c}\rfloor}$.</p>
+<p>考虑$a,b&lt;c$的情况,设$m=\lfloor\cfrac{an+b}{c}\rfloor$,原式化为</p>
+<script type="math/tex; mode=display">
+\sum^n_{i=0}\sum^m_{j=1}[j\leq \lfloor\cfrac{ai+b}{c}\rfloor]\\=\sum^n_{i=0}\sum^m_{j=1}[cj\leq ai+b]\\=nm-\sum^n_{i=0}\sum^m_{j=1}[ai\leq cj-b-1]\\=nm-\sum^m_{i=1}\lfloor\cfrac{ci-b-1}{a}\rfloor</script><h5 id="Example3"><a href="#Example3" class="headerlink" title="Example3"></a>Example3</h5><p>求$\sum_{n=1}^{1000}[\lfloor\sqrt[3]n\rfloor|n]$.</p>
+<script type="math/tex; mode=display">
+原式=\sum_{n,k}[k=\lfloor\sqrt[3]n\rfloor][k|n][1\leq n\leq 1000]\\
+=\sum_{k,m,n}[k^3\leq n<(k+1)^3][n=km][1\leq n\leq 1000]\\
+=1+\sum_{k,m}[k^3\leq km<(k+1)^3][1\leq km< 1000]\\
+=1+\sum_{k,m}[k^2\leq m<\frac{(k+1)^3}k][1\leq k<10]\\
+=1+\sum_{k=1}^9(\lceil k^2+3k+3+\frac1 k\rceil-\lceil k^2\rceil)\\
+=1+\sum_{k=1}^9(3k+4)=172</script><p>上述推理过程将$n=1000$的情况特殊讨论了一下,不难发现,如果我们要求的式子是$\sum_{n=1}^{N}[\lfloor\sqrt[3]n\rfloor|n]$,也仍然可以使用将$[K^3,N],K=\lfloor\sqrt[3]N\rfloor$中的数特殊处理的方式做掉,因为这些数的三次根下取整一定是$K$,式子就不难化简了.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lwlaymh.github.io/2022/08/14/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/" data-id="cl6tfaafu0006rovt8iw8hje2" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/08/14/%E5%8D%9A%E5%BC%88%E8%AE%BA/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/08/14/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/08/14/%E5%8D%9A%E5%BC%88%E8%AE%BA/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/14/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/14/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/14/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/14/%E5%9B%9B%E8%BE%B9%E5%BD%A2%E4%B8%8D%E7%AD%89%E5%BC%8F/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 LWLAymh<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

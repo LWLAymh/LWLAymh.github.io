@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>LWLAymh的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="数论本文除特殊说明,所涉及数均为整数. 整除性及相关如果$m&gt;0$且$\cfrac{n}{m}$是一个整数,我们就说$m$整除$n$,记作$m|n$. 能同时整除两个数$n$和$m$的数称为$n$和$m$的公因子,所有公因子中最大的那个称为最大公因子,记作$\gcd(n,m)$.而最小的能同时被$n$和$m$整除的非零数被称为他们的最小公倍数,记作$lcm(n,m)$.不难发现$lcm(n,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LWLAymh的博客">
+<meta property="og:url" content="http://lwlaymh.github.io/2022/08/14/%E6%95%B0%E8%AE%BA/index.html">
+<meta property="og:site_name" content="LWLAymh的博客">
+<meta property="og:description" content="数论本文除特殊说明,所涉及数均为整数. 整除性及相关如果$m&gt;0$且$\cfrac{n}{m}$是一个整数,我们就说$m$整除$n$,记作$m|n$. 能同时整除两个数$n$和$m$的数称为$n$和$m$的公因子,所有公因子中最大的那个称为最大公因子,记作$\gcd(n,m)$.而最小的能同时被$n$和$m$整除的非零数被称为他们的最小公倍数,记作$lcm(n,m)$.不难发现$lcm(n,">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-14T14:25:04.321Z">
+<meta property="article:modified_time" content="2022-08-01T03:21:39.710Z">
+<meta property="article:author" content="LWLAymh">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="LWLAymh的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LWLAymh的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://LWLAymh.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-数论" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/08/14/%E6%95%B0%E8%AE%BA/" class="article-date">
+  <time class="dt-published" datetime="2022-08-14T14:25:04.321Z" itemprop="datePublished">2022-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="数论"><a href="#数论" class="headerlink" title="数论"></a>数论</h2><p>本文除特殊说明,所涉及数均为整数.</p>
+<h3 id="整除性及相关"><a href="#整除性及相关" class="headerlink" title="整除性及相关"></a>整除性及相关</h3><p>如果$m&gt;0$且$\cfrac{n}{m}$是一个整数,我们就说$m$整除$n$,记作$m|n$.</p>
+<p>能同时整除两个数$n$和$m$的数称为$n$和$m$的公因子,所有公因子中最大的那个称为最大公因子,记作$\gcd(n,m)$.而最小的能同时被$n$和$m$整除的非零数被称为他们的最小公倍数,记作$lcm(n,m)$.不难发现$lcm(n,m)\gcd(n,m)=nm$.</p>
+<h4 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h4><p>欧几里得算法基于以下定理:</p>
+<p>$\gcd(0,n)=n$且$\gcd(n,m)=\gcd(n\mod m,m),m&gt;0$.</p>
+<p>考虑证明,首先,$\forall k\in\mathbb{Z}$,$n$和$m$的公因子一定是$n$和$m+kn$的公因子,这是显然的.因此,$n$和$m$的公因子一定是$m$和$n-m\lfloor\cfrac{n}{m}\rfloor$的公因子,而反之亦然.</p>
+<h4 id="一种预处理最大公约数的算法"><a href="#一种预处理最大公约数的算法" class="headerlink" title="一种预处理最大公约数的算法"></a>一种预处理最大公约数的算法</h4><p>存在一种$O(n)$预处理,$O(1)$求任意两个小于等于$n$的数的$\gcd$的方法:</p>
+<p>引理:</p>
+<p>对于任意整数$n$,存在一种划分方式$n=abc$,$a$,$b$,$c$三个数要么是质数,要么$\leq \sqrt n$.</p>
+<p>证明:</p>
+<p>如果$n$存在一个大于等于$\sqrt n$的质因子，显然成立.</p>
+<p>否则，使用数学归纳，我们考虑$n$的最小质因子为$p$,设$\frac n p=xyz$,不妨设$x\leq y\leq z$.</p>
+<p>如果$x=1$,显然成立.</p>
+<p>不然有$p\leq x\leq y\leq z$,而$pxyz=n$,那么$p^4\leq n$,$p\leq n^{\frac 1 4}$.</p>
+<p>现在我们想要证明不存在$xp&gt;\sqrt n$,$yp&gt;\sqrt n$,$zp&gt;\sqrt n$.</p>
+<p>如果存在，我们有:</p>
+<script type="math/tex; mode=display">
+xyzp^3>n^{\frac 3 2}\\
+np^2>n^{\frac 3 2}\\
+p^2>\sqrt n\\
+p>n^{\frac 1 4}</script><p>与我们前面的结论不符合.</p>
+<p>因而该引理一定成立,并且给出了$O(n)$预处理所有数$abc$的方法.</p>
+<p>接下来，设$m=\sqrt n$,考虑使用$O(n)$的时间求出每个小于等于$m$的数对的$\gcd$,如果我们要求$\gcd(x,y)$,设$x=abc$,显然$\gcd(x,y)=\gcd(a,y)\times\gcd(b,\frac{y}{\gcd(a,y)})\times\gcd(c,\frac{y}{\gcd(ab,y)})$.</p>
+<p>如果$a$是质数，只需要判断$a$是否整除$y$.</p>
+<p>否则$\gcd(a,y)=\gcd(y\mod a,a)$,因为$a\leq \sqrt n$,因而可以直接查表.</p>
+<h4 id="裴蜀定理"><a href="#裴蜀定理" class="headerlink" title="裴蜀定理"></a>裴蜀定理</h4><p>$\forall a,b,m\in\mathbb{Z}$,则$\exists x,y\in \mathbb{Z}$满足$ax+by=m$,当且仅当$\gcd(a,b)|m$.</p>
+<p>证明如下:</p>
+<p>若$a=0$或$b=0$,显然成立.</p>
+<p>不然，设集合$A=\{xa+yb|x,y\in\mathbb{Z}\}$中的最小正元素$d_0=x_0a+y_0b$,该集合中显然一定有正元素.</p>
+<p>考虑任意$p=x_1a+y_1b\in A$,设$p=qd_0+r$,其中$0\leq r&lt;d_0$.</p>
+<p>可以发现:</p>
+<p>$r=p-qd_0=ax_1+by_1-qax_0-qby_0=a(x_1-qx_0)+b(y_1-qy_0)$</p>
+<p>有$r\in A$.</p>
+<p>由于$d_0$是$A$中最小的正元素,所以$r=0$,所以$p=qd_0$.</p>
+<p>由于$p$可以$=a$也可以$=b$,所以$d_0|a\and d_0|b$.</p>
+<p>又因为对于一个数$d_1$满足$d_1|a\and d_1|b$,则$a=k_1d_1$,$b=k_2d_1$,$d_0=(x_0k_1+y_0k_2)d_1$.</p>
+<p>由于$d_0$和$d_1$都是正整数,所以可得到$d_1$是$d_0$的约数</p>
+<p>也就是说$d_0=\gcd(a,b)$,则原方程化为$h_1d_0x+h_2d_0y=m$.</p>
+<p>由于$x$和$y$都是整数,所以若$\gcd(a,b)\nmid m$,也就是$d_0\nmid m$,原方程定无解.</p>
+<p>不然,考虑刚才的过程中的$q$,显然可以取任意整数,因而必定有解.</p>
+<h4 id="扩展欧几里得算法"><a href="#扩展欧几里得算法" class="headerlink" title="扩展欧几里得算法"></a>扩展欧几里得算法</h4><p>考虑求方程$ax+by=\gcd(a,b)$的一组解.</p>
+<p>首先,如果$b=0$,那这组解显然就是$\begin{cases}x=1\\y=0\end{cases}$.</p>
+<p>反之,我们令$c=a\mod b$,考虑求方程$cz+bw=\gcd(c,b)$的一组解.</p>
+<p>接下来呢,考虑带入$c$,则我们求出来的即方程$(a-b\lfloor\cfrac a b\rfloor)z+bw=\gcd(a,b)$的一组解.不难发现这也就是方程$az+(w-\lfloor\cfrac a b\rfloor z)b=\gcd(a,b)$的一组解,所以原本的方程的解也就是$\begin{cases}x=z\\y=(w-\lfloor\cfrac a b\rfloor z)\end{cases}$.</p>
+<p>另外,这个算法也可以使用矩阵形式:</p>
+<p>首先有$\left[\begin{matrix}<br>a\\<br>b<br>\end{matrix}\right]<br>=\left[\begin{matrix}<br>a\\<br>b<br>\end{matrix}\right]$</p>
+<p>令$q=\lfloor\frac a b\rfloor$,那么我们有$\left[\begin{matrix}<br>0&amp;1\\<br>1&amp;-q<br>\end{matrix}\right]<br>\left[\begin{matrix}<br>a\\<br>b<br>\end{matrix}\right]=<br>\left[\begin{matrix}<br>b\\<br>a\mod b<br>\end{matrix}\right]$</p>
+<p>同样我们可以得到:$\left[\begin{matrix}<br>x_1&amp;y_1\\<br>x_2&amp;y_2<br>\end{matrix}\right]<br>\left[\begin{matrix}<br>a\\<br>b<br>\end{matrix}\right]=<br>\left[\begin{matrix}<br>\gcd(a,b)\\<br>0<br>\end{matrix}\right]$</p>
+<p>即$ax_1+by_1=\gcd(a,b)$,$(x_1,y_1)$就是一组特解.</p>
+<h4 id="一些性质"><a href="#一些性质" class="headerlink" title="一些性质"></a>一些性质</h4><p>令$n,m\in\mathbb{N_+}$.</p>
+<ol>
+<li>$k|n\and k|m\Leftrightarrow k|\gcd(n,m)$.</li>
+<li>$\sum_{m|n}a_m=\sum_{m|n}a_{\frac{n}{m}}$.</li>
+<li>$\sum_{m|n}\sum_{k|m}a_{k,m}=\sum_{k|n}\sum_{l|(\frac{n}{k})}a_{k,kl}$.</li>
+</ol>
+<h3 id="素数及相关"><a href="#素数及相关" class="headerlink" title="素数及相关"></a>素数及相关</h3><h4 id="唯一分解定理-算数基本定理"><a href="#唯一分解定理-算数基本定理" class="headerlink" title="唯一分解定理(算数基本定理)"></a>唯一分解定理(算数基本定理)</h4><p>任何正整数都只有一种方式以素数非减的次序写成素数的乘积.</p>
+<p>证明:</p>
+<p>考虑数学归纳法,设小于$n$的数全部满足.</p>
+<p>则对于$n$,如果它不满足条件,一定存在两种分解方式$n=\prod_{i=1}^mp_i=\prod_{i=1}^kq_i$.</p>
+<p>首先,如果$p_1=q_1$,根据归纳假设,显然不成立.</p>
+<p>不失一般性,设$p_1&lt;q_1$,也就是$\forall i\in[1,k],p_1&lt;q_i$.由于扩展欧几里得算法,此时一定可以找到方程$p_1x+q_1y=1$的一组解.令$s=\prod_{i=2}^kq_i$,则这也是方程$p_1sx+q_1sy=s$的一组解,也就是方程$p_1sx+ny=s$的一组解.</p>
+<p>两边同时除以$p_1$,显然左边可以整除.而这意味着$p_1|s$,但这是不可能的,因为$s&lt;n$,根据归纳假设,它只有一种分解方式,这种方式中显然不可能存在$p_1$.</p>
+<p>因此证毕.</p>
+<p>那么根据上述证明,我们可以将一个数表示为以下形式:$n=\prod_p p^{n_p},n_p\geq 0$.</p>
+<h4 id="素数的个数"><a href="#素数的个数" class="headerlink" title="素数的个数"></a>素数的个数</h4><p>首先,欧几里得证明了素数有无穷多个:</p>
+<p>假设素数有有限个,分别为$p_1,p_2,…p_m$,则$\prod_{i=1}^mp_i+1$无法被其中任何素数整除,则假设不成立.</p>
+<p>在此基础上,我们可以定义欧几里得数:</p>
+<p>$e_1=2,e_n=1+\prod_{i=1}^{n-1}e_i$.</p>
+<p>令$\pi(n)$表示小于等于$n$的素数个数,有${\lim_{n\rightarrow+\infty}\cfrac{\pi(n)\times \ln n}{n}}=1$.</p>
+<p>有切比雪夫定理:若$n&gt;1,\exist p\in prime,p\in(n,2n)$.</p>
+<p>同时,我们还有以下结论:$\sum_{1\leq p\leq n\and p\in prime}\cfrac{1}{p}\approx \log\log n$.</p>
+<p>证明如下:</p>
+<script type="math/tex; mode=display">
+\sum_{1\leq p\leq n\and p\in prime}\cfrac{1}{p}=\sum^n_{k=1}\cfrac{\pi(k)-\pi(k-1)}{k}=\sum^n_{k=1}\cfrac{\pi(k)}{k}-\sum^n_{k=1}\cfrac{\pi(k-1)}{k}\\
+=\sum^n_{k=1}\cfrac{\pi(k)}{k}-\sum^{n-1}_{k=0}\cfrac{\pi(k)}{k+1}\\
+=\sum^{n-1}_{k=1}\cfrac{\pi(k)}{k}+\cfrac{\pi(n)}{n}-\sum^{n-1}_{k=1}\cfrac{\pi(k)}{k+1}+\cfrac{\pi(0)}{1}\\
+=\sum^{n-1}_{k=1}\cfrac{\pi(k)}{k(k+1)}+\cfrac{\pi(n)}{n}\\
+= \sum^{n-1}_{k=1}{(\cfrac{1}{k\log k})}+O(1)= O(\log \log n)+O(1)</script><h4 id="Miller-Rabin算法"><a href="#Miller-Rabin算法" class="headerlink" title="Miller-Rabin算法"></a>Miller-Rabin算法</h4><p>如果判断$n$是否是质数,取$a&lt;n$,设$n-1=d\times2^r$.</p>
+<p>则要么$a^d\equiv 1(\mod n)$.</p>
+<p>要么$\exists i$,使得$0\leq i&lt;r$,$a^{d\times 2^i}\equiv -1(\mod n)$.</p>
+<p>若一个都不满足,则n一定不是质数,不然可能是质数.</p>
+<p>但是若取足够多的不同的$a$(如果选$m$个),那么$n$是质数的可能性更大.</p>
+<p>此为Miller-Rabin算法,复杂度$O(m\times log_2n)$.不保证正确性.</p>
+<p>其中a通常取质数，原因不详.（事实上，如果a取前八个小质数，在2^{64}内是不会出错的）</p>
+<h4 id="Pollard-Rho算法"><a href="#Pollard-Rho算法" class="headerlink" title="Pollard-Rho算法"></a>Pollard-Rho算法</h4><p>对$n$做质因数分解,若能找到$a$使得$a|n$,则考虑对$\cfrac{n}{a}$和$a$分别进行质因数分解.</p>
+<p>考虑随机$a$,若$n$有$m$个因数,那么显然随机到$a$使得$a|n$的概率为$\cfrac{m}{n}$,显然不太优秀.</p>
+<p>考虑改变随机策略,我们考虑随机一个$a$使得$\gcd(a,n)\ne 1$,那么$\gcd(a,n)$就是$n$的一个因子.</p>
+<p>这种情况下,随机的概率是$\cfrac{\varphi(n)}{n}$,仍然很不优秀.</p>
+<p>考虑使用生日悖论优化,随机$k$个数$a$.两两匹配得到$k^2$个值,这些值全都不整除$n$的概率可以用生日悖论来计算.</p>
+<p>当$k=10\sqrt{n}$时,错误的概率会很小,但是复杂度仍然很高,无法接受.</p>
+<p>考虑构造$a_i=[(a_{i-1})^2+b]\mod n$.</p>
+<p>考虑该数列的性质,当$b$确定时,$a$一定有循环节.</p>
+<p>显然当$x|(a_i-a_j)$,则$x|[(a_i-a_j)\times(a_i+a_j)-b+b]$,$x|(a_{i+1}-a_{j+1})$.</p>
+<p>因此,我们可以利用floyd判环法(双指针法)找出循环节.</p>
+<p>并且在这个过程中,我们可以预处理出大量的$a_{i+len}-a_i$.</p>
+<p>复杂度极其玄学,但是实际应用中不差.</p>
+<h3 id="阶乘"><a href="#阶乘" class="headerlink" title="阶乘"></a>阶乘</h3><p>我们定义$n!=\prod_{i=1}^ni$,特别地,$0!=1$.</p>
+<p>考虑估计$n!$的大小,不难发现$(n!)^2=\prod_{i=1}^ni(n+1-i)$.</p>
+<p>而函数$y=i(n+1-i),i\in[1,n]$显然在$i=1$和$i=n$时取最小值,而在$i=\cfrac{n+1}2$时取最大值.</p>
+<p>那么我们有$\prod_{i=1}^nn\leq (n!)^2\leq \prod _{i=1}^n\cfrac{(n+1)^2}{4}$.</p>
+<p>于是$n^{\frac{n}2}\leq n!\leq \cfrac{(n+1)^n}{2^n}$.</p>
+<p>事实上有一种更准确的估计方法:$n!\sim \sqrt{2\pi n}(\cfrac{n}e)^n$.</p>
+<h4 id="威尔逊定理"><a href="#威尔逊定理" class="headerlink" title="威尔逊定理"></a>威尔逊定理</h4><p>$(p-1)!\equiv \begin{cases}<br>-1(\mod p)&amp;p\in prime\\<br>2(\mod p)&amp;p=4\\<br>0(\mod p)&amp;other<br>\end{cases}$</p>
+<p>证明:</p>
+<p>当$p$为质数时，考虑对于$a$和$b=a^{-1}(\mod p)$,若$a=b$,此时可证明$a=1$或$a=p-1$(需要用到下面独立剩余知识).</p>
+<p>如果$a\ne b$那么一定可以在$[1,p-1]$找到一对数,它们相乘为$1$.原因是若$a_1\ne a_2$,那么$a_1^{-1}\ne a_2^{-1}$.</p>
+<p>若$p$不是质数,则设$p=ab$,当$a\ne b$时,由于$a,b\leq p$,因此$(p-1)!$一定是$p$的倍数.</p>
+<p>若$a=b$,除非$p=4$,不然一定能在$[1,p-1]$里找到$a$和$2a$,此时$(p-1)!$也是$p$的倍数.</p>
+<h3 id="互素"><a href="#互素" class="headerlink" title="互素"></a>互素</h3><p>如果两个数$n$和$m$满足$\gcd(n,m)=1$,我们称他们互素,记作$n\bot m$.</p>
+<p>我们显然有这样两条性质:</p>
+<ol>
+<li>$\cfrac{n}{\gcd(n,m)}\bot \cfrac{m}{\gcd(n,m)}$.</li>
+<li>$k\bot n\and k\bot m\Leftrightarrow k\bot nm$.</li>
+</ol>
+<h4 id="Stern-Brocot-树"><a href="#Stern-Brocot-树" class="headerlink" title="Stern-Brocot 树"></a>Stern-Brocot 树</h4><p>Stern-Brocot树是一种可以不重不漏列举有理数的方式,它的构造如下:</p>
+<p>一开始,序列中有两个分数:$\cfrac{0}{1}$和$\cfrac{1}{0}$,这里使用了$0$作分母,但我们暂且认为它是正确的,因为这样会出现很多方便的性质.</p>
+<p>接下来,不断地对这个序列进行以下操作:在两个相邻的分数$\cfrac{m}{n}$和$\cfrac{m’}{n’}$之间插入一个新分数$\cfrac{m+m’}{n+n’}$.</p>
+<p>这么无限构造下去得到的序列满足两个性质:</p>
+<ol>
+<li>所得到的分数全都是最简分数.</li>
+<li>所得到的分数不重不漏,换句话说,任意非负有理数都在这个序列中出现恰好一次.</li>
+</ol>
+<p>我们不妨认为$\cfrac{1}{0}=+\infty$,那么不难发现这么构造序列,所得到的序列一定是单调递增的.</p>
+<p>这是因为如果我们有$\cfrac{m}{n}&lt;\cfrac{m’}{n’}$,那么我们一定有:$\cfrac{m}{n}&lt;\cfrac{m+m’}{n+n’}&lt;\cfrac{m’}{n’}$,其中$n,n’,m,m’\geq0$,这一点不难验证.</p>
+<p>而正因为如此,我们可以证明所得到的所有分数不重.</p>
+<p>然后,如果当前所得到的序列中有两个数$\cfrac{m}{n}$和$\cfrac{m’}{n’}$相邻,则$m’n-mn’=1$,这一点不难通过数学归纳证明.而根据裴蜀定理,显然$m\bot n$且$m’\bot n’$.</p>
+<p>我们最后需要证明任意非负有理数都可以通过这个序列构造出来,考虑类似二分的方法构造.换句话说,我们有两个序列中的分数$\cfrac{m}{n}$和$\cfrac{m’}{n’}$,要构造的有理数为$\cfrac ab$且满足$\cfrac{m}n&lt;\cfrac a b&lt;\cfrac {m’}{n’}$.</p>
+<p>我们考虑判断$\cfrac{m+m’}{n+n’}$与$\cfrac{a}{b}$的大小关系,这样就可以类似二分的方法一直往下找下去.</p>
+<p>问题在于为什么我们最后一定可以找到这个数呢?如果我们一直找不到这个数,意味着无论我们怎么做,都有$\cfrac{m}n&lt;\cfrac a b&lt;\cfrac {m’}{n’}$成立,而这也就意味着$an-bm\geq 1\and bm’-an’\geq 1$,处理一下不等式并合并,我们有$(m’+n’)(an-bm)+(n+m)(bm’-an’)\geq n+m+n’+m’$.</p>
+<p>化简这个式子得到$a+b\geq m’+n’+m+n$,而我们在操作过程中$m,n,m’,n’$显然会有两个数不变,另外两个数变大,因此迟早会大于$a+b$,也就意味着这个数迟早会被找到.</p>
+<p>之所以称其为”树”,则是因为我们如果每次都在任意两个数之间插入一个数,然后将进行若干次操作得到的序列放到二叉搜索树上,会得到一些很好的性质,譬如一个数是由它所有祖先中最大的小于它的数和最小的大于它的数生成的,以及关于根中心对称的两点互为倒数.</p>
+<p>另外,如果我们定义法里级数$\mathcal{F}_n$表示所有在$[0,1]$范围内且分母小于等于$n$的最简分数的集合.不难发现,$\mathcal{F}_n$对应着整棵树的一棵子树的一部分.而$\mathcal{F}_n$可以由$\mathcal{F}_{n-1}$得到,只需要判断$\mathcal F_{n-1}$中每两个相邻数能否生成一个满足条件的数即可.</p>
+<p>我们回到它的树形态上,如果我们定义$\cfrac 1 1$为这棵二叉搜索树的根,那么每个有理数显然都可以表示为从根到它的一个$LR$序列,表示从根向下搜索时每一步向左走还是向右走.特别地,我们定义根的序列为$I$.</p>
+<p>不难发现,通过这样的操作,我们将每一个非负有理数都对应到了一个$LR$序列.</p>
+<p>那么我们来考虑第一个问题:已知$LR$序列如何求这个数.</p>
+<p>我们可以设当前点是$x$,且它由$y$和$z$生成,其中$y&lt;x&lt;z$,那么不难发现它的右儿子由$x$和$z$生成,左儿子由$y$和$x$生成.</p>
+<p>那么我们显然可以使用记录$y$和$z$的方式,反复迭代求得答案.注意$x$是可以通过$y$和$z$求得的,因此没有必要存储.</p>
+<p>而这一过程可以简化为矩阵运算:</p>
+<p>我们令$y=\cfrac{m}n$,$z=\cfrac{m’}{n’}$,$S=\begin{bmatrix}n&amp;n’\\m&amp;m’\end{bmatrix}$,$f(S)=\cfrac{m+m’}{n+n’}$.</p>
+<p>那么不难发现它的每一次操作只需右乘一个变换矩阵即可.</p>
+<p>其中:$L=\begin{bmatrix}1&amp;1\\0&amp;1\end{bmatrix},R=\begin{bmatrix}1 &amp;0\\1&amp;1\end{bmatrix}$.</p>
+<p>至于已知数字求它的序列表示,首先可以直接在树上搜索.</p>
+<p>而如果要脱离树,我们仍然可以回到矩阵上,意识到$f(RS)=f(S)+1$,再加上关于根中心对称两点互为倒数的性质,我们可以推导出以下法则:</p>
+<p>如果$m&gt;n$,那么$f(RS)=\cfrac{m}{n}\Leftrightarrow f(S)=\cfrac{m-n}{n}$.</p>
+<p>如果$m&lt;n$,那么$f(LS)=\cfrac{m}n\Leftrightarrow f(S)=\cfrac{m}{n-m}$.</p>
+<p>借助这一点,我们就可以求一个数的$LR$序列表示了.</p>
+<p>在某些情形下,这种表示可以解决二进制下某些分数无法精确表示的问题.</p>
+<h3 id="同余"><a href="#同余" class="headerlink" title="同余"></a>同余</h3><p>如果$a\mod m=b\mod m$,我们称$a$和$b$关于模$m$同余,记作$a\equiv b(\mod m)$.</p>
+<p>根据同余的定义,若$a,b,c,d,k\in \mathbb{Z}$,$n,m\in\mathbb{N_+}$,我们有以下性质:</p>
+<ol>
+<li>$a\equiv b(\mod m)\Leftrightarrow a-b=km$.</li>
+<li>$a\equiv b(\mod m)\and c\equiv d(\mod m)\Rightarrow a+c\equiv b+d(\mod m)$.</li>
+<li>$a\equiv b(\mod m)\and c\equiv d(\mod m)\Rightarrow ac\equiv bd(\mod m)$.</li>
+<li>$a\equiv b(\mod m)\Rightarrow a^k\equiv b^k(\mod m)$.</li>
+<li>$ad\equiv bd(\mod m)\Leftrightarrow a\equiv b(\mod m),m\bot d$.</li>
+<li>$ad\equiv bd(\mod md)\Leftrightarrow a\equiv b(\mod m),d\ne 0$.</li>
+<li>$ad\equiv bd(\mod m)\Leftrightarrow a\equiv b(\mod \cfrac{m}{\gcd(m,d)})$.</li>
+<li>$a\equiv b(\mod md)\Rightarrow a\equiv b(\mod m),d\ne 0$.</li>
+<li>$a\equiv b(\mod m)\and a\equiv b(\mod n)\Leftrightarrow a\equiv b(\mod lcm(n,m))$.</li>
+</ol>
+<p>我们考虑第五条的证明:由于$m\bot d$,则根据扩展欧几里得算法,可以求得一个数$d’$满足$dd’+mm’=1$,也就是$dd’\equiv 1(\mod m)$,那么如果我们有$ad\equiv bd(\mod m)$,只需要两边同时乘以$d’$就可以得到右边.值得一提的是,我们通常称$d’$是$d$在模$m$意义下的逆元,记作$inv(d,m)$或$d^{-1}$.</p>
+<p>逆元有一种线性预处理的求法:</p>
+<p>考虑$1\leq i\leq n$,设$p=ki+r$,则有$ki+r\equiv 0(\mod p)$,则有$kr^{-1}+i^{-1}\equiv 0(\mod p)$.</p>
+<p>于是有$i^{-1}\equiv -kr^{-1}(\mod p)$,即$i^{-1}\equiv -\lfloor\cfrac{p}{i}\rfloor\times r^{-1}(\mod p)$.</p>
+<p>现在,我们给出一个结论:数列$0\mod m,n\mod m,2n\mod m,…,(m-1)n\mod m$在排序去重后恰好为数列$0,d,2d,…,m-d$,$d=\gcd(n,m)$,而且其中每个数字在原数列中恰好出现了$d$次.</p>
+<p>恰好出现$d$次是好证明的:考虑$jn\equiv kn(\mod m)$可以推导出$j\equiv k(\mod \cfrac{m}d),d=\gcd(n,m)$,则显然这些数是一个序列复制$d$次得到的.</p>
+<p>由上,我们要证明$kn\mod m$一定是$d$的倍数.不难发现$kn\mod m=dk\cfrac{n}d(\mod \cfrac m d d)=d(\cfrac{kn}d\mod \cfrac{m}d)$.</p>
+<p>接下来,不妨假设$n\bot m$,并在此条件下证明$0\mod m,n\mod m,2n\mod m,…,(m-1)n\mod m$两两不同即可.而由于$n\bot m$,则$kn\equiv jn(\mod m)$的充分必要条件是$k\equiv j(\mod m)$,因此它们显然两两不同.</p>
+<h4 id="费马小定理"><a href="#费马小定理" class="headerlink" title="费马小定理"></a>费马小定理</h4><p>$n^{p-1}\equiv 1(\mod p),n\bot p,p\in prime$.</p>
+<p>我们有:</p>
+<script type="math/tex; mode=display">
+\prod _{k=1}^{p-1}kn\equiv \prod _{k=1}^{p-1}(kn\mod p)(\mod p)\\
+n^{p-1}(p-1)!\equiv (p-1)!(\mod p)</script><p>根据威尔逊定理,显然可以推得费马小定理.</p>
+<p>根据费马小定理,我们可以考虑证明一个结论:$n^{p^k}\equiv n^{p^{k-1}}(\mod p^k)$.</p>
+<p>由于$n^{p-1}\equiv 1(\mod p)$,那么我们有$n^p\equiv n(\mod p)$,也即$\exist q\in\mathbb{Z}$满足$n^p=n+pq$,不断两边取$p$次方即可得到上述结论.</p>
+<h4 id="中国剩余定理-crt"><a href="#中国剩余定理-crt" class="headerlink" title="中国剩余定理(crt)"></a>中国剩余定理(crt)</h4><p>对于方程组$x\equiv a_i(\mod m_i)$,其中$m_i$两两互质,求$x$.</p>
+<p>令$m=\prod^k_{i=1}m_i$,设$M_i=\cfrac{m}{m_i}$,$N_i$是$M_i$在$\mod m_i$意义下逆元.</p>
+<p>则$x\equiv \sum^k_{i=1}M_iN_ia_i(\mod m)$.</p>
+<p>中国剩余定理的证明类似拉格朗日插值:</p>
+<p>由于$x$在$\mod m_i$意义下,$\sum$中枚举的所有不等于$i$的项都会成$0$，等于$i$的项会成$a_i$.</p>
+<p>考虑每次合并两项，显然有:$a=a_1+(a_2-a_1)\times m_1\times inv(m_1,m_2)$,$m=m_1m_2$.</p>
+<h4 id="扩展中国剩余定理-excrt"><a href="#扩展中国剩余定理-excrt" class="headerlink" title="扩展中国剩余定理(excrt)"></a>扩展中国剩余定理(excrt)</h4><p>对于方程组$x\equiv a_i(\mod m_i)$,若$m_i$两两不互质.</p>
+<p>我们考虑每次合并两个方程:$\begin{cases}<br>x\equiv a_1(\mod m_1)\\<br>x\equiv a_2(\mod m_2)<br>\end{cases}$<br>那这个方程组等价于:$\begin{cases}<br>x=k_1m_1+a_1\\<br>x=k_2m_2+a_2<br>\end{cases}$<br>合并上下方程,有:</p>
+<script type="math/tex; mode=display">
+k_1m_1+a_1=k_2m_2+a_2\\
+a_2-a_1=k_1m_1-k_2m_2</script><p>设$g=\gcd(m_1,m_2)$,显然若$g\nmid (a_2-a_1)$,方程无解.</p>
+<p>不然,有:</p>
+<script type="math/tex; mode=display">
+\frac {a_2-a_1}g=k_1\frac {m_1}{g}-k_2\frac{m_2}{g}\\
+k_1\frac{m_1}{g}=k_2\frac {m_2}g+\frac {a_2-a_1}g\\
+k_1\frac{m_1}g\equiv \frac {a_2-a_1}{g}(\mod \frac {m_2}g)\\</script><p>令$inv(a,p)$表示$a$在$\mod p$意义下的逆元,有:</p>
+<script type="math/tex; mode=display">
+k_1\equiv inv(\frac {m_1}{g},\frac {m_2}g)\frac{a_2-a_1}{g}(\mod \frac {m_2}g)\\
+k_1=inv(\frac{m_1}g,\frac{m_2}g)\frac{a_2-a_1}g+k_3\frac{m_2}g\\</script><p>带回第一个方程:</p>
+<script type="math/tex; mode=display">
+x=m_1(inv(\frac{m_1}g,\frac{m_2}g)\frac{a_2-a_1}g+k_3\frac{m_2}g)+a_1\\
+x\equiv m_1inv(\frac{m_1}g,\frac{m_2}g)\frac{a_2-a_1}g+a_1(\mod \frac{m_1m_2}g)</script><h4 id="二次剩余"><a href="#二次剩余" class="headerlink" title="二次剩余"></a>二次剩余</h4><p>求方程$x^2=k(\mod m)$的解.</p>
+<p>我们先考虑一个特殊情况:$k=1$,$m=p^k,p\in prime$.</p>
+<p>那么也就相当于求方程$(x-1)(x+1)\equiv 0(\mod p^k)$.</p>
+<p>如果$p&gt;2$,那么显然$x-1$和$x+1$只有一个能被$p^k$整除,所以有$x=\pm 1$.</p>
+<p>如果$p=2$,那么显然$x-1$和$x+1$有一个能被$2$整除但不能被$4$整除,另一个能被$2^{k-1}$整除,如果$k=1$时,显然只有一个解.当$k=2$时,同上.反之,有$x=\pm 1$或$x=2^{k-1}\pm 1$.另外,这导出一个性质:$(2k+1)^2\equiv 1(\mod 8)$.</p>
+<p>那么如果:$k=1,m\in\mathbb{N_+}$,也是一样的.先把$m$作质因数分解,然后再用中国剩余定理合并,那么显然不同质数的解会累乘到总的解上,若$m$有$r$个不同大于$2$的质因子,总的解的个数是$2^r$.而如果考虑$p=2$的情况,$m$有$r$个不同的质因子,则解的个数为$2^{r+[8|m]+[4|m]-[2|m]}$.</p>
+<h4 id="BSGS"><a href="#BSGS" class="headerlink" title="BSGS"></a>BSGS</h4><p>求$a^x\equiv b(\mod p)$的一组解,其中$p\in prime$且$1\leq p\leq 10^9$.</p>
+<p>直接枚举显然是$O(p)$的,非常不合理,考虑如何优化.</p>
+<p>求出$s=\lfloor\sqrt{p}\rfloor$,并求出所有$a^i$,其中$i\in [0,s-1]$.</p>
+<p>若$x\leq s-1$.则可以直接判断是否被求出来过.</p>
+<p>否则,则将$x=x\mod (s-1)$,一直操作直到$x\leq s-1$.</p>
+<h4 id="exBSGS"><a href="#exBSGS" class="headerlink" title="exBSGS"></a>exBSGS</h4><p>求$a^x\equiv b(\mod p)$的一组解,其中$1\leq p\leq 10^9$.</p>
+<p>设$g=\gcd(a,p)$,那么根据膜的性质,原方程即$\frac {a^x} g\equiv \frac b g (\mod \frac p g)$.</p>
+<p>显然若$g\nmid b$并且$b\ne 1$,方程定无解.(若b=1，那么x=0就是一个解)</p>
+<p>那么现在的方程就是$a^{x-1}\frac a g\equiv \frac b g(\mod \frac p g)$.</p>
+<p>继续进行这个过程,不断求$a$和当前模数的$\gcd$.并将当前模数除以该$\gcd$,这样最后我们得到了方程:</p>
+<p>$a^{x-k}\prod_{i=1}^k \frac a {g_i}\equiv \frac b {\prod_{i=1}^k g_i}(\mod \frac p {\prod_{i=1}^k g_i})\\$</p>
+<p>不妨设$A=\prod_{i=1}^k \frac a {g_i},B=\frac b {\prod_{i=1}^k g_i},P=\frac p {\prod_{i=1}^k g_i}\\$</p>
+<p>那么现在方程就是$a^{x-k}\equiv \frac B A(\mod p)$,可以使用BSGS求解.</p>
+<p>ps：$p=1$的时候要特判.</p>
+<h4 id="原根和阶"><a href="#原根和阶" class="headerlink" title="原根和阶"></a>原根和阶</h4><p>阶:找到一个最小的$k$使得$a^k\equiv1(\mod p)$,则称$k$是$a$在膜$p$意义下的阶.</p>
+<p>原根:如果$a$在膜$p$意义下的阶是$\varphi(p)$且$a&lt;p$,则称$a$是$p$的一个原根.</p>
+<p>若$m$有原根,则$m$一定是$2$,$4$或是$p^a,2p^a$,其中$p\in prime$且$2\nmid p$.</p>
+<p>由于对于大部分$m$来说,都存在一个很小的原根,所以在实际应用中只需要暴力找就可以了.</p>
+<p>根据阶的定义,我们如果要判断一个$a$不是$p$的原根,只需判断是否$\exists i$使得$a^i\equiv 1(\mod p)$.</p>
+<p>而由于$a^{\varphi(p)}\equiv 1(\mod p)$,因此一定有$i|\varphi(p)$,因此只需判断$\varphi(p)$的所有因数,复杂度$O(\sqrt{\varphi(p)})$.</p>
+<p>事实上,只需要判断对于$\varphi(p)$的所有质因子$w$,是否有$a^{\frac {\varphi(p)} w}\equiv 1(\mod p)$即可,复杂度$O(\log p)$.</p>
+<h5 id="Example1"><a href="#Example1" class="headerlink" title="Example1"></a>Example1</h5><p>给定$k$,$p$,$a$,求$x^k\equiv a(\mod p)$的所有解,其中$p\in prime$,$1\leq k \leq 10^5$.</p>
+<p>solution:</p>
+<p>考虑求出$p$的原根$g$,得到$g^r\equiv a(\mod p)$,同时由于$x\equiv g^y(\mod p)$,因此原方程变为:$g^{yk}\equiv g^r(\mod p)$</p>
+<p>于是有:$yk\equiv r(\mod p-1)$,即可求解.</p>
+<h3 id="积性函数"><a href="#积性函数" class="headerlink" title="积性函数"></a>积性函数</h3><p>若函数$f(x)$满足$\forall n,m\in \mathbb{N_+},n\bot m$,有$f(1)=1,f(nm)=f(n)f(m)$,则称其为积性函数.若$\forall n,m\in \mathbb{N_+}$,有$f(1)=1,f(nm)=f(n)f(m)$,则称其为完全积性函数.</p>
+<p>若函数$g(x)$是积性函数并且有$g(m)=\sum_{d|m}f(d)$,则$f(x)$也是积性函数,证明如下:</p>
+<p>不妨考虑数学归纳,首先$g(1)=f(1)=1$.</p>
+<p>令$m=m_1m_2,m_1\bot m_2$,则$g(m)=\sum_{d|m}f(d)=\sum_{d_1|m_1}\sum_{d_2|m_2}f(d_1d_2)$.由于归纳假设,此时只有$d_1=m_1\and d_2=m_2$的时候,$f(d_1d_2)$可能不等于$f(d_1)f(d_2)$.</p>
+<p>于是有</p>
+<script type="math/tex; mode=display">
+g(m)=\sum_{d_1|m_1}\sum_{d_2|m_2}f(d_1)f(d_2)-f(m_1)f(m_2)+f(m_1m_2)\\=g(m_1m_2)-f(m_1)f(m_2)+f(m_1m_2)</script><p>于是$f(m_1)f(m_2)=f(m_1m_2)$.</p>
+<p>该命题的逆命题也是同样成立的.有一些常见的积性函数,比如:$id(x)=x$,$I(x)=1$,$\varepsilon(x)=[x=1]$.</p>
+<h4 id="狄利克雷卷积"><a href="#狄利克雷卷积" class="headerlink" title="狄利克雷卷积"></a>狄利克雷卷积</h4><p>$f*g=\sum_{d|n}{f(d)g(\cfrac n d)}$.</p>
+<p>不难证明狄利克雷卷积满足:</p>
+<ol>
+<li>交换律:$f<em>g=g</em>f$.</li>
+<li>结合律:$f<em>(g</em>h)=(f<em>g)</em>h$.</li>
+<li>分配律:$f<em>(g+h)=f</em>g+f*h$.</li>
+</ol>
+<h4 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h4><p>定义欧拉函数$\varphi(m)$为所有满足$1\leq n\leq m\and n\perp m$的$n$的个数.</p>
+<p>令$m=m_1m_2$,其中$m_1\bot m_2$.由于若$n\bot m_1,n\bot m_2$,显然有$(n\mod m_1)\bot m_1$且$(n\mod m_2)\bot m_2$,则根据中国剩余定理,不难有$\varphi(m)=\varphi(m_1)\varphi(m_2)$,也即$\varphi(x)$是积性函数.</p>
+<p>若$n=\prod^{k}_{i=1}p_i^{a_i}$,则:</p>
+<p>$\varphi(n)=\prod^k_{i=1}\varphi(p_i^{a_i})=\prod^k_{i=1}{p_i^{a_i}-p_i^{a_i-1}}=\prod^k_{i=1}{p^{a_i-1}(p_i-1)}$.</p>
+<p>考虑改变枚举方式,因为$n=\prod_{p|n}p^{a_p}$,则:$\varphi(n)=\prod_{p|n}{p^{a_p-1}(p-1)}=\prod_{p|n}{(p^{a_p}\times \cfrac{p-1}{p})}=n\times\prod_{p|n}\cfrac{p-1}{p}$.</p>
+<p>我们考虑一个事实:现在有$m$个不同的分数$\cfrac{k}m,k\in[1,m]$,这些分数进行约分后,它们的分母即$m$的若干因数,而它们的分子就是与这些因数互质的数,同时这些数的个数总共是$m$个,我们可以得到:$\sum_{d|m}\varphi(d)=m$.</p>
+<p>上面这个结论还有另一种证明方法:</p>
+<p>由于$\varphi$是积性函数,若$n\ne1$,设$n=\prod_{i=1}^kp_i^{q_i}$,则$\varphi(n)=\prod_{i=1}^k\varphi(p_i^{q_i})$,则有:</p>
+<script type="math/tex; mode=display">
+\sum_{d|n}\varphi(d)=\sum_{w_1=0}^{q_1}\sum_{w_2=0}^{q_2}......\sum_{w_k=0}^{q_k}{p_1^{w_1}p_2^{w_2}......p_k^{w_k}}\\
+=\sum_{w_1=0}^{q_1}......\sum_{w_{k-1}=0}^{q_{k-1}}{p_1^{w_1}......p_{k-1}^{w_{k-1}}\sum_{w_k=0}^{q_k}p_k^{w_k}}\\</script><p>而$\varphi(p^q)=p^q-p^{q-1}$,于是有$\sum_{i=1}^{q_i}{(p_x^i-p_x^{i-1})}=(p_x^{q_x}-1)$,则有$\sum_{i=0}^{q_x}\varphi(p_x^{i})=p_x^{q_x}$.</p>
+<p>则原式等于$\prod_{i=1}^kp_i^{q_i}=n$.</p>
+<h5 id="和法里级数的关系"><a href="#和法里级数的关系" class="headerlink" title="和法里级数的关系"></a>和法里级数的关系</h5><p>我们考虑之前提到的法里级数$\mathcal{F}_n$,令$\Phi(x)=\sum_{1\leq k\leq x}\varphi(k)$,那么$\mathcal{F}_n$的个数显然是$\Phi(x)+1$.</p>
+<p>接下来我们思考如何计算$\Phi(x)$.事实上,我们有$\sum_{d=1}^n\Phi(\lfloor\cfrac{n}d\rfloor)=\cfrac{1}2(n+1)n$.这里的证明是:考虑满足$0\leq a&lt;b\leq n$的分数$\cfrac{a}{b}$共有$\cfrac{1}2n(n+1)$个,而如果我们枚举$d=\gcd(a,b)$,那么显然右边也等于这些分数个数,于是得证.</p>
+<p>而事实上,如果我们用$n=\lfloor x\rfloor$来带入上面的式子,可以得到$\sum_{d=1}\Phi(\cfrac{x}d)=\cfrac{1}2\lfloor x\rfloor\lfloor1+x\rfloor$.</p>
+<p>根据第三种莫比乌斯反演的形式,我们有:$\Phi(x)=\cfrac1 2\sum_{1\leq d}\mu(d)\lfloor\cfrac{x }d\rfloor\lfloor\cfrac x d+1\rfloor$.</p>
+<h5 id="麦克马洪和式"><a href="#麦克马洪和式" class="headerlink" title="麦克马洪和式"></a>麦克马洪和式</h5><p>考虑这个问题:我们现在有$m$种颜色,要对一个长度为$n$的圆环进行染色,旋转后相同算一种方案,求方案数.</p>
+<p>我们先设答案为$N(n,m)$,并将这些答案全部列举出来,然后将它们进行旋转,进行$n-1$次.这样我们就得到了$nN(n,m)$个圆环,但是这些圆环是有重复的.</p>
+<p>那么我们显然有:</p>
+<script type="math/tex; mode=display">
+nN(n,m)=\sum_{a_0a_1...a_{n-1}}\sum_{0\leq k<n}[a_0a_1...a_{n-1}=a_k...a_{n-1}a_0...a_{k-1}]\\
+=\sum_{0\leq k<n}\sum_{a_0a_1...a_{n-1}}[a_0a_1...a_{n-1}=a_k...a_{n-1}a_0...a_{k-1}]</script><p>接下来我们只需要知道,当已知$k$的时候,右边和式的贡献是多少.显然此时有$a_i=a_{(i+k)\mod n}$,也就是$a_i=a_{(i+kl)\mod n}$,此时显然答案为$m^{\gcd({n,k})}$.</p>
+<p>也就是说:$nN(n,m)=\sum_{0\leq k&lt;n}m^{\gcd(n,k)},N(n,m)=\cfrac{1}n\sum_{0\leq k&lt;n}m^{\gcd(n,k)}\\$.</p>
+<p>如果我们对这个式子进行化简:</p>
+<script type="math/tex; mode=display">
+N(n,m)=\cfrac{1}{n}\sum_{d|n}n^d\sum_{0\leq k<n}[d=\gcd(n,k)]\\
+=\cfrac{1}{n}\sum_{d|n}n^d\sum_{d|k,k<n}[\cfrac{k}{d}\bot \cfrac{n}{d}]\\
+=\cfrac{1}{n}\sum_{d|n}n^d\sum_{0\leq k<\frac{n}d}[k\bot \cfrac{n}d]\\
+=\cfrac{1}{n}\sum_{d|n}\varphi(d)n^{\frac{n}{d}}.</script><p>这个式子被称为麦克马洪公式.</p>
+<p>另外,如果我们考虑$n|(\sum_{d|n}\varphi(d)n^{\frac{n}{d}})$这件事的证明,考虑如果$n=p^k$,那么根据费马小定理,显然可证明.</p>
+<p>而由于$\phi(x)$是积性函数,令$n=n_1n_2,n_1\bot n_2$,有:</p>
+<script type="math/tex; mode=display">
+\sum_{d|n}\varphi(d)n^{\frac{n}d}=\sum_{d_1|n_1,d_2|n_2}\varphi(d_1d_2)n^{\frac{n_1n_2}{d_1d_2}}\\
+=\sum_{d_1|n_1}\varphi(d_1)(\sum_{d_2|n_2}\varphi(d_2)(n^{\frac{n_1}{d_1}})^{\frac{n_2}{d_2}})</script><p>我们可以通过数学归纳来证明.</p>
+<h5 id="Polya引理"><a href="#Polya引理" class="headerlink" title="Polya引理"></a>Polya引理</h5><p>现在让我们来进行一些抽象代数的计算.</p>
+<p>置换群:运算$(a_1,a_2,…,a_k)$表示将$a_1$放到$a_2$位置…把$a_i$放到$a_{i+1}$的位置…把$a_k$放到$a_1$的位置,而幺元$e=(1)(2)(3)…(n)$.</p>
+<p>由麦克马洪和式的证明,我们不难推导出Polya定理:设要对$n$个元素用$m$种颜色染色,若通过某种旋转得到的染色方案算同一种,考虑旋转一定是一种置换,则本质不同的染色方案数$=\cfrac{\sum_{s\in S}m^{\eta(s)}}{|S|}$,其中$\eta(s)$表示$s$的轨道数,即有多少组置换.</p>
+<h5 id="欧拉定理"><a href="#欧拉定理" class="headerlink" title="欧拉定理"></a>欧拉定理</h5><p>当$a\perp m$时,$a^{\varphi(m)}\equiv 1(\mod m)$.</p>
+<p>证明类似费马小定理的证明.</p>
+<p>欧拉定理可以用来求逆元:$a^{\varphi(p)}\equiv 1(\mod p)$,则有$a^{-1}\equiv a^{\varphi(p)-1}(\mod p)$.</p>
+<h5 id="扩展欧拉定理"><a href="#扩展欧拉定理" class="headerlink" title="扩展欧拉定理"></a>扩展欧拉定理</h5><p>$a^b\equiv a^c(\mod m)$,其中$c=<br>\begin{cases}<br>b\mod \varphi(m) &amp;a\perp m\\<br>b &amp;b&lt;\varphi(m)\\<br>b\mod \varphi(m)+\varphi(m) &amp;other<br>\end{cases}$</p>
+<p>证明如下:</p>
+<p>设$m=\prod^k_{i=1}p_i^{e_i}$,则要证$a^b\equiv a^{(b\mod \varphi(m))+\varphi(m)}(\mod m)$,即证$\forall i$都有$a^b\equiv a^{(b\mod \varphi(m))+\varphi(m)}(\mod p_i^{e_i})$.</p>
+<p>分情况讨论:</p>
+<p>若$p_i^{e_i}\perp a$,则为普通欧拉定理情况,即证明$b-c$是$\varphi(p_i^{e_i})$的因数.由于$\varphi(p_i^{e_i})$是$\varphi(m)$的因数,而$\varphi(m)$是$b-c$的因数,显然得证.</p>
+<p>不然,发现$e_i\leq\varphi(p_i^{e_i})\leq\varphi(m)\leq b$且$\varphi(m)\leq c$,又发现$p_i^{e_i}|a^{e_i}$,所以$p_i^{e_i}|a^b$,$p_i^{e_i}|a^c$,左右两边均为$0$,得证.</p>
+<h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><p>求$\sum_{1\leq a,b\leq p(p-1)}[a^b\equiv b^a(\mod p)],p\in prime$.</p>
+<p>我们有:</p>
+<script type="math/tex; mode=display">
+\sum_{1\leq a,b\leq p(p-1)}[a^b\equiv b^a(\mod p)]\\
+=(p-1)^2+\sum_{1\leq a,b< p}\sum_{0\leq c,d<p-1}[a^c\equiv b^d(\mod p)]</script><p>后面那部分的答案是:</p>
+<script type="math/tex; mode=display">
+\sum_{1\leq a,b< p}\sum_{0\leq c,d<p-1}[a^c\equiv b^d(\mod p)]\\
+=\sum_{1\leq x< p}\sum_{0\leq a,b< p}\sum_{1\leq c,d<p-1}[a^c\equiv x(\mod p)][b^d\equiv x(\mod p)]\\
+=\sum_{1\leq x<p}(\sum_{1\leq a<p,0\leq c<p-1}[a^c\equiv x(\mod p)])^2</script><p>令$g$为$p$的原根,令$a=g^b$,$x=g^{x’}$有:</p>
+<script type="math/tex; mode=display">
+\sum_{1\leq x<p}(\sum_{1\leq a<p,0\leq c<p-1}[a^c\equiv x(\mod p)])^2\\
+=\sum_{0\leq x'<p-1}(\sum_{0\leq b< p-1,0\leq c<p-1}[bc\equiv x'(\mod p-1)])^2\\
+=\sum_{0\leq x<p-1}(\sum_{0\leq a,b<p-1}[ab\equiv x(\mod p-1)])^2\\</script><p>考虑前面那个式子,如果我们令$x=x_0x_1,x_0\bot x_1$,$p-1=p_0p_1$,其中$0\leq x_0&lt;p_0,0\leq x_1&lt;p_1$,后面那个式子为$f(p-1,x)$,由于中国剩余定理,有$f(p-1,x)=f(p_0,x_0)f(p_1,x_1)$.</p>
+<p>于是令$p-1=\prod_{i=1}^kp_i^{q_i}$上面的式子可以改为:</p>
+<script type="math/tex; mode=display">
+\prod_{i=1}^k(\sum_{0\leq x_i<p_i^{q_i}}(\sum_{0\leq a,b<p_i^{q_i}}[ab\equiv x_i(\mod p_i^{q_i})])^2)</script><p>我们只考虑其中一项,形如:</p>
+<script type="math/tex; mode=display">
+\sum_{0\leq x<p^{q}}(\sum_{0\leq a,b<p^q}[ab\equiv x(\mod p^{q})])^2</script><p>我们不妨用$ap^{\alpha}$代替$a$,$bp^\beta$代替$b$,$xp^t$代替$x$,其中$a,b,x\bot p$那么有:</p>
+<script type="math/tex; mode=display">
+\sum_{0\leq x<p^{q-t}}(\sum_{0\leq a< p^{q-\alpha},0\leq b<p^{q-\beta}}[abp^{\alpha+\beta}\equiv xp^t(\mod p^{q})])^2</script><p>则我们要做的即对四元组$(a,b,\alpha,\beta)$计数.由于$a,b,x\bot p$,我们有:</p>
+<script type="math/tex; mode=display">
+\alpha+\beta=t,\alpha,\beta\in\mathbb{N}\\
+ab\equiv x\pmod {p^{q-t}},0\leq a<p^{q-\alpha},0\leq b<p^{q-\beta}</script><p>第一个式子对四元组的贡献显然是$t+1$,而第二个式子,由于$[1,p^{q-t})\in[1,p^{q-\alpha})$,所以我们可以先求出$1\leq a&lt;p^{q-t}$的答案,然后乘以$p^{t-\alpha}$得到答案,$b$是类似地,于是:</p>
+<script type="math/tex; mode=display">
+\sum_{0\leq x<p^{q-t}}(\sum_{0\leq a< p^{q-\alpha},0\leq b<p^{q-\beta}}[abp^{\alpha+\beta}\equiv xp^t(\mod p^{q})])^2\\
+=\sum_{1\leq x<p^{q-t}}((t+1)p^{t-\alpha}p^{t-\beta}\sum_{1\leq a,b< p^{q-t}}[ab\equiv x\pmod {p^{q-t}}])^2+(\sum_{1\leq a,b\leq p^q}[ab\equiv 0(\mod p^{q})])^2\\
+=\sum_{1\leq x<p^{q-t}}((t+1)p^{t-\alpha}p^{t-\beta}\sum_{1\leq a,b< p^{q-t}}[ab\equiv x\pmod {p^{q-t}}])^2+q(p-1)p^{q-1}+p^q</script><p>后面,由于$a\bot p$,显然一个$a$唯一对应一个$b$.于是我们得到了答案为:</p>
+<script type="math/tex; mode=display">
+\sum_{1\leq x<p^{q-t}}((t+1)p^{t}\varphi(p^{q-t}))^2</script><p>而后面的式子显然跟$x$无关,所以有:</p>
+<script type="math/tex; mode=display">
+\sum_{0< x<p^{q-t}}((t+1)p^{t}\varphi(p^{q-t}))^2\\
+=\sum_{0\leq t< q}(\varphi(p^{q-t}))((t+1)p^{t}\varphi(p^{q-t}))^2\\
+=\sum_{0\leq t<q}(t+1)^2p^{2t}(p-1)^3p^{3q-3t-3}\\
+=\sum_{0\leq t<q}(t+1)^2(p-1)^3p^{3q-t-3}</script><p>其实到这一步,由于$\sum t$是$O(log n)$级别的,这题已经可以做了.</p>
+<h4 id="莫比乌斯函数"><a href="#莫比乌斯函数" class="headerlink" title="莫比乌斯函数"></a>莫比乌斯函数</h4><p>莫比乌斯函数$\mu(x)$是一个满足$\sum_{d|n}\mu(n)=1$的函数,根据定义其显然是积性函数.根据定义可以求出它的封闭形式:</p>
+<p>$\mu(m)=\begin{cases}0&amp;\exist m_p\geq 2\(-1)^k&amp;\forall m_p\leq 1\end{cases},m=\prod_{p\in prime}p^{m_p}$.</p>
+<h5 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h5><p>见”反演.md”.</p>
+<p>另外,值得一提的是,根据莫比乌斯反演,我们可以发现$\mu*id=\varphi$.</p>
+<h4 id="min25筛"><a href="#min25筛" class="headerlink" title="min25筛"></a>min25筛</h4><p>考虑:</p>
+<script type="math/tex; mode=display">
+\sum_{i=1}^nf(i)=\sum_{p\in prime}f(p)+\sum_{p\notin prime\and p\ne 1}f(p)+f(1)</script><p>令$g(N,i)=\sum_{j=1}^N[j is prime or Min_j&gt;p_i]F(j)\\$,其中$Min_j$表示$j$最小的质因数,$p_i$表示第$i$个质数.</p>
+<p>意识到$g(N,i)$实际上就是$N$以内的数在第$i$轮埃氏筛后剩余的数的$F$的和.</p>
+<p>$F(i)$表示若干完全积性函数之和且当$p\in prime$ 时,$F(i)=f(i)$,下文为了方便书写,直接认为$F$是完全积性函数.</p>
+<p>而$g(N,\sqrt N)$实际上就是$N$以内的质数的$F$之和,那么有:</p>
+<script type="math/tex; mode=display">
+g(i,0)=\sum_{i=2}^nF(i)\\
+g(i,j)=g(i,j-1)-F(p_j)[g(\lfloor\frac{i}{p_j}\rfloor,j-1)-\sum_{2\leq p\leq p_{j-1},p\in prime}F(p)]\\</script><p>ps1:</p>
+<p>第$j$个质数会比第$j-1$个多筛若干个数,即最小质因数是$p_j$的数.这些数形如$\{p_j,2p_j,3p_j…\}$,同时除以$p_j$得到$\{1,2,3…\}$.</p>
+<p>我们要的就是其中最小质因数大于等于$p_j$的数,也就是最小质因数大于$p_{j-1}$的数,因而就是$g(\lfloor\frac{i}{p_j}\rfloor,j-1)$.</p>
+<p>但还有一些质数会被重复计算,我们把他删掉就可以了.</p>
+<p>考虑到$g$后面的维度最多走到$\sqrt n$,所以我们所枚举的最小质因子一定小于等于$\sqrt n$,所以一定有$p_{j-1}&lt;\lfloor\frac{i}{p_j}\rfloor$,所以直接删去一定不会多删.</p>
+<p>ps2:</p>
+<p>注意到以下事实:$\lfloor\frac{\lfloor\frac{a}{b}\rfloor}{c}\rfloor=\lfloor\frac{a}{bc}\rfloor\\$.</p>
+<p>因而,如果我们有以下代码:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(f[n])<span class="keyword">return</span> f[n];</span><br><span class="line">    <span class="keyword">else</span> f[n]=......;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">        <span class="built_in">solve</span>(n/i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="built_in">solve</span>(n);</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该代码复杂度为$O(\sqrt n)$.原因在于,根据整数分块,$\lfloor\frac{n}{i}\rfloor$有$\sqrt n$种取值.</p>
+<p>而如果递归下去,继续枚举$j$,并往下递归到$\lfloor\frac{\lfloor\frac{n}{i}\rfloor}{j}\rfloor$,那他就相当于枚举$k=ij$,并递归到$\lfloor\frac{n}{k}\rfloor$,因而复杂度得到保证.</p>
+<p>由此可知,求$g$的复杂度为$O(\sqrt n\times \sqrt {\sqrt n})=O(n^{\frac3 4})$.</p>
+<p>令$S(i,j)$表示前$i$个数中,最小质因数大于等于$p_j$的数的$f$之和,可知:</p>
+<script type="math/tex; mode=display">
+S(i,j)=g(i,+\infty)-\sum_{k=1}^{j-1}f(p_k)+\sum_{k\geq j,e\geq 1,p_k^{e+1}\leq i}f(p_k^e)S(\lfloor\frac{i}{p_k^e}\rfloor,k+1)+\sum_{e=2,p_k^e\leq i}f(p_k^e)\\
+=g(i,+\infty)-\sum_{k=1}^{j-1}f(p_k)+\sum_{k\geq j,e\geq 1,p_k^{e+1}\leq i}[f(p_k^e) S(\lfloor\frac{i}{p_k^e}\rfloor,k+1)+f(p_k^{e+1})]\\</script><p>ps1:</p>
+<p>前半段求出质数部分的和,后半段开始枚举最小质因子.</p>
+<p>由于$p_k$是当前数的最小质因子,$e$是他的幂.则这个数其他的质因子应该均大于$p_k$,因而大于等于$p_{k+1}$.</p>
+<p>注意到由于$S$中不包含$1$,所以应特殊处理只含有$p_k$一个质因子的情况.</p>
+<p>又注意到,如果$p_k^e&lt; i&lt;p_k^{e+1}$,那么此时$\lfloor\frac{i}{p_k^e}\rfloor$一定小于$p_k$,则不可能拥有比$p_k$更大的质因子.</p>
+<p>该形式与上面一致,因而复杂度同样为$O(n^{\frac 3 4})$.我们最终要求的答案即$S(n,1)+f(1)$.</p>
+<p>一些后记:</p>
+<ol>
+<li>事实上,复杂度的计算只是上限,实际上应该约为$O(\frac{n^{\frac3 4}}{\log_2 n})$.</li>
+<li>如果使用map会导致复杂度较差,考虑如下事实:<br>(1).$\forall 1\leq x\leq n$,则要么$x\leq \sqrt n$,要么$\lfloor\frac{n}{x}\rfloor\leq \sqrt n\\$.<br>(2).$\forall a$形如$\lfloor\frac{n}{x}\rfloor$,则$\lfloor\frac{n}{a}\rfloor$应为$x_{max}$,互不相同.<br>因而可以分别特判,从而做到比map或离散化都优秀的复杂度.</li>
+<li>我们在代码中所求出的$w$是倒序的,而我们转移的过程也是倒序的,因而枚举的时候可以直接正序枚举.</li>
+<li>考虑做的时候由于进行了滚动数组,因而继承操作可以直接使用,为了方便可以直接判掉可以直接继承的情况.</li>
+<li>求$S$的过程可以使用递归,因为我们只关心一个$S$的量.</li>
+</ol>
+<h4 id="杜教筛"><a href="#杜教筛" class="headerlink" title="杜教筛"></a>杜教筛</h4><p>令$F(n)=\sum_{i=1}^nf(i)\\$,我们考虑构造两个函数$g$和$s$.使得$f*g=s$.</p>
+<p>令$G(n)=\sum_{i=1}^ng(i),S(n)=\sum_{i=1}^ns(i)\\$.若$G(i)$和$S(i)$都很方便求,$g(1)=1$,我们就可以求出$F(n)$.</p>
+<script type="math/tex; mode=display">
+f*g=s\\
+\sum_{j|i}f(j)g(\frac i j)=s(i)\\</script><p>由于$g(1)=1$,我们有$f(i)=s(i)-\sum_{j|i,j\ne i}f(j)g(\frac i j)\\$.</p>
+<p>那么:</p>
+<script type="math/tex; mode=display">
+F(n)=\sum_{i=1}^nf(i)\\=\sum_{i=1}^n(s(i)-\sum_{j|i,j\ne i}f(j)g(\frac i j))\\
+=S(n)-\sum_{j=1}^n\sum_{k=2}^{\lfloor\frac n j\rfloor}g(k)f(j)\\=S(n)-\sum_{k=2}^ng(k)\sum_{j=1}^{\lfloor\frac n k\rfloor}f(j)\\
+=S(n)-\sum_{k=2}^ng(k)F(\lfloor\frac n k\rfloor)\\</script><p>复杂度证明和min25筛是一样的,不同点在于我们可以预处理$n^{\frac 2 3}$以内的$F$,这样复杂度可以降到$O(n^{\frac 2 3})$.</p>
+<h5 id="Example1-1"><a href="#Example1-1" class="headerlink" title="Example1"></a>Example1</h5><p>求$\sum_{i=1}^N\mu(i)\\$.</p>
+<p>由于$\mu*I=\epsilon$,于是考虑$g=I$.</p>
+<h5 id="Example2"><a href="#Example2" class="headerlink" title="Example2"></a>Example2</h5><p>求$\sum_{i=1}^N\varphi(i)\\$.</p>
+<p>由于$\varphi*I=id$,于是考虑$g=I$.</p>
+<h5 id="Example3"><a href="#Example3" class="headerlink" title="Example3"></a>Example3</h5><p>求$\sum_{i=1}^N{\varphi(i)\times i}\\$<br>由于$\sum^N_{i=1}(f*g)(i)=\sum_{d|N}{f(i)\times g(\cfrac n d)}=\sum_{d|N}{\varphi(d)\times d\times g(\cfrac n d)}\\$<br>由于中间过程中乘出来的$d$很难处理,需要消掉它,于是考虑$g=id$.</p>
+<h5 id="Example4"><a href="#Example4" class="headerlink" title="Example4"></a>Example4</h5><p>$\sum_{i=1}^N{\varphi(i)\times i^2}\\$.<br>由Example3,于是考虑$g=id^2$.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lwlaymh.github.io/2022/08/14/%E6%95%B0%E8%AE%BA/" data-id="cl6tfaafs0004rovtf7j2d726" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/08/14/%E5%9B%9B%E8%BE%B9%E5%BD%A2%E4%B8%8D%E7%AD%89%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/08/14/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/08/14/%E5%8D%9A%E5%BC%88%E8%AE%BA/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/14/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/14/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/14/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/14/%E5%9B%9B%E8%BE%B9%E5%BD%A2%E4%B8%8D%E7%AD%89%E5%BC%8F/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 LWLAymh<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
