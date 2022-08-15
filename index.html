@@ -83,200 +83,16 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><script type="math/tex; mode=display">
-Example1（Bash游戏）：\\
-A和B，有n颗石子，每次可以取x颗，其中1\leq x\leq m\\
-求A是否能赢\\
-考虑直接令石子数量为状态\\
-有SG(x)=mex\{SG(y)|\max\{0,x-m\}\leq y\leq x-1\}\\
-注意到SG(x)=0当且仅当x\equiv 0(\mod m+1)\\
-我们使用数学归纳证明：\\
-当0\leq x\leq m时，显然成立\\
-而对于x，如果x\equiv 0(\mod m+1)\\
-那么\{y\in \mathbb{Z}|\max\{0,x-m\}\leq y\leq x-1\}中一定不存在y满足y\equiv0(\mod m+1)\\
-也就是不存在y满足SG(y)=0，那么SG(x)=0\\
-反之，一定存在</script><script type="math/tex; mode=display">
-Example2：\\
-A和B，有n颗石子，每次可以取x颗，其中1\leq x\leq \lceil\frac n 2\rceil\\
-仍然令石子数量为状态，注意到SG(x)=0当且仅当x+1=2^k-1，也即x=2^k-2\\
-首先,n-\lceil\frac n 2\rceil=\lfloor\frac{n}{2}\rfloor\\
-SG(n)=mex\{SG(y)|\lfloor\frac{n}{2}\rfloor\leq y\leq n-1\}\\
-设n=2^k-w，其中-2^{k-1}+2\leq w\leq 2\\
-\lfloor \frac {2^k-w}2\rfloor=2^{k-1}-\lfloor\frac w 2\rfloor\\
-当w=2时，原式=2^{k-1}-1>2^{k-1}-2\\
-反之，2^k-2\leq 原式
-因此数学归纳即可证明\\</script><script type="math/tex; mode=display">
-Example3（Nim游戏）：\\
-A和B，有n堆石子，第i堆石子有x_i个石子\\
-每次可以任选一堆取走若干个石子，最后不能取的人输\\
-求先手是否必胜\\
-注意到，首先如果x均等于0一定先手必败\\
-考虑令w=x_1\oplus x_2\oplus...\oplus x_n（w即为全游戏的SG值）\\
-那么先手必败当且仅当w=0\\
-证明：\\
-只需证明当w\ne 0时一定存在一种方法使得w=0\\
-考虑w的最高位为第k位\\
-那么一定存在一个x_i的第k位为1\\
-将它改为0，然后这个x_i的后面几位可以随意更改\\</script><script type="math/tex; mode=display">
-Example4（Nimk游戏）：\\
-A和B，有n堆石子，第i堆石子有x_i个石子\\
-每次可以任选不超过k堆取走若干个石子，最后不能取的人输\\
-将x_i写成二进制，如果每一位的1的个数均是k+1的倍数，那么先手一定必败\\
-道理是差不多的</script><script type="math/tex; mode=display">
-Example5（Sprague-Grundy）：\\
-n个DAG，每个DAG只有一个起始点，起始点上有一枚棋子\\
-A和B每次可以选一个图，将上面的棋子沿DAG移动一条边，不能移动的人输\\
-直接使用SG(u)=mex\{SG(v)|u\rightarrow v\}\\
-那么先手必败当且仅当所有DAG初始节点的SG异或起来是0\\
-首先如果SG(u)=x，那么\forall 0\leq y<x，\exist v使得u\rightarrow v且SG(v)=y\\
-可以发现这就如同Nim游戏了\\
-但是与Nim游戏不同的是，可能\exist y>x，但是仍然可以转移到\\
-但在这种情况下，我可以继续转移到一个u'使得SG(u')=x\\
-因此异或值不变</script><script type="math/tex; mode=display">
-Example6（Anti-SG）：\\
-SG游戏，但是不能取的人赢\\
-SJ定理：\\
-先手必胜当且仅当下面两个条件满足一个：\\
-1.游戏的SG函数不为0且游戏中某个单一游戏的SG函数大于1\\
-2.游戏的SG函数为0且游戏中没有单一游戏的SG函数大于1\\
-如果没有单一游戏的SG函数大于1，那么显然游戏的SG函数为0就赢了，否则就输了\\
-那么如果有呢？我们仍然可以使得全游戏的SG值一直为0，按照普通SG游戏的做法\\
-但是，如果接下来这一步，使局面变成了全1的局面\\
-这一步要么把他改成0要么把他改成1
-那么我们把这一步稍微改一下\\
-原本想把他变成1，现在就改成0，反之亦然\\
-而如果SG函数为0且存在某个单一游戏的SG函数大于1，一定是输的\\
-因为这个情况下，最后一定会剩两堆一样的，无论你怎么选，对手都可以压着你，直到你把一堆全选了\\
-此时对手就可以把另一堆剩下一个，这样就必输</script><script type="math/tex; mode=display">
-Example7（Multi-Nim）：\\
-Nim游戏\\
-但是玩家每回合可以不拿而将任意一堆石子数量大于等于2的石子堆分成任意两堆不为空的石子堆\\
-没法操作的人输\\
-本质仍然是SG游戏，我们正常做就行\\
-SG(x)=mex\{\{SG(v)|x\rightarrow v\},\{SG(x-i)\oplus SG(i)|1\leq i<x\}\}\\
-找一下规律可以发现：\\
-SG(x)=\begin{cases}
-x-1&x\equiv 0(\mod 4)\\
-x&x\equiv 1或2(\mod 4)\\
-x+1&x\equiv 3(\mod 4)\\
-\end{cases}\\
-不妨设当x\leq 4k时结论成立\\
-当x=4k+1时，前半部分一定是取遍了[1,4k]\\
-但是一定不存在a和b满足a+b=4k+1并且SG(a)\oplus SG(b)=4k+1\\
-讨论一下a和b在\mod 4意义下的值就会发现不可能\\
-其他的是同理的</script><script type="math/tex; mode=display">
-Example8（Every-SG）：\\
-SG游戏，但是每次每个能移动的游戏都必须移动，不能移动任何游戏的人输\\
-对于每个子游戏，如果先手必胜，先手一定会尽可能多争取时间\\
-反之，先手一定会尽可能早结束游戏\\
-在DAG上dp的时候除了SG我们再加一维表示时间耗费，就可以dp了</script><script type="math/tex; mode=display">
-Example9（Nim\ on\ tree）：\\
-一棵有根树两个人，每次可以挑一棵真子树删掉\\
-不能操作者输\\
-结论：SG(u)=\bigoplus_{u\rightarrow v}(SG(v)+1)\\
-考虑归纳假设，如果u只有v一个儿子\\
-那么要么将v子树全删，要么删一部分\\
-SG(u)=mex(x|x=0或0\leq x-1< SG(v))=SG(v)+1\\
-而如果有多个儿子，则每个儿子都相当于是一个SG子游戏，异或起来即可</script><script type="math/tex; mode=display">
-Example10：\\
-n个有根仙人掌，保证所有的环与树的结构只有一个公共点（环只有一条连到环外的边）\\
-两个人分别操作删边，与根不连通的边都被删掉\\
-结论：奇环SG=1，偶环SG=0\\
-这么考虑：边数为k的链的SG为k\\
-而拆开奇环后，你得到的两条链奇偶性一定相同，因而不可能得到1\\
-偶环同理，不可能得到0</script><script type="math/tex; mode=display">
-Example11：\\
-无向图，每次删掉一条边以及与根节点不连通的部分\\
-无法操作者输\\
-考虑Example11\\
-Fusion定理：将偶环替换成一个新点，奇环替换成一个新点连出去一条边，做边双\\
-对于一个边双，SG值只和他边的奇偶性有关\\
-证明大概和上面一样</script><script type="math/tex; mode=display">
-Example12（斐波那契博弈）：\\
-一个数N，两个人轮流令他减去一个数，第一次不能减完，每次减的不能超过上一次的两倍\\
-不能操作者输\\
-Solve：\\
-结论为：当且仅当N是斐波那契数时，先手必败\\
-考虑归纳证明：\\
-先证明当N是斐波那契数时必败，不妨假设N=N_0+N_1\\
-考虑将N看成两堆，因为如果第一次取走了大于N_1颗石子，由于N_0\leq N_1\\
-则后手第二步可以全取走，必败\\
-并且一开始先手一定要在N_0堆取石子，原因是如果取了大于N_0颗石子，由于N=N_0+N_1\leq 3N_0\\
-这样下一步后手就可以全取完\\
-那么现在先手应该开始取N_0这一堆\\
-如果在这一堆取的过程中，先手一直取得不超过N_0剩下的数\\
-那么根据归纳假设，后手一定可以取走N_0堆的最后一个石子\\
-此时局面变成了只剩N_1颗石子\\
-只要此时先手不能一次取走N_1颗石子，先手就必败\\
-而后手最后一步拿走石子最多会拿走\frac 2 3N_0的石子\\
-但是，\frac 4 3N_0<N_1，因此一定不可能\\
-否则，仍然是先手取走了N_0全部石子，又当了先手取N_1的石子\\
-仍然是必败的
-\\
-齐肯多夫定理：任意一个正整数都可以被表示成若干不连续的斐波那契数之和\\
-设N=\sum_{i=1}^k f_{p_i}，其中p_1<p_2<p_3<...<p_k\\
-先手取走f_{p_1}\\
-由于2f_{p_1}<f_{p_2}，因此后手接下来无论如何不可能取得大于等于f_{p_2}\\
-问题转化为一堆大小为f_{p_2}的石子，此时先手必败\\
-因此原问题的先手必胜\\</script><h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><script type="math/tex; mode=display">
-Problem1：\\
-n个游戏，每个游戏两堆石子，每次可以从大的那堆中取小的那堆石子大小的整数倍的石子\\
-Solve：\\
-Every-SG游戏</script><script type="math/tex; mode=display">
-Problem2：\\
-给一个“日”字型图，七条边，每条边有一堆石子\\
-每次可以选任意多条不构成环的边，然后将这些边上的石子堆取走任意多个石子\\
-求先手必胜策略，以及如果每条边的石子数量在[l_i,r_i]，那么有多少种先手必胜的情况\\
-Solve：\\
-考虑将这个图分成三部分，上面三条边，中间一条边，下面三条边\\
-那么这三部分一定不能全选至少两部分，不然会构成环\\
-反之一定构不成环\\
-先手必败当且仅当，这三部分内部的边上石子均相等，并且所有边异或值为0\\
-否则，考虑将上部分和下部分三条边先全改成相等的，会修改较大的两条边\\
-接下来，我们剩了三条边，我们只能选择改其中一条，使得他们仨异或值为0\\
-换句话说，我们现在有x_1,x_2,x_3，我们要将其中一个x_i改为y_i，其他不变，使得他们仨异或值为0\\
-和Nim游戏类似，假设他们仨异或值的最高位为k\\
-那么一定有一个x_i的第k位为1，将它改为0，后面就可以随意变换\\
-思路具体怎么想到的呢，可以发现整个图只有三个环，并且这三个环都可以由这几部分组成\\
-接下来就可以每个部分的[l_i,r_i]求个交\\
-用FWT做一遍异或卷积\\
-数位dp也可以做</script><script type="math/tex; mode=display">
-Problem3：\\
-Nim游戏，但是每堆石子有一个K_i\\
-如果这堆石子剩x_i个每次最多取\lfloor\frac {x_i} {K_i}\rfloor个石子\\
-求先手是否必胜\\
-Solve：\\
-看上去像Example2和Example5的结合体\\
-结论是SG(n,k)=\begin{cases}
-SG(n-\lfloor\frac n k\rfloor,k)&n\ne 0(\mod k)\\
-\frac n k&n=0(\mod k)\\
-\end{cases}\\
-考虑数学归纳就可以证明\\
-然后我们就只需要对于k是否大于\sqrt n讨论一下\\
-如果k<\sqrt n,暴力，最多只会做\sqrt n次\\
-否则，意识到此时可以通过求一个区间[l,r]，满足\forall x\in [l,r],\lfloor\frac x k\rfloor均相等，加速一下\\
-这种区间最多只会有\sqrt n个\\</script><script type="math/tex; mode=display">
-Problem4：\\
-一个数N，两个人轮流令他减去一个数，第一次不能减完，每次减的不能超过上一次\\
-不能操作者输\\
-Solve：\\
-先手必败当且仅当N=2^k\\
-不然，每次选lowbit即可\\</script><script type="math/tex; mode=display">
-Problem5：\\
-一个数N，两个人轮流令他减去一个数，第一次不能减完，每次减的不能超过上一次的k倍\\
-不能操作者输\\
-Solve：\\
-k=1即Problem4\\
-k=2即Example12\\
-令f(x)=kx（事实上，凡是动态减法问题，都可以类似假设，但是需要满足x\leq f(x)）\\
-令H_i表示第i个先手必败的数是多少，不妨假设H_1=1\\
-令S_{i+1}=\min\{H_x|H_i\leq f(H_x)\}，那么H_{i+1}=S_{i+1}+H_i\\
-只需证明H有fib的以上性质，此题就可以做了\\
-证明暂时不会</script>
+        <h2 id="博弈论"><a href="#博弈论" class="headerlink" title="博弈论"></a>博弈论</h2>
+        
+          <p class="article-more-link">
+            <a href="/2022/08/14/%E5%8D%9A%E5%BC%88%E8%AE%BA/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/14/%E5%8D%9A%E5%BC%88%E8%AE%BA/" data-id="cl6u2kukt0000mkvt4inv4vnl" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/08/14/%E5%8D%9A%E5%BC%88%E8%AE%BA/" data-id="cl6u2xf3d0001r0vt193afinw" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -300,137 +116,16 @@ k=2即Example12\\
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="整值函数"><a href="#整值函数" class="headerlink" title="整值函数"></a>整值函数</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>若$x\in\mathbb{R}$,则:</p>
-<p>$\lfloor x\rfloor=$小于等于x的最大的整数.</p>
-<p>$\lceil x\rceil=$大于等于x的最大的整数.</p>
-<p>我们有时称$\lfloor x\rfloor$为$x$的整数部分,并定义$x-\lfloor x\rfloor$为分数部分,有时记作$\{x\}$.</p>
-<p>我们定义$x\mod y=x-y\lfloor\cfrac{x}{y}\rfloor$,$x mumble y=y\lceil\cfrac{x}{y}\rceil-x$,其中$x,y\in \mathbb{N_+}$.</p>
-<p>当然,我们也可以使用上述定义将$mod$和$mumble$的定义扩展到实数域,不过$y=0$的时候需要特殊处理.</p>
-<h3 id="整值函数的基本性值"><a href="#整值函数的基本性值" class="headerlink" title="整值函数的基本性值"></a>整值函数的基本性值</h3><p>若$x\in \mathbb{R},n\in \mathbb{Z}$,则有:</p>
-<ol>
-<li>$\lfloor x\rfloor=x \Leftrightarrow \lceil x\rceil=x\Leftrightarrow x\in \mathbb{Z}$.</li>
-<li>$\lceil x\rceil-\lfloor x\rfloor=[x\notin \mathbb{Z}]$.</li>
-<li>$x-1&lt;\lfloor x\rfloor\leq x\leq \lceil x\rceil&lt;x+1$.</li>
-<li>$\lfloor-x\rfloor=-\lceil x\rceil,\lceil -x\rceil=-\lfloor x\rfloor$.</li>
-<li>$\lfloor x \rfloor=n\Leftrightarrow n\leq x&lt;n+1 \Leftrightarrow x-1&lt;n\leq x$.</li>
-<li>$\lceil x\rceil =n\Leftrightarrow n-1&lt;x\leq n\Leftrightarrow x\leq n&lt;x+1$.</li>
-<li>$x&lt;n\Leftrightarrow \lfloor x\rfloor&lt;n$.</li>
-<li>$x\leq n\Leftrightarrow \lceil x\rceil\leq n$.</li>
-<li>$x&gt;n\Leftrightarrow \lceil x\rceil&gt;n$.</li>
-<li>$x\geq n\Leftrightarrow \lfloor x\rfloor\geq n$.</li>
-<li>$\lfloor x+n\rfloor=\lfloor x\rfloor+n$.</li>
-<li>$\lceil x+n\rceil=\lceil x\rceil+n$.</li>
-<li>$\lfloor nx\rfloor=n\lfloor x\rfloor\Leftrightarrow n=0\or x-\lfloor x\rfloor&lt; \cfrac{1}n$.</li>
-<li>$\lceil nx\rceil=n\lceil x\rceil\Leftrightarrow n=0\or x-\lceil x\rceil&lt; \cfrac{1}n$.</li>
-<li>$\lceil\cfrac{n}{m}\rceil=\lfloor\cfrac{n-1}{m}\rfloor+1,m\in\mathbb{N_+}$.</li>
-<li>$m\lceil x\rceil-\lceil m(\lceil x\rceil-x)\rceil=\lfloor mx\rfloor$.</li>
-<li>$(x\mod ny)\mod y=x\mod y,n\in\mathbb{N_+}$.</li>
-<li>$c(x\mod y)=(cx)\mod (cy)$(分配律).</li>
-</ol>
-<h3 id="整值函数的应用"><a href="#整值函数的应用" class="headerlink" title="整值函数的应用"></a>整值函数的应用</h3><h4 id="一类函数与整值函数"><a href="#一类函数与整值函数" class="headerlink" title="一类函数与整值函数"></a>一类函数与整值函数</h4><p>设$f(x)$是一个有以下性质且在一个实数区间连续的单调递增函数:</p>
-<p>$f(x)\in \mathbb{Z}\Rightarrow x\in \mathbb{Z}$.</p>
-<p>那么,只要$f(x),f(\lfloor x\rfloor),f(\lceil x\rceil)$都有定义,我们有:</p>
-<p>$\lfloor f(x)\rfloor=\lfloor f(\lfloor x\rfloor) \rfloor$和$\lceil f(x)\rceil=\lceil f(\lceil x\rceil) \rceil$.</p>
-<p>由于底和顶是类似的,我们考虑先对顶进行证明,这样也可以类似证明底:</p>
-<p>若$x=\lceil x\rceil$,显然得证;</p>
-<p>不然,有$x&lt;\lceil x\rceil$,那么有$f(x)&lt;f(\lceil x\rceil)$,也就有$\lceil f(x)\rceil\leq \lceil f(\lceil x\rceil) \rceil$.</p>
-<p>考虑反证法,不妨令$\lceil f(x)\rceil&lt;\lceil f(x\lceil x\rceil) \rceil$.则一定存在一个整数$y$使得$\lceil f(x)\rceil=y&lt;\lceil f(\lceil x\rceil) \rceil$,此时必有$x\leq y&lt;\lceil x\rceil$.由于$f$的性值,显然有$y$是整数,但根据整值函数的性值,不可能存在这样一个整数$y$满足$x\leq y&lt;\lceil x\rceil$,因此得证.</p>
-<p>另外,我们考虑函数$f(x)=\cfrac{x+m}{n}$,显然这是一个满足条件的函数,因此显然满足上述的条件.再考虑$m=0$的特殊情况:$\lfloor \cfrac{\lfloor\cfrac{x}{n}\rfloor}{m}\rfloor=\lfloor\cfrac{x}{nm}\rfloor$.</p>
-<p>而单调递减函数可以取相反数转化为单调递增函数.</p>
-<h4 id="迪利克雷抽屉原理"><a href="#迪利克雷抽屉原理" class="headerlink" title="迪利克雷抽屉原理"></a>迪利克雷抽屉原理</h4><p>$n$个物体放进$m$个盒子里,那么必定有一个盒子中放入了大于等于$\lceil\cfrac n m\rceil$个物品,有一个盒子放入了小于等于$\lfloor\cfrac n m\rfloor$个物体.</p>
-<h4 id="计算区间内整数个数"><a href="#计算区间内整数个数" class="headerlink" title="计算区间内整数个数"></a>计算区间内整数个数</h4><p>整值函数的另一个应用是计算区间内整数个数:</p>
-<p>考虑基本性值$7,8,9,10$,不难发现:</p>
-<ol>
-<li>$[\alpha,\beta]$包含$\lfloor\beta\rfloor-\lceil\alpha\rceil+1$个整数.</li>
-<li>$(\alpha,\beta)$包含$\lceil\beta\rceil-\lfloor\alpha\rfloor-1$个整数.</li>
-<li>$(\alpha,\beta]$包含$\lfloor\beta\rfloor-\lfloor\alpha\rfloor$个整数.</li>
-<li>$[\alpha,\beta)$包含$\lceil\beta\rceil-\lceil\alpha\rceil$个整数.</li>
-</ol>
-<h4 id="谱"><a href="#谱" class="headerlink" title="谱"></a>谱</h4><p>我们定义一个实数$\alpha$的<strong>谱</strong>是以下集合:</p>
-<p>$Spec(\alpha)=\{\lfloor\alpha\rfloor,\lfloor2\alpha\rfloor,\lfloor3\alpha\rfloor…\}$.</p>
-<p>不难发现,只要$\alpha\ne\beta$,则$Spec(\alpha)\ne Spec(\beta)$.</p>
-<h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><p>求证:$Spec(\sqrt2)\cup Spec(2+\sqrt2)=\mathbb{N_+}$且$Spec(\sqrt2)\cap Spec(2+\sqrt2)=\phi$,即这两个集合构成了正整数集的一个划分.</p>
-<p>我们考虑这样一个事实:对于任意正整数$n$,如果我们能求出来$Spec(\sqrt2)$中有$a$个元素$\leq n$,$Spec(2+\sqrt2)$中有$b$个元素$\leq n$,并且$a+b=n$,则结论显然成立.</p>
-<p>不妨令函数$N(\alpha,n)$表示$Spec(\alpha)$中有多少个元素$\leq n$,其中$\alpha$是正数,我们有:</p>
-<script type="math/tex; mode=display">
-N(\alpha,n)=\sum_{k\in\mathbb{N_+}}[\lfloor k\alpha\rfloor\leq n]\\
-=\sum_{k\in\mathbb{N_+}}[\lfloor k\alpha\rfloor< n+1]\\
-=\sum_{k\in\mathbb{N_+}}[k\alpha< n+1]\\
-=\sum_k[0<k<(n+1)/\alpha]\\
-=\lceil(n+1)/\alpha\rceil-1</script><p>则我们要证明的就是:</p>
-<script type="math/tex; mode=display">
-\lceil\cfrac{n+1}{\sqrt2}\rceil-1+\lceil\cfrac{n+1}{2+\sqrt2}\rceil-1=n\\
-\lfloor\cfrac{n+1}{\sqrt2}\rfloor+\lfloor\cfrac{n+1}{2+\sqrt2}\rfloor=n\\
-\cfrac{n+1}{\sqrt2}-\{\cfrac{n+1}{\sqrt2}\}+\cfrac{n+1}{2+\sqrt2}-\{\cfrac{n+1}{2+\sqrt2}\}=n</script><p>而由于我们有恒等式:$\cfrac1{\sqrt2}+\cfrac{1}{2+\sqrt2}$,且两个相加为整数的数的分数部分相加显然为$1$,原式得证.</p>
-<p>事实上,如果两个集合$Spec(\alpha)$和$Spac(\beta)$构成正整数集一个划分,可以同上证明$\cfrac1\alpha+\cfrac1\beta=1$且$\alpha$和$\beta$都是无理数.</p>
-<h4 id="整值函数的递归式"><a href="#整值函数的递归式" class="headerlink" title="整值函数的递归式"></a>整值函数的递归式</h4><p>得到递归式的封闭形式的确很有用,它可以让我们在很快的时间内求出答案,但大部分时候是很麻烦的.</p>
-<p>而如果我们对时间的要求没有那么紧,我们不妨考虑一种较慢但更容易的方法:</p>
-<h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h5><p>约瑟夫问题,但是每隔两个人处死一个人,求最后存活者的编号.</p>
-<p>我们不妨这样考虑:我们每略过两个人,就将他们重新编号.</p>
-<p>例如,我们杀掉了三号,就将一号和二号重新编号为$n+1$号和$n+2$号,杀掉了六号,就将四号和五号重新编号为$n+3$号和$n+4$号,这样,我们在做游戏的时候,场上人员的编号一定是连续的.</p>
-<p>我们把最后存活者改为最后死亡者,这样它的最后编号就是$3n$.</p>
-<p>并且不难发现,第$k$个死亡的人的最后编号就是$3k$.</p>
-<p>我们考虑已知新编号如何求旧编号,设新编号为$N$:</p>
-<p>如果$N\leq n$,则$N$是初始编号,反之,我们考虑在编号$N$的时候被杀死的人的编号.</p>
-<p>令$N=n+2k+w$,其中$w\in[1,2]$,则编号$N$的时候被杀死的即是$3k$,那么$N$之前的编号就是$3k+w=N-n+k$.</p>
-<p>而$k=\lfloor\cfrac {(N-n-1)}{2}\rfloor$,我们可以不断进行迭代.</p>
-<p>如果我们令$D=3n+1-N$,换句话说即改变编号的顺序,我们可以有以下的赋值操作:</p>
-<p>$3n+1-D’=3n+1-D-n+\lfloor\cfrac {(3n+1-D-n-1)}{2}\rfloor$.</p>
-<p>化简这个式子,我们有:$D’=D+n-\lfloor\cfrac {(2n-D)}{2}\rfloor=D+\lceil\cfrac{D}{2}\rceil=\lceil\cfrac{3D}2\rceil$.</p>
-<p>事实上,我们可以证明:如果我们每隔$q$个人就杀掉一个人的话,那么$D’=\lceil\cfrac{(q+1)D}{q}\rceil$,一直迭代到$D’&gt;qn$时.</p>
-<p>而最后的答案就是$(q+1)n+1-D$.</p>
-<h4 id="整值函数的恒等式"><a href="#整值函数的恒等式" class="headerlink" title="整值函数的恒等式"></a>整值函数的恒等式</h4><p>考虑公式$\lceil\cfrac{n-k+1}{m}\rceil$,不难发现它在$1\leq k\leq n\mod m$时的值为$\lceil\cfrac{n}{m}\rceil$,而在$n\mod m&lt;k\leq m$的值为$\lfloor\cfrac n m\rfloor$.</p>
-<p>那么我们可以得到以下恒等式:</p>
-<p>$n=\sum_{k=1}^m\lceil\cfrac{n-k+1}{m}\rceil$.</p>
-<p>类似地,有:</p>
-<p>$n=\sum_{k=1}^m\lfloor\cfrac{n+k-1}{m}\rfloor$.</p>
-<p>用$\lfloor mx\rfloor$替换上面的$n$有$\lfloor mx\rfloor=\sum_{k=1}^m\lfloor x+\cfrac{k-1}{m}\rfloor$.</p>
-<p>同样的,有$\lceil mx\rceil=\sum_{k=1}^m\lceil x-\cfrac{k-1}{m}\rceil$.</p>
-<h4 id="整值函数的和式"><a href="#整值函数的和式" class="headerlink" title="整值函数的和式"></a>整值函数的和式</h4><p>通常情况下,处理含整值函数的和式时,通过引入新变量进行代替以及通过转化为区间进行化简.</p>
-<p>如果遇到难以处理的情况,我们不妨考虑直接处理其中一段的和,使得剩下部分求和更为简单.</p>
-<p>处理整值函数的另一个方法是:考虑将整值函数内的东西移出,并且让里面的东西形如等差序列,这样我们就可以尝试使用恒等式来化简.</p>
-<h5 id="Example1"><a href="#Example1" class="headerlink" title="Example1"></a>Example1</h5><p>求$\sum_{k=0}^{n-1}\lfloor\sqrt k\rfloor$.</p>
-<p>我们有:</p>
-<script type="math/tex; mode=display">
-\sum_{k=0}^{n-1}\lfloor\sqrt k\rfloor=\sum_{0\leq k,m}[k<n][m=\lfloor\sqrt k\rfloor]m\\
-=\sum_{0\leq k,m}[k<n][m^2\leq k<(m+1)^2]m\\
-=\sum_{0\leq k,m}m[m^2\leq k<n<(m+1)^2]+\sum_{0\leq k,m}m[m^2\leq k<(m+1)^2\leq n]</script><p>考虑$n=a^2$的特殊情况,则前面那一项显然是$0$,那么:</p>
-<script type="math/tex; mode=display">
-原式=\sum_{0\leq k,m}m[m^2\leq k<(m+1)^2\leq n]\\
-=\sum_{0\leq m}m(2m+1)[m<a]\\
-=\sum_{m=0}^{a-1}(2m^2+m)\\
-=\cfrac{(a-1)a(2a-1)}{3}+\cfrac{a(a-1)}{2}\\
-=\cfrac{(4a+1)a(a-1)}{6}</script><p>而如果$n\ne a^2$,我们令$a=\lfloor\sqrt n\rfloor$,而当$k\in [a^2,n)$的部分的贡献显然是$a(n-a^2)$.</p>
-<p>于是最后的结果就是:$\cfrac{(4a+1)a(a-1)}{6}+a(n-a^2),a=\lfloor\sqrt n\rfloor$.</p>
-<p>另一个做法是,我们考虑增加枚举量,有:</p>
-<script type="math/tex; mode=display">
-\sum_{k=0}^{n-1}\lfloor\sqrt k\rfloor=\sum_{j,k}[1\leq j\leq \sqrt k][0\leq k<a^2]\\
-=\sum_{1\leq j<a}\sum_{k}[j^2\leq k<a^2]\\
-=\sum_{1\leq j<a}a^2-j^2=a^3-\cfrac{a(2a+1)(a+1)}{6}</script><h5 id="Example2"><a href="#Example2" class="headerlink" title="Example2"></a>Example2</h5><p>求$\sum_{k=0}^{m-1}\lfloor\cfrac{nk+x}{m}\rfloor,m\in\mathbb{N_+},n\in \mathbb{Z}$.</p>
-<p>由于$kn-(kn\mod m)=m\lfloor\cfrac{kn}{m}\rfloor$,我们有:</p>
-<p>$\lfloor\cfrac{x+kn}{m}\rfloor=\lfloor\cfrac{x+(kn\mod m)}{m}\rfloor+\cfrac{kn}{m}-\cfrac{kn\mod m}{m}$.</p>
-<p>这样,我们将整个式子的求和分为了三部分,第二项显然是等差数列求和,而如果我们令$g=\gcd(n,m)$,不难发现第三项是一个等差数列$0,g,2g,…m-g$重复了$g$次,而且正因为这,第一项里面的数也就自然组成了等差数列,由于我们有恒等式,那么这一项也就自然可以计算了.</p>
-<p>分别求和后加起来,得到答案为$g\lfloor\cfrac{x}{g}\rfloor+\cfrac{(m-1)n}{2}+\cfrac{g-m}{2}$.</p>
-<p>另外,对这个式子进行化简,我们可以得到:$g\lfloor\cfrac{x}{g}\rfloor+\cfrac{(m-1)(n-1)}{2}+\cfrac{g-1}2$,而这个式子关于$n$和$m$是对称的.</p>
-<p>也就是说:$\sum_{k=0}^{m-1}\lfloor\cfrac{nk+x}{m}\rfloor=\sum_{k=0}^{n-1}\lfloor\cfrac{mk+x}{n}\rfloor,m,n\in\mathbb{N_+}$.</p>
-<p>另外,如果要求$\sum^n_{i=0}\lfloor\cfrac{ai+b}{c}\rfloor$,我们也有一种$O(\log n)$的做法:</p>
-<p>若$c\leq a$,原式化为$\sum^n_{i=0}{(i\times\lfloor\frac{a}{c}\rfloor+\lfloor\cfrac{(a\mod c)i+b}{c}\rfloor)}$.</p>
-<p>若$c\leq b$,原式化为$\sum^n_{i=0}{\lfloor\cfrac{b}{c}\rfloor+\lfloor\cfrac{ai+(b\mod c)}{c}\rfloor}$.</p>
-<p>考虑$a,b&lt;c$的情况,设$m=\lfloor\cfrac{an+b}{c}\rfloor$,原式化为</p>
-<script type="math/tex; mode=display">
-\sum^n_{i=0}\sum^m_{j=1}[j\leq \lfloor\cfrac{ai+b}{c}\rfloor]\\=\sum^n_{i=0}\sum^m_{j=1}[cj\leq ai+b]\\=nm-\sum^n_{i=0}\sum^m_{j=1}[ai\leq cj-b-1]\\=nm-\sum^m_{i=1}\lfloor\cfrac{ci-b-1}{a}\rfloor</script><h5 id="Example3"><a href="#Example3" class="headerlink" title="Example3"></a>Example3</h5><p>求$\sum_{n=1}^{1000}[\lfloor\sqrt[3]n\rfloor|n]$.</p>
-<script type="math/tex; mode=display">
-原式=\sum_{n,k}[k=\lfloor\sqrt[3]n\rfloor][k|n][1\leq n\leq 1000]\\
-=\sum_{k,m,n}[k^3\leq n<(k+1)^3][n=km][1\leq n\leq 1000]\\
-=1+\sum_{k,m}[k^3\leq km<(k+1)^3][1\leq km< 1000]\\
-=1+\sum_{k,m}[k^2\leq m<\frac{(k+1)^3}k][1\leq k<10]\\
-=1+\sum_{k=1}^9(\lceil k^2+3k+3+\frac1 k\rceil-\lceil k^2\rceil)\\
-=1+\sum_{k=1}^9(3k+4)=172</script><p>上述推理过程将$n=1000$的情况特殊讨论了一下,不难发现,如果我们要求的式子是$\sum_{n=1}^{N}[\lfloor\sqrt[3]n\rfloor|n]$,也仍然可以使用将$[K^3,N],K=\lfloor\sqrt[3]N\rfloor$中的数特殊处理的方式做掉,因为这些数的三次根下取整一定是$K$,式子就不难化简了.</p>
-
+        <h2 id="整值函数"><a href="#整值函数" class="headerlink" title="整值函数"></a>整值函数</h2>
+        
+          <p class="article-more-link">
+            <a href="/2022/08/14/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/14/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/" data-id="cl6u2kul30004mkvtbg4m7kcf" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/08/14/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/" data-id="cl6u2xf3h0005r0vt3t83gvq4" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -454,345 +149,16 @@ N(\alpha,n)=\sum_{k\in\mathbb{N_+}}[\lfloor k\alpha\rfloor\leq n]\\
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h3 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h3><p>仅含一列的矩阵称为<strong>列向量</strong>,或简称<strong>向量</strong>.</p>
-<p>包含两个元素的向量如下所示:</p>
-<script type="math/tex; mode=display">\overrightarrow{w}=\begin{bmatrix}
-w_1\\
-w_2
-\end{bmatrix}</script><p>其中$w_1$和$w_2$是任意实数,我们称形如这样的包含两个元素的向量集合为$\mathbb{R}^2$.</p>
-<p>二维向量对应一条二维平面坐标系中的起点为原点的有向线段.</p>
-<h4 id="向量的运算"><a href="#向量的运算" class="headerlink" title="向量的运算"></a>向量的运算</h4><p>两个向量相等当且仅当它们对应位置的元素相等.</p>
-<p>两个向量的和为它们对应位置之和所构成的向量.</p>
-<p>向量数乘一个数即该向量的每个位置都乘上这个数的结果向量.</p>
-<p>向量的运算满足以下性质:</p>
-<script type="math/tex; mode=display">
-\begin{array}{c}
-
-1.\overrightarrow{u}+\overrightarrow{v}=\overrightarrow{v}+\overrightarrow{u} \\
-2.(\overrightarrow{u}+\overrightarrow{v})+\overrightarrow{w}=\overrightarrow{u}+(\overrightarrow{v}+\overrightarrow{w})\\
-3.\overrightarrow{u}+\overrightarrow{0}=\overrightarrow{u}\\
-4.\overrightarrow{u}+(-\overrightarrow{u})=\overrightarrow{0}\\
-5.c(\overrightarrow{u}+\overrightarrow{v})=c\overrightarrow{u}+c\overrightarrow{v}\\
-6.(c+d)\overrightarrow{u}=c\overrightarrow{u}+d\overrightarrow{u}\\
-7.c(d\overrightarrow{u})=(cd)\overrightarrow{u}\\
-8.1\overrightarrow{u}=\overrightarrow{u}
-\end{array}</script><h4 id="子空间"><a href="#子空间" class="headerlink" title="子空间"></a>子空间</h4><p>我们定义$\mathbb{R}^n$的一个<strong>子空间</strong>是它的一个子集$H$,具有以下三个性质:</p>
-<ol>
-<li>$\vec{0}\in H$.</li>
-<li>$\forall \vec u,\vec v\in H,\vec u+\vec v\in H$.</li>
-<li>$\forall \vec u\in H,c\in\mathbb{R},c\vec u\in H$.</li>
-</ol>
-<h4 id="向量的线性组合"><a href="#向量的线性组合" class="headerlink" title="向量的线性组合"></a>向量的线性组合</h4><p>给定$\mathbb{R}^n$中向量$\overrightarrow{v_1},\overrightarrow{v_2},…,\overrightarrow{v_p}$和标量$c_1,c_2,…,c_p$.</p>
-<p>我们称向量$\overrightarrow{y}=c_1\overrightarrow{v_1}+c_2\overrightarrow{v_2}+…+c_p\overrightarrow{v_p}$为向量$\overrightarrow{v_1},\overrightarrow{v_2},…,\overrightarrow{v_p}$以$c_1,c_2,…,c_p$为权的<strong>线性组合</strong>.</p>
-<p>对于向量$\overrightarrow{v_1},\overrightarrow{v_2},…,\overrightarrow{v_p}$,我们称它们的所有线性组合所成的集合为$Span\{\overrightarrow{v_1},\overrightarrow{v_2},…,\overrightarrow{v_p}\}$,也称为由$\overrightarrow{v_1},\overrightarrow{v_2},…,\overrightarrow{v_p}$所<strong>生成</strong>的$\mathbb{R}^n$的子集.</p>
-<p>不难发现,$Span$集合是$\mathbb{R}^n$的一个子空间,所以我们又称其为由$\overrightarrow{v_1},\overrightarrow{v_2},…,\overrightarrow{v_p}$所<strong>生成</strong>的子空间.</p>
-<p>我们考虑$Span$的几何意义:</p>
-<p>对于$\mathbb{R}^2$,当$\vec{v_1}$和$\vec{v_2}$不在一条直线上的时候,$Span\{\vec{v_1},\vec{v_2}\}$显然对应了整个平面.</p>
-<p>对于$\mathbb{R}^3$,当$\vec{v_1}$和$\vec{v_2}$不在一条直线上的时候,$Span\{\vec{v_1},\vec{v_2}\}$显然对应了三维空间中的一个过$\vec{v_1},\vec{v_2}$这两条直线的平面.</p>
-<p>要判断$\overrightarrow{b}$是否在$Span\{\overrightarrow{v_1},\overrightarrow{v_2},…,\overrightarrow{v_p}\}$中，即判断向量方程$x_1\overrightarrow{v_1}+x_2\overrightarrow{v_2}+…+x_p\overrightarrow{v_p}=\overrightarrow{b}$是否有解.</p>
-<h4 id="子空间的基"><a href="#子空间的基" class="headerlink" title="子空间的基"></a>子空间的基</h4><p>$\mathbb{R}^n$中子空间$H$的一组<strong>基</strong>是$H$中一个线性无关集,它生成$H$.</p>
-<h4 id="子空间的坐标系"><a href="#子空间的坐标系" class="headerlink" title="子空间的坐标系"></a>子空间的坐标系</h4><p>假设$\mathcal{B}=\{\vec {b_1},\vec{b_2},…,\vec{b_p}\}$是子空间$H$的一组基.对于$H$中的任意向量$\vec x$,若$\vec x=c_1\vec{b_1}+c_2\vec{b_2}+…+c_p\vec{b_p}$,那么我们称$\mathbb{R}^p$中的向量$[\vec x]_{\mathcal{B}}=\begin{bmatrix}c_1\\c_2\...\\c_p\end{bmatrix}$为$\vec x$相对于$\mathcal{B}$的<strong>坐标向量</strong>,或称$\vec x$的<strong>$\mathcal{B}-$坐标向量</strong>.</p>
-<h4 id="子空间的维数"><a href="#子空间的维数" class="headerlink" title="子空间的维数"></a>子空间的维数</h4><p>非零子空间$H$的<strong>维数</strong>(记作$\dim H$)是$H$的任意一个基的向量个数,零子空间$\{\vec 0\}$的维数定义为$0$.</p>
-<h4 id="定理14-基定理"><a href="#定理14-基定理" class="headerlink" title="定理14:基定理"></a>定理14:基定理</h4><p>设$H$是$\mathbb{R}^n$的$p$维子空间,$H$中任何恰好由$p$个元素组成的线性无关集构成$H$的一个基.</p>
-<h3 id="矩阵引入"><a href="#矩阵引入" class="headerlink" title="矩阵引入"></a>矩阵引入</h3><p>我们称有$m$行$n$列的<strong>矩阵</strong>为$A_{m\times n}$,其中第$i$行第$j$列的元素称作$a_{i,j}$.</p>
-<p>也可以将其中中的列写作$\mathbb{R}^m$中向量的形式,即写作$A_{m\times n}=\begin{bmatrix}\vec{a_1}&amp;\vec{a_2}&amp;…&amp;\vec{a_n}\end{bmatrix}$.</p>
-<p>若$n=m$,则称$A$为<strong>方阵</strong>.</p>
-<h4 id="矩阵运算"><a href="#矩阵运算" class="headerlink" title="矩阵运算"></a>矩阵运算</h4><p>定义<strong>矩阵加法</strong>:若矩阵$A$和$B$都是$m\times n$矩阵,则它们的和也是$m\times n$矩阵,且元素为$A$和$B$中对应元素的加和.</p>
-<p>定义<strong>标量乘法</strong>:若$c$是标量而$A$是一个$m\times n$矩阵,则$cA$是一个$m\times n$矩阵,且元素为A中对应元素的c倍.</p>
-<p>定义<strong>矩阵乘法</strong>:若$A$是$m\times n$矩阵,$B$是$n\times p$矩阵,那么它们的乘积$AB_{i,j}=\sum_{k=1}^nA_{i,k}B_{k,j}$.</p>
-<p>矩阵乘法也可以表示为:若$A$是$m\times n$矩阵,$B$是$n\times p$矩阵,且$B=\begin{bmatrix}\vec{b_1}&amp;\vec{b_2}&amp;…&amp;\vec{b_p}\end{bmatrix}$那么它们的乘积$AB=\begin{bmatrix}A\vec{b_1}&amp;A\vec{b_2}&amp;…&amp;A\vec{b_p}\end{bmatrix}$.</p>
-<p>若$AB=BA$我们称$A$和$B$彼此<strong>可交换</strong>.</p>
-<p>不难发现$\forall A_{m\times n}$,对于矩阵$I_{n\times n}=\begin{bmatrix}1&amp;0&amp;…&amp;0\\0&amp;1&amp;…&amp;0\...&amp;…&amp;…&amp;…\\0&amp;0&amp;…&amp;1\end{bmatrix}$有$AI=A$,我们称$I_{n\times n}$为<strong>单位矩阵</strong>.</p>
-<p>定义<strong>乘幂</strong>$A^k$为$k$个$A$连续相乘的乘积.</p>
-<p>定义<strong>矩阵转置</strong>:对于$m\times n$矩阵$A$,它的<strong>转置</strong>是一个$n\times m$矩阵,该矩阵的列是由$A$的对应行构成的,记作$A^T$,即$A^T_{i,j}=A_{j,i}$.</p>
-<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><p>设$A,B,C$为相同维数的矩阵,$r,s$为标量,则有:</p>
-<ol>
-<li>$A+B=B+A$.</li>
-<li>$(A+B)+C=A+(B+C)$.</li>
-<li>$r(A+B)=rA+rB$.</li>
-<li>$(r+s)A=rA+sA$.</li>
-<li>$r(sA)=(rs)A$</li>
-</ol>
-<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><p>设$A$为$m\times n$矩阵,$B$和$C$的维数使下列各式的乘积有定义,c是标量,有:</p>
-<ol>
-<li>乘法结合律:$(AB)C=A(BC)$.</li>
-<li>乘法左分配律:$A(B+C)=AB+AC$.</li>
-<li>乘法右分配律:$(B+C)A=BA+CA$.</li>
-<li>$c(AB)=(cA)B=A(cB)$.</li>
-<li>乘法恒等式:$I_mA=A=AI_n$.</li>
-</ol>
-<h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><p>设$A$和$B$的维数使下列各式的乘积有定义,c是标量,有:</p>
-<ol>
-<li>$(A^T)^T=A$.</li>
-<li>$(A+B)^T=A^T+B^T$.</li>
-<li>$(rA)^T=rA^T$.</li>
-<li>$(AB)^T=B^TA^T$.</li>
-</ol>
-<h3 id="线性方程组"><a href="#线性方程组" class="headerlink" title="线性方程组"></a>线性方程组</h3><p>包含变量$x_1,x_2…,x_n$的<strong>线性方程</strong>是形如$a_1x_2+a_2x_2+…+a_nx_n=b$的方程,其中b与系数是实数或复数,通常是已知数.</p>
-<p><strong>线性方程组</strong>是由一个或几个包含相同变量$x_1,x_2,…,x_n$的线性方程组成的.</p>
-<h4 id="线性方程组的解"><a href="#线性方程组的解" class="headerlink" title="线性方程组的解"></a>线性方程组的解</h4><p><strong>线性方程组的解</strong>是一组数$\{s_1,s_2,…,s_n\}$,用这组数分别代替$x_1,x_2,…x_n$时所有方程的两边相等.</p>
-<p>线性方程组所有可能的解的集合称为<strong>线性方程组的解集</strong>.</p>
-<h4 id="等价的线性方程组"><a href="#等价的线性方程组" class="headerlink" title="等价的线性方程组"></a>等价的线性方程组</h4><p>若两个线性方程组有相同的解集,则称这两个方程组是<strong>等价的</strong>.</p>
-<h4 id="相容的线性方程组"><a href="#相容的线性方程组" class="headerlink" title="相容的线性方程组"></a>相容的线性方程组</h4><p>我们称一个线性方程组是<strong>相容的</strong>,当且仅当它有一个解或无穷多个解,否则,称其为<strong>不相容的</strong>.</p>
-<p>一个线性方程组要么无解,要么有一个解,要么有无穷多个解.</p>
-<h4 id="线性方程组的系数矩阵和增广矩阵"><a href="#线性方程组的系数矩阵和增广矩阵" class="headerlink" title="线性方程组的系数矩阵和增广矩阵"></a>线性方程组的系数矩阵和增广矩阵</h4><p>考虑以下m个线性方程所组成的线性方程组:</p>
-<script type="math/tex; mode=display">\begin{cases}
-a_{1,1}x_1+a_{1,2}x_2+...+a_{1,n}x_n=b_1\\
-a_{2,1}x_1+a_{2,2}x_2+...+a_{2,n}x_n=b_2\\
-...\\
-a_{m,1}x_1+a_{m,2}x_2+...+a_{m,n}x_n=b_m
-\end{cases}</script><p>我们称它的<strong>系数矩阵</strong>为:</p>
-<script type="math/tex; mode=display">\begin{bmatrix}
-a_{1,1}&a_{1,2}&...&a_{1,n}\\
-a_{2,1}&a_{2,2}&...&a_{2,n}\\
-... &...&...&...\\
-a_{m,1}&a_{m,2}&...&a_{m,n}
-\end{bmatrix}</script><p>两个系数矩阵是<strong>等价的</strong>当且仅当它们所对应的线性方程组是等价的.</p>
-<p>而称它的<strong>增广矩阵</strong>为:</p>
-<script type="math/tex; mode=display">\begin{bmatrix}
-a_{1,1}&a_{1,2}&...&a_{1,n}&b_1\\
-a_{2,1}&a_{2,2}&...&a_{2,n}&b_2\\
-... &...&...&...&...\\
-a_{m,1}&a_{m,2}&...&a_{m,n}&b_m
-\end{bmatrix}</script><p>两个增广矩阵是<strong>等价的</strong>当且仅当它们所对应的线性方程组是等价的.</p>
-<h4 id="矩阵的初等行变换"><a href="#矩阵的初等行变换" class="headerlink" title="矩阵的初等行变换"></a>矩阵的初等行变换</h4><p>考虑如何解一个线性方程:根据我们已有的知识,等式可以任意两端加减相等的两项,也可以同时乘以一个不为0的数,同时等式的顺序并不重要.</p>
-<p>我们用这一点来考虑如何解线性方程组.这里主要是考虑如何对线性方程组的增广矩阵进行变换.</p>
-<p>由上面的知识,我们意识到对线性方程组的增广矩阵进行以下变换,是不会改变其解集的:</p>
-<ol>
-<li>(倍加变换)把某一行换成它本身与另一行的倍数的和,记作$R_i+kR_j\rightarrow R_i$.</li>
-<li>(对换变换)把两行对换,记作$R_i\leftrightarrow R_j$.</li>
-<li>(倍乘变换)把某一行的所有元素乘以同一个非零数$k$,记作$kR_i\rightarrow R_i,k\ne0$.</li>
-</ol>
-<p>以上三种变换称为<strong>矩阵的初等行变换</strong>,同理可以定义初等列变换.</p>
-<p>由此可以发现,两个增广矩阵是等价的当且仅当其中一个增广矩阵可以通过若干次初等行变换变为另一个增广矩阵.</p>
-<p>我们可以使用这些初等行变换来变换一个矩阵,使得它有一些特殊性质.</p>
-<h4 id="阶梯形矩阵"><a href="#阶梯形矩阵" class="headerlink" title="阶梯形矩阵"></a>阶梯形矩阵</h4><p>若矩阵的一行的元素全为0,称这一行为矩阵的一个<strong>零行</strong>,否则称为<strong>非零行</strong>.</p>
-<p>非零行的最左边的非零元素称为该行的<strong>先导元素</strong>.</p>
-<p>若一个矩阵有以下性质,则称它为<strong>阶梯形矩阵(REF)</strong>:</p>
-<ol>
-<li>每一个非零行都在零行之上</li>
-<li>某一行的先导元素所在的列位于前一行先导元素的右边</li>
-<li>某一先导元素所在列下方元素都是0</li>
-</ol>
-<p>若一个矩阵还满足以下性质,则称它为<strong>简化阶梯形(RREF)</strong>:</p>
-<ol>
-<li>每一非零行的先导元素是1</li>
-<li>每一先导元素1是该元素所在列唯一的非零元素</li>
-</ol>
-<p>显然,任意一个矩阵都可以通过若干次初等行变换变为一个阶梯形矩阵或简化阶梯形矩阵.</p>
-<p>一个矩阵所对应的阶梯形矩阵中先导元素的位置,被称为这个矩阵的一个<strong>主元位置</strong>,包含一个主元位置的列称为<strong>主元列</strong>.</p>
-<p>注意:这里的位置是矩阵中的位置而非元素的位置,这也就是说主元位置上的元素可以不是最终的主元位置上的元素移动而来的.</p>
-<h4 id="定理1-简化阶梯形矩阵的唯一性"><a href="#定理1-简化阶梯形矩阵的唯一性" class="headerlink" title="定理1:简化阶梯形矩阵的唯一性"></a>定理1:简化阶梯形矩阵的唯一性</h4><p>每个矩阵通过初等行变换只有可能对应唯一一个简化阶梯形矩阵.</p>
-<p>证明:暂略</p>
-<h4 id="解线性方程组"><a href="#解线性方程组" class="headerlink" title="解线性方程组"></a>解线性方程组</h4><p>考虑将线性方程组的增广矩阵通过初等行变换变换为一个简化阶梯形矩阵,我们称对应于主元列的变量为<strong>基本变量</strong>,其它变量称为<strong>自由变量</strong></p>
-<p>如果线性方程组是相容的,显然我们可以使用自由变量表示基本变量,从而得到一组解.我们得到的基本变量的关于自由变量的表达式称作解集的<strong>参数表示</strong>.</p>
-<p>这也意味着,如果没有自由变量,该方程组只有一解;如果有自由变量,由于自由变量取值任意,该方程组有无数组解.</p>
-<p>而考虑何时线性方程组不相容,由于自由变脸取值任意,显然唯一的不相容可能性只是出现了$0x_1+0x_2+…+0x_n=b,b\ne 0$的情况.</p>
-<p>以上的分析过程引出定理2.</p>
-<h4 id="定理2-存在与唯一性定理"><a href="#定理2-存在与唯一性定理" class="headerlink" title="定理2:存在与唯一性定理"></a>定理2:存在与唯一性定理</h4><p>线性方程组相容的充要条件是增广矩阵的最右列不是主元列.</p>
-<p>若线性方程组相容,则它的解集可能有两种情形:</p>
-<ol>
-<li>没有自由变量时,只有一个解</li>
-<li>有自由变量时,有无数个解</li>
-</ol>
-<h4 id="矩阵方程"><a href="#矩阵方程" class="headerlink" title="矩阵方程"></a>矩阵方程</h4><p>设$A$是$m\times n$的矩阵,它的各列是$\vec{a_1},\vec{a_2},…,\vec{a_n}$,若$\vec{x}$是$\mathbb{R}^n$中的向量,则$Ax$即A的各列以$\vec{x}$中对应元素为权的线性组合,也就是:</p>
-<p>$A\vec{x}=\begin{bmatrix}\vec{a_1}&amp;\vec{a_2}&amp;…&amp;\vec{a_n}\end{bmatrix}\begin{bmatrix}x_1\\x_2\...\\x_n\end{bmatrix}=x_1\vec{a_1}+x_2\vec{a_2}+…+x_n\vec{a_n}$</p>
-<p>如果令$\vec{b}\in\mathbb{R}^m$,那么上式可以写成$A\vec{x}=\vec{b}$,我们把形如这样的方程称作矩阵方程.</p>
-<h4 id="定理3-1"><a href="#定理3-1" class="headerlink" title="定理3"></a>定理3</h4><p>若$A$是$m\times n$矩阵,它的各列为$\vec{a_1},\vec{a_2},…\vec{a_n}$,而$\vec{b}\in\mathbb{R}^m,\vec{x}\in\mathbb{R}^n$,那么:</p>
-<p>矩阵方程$A\vec{x}=\vec{b}$,向量方程$x_1\vec{a_1}+x_2\vec{a_2}+…+x_n\vec{a_n}=\vec{b}$,增广矩阵为$\begin{bmatrix}\vec{a_1}&amp;\vec{a_2}&amp;…&amp;\vec{a_n}&amp;\vec{b}\end{bmatrix}$的线性方程组有相同的解集.</p>
-<h4 id="定理4"><a href="#定理4" class="headerlink" title="定理4"></a>定理4</h4><p>若$A$是$m\times n$矩阵,它的各列为$\vec{a_1},\vec{a_2},…\vec{a_n}$,那么以下命题逻辑等价:</p>
-<ol>
-<li>$\forall \vec b\in\mathbb{R}^m$,方程$A\vec{x}=\vec{b}$有解.</li>
-<li>$\forall \vec b\in\mathbb{R}^m$,$\vec{b}$是$A$的列的一个线性组合.</li>
-<li>$A$的各列生成$\mathbb R^m$.</li>
-<li>$A$在每一列都有一个主元位置.</li>
-</ol>
-<h4 id="定理5"><a href="#定理5" class="headerlink" title="定理5"></a>定理5</h4><p>若$A$是$m\times n$矩阵,它的各列为$\vec{a_1},\vec{a_2},…\vec{a_n}$,而$\vec{u},\vec{v}\in\mathbb{R}^n$,那么:</p>
-<ol>
-<li>$A(\vec{u}+\vec{v})=A\vec{u}+A\vec{v}$.</li>
-<li>$A(c\vec{u})=c(A\vec{u})$.</li>
-</ol>
-<h4 id="齐次线性方程组"><a href="#齐次线性方程组" class="headerlink" title="齐次线性方程组"></a>齐次线性方程组</h4><p>若一个线性方程组可以被写成$A\vec{x}=\vec{0}$的形式,其中$A$是$m\times n$的矩阵,$\vec{x}$是$\mathbb{R}^n$中的向量,称其为<strong>齐次线性方程组</strong>.</p>
-<p>显然齐次线性方程组至少有一个解,即$\vec{x}=\vec{0}$,这个解称作线性齐次方程组的<strong>平凡解</strong>.</p>
-<p>而满足$\vec{x}\ne\vec{0}$的解称作线性齐次方程组的<strong>非平凡解</strong>.</p>
-<p>根据定理2,显然其存在非平凡解的充要条件是该方程至少有一个自由变量.</p>
-<p>考虑自由变量的取值任意,而且基本变量一定是由若干个自由变量乘以定值之和得到的.</p>
-<p>我们把这些定值看作向量,把自由向量看作权重,我们发现:齐次线性方程组的解集总可以表示为$Span\{\vec{v_1},\vec{v_2},…,\vec{v_{p}}\}$,当然,如果该方程组仅有平凡解,那表示为$Span\{\vec{0}\}$.</p>
-<p>把解表示为$Span\{\vec{v_1},\vec{v_2},…,\vec{v_{p}}\}$中元素的形式,称之为<strong>解的参数向量形式</strong>.</p>
-<h4 id="定理6"><a href="#定理6" class="headerlink" title="定理6"></a>定理6</h4><p>对于方程$A\vec{x}=\vec{b}$,它的解一定可以写成$\vec{x}=\vec{p}+\vec{x’}$的形式,其中$\vec{x’}$是方程$A\vec{x}=\vec{0}$的一组解,$\vec{p}$是方程$A\vec{x}=\vec{b}$的一组特解.</p>
-<p>对于该定理的几何意义,我们考虑$\vec{x}\in \mathbb{R}^2$中,即$\vec{x}=\vec{p}+t\vec{u}$,如果我们把它看为向量加法的形式,它的解集应该是在一条直线上的任意向量,这条直线即$\vec{u}$所在直线沿向量$\vec{p}$方向平移后的直线.</p>
-<h4 id="线性无关与线性相关"><a href="#线性无关与线性相关" class="headerlink" title="线性无关与线性相关"></a>线性无关与线性相关</h4><p>称$\mathbb{R}^n$中一组向量$\{\vec{v_1},\vec{v_2},…,\vec{v_p}\}$是<strong>线性无关</strong>的,当且仅当向量方程$x_1\vec{v_1}+x_2\vec{v_2}+…+x_p\vec{v_p}=\vec{0}$仅有平凡解.</p>
-<p>反之,称为<strong>线性相关</strong>,即存在一组不全为0的数$c_1,c_2,…,c_p$使$c_1\vec{v_1}+c_2\vec{v_2}+…+c_p\vec{v_p}=\vec{0}$,这个式子也被称为$\{\vec{v_1},\vec{v_2},…,\vec{v_p}\}$之间的<strong>线性相关关系</strong>.</p>
-<h4 id="矩阵各列的线性无关"><a href="#矩阵各列的线性无关" class="headerlink" title="矩阵各列的线性无关"></a>矩阵各列的线性无关</h4><p>考虑矩阵$A=\begin{bmatrix}\vec{a_1}&amp;\vec{a_2}&amp;…&amp;\vec{a_n}\end{bmatrix}$,考虑矩阵方程$A\vec{x}=\vec{0}$,显然A中的各列的每一个线性相关关系对应于方程$A\vec{x}=\vec{0}$的一个非平凡解.</p>
-<h4 id="两个向量的集合"><a href="#两个向量的集合" class="headerlink" title="两个向量的集合"></a>两个向量的集合</h4><p>两个向量的集合$\{\vec{v_1},\vec{v_2}\}$线性相关,当且仅当其中一个向量是另一个向量的倍数.这个集合线性无关,当且仅当其中任一个向量都不是另一个向量的倍数.</p>
-<h4 id="定理7"><a href="#定理7" class="headerlink" title="定理7"></a>定理7</h4><p>两个或更多向量的集合$S=\{\vec{v_1},\vec{v_2},…,\vec{v_p}\}$线性相关,当且仅当其中至少有一个向量是其它向量的线性组合.</p>
-<h4 id="定理8"><a href="#定理8" class="headerlink" title="定理8"></a>定理8</h4><p>若一个向量组的向量个数超过每个向量的元素个数,那么这个向量组线性相关.</p>
-<p>也就是说,$\mathbb{R}^n$中任意向量组$\{\vec{v_1},\vec{v_2},…,\vec{v_p}\}$在$p&gt;n$时线性相关.</p>
-<p>证明:</p>
-<p>考虑矩阵$P=\begin{bmatrix}\vec{v_1}&amp;\vec{v_2}&amp;…&amp;\vec{v_p}\end{bmatrix}$,由于行比列少,该方程一定存在自由变量，即一定存在非平凡解.</p>
-<h4 id="定理9"><a href="#定理9" class="headerlink" title="定理9"></a>定理9</h4><p>若$\mathbb{R}^n$中任意向量组$\{\vec{v_1},\vec{v_2},…,\vec{v_p}\}$中包含零向量,则其线性相关.</p>
-<h4 id="变换"><a href="#变换" class="headerlink" title="变换"></a>变换</h4><p>由$\mathbb{R}^n$到$\mathbb{R}^m$的一个<strong>变换</strong>T时一个规则,它把$\mathbb{R}^n$中每个向量$\vec{x}$对应$\mathbb{R}^m$中的一个向量$T(\vec x)$.</p>
-<p>集合$\mathbb{R}^n$称为T的<strong>定义域</strong>,而$\mathbb{R}^m$称为T的<strong>余定义域</strong>,符号$T:\mathbb{R}^n\rightarrow \mathbb{R}^m$说明了这一点.</p>
-<p>对于$\mathbb{R}^n$中的向量$\vec{x}$,$\mathbb{R}^m$中向量$T(\vec x)$称为$\vec x$在$T$作用下的像.所有像$T(\vec x)$的集合称为$T$的<strong>值域</strong>.</p>
-<p>若$\mathbb{R}^m$中的每个$\vec b$是$\mathbb{R}^n$中至少一个$\vec x$的像,则称这样的变换为<strong>把$\mathbb{R}^m$映射到$\mathbb{R}^n$上的</strong>,又叫<strong>满射</strong>.</p>
-<p>若$\mathbb{R}^m$中的每个$\vec b$是$\mathbb{R}^n$中至多一个$\vec x$的像,则称这样的变换为<strong>一对一映射</strong>,又叫<strong>单射</strong>.</p>
-<h4 id="矩阵变换"><a href="#矩阵变换" class="headerlink" title="矩阵变换"></a>矩阵变换</h4><p>即定义$T:\mathbb{R}^n\rightarrow \mathbb{R}^m$为$T(\vec x)=A\vec x$,其中$A$是一个$m\times n$的矩阵.</p>
-<h4 id="线性变换"><a href="#线性变换" class="headerlink" title="线性变换"></a>线性变换</h4><p>变换$T:\mathbb{R}^n\rightarrow \mathbb{R}^m$是线性的,当且仅当它满足以下两个条件:</p>
-<ol>
-<li>对$T$的定义域中一切的向量$\vec{u},\vec{v}$,满足$T(\vec{u}+\vec v)=T(\vec u)+T(\vec v)$.</li>
-<li>对$T$的定义域中一切的向量$\vec u$和数$c$,满足$T(c\vec u)=cT(\vec u)$.</li>
-</ol>
-<p>矩阵变换显然是线性变换.</p>
-<p>线性变换有以下的两个性质:</p>
-<ol>
-<li>$T(\vec 0)=\vec 0$.</li>
-<li>$T(c\vec u+d\vec v)=cT(\vec u)+dT(\vec v)$.</li>
-</ol>
-<p>如果我们将第二条性值稍加推广,有:</p>
-<p>$T(c_1\vec v_1+c_2\vec v_2+…+c_p\vec v_p)=c_1T(\vec v_1)+c_2T(\vec v_2)+…+c_pT(\vec v_p)$.</p>
-<p>又被称作<strong>叠加原理</strong>.</p>
-<h4 id="定理10"><a href="#定理10" class="headerlink" title="定理10"></a>定理10</h4><p>设$T:\mathbb{R}^n\rightarrow \mathbb{R}^m$是线性变换,则存在唯一的矩阵$A$使得对$\mathbb{R}^n$中的一切$\vec{x}$,满足$T(\vec x)=A\vec x$.</p>
-<p>事实上,$A$是$m\times n$的矩阵,它的第$j$列是向量$T(\vec {e_j})$,其中$\vec{e_j}$是$\mathbb{R}^n$中单位矩阵$I_n$的第$j$列.</p>
-<p>也即$A=\begin{bmatrix}T(\vec e_1)&amp;T(\vec{e_2})&amp;…&amp;T(\vec e_{n})\end{bmatrix}$.</p>
-<p>称$A$为变换$T$的标准矩阵.</p>
-<p>$A$显然是唯一的,因为如果存在另一个$B$也满足这样,通过假设$\vec x$是单位矩阵$I_n$的某一列可以证明二者一定是相等的矩阵.</p>
-<h4 id="定理11"><a href="#定理11" class="headerlink" title="定理11"></a>定理11</h4><p>设$T:\mathbb{R}^n\rightarrow \mathbb{R}^m$是线性变换,$A$是$T$的标准矩阵,则$T$是单射当且仅当方程$A\vec x=\vec 0$仅有平凡解.</p>
-<p>证明:</p>
-<p>因为$T$是线性的,所以有$T(\vec0)=\vec 0$,如果方程$A\vec x=\vec 0$有非平凡解,显然存在$\vec x$满足$T(\vec x)=\vec 0$,即$T$不是单射的.</p>
-<p>而若$T$不是单射的,则一定存在不相等的两个向量$\vec u$和$\vec v$满足$T(\vec u)=T(\vec v)=\vec b$.</p>
-<p>有$T(\vec u-\vec v)=\vec 0$,则方程存在非平凡解.</p>
-<h4 id="定理12"><a href="#定理12" class="headerlink" title="定理12"></a>定理12</h4><p>设$T:\mathbb{R}^n\rightarrow \mathbb{R}^m$是线性变换,$A$是$T$的标准矩阵,则:</p>
-<ol>
-<li>$T$是$\mathbb{R}^n$到$\mathbb{R}^m$的满射,当且仅当$A$的列生成$\mathbb{R}^m$.</li>
-<li>$T$是$\mathbb{R}^n$到$\mathbb{R}^m$的单射,当且仅当$A$的列线性无关.</li>
-</ol>
-<p>证明:</p>
-<p>1可以根据定理4证明,2可以根据定理11证明.</p>
-<h4 id="差分方程"><a href="#差分方程" class="headerlink" title="差分方程"></a>差分方程</h4><p>如果有矩阵$A$使$\overrightarrow{x_{k+1}}=A\vec{x_k},k\in \mathbb{N}$,称该式子为<strong>线性差分方程</strong>.</p>
-<h3 id="矩阵代数"><a href="#矩阵代数" class="headerlink" title="矩阵代数"></a>矩阵代数</h3><h4 id="可逆矩阵"><a href="#可逆矩阵" class="headerlink" title="可逆矩阵"></a>可逆矩阵</h4><p>称一个$m\times n$的矩阵$A$是<strong>可逆的</strong>,当且仅当$\exist C_{n\times m}$满足$CA=I_{n}$且$\exist D_{n\times m}$满足$AD=I_{m}$.</p>
-<p>可以证明,该定义等价于:</p>
-<p>称一个$n\times n$的矩阵$A$是<strong>可逆的</strong>,当且仅当$\exist C_{n\times n}$满足$CA=AC=I_{n}$,我们记$C=A^{-1}$,对于一个可逆矩阵$A$,$C$是唯一的.</p>
-<p>不可逆矩阵又被称为<strong>奇异矩阵</strong>.</p>
-<p>证明如下:</p>
-<p>考虑$(CA)D=C(AD)=D=C$,显然$C=D$.</p>
-<p>如果存在$D$是$A$的另一个逆矩阵,显然$(CA)D=C(AD)=D=C$.</p>
-<h5 id="引理1"><a href="#引理1" class="headerlink" title="引理1"></a>引理1</h5><p>设$A$是$m\times n$矩阵且$CA=I_n$,则方程$A\vec x=\vec 0$只有平凡解,且$n\leq m$.</p>
-<p>证明:</p>
-<p>考虑方程$A\vec{x}=\vec 0$等价于方程$CA\vec x=C\vec 0$,即$I_n \vec x=\vec 0$,显然只有平凡解.</p>
-<p>而且如果$m&lt;n$,一定有自由变量,不可能只有平凡解.</p>
-<h5 id="引理2"><a href="#引理2" class="headerlink" title="引理2"></a>引理2</h5><p>设$A$是$m\times n$矩阵且$AD=I_n$,则$\forall \vec b\in\mathbb{R}^m$,方程$A\vec x=\vec b$有解,且$m\leq n$.</p>
-<p>证明:</p>
-<p>考虑恒等式$AD\vec b=\vec b$,显然$\vec x=D\vec b$即是一个解且是唯一解.</p>
-<p>根据线性方程组部分的定理4,显然$m\leq n$.</p>
-<p>由上面两条引理得知:若$A$是可逆的,则$A$必为方阵.</p>
-<h4 id="定理6-1"><a href="#定理6-1" class="headerlink" title="定理6"></a>定理6</h4><ol>
-<li>若$A$是可逆矩阵,则$A^{-1}$也可逆且$(A^{-1})^{-1}=A$.</li>
-<li>若$A$和$B$都是可逆方阵,则$AB$也可逆且$(AB)^{-1}=B^{-1}A^{-1}$.</li>
-</ol>
-<p>证明:</p>
-<p>第一条根据逆矩阵的唯一性,显然可证明.</p>
-<p>第二条考虑$(AB)^{-1}(AB)=I=B^{-1}(A^{-1}A)B$,而显然有$ABB^{-1}A^{-1}=I$,虽然矩阵不满足消去律,但根据逆矩阵定义显然可证明.</p>
-<h4 id="初等矩阵"><a href="#初等矩阵" class="headerlink" title="初等矩阵"></a>初等矩阵</h4><p>将单位矩阵经过一次初等行变换得到的矩阵称作<strong>初等矩阵</strong>.</p>
-<p>不难发现,对任意$m\times n$矩阵进行初等行变换一定等价于将其左乘一个初等矩阵.</p>
-<p>对于$R_i\leftrightarrow R_j$:</p>
-<script type="math/tex; mode=display">E_{x,y}=
-\begin{cases}
-1 &x=i,y=j\\
-1 &x=j,y=i\\
-1 &x=y,x\ne i,x\ne j\\
-0 &Otherwise
-\end{cases}\\</script><p>对于$kR_i\rightarrow R_i,k\ne0$:</p>
-<script type="math/tex; mode=display">E_{x,y}=
-\begin{cases}
-k &x=y,x=i\\
-1 &x=y,x\ne i\\
-0 &Otherwise
-\end{cases}\\</script><p>对于$R_i+kR_j\rightarrow R_i,i\ne j$:</p>
-<script type="math/tex; mode=display">E_{x,y}=
-\begin{cases}
-k &x=i,y=j\\
-1 &x=y\\
-0 &Otherwise
-\end{cases}\\</script><p>考虑如下事实:行变换是可逆的,那么初等矩阵显然是可逆的.</p>
-<p>这引出定理7.</p>
-<h4 id="定理7-1"><a href="#定理7-1" class="headerlink" title="定理7"></a>定理7</h4><p>$n\times n$矩阵是可逆的,当且仅当$A$行等价于$I_n$,也即$A$可以通过一系列初等行变换变换为$I_n$.</p>
-<p>如果$A$可以通过一系列初等行变换变换为$I_n$,根据初等矩阵的知识,这等价于:</p>
-<p>$E_1E_2…E_pA=I_n$,由于初等矩阵显然可逆,我们有$A=(E_1E_{2}…E_p)^{-1}$,根据定理6,有$A^{-1}=(E_1E_2…E_p)$.</p>
-<p>如果$A$是可逆矩阵,那么根据定义部分的引理2以及线性方程组部分定理4,显然$A$的简化阶梯形是$I$,也即二者行等价.</p>
-<h4 id="求解逆矩阵"><a href="#求解逆矩阵" class="headerlink" title="求解逆矩阵"></a>求解逆矩阵</h4><p>若$A$可逆,我们考虑将$A$和$I$放在同一个$n\times 2n$的矩阵中,记作$\begin{bmatrix}A &amp;I \end{bmatrix}$,根据定理7,它显然行等价于$\begin{bmatrix}I&amp;A^{-1}\end{bmatrix}$.</p>
-<p>另外,考虑将$I$写作$\begin{bmatrix}\vec {e_1}&amp;\vec{e_2}&amp;…&amp;\vec{e_n}\end{bmatrix}$的形式,则我们发现上述过程等价于求若干个形如$A\vec x_i=\vec e_i$的方程的解,并且$A^{-1}=\begin{bmatrix}\vec{x_1}&amp;\vec{x_2}&amp;…&amp;\vec{x_n}\end{bmatrix}$.</p>
-<h4 id="定理8-1"><a href="#定理8-1" class="headerlink" title="定理8"></a>定理8</h4><p>设$A$为$n\times n$方阵,下列命题等价:</p>
-<ol>
-<li>$A$是可逆矩阵.</li>
-<li>$A^T$是可逆矩阵.</li>
-<li>存在矩阵$C$满足$CA=I_n$.</li>
-<li>存在矩阵$D$满足$AD=I_n$.</li>
-<li>$A$行等价于$I_n$.</li>
-<li>$A$有$n$个主元位置.</li>
-<li>$A$的各列生成$\mathbb{R}^n$.</li>
-<li>$A$的各列线性无关.</li>
-<li>方程$A\vec{x}=\vec{0}$仅有平凡解.</li>
-<li>$\forall \vec{b}\in \mathbb{R}^n$,方程$A\vec{x}=\vec{b}$有唯一解.</li>
-<li>线性变换$\vec{x}\rightarrow A\vec {x}$是单射.</li>
-<li>线性变换$\vec{x}\rightarrow A\vec{x}$是满射.</li>
-</ol>
-<p>证明:</p>
-<p>根据我们已经证明了(1)和(5)等价,根据线性方程组部分定理4,我们可以证明(1),(5),(6),(7),(8),(9),(10)等价.</p>
-<p>考虑可逆矩阵定义部分的引理1和2,我们有(3)是(9)的充分条件,(4)是(10)的充分条件,又因为(1)是(3)和(4)的充分条件,而(1),(9),(10)等价,因此(1),(3),(4)等价.</p>
-<p>而若$A$有$n$个主元位置,显然$A^T$也有$n$个主元位置,显然(1),(6),(2)等价.</p>
-<p>又根据线性方程组部分定理12,(11)(12)与(1)等价.</p>
-<p>由此可以发现,这十二个命题全部等价.</p>
-<h4 id="可逆线性变换"><a href="#可逆线性变换" class="headerlink" title="可逆线性变换"></a>可逆线性变换</h4><p>称线性变换$T:\mathbb{R}^n\rightarrow \mathbb{R}^n$是<strong>可逆的</strong>,当且仅当存在线性变换$S:\mathbb{R}^n\rightarrow \mathbb{R}^n$满足:</p>
-<p>$\forall \vec x\in \mathbb{R}^n$,$S(T(\vec x))=\vec x$.</p>
-<p>$\forall \vec x\in \mathbb{R}^n$,$T(S(\vec x))=\vec x$.</p>
-<h4 id="定理9-1"><a href="#定理9-1" class="headerlink" title="定理9"></a>定理9</h4><p>一个线性变换是可逆的,当且仅当其标准矩阵是可逆的.</p>
-<p>这个证明是显然的.</p>
-<h4 id="分块矩阵"><a href="#分块矩阵" class="headerlink" title="分块矩阵"></a>分块矩阵</h4><p>我们考虑将一个矩阵看作若干个子矩阵的拼接,类似于我们求逆矩阵时做的那样:将若干个矩阵拼接起来.</p>
-<p>换句话说,我们尝试将矩阵看作元素放入矩阵中,并尝试根据基本的矩阵运算去做这种矩阵的运算.</p>
-<p>分块矩阵的<strong>矩阵加法</strong>:若矩阵$A$和$B$维数相同且都以同样的方式分块,则矩阵的和$A+B$也以同样的方式分块且每一块都是$A$和$B$对应块的和.</p>
-<p>分块矩阵的<strong>标量乘法</strong>:若$c$是一个常数,$A$是一个分块矩阵,则$cA$是$A$的子矩阵乘$c$再以同样的方式组合起来的结果.</p>
-<p>分块矩阵的<strong>矩阵乘法</strong>:若矩阵$A$和$B$的维数使得$AB$有定义,并且$A$列的分法与$B$行的分法一致,那我们显然可以直接将矩阵作为元素来直接进行矩阵乘法.</p>
-<p>由上面的讨论引出定理10</p>
-<h4 id="定理10-1"><a href="#定理10-1" class="headerlink" title="定理10"></a>定理10</h4><p>若$A$是$m\times n$矩阵,$B$是$n\times p$矩阵,我们定义$row_i(A)$为$A$的第$i$列,$col_i(A)$为$A$的第$i$行,则:</p>
-<p>$AB=\begin{bmatrix}col_1(A)&amp;col_2(A)&amp;…&amp;col_n(A)\end{bmatrix}\begin{bmatrix}row_1(B)\\row_2(B)\..\\row_n(B)\end{bmatrix}$</p>
-<p>证明是显然的.</p>
-<h4 id="矩阵的列空间与零空间"><a href="#矩阵的列空间与零空间" class="headerlink" title="矩阵的列空间与零空间"></a>矩阵的列空间与零空间</h4><p>矩阵$A$的<strong>列空间</strong>是$A$的各列的线性组合的集合,记作$Col A$.</p>
-<p>换句话说,若$A_{m\times n}=\begin{bmatrix}\vec{a_1}&amp;\vec{a_2}&amp;…&amp;\vec{a_n}\end{bmatrix}$,则$Col A=Span(\vec{a_1},\vec{a_2},…,\vec{a_n})$.</p>
-<p>矩阵$A$的<strong>零空间</strong>是齐次方程$A\vec x=\vec 0$的所有解的集合,记作$Nul A$.</p>
-<p>我们不难证明矩阵$A_{m\times n}$的零空间一定是$\mathbb{R}^n$的一个子空间.</p>
-<p>要求一个矩阵的零空间的基,即要求其所代表的解的参数向量形式.</p>
-<h4 id="定理13"><a href="#定理13" class="headerlink" title="定理13"></a>定理13</h4><p>矩阵$A$的主元列构成$A$的列空间的基.</p>
-<p>我们先考虑简化阶梯型矩阵的情况,则该定理显然.又考虑矩阵的各列之间的线性关系可以用方程$A\vec x=\vec 0$表示,而一个矩阵化为简化阶梯型后的关系显然是不变的,因此上述定理得证.</p>
-<h4 id="矩阵的秩"><a href="#矩阵的秩" class="headerlink" title="矩阵的秩"></a>矩阵的秩</h4><p>矩阵$A$的<strong>秩</strong>(记作$rank A$)定义为$A$的列空间的维数.</p>
-<p>不难发现一个矩阵的秩即其主元列的个数.</p>
-<h4 id="定理14-秩定理"><a href="#定理14-秩定理" class="headerlink" title="定理14:秩定理"></a>定理14:秩定理</h4><p>如果一个矩阵$A$有$n$列,则$rank A+\dim Nul A=n$.</p>
-<h4 id="可逆矩阵定理"><a href="#可逆矩阵定理" class="headerlink" title="可逆矩阵定理"></a>可逆矩阵定理</h4><p>(该定理是定理8的进一步扩展)</p>
-<p>设$A$为$n\times n$方阵,下列命题等价:</p>
-<ol>
-<li>$A$是可逆矩阵.</li>
-<li>$A^T$是可逆矩阵.</li>
-<li>存在矩阵$C$满足$CA=I_n$.</li>
-<li>存在矩阵$D$满足$AD=I_n$.</li>
-<li>$A$行等价于$I_n$.</li>
-<li>$A$有$n$个主元位置.</li>
-<li>$A$的各列生成$\mathbb{R}^n$.</li>
-<li>$A$的各列线性无关.</li>
-<li>方程$A\vec{x}=\vec{0}$仅有平凡解.</li>
-<li>$\forall \vec{b}\in \mathbb{R}^n$,方程$A\vec{x}=\vec{b}$有唯一解.</li>
-<li>线性变换$\vec{x}\rightarrow A\vec {x}$是单射.</li>
-<li>线性变换$\vec{x}\rightarrow A\vec{x}$是满射.</li>
-<li>$A$的列向量构成$\mathbb{R}^n$的一个基.</li>
-<li>$Col A=\mathbb{R}^n$.</li>
-<li>$\dim Col A=n$.</li>
-<li>$rank A=n$.</li>
-<li>$Nul A=\{\vec 0\}$.</li>
-<li>$\dim Nul  A=0$.</li>
-</ol>
-
+        <h2 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h2>
+        
+          <p class="article-more-link">
+            <a href="/2022/08/14/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/14/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" data-id="cl6u2kul60008mkvt0s17hzj0" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/08/14/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" data-id="cl6u2xf3l0007r0vtdg7rfitv" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -816,589 +182,16 @@ k &x=i,y=j\\
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="二项式系数"><a href="#二项式系数" class="headerlink" title="二项式系数"></a>二项式系数</h2><h3 id="上升幂和下降幂"><a href="#上升幂和下降幂" class="headerlink" title="上升幂和下降幂"></a>上升幂和下降幂</h3><p>定义下降幂$x^{\underline{k}}=\prod_{i=0}^{k-1}(x-i)=\frac{x!}{(x-k)!}$.</p>
-<p>定义上升幂$x^{\overline{k}}\prod_{i=0}^{k-1}(x+i)=\frac{(x+k-1)!}{(x-1)!}$.</p>
-<p>上升幂和下降幂的定义是可以引申到复数域的.</p>
-<p>例如我们有加倍公式:$r^{\underline{k}}(r-0.5)^{\underline{k}}=\cfrac{(2r)^{\underline{2k}}}{2^{2k}},k\in\mathbb{N}$.</p>
-<p>他们之间存在转换:$x^{\underline{n}}=(-1)^n(-x)^{\overline{n}}$.</p>
-<p>同时存在大小关系:$x^{\underline{n}}\leq x^n\leq x^{\overline{n}}$,其中$0\leq n&lt;x$.</p>
-<h3 id="二项式系数的定义"><a href="#二项式系数的定义" class="headerlink" title="二项式系数的定义"></a>二项式系数的定义</h3><p>考虑令$\binom{n}{m}$表示从一个大小为$n$的子集中选出大小为$m$的子集的方案数.第一次有$n$个选择,第二次有$n-1$个选择……第m次有$n-m+1$个选择.而由于可能可以选择重复的,但一个排列被重复选择的次数显然是$m!$,因此显然有$\binom{n}m=\cfrac{n^{\underline{m}}}{m!}$.</p>
-<p>如果我们把它的定义拓展到复数域,我们有:</p>
-<p>$\binom{r}{k}=\begin{cases}\cfrac{r^{\underline{k}}}{k!}&amp;k\geq 0\\0&amp;k&lt;0\end{cases},r\in\mathbb{C},k\in\mathbb{Z}$.</p>
-<p>值得一提的是,如果我们这么定义,本质上其实是把$\binom{r}k$看作了一个关于$r$的$k$次多项式.</p>
-<p>另外根据定义,$r\in\mathbb{Z}\and r&lt;k$时,该公式给出$0$.</p>
-<p>值得一提的是,为了使二项式系数在面对$0$的时候更加简洁,通常直接定义$0!=1,0^0=1$.</p>
-<h3 id="二项式系数恒等式"><a href="#二项式系数恒等式" class="headerlink" title="二项式系数恒等式"></a>二项式系数恒等式</h3><ol>
-<li>阶乘展开式:$\binom{n}{m}=\cfrac{n!}{k!(n-k)!},n,k\in\mathbb{N},n\geq k\\$.</li>
-</ol>
-<p>证明根据定义是显然的.</p>
-<ol>
-<li>对称恒等式:$\binom{n}{k}=\binom{n}{n-k},n\in\mathbb{N},k\in\mathbb{Z}\\$.</li>
-</ol>
-<p>根据$(1)$,$0\leq k\leq n$时是显然的.而其他情况两边都会给出$0$,因此也是成立的.</p>
-<ol>
-<li>吸收恒等式:$\binom{r}{k}=\cfrac{r}{k}\binom{r-1}{k-1},k\in\mathbb{Z}\and k\ne 0\\$.</li>
-</ol>
-<p>证明根据定义是显然的.</p>
-<ol>
-<li>吸收恒等式的变式:$k\binom{r}{k}=r\binom{r-1}{k-1},k\in\mathbb{Z}\\$.</li>
-</ol>
-<p>根据$(3)$,只需要验证$k=0$的情况即可,也是显然的.</p>
-<ol>
-<li>相伴恒等式:$(r-k)\binom{r}{k}=r\binom{r-1}{k},k\in\mathbb{Z}\\$.</li>
-</ol>
-<p>证明如下:</p>
-<script type="math/tex; mode=display">
-(r-k)\binom{r}{k}=(r-k)\binom{r}{r-k}\\
-=r\binom{r-1}{r-k-1}\\
-=r\binom{r-1}{k}</script><p>问题在于:我们在上述描述中并未提到$r$的范围,但是推导过程要求$r\in\mathbb{N}$.不过,我们已经说明了二项式系数是关于$r$的$k$次多项式,因此只需要有$k+1$个$r$满足这个公式即可.而根据推导过程显然有无限个$r$满足,因此这个公式对$r\in\mathbb{C}$也是成立的.</p>
-<ol>
-<li>加法公式:$\binom{r}{k}=\binom{r-1}{k}+\binom{r-1}{k-1},k\in\mathbb{Z}\\$.</li>
-</ol>
-<p>证明可以使用定义,也可以先用$r\in\mathbb{N}$的情况给出组合意义,再使用多项式推理法证明.</p>
-<ol>
-<li>平行求和法:$\sum_{k\leq n}\binom{r+k}{k}=\binom{r+n+1}{n},n\in\mathbb{N}\\$.</li>
-</ol>
-<p>我们不妨考虑不断使用加法公式:</p>
-<p>$\binom{r+n+1}{n}=\binom{r+n}{n}+\binom{r+n}{n-1}=\binom{r+n}{n}+\binom{r+n-1}{n-1}+\binom{r+n-1}{n-2}=…\\$,最终下标会减成负数,这样后面的项就全都是$0$了.</p>
-<p>也可以考虑组合意义:如果$r\in\mathbb{N}$,那么我们考虑从右到左第一个没有被选上的数,假设它是$r+k+1$,那么在它右边的数全部选择了,一共是$n-k$个数,而还需要在左边的$r+k$中选择$k$个数.</p>
-<ol>
-<li>上指标求和法:$\sum_{0\leq k\leq n}\binom{k}{m}=\binom{n+1}{m+1},n,m\in\mathbb{N}\\$.</li>
-</ol>
-<p>可以组合意义解释:我们不妨假设选的最大数是$k+1$,接下来就还需要在$[1,k]$中选择$m$个.</p>
-<p>如果我们将这个公式两边同时乘以$m!$,我们可以得到公式:$\sum_{0\leq k\leq n}k^{\underline{m}}=\cfrac{(n+1)^{\underline{m+1}}}{m+1},n,m\in\mathbb{N}\\$,这也就是有限微积分的公式中的一个.</p>
-<ol>
-<li>二项式定理:$(x+y)^r=\sum_{k}\binom{r}{k}x^ky^{r-k},r\in\mathbb{N}\or|\cfrac{x}y|&lt; 1\\$.</li>
-</ol>
-<p>$r\in\mathbb{N}$的情况可以使用组合意义证明,至于后半部分证明需要用到泰勒级数,暂略.</p>
-<ol>
-<li>$\sum_{0\leq k\leq n}\binom{n}{k}=2^n,n\in\mathbb{N}\\$.</li>
-</ol>
-<p>在二项式定理中令$x=y=1$即可证明.</p>
-<ol>
-<li>$\sum_{0\leq k\leq n}(-1)^k\binom{n}{k}=0^n,n\in\mathbb{N}\\$.</li>
-</ol>
-<p>在二项式定理中令$x=-1,y=1$即可证明,值得一提的是,当$n=0$的时候这个式子给出$1$,并在其他情况下给出$0$,这个式子是二项式反演的基础.</p>
-<ol>
-<li>上指标反转公式:$\binom{r}{k}=(-1)^k\binom{k-r-1}{k}\\$.</li>
-</ol>
-<p>证明根据定义是显然的.</p>
-<ol>
-<li>$(-1)^m\binom{-n-1}{m}=(-1)^n\binom{-m-1}{n},n,m\in\mathbb{N}\\$.</li>
-</ol>
-<p>根据$(12)$,这个公式两边都等于$\binom {n+m} m\\$.</p>
-<ol>
-<li>$\sum_{k\leq m}\binom{r}{k}(-1)^k=(-1)^m\binom{r-1}{m},m\in\mathbb{Z}\\$.</li>
-</ol>
-<p>证明如下:</p>
-<script type="math/tex; mode=display">
-\sum_{k\leq m}\binom{r}{k}(-1)^k=\sum_{k\leq m}\binom{k-r-1}{k}\\
-=\binom{-r+m}{m}=(-1)^m\binom{r-1}{m}</script><ol>
-<li>$\sum_{k\leq m}\binom{r}{k}(\cfrac{r}2-k)=\cfrac{m+1}2\binom{r}{m+1},m\in\mathbb{Z}\\$.</li>
-</ol>
-<p>可以使用归纳法证明这个公式.</p>
-<ol>
-<li>$\sum_{k\leq m}\binom{m+r}{k}x^ky^{m-k}=\sum_{k\leq m}\binom{-r}{k}(-x)^k(x+y)^{m-k},m\in\mathbb{Z}\\$.</li>
-</ol>
-<p>不妨令左边的值为$S_m$,我们有:</p>
-<script type="math/tex; mode=display">
-S_m=\sum_{k\leq m}\binom{m+r}{k}x^ky^{m-k}=\sum_{k\leq m}\binom{m+r-1}{k}x^ky^{m-k}+\sum_{k\leq m}\binom{m+r-1}{k-1}x^ky^{m-k}\\
-=y\sum_{k<m}\binom{m-1+r}{k}x^ky^{m-1-k}+\binom{m+r-1}{m}x^m+x\sum_{k\leq m}\binom{m+r-1}{k-1}x^{k-1}y^{m-k}\\
-=(x+y)S_{m-1}+\binom{m+r-1}{m}x^m\\
-=(x+y)S_{m-1}+\binom{r}{m}(-x)^m</script><p>左右两边满足相同递归式,通过数学归纳法不难证明二者相等.</p>
-<ol>
-<li>$\sum_{k\leq m}\binom{m+k}{k}2^{-k}=2^m,m\in\mathbb{N}\\$.</li>
-</ol>
-<p>考虑$(16)$,将$x=y=1,r=m+1$带入,得到:</p>
-<script type="math/tex; mode=display">
-\sum_{k\leq m}\binom{2m+1}{k}=\sum_{k\leq m}\binom{m+k}{k}2^{m-k}\\
-2^{2m}=\sum_{k\leq m}\binom{m+k}{k}2^{m-k}\\
-2^m=\sum_{k\leq m}\binom{m+k}{k}2^{-k}</script><ol>
-<li>三项式定理:$(x+y+z)^n=\sum_{0\leq a,b,c\leq n}[a+b+c=n]\cfrac{n!}{a!b!c!}x^ay^bz^c,n\in\mathbb{N}\\$.</li>
-</ol>
-<p>证明与二项式定理类似.值得一提的是,$\cfrac{n!}{a!b!c!}=\binom{n}{b+c}\binom{b+c}{c}$.</p>
-<ol>
-<li>多项式定理:$(\sum_{i=1}^mx_i)^n=\sum_{\forall i\in[1,m],0\leq a_i\leq n}[\sum_{i=1}^ma_i=n]\cfrac{n!}{\prod_{i=1}^ma_i!}\prod_{i=1}^mx_i^{a_i},n\in\mathbb{N}\\$.</li>
-</ol>
-<p>证明与二项式定理类似.</p>
-<ol>
-<li>$\binom{r}{m}\binom{m}{k}=\binom{r}{k}\binom{r-m}{m-k},n,k\in\mathbb{Z}\\$.</li>
-</ol>
-<p>证明可以使用组合意义和多项式推理法.</p>
-<ol>
-<li>$\sum_{k}\binom{r}{k}\binom{s}{n-k}=\binom{r+s}{n},n\in\mathbb{Z}\\$.</li>
-</ol>
-<p>证明可以使用组合意义和多项式推理法.</p>
-<ol>
-<li>范德蒙德卷积:$\sum_{k}\binom{r}{m+k}\binom{s}{n-k}=\binom{r+s}{n+m},n,m\in\mathbb{Z}\\$.</li>
-</ol>
-<p>证明可以使用组合意义和多项式推理法.</p>
-<p>另外,这个式子可以直接使用生成函数证明.</p>
-<ol>
-<li>$\sum_{k}\binom{l}{m+k}\binom{s}{n+k}=\binom{l+s}{l-m+n},l\in\mathbb{N},n,m\in\mathbb{Z}\\$.</li>
-</ol>
-<p>有$\binom{l}{m+k}=\binom{l}{l-m-k}$,然后运用范德蒙德卷积即可得到答案.</p>
-<ol>
-<li>$\sum_{k}\binom{l}{m+k}\binom{s+k}{n}(-1)^k=(-1)^{l+m}\binom{s-m}{n-l},l\in\mathbb{N},n,m\in\mathbb{Z}\\$.</li>
-</ol>
-<p>可以数学归纳证明.</p>
-<ol>
-<li>$\sum_{k\leq l}\binom{l-k}{m}\binom{s}{k-n}(-1)^k=(-1)^{l+m}\binom{s-m-1}{l-n-m},l,n,m\in\mathbb{N}\\$.</li>
-</ol>
-<p>可以数学归纳证明.</p>
-<ol>
-<li>$\sum_{-q\leq k\leq l}\binom{l-k}{m}\binom{q+k}{n}=\binom{l+q+1}{m+n+1},n,m\in\mathbb{N},l+q\geq 0\\$.</li>
-</ol>
-<p>可以组合意义与多项式推理法证明.</p>
-<ol>
-<li>$\sum_{k}\binom{a+b}{a+k}\binom{a+b}{b+k}(-1)^k=\cfrac{(a+b)!}{a!b!},a,b\in\mathbb{N}\\$.</li>
-</ol>
-<p>可以数学归纳证明.</p>
-<ol>
-<li>$\sum_{k=0}^m\cfrac {\binom{m}{k}}{\binom{n}{k}}=\cfrac{n+1}{n+1-m},n,m\in\mathbb{N},n\geq m\\$.</li>
-</ol>
-<p>考虑恒等式$(20)$,我们有$\binom{n}{m}\binom{m}{k}=\binom{n}{k}\binom{n-k}{m-k}\\$,两边同时除以$\binom{n}{m}\binom{n-k}{m-k}\\$,于是我们得到了$\cfrac {\binom{m}{k}}{\binom{n}{k}}=\cfrac {\binom{n-k}{m-k}}{\binom{n}{m}}\\$.</p>
-<p>有:</p>
-<script type="math/tex; mode=display">
-\sum_{k=0}^m\cfrac {\binom{m}{k}}{\binom{n}{k}}=\sum_{k=0}^m\cfrac {\binom{n-k}{m-k}}{\binom{n}{m}}\\
-=\cfrac{1}{\binom{n}{m}}\sum_{k=0}^m\binom{n-k}{m-k}\\
-=\cfrac{1}{\binom{n}{m}}\sum_{k=0}^m\binom{n-m+k}{k}\\
-=\cfrac{\binom{n+1}{m}}{\binom{n}{m}}\\
-=\cfrac{n+1}{n+1-m}</script><ol>
-<li>$\binom{r}{k}\binom{r-\cfrac{1}{2}}{k}=\cfrac{\binom{2r}{2k}\binom{2k}{k}}{2^{2k}},k\in\mathbb{Z}\\$.</li>
-</ol>
-<p>将加倍公式两边同时除以$k!^2$即可得到这个公式.</p>
-<ol>
-<li>$\binom{n-\cfrac1 2}{n}=\cfrac{\binom{2n}{n}}{2^{2n}},n\in\mathbb{Z}\\$.</li>
-</ol>
-<p>将$(29)$中令$r=k=n$即可得到这个公式.</p>
-<ol>
-<li>$\binom{-\cfrac{1}2}{n}=(\cfrac{-1}{4})^n\binom{2n}{n},n\in\mathbb{Z}\\$.</li>
-</ol>
-<p>即$(30)$的变形.</p>
-<ol>
-<li>$\sum_{k}\binom{n}{2k}\binom{2k}{k}2^{-2k}=\binom{n-\cfrac 1 2}{\lfloor\cfrac{n}2\rfloor},n\in\mathbb{N}\\$</li>
-</ol>
-<p>首先根据$(29)$,左边$=\sum_{k}\binom{\cfrac{n}{2}}{k}\binom{\cfrac{n-1}{2}}{k}\\$,而考虑到$\cfrac{n}{2}$和$\cfrac{n-1}{2}$必有一个是自然数,因此可以直接用$(23)$化简.</p>
-<ol>
-<li>$\sum_{k}\binom{-\cfrac1 2}{k}\binom{-\cfrac 1 2}{n-k}=(-1)^n,n\in\mathbb{N}\\$.</li>
-</ol>
-<p>直接使用范德蒙德卷积即可证明.</p>
-<ol>
-<li>$\sum_{k}\binom{2k}{k}\binom{2n-2k}{n-k}=4^n,n\in\mathbb{N}\\$.</li>
-</ol>
-<p>由$(33)$和$(31)$不难推出.</p>
-<ol>
-<li>$\sum_{k}\binom{n}{k}\cfrac{(-1)^k}{x+k}=x^{-1}\binom{x+n}{n}^{-1},x\notin\{0,-1,…,-n\}\\$.</li>
-</ol>
-<p>令$f(x)=(x-1)^{\underline{-1}}$,直接做高阶差分即可得到这个式子.</p>
-<ol>
-<li>$\sum_{k=0}^n\binom{r}{k}\binom{r}{n-k}(-1)^k=<a href="-1">n is even</a>^{\cfrac{n}{2}}\binom{r}{\cfrac{n}2}\\$.</li>
-</ol>
-<p>首先不难发现,$(1-z)^r=\sum_{k\geq 0}(-1)^k\binom{r}{k}\\$.</p>
-<p>考虑$(1-z)^r(1+z)^r=(1-z^2)^r$.</p>
-<p>我们有$<a href="1-z">z^n</a>^r(1+z)^r=<a href="1-z^2">z^n</a>^r$,不难发现即上式.</p>
-<h3 id="广义二项级数与广义指数级数"><a href="#广义二项级数与广义指数级数" class="headerlink" title="广义二项级数与广义指数级数"></a>广义二项级数与广义指数级数</h3><h4 id="卡特兰数"><a href="#卡特兰数" class="headerlink" title="卡特兰数"></a>卡特兰数</h4><p>卡特兰数$f_n$表示:长度为$2n$的合法括号序列个数.</p>
-<p>卡特兰数的前几项为$1,1,2,5,14,42,132…$.</p>
-<p>接下来,我们通过这个定义来证明以下其他定义方式.</p>
-<p>递归定义:$f_n=\sum_{i=0}^{n-1}f_if_{n-1-i}$.</p>
-<p>不妨考虑枚举一个括号序列的第一个断点,则该括号序列应形如$(A)B$.</p>
-<p>考虑将其删成A和B,则A一定合法,因为若A不合法,那么这里一定不是第一个断点.</p>
-<p>通项公式:$f_n=\frac 1 {n+1}C_{2n}^n=C_{2n}^n-C_{2n}^{n-1}$.</p>
-<p>考虑平面直角坐标系,我们将’(‘认为是向右上走一单位长度,将’)’认为是向右下走一单位长度.</p>
-<p>那么卡特兰数就相当于从$(0,0)$走到$(2n,0)$不经过第四象限的方案数.</p>
-<p>考虑反射容斥,如果只是走到$(2n,0)$的方案数是$C_{2n}^n$.</p>
-<p>而如果到达第四象限,说明在这条这线上存在一个点$(x,-1)$.</p>
-<p>考虑将$x$以后的折线以直线$y=-1$为对称轴反转,那么终点到了$(2n,-2)$.</p>
-<p>不难发现,任意从$(0,0)$走到$(2n,-2)$的方案一定唯一对应了一种从$(0,0)$走到$(2n,0)$的不合法方案.因为从$(0,0)$走到$(2n,-2)$一定会经过直线$y=-1$,将后半部分对称后就是其对应方案.而从$(0,0)$走到$(2n,-2)$的方案数为$C_{2n}^{n-1}$.</p>
-<p>因而$f_n=C_{2n}^n-C_{2n}^{n-1}\\$.</p>
-<p>而$C_{2n}^n-C_{2n}^{n-1}=\frac{(2n)!}{n!n!}-\frac{(2n)!}{(n-1)!(n+1)!}=\frac{(2n)!}{n!(n+1)!}=\frac{C_{2n}^n}{n+1}\\$.</p>
-<p>递推定义:$f_n=\frac {4n-2}{n+1}f_{n-1}\\$.</p>
-<p>使用一下上一步的通项公式:$\begin{cases}<br>f_n=\frac{(2n)!}{n!(n+1)!}\\<br>f_{n-1}=\frac{(2n-2)!}{(n-1)!(n)!}<br>\end{cases}\\$<br>不难发现$f_n=\frac{(2n-1)(2n)}{n(n+1)}f_{n-1}\\$.整理,得到$f_n=\frac{4n-2}{n+1}f_{n-1}\\$.</p>
-<h3 id="二项式系数的处理"><a href="#二项式系数的处理" class="headerlink" title="二项式系数的处理"></a>二项式系数的处理</h3><h4 id="通过恒等式变形求解"><a href="#通过恒等式变形求解" class="headerlink" title="通过恒等式变形求解"></a>通过恒等式变形求解</h4><h5 id="Example1"><a href="#Example1" class="headerlink" title="Example1"></a>Example1</h5><p>即恒等式$(28)$.</p>
-<h5 id="Example2"><a href="#Example2" class="headerlink" title="Example2"></a>Example2</h5><p>求$\sum_{k=0}^nk\binom{m-k-1}{m-n-1},n,m\in\mathbb{N}\and m&gt;n\\$.</p>
-<p>这个式子乘了个系数$k$导致很难处理,一个自然的想法是使用吸收恒等式将$k$消去,然后对后面的式子使用上指标求和.</p>
-<p>于是:</p>
-<script type="math/tex; mode=display">
-\sum_{k=0}^nk\binom{m-k-1}{m-n-1}=\sum_{k=0}^nm\binom{m-k-1}{m-n-1}-\sum_{k=0}^n(m-k)\binom{m-k-1}{m-n-1}\\
-=m\sum_{k=0}^{m-1}\binom{m-k-1}{m-n-1}-(m-n)\sum_{k=0}^m\binom{m-k}{m-n}</script><p>不妨令$S_m=\sum_{k=0}^m\binom{m-k}{m-n}\\$,不难发现我们有:</p>
-<script type="math/tex; mode=display">
-S_m=\sum_{k=0}^m\binom{k}{m-n}=\binom{m+1}{m-n+1}</script><p>于是原式$=mS_{m-1}-(m-n)S_m=\cfrac{n}{m-n+1}\binom{m}{m-n}\\$.</p>
-<p>不过事实上,我们有另一种方式来处理这个等式,我们直接将$k=\binom{k}{1}$带入:</p>
-<script type="math/tex; mode=display">
-\sum_{k=0}^nk\binom{m-k-1}{m-n-1}=\sum_{k=0}^n\binom{k}{1}\binom{m-k-1}{m-n-1}\\
-=\binom{m}{m-n+1}\\
-=\cfrac{n}{m-n+1}\binom{m}{m-n}</script><h5 id="Example3"><a href="#Example3" class="headerlink" title="Example3"></a>Example3</h5><p>求$\sum_{k}k\binom{n}{k}\binom{s}{k},n\in\mathbb{N}\\$.</p>
-<p>第一反应仍然是使用吸收恒等式,但是注意到$n$和$s$的范围不一样,由于吸收恒等式的范围很松,因此应选择一个范围更松的数吸收,这样才能保证另一个数范围的特殊性,于是有:</p>
-<script type="math/tex; mode=display">
-\sum_{k}k\binom{n}{k}\binom{s}{k}=s\sum_{k}\binom{n}{k}\binom{s-1}{k-1}\\
-=s\binom{n+s-1}{n-1}</script><h5 id="Example4"><a href="#Example4" class="headerlink" title="Example4"></a>Example4</h5><p>求$\sum_{0\leq k}\binom{n+k}{2k}\binom{2k}{k}\cfrac{(-1)^k}{k+1},n\in\mathbb{N}\\$.</p>
-<p>我们有:</p>
-<script type="math/tex; mode=display">
-\sum_{0\leq k}\binom{n+k}{2k}\binom{2k}{k}\cfrac{(-1)^k}{k+1}=\sum_{0\leq k}\binom{n+k}{k}\binom{n}{k}\cfrac{(-1)^k}{k+1},n\in\mathbb{N}\\
-=\cfrac{1}{n+1}\sum_{0\leq k}\binom{n+k}{k}\binom{n+1}{k+1}{(-1)^k}\\
-=\cfrac{1}{n+1}\sum_{0\leq k}\binom{-n-1}{k}\binom{n+1}{k+1}\\=\cfrac{1}{n+1}\binom{0}{n}\\=[n=0]</script><h5 id="Example5"><a href="#Example5" class="headerlink" title="Example5"></a>Example5</h5><p>求$\sum_{k\geq 0}\binom{n+k}{m+2k}\binom{2k}{k}\cfrac{(-1)^k}{k+1},n,m\in\mathbb{N_+}\\$.</p>
-<p>考虑恒等式$(26)$,我们有:</p>
-<script type="math/tex; mode=display">
-\sum_{k\geq 0}\binom{n+k}{m+2k}\binom{2k}{k}\cfrac{(-1)^k}{k+1}=\sum_{k\geq 0}\sum_{0\leq j\leq n+k-1}\binom{n+k-1-j}{2k}\binom{j}{m-1}\binom{2k}{k}\cfrac{(-1)^k}{k+1}\\
-=\sum_{0\leq j\leq n-1}\binom{j}{m-1}\sum_{j+1-n\leq k,0\leq k}\binom{n+k-1-j}{2k}\binom{2k}{k}\cfrac{(-1)^k}{k+1}</script><p>注意到如果$j+1-n\geq 0$,则$\binom{n+k-1-j}{2k}\\$应为$0$.所以有:</p>
-<script type="math/tex; mode=display">
-\sum_{0\leq j\leq n-1}\binom{j}{m-1}\sum_{j+1-n\leq k,0\leq k}\binom{n+k-1-j}{2k}\binom{2k}{k}\cfrac{(-1)^k}{k+1}\\
-=\sum_{0\leq j<n}\binom{j}{m-1}[n-1-j=0]=\binom{n-1}{m-1}</script><h5 id="Example6"><a href="#Example6" class="headerlink" title="Example6"></a>Example6</h5><p>求$\sum_{k=0}^n(C_n^k)^2$.</p>
-<script type="math/tex; mode=display">
-\sum_{k=0}^n(C_n^k)^2=\sum_{k=0}^nC_{n}^k\times C_{n}^{n-k}=C_n^{2n}</script><h4 id="转化为递归式-和式求解"><a href="#转化为递归式-和式求解" class="headerlink" title="转化为递归式/和式求解"></a>转化为递归式/和式求解</h4><h5 id="Example1-1"><a href="#Example1-1" class="headerlink" title="Example1"></a>Example1</h5><p>求$Q_n=\sum_{k\leq 2^n}\binom{2^n-k}{k}(-1)^k,n\in\mathbb{N}\\$.</p>
-<p>如果要转化为递归式的话,我们所掌握的只有加法恒等式,但加法恒等式只给出了杨辉三角中相邻两行的关系.但由于$Q_n$的式子中实际上只与$2^n$有关,我们不妨令$R_n=\sum_{k\leq n}\binom{n-k}{k}(-1)^k\\$,显然有$Q_n=R_{2^n}$.</p>
-<p>而我们有:</p>
-<script type="math/tex; mode=display">
-R_n=\sum_{k\leq n}\binom{n-1-k}{k}(-1)^k+\sum_{k\leq n}\binom{n-1-k}{k-1}(-1)^k\\
-=\sum_{k\leq n}\binom{n-1-k}{k}(-1)^k+\sum_{k\leq n-1}\binom{n-k-2}{k}(-1)^{k+1}\\
-=\sum_{k\leq n-1}\binom{n-1-k}{k}(-1)^k+\binom{-1}{n}(-1)^n-(\sum_{k\leq n-2}\binom{n-2-k}{k}(-1)^k+\binom{-1}{n-1}(-1)^{n-1})\\
-=\sum_{k\leq n-1}\binom{n-1-k}{k}(-1)^k-\sum_{k\leq n-1}\binom{n-2-k}{k}(-1)^k\\
-=R_{n-1}-R_{n-2}\\
-=R_{n-2}-R_{n-3}-R_{n-2}\\
-=-R_{n-3}\\
-=R_{n-6}</script><p>也即$R_n$具有周期性,不难计算前几项答案,最后有$Q_n\begin{cases}1&amp;n=0\\0&amp;n is  odd\-1&amp;n&gt;0\and n is even\end{cases}$.</p>
-<h5 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h5><p>求$(\sum^{+\infty}_{i=0}C^{ik+r}_{nk})\mod p$.</p>
-<h5 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h5><p>考虑设$f(n,r)=\sum^{+\infty}_{i=0}C^{ik+r}_{nk}\\$,则有:</p>
-<script type="math/tex; mode=display">
-f(n,r)=\sum^{+\infty}_{i=0}C^{ik+r}_{nk}\\=\sum_{i=0}^{+\infty}\sum_{j=0}^k C_{nk-k}^{ik+r-j}\times C_k^j\\
-=\sum^k_{j=0}C_k^j\sum_{i=0}^{+\infty}C_{nk-k}^{ik+r-j}\\=\sum_{j=0}^kC_k^jf(n-1,r-j)\\</script><p>整理上式,得到:$f(n,r)=\sum_{j=0}^kC_k^jf(n-1,r-j)\\$.</p>
-<p>于是我们得到了关于$f$的转移方程,可以矩阵加速.</p>
-<h4 id="将整数转化为分数求解"><a href="#将整数转化为分数求解" class="headerlink" title="将整数转化为分数求解"></a>将整数转化为分数求解</h4><h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><p>即恒等式$(34)$.</p>
-<h4 id="利用高阶差分求解"><a href="#利用高阶差分求解" class="headerlink" title="利用高阶差分求解"></a>利用高阶差分求解</h4><h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h5><p>即恒等式$(35)$.</p>
-<h4 id="利用二项式反演求解"><a href="#利用二项式反演求解" class="headerlink" title="利用二项式反演求解"></a>利用二项式反演求解</h4><p>见”反演.md”.</p>
-<h4 id="利用生成函数求解"><a href="#利用生成函数求解" class="headerlink" title="利用生成函数求解"></a>利用生成函数求解</h4><h5 id="Example-2"><a href="#Example-2" class="headerlink" title="Example"></a>Example</h5><p>即恒等式$(36)$.</p>
-<h4 id="利用超几何级数求解"><a href="#利用超几何级数求解" class="headerlink" title="利用超几何级数求解"></a>利用超几何级数求解</h4><p>见”生成函数.md”.</p>
-<h4 id="利用微积分求解"><a href="#利用微积分求解" class="headerlink" title="利用微积分求解"></a>利用微积分求解</h4><h5 id="Example-3"><a href="#Example-3" class="headerlink" title="Example"></a>Example</h5><p>求$\sum_{k=1}^nk^2C_n^k$.</p>
-<script type="math/tex; mode=display">
-((1+x)^n)=(\sum_{k=0}^nC_n^kx^{k})\\
-((1+x)^n)'=(\sum_{k=0}^nC_n^kx^{k})'\\
-n(1+x)^{n-1}=\sum_{k=0}^nkC_n^kx^{k-1}\\
-nx(1+x)^{n-1}=\sum_{k=0}^nkC_n^kx^{k}\\
-(nx(1+x)^{n-1})'=(\sum_{k=0}^nkC_n^kx^{k})'\\
-n((1+x)^{n-1}+(n-1)x(1+x)^{n-2})=\sum_{k=0}^nk^2C_n^kx^{k-1}\\</script><p>取$x=1$,则原式$=n(n+1)2^{n-2}$.</p>
-<h3 id="Lucas定理"><a href="#Lucas定理" class="headerlink" title="Lucas定理"></a>Lucas定理</h3><p>若$p$是质数,则$C_n^m\mod p=C_{n\mod p}^{m\mod p}\times C_{\lfloor\frac n p\rfloor}^{\lfloor\frac m p\rfloor}\mod p\\$.</p>
-<p>或者说,将$n$和$m$在$p$进制下分解,再逐位求组合数并相乘.</p>
-<p>证明:</p>
-<p>首先,若$i\ne 0$且$i\ne p$,$C_{p}^i\equiv\frac p iC_{p-1}^{i-1}\equiv 0(\mod p)\\$.</p>
-<p>而根据二项式定理,$(1+x)^p\equiv \sum_{i=0}^pC_{p}^ix^i=1+x^p(\mod p)\\$.</p>
-<p>令$n=k_1p+b_1$,$m=k_2p+b_2$,则$(1+x)^n=(1+x)^{k_1p}(1+x)^{b_1}\\$.</p>
-<p>而$(1+x)^{k_1p}\equiv (1+x^p)^{k_1}(\mod p)\\$,有$(1+x)^n\equiv (1+x^p)^{k_1}(1+x)^{b_1}\\$</p>
-<p>根据二项式定理,$C_n^m\mod p$即$x^m$项的系数.</p>
-<p>我们可以得出,$C_n^mx^m\equiv C_{k_1}^{k_2}x^{k_2p}C_{b1}^{b_2}x^{b_2}(\mod p)\\$,那么有$C_a^b\equiv C_{k_1}^{k_2}C_{b_1}^{b_2}(\mod p)\\$.</p>
-<h3 id="扩展Lucas定理"><a href="#扩展Lucas定理" class="headerlink" title="扩展Lucas定理"></a>扩展Lucas定理</h3><p>令$p=\prod p_i^{e_i}$,那我们只要对于每个$i$求出$C_n^m\mod p_i^{e_i}$,然后使用中国剩余定理合并即可.</p>
-<p>那现在问题转化为要求$C_n^m\mod p^k$,其中$p\in prime$.</p>
-<p>原式$=\frac{n!}{m!(n-m)!}\mod p^k=\frac {\frac {n!}{p^x}}{\frac{m!}{p^y}\frac{(n-m)!}{p^z}}p^{x-y-z}\mod p^k\\$.</p>
-<p>现在问题转化为求$\frac{n!}{p^x}\mod p^k以及p^x\\$.</p>
-<p>注意到:</p>
-<script type="math/tex; mode=display">
-n!=\prod_{i=1}i\\=(\prod_{i=wp,w\in \mathbb{Z}}i)(\prod_{i\ne wp,w\in\mathbb{Z}}i)\\= p^{\lfloor n p\rfloor}(\lfloor n p\rfloor!)(\prod_{i\ne wp,w\in\mathbb{Z}}i)\\
-\equiv p^{\lfloor n p\rfloor}(\lfloor n p\rfloor!)(\prod_{i=1,i\ne wp,w\in\mathbb{Z}}^{p^k}i)^{\lfloor \frac n {p^k}\rfloor}(\prod^n_{i=p^k\lfloor\frac n {p^k}\rfloor,i\ne wp,w\in\mathbb{Z}}i)(\mod p^k)</script><p>递归求解即可.</p>
-<p>ps:</p>
-<p>这样摆式子可能非常难以理解,我们考虑将$1-n$的所有数全部排成一个宽为$p^k$的矩阵.</p>
-<p>那右边第一项就是把那些$p$的倍数的列拿出来,第二项是那些填满的行,第三项是最后没填满的一行.</p>
-<h2 id="斯特林数"><a href="#斯特林数" class="headerlink" title="斯特林数"></a>斯特林数</h2><h3 id="第一类斯特林数"><a href="#第一类斯特林数" class="headerlink" title="第一类斯特林数"></a>第一类斯特林数</h3><p>$ n\brack k\\$:长度为$n$的排列划分成$k$个轮换的方案数.</p>
-<p>考虑现在已经将$n-1$个数分成了若干轮换,现在新加入第$n$个数.这个数要么和其他的数一起组成轮换,要么自己形成自环.</p>
-<p>而由于它可以插入前面轮换的任意位置,显然$\left[ \begin{array}{c}n\\k\end{array} \right]=(n-1)\left[ \begin{array}{c}n-1\\k\end{array} \right]+\left[ \begin{array}{c}n-1\\k-1\end{array} \right]\\$.</p>
-<p>特别地,我们定义$\left[ \begin{array}{c}0\\k\end{array} \right]=[k=0]\\$.</p>
-<p>由于所有的排列都至少存在一个轮换,因此我们有:$\sum_{k=0}^n\left[ \begin{array}{c}n\\k\end{array} \right]=n!$.</p>
-<h3 id="第二类斯特林数"><a href="#第二类斯特林数" class="headerlink" title="第二类斯特林数"></a>第二类斯特林数</h3><p>$\left\{ \begin{array}{c}n\\k\end{array} \right\}$:将$n$个本质不同的物品划分成k个非空集合的方案数.</p>
-<p>考虑现在已经放好$n-1$个物品,正要放入第$n$个物品.那么这个物品要么单独放在一起,要么和其他物品放在一起.显然$\left\{ \begin{array}{c}n\\k\end{array} \right\}=k\left\{ \begin{array}{c}n-1\\k\end{array} \right\}+\left\{ \begin{array}{c}n-1\\k-1\end{array} \right\}\\$.</p>
-<p>特别地,我们定义$\left\{ \begin{array}{c}0\\k\end{array} \right\}=[k=0]\\$.</p>
-<h3 id="斯特林数的扩展"><a href="#斯特林数的扩展" class="headerlink" title="斯特林数的扩展"></a>斯特林数的扩展</h3><p>如果我们让斯特林数的定义式扩展到整数域,我们可以发现一个性质:${n\brack m}={-m\brace -n}\\$.</p>
-<h3 id="斯特林恒等式"><a href="#斯特林恒等式" class="headerlink" title="斯特林恒等式"></a>斯特林恒等式</h3><script type="math/tex; mode=display">
-(1)\\
-x^n=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}x^{\underline{k}}=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}(-1)^{n-k}x^{\overline{k}}\\
-证明：\\先考虑前半段，不妨使用数学归纳\\
-若x^{n-1}=\sum_{k=0}^{n-1}\left\{ \begin{array}{c}n-1\\k\end{array} \right\}x^{\underline{k}}\\
-我们要证明x^{n}=\sum_{k=0}^{n}\left\{ \begin{array}{c}n\\k\end{array} \right\}x^{\underline{k}}
-\\\\
-也就是证明x\sum_{k=0}^{n-1}\left\{ \begin{array}{c}n-1\\k\end{array} \right\}x^{\underline{k}}=\sum_{k=0}^{n}\left\{ \begin{array}{c}n\\k\end{array} \right\}x^{\underline{k}}\\
-考虑(x-k)x^{\underline{k}}=x^{\underline{k+1}}，所以x\cdot x^{\underline{k}}=x^{\underline{k+1}}+kx^{\underline{k}}\\
-那么左边=\sum_{k=0}^{n-1}\left\{ \begin{array}{c}n-1\\k\end{array} \right\}x^{\underline{k+1}}+\sum_{k=0}^{n-1}\left\{ \begin{array}{c}n-1\\k\end{array} \right\}kx^{\underline{k}}\\
-由于n\ne1\\
-原式=\sum_{k=1}^{n}\left\{ \begin{array}{c}n-1\\k-1\end{array} \right\}x^{\underline{k}}+\sum_{k=1}^{n}\left\{ \begin{array}{c}n-1\\k\end{array} \right\}kx^{\underline{k}}\\
-=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}x^{\underline{k}}\\
-\\
-至于后半段，由于x^{\underline{n}}=(-1)^n(-x)^{\overline{n}}\\
-所以x^n=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}(-1)^k(-x)^{\overline{k}}\\
-不妨用x来代替-x，我们有(-x)^n=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}(-1)^k(x)^{\overline{k}}=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}(-1)^{n-k}x^{\overline{k}}</script><script type="math/tex; mode=display">
-(2)\\
-x^{\overline{n}}=\sum_{k=0}^n\left[ \begin{array}{c}n\\k\end{array} \right]x^k\\
-x^{\underline{n}}=\sum_{k=0}^n\left[ \begin{array}{c}n\\k\end{array} \right](-1)^{n-k}x^k\\
-证明：\\
-先考虑前者，由于(x+n-1)x^k=x^{k+1}+(n-1)x^k\\
-所以类似于(1)前半段的推导即可得到\\
-后者同样可以使用下降幂和上升幂的转化来得到\\</script><script type="math/tex; mode=display">
-(3)\\
-\sum_{k=0}^n\left[ \begin{array}{c}n\\k\end{array} \right]\left\{ \begin{array}{c}k\\m\end{array} \right\}(-1)^{n-k}=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}\left[ \begin{array}{c}k\\m\end{array} \right](-1)^{n-k}=[m=n]\\
-（反转公式）\\
-
-证明：\\
-考虑先证明后半部分，将(2)带入(1)，得到x^n=\sum_{k=0}^n\left\{ \begin{array}{c}n\\k\end{array} \right\}x^{\underline{k}}=\sum_{k=0}^n\sum_{m=0}^k\left\{ \begin{array}{c}n\\k\end{array} \right\}
-\left[ \begin{array}{c}k\\m\end{array} \right](-1)^{n-k}x^m\\
-由于这对任意x都成立，因此右边除了x^n以外的项系数均为0，而x^n的系数为1\\
-前半部分是同理的\\</script><script type="math/tex; mode=display">
-(4)\\
-\left\{ \begin{array}{c}n+1\\m+1\end{array} \right\}=\sum_{k=m}^n\left( \begin{array}{c}n\\k\end{array} \right)\left\{ \begin{array}{c}k\\m\end{array} \right\}\\
-\left[ \begin{array}{c}n+1\\m+1\end{array} \right]=\sum_{k=m}^n\left( \begin{array}{c}n\\k\end{array} \right)\left[ \begin{array}{c}k\\m\end{array} \right]\\
-证明：\\
-对于前者，考虑组合意义，将n+1个分为m+1组，也就是先找一部分分成m组，再把剩下的分到一组\\
-对于后者，也可以同样考虑组合意义</script><script type="math/tex; mode=display">
-(5)\\
-\left\{ \begin{array}{c}n\\m\end{array} \right\}=\sum_{k=m}^n\left( \begin{array}{c}n\\k\end{array} \right)\left\{ \begin{array}{c}k+1\\m+1\end{array} \right\}(-1)^{n-k}\\
-\left[ \begin{array}{c}n\\m\end{array} \right]=\sum_{k=m}^n\left( \begin{array}{c}n\\k\end{array} \right)\left[ \begin{array}{c}k+1\\m+1\end{array} \right](-1)^{n-k}\\
-证明：\\
-由(4)，根据二项式反演可知</script><script type="math/tex; mode=display">
-(6)\\
-m!\left\{ \begin{array}{c}n\\m\end{array} \right\}=\sum_{k=0}^mC_m^kk^n(-1)^{m-k}\\
-证明：\\
-首先有m^n=\sum_{k=0}^mm^{\underline{k}}\left\{ \begin{array}{c}m\\k\end{array} \right\}=\sum_{k=0}^mk!C_m^k\left\{ \begin{array}{c}m\\k\end{array} \right\}\\
-对这个式子进行二项式反演即可</script><script type="math/tex; mode=display">
-(7)\\
-\left\{ \begin{array}{c}n+1\\m+1\end{array} \right\}=\sum_{k=0}^n\left\{ \begin{array}{c}k\\m\end{array} \right\}(m+1)^{n-k}\\
-证明：\\
-考虑组合意义，相当于先把前k个分为m组，把第k+1个数放到第m+1组\\
-然后剩下(n+1)-(k+1)=n-k个随便放\\
-相当于我们按照每组所放的数的最小值区分每组\\
-由于这么做，第m+1组（最小值最大的那组）在k不同的时候最小值是不同的，因此一定不重不漏</script><script type="math/tex; mode=display">
-(8)\\
-\left[\begin{array}{c}n+1\\m+1\end{array} \right]=\sum_{k=0}^n\left[ \begin{array}{c}k\\m\end{array} \right]C_{n}^k(n-k)!=n!\sum_{k=0}^n\frac{\left[ \begin{array}{c}k\\m\end{array} \right]}{k!}\\
-证明：\\
-先考虑前半部分，首先如果n>0，我们有\left[ \begin{array}{c}n\\1\end{array} \right]=(n-1)!\\
-这个式子很显然，我们现在有一个长度为n-1的环，想要往里插入第n个数有n-1种选择，所以我们有\\
-\left[ \begin{array}{c}n\\1\end{array} \right]=\left[ \begin{array}{c}n-1\\1\end{array} \right](n-1)\\
-数学归纳一下即可\\
-那么前半部分的组合意义就是：考虑将n+1个数划分成m+1个环\\
-我们先将其中k个数划分成m个环，剩下n+1-k个数划分成另一个环\\
-但是这样算显然会算重，所以我们只需要勒令第n+1个数在最后一个环里即可\\
-该证明就显然了\\
-而由于C_n^k(n-k)!=C_n^{n-k}(n-k)!=n^{\underline{n-k}}=\frac{n!}{k!}\\
-因此后半部分也得证\\</script><script type="math/tex; mode=display">
-(9)\\
-\left\{ \begin{array}{c}n+m+1\\m\end{array} \right\}=\sum_{k=0}^mk\left\{ \begin{array}{c}n+k\\k\end{array} \right\}\\
-\left[ \begin{array}{c}n+m+1\\m\end{array} \right]\sum_{k=0}^m(n+k)\left[ \begin{array}{c}n+k\\k\end{array} \right]\\
-证明：\\
-先考虑前者，我们将n+k个位置分到k个集合之后\\
-还剩下(n+m+1)-(n+k)=(m-k+1)个数，剩下(m-k)个集合\\
-拿出来(n+k+1)这个数，剩下的数刚好够每个集合放一个\\
-最后枚举一下把(n+k+1)放在哪里即可\\
-由于每个划分一定存在一段（可能是0）单独自己集合的后缀\\
-所以这个递推成立\\
-后者也可以同样证明</script><script type="math/tex; mode=display">
-(10)\\
-C_n^m(n-1)^{\underline{n-m}}=\sum_{k=m}^n\left[ \begin{array}{c}n\\k\end{array} \right]\left\{ \begin{array}{c}k\\m\end{array} \right\}\\
-证明：\\
-考虑(n-1)^{\underline{n-m}}=\frac{(n-1)!}{(m-1)!}\\
-不妨设f(n,m)=\sum_{k=m}^n\left[ \begin{array}{c}n\\k\end{array} \right]\left\{ \begin{array}{c}k\\m\end{array} \right\}\\
-相当于将n个数分成非空m组，然后组内的数要形成若干轮换的方案数\\
-那么知道f(n,m)=f(n-1,m-1)+(n-1+m)f(n-1,m)\\
-设g(n,m)=C_n^m\frac{(n-1)!}{(m-1)!}=\frac{n!(n-1)!}{m!(n-m)!(m-1)!}\\
-那么知道\\
-g(n-1,m-1)=\frac{(n-1)!(n-2)!}{(m-1)!(n-m)!(m-2)!}\\
-g(n-1,m)=\frac{(n-1)!(n-2)!}{m!(n-1-m)!(m-2)!}\\
-显然g(n,m)=g(n-1,m-1)+(n-1+m)g(n-1,m)\\
-数学归纳即可</script><script type="math/tex; mode=display">
-(11)\\
-C_n^m=\frac{n!}{m!(n-m)!}=\sum_{k=m}^n\left\{ \begin{array}{c}n+1\\k+1\end{array} \right\}\left[ \begin{array}{c}k\\m\end{array} \right](-1)^{m-k}\\
-n^{\underline{n-m}}=\frac{n!}{m!}=\sum_{k=m}^n\left[ \begin{array}{c}n+1\\k+1\end{array} \right]\left\{ \begin{array}{c}k\\m\end{array} \right\}(-1)^{m-k}，其中m\leq n\\
-证明：\\
-考虑(4)，对其做一遍斯特林反演即可</script><script type="math/tex; mode=display">
-(12)\\
-\left\{ \begin{array}{c}n\\l+m\end{array} \right\}C_{l+m}^l=\sum_{k=l}^n\left\{ \begin{array}{c}k\\l\end{array} \right\}\left\{ \begin{array}{c}n-k\\m\end{array} \right\}C_n^k\\
-\left[ \begin{array}{c}n\\l+m\end{array} \right]C_{l+m}^l=\sum_{k=l}^n\left[ \begin{array}{c}k\\l\end{array} \right]\left[ \begin{array}{c}n-k\\m\end{array} \right]C_n^k\\
-证明：\\
-先考虑前者，左边即先将n个数分为l+m个集合，然后再挑出l个集合\\
-那不妨枚举这l个集合中是哪些数，然后再进行分配\\
-后者同理</script><h2 id="欧拉数"><a href="#欧拉数" class="headerlink" title="欧拉数"></a>欧拉数</h2><p>记$\left\langle\begin{array}\\n\\k\end{array}\right\rangle$表示$\{1,2,…,n\}$的排列$a$中满足这条性质的排列个数:存在且只存在$k$个升高,换句话说,存在且只存在$k$个$i$,满足$1\leq i&lt;n$,$a_i&lt;a_{i+1}$.不难发现$\left\langle\begin{array}\\n\\k\end{array}\right\rangle=\left\langle\begin{array}\\n\\n-k-1\end{array}\right\rangle$</p>
-<p>考虑在一个$\{1,2,…,n-1\}$的排列中插入$n$,设插入的位置是原本$a_i$的后面,那么要么原本$a_i&lt;a_{i+1}$,要么反之.前者不会改变排列的升高的数量,后者则会增加$1$.另外还有一种情况是插入到了序列最前面.于是我们自然得到:$\left\langle\begin{array}\\n\\k\end{array}\right\rangle=(k+1)\left\langle\begin{array}\\n-1\\k\end{array}\right\rangle+(n-k)\left\langle\begin{array}\\n-1\\k-1\end{array}\right\rangle$.</p>
-<p>特别地,我们令$\left\langle\begin{array}\\0\\k\end{array}\right\rangle=[k=0]$,若$k&lt;0$,则$\left\langle\begin{array}\\n\\k\end{array}\right\rangle=0$.</p>
-<h3 id="欧拉数与二项式系数"><a href="#欧拉数与二项式系数" class="headerlink" title="欧拉数与二项式系数"></a>欧拉数与二项式系数</h3><p>我们有Worpitzky恒等式:</p>
-<script type="math/tex; mode=display">
-x^n=\sum_{k\geq 0}\binom{x+k}{n}\left\langle\begin{array}\\n\\k\end{array}\right\rangle,n\in\mathbb{N}</script><p>还有另一个恒等式:</p>
-<script type="math/tex; mode=display">
-\left\langle\begin{array}\\n\\m\end{array}\right\rangle=\sum_{k=0}^m\binom{n+1}{k}(m+1-k)^n(-1)^k</script><p>剩下的不会了.</p>
-<h2 id="调和数"><a href="#调和数" class="headerlink" title="调和数"></a>调和数</h2><p>略过.</p>
-<h2 id="伯努利数"><a href="#伯努利数" class="headerlink" title="伯努利数"></a>伯努利数</h2><p>定义$B_j$为第$j$个伯努利数,且满足$\sum_{j=0}^m\binom{m+1}{j}B_j=[m=0],m\geq 0\\$.</p>
-<p>定义$S_m(n)=\sum_{i=0}^{n-1}i^m$.</p>
-<p>伯努利数满足公式:$S_m(n)=\cfrac{1}{m+1}\sum_{k=0}^m\binom{m+1}{k}B_kn^{m+1-k}\\$.</p>
-<p>证明如下:</p>
-<p>对$S_{m+1}(n)$使用扰动法,我们有:</p>
-<script type="math/tex; mode=display">
-S_{m+1}(n)+n^{m+1}=\sum_{k=0}^{n-1}(k+1)^{m+1}\\
-=\sum_{k=0}^{n-1}\sum_{j=0}^{m+1}\binom{m+1}{j}k^j\\
-=\sum_{j=0}^{m+1}\binom{m+1}{j}S_j(n)\\
-=\sum_{j=0}^{m}\binom{m+1}{j}S_j(n)+S_{m+1}(n)\\
-n^{m+1}=\sum_{j=0}^m\binom{m+1}{j}S_j(n)\\</script><p>接下来使用数学归纳,假设$0\leq j&lt;m$时该公式成立,并假设有$S_m(n)=\cfrac{1}{m+1}\sum_{k=0}^m\binom{m+1}{k}B_kn^{m+1-k}+\Delta\\$,我们只需要证明$\Delta=0$.</p>
-<script type="math/tex; mode=display">
-n^{m+1}=\sum_{j=0}^m\binom{m+1}{j}\cfrac{1}{j+1}\sum_{k=0}^j\binom{j+1}{k}B_kn^{j+1-k}+(m+1)\Delta\\
-=\sum_{0\leq k\leq j\leq m}\binom{j+1}{k}\binom{m+1}{j}\cfrac{1}{j+1}B_kn^{j+1-k}+(m+1)\Delta\\
-=\sum_{0\leq k\leq j\leq m}\binom{j+1}{j-k}\binom{m+1}{j}\cfrac{1}{j+1}B_{j-k}n^{k+1}+(m+1)\Delta\\
-=\sum_{0\leq k\leq j\leq m}\binom{j+1}{k+1}\binom{m+1}{j}\cfrac{1}{j+1}B_{j-k}n^{k+1}+(m+1)\Delta\\
-=\sum_{0\leq k\leq m}\cfrac{n^{k+1}}{k+1}\sum_{j=k}^mB_{j-k}\binom{m+1}{j}\binom{j}{k}+(m+1)\Delta\\
-=\sum_{0\leq k\leq m}\cfrac{n^{k+1}}{k+1}\binom{m+1}{k}\sum_{j=k}^mB_{j-k}\binom{m+1-k}{j-k}+(m+1)\Delta\\
-=\sum_{k=0}^m\cfrac{n^{k+1}}{k+1}\binom{m+1}{k}\sum_{j=0}^{m-k}B_{j}\binom{m+1-k}{j}+(m+1)\Delta\\
-=\sum_{k=0}^m\cfrac{n^{k+1}}{k+1}\binom{m+1}{k}[m-k=0]+(m+1)\Delta\\
-=n^{m+1}+(m+1)\Delta</script><p>显然$\Delta=0$,上式成立.</p>
-<h2 id="斐波那契数"><a href="#斐波那契数" class="headerlink" title="斐波那契数"></a>斐波那契数</h2><p>定义斐波那契数$F_n=\begin{cases}0&amp;n=0\\1&amp;n=1\\F_{n-1}+F_{n-2}&amp;n&gt;1\end{cases}$.</p>
-<h3 id="斐波那契数的扩展定义"><a href="#斐波那契数的扩展定义" class="headerlink" title="斐波那契数的扩展定义"></a>斐波那契数的扩展定义</h3><p>首先根据数学归纳,不难证明卡西尼恒等式:</p>
-<script type="math/tex; mode=display">
-F_{n+1}F_{n-1}-F_n^2=(-1)^n,n>0</script><p>事实上,如果我们将斐波那契数的递推式改写作:$F_n=F_{n+2}-F_{n+1}$,我们可以在$n\in\mathbb{Z}$的时候定义斐波那契数,同样也是满足上面的恒等式的,而且我们可以发现:</p>
-<script type="math/tex; mode=display">
-F_{-n}=(-1)^{n-1}F_n,n\in\mathbb{Z}</script><h3 id="斐波那契数与数论"><a href="#斐波那契数与数论" class="headerlink" title="斐波那契数与数论"></a>斐波那契数与数论</h3><p>如果我们考虑不断使用斐波那契递推式展开,不难发现:</p>
-<script type="math/tex; mode=display">
-F_{n+k}=F_kF_{n+1}+F_{k-1}F_n\\
-F_{n+m+1}=F_{n+1}F_{m+1}+F_nF_m</script><p>另外,如果我们在上面这个式子中取$k=wn,w\in\mathbb{N}$并使用归纳法,我们又可以得到一个性质:$F_{kn}$是$F_n$的倍数,$k\in\mathbb{Z}$.</p>
-<p>再观察这个式子,使用归纳法可以证明$\gcd(F_{n},F_{n-1})=1$,进一步有:$\gcd(F_{n+m},F_m)=\gcd(F_n,F_m)$.</p>
-<p>如果我们推广这个结论,就可以得到一个重要的性质:</p>
-<script type="math/tex; mode=display">
-\gcd(F_m,F_n)=F_{\gcd(n,m)}</script><p>如果我们再一次推广这个结论,可以得到马蒂亚舍维奇引理:</p>
-<script type="math/tex; mode=display">
-F_n^2|F_m\Leftrightarrow nF_n|m,n>2</script><p>这个引理的证明如下:</p>
-<p>由于$F_{n+1}\equiv F_{n-1}\pmod {F_n}$.于是我们有:$F_{2n}=F_nF_{n+1}+F_{n-1}F_n$,也就是$F_{2n}\equiv 2F_nF_{n+1}\pmod {F_n^2}$.</p>
-<p>另外我们有:$F_{2n+1}\equiv F_{n+1}^2\pmod{F_n^2}$.</p>
-<p>同理,使用归纳法可以证明:$F_{kn}\equiv kF_nF_{n+1}^{k-1}\pmod{F_n^2},F_{kn+1}\equiv F_{n+1}^k\pmod{F_n^2}$.</p>
-<p>而$F_{n+1}\bot F_n$,于是$F_{kn}\equiv 0\pmod {F_n^2}\Leftrightarrow k\equiv 0\pmod {F_n},n&gt;2$.</p>
-<h3 id="斐波那契数系"><a href="#斐波那契数系" class="headerlink" title="斐波那契数系"></a>斐波那契数系</h3><p>我们如果定义$j\gg k\Leftrightarrow j\geq k+2$,那么有齐肯多夫定理:</p>
-<p>每个正整数都有唯一的表示方式满足:$n=\sum_{i=1}^rF_{k_i},\forall 1\leq i&lt; r,k_i\gg k_{i+1}\gg 0$.</p>
-<p>首先证明存在性:我们考虑数学归纳,对于一个数n,如果$\exist k$满足$F_k=n$,则显然成立,不然,应$\exist k$满足$F_k&lt;n&lt;F_{k+1}$,而$n-F_k$的表示已经存在了.另外,由于$n-F_k&lt;F_{k+1}-F_k=F_{k-1}$,因此必定不可能出现选了$F_k$又选了$F_{k-1}$的情况,存在性得证.</p>
-<p>至于唯一性,如果我们不选择$F_k$而是选择$F_{k-1}$,那么显然接下来无论怎么选,它们的加和都不可能大于等于$F_k$,因此一定是唯一的.</p>
-<p>这样的话,我们可以将一个自然数$n$以斐波那契数的形式表示出来.</p>
-<h3 id="斐波那契数的封闭形式"><a href="#斐波那契数的封闭形式" class="headerlink" title="斐波那契数的封闭形式"></a>斐波那契数的封闭形式</h3><p>使用生成函数,令$F(z)=\sum_{k\geq 0}F_kz^k$.那么不难发现$F(z)-zF(z)-z^2F(z)=z$,也就是$F(z)=\cfrac{z}{1-z-z^2}$.</p>
-<p>考虑这个形式一定可以分解为$F(z)=\cfrac{a}{1-\alpha z}+\cfrac{b}{1-\beta z}$的形式,而这两种形式对应的生成函数都很显然.</p>
-<p>进行因式分解,如果令$\phi=\cfrac{1+\sqrt 5}{2},\hat\phi=\cfrac{1-\sqrt 5}{2}$,那么可以得到$F_n=\cfrac{1}{\sqrt 5}(\phi^n-\hat\phi^n)$.</p>
-<p>另外,由于$\hat\phi^n$的影响很小,于是又有$F_n=\lfloor\cfrac{\phi^n}{\sqrt 5}+0.5\rfloor$.</p>
-<h3 id="连项式"><a href="#连项式" class="headerlink" title="连项式"></a>连项式</h3><p>连项式多项式$K_n(x_1,x_2,…,x_n)$定义为:$K_n(x_1,x_2,…,x_n)=\begin{cases}1&amp;n=0\\x_1&amp;n=1\\x_nK_{n-1}(x_1,x_2,…x_{n-1})+K_{n-2}(x_1,x_2,…,x_{n-2})&amp;n\geq 2\end{cases}$.</p>
-<p>通过定义不难发现:$K_n(1,1,…,1)=F_{n+1}$.</p>
-<p>继续观察式子,会发现它递归的过程相当于枚举是否消掉相邻的一对数$(x_{n-1},x_n)$.我们考虑用这样一种形式的字符串来表示最后某一项的情况:’.’为还没有消除掉的项,长度为$1$;’-‘为已经消除了的两项,长度为$2$.那么$K_n(x_1,x_2,…,x_n)$就可以表示为一个长度为$n$的字符串,其中若有$k$个’-‘,有$n-2k$个’.’,则有$\binom{n-k}{k}$种不同的排列方式.</p>
-<p>于是我们有:</p>
-<script type="math/tex; mode=display">
-K_n(z,z,...,z)=\sum_{k=0}^n\binom{n-k}{k}z^{n-2k}\\</script><p>另外,这也导出:$F_{n+1}=\sum_{k=0}^n\binom{n-k}{k}\\$.</p>
-<p>考虑上面的构造过程,不难发现$K_n(x_1,x_2,…,x_n)=K_n(x_n,x_{n-1},…,x_1)$.</p>
-<p>于是递归式可以写成:$K_n(x_1,x_2,…,x_n)=x_1K_{n-1}(x_2,x_3,…x_{n})+K_{n-2}(x_3,x_4,…,x_{n})$.</p>
-<p>进一步地,不断展开后得到:</p>
-<script type="math/tex; mode=display">
-K_{m+n}(x_1,...,x_m,x_{m+1},...,x_{n+m})=\\K_m(x_1,...,x_m)K_n(x_{m+1},...,x_{n+m})+K_{m-1}(x_1,...,x_{m-1})K_{n-1}(x_{m+2},...,x_{n+m})</script><p>另外,根据连项式的定义,不难导出$K_n(x_1,…,x_n+y)=K_n(x_1,…,x_n)+K_{n-1}(x_1,…,x_{n-1})y$.</p>
-<p>由这个公式可以推出:$\cfrac{K_{n+1}(a_0,…,a_n)}{K_n(a_1,…,a_n)}=\cfrac{K_n(a_0,…,a_{n-1}+\cfrac{1}{a_n})}{K_{n-1}(a_1,…,a_{n-1}+\cfrac{1}{a_n})}$.</p>
-<p>不断做这个迭代,于是我们可以得到连项式与连分数之间的关系:</p>
-<script type="math/tex; mode=display">
-\cfrac{K_{n+1}(a_0,...,a_n)}{K_n(a_1,...,a_n)}=a_0+\cfrac{1}{a_1+\cfrac{1}{a_2+\cfrac{1}{a_3+...}}}</script><p>另外,这个与数论中的Stern-Brocot树有很大关系,暂略.</p>
-
+        <h2 id="二项式系数"><a href="#二项式系数" class="headerlink" title="二项式系数"></a>二项式系数</h2>
+        
+          <p class="article-more-link">
+            <a href="/2022/08/14/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/14/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/" data-id="cl6u2kul50006mkvt0z24ck65" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-四边形不等式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/08/14/%E5%9B%9B%E8%BE%B9%E5%BD%A2%E4%B8%8D%E7%AD%89%E5%BC%8F/" class="article-date">
-  <time class="dt-published" datetime="2022-08-14T14:25:04.338Z" itemprop="datePublished">2022-08-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <script type="math/tex; mode=display">
-对于定义在\mathbb{Z}上的二元函数w</script><script type="math/tex; mode=display">
-若对定义域上任意a,b,c,d(a\leq b\leq c\leq d)都有w(a,c)+w(b,d)\leq w(a,d)+w(b,c)</script><script type="math/tex; mode=display">
-则称函数w满足四边形不等式</script><script type="math/tex; mode=display">
-\begin{array}{c}
-定理：若二元函数w(x,y)满足w(a,b)+w(a+1,b+1)\leq w(a,b+1)+w(a+1,b)，其中a<a+1\leq b<b+1\\
-则w满足四边形不等式
-\\
-\\
-证明：\\
-对于a+1<c 有\\
-w(a,c)+w(a+1,c+1)\leq w(a,c+1)+w(a+1,c)\\
-w(a+1,c+1)\leq w(a,c+1)+w(a+1,c)-w(a,c)\\
-同时有\\
-w(a+1,c)+w(a+2,c+1)\leq w(a+1,c+1)+w(a+2,c)\\
-w(a+1,c)+w(a+2,c+1)-w(a+2,c)\leq w(a+1,c+1)\\
-联立得到\\
-w(a+1,c)+w(a+2,c+1)-w(a+2,c)\leq w(a,c+1)+w(a+1,c)-w(a,c)\\
-w(a+2,c+1)+w(a,c)\leq w(a+1,c)+w(a+2,c+1)
-\\
-同理可推至四边形不等式定义式
-\end{array}</script><script type="math/tex; mode=display">
-\begin{array}{c}
-对于形如f_i=\min_{1 \leq j<i}\{f_j+w(j,i)\}的状态转移方程，记p_i为f_i的最优决策\\
-若p在[1,n]上单调不降，则称f具有决策单调性\\
-\\
-定理：对于形如f_i=\min_{1 \leq j<i}{f_j+w(j,i)}的状态转移方程\\
-若w满足四边形不等式，则f有决策单调性\\
-\\
-证明：\\
-\\
-\forall i\in[1,n],\forall j\in[0,p_i-1]，根据p的定义，有：\\
-f_{p_i}+w(p_i,i)\leq f_j+w(j,i)\\
-f_{p_i}-f_j\leq w(j,i)-w(p_i,i)\\
-而对于k\in[i+1,n]，根据w的四边形不等式，有：\\
-w(j,i)+w(p_i,k)\leq w(j,k)+w(p_i,i)\\
-w(j,i)-w(p_i,i)\leq w(j,k)-w(p_i,k)\\
-联立得到：\\
-f_{p_i}-f_j\leq w(j,k)-w(p_i,k)\\
-f_{p_i}+w(p_i,k)\leq w(j,k)+f_j\\
-即：j对k的更新一定不如p_i对k的更新更优\\
-因此p_k\in[p_i,n]\\
-因此f有决策单调性
-\end{array}</script><script type="math/tex; mode=display">
-对于形如f_{x,j}=\min_{i=1}^{x-1}\{f_{i,j-1}+w_{i,x}\}的状态转移方程，若w满足四边形不等式，则f有决策单调性\\
-证明同上</script><script type="math/tex; mode=display">
-\begin{array}{c}
-定理1：在状态转移方程f_{i,j}=\min_{i\leq k<j}\{f_{i,k}+f_{k+1,j}+w(i,j)\}中（通常f_{i,i}=w(i,i)=0，f_{i,i+1}=w_{i,i+1}）\\
-如果w满足四边形不等式，且对于任意的a\leq b\leq c\leq d，有w(b,c)\leq w(a,d)，那么f也满足四边形不等式\\
-\\
-证明：\\
-显然，设j=i+1，则有f_{i,j+1}+f_{i+1,j}=f_{i,i+2}\\
-\\
-若f_{i,i+2}的最优决策是i，则有：\\
-f_{i,i+2}=f_{i,i}+f_{i+1,i+2}+w(i,i+2)\\=w(i+1,i+2)+w(i,i+2)\\
-\geq w(i+1,i+2)+w(i,i+1)\\=f_{i+1,i+2}+f_{i,i+1}\\=f_{i+1,j+1}+f_{i,j}\\
-若f_{i,i+2}的最优决策是i+1，则有：\\
-f_{i,i+2}=f_{i,i+1}+f_{i+2,i+2}+w(i,i+2)\\=w(i,i+1)+w(i,i+2)\\
-\geq w(i,i+1)+w(i+1,i+2)\\=f_{i,i+1}+f_{i+1,i+2}\\=f_{i,j}+f_{i+1,j+1}\\
-则当b-a=1时，满足四边形不等式
-\\
-使用数学归纳，假设当b-a<k时，f满足四边形不等式，考虑j-i=k的情况\\
-设f_{i,j+1}的最优决策为x，f_{i+1,j}的最优决策为y\\
-则有：f_{i,j+1}+f_{i+1,j}=f_{i,x}+f_{x+1,j+1}+w(i,j+1)+f_{i+1,y}+f_{y+1,j}+w(i+1,j)\\
-对于f_{i,j}和f_{i+1,j+1}来说，x和y不一定最优，所以有：\\
-f_{i,j}+f_{i+1,j+1}\leq f_{i,x}+f_{x+1,j}+w(i,j)+f_{i+1,y}+f_{y+1,j+1}+w(i+1,j+1)\\
-w和归纳假设都可以使右边的式子改变，最终得到：f_{i,j}+f_{i+1,j+1}\leq f_{i,j+1}+f_{i+1,j}\\
-\\
-\\
-\\
-定理2：记p_{i,j}为f_{i,j}的最优决策，若f满足四边形不等式，那么对于\forall i<j，有p_{i,j-1}\leq p_{i,j}\leq p_{i+1,j}\\
-\\
-证明：\\
-记p=p_{i,j}对于\forall k，i<k\leq p，因为f满足四边形不等式，所以有：\\
-f_{i,k}+f_{i+1,p}\leq f_{i,p}+f_{i+1,k}\\
-根据p定义，有：\\
-f_{i,p}+f_{p+1,j}\leq f_{i,k}+f_{k+1,j}\\
-由上两式移项联立，得到：\\
-f_{i+1,p}-f_{i+1,k}\leq f_{k+1,j}-f_{p+1,j}\\
-f_{i+1,p}+f_{p+1,j}\leq f_{i+1,k}+f_{k+1,j}\\
-f_{i+1,p}+f_{p+1,j}+w_{i+1,j}\leq f_{i+1,k}+f_{k+1,j}+w_{i+1,j}\\
-因此对于f_{i+1,j}，p比任意的k<p更优，因此p_{i+1,j}\geq p_{i,j}\\
-另一方向同理
-\end{array}</script>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/14/%E5%9B%9B%E8%BE%B9%E5%BD%A2%E4%B8%8D%E7%AD%89%E5%BC%8F/" data-id="cl6u2kul10002mkvt2ewegc0s" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/08/14/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/" data-id="cl6u2xf3m0008r0vt1fb864i0" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -1422,483 +215,16 @@ f_{i+1,p}+f_{p+1,j}+w_{i+1,j}\leq f_{i+1,k}+f_{k+1,j}+w_{i+1,j}\\
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="数论"><a href="#数论" class="headerlink" title="数论"></a>数论</h2><p>本文除特殊说明,所涉及数均为整数.</p>
-<h3 id="整除性及相关"><a href="#整除性及相关" class="headerlink" title="整除性及相关"></a>整除性及相关</h3><p>如果$m&gt;0$且$\cfrac{n}{m}$是一个整数,我们就说$m$整除$n$,记作$m|n$.</p>
-<p>能同时整除两个数$n$和$m$的数称为$n$和$m$的公因子,所有公因子中最大的那个称为最大公因子,记作$\gcd(n,m)$.而最小的能同时被$n$和$m$整除的非零数被称为他们的最小公倍数,记作$lcm(n,m)$.不难发现$lcm(n,m)\gcd(n,m)=nm$.</p>
-<h4 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h4><p>欧几里得算法基于以下定理:</p>
-<p>$\gcd(0,n)=n$且$\gcd(n,m)=\gcd(n\mod m,m),m&gt;0$.</p>
-<p>考虑证明,首先,$\forall k\in\mathbb{Z}$,$n$和$m$的公因子一定是$n$和$m+kn$的公因子,这是显然的.因此,$n$和$m$的公因子一定是$m$和$n-m\lfloor\cfrac{n}{m}\rfloor$的公因子,而反之亦然.</p>
-<h4 id="一种预处理最大公约数的算法"><a href="#一种预处理最大公约数的算法" class="headerlink" title="一种预处理最大公约数的算法"></a>一种预处理最大公约数的算法</h4><p>存在一种$O(n)$预处理,$O(1)$求任意两个小于等于$n$的数的$\gcd$的方法:</p>
-<p>引理:</p>
-<p>对于任意整数$n$,存在一种划分方式$n=abc$,$a$,$b$,$c$三个数要么是质数,要么$\leq \sqrt n$.</p>
-<p>证明:</p>
-<p>如果$n$存在一个大于等于$\sqrt n$的质因子，显然成立.</p>
-<p>否则，使用数学归纳，我们考虑$n$的最小质因子为$p$,设$\frac n p=xyz$,不妨设$x\leq y\leq z$.</p>
-<p>如果$x=1$,显然成立.</p>
-<p>不然有$p\leq x\leq y\leq z$,而$pxyz=n$,那么$p^4\leq n$,$p\leq n^{\frac 1 4}$.</p>
-<p>现在我们想要证明不存在$xp&gt;\sqrt n$,$yp&gt;\sqrt n$,$zp&gt;\sqrt n$.</p>
-<p>如果存在，我们有:</p>
-<script type="math/tex; mode=display">
-xyzp^3>n^{\frac 3 2}\\
-np^2>n^{\frac 3 2}\\
-p^2>\sqrt n\\
-p>n^{\frac 1 4}</script><p>与我们前面的结论不符合.</p>
-<p>因而该引理一定成立,并且给出了$O(n)$预处理所有数$abc$的方法.</p>
-<p>接下来，设$m=\sqrt n$,考虑使用$O(n)$的时间求出每个小于等于$m$的数对的$\gcd$,如果我们要求$\gcd(x,y)$,设$x=abc$,显然$\gcd(x,y)=\gcd(a,y)\times\gcd(b,\frac{y}{\gcd(a,y)})\times\gcd(c,\frac{y}{\gcd(ab,y)})$.</p>
-<p>如果$a$是质数，只需要判断$a$是否整除$y$.</p>
-<p>否则$\gcd(a,y)=\gcd(y\mod a,a)$,因为$a\leq \sqrt n$,因而可以直接查表.</p>
-<h4 id="裴蜀定理"><a href="#裴蜀定理" class="headerlink" title="裴蜀定理"></a>裴蜀定理</h4><p>$\forall a,b,m\in\mathbb{Z}$,则$\exists x,y\in \mathbb{Z}$满足$ax+by=m$,当且仅当$\gcd(a,b)|m$.</p>
-<p>证明如下:</p>
-<p>若$a=0$或$b=0$,显然成立.</p>
-<p>不然，设集合$A=\{xa+yb|x,y\in\mathbb{Z}\}$中的最小正元素$d_0=x_0a+y_0b$,该集合中显然一定有正元素.</p>
-<p>考虑任意$p=x_1a+y_1b\in A$,设$p=qd_0+r$,其中$0\leq r&lt;d_0$.</p>
-<p>可以发现:</p>
-<p>$r=p-qd_0=ax_1+by_1-qax_0-qby_0=a(x_1-qx_0)+b(y_1-qy_0)$</p>
-<p>有$r\in A$.</p>
-<p>由于$d_0$是$A$中最小的正元素,所以$r=0$,所以$p=qd_0$.</p>
-<p>由于$p$可以$=a$也可以$=b$,所以$d_0|a\and d_0|b$.</p>
-<p>又因为对于一个数$d_1$满足$d_1|a\and d_1|b$,则$a=k_1d_1$,$b=k_2d_1$,$d_0=(x_0k_1+y_0k_2)d_1$.</p>
-<p>由于$d_0$和$d_1$都是正整数,所以可得到$d_1$是$d_0$的约数</p>
-<p>也就是说$d_0=\gcd(a,b)$,则原方程化为$h_1d_0x+h_2d_0y=m$.</p>
-<p>由于$x$和$y$都是整数,所以若$\gcd(a,b)\nmid m$,也就是$d_0\nmid m$,原方程定无解.</p>
-<p>不然,考虑刚才的过程中的$q$,显然可以取任意整数,因而必定有解.</p>
-<h4 id="扩展欧几里得算法"><a href="#扩展欧几里得算法" class="headerlink" title="扩展欧几里得算法"></a>扩展欧几里得算法</h4><p>考虑求方程$ax+by=\gcd(a,b)$的一组解.</p>
-<p>首先,如果$b=0$,那这组解显然就是$\begin{cases}x=1\\y=0\end{cases}$.</p>
-<p>反之,我们令$c=a\mod b$,考虑求方程$cz+bw=\gcd(c,b)$的一组解.</p>
-<p>接下来呢,考虑带入$c$,则我们求出来的即方程$(a-b\lfloor\cfrac a b\rfloor)z+bw=\gcd(a,b)$的一组解.不难发现这也就是方程$az+(w-\lfloor\cfrac a b\rfloor z)b=\gcd(a,b)$的一组解,所以原本的方程的解也就是$\begin{cases}x=z\\y=(w-\lfloor\cfrac a b\rfloor z)\end{cases}$.</p>
-<p>另外,这个算法也可以使用矩阵形式:</p>
-<p>首先有$\left[\begin{matrix}<br>a\\<br>b<br>\end{matrix}\right]<br>=\left[\begin{matrix}<br>a\\<br>b<br>\end{matrix}\right]$</p>
-<p>令$q=\lfloor\frac a b\rfloor$,那么我们有$\left[\begin{matrix}<br>0&amp;1\\<br>1&amp;-q<br>\end{matrix}\right]<br>\left[\begin{matrix}<br>a\\<br>b<br>\end{matrix}\right]=<br>\left[\begin{matrix}<br>b\\<br>a\mod b<br>\end{matrix}\right]$</p>
-<p>同样我们可以得到:$\left[\begin{matrix}<br>x_1&amp;y_1\\<br>x_2&amp;y_2<br>\end{matrix}\right]<br>\left[\begin{matrix}<br>a\\<br>b<br>\end{matrix}\right]=<br>\left[\begin{matrix}<br>\gcd(a,b)\\<br>0<br>\end{matrix}\right]$</p>
-<p>即$ax_1+by_1=\gcd(a,b)$,$(x_1,y_1)$就是一组特解.</p>
-<h4 id="一些性质"><a href="#一些性质" class="headerlink" title="一些性质"></a>一些性质</h4><p>令$n,m\in\mathbb{N_+}$.</p>
-<ol>
-<li>$k|n\and k|m\Leftrightarrow k|\gcd(n,m)$.</li>
-<li>$\sum_{m|n}a_m=\sum_{m|n}a_{\frac{n}{m}}$.</li>
-<li>$\sum_{m|n}\sum_{k|m}a_{k,m}=\sum_{k|n}\sum_{l|(\frac{n}{k})}a_{k,kl}$.</li>
-</ol>
-<h3 id="素数及相关"><a href="#素数及相关" class="headerlink" title="素数及相关"></a>素数及相关</h3><h4 id="唯一分解定理-算数基本定理"><a href="#唯一分解定理-算数基本定理" class="headerlink" title="唯一分解定理(算数基本定理)"></a>唯一分解定理(算数基本定理)</h4><p>任何正整数都只有一种方式以素数非减的次序写成素数的乘积.</p>
-<p>证明:</p>
-<p>考虑数学归纳法,设小于$n$的数全部满足.</p>
-<p>则对于$n$,如果它不满足条件,一定存在两种分解方式$n=\prod_{i=1}^mp_i=\prod_{i=1}^kq_i$.</p>
-<p>首先,如果$p_1=q_1$,根据归纳假设,显然不成立.</p>
-<p>不失一般性,设$p_1&lt;q_1$,也就是$\forall i\in[1,k],p_1&lt;q_i$.由于扩展欧几里得算法,此时一定可以找到方程$p_1x+q_1y=1$的一组解.令$s=\prod_{i=2}^kq_i$,则这也是方程$p_1sx+q_1sy=s$的一组解,也就是方程$p_1sx+ny=s$的一组解.</p>
-<p>两边同时除以$p_1$,显然左边可以整除.而这意味着$p_1|s$,但这是不可能的,因为$s&lt;n$,根据归纳假设,它只有一种分解方式,这种方式中显然不可能存在$p_1$.</p>
-<p>因此证毕.</p>
-<p>那么根据上述证明,我们可以将一个数表示为以下形式:$n=\prod_p p^{n_p},n_p\geq 0$.</p>
-<h4 id="素数的个数"><a href="#素数的个数" class="headerlink" title="素数的个数"></a>素数的个数</h4><p>首先,欧几里得证明了素数有无穷多个:</p>
-<p>假设素数有有限个,分别为$p_1,p_2,…p_m$,则$\prod_{i=1}^mp_i+1$无法被其中任何素数整除,则假设不成立.</p>
-<p>在此基础上,我们可以定义欧几里得数:</p>
-<p>$e_1=2,e_n=1+\prod_{i=1}^{n-1}e_i$.</p>
-<p>令$\pi(n)$表示小于等于$n$的素数个数,有${\lim_{n\rightarrow+\infty}\cfrac{\pi(n)\times \ln n}{n}}=1$.</p>
-<p>有切比雪夫定理:若$n&gt;1,\exist p\in prime,p\in(n,2n)$.</p>
-<p>同时,我们还有以下结论:$\sum_{1\leq p\leq n\and p\in prime}\cfrac{1}{p}\approx \log\log n$.</p>
-<p>证明如下:</p>
-<script type="math/tex; mode=display">
-\sum_{1\leq p\leq n\and p\in prime}\cfrac{1}{p}=\sum^n_{k=1}\cfrac{\pi(k)-\pi(k-1)}{k}=\sum^n_{k=1}\cfrac{\pi(k)}{k}-\sum^n_{k=1}\cfrac{\pi(k-1)}{k}\\
-=\sum^n_{k=1}\cfrac{\pi(k)}{k}-\sum^{n-1}_{k=0}\cfrac{\pi(k)}{k+1}\\
-=\sum^{n-1}_{k=1}\cfrac{\pi(k)}{k}+\cfrac{\pi(n)}{n}-\sum^{n-1}_{k=1}\cfrac{\pi(k)}{k+1}+\cfrac{\pi(0)}{1}\\
-=\sum^{n-1}_{k=1}\cfrac{\pi(k)}{k(k+1)}+\cfrac{\pi(n)}{n}\\
-= \sum^{n-1}_{k=1}{(\cfrac{1}{k\log k})}+O(1)= O(\log \log n)+O(1)</script><h4 id="Miller-Rabin算法"><a href="#Miller-Rabin算法" class="headerlink" title="Miller-Rabin算法"></a>Miller-Rabin算法</h4><p>如果判断$n$是否是质数,取$a&lt;n$,设$n-1=d\times2^r$.</p>
-<p>则要么$a^d\equiv 1(\mod n)$.</p>
-<p>要么$\exists i$,使得$0\leq i&lt;r$,$a^{d\times 2^i}\equiv -1(\mod n)$.</p>
-<p>若一个都不满足,则n一定不是质数,不然可能是质数.</p>
-<p>但是若取足够多的不同的$a$(如果选$m$个),那么$n$是质数的可能性更大.</p>
-<p>此为Miller-Rabin算法,复杂度$O(m\times log_2n)$.不保证正确性.</p>
-<p>其中a通常取质数，原因不详.（事实上，如果a取前八个小质数，在2^{64}内是不会出错的）</p>
-<h4 id="Pollard-Rho算法"><a href="#Pollard-Rho算法" class="headerlink" title="Pollard-Rho算法"></a>Pollard-Rho算法</h4><p>对$n$做质因数分解,若能找到$a$使得$a|n$,则考虑对$\cfrac{n}{a}$和$a$分别进行质因数分解.</p>
-<p>考虑随机$a$,若$n$有$m$个因数,那么显然随机到$a$使得$a|n$的概率为$\cfrac{m}{n}$,显然不太优秀.</p>
-<p>考虑改变随机策略,我们考虑随机一个$a$使得$\gcd(a,n)\ne 1$,那么$\gcd(a,n)$就是$n$的一个因子.</p>
-<p>这种情况下,随机的概率是$\cfrac{\varphi(n)}{n}$,仍然很不优秀.</p>
-<p>考虑使用生日悖论优化,随机$k$个数$a$.两两匹配得到$k^2$个值,这些值全都不整除$n$的概率可以用生日悖论来计算.</p>
-<p>当$k=10\sqrt{n}$时,错误的概率会很小,但是复杂度仍然很高,无法接受.</p>
-<p>考虑构造$a_i=[(a_{i-1})^2+b]\mod n$.</p>
-<p>考虑该数列的性质,当$b$确定时,$a$一定有循环节.</p>
-<p>显然当$x|(a_i-a_j)$,则$x|[(a_i-a_j)\times(a_i+a_j)-b+b]$,$x|(a_{i+1}-a_{j+1})$.</p>
-<p>因此,我们可以利用floyd判环法(双指针法)找出循环节.</p>
-<p>并且在这个过程中,我们可以预处理出大量的$a_{i+len}-a_i$.</p>
-<p>复杂度极其玄学,但是实际应用中不差.</p>
-<h3 id="阶乘"><a href="#阶乘" class="headerlink" title="阶乘"></a>阶乘</h3><p>我们定义$n!=\prod_{i=1}^ni$,特别地,$0!=1$.</p>
-<p>考虑估计$n!$的大小,不难发现$(n!)^2=\prod_{i=1}^ni(n+1-i)$.</p>
-<p>而函数$y=i(n+1-i),i\in[1,n]$显然在$i=1$和$i=n$时取最小值,而在$i=\cfrac{n+1}2$时取最大值.</p>
-<p>那么我们有$\prod_{i=1}^nn\leq (n!)^2\leq \prod _{i=1}^n\cfrac{(n+1)^2}{4}$.</p>
-<p>于是$n^{\frac{n}2}\leq n!\leq \cfrac{(n+1)^n}{2^n}$.</p>
-<p>事实上有一种更准确的估计方法:$n!\sim \sqrt{2\pi n}(\cfrac{n}e)^n$.</p>
-<h4 id="威尔逊定理"><a href="#威尔逊定理" class="headerlink" title="威尔逊定理"></a>威尔逊定理</h4><p>$(p-1)!\equiv \begin{cases}<br>-1(\mod p)&amp;p\in prime\\<br>2(\mod p)&amp;p=4\\<br>0(\mod p)&amp;other<br>\end{cases}$</p>
-<p>证明:</p>
-<p>当$p$为质数时，考虑对于$a$和$b=a^{-1}(\mod p)$,若$a=b$,此时可证明$a=1$或$a=p-1$(需要用到下面独立剩余知识).</p>
-<p>如果$a\ne b$那么一定可以在$[1,p-1]$找到一对数,它们相乘为$1$.原因是若$a_1\ne a_2$,那么$a_1^{-1}\ne a_2^{-1}$.</p>
-<p>若$p$不是质数,则设$p=ab$,当$a\ne b$时,由于$a,b\leq p$,因此$(p-1)!$一定是$p$的倍数.</p>
-<p>若$a=b$,除非$p=4$,不然一定能在$[1,p-1]$里找到$a$和$2a$,此时$(p-1)!$也是$p$的倍数.</p>
-<h3 id="互素"><a href="#互素" class="headerlink" title="互素"></a>互素</h3><p>如果两个数$n$和$m$满足$\gcd(n,m)=1$,我们称他们互素,记作$n\bot m$.</p>
-<p>我们显然有这样两条性质:</p>
-<ol>
-<li>$\cfrac{n}{\gcd(n,m)}\bot \cfrac{m}{\gcd(n,m)}$.</li>
-<li>$k\bot n\and k\bot m\Leftrightarrow k\bot nm$.</li>
-</ol>
-<h4 id="Stern-Brocot-树"><a href="#Stern-Brocot-树" class="headerlink" title="Stern-Brocot 树"></a>Stern-Brocot 树</h4><p>Stern-Brocot树是一种可以不重不漏列举有理数的方式,它的构造如下:</p>
-<p>一开始,序列中有两个分数:$\cfrac{0}{1}$和$\cfrac{1}{0}$,这里使用了$0$作分母,但我们暂且认为它是正确的,因为这样会出现很多方便的性质.</p>
-<p>接下来,不断地对这个序列进行以下操作:在两个相邻的分数$\cfrac{m}{n}$和$\cfrac{m’}{n’}$之间插入一个新分数$\cfrac{m+m’}{n+n’}$.</p>
-<p>这么无限构造下去得到的序列满足两个性质:</p>
-<ol>
-<li>所得到的分数全都是最简分数.</li>
-<li>所得到的分数不重不漏,换句话说,任意非负有理数都在这个序列中出现恰好一次.</li>
-</ol>
-<p>我们不妨认为$\cfrac{1}{0}=+\infty$,那么不难发现这么构造序列,所得到的序列一定是单调递增的.</p>
-<p>这是因为如果我们有$\cfrac{m}{n}&lt;\cfrac{m’}{n’}$,那么我们一定有:$\cfrac{m}{n}&lt;\cfrac{m+m’}{n+n’}&lt;\cfrac{m’}{n’}$,其中$n,n’,m,m’\geq0$,这一点不难验证.</p>
-<p>而正因为如此,我们可以证明所得到的所有分数不重.</p>
-<p>然后,如果当前所得到的序列中有两个数$\cfrac{m}{n}$和$\cfrac{m’}{n’}$相邻,则$m’n-mn’=1$,这一点不难通过数学归纳证明.而根据裴蜀定理,显然$m\bot n$且$m’\bot n’$.</p>
-<p>我们最后需要证明任意非负有理数都可以通过这个序列构造出来,考虑类似二分的方法构造.换句话说,我们有两个序列中的分数$\cfrac{m}{n}$和$\cfrac{m’}{n’}$,要构造的有理数为$\cfrac ab$且满足$\cfrac{m}n&lt;\cfrac a b&lt;\cfrac {m’}{n’}$.</p>
-<p>我们考虑判断$\cfrac{m+m’}{n+n’}$与$\cfrac{a}{b}$的大小关系,这样就可以类似二分的方法一直往下找下去.</p>
-<p>问题在于为什么我们最后一定可以找到这个数呢?如果我们一直找不到这个数,意味着无论我们怎么做,都有$\cfrac{m}n&lt;\cfrac a b&lt;\cfrac {m’}{n’}$成立,而这也就意味着$an-bm\geq 1\and bm’-an’\geq 1$,处理一下不等式并合并,我们有$(m’+n’)(an-bm)+(n+m)(bm’-an’)\geq n+m+n’+m’$.</p>
-<p>化简这个式子得到$a+b\geq m’+n’+m+n$,而我们在操作过程中$m,n,m’,n’$显然会有两个数不变,另外两个数变大,因此迟早会大于$a+b$,也就意味着这个数迟早会被找到.</p>
-<p>之所以称其为”树”,则是因为我们如果每次都在任意两个数之间插入一个数,然后将进行若干次操作得到的序列放到二叉搜索树上,会得到一些很好的性质,譬如一个数是由它所有祖先中最大的小于它的数和最小的大于它的数生成的,以及关于根中心对称的两点互为倒数.</p>
-<p>另外,如果我们定义法里级数$\mathcal{F}_n$表示所有在$[0,1]$范围内且分母小于等于$n$的最简分数的集合.不难发现,$\mathcal{F}_n$对应着整棵树的一棵子树的一部分.而$\mathcal{F}_n$可以由$\mathcal{F}_{n-1}$得到,只需要判断$\mathcal F_{n-1}$中每两个相邻数能否生成一个满足条件的数即可.</p>
-<p>我们回到它的树形态上,如果我们定义$\cfrac 1 1$为这棵二叉搜索树的根,那么每个有理数显然都可以表示为从根到它的一个$LR$序列,表示从根向下搜索时每一步向左走还是向右走.特别地,我们定义根的序列为$I$.</p>
-<p>不难发现,通过这样的操作,我们将每一个非负有理数都对应到了一个$LR$序列.</p>
-<p>那么我们来考虑第一个问题:已知$LR$序列如何求这个数.</p>
-<p>我们可以设当前点是$x$,且它由$y$和$z$生成,其中$y&lt;x&lt;z$,那么不难发现它的右儿子由$x$和$z$生成,左儿子由$y$和$x$生成.</p>
-<p>那么我们显然可以使用记录$y$和$z$的方式,反复迭代求得答案.注意$x$是可以通过$y$和$z$求得的,因此没有必要存储.</p>
-<p>而这一过程可以简化为矩阵运算:</p>
-<p>我们令$y=\cfrac{m}n$,$z=\cfrac{m’}{n’}$,$S=\begin{bmatrix}n&amp;n’\\m&amp;m’\end{bmatrix}$,$f(S)=\cfrac{m+m’}{n+n’}$.</p>
-<p>那么不难发现它的每一次操作只需右乘一个变换矩阵即可.</p>
-<p>其中:$L=\begin{bmatrix}1&amp;1\\0&amp;1\end{bmatrix},R=\begin{bmatrix}1 &amp;0\\1&amp;1\end{bmatrix}$.</p>
-<p>至于已知数字求它的序列表示,首先可以直接在树上搜索.</p>
-<p>而如果要脱离树,我们仍然可以回到矩阵上,意识到$f(RS)=f(S)+1$,再加上关于根中心对称两点互为倒数的性质,我们可以推导出以下法则:</p>
-<p>如果$m&gt;n$,那么$f(RS)=\cfrac{m}{n}\Leftrightarrow f(S)=\cfrac{m-n}{n}$.</p>
-<p>如果$m&lt;n$,那么$f(LS)=\cfrac{m}n\Leftrightarrow f(S)=\cfrac{m}{n-m}$.</p>
-<p>借助这一点,我们就可以求一个数的$LR$序列表示了.</p>
-<p>在某些情形下,这种表示可以解决二进制下某些分数无法精确表示的问题.</p>
-<h3 id="同余"><a href="#同余" class="headerlink" title="同余"></a>同余</h3><p>如果$a\mod m=b\mod m$,我们称$a$和$b$关于模$m$同余,记作$a\equiv b(\mod m)$.</p>
-<p>根据同余的定义,若$a,b,c,d,k\in \mathbb{Z}$,$n,m\in\mathbb{N_+}$,我们有以下性质:</p>
-<ol>
-<li>$a\equiv b(\mod m)\Leftrightarrow a-b=km$.</li>
-<li>$a\equiv b(\mod m)\and c\equiv d(\mod m)\Rightarrow a+c\equiv b+d(\mod m)$.</li>
-<li>$a\equiv b(\mod m)\and c\equiv d(\mod m)\Rightarrow ac\equiv bd(\mod m)$.</li>
-<li>$a\equiv b(\mod m)\Rightarrow a^k\equiv b^k(\mod m)$.</li>
-<li>$ad\equiv bd(\mod m)\Leftrightarrow a\equiv b(\mod m),m\bot d$.</li>
-<li>$ad\equiv bd(\mod md)\Leftrightarrow a\equiv b(\mod m),d\ne 0$.</li>
-<li>$ad\equiv bd(\mod m)\Leftrightarrow a\equiv b(\mod \cfrac{m}{\gcd(m,d)})$.</li>
-<li>$a\equiv b(\mod md)\Rightarrow a\equiv b(\mod m),d\ne 0$.</li>
-<li>$a\equiv b(\mod m)\and a\equiv b(\mod n)\Leftrightarrow a\equiv b(\mod lcm(n,m))$.</li>
-</ol>
-<p>我们考虑第五条的证明:由于$m\bot d$,则根据扩展欧几里得算法,可以求得一个数$d’$满足$dd’+mm’=1$,也就是$dd’\equiv 1(\mod m)$,那么如果我们有$ad\equiv bd(\mod m)$,只需要两边同时乘以$d’$就可以得到右边.值得一提的是,我们通常称$d’$是$d$在模$m$意义下的逆元,记作$inv(d,m)$或$d^{-1}$.</p>
-<p>逆元有一种线性预处理的求法:</p>
-<p>考虑$1\leq i\leq n$,设$p=ki+r$,则有$ki+r\equiv 0(\mod p)$,则有$kr^{-1}+i^{-1}\equiv 0(\mod p)$.</p>
-<p>于是有$i^{-1}\equiv -kr^{-1}(\mod p)$,即$i^{-1}\equiv -\lfloor\cfrac{p}{i}\rfloor\times r^{-1}(\mod p)$.</p>
-<p>现在,我们给出一个结论:数列$0\mod m,n\mod m,2n\mod m,…,(m-1)n\mod m$在排序去重后恰好为数列$0,d,2d,…,m-d$,$d=\gcd(n,m)$,而且其中每个数字在原数列中恰好出现了$d$次.</p>
-<p>恰好出现$d$次是好证明的:考虑$jn\equiv kn(\mod m)$可以推导出$j\equiv k(\mod \cfrac{m}d),d=\gcd(n,m)$,则显然这些数是一个序列复制$d$次得到的.</p>
-<p>由上,我们要证明$kn\mod m$一定是$d$的倍数.不难发现$kn\mod m=dk\cfrac{n}d(\mod \cfrac m d d)=d(\cfrac{kn}d\mod \cfrac{m}d)$.</p>
-<p>接下来,不妨假设$n\bot m$,并在此条件下证明$0\mod m,n\mod m,2n\mod m,…,(m-1)n\mod m$两两不同即可.而由于$n\bot m$,则$kn\equiv jn(\mod m)$的充分必要条件是$k\equiv j(\mod m)$,因此它们显然两两不同.</p>
-<h4 id="费马小定理"><a href="#费马小定理" class="headerlink" title="费马小定理"></a>费马小定理</h4><p>$n^{p-1}\equiv 1(\mod p),n\bot p,p\in prime$.</p>
-<p>我们有:</p>
-<script type="math/tex; mode=display">
-\prod _{k=1}^{p-1}kn\equiv \prod _{k=1}^{p-1}(kn\mod p)(\mod p)\\
-n^{p-1}(p-1)!\equiv (p-1)!(\mod p)</script><p>根据威尔逊定理,显然可以推得费马小定理.</p>
-<p>根据费马小定理,我们可以考虑证明一个结论:$n^{p^k}\equiv n^{p^{k-1}}(\mod p^k)$.</p>
-<p>由于$n^{p-1}\equiv 1(\mod p)$,那么我们有$n^p\equiv n(\mod p)$,也即$\exist q\in\mathbb{Z}$满足$n^p=n+pq$,不断两边取$p$次方即可得到上述结论.</p>
-<h4 id="中国剩余定理-crt"><a href="#中国剩余定理-crt" class="headerlink" title="中国剩余定理(crt)"></a>中国剩余定理(crt)</h4><p>对于方程组$x\equiv a_i(\mod m_i)$,其中$m_i$两两互质,求$x$.</p>
-<p>令$m=\prod^k_{i=1}m_i$,设$M_i=\cfrac{m}{m_i}$,$N_i$是$M_i$在$\mod m_i$意义下逆元.</p>
-<p>则$x\equiv \sum^k_{i=1}M_iN_ia_i(\mod m)$.</p>
-<p>中国剩余定理的证明类似拉格朗日插值:</p>
-<p>由于$x$在$\mod m_i$意义下,$\sum$中枚举的所有不等于$i$的项都会成$0$，等于$i$的项会成$a_i$.</p>
-<p>考虑每次合并两项，显然有:$a=a_1+(a_2-a_1)\times m_1\times inv(m_1,m_2)$,$m=m_1m_2$.</p>
-<h4 id="扩展中国剩余定理-excrt"><a href="#扩展中国剩余定理-excrt" class="headerlink" title="扩展中国剩余定理(excrt)"></a>扩展中国剩余定理(excrt)</h4><p>对于方程组$x\equiv a_i(\mod m_i)$,若$m_i$两两不互质.</p>
-<p>我们考虑每次合并两个方程:$\begin{cases}<br>x\equiv a_1(\mod m_1)\\<br>x\equiv a_2(\mod m_2)<br>\end{cases}$<br>那这个方程组等价于:$\begin{cases}<br>x=k_1m_1+a_1\\<br>x=k_2m_2+a_2<br>\end{cases}$<br>合并上下方程,有:</p>
-<script type="math/tex; mode=display">
-k_1m_1+a_1=k_2m_2+a_2\\
-a_2-a_1=k_1m_1-k_2m_2</script><p>设$g=\gcd(m_1,m_2)$,显然若$g\nmid (a_2-a_1)$,方程无解.</p>
-<p>不然,有:</p>
-<script type="math/tex; mode=display">
-\frac {a_2-a_1}g=k_1\frac {m_1}{g}-k_2\frac{m_2}{g}\\
-k_1\frac{m_1}{g}=k_2\frac {m_2}g+\frac {a_2-a_1}g\\
-k_1\frac{m_1}g\equiv \frac {a_2-a_1}{g}(\mod \frac {m_2}g)\\</script><p>令$inv(a,p)$表示$a$在$\mod p$意义下的逆元,有:</p>
-<script type="math/tex; mode=display">
-k_1\equiv inv(\frac {m_1}{g},\frac {m_2}g)\frac{a_2-a_1}{g}(\mod \frac {m_2}g)\\
-k_1=inv(\frac{m_1}g,\frac{m_2}g)\frac{a_2-a_1}g+k_3\frac{m_2}g\\</script><p>带回第一个方程:</p>
-<script type="math/tex; mode=display">
-x=m_1(inv(\frac{m_1}g,\frac{m_2}g)\frac{a_2-a_1}g+k_3\frac{m_2}g)+a_1\\
-x\equiv m_1inv(\frac{m_1}g,\frac{m_2}g)\frac{a_2-a_1}g+a_1(\mod \frac{m_1m_2}g)</script><h4 id="二次剩余"><a href="#二次剩余" class="headerlink" title="二次剩余"></a>二次剩余</h4><p>求方程$x^2=k(\mod m)$的解.</p>
-<p>我们先考虑一个特殊情况:$k=1$,$m=p^k,p\in prime$.</p>
-<p>那么也就相当于求方程$(x-1)(x+1)\equiv 0(\mod p^k)$.</p>
-<p>如果$p&gt;2$,那么显然$x-1$和$x+1$只有一个能被$p^k$整除,所以有$x=\pm 1$.</p>
-<p>如果$p=2$,那么显然$x-1$和$x+1$有一个能被$2$整除但不能被$4$整除,另一个能被$2^{k-1}$整除,如果$k=1$时,显然只有一个解.当$k=2$时,同上.反之,有$x=\pm 1$或$x=2^{k-1}\pm 1$.另外,这导出一个性质:$(2k+1)^2\equiv 1(\mod 8)$.</p>
-<p>那么如果:$k=1,m\in\mathbb{N_+}$,也是一样的.先把$m$作质因数分解,然后再用中国剩余定理合并,那么显然不同质数的解会累乘到总的解上,若$m$有$r$个不同大于$2$的质因子,总的解的个数是$2^r$.而如果考虑$p=2$的情况,$m$有$r$个不同的质因子,则解的个数为$2^{r+[8|m]+[4|m]-[2|m]}$.</p>
-<h4 id="BSGS"><a href="#BSGS" class="headerlink" title="BSGS"></a>BSGS</h4><p>求$a^x\equiv b(\mod p)$的一组解,其中$p\in prime$且$1\leq p\leq 10^9$.</p>
-<p>直接枚举显然是$O(p)$的,非常不合理,考虑如何优化.</p>
-<p>求出$s=\lfloor\sqrt{p}\rfloor$,并求出所有$a^i$,其中$i\in [0,s-1]$.</p>
-<p>若$x\leq s-1$.则可以直接判断是否被求出来过.</p>
-<p>否则,则将$x=x\mod (s-1)$,一直操作直到$x\leq s-1$.</p>
-<h4 id="exBSGS"><a href="#exBSGS" class="headerlink" title="exBSGS"></a>exBSGS</h4><p>求$a^x\equiv b(\mod p)$的一组解,其中$1\leq p\leq 10^9$.</p>
-<p>设$g=\gcd(a,p)$,那么根据膜的性质,原方程即$\frac {a^x} g\equiv \frac b g (\mod \frac p g)$.</p>
-<p>显然若$g\nmid b$并且$b\ne 1$,方程定无解.(若b=1，那么x=0就是一个解)</p>
-<p>那么现在的方程就是$a^{x-1}\frac a g\equiv \frac b g(\mod \frac p g)$.</p>
-<p>继续进行这个过程,不断求$a$和当前模数的$\gcd$.并将当前模数除以该$\gcd$,这样最后我们得到了方程:</p>
-<p>$a^{x-k}\prod_{i=1}^k \frac a {g_i}\equiv \frac b {\prod_{i=1}^k g_i}(\mod \frac p {\prod_{i=1}^k g_i})\\$</p>
-<p>不妨设$A=\prod_{i=1}^k \frac a {g_i},B=\frac b {\prod_{i=1}^k g_i},P=\frac p {\prod_{i=1}^k g_i}\\$</p>
-<p>那么现在方程就是$a^{x-k}\equiv \frac B A(\mod p)$,可以使用BSGS求解.</p>
-<p>ps：$p=1$的时候要特判.</p>
-<h4 id="原根和阶"><a href="#原根和阶" class="headerlink" title="原根和阶"></a>原根和阶</h4><p>阶:找到一个最小的$k$使得$a^k\equiv1(\mod p)$,则称$k$是$a$在膜$p$意义下的阶.</p>
-<p>原根:如果$a$在膜$p$意义下的阶是$\varphi(p)$且$a&lt;p$,则称$a$是$p$的一个原根.</p>
-<p>若$m$有原根,则$m$一定是$2$,$4$或是$p^a,2p^a$,其中$p\in prime$且$2\nmid p$.</p>
-<p>由于对于大部分$m$来说,都存在一个很小的原根,所以在实际应用中只需要暴力找就可以了.</p>
-<p>根据阶的定义,我们如果要判断一个$a$不是$p$的原根,只需判断是否$\exists i$使得$a^i\equiv 1(\mod p)$.</p>
-<p>而由于$a^{\varphi(p)}\equiv 1(\mod p)$,因此一定有$i|\varphi(p)$,因此只需判断$\varphi(p)$的所有因数,复杂度$O(\sqrt{\varphi(p)})$.</p>
-<p>事实上,只需要判断对于$\varphi(p)$的所有质因子$w$,是否有$a^{\frac {\varphi(p)} w}\equiv 1(\mod p)$即可,复杂度$O(\log p)$.</p>
-<h5 id="Example1"><a href="#Example1" class="headerlink" title="Example1"></a>Example1</h5><p>给定$k$,$p$,$a$,求$x^k\equiv a(\mod p)$的所有解,其中$p\in prime$,$1\leq k \leq 10^5$.</p>
-<p>solution:</p>
-<p>考虑求出$p$的原根$g$,得到$g^r\equiv a(\mod p)$,同时由于$x\equiv g^y(\mod p)$,因此原方程变为:$g^{yk}\equiv g^r(\mod p)$</p>
-<p>于是有:$yk\equiv r(\mod p-1)$,即可求解.</p>
-<h3 id="积性函数"><a href="#积性函数" class="headerlink" title="积性函数"></a>积性函数</h3><p>若函数$f(x)$满足$\forall n,m\in \mathbb{N_+},n\bot m$,有$f(1)=1,f(nm)=f(n)f(m)$,则称其为积性函数.若$\forall n,m\in \mathbb{N_+}$,有$f(1)=1,f(nm)=f(n)f(m)$,则称其为完全积性函数.</p>
-<p>若函数$g(x)$是积性函数并且有$g(m)=\sum_{d|m}f(d)$,则$f(x)$也是积性函数,证明如下:</p>
-<p>不妨考虑数学归纳,首先$g(1)=f(1)=1$.</p>
-<p>令$m=m_1m_2,m_1\bot m_2$,则$g(m)=\sum_{d|m}f(d)=\sum_{d_1|m_1}\sum_{d_2|m_2}f(d_1d_2)$.由于归纳假设,此时只有$d_1=m_1\and d_2=m_2$的时候,$f(d_1d_2)$可能不等于$f(d_1)f(d_2)$.</p>
-<p>于是有</p>
-<script type="math/tex; mode=display">
-g(m)=\sum_{d_1|m_1}\sum_{d_2|m_2}f(d_1)f(d_2)-f(m_1)f(m_2)+f(m_1m_2)\\=g(m_1m_2)-f(m_1)f(m_2)+f(m_1m_2)</script><p>于是$f(m_1)f(m_2)=f(m_1m_2)$.</p>
-<p>该命题的逆命题也是同样成立的.有一些常见的积性函数,比如:$id(x)=x$,$I(x)=1$,$\varepsilon(x)=[x=1]$.</p>
-<h4 id="狄利克雷卷积"><a href="#狄利克雷卷积" class="headerlink" title="狄利克雷卷积"></a>狄利克雷卷积</h4><p>$f*g=\sum_{d|n}{f(d)g(\cfrac n d)}$.</p>
-<p>不难证明狄利克雷卷积满足:</p>
-<ol>
-<li>交换律:$f<em>g=g</em>f$.</li>
-<li>结合律:$f<em>(g</em>h)=(f<em>g)</em>h$.</li>
-<li>分配律:$f<em>(g+h)=f</em>g+f*h$.</li>
-</ol>
-<h4 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h4><p>定义欧拉函数$\varphi(m)$为所有满足$1\leq n\leq m\and n\perp m$的$n$的个数.</p>
-<p>令$m=m_1m_2$,其中$m_1\bot m_2$.由于若$n\bot m_1,n\bot m_2$,显然有$(n\mod m_1)\bot m_1$且$(n\mod m_2)\bot m_2$,则根据中国剩余定理,不难有$\varphi(m)=\varphi(m_1)\varphi(m_2)$,也即$\varphi(x)$是积性函数.</p>
-<p>若$n=\prod^{k}_{i=1}p_i^{a_i}$,则:</p>
-<p>$\varphi(n)=\prod^k_{i=1}\varphi(p_i^{a_i})=\prod^k_{i=1}{p_i^{a_i}-p_i^{a_i-1}}=\prod^k_{i=1}{p^{a_i-1}(p_i-1)}$.</p>
-<p>考虑改变枚举方式,因为$n=\prod_{p|n}p^{a_p}$,则:$\varphi(n)=\prod_{p|n}{p^{a_p-1}(p-1)}=\prod_{p|n}{(p^{a_p}\times \cfrac{p-1}{p})}=n\times\prod_{p|n}\cfrac{p-1}{p}$.</p>
-<p>我们考虑一个事实:现在有$m$个不同的分数$\cfrac{k}m,k\in[1,m]$,这些分数进行约分后,它们的分母即$m$的若干因数,而它们的分子就是与这些因数互质的数,同时这些数的个数总共是$m$个,我们可以得到:$\sum_{d|m}\varphi(d)=m$.</p>
-<p>上面这个结论还有另一种证明方法:</p>
-<p>由于$\varphi$是积性函数,若$n\ne1$,设$n=\prod_{i=1}^kp_i^{q_i}$,则$\varphi(n)=\prod_{i=1}^k\varphi(p_i^{q_i})$,则有:</p>
-<script type="math/tex; mode=display">
-\sum_{d|n}\varphi(d)=\sum_{w_1=0}^{q_1}\sum_{w_2=0}^{q_2}......\sum_{w_k=0}^{q_k}{p_1^{w_1}p_2^{w_2}......p_k^{w_k}}\\
-=\sum_{w_1=0}^{q_1}......\sum_{w_{k-1}=0}^{q_{k-1}}{p_1^{w_1}......p_{k-1}^{w_{k-1}}\sum_{w_k=0}^{q_k}p_k^{w_k}}\\</script><p>而$\varphi(p^q)=p^q-p^{q-1}$,于是有$\sum_{i=1}^{q_i}{(p_x^i-p_x^{i-1})}=(p_x^{q_x}-1)$,则有$\sum_{i=0}^{q_x}\varphi(p_x^{i})=p_x^{q_x}$.</p>
-<p>则原式等于$\prod_{i=1}^kp_i^{q_i}=n$.</p>
-<h5 id="和法里级数的关系"><a href="#和法里级数的关系" class="headerlink" title="和法里级数的关系"></a>和法里级数的关系</h5><p>我们考虑之前提到的法里级数$\mathcal{F}_n$,令$\Phi(x)=\sum_{1\leq k\leq x}\varphi(k)$,那么$\mathcal{F}_n$的个数显然是$\Phi(x)+1$.</p>
-<p>接下来我们思考如何计算$\Phi(x)$.事实上,我们有$\sum_{d=1}^n\Phi(\lfloor\cfrac{n}d\rfloor)=\cfrac{1}2(n+1)n$.这里的证明是:考虑满足$0\leq a&lt;b\leq n$的分数$\cfrac{a}{b}$共有$\cfrac{1}2n(n+1)$个,而如果我们枚举$d=\gcd(a,b)$,那么显然右边也等于这些分数个数,于是得证.</p>
-<p>而事实上,如果我们用$n=\lfloor x\rfloor$来带入上面的式子,可以得到$\sum_{d=1}\Phi(\cfrac{x}d)=\cfrac{1}2\lfloor x\rfloor\lfloor1+x\rfloor$.</p>
-<p>根据第三种莫比乌斯反演的形式,我们有:$\Phi(x)=\cfrac1 2\sum_{1\leq d}\mu(d)\lfloor\cfrac{x }d\rfloor\lfloor\cfrac x d+1\rfloor$.</p>
-<h5 id="麦克马洪和式"><a href="#麦克马洪和式" class="headerlink" title="麦克马洪和式"></a>麦克马洪和式</h5><p>考虑这个问题:我们现在有$m$种颜色,要对一个长度为$n$的圆环进行染色,旋转后相同算一种方案,求方案数.</p>
-<p>我们先设答案为$N(n,m)$,并将这些答案全部列举出来,然后将它们进行旋转,进行$n-1$次.这样我们就得到了$nN(n,m)$个圆环,但是这些圆环是有重复的.</p>
-<p>那么我们显然有:</p>
-<script type="math/tex; mode=display">
-nN(n,m)=\sum_{a_0a_1...a_{n-1}}\sum_{0\leq k<n}[a_0a_1...a_{n-1}=a_k...a_{n-1}a_0...a_{k-1}]\\
-=\sum_{0\leq k<n}\sum_{a_0a_1...a_{n-1}}[a_0a_1...a_{n-1}=a_k...a_{n-1}a_0...a_{k-1}]</script><p>接下来我们只需要知道,当已知$k$的时候,右边和式的贡献是多少.显然此时有$a_i=a_{(i+k)\mod n}$,也就是$a_i=a_{(i+kl)\mod n}$,此时显然答案为$m^{\gcd({n,k})}$.</p>
-<p>也就是说:$nN(n,m)=\sum_{0\leq k&lt;n}m^{\gcd(n,k)},N(n,m)=\cfrac{1}n\sum_{0\leq k&lt;n}m^{\gcd(n,k)}\\$.</p>
-<p>如果我们对这个式子进行化简:</p>
-<script type="math/tex; mode=display">
-N(n,m)=\cfrac{1}{n}\sum_{d|n}n^d\sum_{0\leq k<n}[d=\gcd(n,k)]\\
-=\cfrac{1}{n}\sum_{d|n}n^d\sum_{d|k,k<n}[\cfrac{k}{d}\bot \cfrac{n}{d}]\\
-=\cfrac{1}{n}\sum_{d|n}n^d\sum_{0\leq k<\frac{n}d}[k\bot \cfrac{n}d]\\
-=\cfrac{1}{n}\sum_{d|n}\varphi(d)n^{\frac{n}{d}}.</script><p>这个式子被称为麦克马洪公式.</p>
-<p>另外,如果我们考虑$n|(\sum_{d|n}\varphi(d)n^{\frac{n}{d}})$这件事的证明,考虑如果$n=p^k$,那么根据费马小定理,显然可证明.</p>
-<p>而由于$\phi(x)$是积性函数,令$n=n_1n_2,n_1\bot n_2$,有:</p>
-<script type="math/tex; mode=display">
-\sum_{d|n}\varphi(d)n^{\frac{n}d}=\sum_{d_1|n_1,d_2|n_2}\varphi(d_1d_2)n^{\frac{n_1n_2}{d_1d_2}}\\
-=\sum_{d_1|n_1}\varphi(d_1)(\sum_{d_2|n_2}\varphi(d_2)(n^{\frac{n_1}{d_1}})^{\frac{n_2}{d_2}})</script><p>我们可以通过数学归纳来证明.</p>
-<h5 id="Polya引理"><a href="#Polya引理" class="headerlink" title="Polya引理"></a>Polya引理</h5><p>现在让我们来进行一些抽象代数的计算.</p>
-<p>置换群:运算$(a_1,a_2,…,a_k)$表示将$a_1$放到$a_2$位置…把$a_i$放到$a_{i+1}$的位置…把$a_k$放到$a_1$的位置,而幺元$e=(1)(2)(3)…(n)$.</p>
-<p>由麦克马洪和式的证明,我们不难推导出Polya定理:设要对$n$个元素用$m$种颜色染色,若通过某种旋转得到的染色方案算同一种,考虑旋转一定是一种置换,则本质不同的染色方案数$=\cfrac{\sum_{s\in S}m^{\eta(s)}}{|S|}$,其中$\eta(s)$表示$s$的轨道数,即有多少组置换.</p>
-<h5 id="欧拉定理"><a href="#欧拉定理" class="headerlink" title="欧拉定理"></a>欧拉定理</h5><p>当$a\perp m$时,$a^{\varphi(m)}\equiv 1(\mod m)$.</p>
-<p>证明类似费马小定理的证明.</p>
-<p>欧拉定理可以用来求逆元:$a^{\varphi(p)}\equiv 1(\mod p)$,则有$a^{-1}\equiv a^{\varphi(p)-1}(\mod p)$.</p>
-<h5 id="扩展欧拉定理"><a href="#扩展欧拉定理" class="headerlink" title="扩展欧拉定理"></a>扩展欧拉定理</h5><p>$a^b\equiv a^c(\mod m)$,其中$c=<br>\begin{cases}<br>b\mod \varphi(m) &amp;a\perp m\\<br>b &amp;b&lt;\varphi(m)\\<br>b\mod \varphi(m)+\varphi(m) &amp;other<br>\end{cases}$</p>
-<p>证明如下:</p>
-<p>设$m=\prod^k_{i=1}p_i^{e_i}$,则要证$a^b\equiv a^{(b\mod \varphi(m))+\varphi(m)}(\mod m)$,即证$\forall i$都有$a^b\equiv a^{(b\mod \varphi(m))+\varphi(m)}(\mod p_i^{e_i})$.</p>
-<p>分情况讨论:</p>
-<p>若$p_i^{e_i}\perp a$,则为普通欧拉定理情况,即证明$b-c$是$\varphi(p_i^{e_i})$的因数.由于$\varphi(p_i^{e_i})$是$\varphi(m)$的因数,而$\varphi(m)$是$b-c$的因数,显然得证.</p>
-<p>不然,发现$e_i\leq\varphi(p_i^{e_i})\leq\varphi(m)\leq b$且$\varphi(m)\leq c$,又发现$p_i^{e_i}|a^{e_i}$,所以$p_i^{e_i}|a^b$,$p_i^{e_i}|a^c$,左右两边均为$0$,得证.</p>
-<h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><p>求$\sum_{1\leq a,b\leq p(p-1)}[a^b\equiv b^a(\mod p)],p\in prime$.</p>
-<p>我们有:</p>
-<script type="math/tex; mode=display">
-\sum_{1\leq a,b\leq p(p-1)}[a^b\equiv b^a(\mod p)]\\
-=(p-1)^2+\sum_{1\leq a,b< p}\sum_{0\leq c,d<p-1}[a^c\equiv b^d(\mod p)]</script><p>后面那部分的答案是:</p>
-<script type="math/tex; mode=display">
-\sum_{1\leq a,b< p}\sum_{0\leq c,d<p-1}[a^c\equiv b^d(\mod p)]\\
-=\sum_{1\leq x< p}\sum_{0\leq a,b< p}\sum_{1\leq c,d<p-1}[a^c\equiv x(\mod p)][b^d\equiv x(\mod p)]\\
-=\sum_{1\leq x<p}(\sum_{1\leq a<p,0\leq c<p-1}[a^c\equiv x(\mod p)])^2</script><p>令$g$为$p$的原根,令$a=g^b$,$x=g^{x’}$有:</p>
-<script type="math/tex; mode=display">
-\sum_{1\leq x<p}(\sum_{1\leq a<p,0\leq c<p-1}[a^c\equiv x(\mod p)])^2\\
-=\sum_{0\leq x'<p-1}(\sum_{0\leq b< p-1,0\leq c<p-1}[bc\equiv x'(\mod p-1)])^2\\
-=\sum_{0\leq x<p-1}(\sum_{0\leq a,b<p-1}[ab\equiv x(\mod p-1)])^2\\</script><p>考虑前面那个式子,如果我们令$x=x_0x_1,x_0\bot x_1$,$p-1=p_0p_1$,其中$0\leq x_0&lt;p_0,0\leq x_1&lt;p_1$,后面那个式子为$f(p-1,x)$,由于中国剩余定理,有$f(p-1,x)=f(p_0,x_0)f(p_1,x_1)$.</p>
-<p>于是令$p-1=\prod_{i=1}^kp_i^{q_i}$上面的式子可以改为:</p>
-<script type="math/tex; mode=display">
-\prod_{i=1}^k(\sum_{0\leq x_i<p_i^{q_i}}(\sum_{0\leq a,b<p_i^{q_i}}[ab\equiv x_i(\mod p_i^{q_i})])^2)</script><p>我们只考虑其中一项,形如:</p>
-<script type="math/tex; mode=display">
-\sum_{0\leq x<p^{q}}(\sum_{0\leq a,b<p^q}[ab\equiv x(\mod p^{q})])^2</script><p>我们不妨用$ap^{\alpha}$代替$a$,$bp^\beta$代替$b$,$xp^t$代替$x$,其中$a,b,x\bot p$那么有:</p>
-<script type="math/tex; mode=display">
-\sum_{0\leq x<p^{q-t}}(\sum_{0\leq a< p^{q-\alpha},0\leq b<p^{q-\beta}}[abp^{\alpha+\beta}\equiv xp^t(\mod p^{q})])^2</script><p>则我们要做的即对四元组$(a,b,\alpha,\beta)$计数.由于$a,b,x\bot p$,我们有:</p>
-<script type="math/tex; mode=display">
-\alpha+\beta=t,\alpha,\beta\in\mathbb{N}\\
-ab\equiv x\pmod {p^{q-t}},0\leq a<p^{q-\alpha},0\leq b<p^{q-\beta}</script><p>第一个式子对四元组的贡献显然是$t+1$,而第二个式子,由于$[1,p^{q-t})\in[1,p^{q-\alpha})$,所以我们可以先求出$1\leq a&lt;p^{q-t}$的答案,然后乘以$p^{t-\alpha}$得到答案,$b$是类似地,于是:</p>
-<script type="math/tex; mode=display">
-\sum_{0\leq x<p^{q-t}}(\sum_{0\leq a< p^{q-\alpha},0\leq b<p^{q-\beta}}[abp^{\alpha+\beta}\equiv xp^t(\mod p^{q})])^2\\
-=\sum_{1\leq x<p^{q-t}}((t+1)p^{t-\alpha}p^{t-\beta}\sum_{1\leq a,b< p^{q-t}}[ab\equiv x\pmod {p^{q-t}}])^2+(\sum_{1\leq a,b\leq p^q}[ab\equiv 0(\mod p^{q})])^2\\
-=\sum_{1\leq x<p^{q-t}}((t+1)p^{t-\alpha}p^{t-\beta}\sum_{1\leq a,b< p^{q-t}}[ab\equiv x\pmod {p^{q-t}}])^2+q(p-1)p^{q-1}+p^q</script><p>后面,由于$a\bot p$,显然一个$a$唯一对应一个$b$.于是我们得到了答案为:</p>
-<script type="math/tex; mode=display">
-\sum_{1\leq x<p^{q-t}}((t+1)p^{t}\varphi(p^{q-t}))^2</script><p>而后面的式子显然跟$x$无关,所以有:</p>
-<script type="math/tex; mode=display">
-\sum_{0< x<p^{q-t}}((t+1)p^{t}\varphi(p^{q-t}))^2\\
-=\sum_{0\leq t< q}(\varphi(p^{q-t}))((t+1)p^{t}\varphi(p^{q-t}))^2\\
-=\sum_{0\leq t<q}(t+1)^2p^{2t}(p-1)^3p^{3q-3t-3}\\
-=\sum_{0\leq t<q}(t+1)^2(p-1)^3p^{3q-t-3}</script><p>其实到这一步,由于$\sum t$是$O(log n)$级别的,这题已经可以做了.</p>
-<h4 id="莫比乌斯函数"><a href="#莫比乌斯函数" class="headerlink" title="莫比乌斯函数"></a>莫比乌斯函数</h4><p>莫比乌斯函数$\mu(x)$是一个满足$\sum_{d|n}\mu(n)=1$的函数,根据定义其显然是积性函数.根据定义可以求出它的封闭形式:</p>
-<p>$\mu(m)=\begin{cases}0&amp;\exist m_p\geq 2\(-1)^k&amp;\forall m_p\leq 1\end{cases},m=\prod_{p\in prime}p^{m_p}$.</p>
-<h5 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h5><p>见”反演.md”.</p>
-<p>另外,值得一提的是,根据莫比乌斯反演,我们可以发现$\mu*id=\varphi$.</p>
-<h4 id="min25筛"><a href="#min25筛" class="headerlink" title="min25筛"></a>min25筛</h4><p>考虑:</p>
-<script type="math/tex; mode=display">
-\sum_{i=1}^nf(i)=\sum_{p\in prime}f(p)+\sum_{p\notin prime\and p\ne 1}f(p)+f(1)</script><p>令$g(N,i)=\sum_{j=1}^N[j is prime or Min_j&gt;p_i]F(j)\\$,其中$Min_j$表示$j$最小的质因数,$p_i$表示第$i$个质数.</p>
-<p>意识到$g(N,i)$实际上就是$N$以内的数在第$i$轮埃氏筛后剩余的数的$F$的和.</p>
-<p>$F(i)$表示若干完全积性函数之和且当$p\in prime$ 时,$F(i)=f(i)$,下文为了方便书写,直接认为$F$是完全积性函数.</p>
-<p>而$g(N,\sqrt N)$实际上就是$N$以内的质数的$F$之和,那么有:</p>
-<script type="math/tex; mode=display">
-g(i,0)=\sum_{i=2}^nF(i)\\
-g(i,j)=g(i,j-1)-F(p_j)[g(\lfloor\frac{i}{p_j}\rfloor,j-1)-\sum_{2\leq p\leq p_{j-1},p\in prime}F(p)]\\</script><p>ps1:</p>
-<p>第$j$个质数会比第$j-1$个多筛若干个数,即最小质因数是$p_j$的数.这些数形如$\{p_j,2p_j,3p_j…\}$,同时除以$p_j$得到$\{1,2,3…\}$.</p>
-<p>我们要的就是其中最小质因数大于等于$p_j$的数,也就是最小质因数大于$p_{j-1}$的数,因而就是$g(\lfloor\frac{i}{p_j}\rfloor,j-1)$.</p>
-<p>但还有一些质数会被重复计算,我们把他删掉就可以了.</p>
-<p>考虑到$g$后面的维度最多走到$\sqrt n$,所以我们所枚举的最小质因子一定小于等于$\sqrt n$,所以一定有$p_{j-1}&lt;\lfloor\frac{i}{p_j}\rfloor$,所以直接删去一定不会多删.</p>
-<p>ps2:</p>
-<p>注意到以下事实:$\lfloor\frac{\lfloor\frac{a}{b}\rfloor}{c}\rfloor=\lfloor\frac{a}{bc}\rfloor\\$.</p>
-<p>因而,如果我们有以下代码:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(f[n])<span class="keyword">return</span> f[n];</span><br><span class="line">    <span class="keyword">else</span> f[n]=......;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">        <span class="built_in">solve</span>(n/i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="built_in">solve</span>(n);</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>该代码复杂度为$O(\sqrt n)$.原因在于,根据整数分块,$\lfloor\frac{n}{i}\rfloor$有$\sqrt n$种取值.</p>
-<p>而如果递归下去,继续枚举$j$,并往下递归到$\lfloor\frac{\lfloor\frac{n}{i}\rfloor}{j}\rfloor$,那他就相当于枚举$k=ij$,并递归到$\lfloor\frac{n}{k}\rfloor$,因而复杂度得到保证.</p>
-<p>由此可知,求$g$的复杂度为$O(\sqrt n\times \sqrt {\sqrt n})=O(n^{\frac3 4})$.</p>
-<p>令$S(i,j)$表示前$i$个数中,最小质因数大于等于$p_j$的数的$f$之和,可知:</p>
-<script type="math/tex; mode=display">
-S(i,j)=g(i,+\infty)-\sum_{k=1}^{j-1}f(p_k)+\sum_{k\geq j,e\geq 1,p_k^{e+1}\leq i}f(p_k^e)S(\lfloor\frac{i}{p_k^e}\rfloor,k+1)+\sum_{e=2,p_k^e\leq i}f(p_k^e)\\
-=g(i,+\infty)-\sum_{k=1}^{j-1}f(p_k)+\sum_{k\geq j,e\geq 1,p_k^{e+1}\leq i}[f(p_k^e) S(\lfloor\frac{i}{p_k^e}\rfloor,k+1)+f(p_k^{e+1})]\\</script><p>ps1:</p>
-<p>前半段求出质数部分的和,后半段开始枚举最小质因子.</p>
-<p>由于$p_k$是当前数的最小质因子,$e$是他的幂.则这个数其他的质因子应该均大于$p_k$,因而大于等于$p_{k+1}$.</p>
-<p>注意到由于$S$中不包含$1$,所以应特殊处理只含有$p_k$一个质因子的情况.</p>
-<p>又注意到,如果$p_k^e&lt; i&lt;p_k^{e+1}$,那么此时$\lfloor\frac{i}{p_k^e}\rfloor$一定小于$p_k$,则不可能拥有比$p_k$更大的质因子.</p>
-<p>该形式与上面一致,因而复杂度同样为$O(n^{\frac 3 4})$.我们最终要求的答案即$S(n,1)+f(1)$.</p>
-<p>一些后记:</p>
-<ol>
-<li>事实上,复杂度的计算只是上限,实际上应该约为$O(\frac{n^{\frac3 4}}{\log_2 n})$.</li>
-<li>如果使用map会导致复杂度较差,考虑如下事实:<br>(1).$\forall 1\leq x\leq n$,则要么$x\leq \sqrt n$,要么$\lfloor\frac{n}{x}\rfloor\leq \sqrt n\\$.<br>(2).$\forall a$形如$\lfloor\frac{n}{x}\rfloor$,则$\lfloor\frac{n}{a}\rfloor$应为$x_{max}$,互不相同.<br>因而可以分别特判,从而做到比map或离散化都优秀的复杂度.</li>
-<li>我们在代码中所求出的$w$是倒序的,而我们转移的过程也是倒序的,因而枚举的时候可以直接正序枚举.</li>
-<li>考虑做的时候由于进行了滚动数组,因而继承操作可以直接使用,为了方便可以直接判掉可以直接继承的情况.</li>
-<li>求$S$的过程可以使用递归,因为我们只关心一个$S$的量.</li>
-</ol>
-<h4 id="杜教筛"><a href="#杜教筛" class="headerlink" title="杜教筛"></a>杜教筛</h4><p>令$F(n)=\sum_{i=1}^nf(i)\\$,我们考虑构造两个函数$g$和$s$.使得$f*g=s$.</p>
-<p>令$G(n)=\sum_{i=1}^ng(i),S(n)=\sum_{i=1}^ns(i)\\$.若$G(i)$和$S(i)$都很方便求,$g(1)=1$,我们就可以求出$F(n)$.</p>
-<script type="math/tex; mode=display">
-f*g=s\\
-\sum_{j|i}f(j)g(\frac i j)=s(i)\\</script><p>由于$g(1)=1$,我们有$f(i)=s(i)-\sum_{j|i,j\ne i}f(j)g(\frac i j)\\$.</p>
-<p>那么:</p>
-<script type="math/tex; mode=display">
-F(n)=\sum_{i=1}^nf(i)\\=\sum_{i=1}^n(s(i)-\sum_{j|i,j\ne i}f(j)g(\frac i j))\\
-=S(n)-\sum_{j=1}^n\sum_{k=2}^{\lfloor\frac n j\rfloor}g(k)f(j)\\=S(n)-\sum_{k=2}^ng(k)\sum_{j=1}^{\lfloor\frac n k\rfloor}f(j)\\
-=S(n)-\sum_{k=2}^ng(k)F(\lfloor\frac n k\rfloor)\\</script><p>复杂度证明和min25筛是一样的,不同点在于我们可以预处理$n^{\frac 2 3}$以内的$F$,这样复杂度可以降到$O(n^{\frac 2 3})$.</p>
-<h5 id="Example1-1"><a href="#Example1-1" class="headerlink" title="Example1"></a>Example1</h5><p>求$\sum_{i=1}^N\mu(i)\\$.</p>
-<p>由于$\mu*I=\epsilon$,于是考虑$g=I$.</p>
-<h5 id="Example2"><a href="#Example2" class="headerlink" title="Example2"></a>Example2</h5><p>求$\sum_{i=1}^N\varphi(i)\\$.</p>
-<p>由于$\varphi*I=id$,于是考虑$g=I$.</p>
-<h5 id="Example3"><a href="#Example3" class="headerlink" title="Example3"></a>Example3</h5><p>求$\sum_{i=1}^N{\varphi(i)\times i}\\$<br>由于$\sum^N_{i=1}(f*g)(i)=\sum_{d|N}{f(i)\times g(\cfrac n d)}=\sum_{d|N}{\varphi(d)\times d\times g(\cfrac n d)}\\$<br>由于中间过程中乘出来的$d$很难处理,需要消掉它,于是考虑$g=id$.</p>
-<h5 id="Example4"><a href="#Example4" class="headerlink" title="Example4"></a>Example4</h5><p>$\sum_{i=1}^N{\varphi(i)\times i^2}\\$.<br>由Example3,于是考虑$g=id^2$.</p>
-
+        <h2 id="数论"><a href="#数论" class="headerlink" title="数论"></a>数论</h2>
+        
+          <p class="article-more-link">
+            <a href="/2022/08/14/%E6%95%B0%E8%AE%BA/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/14/%E6%95%B0%E8%AE%BA/" data-id="cl6u2kul9000cmkvtgbqy2dba" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-离散数学" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/08/14/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" class="article-date">
-  <time class="dt-published" datetime="2022-08-14T14:25:04.303Z" itemprop="datePublished">2022-08-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="逻辑和证明"><a href="#逻辑和证明" class="headerlink" title="逻辑和证明"></a>逻辑和证明</h2><h3 id="命题"><a href="#命题" class="headerlink" title="命题"></a>命题</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/14/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" data-id="cl6u2kul50007mkvt53wq9b2b" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-计算几何" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/08/14/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" class="article-date">
-  <time class="dt-published" datetime="2022-08-14T14:25:04.283Z" itemprop="datePublished">2022-08-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <script type="math/tex; mode=display">
-正弦定理：\frac{a}{sin A}=\frac{b}{sin B}=\frac{c}{sin C}=2R ，R为三角形外接圆半径\\
-余弦定理：a^2=b^2+c^2-2ac\times cosA</script><script type="math/tex; mode=display">
-向量点积：
-\overrightarrow{AB}·\overrightarrow{CD}=x1x2+y1y2=|AB||CD|cos\theta\\
-向量叉积：
-\overrightarrow{AB}\times\overrightarrow{CD}=x1y2-x2y1=|AB||CD|sin\theta\\</script><script type="math/tex; mode=display">
-多边形面积公式：任选辅助点O，S=\frac1 2\sum_{i=1}^n|\overrightarrow {OP_i}\times \overrightarrow{OP_{i+1}}|</script><script type="math/tex; mode=display">
-向量旋转：令矩阵
-\left[ \begin{matrix}
-x\\y
-\end{matrix}\right]表示向量(x,y)，那么(x,y)逆时针旋转\theta角变为(x',y')可表示为：\\
-\left[ \begin{matrix}
-x'\\y'
-\end{matrix} \right]
-=\left[ \begin{matrix}
-cos\theta \ -sin\theta\\
-sin\theta\ cos\theta
-\end{matrix} \right]
-\left[ \begin{matrix}
-x\\y
-\end{matrix} \right]\\
-x'=xcos\theta-ysin\theta\\
-y'=xsin\theta+ycos\theta</script><script type="math/tex; mode=display">
-欧几里得距离：D=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}\\
-曼哈顿距离：D=|x_1-x_2|+|y_1-y_2|\\
-切比雪夫距离：D=\max\{|x_1-x_2|,|y_1-y_2|\}\\
-转化：\\
-(x,y)\rightarrow(x+y,x-y)，曼哈顿\rightarrow 切比雪夫\\
-(x,y)\rightarrow(\frac{x+y}2,\frac{x-y}2)，切比雪夫\rightarrow 曼哈顿\\</script><script type="math/tex; mode=display">
-\begin{array}{c}
-判断点在线段上：\\
-1.设点为Q，线段为P_1P_2，依据是：
-(\overrightarrow{QP_1})\times(\overrightarrow{P_2P_1})=0\\
-2.Q在以P_1，P_2为对角顶点的矩阵上\\
-\\
-
-\end{array}</script>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/14/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" data-id="cl6u2kul70009mkvtdea53b6i" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/08/14/%E6%95%B0%E8%AE%BA/" data-id="cl6u2xf3h0004r0vtfgti1pxb" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -1922,153 +248,16 @@ y'=xsin\theta+ycos\theta</script><script type="math/tex; mode=display">
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="和式"><a href="#和式" class="headerlink" title="和式"></a>和式</h2><h3 id="和式的基本运算"><a href="#和式的基本运算" class="headerlink" title="和式的基本运算"></a>和式的基本运算</h3><p>分配律：</p>
-<p>$\\\sum_{i\in S}ca_i=c\sum_{i\in S}a_i\\$.</p>
-<p>结合律：</p>
-<p>$\sum_{i\in S}(a_i+b_i)=\sum_{i\in S}a_i+\sum_{i\in S}b_i$.</p>
-<p>交换律：</p>
-<p>$\sum_{i\in S}a_i=\sum_{p(i)\in S}a_{p(i)}$，其中p是S集合的重新排列.</p>
-<p>交换求和顺序：</p>
-<p>$\sum_{i}\sum_{j}a_{i,j}[P(i,j)]=\sum_{j}\sum_{i}a_{i,j}[P(i,j)]$.</p>
-<p>$\sum_{i=1}^n\sum_{j=i}^na_{i,j}=\sum_{j=1}^n\sum_{i=1}^ja_{i,j}$.</p>
-<p>一般分配律：</p>
-<p>$\sum_{i}\sum_{j}a_{i}b_j=(\sum_{i}a_i)(\sum_jb_j)$.</p>
-<h3 id="和式的封闭形式"><a href="#和式的封闭形式" class="headerlink" title="和式的封闭形式"></a>和式的封闭形式</h3><h4 id="交换顺序法"><a href="#交换顺序法" class="headerlink" title="交换顺序法"></a>交换顺序法</h4><h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><p>等差数列求和：</p>
-<p>$S_n=\sum_{i=0}^n(ai+b)=\sum_{i=0}^n(a(n-i)+b)$.</p>
-<p>则有$2S_n=\sum_{i=0}^n(an+2b)=an(n+1)+2b(n+1)$,$S_n=(n+1)(\frac{an}{2}+b)$.</p>
-<p>切比雪夫单调不等式：</p>
-<p>令$S=\sum_{1\leq i&lt;j\leq n}(a_j-a_i)(b_j-b_i)=\sum_{1\leq j&lt;i\leq n}(a_j-a_i)(b_j-b_i)$.</p>
-<p>考虑恒等式$[1\leq j&lt;i\leq n]+[1\leq i&lt;j\leq n]=[1\leq j,i\leq n]-[1\leq i=j\leq n]$.</p>
-<p>那么我们有:</p>
-<p>$2S=\sum_{1\leq i,j\leq n}(a_j-a_i)(b_j-b_i)-\sum_{1\leq i=j\leq n}(a_j-a_i)(b_j-b_i)\\=\sum_{1\leq i,j\leq n}(a_j-a_i)(b_j-b_i)\\<br>=2n\sum_{i=1}^na_ib_i-2(\sum_{i=1}^na_i)(\sum_{j=1}^nb_j)$.</p>
-<p>有$(\sum_{i=1}^na_i)(\sum_{j=1}^nb_j)=n\sum_{i=1}^na_ib_i-\sum_{1\leq i&lt;j\leq n}(a_j-a_i)(b_j-b_i)$.</p>
-<p>显然有以下式子：</p>
-<p>$(\sum_{i=1}^na_i)(\sum_{j=1}^nb_j)\leq n\sum_{i=1}^na_ib_i，\forall i&lt;j，a_i\leq a_j且b_i\leq b_j\\<br>(\sum_{i=1}^na_i)(\sum_{j=1}^nb_j)\geq n\sum_{i=1}^na_ib_i，\forall i&lt;j，a_i\leq a_j且b_i\geq b_j\\$</p>
-<p>上式被称为切比雪夫单调不等式.</p>
-<p>拉格朗日恒等式:</p>
-<p>$\sum_{1\leq j&lt;k\leq n}(a_jb_k-a_kb_j)^2=(\sum_{i=1}^na_i^2)(\sum_{i=1}^nb_i^2)-(\sum_{i=1}^na_ib_i)^2\\$.</p>
-<p>令$S_n=\sum_{1\leq j&lt;k\leq n}(a_jb_k-a_kb_j)^2\\$,有:</p>
-<p>$2S_n=\sum_{j=1}^n\sum_{k=1}^n(a_jb_k-a_kb_j)^2\\=\sum_{j=1}^n\sum_{k=1}^n(a_j^2b_k^2-2a_ja_kb_jb_k-a_k^2b_j^2)\\=2(\sum_{i=1}^na_i^2)(\sum_{i=1}^nb_i^2)-2(\sum_{i=1}^na_ib_i)^2$</p>
-<h4 id="扰动法"><a href="#扰动法" class="headerlink" title="扰动法"></a>扰动法</h4><h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h5><p>等比数列求和:</p>
-<p>$S_n=\sum_{i=0}^nax^i\\=a+\sum_{i=1}^nax^i\\=a+x\sum_{i=0}^{n-1}ax^i\\=a+xS_{n-1}$.</p>
-<p>而$S_{n-1}+ax^n=S_n=a+xS_{n-1}$,有$S_n+ax^{n+1}=a+xS_n,S_n=a\frac{x^{n+1}-1}{x-1}$，其中$x\ne1$.</p>
-<p>平方和公式：</p>
-<p>$S_n=\sum_{i=0}^ni^2$.</p>
-<p>如果直接对该公式使用扰动法:</p>
-<p>$S_n=\sum_{i=0}^{n-1}i^2+n^2\\=\sum_{i=1}^n(i-1)^2+n^2\\=S_n-2\sum_{i=1}^ni+n+n^2$.</p>
-<p>我们无法得到$S_n$的封闭形式，但我们发现我们得到了$\sum_{i=1}^ni$的封闭形式.</p>
-<p>那以此类推，我们设$W_n=\sum_{i=0}i^3$</p>
-<p>$W_n=\sum_{i=0}^{n-1}i^3+n^3\\=\sum_{i=1}^n(i-1)^3+n^3\\=\sum_{i=1}^ni^3-3\sum_{i=1}^ni^2+3\sum_{i=1}^ni-n+n^3\\=W_n-3S_n+3\frac{n+n^2}2-n+n^3\\<br>S_n=\frac{n+n^2}2-\frac{n-n^3}3\\=\frac{n+3n^2+2n^3}6\\=\frac{n(1+3n+2n^2)}{6}\\=\frac{n(2n+1)(n+1)}{6}$.</p>
-<h5 id="Problem-20"><a href="#Problem-20" class="headerlink" title="Problem 20"></a>Problem 20</h5><p>求$\sum_{i=0}^nH_i$.</p>
-<h5 id="Solution-20"><a href="#Solution-20" class="headerlink" title="Solution 20"></a>Solution 20</h5><p>不妨考虑$\sum_{i=0}^niH_{i}$的值.</p>
-<p>$\sum_{i=0}^niH_{i}=\sum_{i=1}^n[(i-1+1)H_{i-1}+1]\\=n+\sum_{i=0}^{n-1}H_i+\sum_{i=0}^{n}iH_i-nH_n$</p>
-<p>整理得到:</p>
-<p>$\sum_{i=0}^{n-1}H_i=n(H_n-1),\sum_{i=0}^n=(n+1)(H_{n+1}-1)\\$.</p>
-<h5 id="Problem-21"><a href="#Problem-21" class="headerlink" title="Problem 21"></a>Problem 21</h5><p>求$S_n=\sum_{i=0}^n(-1)^{n-i},T_n=\sum_{i=0}^n(-1)^{n-i}i,U_n=\sum_{i=0}^n(-1)^{n-i}i^2$.</p>
-<h5 id="Solution-21"><a href="#Solution-21" class="headerlink" title="Solution 21"></a>Solution 21</h5><p>$S_n=\sum_{i=1}^{n}(-1)^{n-i}+(-1)^n\-S_{n-1}+1=(-1)^n+\sum_{i=0}^{n-1}(-1)^{n-1-i}\-S_{n-1}+1=(-1)^n+S_{n-1}\\S_{n-1}=\frac{1-(-1)^n}{2}\\S_n=\frac{1+(-1)^n}{2}$</p>
-<p>$T_{n}=\sum_{i=1}^n(-1)^{n-i}i\-T_{n-1}+n=\sum_{i=1}^n(-1)^{n-i}(i-1)+\sum_{i=1}^n(-1)^{n-i}\-T_{n-1}+n=\sum_{i=0}^{n-1}(-1)^{n-i-1}i+\sum_{i=0}^n(-1)^{n-i}-(-1)^n\-T_{n-1}+n=T_{n-1}+S_n-(-1)^n\\n-\frac{1-(-1)^n}2=2T_{n-1}\\T_n=\frac{1}{2}(n+1+\frac{-1-(-1)^n}2)=\frac{1}{2}(n+\frac{1-(-1)^n}2)$</p>
-<p>$U_n=\sum_{i=1}^n(-1)^{n-i}i^2\-U_{n-1}+n^2=\sum_{i=1}^n(-1)^{n-i}(i-1+1)^2\-U_{n-1}+n^2=\sum_{i=1}^n(-1)^{n-i}(i-1)^2+2\sum_{i=1}^n(-1)^{n-i}(i-1)+\sum_{i=1}^n(-1)^{n-i}\-U_{n-1}+n^2=\sum_{i=0}^{n-1}(-1)^{n-i-1}i^2+2\sum_{i=0}^{n-1}(-1)^{n-i-1}i+\sum_{i=0}^{n-1}(-1)^{n-i-1}\-U_{n-1}+n^2=U_{n-1}+2T_{n-1}+S_{n-1}\\2U_{n-1}=n^2-2T_{n-1}-S_{n-1}\\2U_{n-1}=n^2-(n-\frac{1-(-1)^n}2)-\frac{1-(-1)^n}{2}\\2U_{n-1}=n^2-n\\U_n=\frac{n(n+1)}{2}$</p>
-<h4 id="转化为递归式"><a href="#转化为递归式" class="headerlink" title="转化为递归式"></a>转化为递归式</h4><p>考虑和式$S_n=\sum_{i=0}^nf(i)=S_{n-1}+f(n)\\$，显然是递归式形式.</p>
-<p>因此递归式所可以使用的方法同样可以在和式中使用.</p>
-<h5 id="Problem-13"><a href="#Problem-13" class="headerlink" title="Problem 13"></a>Problem 13</h5><p>求$\sum_{i=0}^n(-1)^ii^2\\$.</p>
-<h5 id="Solution-13"><a href="#Solution-13" class="headerlink" title="Solution 13"></a>Solution 13</h5><p>令$S(n)=\sum_{i=0}^n(-1)^ii^2=S(n-1)+(-1)^nn^2$,考虑使用成套方法.</p>
-<p>不妨令$S(n)=S(n-1)+(-1)^n(\alpha+\beta n+\gamma n^2)=\alpha A(n)+\beta B(n)+\gamma C(n)$.</p>
-<p>令$S(n)=(-1)^nn,可以解得\alpha=-1,\beta=2,\gamma=0$,有$(-1)^nn=-A(n)+2B(n)$.</p>
-<p>令$S(n)=(-1)^nn^2,可以解得\alpha=1,\beta=-2,\gamma=2$,有$(-1)^nn^2=A(n)-2B(n)+2C(n)$.</p>
-<p>显然可解得$2C(n)=(-1)^nn^2+(-1)^nn,C(n)=(-1)^n\frac{n(n+1)}{2}$.</p>
-<p>而原式中,$S(n)=C(n)=(-1)^n\frac{n(n+1)}{2}$.</p>
-<h5 id="Problem-19"><a href="#Problem-19" class="headerlink" title="Problem 19"></a>Problem 19</h5><p>有$2T_n=nT_{n-1}+3n!,T_0=5$,求$T_n$.</p>
-<h5 id="Solution-19"><a href="#Solution-19" class="headerlink" title="Solution 19"></a>Solution 19</h5><p>令$s_n=\frac{2^{n-1}}{n!}$,两边同时乘以$s_n$,有$\frac{2^n}{n!}T_n=\frac{2^{n-1}}{(n-1)!}T_{n-1}+3\times 2^{n-1}\\$.</p>
-<p>令$S_n=\frac{2^n}{n!}T_n$,有:</p>
-<p>$S_n=S_{n-1}+3\times 2^{n-1}\\=5+3\sum_{i=0}^{n-1}2^i\\=5+3\times 2^{n+1}-3\\=3\times 2^{n}+2\\T_n=3n!+\frac{n!}{2^{n-1}}$.</p>
-<h4 id="转化为积分形式"><a href="#转化为积分形式" class="headerlink" title="转化为积分形式"></a>转化为积分形式</h4><h5 id="Example-2"><a href="#Example-2" class="headerlink" title="Example"></a>Example</h5><p>仍然考虑平方和公式:</p>
-<p>考虑先求出一个近似解，然后再求误差.</p>
-<p>考虑函数$f(x)=x^2，显然\int_0^nx^2dx=\frac{n^3}{3}\sim S_n\\$.</p>
-<p>接下来，我们考虑求得二者之间的误差，设$E_n=S_n-\frac{n^3}{3}\\$.</p>
-<p>对其使用扰动法:</p>
-<p>$E_n=S_n-\frac{n^3}3\\=S_{n-1}+n^2-\frac{(n-1+1)^3}{3}<br>\\=S_{n-1}+n^2-\frac{(n-1)^3}3-(n-1)^2-(n-1)-\frac 1 3<br>\\=E_{n-1}+n^2-n^2+2n-1-n+1-\frac 1 3\\=E_{n-1}+n-\frac{1}3$.</p>
-<p>$E_n$即递归式，可以求得封闭形式.<br>还有一种方法是:</p>
-<p>$E_n=S_n-\int_0^nx^2dx\\=\sum_{k=1}^n(k^2-\int_{k-1}^kx^2dx)<br>\\=\sum_{k=1}^n(k^2-\frac{k^3-(k-1)^3}{3})\\=\sum_{k=1}^n(k-\frac1 3)$</p>
-<p>这是一个简单的和式.<br>而$S_n=E_n+\frac{n^3}3\\$，显然也可以求得.</p>
-<h4 id="展开和收缩"><a href="#展开和收缩" class="headerlink" title="展开和收缩"></a>展开和收缩</h4><h5 id="Example-3"><a href="#Example-3" class="headerlink" title="Example"></a>Example</h5><p>仍然考虑平方和公式：</p>
-<p>$S_n=\sum_{k=1}^nk^2\\=\sum_{k=1}^n\sum_{i=1}^kk<br>\\=\sum_{i=1}^n\sum_{k=i}^nk\\=\sum_{i=1}^n\frac 1 2(i+n)(n-i+1)\\=\sum_{i=1}^n\frac{1}2(in-i^2+i+n^2-ni+n)\\<br>=\frac{1}2(\sum_{i=1}^ni-\sum_{i=1}^ni^2+n^3+n^2)\\=\frac{1}4n(n+1)-\frac1 2S_n+\frac{n^3+n^2}2$<br>整理得到$S_n$.</p>
-<h5 id="Problem-14"><a href="#Problem-14" class="headerlink" title="Problem 14"></a>Problem 14</h5><p>求$\sum_{i=1}^ni2^i\\$.</p>
-<h5 id="Solution-14"><a href="#Solution-14" class="headerlink" title="Solution 14"></a>Solution 14</h5><p>$\sum_{i=1}^ni2^i=\sum_{i=1}^n\sum_{j=1}^i2^i\\=\sum_{j=1}^n\sum_{i=j}^n2^i\\=\sum_{j=1}^n(2^{n+1}-2^j)\\=n2^{n+1}-(2^{n+1}-2)\\=(n-1)2^{n+1}+2$.</p>
-<h5 id="Problem-15"><a href="#Problem-15" class="headerlink" title="Problem 15"></a>Problem 15</h5><p>求$\sum_{i=1}^n i^3\\$.</p>
-<h5 id="Solution-15"><a href="#Solution-15" class="headerlink" title="Solution 15"></a>Solution 15</h5><p>$S(n)=\sum_{i=1}^n i^3\\=\sum_{i=1}^n\sum_{j=1}^ii^2\\=\sum_{j=1}^n\sum_{i=j}^ni^2\\=\sum_{j=1}^n(\frac{n(n+1)(2n+1)}{6}-\frac{(j-1)j(2j-1)}{6})\\=\frac{n^2(n+1)(2n+1)}{6}-\frac 1 3 S(n)+\frac{n(n+1)(2n+1)}{12}-\frac{n(n+1)}{12}\\S(n)=\frac{n^2(n+1)^2}{4}$.</p>
-<h4 id="有限微积分"><a href="#有限微积分" class="headerlink" title="有限微积分"></a>有限微积分</h4><h5 id="移位算子"><a href="#移位算子" class="headerlink" title="移位算子"></a>移位算子</h5><p>定义移位算子$E$，使得$Ef(x)=f(x+1)$.</p>
-<h5 id="差分算子"><a href="#差分算子" class="headerlink" title="差分算子"></a>差分算子</h5><p>定义差分算子$\Delta f(x)=f(x+1)-f(x)$，类似于无限微积分中的D算子.</p>
-<p>另外,不难发现有$\Delta=E-1$.</p>
-<h5 id="逆差分算子"><a href="#逆差分算子" class="headerlink" title="逆差分算子"></a>逆差分算子</h5><p>定义逆差分算子$\Sigma$，可以得到有限微积分的基本定理:</p>
-<p>$g(x)=\Delta f(x)\Leftrightarrow \sum g(x)\delta x=f(x)+C\\$</p>
-<p>这里的$\Sigma$又被称为不定和式，是差分等于$g$的一个函数类.</p>
-<p>值得一提的是，这里的$C$与无限微积分中的$C$有一定区别，这里的$C$可以是满足$p(x)=p(x+1)$的任意一个函数而不非得是常数函数.</p>
-<h5 id="定和式"><a href="#定和式" class="headerlink" title="定和式"></a>定和式</h5><p>如果$g(x)=\Delta f(x)$，那么有$\sum\nolimits_{a}^b g(x)\delta x=f(x)|^{b}_a=f(b)-f(a)\\$.</p>
-<p>值得一提的是，如果$a\leq b$，显然有$\sum\nolimits_{a}^bg(x)\delta x=\sum_{x=a}^{b-1}g(x)\\$.</p>
-<p>但如果$a&gt;b$，那么$\sum\nolimits_{a}^bg(x)\delta x=-\sum\nolimits_b^a g(x)\delta x\\$.</p>
-<p>事实上，我们一定有:$\sum\nolimits_a^bg(x)\delta x+\sum\nolimits_b^cg(x)\delta x=\sum\nolimits_a^cg(x)\delta x\\$.</p>
-<h5 id="一些基本的公式"><a href="#一些基本的公式" class="headerlink" title="一些基本的公式"></a>一些基本的公式</h5><p>类比无限微积分中的$D(x^m)=mx^{m-1}$，有:</p>
-<p>$<br>\Delta(x^{\underline{m}})=mx^{\underline{m-1}}，\sum mx^{\underline{m-1}}\delta x=x^{\underline{m}}+C，m\ne 0\\<br>\\$<br>类比无限微积分中的$D(\ln x)=\frac 1 x$，有:</p>
-<p>$<br>令H(x)=\sum_{i=1}^x\frac{1}{i}\\\Delta(H(x))=x^{\underline{-1}}，\sum x^{\underline{-1}}\delta x =H(x)+C\\<br>\\$<br>类比无限微积分中的$D(e^x)=e^x$,有:</p>
-<p>$\Delta(2^x)=2^x，\sum 2^x\delta x=2^x+C\\$</p>
-<p>$\Delta (c^x)=(c-1)c^x，\sum c^x\delta x=\frac{c^x}{c-1}+C,c\ne 1\\$</p>
-<p>$\Delta (c^{\underline{x}})=\frac{c^{\underline{x+2}}}{c-x},\sum \frac{c^{\underline{x+2}}}{c-x}\delta x=c^{\underline{x}}+C,c-x\ne 0\\$.</p>
-<p>根据组合数公式,有:</p>
-<p>$\Delta(\binom{x}{k})=\binom{x}{k-1}\\$.</p>
-<h6 id="Example-4"><a href="#Example-4" class="headerlink" title="Example"></a>Example</h6><p>仍然考虑平方和公式：</p>
-<p>我们有:$k^2=k^{\underline{2}}+k^{\underline{1}}\\$.</p>
-<p>那么:</p>
-<p>$S_{n-1}=\sum_{i=0}^{n-1}i^2\\=\sum_{i=0}^{n-1}(i^{\underline{2}}+i^{\underline{1}})\\=\sum\nolimits_{0}^nx^{\underline2}\delta x+\sum\nolimits_{0}^nx^{\underline 1}\delta x\\=\frac{n^\underline{3}}{3}+\frac{n^{\underline{2}}}{2}$</p>
-<p>整理即可得到封闭形式.</p>
-<p>值得一提的是:</p>
-<p>与前面的方法不同，这里没有使用三次的二项式公式，而是使用了二次的斯特林公式负责将一般幂转化为下降幂.</p>
-<h5 id="高阶差分"><a href="#高阶差分" class="headerlink" title="高阶差分"></a>高阶差分</h5><p>考虑一阶差分是$\Delta f(x)=f(x+1)-f(x)$,那么二阶差分就是$\Delta^2f(x)=f(x+2)-2f(x+1)+f(x)$.</p>
-<p>类似地,我们可以通过归纳法证明$\Delta^nf(x)=\sum_{k}\binom{n}{k}(-1)^{n-k}f(x+k)\\$.</p>
-<p>事实上有一种更简单的证明方法,由于$\Delta=E-1$,于是$\Delta^n=(E-1)^n=\sum_{k}\binom{n}{k}(-1)^{n-k}E^k\\$,由于$E^kf(x)=f(x+k)$,即可证明原式.</p>
-<p>另外,不难发现如果$f(x)$是一个关于$x$的$d$次多项式,那么$\Delta f(x)$是一个$d-1$次多项式.同理,$\Delta^d f(x)$会是一个常数而$\Delta^{d+1}f(x)$会是$0$,这个发现引出了牛顿级数.</p>
-<h5 id="牛顿级数"><a href="#牛顿级数" class="headerlink" title="牛顿级数"></a>牛顿级数</h5><p>令$f(x)=\sum_{0\leq i\leq d}a_ix^i\\$.而由于有斯特林数可以进行幂和下降幂的转换,则我们可以将其改写为$f(x)=\sum_{0\leq i\leq d}b_ix^{\underline{i}}\\$.</p>
-<p>我们设$c_i=i!b_i$,于是有:$f(x)=\sum_{0\leq i\leq d}c_i\binom{x}{i}\\$.</p>
-<p>也就是说,任何多项式都可以表示为二项式系数的倍数之和,我们称这样的展开式为$f(x)$的牛顿级数.</p>
-<p>于是不难发现有:$\Delta^nf(x)=\sum_{0\leq i\leq d}c_i\binom{x}{i-n}\\$.</p>
-<p>如果我们令$x=0$,则有:$\Delta^nf(x)=\begin{cases}c_n&amp;n\leq d\\0&amp;n&gt;d\end{cases}$</p>
-<p>那么牛顿级数的另一种表示即:$f(x)=\sum_{0\leq i\leq d}\Delta^if(0)\binom{x}{d}\\$.</p>
-<p>另外,如果我们展开一下$c_n=\Delta^nf(0)$,我们可以得到公式:</p>
-<p>$\sum_{k}\binom{n}{k}(-1)^k(\sum_{0\leq i\leq n}c_i\binom{k}{i})=(-1)^nc_n,n\in\mathbb{N}\\$.</p>
-<p>如果我们将多项式还原,由于$a_n=b_n$,有:</p>
-<p>$\sum_{k}\binom{n}{k}(-1)^k(\sum_{0\leq i\leq n}a_ik^i)=(-1)^nn!a_n,n\in\mathbb{N}\\$.</p>
-<p>另外,如果$x\in\mathbb{N}$,那么我们有:$f(x)=\sum_{0\leq k}\Delta^kf(0)\binom{x}{0}$,根据多项式推理法,这个公式对$\forall x\in\mathbb{Z}$都成立.</p>
-<p>于是我们可以类似泰勒级数写出无限牛顿级数:</p>
-<script type="math/tex; mode=display">
-g(a+x)=\sum_{0\leq k}\cfrac{\Delta^kg(a)}{k!}x^{\underline{k}}</script><h6 id="Example-5"><a href="#Example-5" class="headerlink" title="Example"></a>Example</h6><p>求$\sum_{k}\binom{n}{k}\binom{r-sk}{n}(-1)^k,n\in\mathbb{N}\\$.</p>
-<p>如果我们令$f(k)=\binom{r-sk}{n}=\sum_{0\leq i\leq n}a_ik^i\\$,不难发现$a_n=\cfrac{(-1)^ns^n}{n!}$,于是显然原式$=s^n$.</p>
-<h5 id="分部求和法则"><a href="#分部求和法则" class="headerlink" title="分部求和法则"></a>分部求和法则</h5><p>$\Delta(uv)=u(x+1)v(x+1)-u(x)v(x)\\<br>=u(x+1)v(x+1)-u(x)v(x+1)+u(x)v(x+1)-u(x)v(x)\\<br>=v(x+1)\Delta u+u(x)\Delta v=Ev\Delta u+u\Delta v\\$</p>
-<p>两边取不定和，即可得到分部求和法则:</p>
-<p>$\sum u\Delta v=uv-\sum Ev\Delta u\\$.</p>
-<p>分部求和用一般和式表达如下:</p>
-<p>$\sum_{i=l}^{r-1}(a_{i+1}-a_i)b_i=a_rb_r-a_lb_l-\sum_{i=l}^{r-1}a_{i+1}(b_{i+1}-b_i)\\$.</p>
-<h6 id="Example1"><a href="#Example1" class="headerlink" title="Example1"></a>Example1</h6><p>求$\sum_{k=0}^nk2^k\\$.</p>
-<p>根据分部求和法则，我们有:</p>
-<p>$\sum x2^x\delta x=x2^x-\sum2^{x+1}\delta x=x2^x-2^{x+1}+C\\$.</p>
-<p>改为定和式形式，显然有:</p>
-<p>$\sum_{k=0}^nk2^k=\sum\nolimits_0^{n+1}x2^x\delta x=(n+1)2^{n+1}-2^{n+2}+2=(n-1)2^{n+1}+2\\$.</p>
-<h6 id="Example2"><a href="#Example2" class="headerlink" title="Example2"></a>Example2</h6><p>求$\sum_{k=0}^{n-1}kH_k\\$.</p>
-<p>令$u(x)=H_x,v(x)=\frac 1 2x^{\underline{2}}\\$.</p>
-<p>带入分部求和法则，显然有:</p>
-<p>$\sum xH_x\delta x=\frac{x^\underline{2}}2H_x-\frac{x^\underline{2}}4+C\\$.</p>
-<p>带入即可求出原式$=\frac{n^\underline{2}}2(H_n-\frac{1}2)\\$.</p>
-<h6 id="Problem-23"><a href="#Problem-23" class="headerlink" title="Problem 23"></a>Problem 23</h6><p>求$\sum_{i=1}^n\frac{2i+1}{i(i+1)}\\$.</p>
-<h6 id="Solution-23"><a href="#Solution-23" class="headerlink" title="Solution 23"></a>Solution 23</h6><p>令$u=(2n+1),v=-\frac{1}{i}$,则$\Delta u=2,\Delta v=\frac{1}{i(i+1)}$.</p>
-<p>根据分部求和法则,有:</p>
-<p>$\sum_{i=1}^n\frac{2i+1}{i(i+1)}=(2n+3)\times (-\frac{1}{n+1})+3-\sum_{i=1}^n(-\frac{2}{i+1})\\=-\frac{2n+3}{n+1}+2H_n+\frac{n+3}{n+1}=2H_n-\frac{n}{n+1}$</p>
-<h6 id="Problem-24"><a href="#Problem-24" class="headerlink" title="Problem 24"></a>Problem 24</h6><p>求$\sum_{i=0}^{n-1}\frac{H_k}{(k+1)(k+2)}\\$.</p>
-<h6 id="Solution-24"><a href="#Solution-24" class="headerlink" title="Solution 24"></a>Solution 24</h6><p>令$u=H_n,v=-\frac{1}{n+1},\Delta u=\frac{1}{n+1},\Delta v=\frac{1}{(n+1)(n+2)}\\$.</p>
-<p>根据分部求和法则,有:</p>
-<p>$\sum_{i=0}^{n-1}\frac{H_k}{(k+1)(k+2)}=-\frac{H_n}{n+1}-\sum_{i=0}^{n-1}(-\frac{1}{(i+2)(i+1)})\\=-\frac{H_n}{n+1}+\sum_{i=0}^{n-1}(\frac{1}{i+1}-\frac{1}{i+2})\\=-\frac{H_n}{n+1}+H_n-(H_n-1+\frac{1}{n+1})\\=1-\frac{H_n+1}{n+1}$</p>
-
+        <h2 id="和式"><a href="#和式" class="headerlink" title="和式"></a>和式</h2>
+        
+          <p class="article-more-link">
+            <a href="/2022/08/14/%E5%92%8C%E5%BC%8F/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/14/%E5%92%8C%E5%BC%8F/" data-id="cl6u2kul10003mkvtaa725yyh" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/08/14/%E5%92%8C%E5%BC%8F/" data-id="cl6u2xf3f0002r0vt50kjd780" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -2080,10 +269,10 @@ g(a+x)=\sum_{0\leq k}\cfrac{\Delta^kg(a)}{k!}x^{\underline{k}}</script><h6 id="E
 
 
   
-    <article id="post-高等数学" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-反演" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/08/14/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/" class="article-date">
-  <time class="dt-published" datetime="2022-08-14T14:25:04.266Z" itemprop="datePublished">2022-08-14</time>
+    <a href="/2022/08/14/%E5%8F%8D%E6%BC%94/" class="article-date">
+  <time class="dt-published" datetime="2022-08-14T14:25:04.208Z" itemprop="datePublished">2022-08-14</time>
 </a>
     
   </div>
@@ -2092,11 +281,82 @@ g(a+x)=\sum_{0\leq k}\cfrac{\Delta^kg(a)}{k!}x^{\underline{k}}</script><h6 id="E
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="函数与极限"><a href="#函数与极限" class="headerlink" title="函数与极限"></a>函数与极限</h2>
+        <h2 id="反演"><a href="#反演" class="headerlink" title="反演"></a>反演</h2>
+        
+          <p class="article-more-link">
+            <a href="/2022/08/14/%E5%8F%8D%E6%BC%94/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/14/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/" data-id="cl6u2kul8000amkvt5nqzf5ox" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/08/14/%E5%8F%8D%E6%BC%94/" data-id="cl6u2xf370000r0vt8oc7g9l4" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-多项式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/08/14/%E5%A4%9A%E9%A1%B9%E5%BC%8F/" class="article-date">
+  <time class="dt-published" datetime="2022-08-14T14:25:04.193Z" itemprop="datePublished">2022-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="多项式"><a href="#多项式" class="headerlink" title="多项式"></a>多项式</h2>
+        
+          <p class="article-more-link">
+            <a href="/2022/08/14/%E5%A4%9A%E9%A1%B9%E5%BC%8F/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lwlaymh.github.io/2022/08/14/%E5%A4%9A%E9%A1%B9%E5%BC%8F/" data-id="cl6u2xf3g0003r0vtdq7q2zyo" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-递归式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/08/14/%E9%80%92%E5%BD%92%E5%BC%8F/" class="article-date">
+  <time class="dt-published" datetime="2022-08-14T14:25:04.101Z" itemprop="datePublished">2022-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2>
+        
+          <p class="article-more-link">
+            <a href="/2022/08/14/%E9%80%92%E5%BD%92%E5%BC%8F/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lwlaymh.github.io/2022/08/14/%E9%80%92%E5%BD%92%E5%BC%8F/" data-id="cl6u2xf3k0006r0vtgiii1w6a" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -2109,11 +369,6 @@ g(a+x)=\sum_{0\leq k}\cfrac{\Delta^kg(a)}{k!}x^{\underline{k}}</script><h6 id="E
 
   
 
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-  </nav>
 
 </section>
         
@@ -2160,7 +415,7 @@ g(a+x)=\sum_{0\leq k}\cfrac{\Delta^kg(a)}{k!}x^{\underline{k}}</script><h6 id="E
           </li>
         
           <li>
-            <a href="/2022/08/14/%E5%9B%9B%E8%BE%B9%E5%BD%A2%E4%B8%8D%E7%AD%89%E5%BC%8F/">(no title)</a>
+            <a href="/2022/08/14/%E6%95%B0%E8%AE%BA/">(no title)</a>
           </li>
         
       </ul>
