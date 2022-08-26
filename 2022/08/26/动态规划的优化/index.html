@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>LWLAymh的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="动态规划的优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LWLAymh的博客">
+<meta property="og:url" content="http://lwlaymh.github.io/2022/08/26/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E4%BC%98%E5%8C%96/index.html">
+<meta property="og:site_name" content="LWLAymh的博客">
+<meta property="og:description" content="动态规划的优化">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-26T02:33:32.548Z">
+<meta property="article:modified_time" content="2022-08-26T02:33:53.595Z">
+<meta property="article:author" content="LWLAymh">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="LWLAymh的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LWLAymh的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://LWLAymh.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-动态规划的优化" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/08/26/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E4%BC%98%E5%8C%96/" class="article-date">
+  <time class="dt-published" datetime="2022-08-26T02:33:32.548Z" itemprop="datePublished">2022-08-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="动态规划的优化"><a href="#动态规划的优化" class="headerlink" title="动态规划的优化"></a>动态规划的优化</h2><span id="more"></span>
+<h3 id="斜率优化"><a href="#斜率优化" class="headerlink" title="斜率优化"></a>斜率优化</h3><p>略</p>
+<h3 id="WQS二分"><a href="#WQS二分" class="headerlink" title="WQS二分"></a>WQS二分</h3><p>能用WQS二分解决的问题通常形如:需要在$n$个物品中选择恰好$m$个,使得最后答案最大.并且如果令$f_i$表示选了$i$个的最大答案,$f_i$必须是凸函数且是单调不降的.</p>
+<p>遇到这种问题,我们通常二分一个数$C$,每选择一个物品就减去$C$的答案.不难发现这样我们一定能逼近$f_m$.</p>
+<h3 id="四边形不等式"><a href="#四边形不等式" class="headerlink" title="四边形不等式"></a>四边形不等式</h3><p>对于定义在$\mathbb{Z}$上的二元函数$w$,若对定义域上任意$a,b,c,d(a\leq b\leq c\leq d)$都有$w(a,c)+w(b,d)\leq w(a,d)+w(b,c)$,则称函数$w$满足四边形不等式.如果等式成立,那么我们称其满足四边形恒等式.</p>
+<p>不难发现这意味着:$w$所形成的矩阵中的任意一个子矩阵的差分(左上角+右下角-左下角-右上角)都小于等于$0$.</p>
+<p>如果它还满足$\forall 1\leq l’\leq l\leq r\leq r’\leq n,w(l,r)\leq w(l’,r’)$，我们称其满足区间包含单调性.</p>
+<h4 id="判定-性质定理"><a href="#判定-性质定理" class="headerlink" title="判定/性质定理"></a>判定/性质定理</h4><h5 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h5><p>若二元函数$w(x,y)$满足$w(a,b)+w(a+1,b+1)\leq w(a,b+1)+w(a+1,b)$.其中$a&lt;a+1\leq b&lt;b+1$,则$w$满足四边形不等式.</p>
+<p>证明:</p>
+<p>对于$a+1&lt;c$ 有</p>
+<script type="math/tex; mode=display">
+w(a,c)+w(a+1,c+1)\leq w(a,c+1)+w(a+1,c)\\
+w(a+1,c+1)\leq w(a,c+1)+w(a+1,c)-w(a,c)\\</script><p>同时有:</p>
+<script type="math/tex; mode=display">
+w(a+1,c)+w(a+2,c+1)\leq w(a+1,c+1)+w(a+2,c)\\
+w(a+1,c)+w(a+2,c+1)-w(a+2,c)\leq w(a+1,c+1)\\</script><p>联立得到:</p>
+<script type="math/tex; mode=display">
+w(a+1,c)+w(a+2,c+1)-w(a+2,c)\leq w(a,c+1)+w(a+1,c)-w(a,c)\\
+w(a+2,c+1)+w(a,c)\leq w(a+1,c)+w(a+2,c+1)</script><p>同理可推至四边形不等式定义式.</p>
+<p>事实上,这意味着一个$2\times 2$的子矩阵的差分满足条件,那么自然满足四边形不等式,无需推导.</p>
+<h5 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h5><p>若$w_1(l,r),w_2(l,r)$满足四边形不等式(或区间包含单调性),则$\forall c_1,c_2\geq 0$,$(c_1w_1+c_2w_2)$满足四边形不等式(或区间包含单调性).</p>
+<p>证明显然.</p>
+<h5 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h5><p>若$\exists f(x),g(x)$使得$w(l,r)=f(r)-g(l)$,则$w$满足四边形恒等式.当$f,g$单调递增时,$w$还满足区间包含单调性.</p>
+<p>证明显然.</p>
+<h5 id="定理4"><a href="#定理4" class="headerlink" title="定理4"></a>定理4</h5><p>设$h$是一个单调递增的下凸函数(一阶导数单调递增),若$w(l,r)$满足四边形不等式和区间包含单调性,则复合函数$h(w(l,r))$也满足四边形不等式和区间包含单调性.</p>
+<p>令$l_1\leq l_2\leq r_1\leq r_2$,由于$w$满足四边形不等式,于是有:</p>
+<script type="math/tex; mode=display">
+w(l_1,r_1)+w(l_2,r_2)\leq w(l_1,r_2)+w(l_2,r_1)\\
+0\leq w(l_1,r_1)-w(l_2,r_1)\leq w(l_1,r_2)-w(l_2,r_2)</script><p>令$t=w(l_1,r_2)-w(l_2,r_2)$,我们有:</p>
+<script type="math/tex; mode=display">
+w(l_1,r_1)\leq w(l_2,r_1)+t\\
+w(l_1,r_2)=w(l_2,r_2)+t\\
+h(w(l_1,r_1))-h(w(l_2,r_1))\leq h(w(l_2,r_1)+t)-h(w(l_2,r_1))\\
+h(w(l_1,r_2))-h(w(l_2,r_2))=h(w(l_2,r_2)+t)-h(w(l_2,r_2))</script><p>不妨令$\Delta h(x)=h(x+t)-h(x)$,由于$h$是下凸函数,所以$\Delta h$函数单调递增.</p>
+<p>那么也就有:</p>
+<script type="math/tex; mode=display">
+h(w(l_1,r_1))-h(w(l_2,r_1))\leq \Delta h(w(l_2,r_1))\\
+h(w(l_1,r_2))-h(w(l_2,r_2))=\Delta h(w(l_2,r_2))</script><p>由于$w(l_2,r_1)\leq w(l_2,r_2)$,所以$\Delta h(w(l_2,r_1))\leq \Delta h(w(l_2,r_2))$于是:</p>
+<script type="math/tex; mode=display">
+h(w(l_1,r_1))-h(w(l_2,r_1))\leq h(w(l_1,r_2))-h(w(l_2,r_2))\\
+h(w(l_1,r_1))+h(w(l_2,r_2))\leq h(w(l_1,r_2))+h(w(l_2,r_1))</script><p>证毕.</p>
+<h5 id="定理5"><a href="#定理5" class="headerlink" title="定理5"></a>定理5</h5><p>设$h$是一个下凸函数(一阶导数单调递增),若$w(l,r)$满足四边形恒等式和区间包含单调性,则复合函数$h(w(l,r))$也满足四边形不等式.</p>
+<p>证明类似定理4,因为满足四边形恒等式所以不必用到$h$单调递增的性质.</p>
+<h4 id="决策单调性"><a href="#决策单调性" class="headerlink" title="决策单调性"></a>决策单调性</h4><p>对于形如$f_i=\min_{1 \leq j&lt;i}\{f_j+w(j,i)\}$的状态转移方程,记$p_i$为$f_i$的最优决策.若$p$在$[1,n]$上单调不降，则称$f$具有决策单调性.</p>
+<p>值得一提的是,我们也可以把题目中的$\min$改为$\max$,并且把$+w$改为$-w$,那么下面的结论同样成立.</p>
+<h5 id="最短路型dp"><a href="#最短路型dp" class="headerlink" title="最短路型dp"></a>最短路型dp</h5><p>定理：对于形如$f_i=\min_{1 \leq j&lt;i}{f_j+w(j,i)}$的状态转移方程,若$w$满足四边形不等式,则$f$有决策单调性.</p>
+<p>证明:</p>
+<p>$\forall i\in[1,n],\forall j\in[0,p_i-1]$,根据$p$的定义,有:</p>
+<script type="math/tex; mode=display">
+f_{p_i}+w(p_i,i)\leq f_j+w(j,i)\\
+f_{p_i}-f_j\leq w(j,i)-w(p_i,i)\\</script><p>而对于$k\in[i+1,n]$,根据$w$的四边形不等式,有:</p>
+<script type="math/tex; mode=display">
+w(j,i)+w(p_i,k)\leq w(j,k)+w(p_i,i)\\
+w(j,i)-w(p_i,i)\leq w(j,k)-w(p_i,k)\\</script><p>联立得到:</p>
+<script type="math/tex; mode=display">
+f_{p_i}-f_j\leq w(j,k)-w(p_i,k)\\
+f_{p_i}+w(p_i,k)\leq w(j,k)+f_j\\</script><p>即:$j$对$k$的更新一定不如$p_i$对$k$的更新更优,因此$p_k\in[p_i,n]$,因此$f$有决策单调性.</p>
+<h5 id="k点最短路型dp"><a href="#k点最短路型dp" class="headerlink" title="k点最短路型dp"></a>k点最短路型dp</h5><p>对于形如$f_{x,j}=\min_{i=1}^{x-1}\{f_{i,j-1}+w_{i,x}\}$的状态转移方程,若$w$满足四边形不等式,则$f$有决策单调性.证明同上.</p>
+<h5 id="区间型dp"><a href="#区间型dp" class="headerlink" title="区间型dp"></a>区间型dp</h5><p>引理:在状态转移方程$f_{i,j}=\min_{i\leq k&lt;j}\{f_{i,k}+f_{k+1,j}+w(i,j)\}$中(通常$f_{i,i}=w(i,i)=0,f_{i,i+1}=w_{i,i+1}$),如果$w$满足四边形不等式和区间包含单调性,那么$f$也满足四边形不等式.</p>
+<p>证明:</p>
+<p>只需证明$f_{i,j}+f_{i+1,j+1}\leq f_{i,j+1}+f_{i+1,j}$即可,考虑$j-i=1$的时候,显然成立.</p>
+<p>使用数学归纳,假设当$b-a&lt;k$时,$f$满足四边形不等式,考虑$j-i=k$的情况:</p>
+<p>设$f_{i,j+1}$的最优决策为$x$,$f_{i+1,j}$的最优决策为$y$,则有:</p>
+<script type="math/tex; mode=display">
+f_{i,j+1}+f_{i+1,j}=f_{i,x}+f_{x+1,j+1}+w(i,j+1)+f_{i+1,y}+f_{y+1,j}+w(i+1,j)\\</script><p>对于$f_{i,j}$和$f_{i+1,j+1}$来说,$x$和$y$不一定最优,所以有:</p>
+<script type="math/tex; mode=display">
+f_{i,j}+f_{i+1,j+1}\leq f_{i,x}+f_{x+1,j}+w(i,j)+f_{i+1,y}+f_{y+1,j+1}+w(i+1,j+1)\\</script><p>$w$和归纳假设都可以比较两个式子右边的大小,最终得到:</p>
+<script type="math/tex; mode=display">
+f_{i,j}+f_{i+1,j+1}\leq f_{i,j+1}+f_{i+1,j}\\</script><p>定理:记$p_{i,j}$为$f_{i,j}$的最优决策,若$f$满足四边形不等式,那么对于$\forall i&lt;j，有p_{i,j-1}\leq p_{i,j}\leq p_{i+1,j}\\$.</p>
+<p>证明:</p>
+<p>记$p=p_{i,j}$,$\forall k,i&lt;k\leq p$,因为$f$满足四边形不等式,所以有:</p>
+<script type="math/tex; mode=display">
+f_{i,k}+f_{i+1,p}\leq f_{i,p}+f_{i+1,k}\\
+f_{i+1,p}-f_{i+1,j}\leq f_{i,p}-f_{i,k}</script><p>根据$p$定义,有:</p>
+<script type="math/tex; mode=display">
+f_{i,p}+f_{p+1,j}\leq f_{i,k}+f_{k+1,j}\\
+f_{i,p}-f_{i,k}\leq f_{k+1,j}-f_{p+1,j}</script><p>由上两式移项联立,得到:</p>
+<script type="math/tex; mode=display">
+f_{i+1,p}-f_{i+1,k}\leq f_{k+1,j}-f_{p+1,j}\\
+f_{i+1,p}+f_{p+1,j}\leq f_{i+1,k}+f_{k+1,j}\\
+f_{i+1,p}+f_{p+1,j}+w_{i+1,j}\leq f_{i+1,k}+f_{k+1,j}+w_{i+1,j}\\</script><p>因此对于$f_{i+1,j}$,$p$比任意的$k&lt;p$更优,因此$p_{i+1,j}\geq p_{i,j}$,另一方向同理.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lwlaymh.github.io/2022/08/26/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E4%BC%98%E5%8C%96/" data-id="cl79v1jni0000rkvt9ky43qxw" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/08/25/%E6%A6%82%E7%8E%87%E4%B8%8E%E6%9C%9F%E6%9C%9B/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/08/26/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E4%BC%98%E5%8C%96/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/25/%E6%A6%82%E7%8E%87%E4%B8%8E%E6%9C%9F%E6%9C%9B/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/15/%E5%92%8C%E5%BC%8F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/14/%E5%8D%9A%E5%BC%88%E8%AE%BA/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/14/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 LWLAymh<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
