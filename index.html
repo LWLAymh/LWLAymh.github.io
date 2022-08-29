@@ -73,8 +73,8 @@
   
     <article id="post-线性代数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/08/27/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" class="article-date">
-  <time class="dt-published" datetime="2022-08-27T06:31:15.029Z" itemprop="datePublished">2022-08-27</time>
+    <a href="/2022/08/29/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2022-08-29T12:04:44.599Z" itemprop="datePublished">2022-08-29</time>
 </a>
     
   </div>
@@ -83,16 +83,516 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h2>
-        
-          <p class="article-more-link">
-            <a href="/2022/08/27/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/#more">Read More</a>
-          </p>
-        
+        <h2 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h2><h3 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h3><p>仅含一列的矩阵称为<strong>列向量</strong>,或简称<strong>向量</strong>.</p>
+<p>包含两个元素的向量如下所示:</p>
+<script type="math/tex; mode=display">\overrightarrow{w}=\begin{bmatrix}
+w_1\\
+w_2
+\end{bmatrix}</script><p>其中$w_1$和$w_2$是任意实数,我们称形如这样的包含两个元素的向量集合为$\mathbb{R}^2$.</p>
+<p>二维向量对应一条二维平面坐标系中的起点为原点的有向线段.</p>
+<h4 id="向量的运算"><a href="#向量的运算" class="headerlink" title="向量的运算"></a>向量的运算</h4><p>两个向量相等当且仅当它们对应位置的元素相等.</p>
+<p>两个向量的和为它们对应位置之和所构成的向量.</p>
+<p>向量数乘一个数即该向量的每个位置都乘上这个数的结果向量.</p>
+<p>向量的运算满足以下性质:</p>
+<script type="math/tex; mode=display">
+\begin{array}{c}
+
+1.\overrightarrow{u}+\overrightarrow{v}=\overrightarrow{v}+\overrightarrow{u} \\
+2.(\overrightarrow{u}+\overrightarrow{v})+\overrightarrow{w}=\overrightarrow{u}+(\overrightarrow{v}+\overrightarrow{w})\\
+3.\overrightarrow{u}+\overrightarrow{0}=\overrightarrow{u}\\
+4.\overrightarrow{u}+(-\overrightarrow{u})=\overrightarrow{0}\\
+5.c(\overrightarrow{u}+\overrightarrow{v})=c\overrightarrow{u}+c\overrightarrow{v}\\
+6.(c+d)\overrightarrow{u}=c\overrightarrow{u}+d\overrightarrow{u}\\
+7.c(d\overrightarrow{u})=(cd)\overrightarrow{u}\\
+8.1\overrightarrow{u}=\overrightarrow{u}
+\end{array}</script><h4 id="子空间"><a href="#子空间" class="headerlink" title="子空间"></a>子空间</h4><p>我们定义$\mathbb{R}^n$的一个<strong>子空间</strong>是它的一个子集$H$,具有以下三个性质:</p>
+<ol>
+<li>$\vec{0}\in H$.</li>
+<li>$\forall \vec u,\vec v\in H,\vec u+\vec v\in H$.</li>
+<li>$\forall \vec u\in H,c\in\mathbb{R},c\vec u\in H$.</li>
+</ol>
+<h4 id="向量的线性组合"><a href="#向量的线性组合" class="headerlink" title="向量的线性组合"></a>向量的线性组合</h4><p>给定$\mathbb{R}^n$中向量$\overrightarrow{v_1},\overrightarrow{v_2},…,\overrightarrow{v_p}$和标量$c_1,c_2,…,c_p$.</p>
+<p>我们称向量$\overrightarrow{y}=c_1\overrightarrow{v_1}+c_2\overrightarrow{v_2}+…+c_p\overrightarrow{v_p}$为向量$\overrightarrow{v_1},\overrightarrow{v_2},…,\overrightarrow{v_p}$以$c_1,c_2,…,c_p$为权的<strong>线性组合</strong>.</p>
+<p>对于向量$\overrightarrow{v_1},\overrightarrow{v_2},…,\overrightarrow{v_p}$,我们称它们的所有线性组合所成的集合为$Span\{\overrightarrow{v_1},\overrightarrow{v_2},…,\overrightarrow{v_p}\}$,也称为由$\overrightarrow{v_1},\overrightarrow{v_2},…,\overrightarrow{v_p}$所<strong>生成</strong>的$\mathbb{R}^n$的子集.</p>
+<p>不难发现,$Span$集合是$\mathbb{R}^n$的一个子空间,所以我们又称其为由$\overrightarrow{v_1},\overrightarrow{v_2},…,\overrightarrow{v_p}$所<strong>生成</strong>的子空间.</p>
+<p>我们考虑$Span$的几何意义:</p>
+<p>对于$\mathbb{R}^2$,当$\vec{v_1}$和$\vec{v_2}$不在一条直线上的时候,$Span\{\vec{v_1},\vec{v_2}\}$显然对应了整个平面.</p>
+<p>对于$\mathbb{R}^3$,当$\vec{v_1}$和$\vec{v_2}$不在一条直线上的时候,$Span\{\vec{v_1},\vec{v_2}\}$显然对应了三维空间中的一个过$\vec{v_1},\vec{v_2}$这两条直线的平面.</p>
+<p>要判断$\overrightarrow{b}$是否在$Span\{\overrightarrow{v_1},\overrightarrow{v_2},…,\overrightarrow{v_p}\}$中，即判断向量方程$x_1\overrightarrow{v_1}+x_2\overrightarrow{v_2}+…+x_p\overrightarrow{v_p}=\overrightarrow{b}$是否有解.</p>
+<h4 id="子空间的基"><a href="#子空间的基" class="headerlink" title="子空间的基"></a>子空间的基</h4><p>$\mathbb{R}^n$中子空间$H$的一组<strong>基</strong>是$H$中一个线性无关集,它生成$H$.</p>
+<h4 id="子空间的坐标系"><a href="#子空间的坐标系" class="headerlink" title="子空间的坐标系"></a>子空间的坐标系</h4><p>假设$\mathcal{B}=\{\vec {b_1},\vec{b_2},…,\vec{b_p}\}$是子空间$H$的一组基.对于$H$中的任意向量$\vec x$,若$\vec x=c_1\vec{b_1}+c_2\vec{b_2}+…+c_p\vec{b_p}$,那么我们称$\mathbb{R}^p$中的向量$[\vec x]_{\mathcal{B}}=\begin{bmatrix}c_1\\c_2\...\\c_p\end{bmatrix}$为$\vec x$相对于$\mathcal{B}$的<strong>坐标向量</strong>,或称$\vec x$的<strong>$\mathcal{B}-$坐标向量</strong>.</p>
+<h4 id="子空间的维数"><a href="#子空间的维数" class="headerlink" title="子空间的维数"></a>子空间的维数</h4><p>非零子空间$H$的<strong>维数</strong>(记作$\dim H$)是$H$的任意一个基的向量个数,零子空间$\{\vec 0\}$的维数定义为$0$.</p>
+<h4 id="定理14-基定理"><a href="#定理14-基定理" class="headerlink" title="定理14:基定理"></a>定理14:基定理</h4><p>设$H$是$\mathbb{R}^n$的$p$维子空间,$H$中任何恰好由$p$个元素组成的线性无关集构成$H$的一个基.</p>
+<h3 id="矩阵引入"><a href="#矩阵引入" class="headerlink" title="矩阵引入"></a>矩阵引入</h3><p>我们称有$m$行$n$列的<strong>矩阵</strong>为$A_{m\times n}$,其中第$i$行第$j$列的元素称作$a_{i,j}$.</p>
+<p>也可以将其中中的列写作$\mathbb{R}^m$中向量的形式,即写作$A_{m\times n}=\begin{bmatrix}\vec{a_1}&amp;\vec{a_2}&amp;…&amp;\vec{a_n}\end{bmatrix}$.</p>
+<p>若$n=m$,则称$A$为<strong>方阵</strong>.</p>
+<h4 id="矩阵运算"><a href="#矩阵运算" class="headerlink" title="矩阵运算"></a>矩阵运算</h4><p>定义<strong>矩阵加法</strong>:若矩阵$A$和$B$都是$m\times n$矩阵,则它们的和也是$m\times n$矩阵,且元素为$A$和$B$中对应元素的加和.</p>
+<p>定义<strong>标量乘法</strong>:若$c$是标量而$A$是一个$m\times n$矩阵,则$cA$是一个$m\times n$矩阵,且元素为A中对应元素的c倍.</p>
+<p>定义<strong>矩阵乘法</strong>:若$A$是$m\times n$矩阵,$B$是$n\times p$矩阵,那么它们的乘积$AB_{i,j}=\sum_{k=1}^nA_{i,k}B_{k,j}$.</p>
+<p>矩阵乘法也可以表示为:若$A$是$m\times n$矩阵,$B$是$n\times p$矩阵,且$B=\begin{bmatrix}\vec{b_1}&amp;\vec{b_2}&amp;…&amp;\vec{b_p}\end{bmatrix}$那么它们的乘积$AB=\begin{bmatrix}A\vec{b_1}&amp;A\vec{b_2}&amp;…&amp;A\vec{b_p}\end{bmatrix}$.</p>
+<p>若$AB=BA$我们称$A$和$B$彼此<strong>可交换</strong>.</p>
+<p>不难发现$\forall A_{m\times n}$,对于矩阵$I_{n\times n}=\begin{bmatrix}1&amp;0&amp;…&amp;0\\0&amp;1&amp;…&amp;0\...&amp;…&amp;…&amp;…\\0&amp;0&amp;…&amp;1\end{bmatrix}$有$AI=A$,我们称$I_{n\times n}$为<strong>单位矩阵</strong>.单位矩阵的第$i$列通常记作$\vec e_i$.</p>
+<p>定义<strong>乘幂</strong>$A^k$为$k$个$A$连续相乘的乘积.</p>
+<p>定义<strong>矩阵转置</strong>:对于$m\times n$矩阵$A$,它的<strong>转置</strong>是一个$n\times m$矩阵,该矩阵的列是由$A$的对应行构成的,记作$A^T$,即$A^T_{i,j}=A_{j,i}$.</p>
+<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><p>设$A,B,C$为相同维数的矩阵,$r,s$为标量,则有:</p>
+<ol>
+<li>$A+B=B+A$.</li>
+<li>$(A+B)+C=A+(B+C)$.</li>
+<li>$r(A+B)=rA+rB$.</li>
+<li>$(r+s)A=rA+sA$.</li>
+<li>$r(sA)=(rs)A$</li>
+</ol>
+<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><p>设$A$为$m\times n$矩阵,$B$和$C$的维数使下列各式的乘积有定义,c是标量,有:</p>
+<ol>
+<li>乘法结合律:$(AB)C=A(BC)$.</li>
+<li>乘法左分配律:$A(B+C)=AB+AC$.</li>
+<li>乘法右分配律:$(B+C)A=BA+CA$.</li>
+<li>$c(AB)=(cA)B=A(cB)$.</li>
+<li>乘法恒等式:$I_mA=A=AI_n$.</li>
+</ol>
+<h4 id="定理3"><a href="#定理3" class="headerlink" title="定理3"></a>定理3</h4><p>设$A$和$B$的维数使下列各式的乘积有定义,c是标量,有:</p>
+<ol>
+<li>$(A^T)^T=A$.</li>
+<li>$(A+B)^T=A^T+B^T$.</li>
+<li>$(rA)^T=rA^T$.</li>
+<li>$(AB)^T=B^TA^T$.</li>
+</ol>
+<h3 id="线性方程组"><a href="#线性方程组" class="headerlink" title="线性方程组"></a>线性方程组</h3><p>包含变量$x_1,x_2…,x_n$的<strong>线性方程</strong>是形如$a_1x_2+a_2x_2+…+a_nx_n=b$的方程,其中b与系数是实数或复数,通常是已知数.</p>
+<p><strong>线性方程组</strong>是由一个或几个包含相同变量$x_1,x_2,…,x_n$的线性方程组成的.</p>
+<h4 id="线性方程组的解"><a href="#线性方程组的解" class="headerlink" title="线性方程组的解"></a>线性方程组的解</h4><p><strong>线性方程组的解</strong>是一组数$\{s_1,s_2,…,s_n\}$,用这组数分别代替$x_1,x_2,…x_n$时所有方程的两边相等.</p>
+<p>线性方程组所有可能的解的集合称为<strong>线性方程组的解集</strong>.</p>
+<h4 id="等价的线性方程组"><a href="#等价的线性方程组" class="headerlink" title="等价的线性方程组"></a>等价的线性方程组</h4><p>若两个线性方程组有相同的解集,则称这两个方程组是<strong>等价的</strong>.</p>
+<h4 id="相容的线性方程组"><a href="#相容的线性方程组" class="headerlink" title="相容的线性方程组"></a>相容的线性方程组</h4><p>我们称一个线性方程组是<strong>相容的</strong>,当且仅当它有一个解或无穷多个解,否则,称其为<strong>不相容的</strong>.</p>
+<p>一个线性方程组要么无解,要么有一个解,要么有无穷多个解.</p>
+<h4 id="线性方程组的系数矩阵和增广矩阵"><a href="#线性方程组的系数矩阵和增广矩阵" class="headerlink" title="线性方程组的系数矩阵和增广矩阵"></a>线性方程组的系数矩阵和增广矩阵</h4><p>考虑以下m个线性方程所组成的线性方程组:</p>
+<script type="math/tex; mode=display">\begin{cases}
+a_{1,1}x_1+a_{1,2}x_2+...+a_{1,n}x_n=b_1\\
+a_{2,1}x_1+a_{2,2}x_2+...+a_{2,n}x_n=b_2\\
+...\\
+a_{m,1}x_1+a_{m,2}x_2+...+a_{m,n}x_n=b_m
+\end{cases}</script><p>我们称它的<strong>系数矩阵</strong>为:</p>
+<script type="math/tex; mode=display">\begin{bmatrix}
+a_{1,1}&a_{1,2}&...&a_{1,n}\\
+a_{2,1}&a_{2,2}&...&a_{2,n}\\
+... &...&...&...\\
+a_{m,1}&a_{m,2}&...&a_{m,n}
+\end{bmatrix}</script><p>两个系数矩阵是<strong>等价的</strong>当且仅当它们所对应的线性方程组是等价的.</p>
+<p>而称它的<strong>增广矩阵</strong>为:</p>
+<script type="math/tex; mode=display">\begin{bmatrix}
+a_{1,1}&a_{1,2}&...&a_{1,n}&b_1\\
+a_{2,1}&a_{2,2}&...&a_{2,n}&b_2\\
+... &...&...&...&...\\
+a_{m,1}&a_{m,2}&...&a_{m,n}&b_m
+\end{bmatrix}</script><p>两个增广矩阵是<strong>等价的</strong>当且仅当它们所对应的线性方程组是等价的.</p>
+<h4 id="矩阵的初等行变换"><a href="#矩阵的初等行变换" class="headerlink" title="矩阵的初等行变换"></a>矩阵的初等行变换</h4><p>考虑如何解一个线性方程:根据我们已有的知识,等式可以任意两端加减相等的两项,也可以同时乘以一个不为0的数,同时等式的顺序并不重要.</p>
+<p>我们用这一点来考虑如何解线性方程组.这里主要是考虑如何对线性方程组的增广矩阵进行变换.</p>
+<p>由上面的知识,我们意识到对线性方程组的增广矩阵进行以下变换,是不会改变其解集的:</p>
+<ol>
+<li>(倍加变换)把某一行换成它本身与另一行的倍数的和,记作$R_i+kR_j\rightarrow R_i$.</li>
+<li>(对换变换)把两行对换,记作$R_i\leftrightarrow R_j$.</li>
+<li>(倍乘变换)把某一行的所有元素乘以同一个非零数$k$,记作$kR_i\rightarrow R_i,k\ne0$.</li>
+</ol>
+<p>以上三种变换称为<strong>矩阵的初等行变换</strong>,同理可以定义初等列变换.</p>
+<p>由此可以发现,两个增广矩阵是等价的当且仅当其中一个增广矩阵可以通过若干次初等行变换变为另一个增广矩阵.</p>
+<p>我们可以使用这些初等行变换来变换一个矩阵,使得它有一些特殊性质.</p>
+<h4 id="阶梯形矩阵"><a href="#阶梯形矩阵" class="headerlink" title="阶梯形矩阵"></a>阶梯形矩阵</h4><p>若矩阵的一行的元素全为0,称这一行为矩阵的一个<strong>零行</strong>,否则称为<strong>非零行</strong>.</p>
+<p>非零行的最左边的非零元素称为该行的<strong>先导元素</strong>.</p>
+<p>若一个矩阵有以下性质,则称它为<strong>阶梯形矩阵(REF)</strong>:</p>
+<ol>
+<li>每一个非零行都在零行之上</li>
+<li>某一行的先导元素所在的列位于前一行先导元素的右边</li>
+<li>某一先导元素所在列下方元素都是0</li>
+</ol>
+<p>若一个矩阵还满足以下性质,则称它为<strong>简化阶梯形(RREF)</strong>:</p>
+<ol>
+<li>每一非零行的先导元素是1</li>
+<li>每一先导元素1是该元素所在列唯一的非零元素</li>
+</ol>
+<p>显然,任意一个矩阵都可以通过若干次初等行变换变为一个阶梯形矩阵或简化阶梯形矩阵.</p>
+<p>一个矩阵所对应的阶梯形矩阵中先导元素的位置,被称为这个矩阵的一个<strong>主元位置</strong>,包含一个主元位置的列称为<strong>主元列</strong>.</p>
+<p>注意:这里的位置是矩阵中的位置而非元素的位置,这也就是说主元位置上的元素可以不是最终的主元位置上的元素移动而来的.</p>
+<h4 id="定理1-简化阶梯形矩阵的唯一性"><a href="#定理1-简化阶梯形矩阵的唯一性" class="headerlink" title="定理1:简化阶梯形矩阵的唯一性"></a>定理1:简化阶梯形矩阵的唯一性</h4><p>每个矩阵通过初等行变换只有可能对应唯一一个简化阶梯形矩阵.</p>
+<p>证明:暂略</p>
+<h4 id="解线性方程组"><a href="#解线性方程组" class="headerlink" title="解线性方程组"></a>解线性方程组</h4><p>考虑将线性方程组的增广矩阵通过初等行变换变换为一个简化阶梯形矩阵,我们称对应于主元列的变量为<strong>基本变量</strong>,其它变量称为<strong>自由变量</strong>.</p>
+<p>如果线性方程组是相容的,显然我们可以使用自由变量表示基本变量,从而得到一组解.我们得到的基本变量的关于自由变量的表达式称作解集的<strong>参数表示</strong>.</p>
+<p>这也意味着,如果没有自由变量,该方程组只有一解;如果有自由变量,由于自由变量取值任意,该方程组有无数组解.</p>
+<p>而考虑何时线性方程组不相容,由于自由变脸取值任意,显然唯一的不相容可能性只是出现了$0x_1+0x_2+…+0x_n=b,b\ne 0$的情况.</p>
+<p>以上的分析过程引出定理2.</p>
+<h4 id="定理2-存在与唯一性定理"><a href="#定理2-存在与唯一性定理" class="headerlink" title="定理2:存在与唯一性定理"></a>定理2:存在与唯一性定理</h4><p>线性方程组相容的充要条件是增广矩阵的最右列不是主元列.</p>
+<p>若线性方程组相容,则它的解集可能有两种情形:</p>
+<ol>
+<li>没有自由变量时,只有一个解</li>
+<li>有自由变量时,有无数个解</li>
+</ol>
+<h4 id="矩阵方程"><a href="#矩阵方程" class="headerlink" title="矩阵方程"></a>矩阵方程</h4><p>设$A$是$m\times n$的矩阵,它的各列是$\vec{a_1},\vec{a_2},…,\vec{a_n}$,若$\vec{x}$是$\mathbb{R}^n$中的向量,则$A\vec x$即A的各列以$\vec{x}$中对应元素为权的线性组合,也就是:</p>
+<p>$A\vec{x}=\begin{bmatrix}\vec{a_1}&amp;\vec{a_2}&amp;…&amp;\vec{a_n}\end{bmatrix}\begin{bmatrix}x_1\\x_2\...\\x_n\end{bmatrix}=x_1\vec{a_1}+x_2\vec{a_2}+…+x_n\vec{a_n}$</p>
+<p>如果令$\vec{b}\in\mathbb{R}^m$,那么上式可以写成$A\vec{x}=\vec{b}$,我们把形如这样的方程称作矩阵方程.</p>
+<h4 id="定理3-1"><a href="#定理3-1" class="headerlink" title="定理3"></a>定理3</h4><p>若$A$是$m\times n$矩阵,它的各列为$\vec{a_1},\vec{a_2},…\vec{a_n}$,而$\vec{b}\in\mathbb{R}^m,\vec{x}\in\mathbb{R}^n$,那么:</p>
+<p>矩阵方程$A\vec{x}=\vec{b}$,向量方程$x_1\vec{a_1}+x_2\vec{a_2}+…+x_n\vec{a_n}=\vec{b}$,增广矩阵为$\begin{bmatrix}\vec{a_1}&amp;\vec{a_2}&amp;…&amp;\vec{a_n}&amp;\vec{b}\end{bmatrix}$的线性方程组有相同的解集.</p>
+<h4 id="定理4"><a href="#定理4" class="headerlink" title="定理4"></a>定理4</h4><p>若$A$是$m\times n$矩阵,它的各列为$\vec{a_1},\vec{a_2},…\vec{a_n}$,那么以下命题逻辑等价:</p>
+<ol>
+<li>$\forall \vec b\in\mathbb{R}^m$,方程$A\vec{x}=\vec{b}$有解.</li>
+<li>$\forall \vec b\in\mathbb{R}^m$,$\vec{b}$是$A$的列的一个线性组合.</li>
+<li>$A$的各列生成$\mathbb R^m$.</li>
+<li>$A$在每一行都有一个主元位置.</li>
+</ol>
+<h4 id="定理5"><a href="#定理5" class="headerlink" title="定理5"></a>定理5</h4><p>若$A$是$m\times n$矩阵,它的各列为$\vec{a_1},\vec{a_2},…\vec{a_n}$,而$\vec{u},\vec{v}\in\mathbb{R}^n$,那么:</p>
+<ol>
+<li>$A(\vec{u}+\vec{v})=A\vec{u}+A\vec{v}$.</li>
+<li>$A(c\vec{u})=c(A\vec{u})$.</li>
+</ol>
+<h4 id="齐次线性方程组"><a href="#齐次线性方程组" class="headerlink" title="齐次线性方程组"></a>齐次线性方程组</h4><p>若一个线性方程组可以被写成$A\vec{x}=\vec{0}$的形式,其中$A$是$m\times n$的矩阵,$\vec{x}$是$\mathbb{R}^n$中的向量,称其为<strong>齐次线性方程组</strong>.</p>
+<p>显然齐次线性方程组至少有一个解,即$\vec{x}=\vec{0}$,这个解称作线性齐次方程组的<strong>平凡解</strong>.</p>
+<p>而满足$\vec{x}\ne\vec{0}$的解称作线性齐次方程组的<strong>非平凡解</strong>.</p>
+<p>根据定理2,显然其存在非平凡解的充要条件是该方程至少有一个自由变量.</p>
+<p>考虑自由变量的取值任意,而且基本变量一定是由若干个自由变量乘以定值之和得到的.</p>
+<p>我们把这些定值看作向量,把自由向量看作权重,我们发现:齐次线性方程组的解集总可以表示为$Span\{\vec{v_1},\vec{v_2},…,\vec{v_{p}}\}$,当然,如果该方程组仅有平凡解,那表示为$Span\{\vec{0}\}$.</p>
+<p>把解表示为$Span\{\vec{v_1},\vec{v_2},…,\vec{v_{p}}\}$中元素的形式,称之为<strong>解的参数向量形式</strong>.</p>
+<h4 id="定理6"><a href="#定理6" class="headerlink" title="定理6"></a>定理6</h4><p>对于方程$A\vec{x}=\vec{b}$,它的解一定可以写成$\vec{x}=\vec{p}+\vec{x’}$的形式,其中$\vec{x’}$是方程$A\vec{x}=\vec{0}$的一组解,$\vec{p}$是方程$A\vec{x}=\vec{b}$的一组特解.</p>
+<p>对于该定理的几何意义,我们考虑$\vec{x}\in \mathbb{R}^2$中,即$\vec{x}=\vec{p}+t\vec{u}$,如果我们把它看为向量加法的形式,它的解集应该是在一条直线上的任意向量,这条直线即$\vec{u}$所在直线沿向量$\vec{p}$方向平移后的直线.</p>
+<h4 id="线性无关与线性相关"><a href="#线性无关与线性相关" class="headerlink" title="线性无关与线性相关"></a>线性无关与线性相关</h4><p>称$\mathbb{R}^n$中一组向量$\{\vec{v_1},\vec{v_2},…,\vec{v_p}\}$是<strong>线性无关</strong>的,当且仅当向量方程$x_1\vec{v_1}+x_2\vec{v_2}+…+x_p\vec{v_p}=\vec{0}$仅有平凡解.</p>
+<p>反之,称为<strong>线性相关</strong>,即存在一组不全为0的数$c_1,c_2,…,c_p$使$c_1\vec{v_1}+c_2\vec{v_2}+…+c_p\vec{v_p}=\vec{0}$,这个式子也被称为$\{\vec{v_1},\vec{v_2},…,\vec{v_p}\}$之间的<strong>线性相关关系</strong>.</p>
+<h4 id="矩阵各列的线性无关"><a href="#矩阵各列的线性无关" class="headerlink" title="矩阵各列的线性无关"></a>矩阵各列的线性无关</h4><p>考虑矩阵$A=\begin{bmatrix}\vec{a_1}&amp;\vec{a_2}&amp;…&amp;\vec{a_n}\end{bmatrix}$,考虑矩阵方程$A\vec{x}=\vec{0}$,显然A中的各列的每一个线性相关关系对应于方程$A\vec{x}=\vec{0}$的一个非平凡解.</p>
+<h4 id="两个向量的集合"><a href="#两个向量的集合" class="headerlink" title="两个向量的集合"></a>两个向量的集合</h4><p>两个向量的集合$\{\vec{v_1},\vec{v_2}\}$线性相关,当且仅当其中一个向量是另一个向量的倍数.这个集合线性无关,当且仅当其中任一个向量都不是另一个向量的倍数.</p>
+<h4 id="定理7"><a href="#定理7" class="headerlink" title="定理7"></a>定理7</h4><p>两个或更多向量的集合$S=\{\vec{v_1},\vec{v_2},…,\vec{v_p}\}$线性相关,当且仅当其中至少有一个向量是其它向量的线性组合.</p>
+<h4 id="定理8"><a href="#定理8" class="headerlink" title="定理8"></a>定理8</h4><p>若一个向量组的向量个数超过每个向量的元素个数,那么这个向量组线性相关.</p>
+<p>也就是说,$\mathbb{R}^n$中任意向量组$\{\vec{v_1},\vec{v_2},…,\vec{v_p}\}$在$p&gt;n$时线性相关.</p>
+<p>证明:</p>
+<p>考虑矩阵$P=\begin{bmatrix}\vec{v_1}&amp;\vec{v_2}&amp;…&amp;\vec{v_p}\end{bmatrix}$,由于行比列少,该方程一定存在自由变量，即一定存在非平凡解.</p>
+<h4 id="定理9"><a href="#定理9" class="headerlink" title="定理9"></a>定理9</h4><p>若$\mathbb{R}^n$中任意向量组$\{\vec{v_1},\vec{v_2},…,\vec{v_p}\}$中包含零向量,则其线性相关.</p>
+<h4 id="变换"><a href="#变换" class="headerlink" title="变换"></a>变换</h4><p>由$\mathbb{R}^n$到$\mathbb{R}^m$的一个<strong>变换</strong>T时一个规则,它把$\mathbb{R}^n$中每个向量$\vec{x}$对应$\mathbb{R}^m$中的一个向量$T(\vec x)$.</p>
+<p>集合$\mathbb{R}^n$称为T的<strong>定义域</strong>,而$\mathbb{R}^m$称为T的<strong>余定义域</strong>,符号$T:\mathbb{R}^n\rightarrow \mathbb{R}^m$说明了这一点.</p>
+<p>对于$\mathbb{R}^n$中的向量$\vec{x}$,$\mathbb{R}^m$中向量$T(\vec x)$称为$\vec x$在$T$作用下的像.所有像$T(\vec x)$的集合称为$T$的<strong>值域</strong>.</p>
+<p>若$\mathbb{R}^m$中的每个$\vec b$是$\mathbb{R}^n$中至少一个$\vec x$的像,则称这样的变换为<strong>把$\mathbb{R}^m$映射到$\mathbb{R}^n$上的</strong>,又叫<strong>满射</strong>.</p>
+<p>若$\mathbb{R}^m$中的每个$\vec b$是$\mathbb{R}^n$中至多一个$\vec x$的像,则称这样的变换为<strong>一对一映射</strong>,又叫<strong>单射</strong>.</p>
+<h4 id="矩阵变换"><a href="#矩阵变换" class="headerlink" title="矩阵变换"></a>矩阵变换</h4><p>即定义$T:\mathbb{R}^n\rightarrow \mathbb{R}^m$为$T(\vec x)=A\vec x$,其中$A$是一个$m\times n$的矩阵.</p>
+<h4 id="线性变换"><a href="#线性变换" class="headerlink" title="线性变换"></a>线性变换</h4><p>变换$T:\mathbb{R}^n\rightarrow \mathbb{R}^m$是线性的,当且仅当它满足以下两个条件:</p>
+<ol>
+<li>对$T$的定义域中一切的向量$\vec{u},\vec{v}$,满足$T(\vec{u}+\vec v)=T(\vec u)+T(\vec v)$.</li>
+<li>对$T$的定义域中一切的向量$\vec u$和数$c$,满足$T(c\vec u)=cT(\vec u)$.</li>
+</ol>
+<p>矩阵变换显然是线性变换.</p>
+<p>线性变换有以下的两个性质:</p>
+<ol>
+<li>$T(\vec 0)=\vec 0$.</li>
+<li>$T(c\vec u+d\vec v)=cT(\vec u)+dT(\vec v)$.</li>
+</ol>
+<p>如果我们将第二条性值稍加推广,有:</p>
+<p>$T(c_1\vec v_1+c_2\vec v_2+…+c_p\vec v_p)=c_1T(\vec v_1)+c_2T(\vec v_2)+…+c_pT(\vec v_p)$.</p>
+<p>又被称作<strong>叠加原理</strong>.</p>
+<h4 id="定理10"><a href="#定理10" class="headerlink" title="定理10"></a>定理10</h4><p>设$T:\mathbb{R}^n\rightarrow \mathbb{R}^m$是线性变换,则存在唯一的矩阵$A$使得对$\mathbb{R}^n$中的一切$\vec{x}$,满足$T(\vec x)=A\vec x$.</p>
+<p>事实上,$A$是$m\times n$的矩阵,它的第$j$列是向量$T(\vec {e_j})$,其中$\vec{e_j}$是$\mathbb{R}^n$中单位矩阵$I_n$的第$j$列.</p>
+<p>也即$A=\begin{bmatrix}T(\vec e_1)&amp;T(\vec{e_2})&amp;…&amp;T(\vec e_{n})\end{bmatrix}$.</p>
+<p>称$A$为变换$T$的标准矩阵.</p>
+<p>$A$显然是唯一的,因为如果存在另一个$B$也满足这样,通过假设$\vec x$是单位矩阵$I_n$的某一列可以证明二者一定是相等的矩阵.</p>
+<h4 id="定理11"><a href="#定理11" class="headerlink" title="定理11"></a>定理11</h4><p>设$T:\mathbb{R}^n\rightarrow \mathbb{R}^m$是线性变换,$A$是$T$的标准矩阵,则$T$是单射当且仅当方程$A\vec x=\vec 0$仅有平凡解.</p>
+<p>证明:</p>
+<p>因为$T$是线性的,所以有$T(\vec0)=\vec 0$,如果方程$A\vec x=\vec 0$有非平凡解,显然存在$\vec x$满足$T(\vec x)=\vec 0$,即$T$不是单射的.</p>
+<p>而若$T$不是单射的,则一定存在不相等的两个向量$\vec u$和$\vec v$满足$T(\vec u)=T(\vec v)=\vec b$.</p>
+<p>有$T(\vec u-\vec v)=\vec 0$,则方程存在非平凡解.</p>
+<h4 id="定理12"><a href="#定理12" class="headerlink" title="定理12"></a>定理12</h4><p>设$T:\mathbb{R}^n\rightarrow \mathbb{R}^m$是线性变换,$A$是$T$的标准矩阵,则:</p>
+<ol>
+<li>$T$是$\mathbb{R}^n$到$\mathbb{R}^m$的满射,当且仅当$A$的列生成$\mathbb{R}^m$.</li>
+<li>$T$是$\mathbb{R}^n$到$\mathbb{R}^m$的单射,当且仅当$A$的列线性无关.</li>
+</ol>
+<p>证明:</p>
+<p>1可以根据定理4证明,2可以根据定理11证明.</p>
+<h4 id="差分方程"><a href="#差分方程" class="headerlink" title="差分方程"></a>差分方程</h4><p>如果有矩阵$A$使$\overrightarrow{x_{k+1}}=A\vec{x_k},k\in \mathbb{N}$,称该式子为<strong>线性差分方程</strong>.</p>
+<h3 id="矩阵代数"><a href="#矩阵代数" class="headerlink" title="矩阵代数"></a>矩阵代数</h3><h4 id="可逆矩阵"><a href="#可逆矩阵" class="headerlink" title="可逆矩阵"></a>可逆矩阵</h4><p>称一个$m\times n$的矩阵$A$是<strong>可逆的</strong>,当且仅当$\exist C_{n\times m}$满足$CA=I_{n}$且$\exist D_{n\times m}$满足$AD=I_{m}$.</p>
+<p>可以证明,该定义等价于:</p>
+<p>称一个$n\times n$的矩阵$A$是<strong>可逆的</strong>,当且仅当$\exist C_{n\times n}$满足$CA=AC=I_{n}$,我们记$C=A^{-1}$,对于一个可逆矩阵$A$,$C$是唯一的.</p>
+<p>不可逆矩阵又被称为<strong>奇异矩阵</strong>.</p>
+<p>证明如下:</p>
+<p>考虑$(CA)D=C(AD)=D=C$,显然$C=D$.</p>
+<p>如果存在$D$是$A$的另一个逆矩阵,显然$(CA)D=C(AD)=D=C$.</p>
+<h5 id="引理1"><a href="#引理1" class="headerlink" title="引理1"></a>引理1</h5><p>设$A$是$m\times n$矩阵且$CA=I_n$,则方程$A\vec x=\vec 0$只有平凡解,且$n\leq m$.</p>
+<p>证明:</p>
+<p>考虑方程$A\vec{x}=\vec 0$等价于方程$CA\vec x=C\vec 0$,即$I_n \vec x=\vec 0$,显然只有平凡解.</p>
+<p>而且如果$m&lt;n$,一定有自由变量,不可能只有平凡解.</p>
+<h5 id="引理2"><a href="#引理2" class="headerlink" title="引理2"></a>引理2</h5><p>设$A$是$m\times n$矩阵且$AD=I_n$,则$\forall \vec b\in\mathbb{R}^m$,方程$A\vec x=\vec b$有解,且$m\leq n$.</p>
+<p>证明:</p>
+<p>考虑恒等式$AD\vec b=\vec b$,显然$\vec x=D\vec b$即是一个解且是唯一解.</p>
+<p>根据线性方程组部分的定理4,显然$m\leq n$.</p>
+<p>由上面两条引理得知:若$A$是可逆的,则$A$必为方阵.</p>
+<h4 id="定理6-1"><a href="#定理6-1" class="headerlink" title="定理6"></a>定理6</h4><ol>
+<li>若$A$是可逆矩阵,则$A^{-1}$也可逆且$(A^{-1})^{-1}=A$.</li>
+<li>若$A$和$B$都是可逆方阵,则$AB$也可逆且$(AB)^{-1}=B^{-1}A^{-1}$.</li>
+</ol>
+<p>证明:</p>
+<p>第一条根据逆矩阵的唯一性,显然可证明.</p>
+<p>第二条考虑$(AB)^{-1}(AB)=I=B^{-1}(A^{-1}A)B$,而显然有$ABB^{-1}A^{-1}=I$,虽然矩阵不满足消去律,但根据逆矩阵定义显然可证明.</p>
+<h4 id="初等矩阵"><a href="#初等矩阵" class="headerlink" title="初等矩阵"></a>初等矩阵</h4><p>将单位矩阵经过一次初等行变换得到的矩阵称作<strong>初等矩阵</strong>.</p>
+<p>不难发现,对任意$m\times n$矩阵进行初等行变换一定等价于将其左乘一个初等矩阵.</p>
+<p>对于$R_i\leftrightarrow R_j$:</p>
+<script type="math/tex; mode=display">E_{x,y}=
+\begin{cases}
+1 &x=i,y=j\\
+1 &x=j,y=i\\
+1 &x=y,x\ne i,x\ne j\\
+0 &Otherwise
+\end{cases}\\</script><p>对于$kR_i\rightarrow R_i,k\ne0$:</p>
+<script type="math/tex; mode=display">E_{x,y}=
+\begin{cases}
+k &x=y,x=i\\
+1 &x=y,x\ne i\\
+0 &Otherwise
+\end{cases}\\</script><p>对于$R_i+kR_j\rightarrow R_i,i\ne j$:</p>
+<script type="math/tex; mode=display">E_{x,y}=
+\begin{cases}
+k &x=i,y=j\\
+1 &x=y\\
+0 &Otherwise
+\end{cases}\\</script><p>考虑如下事实:行变换是可逆的,那么初等矩阵显然是可逆的.</p>
+<p>这引出定理7.</p>
+<h4 id="定理7-1"><a href="#定理7-1" class="headerlink" title="定理7"></a>定理7</h4><p>$n\times n$矩阵是可逆的,当且仅当$A$行等价于$I_n$,也即$A$可以通过一系列初等行变换变换为$I_n$.</p>
+<p>如果$A$可以通过一系列初等行变换变换为$I_n$,根据初等矩阵的知识,这等价于:</p>
+<p>$E_1E_2…E_pA=I_n$,由于初等矩阵显然可逆,我们有$A=(E_1E_{2}…E_p)^{-1}$,根据定理6,有$A^{-1}=(E_1E_2…E_p)$.</p>
+<p>如果$A$是可逆矩阵,那么根据定义部分的引理2以及线性方程组部分定理4,显然$A$的简化阶梯形是$I$,也即二者行等价.</p>
+<h4 id="求解逆矩阵"><a href="#求解逆矩阵" class="headerlink" title="求解逆矩阵"></a>求解逆矩阵</h4><p>若$A$可逆,我们考虑将$A$和$I$放在同一个$n\times 2n$的矩阵中,记作$\begin{bmatrix}A &amp;I \end{bmatrix}$,根据定理7,它显然行等价于$\begin{bmatrix}I&amp;A^{-1}\end{bmatrix}$.</p>
+<p>另外,考虑将$I$写作$\begin{bmatrix}\vec {e_1}&amp;\vec{e_2}&amp;…&amp;\vec{e_n}\end{bmatrix}$的形式,则我们发现上述过程等价于求若干个形如$A\vec x_i=\vec e_i$的方程的解,并且$A^{-1}=\begin{bmatrix}\vec{x_1}&amp;\vec{x_2}&amp;…&amp;\vec{x_n}\end{bmatrix}$.</p>
+<h4 id="定理8-1"><a href="#定理8-1" class="headerlink" title="定理8"></a>定理8</h4><p>设$A$为$n\times n$方阵,下列命题等价:</p>
+<ol>
+<li>$A$是可逆矩阵.</li>
+<li>$A^T$是可逆矩阵.</li>
+<li>存在矩阵$C$满足$CA=I_n$.</li>
+<li>存在矩阵$D$满足$AD=I_n$.</li>
+<li>$A$行等价于$I_n$.</li>
+<li>$A$有$n$个主元位置.</li>
+<li>$A$的各列生成$\mathbb{R}^n$.</li>
+<li>$A$的各列线性无关.</li>
+<li>方程$A\vec{x}=\vec{0}$仅有平凡解.</li>
+<li>$\forall \vec{b}\in \mathbb{R}^n$,方程$A\vec{x}=\vec{b}$有唯一解.</li>
+<li>线性变换$\vec{x}\rightarrow A\vec {x}$是单射.</li>
+<li>线性变换$\vec{x}\rightarrow A\vec{x}$是满射.</li>
+</ol>
+<p>证明:</p>
+<p>根据我们已经证明了(1)和(5)等价,根据线性方程组部分定理4,我们可以证明(1),(5),(6),(7),(8),(9),(10)等价.</p>
+<p>考虑可逆矩阵定义部分的引理1和2,我们有(3)是(9)的充分条件,(4)是(10)的充分条件,又因为(1)是(3)和(4)的充分条件,而(1),(9),(10)等价,因此(1),(3),(4)等价.</p>
+<p>而若$A$有$n$个主元位置,显然$A^T$也有$n$个主元位置,显然(1),(6),(2)等价.</p>
+<p>又根据线性方程组部分定理12,(11)(12)与(1)等价.</p>
+<p>由此可以发现,这十二个命题全部等价.</p>
+<h4 id="可逆线性变换"><a href="#可逆线性变换" class="headerlink" title="可逆线性变换"></a>可逆线性变换</h4><p>称线性变换$T:\mathbb{R}^n\rightarrow \mathbb{R}^n$是<strong>可逆的</strong>,当且仅当存在线性变换$S:\mathbb{R}^n\rightarrow \mathbb{R}^n$满足:</p>
+<p>$\forall \vec x\in \mathbb{R}^n$,$S(T(\vec x))=\vec x$.</p>
+<p>$\forall \vec x\in \mathbb{R}^n$,$T(S(\vec x))=\vec x$.</p>
+<h4 id="定理9-1"><a href="#定理9-1" class="headerlink" title="定理9"></a>定理9</h4><p>一个线性变换是可逆的,当且仅当其标准矩阵是可逆的.</p>
+<p>这个证明是显然的.</p>
+<h4 id="分块矩阵"><a href="#分块矩阵" class="headerlink" title="分块矩阵"></a>分块矩阵</h4><p>我们考虑将一个矩阵看作若干个子矩阵的拼接,类似于我们求逆矩阵时做的那样:将若干个矩阵拼接起来.</p>
+<p>换句话说,我们尝试将矩阵看作元素放入矩阵中,并尝试根据基本的矩阵运算去做这种矩阵的运算.</p>
+<p>分块矩阵的<strong>矩阵加法</strong>:若矩阵$A$和$B$维数相同且都以同样的方式分块,则矩阵的和$A+B$也以同样的方式分块且每一块都是$A$和$B$对应块的和.</p>
+<p>分块矩阵的<strong>标量乘法</strong>:若$c$是一个常数,$A$是一个分块矩阵,则$cA$是$A$的子矩阵乘$c$再以同样的方式组合起来的结果.</p>
+<p>分块矩阵的<strong>矩阵乘法</strong>:若矩阵$A$和$B$的维数使得$AB$有定义,并且$A$列的分法与$B$行的分法一致,那我们显然可以直接将矩阵作为元素来直接进行矩阵乘法.</p>
+<p>由上面的讨论引出定理10</p>
+<h4 id="定理10-1"><a href="#定理10-1" class="headerlink" title="定理10"></a>定理10</h4><p>若$A$是$m\times n$矩阵,$B$是$n\times p$矩阵,我们定义$row_i(A)$为$A$的第$i$列,$col_i(A)$为$A$的第$i$行,则:</p>
+<p>$AB=\begin{bmatrix}col_1(A)&amp;col_2(A)&amp;…&amp;col_n(A)\end{bmatrix}\begin{bmatrix}row_1(B)\\row_2(B)\..\\row_n(B)\end{bmatrix}$</p>
+<p>证明是显然的.</p>
+<h4 id="矩阵的列空间与零空间"><a href="#矩阵的列空间与零空间" class="headerlink" title="矩阵的列空间与零空间"></a>矩阵的列空间与零空间</h4><p>矩阵$A$的<strong>列空间</strong>是$A$的各列的线性组合的集合,记作$Col A$.</p>
+<p>换句话说,若$A_{m\times n}=\begin{bmatrix}\vec{a_1}&amp;\vec{a_2}&amp;…&amp;\vec{a_n}\end{bmatrix}$,则$Col A=Span(\vec{a_1},\vec{a_2},…,\vec{a_n})$.</p>
+<p>矩阵$A$的<strong>零空间</strong>是齐次方程$A\vec x=\vec 0$的所有解的集合,记作$Nul A$.</p>
+<p>我们不难证明矩阵$A_{m\times n}$的零空间一定是$\mathbb{R}^n$的一个子空间.</p>
+<p>要求一个矩阵的零空间的基,即要求其所代表的解的参数向量形式.</p>
+<h4 id="定理13"><a href="#定理13" class="headerlink" title="定理13"></a>定理13</h4><p>矩阵$A$的主元列构成$A$的列空间的基.</p>
+<p>我们先考虑简化阶梯型矩阵的情况,则该定理显然.又考虑矩阵的各列之间的线性关系可以用方程$A\vec x=\vec 0$表示,而一个矩阵化为简化阶梯型后的关系显然是不变的,因此上述定理得证.</p>
+<h4 id="矩阵的秩"><a href="#矩阵的秩" class="headerlink" title="矩阵的秩"></a>矩阵的秩</h4><p>矩阵$A$的<strong>秩</strong>(记作$rank A$)定义为$A$的列空间的维数.</p>
+<p>不难发现一个矩阵的秩即其主元列的个数.</p>
+<h4 id="定理14-秩定理"><a href="#定理14-秩定理" class="headerlink" title="定理14:秩定理"></a>定理14:秩定理</h4><p>如果一个矩阵$A$有$n$列,则$rank A+\dim Nul A=n$.</p>
+<h4 id="可逆矩阵定理"><a href="#可逆矩阵定理" class="headerlink" title="可逆矩阵定理"></a>可逆矩阵定理</h4><p>(该定理是定理8的进一步扩展)</p>
+<p>设$A$为$n\times n$方阵,下列命题等价:</p>
+<ol>
+<li>$A$是可逆矩阵.</li>
+<li>$A^T$是可逆矩阵.</li>
+<li>存在矩阵$C$满足$CA=I_n$.</li>
+<li>存在矩阵$D$满足$AD=I_n$.</li>
+<li>$A$行等价于$I_n$.</li>
+<li>$A$有$n$个主元位置.</li>
+<li>$A$的各列生成$\mathbb{R}^n$.</li>
+<li>$A$的各列线性无关.</li>
+<li>方程$A\vec{x}=\vec{0}$仅有平凡解.</li>
+<li>$\forall \vec{b}\in \mathbb{R}^n$,方程$A\vec{x}=\vec{b}$有唯一解.</li>
+<li>线性变换$\vec{x}\rightarrow A\vec {x}$是单射.</li>
+<li>线性变换$\vec{x}\rightarrow A\vec{x}$是满射.</li>
+<li>$A$的列向量构成$\mathbb{R}^n$的一个基.</li>
+<li>$Col A=\mathbb{R}^n$.</li>
+<li>$\dim Col A=n$.</li>
+<li>$rank A=n$.</li>
+<li>$Nul A=\{\vec 0\}$.</li>
+<li>$\dim Nul  A=0$.</li>
+<li>$\det A\ne 0$.</li>
+</ol>
+<h3 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h3><p>方阵$A_{n\times n}$的行列式是一个将其映射到标量的函数,记作$\det(A)$或者$|A|$.</p>
+<p>定义$P_n$为所有长度为$n$的排列$p$组成的集合,那么我们定义:</p>
+<script type="math/tex; mode=display">
+\det(A)=\sum_{p\in P_n}sgn(p)\prod_{i=1}^nA_{i,p_i}\\</script><p>其中$sgn$表示排列逆序对个数对$-1$的幂,即设$N(p)$表示$p$的逆序对个数,那么$sgn(p)=(-1)^{N(p)}$.</p>
+<p>对于$n\times n$的矩阵$A$和$\mathbb{R}^n$中的向量$\vec b$,令$A_i(\vec b)$为$A$中第$i$列由向量$\vec b$替换得到的矩阵.</p>
+<h4 id="余子式与代数余子式"><a href="#余子式与代数余子式" class="headerlink" title="余子式与代数余子式"></a>余子式与代数余子式</h4><p>对于矩阵$A$,$A$的<strong>余子式</strong>$M_{i,j}$定义为$A$去掉第$i$行第$j$列的矩阵的行列式.其中形如$M_{i,i}$的余子式称为<strong>主余子式</strong>.</p>
+<p>对于矩阵$A$,其<strong>代数余子式</strong>(又称<strong>余因子</strong>)$C_{i,j}=(-1)^{i+j}M_{i,j}\\$.</p>
+<h4 id="余子矩阵与伴随矩阵"><a href="#余子矩阵与伴随矩阵" class="headerlink" title="余子矩阵与伴随矩阵"></a>余子矩阵与伴随矩阵</h4><p>代数余子式构成的矩阵$C=[C_{i,j}]$称为<strong>余子矩阵</strong>.</p>
+<p>$A$的<strong>伴随矩阵</strong>定义为$A$的余子矩阵的转置,记作$adj(A)$.</p>
+<p>$\forall k$,我们有$\det(A)=\sum_{i=1}^nA_{k,i}C_{k,i}\\$.</p>
+<h4 id="定理3-行列式与行变换"><a href="#定理3-行列式与行变换" class="headerlink" title="定理3:行列式与行变换"></a>定理3:行列式与行变换</h4><p>我们考虑以下几个较为显然的定理:</p>
+<ol>
+<li>$\det(A)=\det(A^T)$.</li>
+<li>用一个数乘以矩阵的某行或某列得到的值等于用这个数乘以原矩阵的行列式.</li>
+<li>如果一个矩阵中某一行是两组数之和,则这个矩阵的行列式等于两个矩阵的行列式之和,这两个矩阵分别以这两组数为这一行,其余各行与原矩阵相等.</li>
+<li>对换矩阵中两行的位置,行列式的值取反.</li>
+<li>矩阵中有两行</li>
+<li>矩阵中有两行成比例,那么行列式的值为$0$.</li>
+<li>把一行的某个倍数加到另一行,行列式的值不变.</li>
+<li>对角线矩阵的行列式即对角线上所有数的乘积.</li>
+</ol>
+<p>计算行列式时，可以通过行变换，将原矩阵变成对角线矩阵，从而快速求出行列式.</p>
+<p>值得一提的是,如果我们把行变换操作看为初等矩阵$E$,那么上面的过程就证明了:$\det(EA)=(\det E)(\det A)$.</p>
+<h4 id="定理4-可逆矩阵定理的补充"><a href="#定理4-可逆矩阵定理的补充" class="headerlink" title="定理4:可逆矩阵定理的补充"></a>定理4:可逆矩阵定理的补充</h4><p>方阵$A$可逆当且仅当$\det A\ne 0$.</p>
+<p>如果方阵$A$可逆,说明它进行行化简后主对角线上的数字没有$0$,自然对应着$\det A\ne 0$.</p>
+<h4 id="定理6-乘法原理"><a href="#定理6-乘法原理" class="headerlink" title="定理6:乘法原理"></a>定理6:乘法原理</h4><p>若$A$和$B$均为$n\times n$矩阵,则$\det(AB)=(\det A)(\det B)$.</p>
+<p>若$A$或$B$不可逆,显然乘积也不可逆(如果乘积可逆,设其逆矩阵为$W$,有$ABW=I$,则$BW=A^{-1}$,矛盾),于是结果为$0$.</p>
+<p>反之,则可以将二者均分解为若干初等矩阵相乘的结果,根据定理3,得证.</p>
+<p>另外,根据这个原理,我们显然有:若$A$可逆,则$\det(A)=\cfrac{1}{\det (A^{-1})}$.</p>
+<h4 id="定理7-克拉默法则"><a href="#定理7-克拉默法则" class="headerlink" title="定理7:克拉默法则"></a>定理7:克拉默法则</h4><p>若$A$可逆,则$A\vec x=\vec b$的唯一解可由下式给出:</p>
+<script type="math/tex; mode=display">
+x_i=\cfrac{\det A_i(\vec b)}{\det A}</script><p>证明:不难发现$AI_i(\vec x)=A_i(\vec b)$,则根据行列式的乘法原理,有$(\det A)(\det I_i(\vec x))=\det A_i(\vec b)$.</p>
+<p>而$\det I_i(\vec x)=x_i$,于是该定理显然.</p>
+<h4 id="定理8-逆矩阵公式"><a href="#定理8-逆矩阵公式" class="headerlink" title="定理8:逆矩阵公式"></a>定理8:逆矩阵公式</h4><p>若$A$为$n\times n$可逆矩阵,则$A^{-1}=\cfrac{adj A}{\det A}$.</p>
+<p>证明:</p>
+<p>设$A^{-1}$的第$j$列是一个向量$\vec x$,则它满足:$A\vec x=\vec e_j$.</p>
+<p>则根据克拉默法则,显然有:$x_i=\cfrac{\det A_i(\vec e_j)}{\det A}$.</p>
+<p>我们对$\det A_i(\vec e_j)$做代数余子式展开,则$\det A_i(\vec e_j)=C_{j,i}$,定理得证.</p>
+<p>通过这个定理也不难发现:$adj (A^{-1})=(adj A)^{-1}$.</p>
+<h4 id="定理9-2"><a href="#定理9-2" class="headerlink" title="定理9"></a>定理9</h4><p>若$A$为一个$2\times 2$矩阵,则由$A$的列向量确定的平行四边形的面积为$|\det A|$.</p>
+<p>若$A$为一个$3\times 3$矩阵,则由$A$的列向量确定的平行六面体的体积为$|\det A|$.</p>
+<p>证明:</p>
+<p>考虑二维的情况,三维同理.</p>
+<p>若$A$为对角线矩阵,证明显然.</p>
+<p>否则,考虑$\vec a,\vec b$所确定的平行四边形和$\vec a+c\vec b,\vec b$确定的平行四边形面积相等,因此显然可以使用行变换/列变换.</p>
+<h4 id="定理10-2"><a href="#定理10-2" class="headerlink" title="定理10"></a>定理10</h4><p>若$T:\mathbb{R}^2\rightarrow\mathbb{R}^2$是由矩阵$A$确定的线性变换,若$S$是$\mathbb{R}^2$中的一个平行四边形,则$\{T(S)的面积\}=|\det A|\{S的面积\}$.</p>
+<p>若$T:\mathbb{R}^3\rightarrow\mathbb{R}^3$是由矩阵$A$确定的线性变换,若$S$是$\mathbb{R}^3$中的一个平行六面体,则$\{T(S)的体积\}=|\det A|\{S的体积\}$.</p>
+<p>根据行列式的乘法原理和定理9,这个定理是显然的.</p>
+<p>另外,这个定理可以扩展:如果一个二维图形上的所有点都进行相同的线性变换,那么这个二维图形的面积将乘以$|\det A|$.</p>
+<h4 id="Binet-Cauchy定理"><a href="#Binet-Cauchy定理" class="headerlink" title="Binet - Cauchy定理"></a>Binet - Cauchy定理</h4><p>定义大小分别为$n\times m$和$m\times n$(其中$n\leq m$)的矩阵$A$和$B$,令$A[S]$表示矩阵$A$只取$S$集合中的列所形成的矩阵,$B[S]$表示矩阵$B$只取$S$集合中的行所形成的矩阵,则有:</p>
+<script type="math/tex; mode=display">
+\det(AB)=\sum_{S\subseteq\{1,2,...,m\},|S|=n}(\det(A[S]))(\det(B[S]))</script><p>设$\lambda(P)$为排列$P$的逆序对数.</p>
+<p>引理1:定义$P’$为$P$的逆排列,即满足$P’_{P_i}=i$,则$\lambda(P)=\lambda(P’)$.</p>
+<p>证明:显然.</p>
+<p>引理2:令$R_{Q_i}=P_i$,则$(-1)^{\lambda(R)}=(-1)^{\lambda(Q)+\lambda(P)}$.</p>
+<p>考虑一开始是一个拥有两个关键字$\{P_i,Q_i\}$的序列,所求即按照第一关键字排序后按照第二关键字求逆序对个数.</p>
+<p>如果我们进行冒泡排序,考虑每次交换后逆序对数会改变,而总共会改变$\lambda(P)$次,所以定理得证.</p>
+<p>(如无特殊说明,下面式子的$\sum$下枚举的都是排列)</p>
+<p>接下来,我们有:</p>
+<script type="math/tex; mode=display">
+\sum_{S\subseteq\{1,2,...,m\},|S|=n}(\det(A[S]))(\det(B[S]))\\
+=\sum_{S\subseteq\{1,2,...,m\},|S|=n}(\sum_{P}(-1)^{\lambda(P)}\prod_{i=1}^nA_{i,S_{P_i}})(\sum_{Q}(-1)^{\lambda(Q)}\prod_{i=1}^nB_{S_i,Q_i})\\
+=\sum_{S\subseteq\{1,2,...,m\},|S|=n}\sum_{P}\sum_{Q}(-1)^{\lambda(P)+\lambda(Q)}\prod_{i=1}^nA_{i,S_{P_i}}B_{S_i,Q_i}</script><p>若让$R$为可重集合,又有:</p>
+<script type="math/tex; mode=display">
+\det(AB)=\sum_{P}(-1)^{\lambda(P)}\prod_{i=1}^n(\sum_{j=1}^mA_{i,j}B_{j,P_i})\\
+=\sum_{P}(-1)^{\lambda(P)}\sum_{R,\forall i,R_i\in[1,m]}(\prod_{i=1}^nA_{i,R_i}B_{R_i,P_i})\\
+=\sum_{R,\forall i,R_i\in[1,m]}\sum_P(-1)^{\lambda(P)}(\prod_{i=1}^nA_{i,R_i})(\prod_{i=1}^nB_{R_i,P_i})</script><p>如果$\exists 1\leq i,j\leq n,i\ne j$,$R_i=R_j$,则交换它们后,后面的值仍然不变,可逆序对的奇偶性改变了.如果我们对于每一个重复序列都选取最靠前的一对,那么显然只有$R$不重的情况才有可能产生贡献.</p>
+<p>所以我们有:</p>
+<script type="math/tex; mode=display">
+\det(AB)=\sum_{S\subseteq\{1,2,...,m\},|S|=n}\sum_{Q}\sum_{P}(-1)^{\lambda(P)}(\prod_{i=1}^nA_{i,S_{Q_i}})(\prod_{i=1}^nB_{S_{Q_i},P_i})\\
+=\sum_{S\subseteq\{1,2,...,m\},|S|=n}\sum_{Q}\sum_{P_{Q'}}(-1)^{\lambda(P_{Q'})}(\prod_{i=1}^nA_{i,S_{Q_i}})(\prod_{i=1}^nB_{S_i,P_{Q'_i}})\\
+=\sum_{S\subseteq\{1,2,...,m\},|S|=n}\sum_{Q}\sum_{P_{Q'}}(-1)^{\lambda(P)+\lambda(Q)}(\prod_{i=1}^nA_{i,S_{Q_i}})(\prod_{i=1}^nB_{S_i,P_{Q'_i}})\\</script><p>左右显然相等.</p>
+<p>另外,这个定理有更简单的证明方法,即使用LGV引理与组合意义证明.</p>
+<p>不妨设现在有个点的集合$A,B,C$,现在想求出$A\rightarrow B\rightarrow C$的不交路径的奇偶数量差,会发现左右的组合意义是相等的.</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/27/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" data-id="cl7biz3f50009lcvt0fgc8ll3" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/08/29/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" data-id="cl7eprat2000a0kvtgo9g5g0t" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-图的计数问题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/08/29/%E5%9B%BE%E7%9A%84%E8%AE%A1%E6%95%B0%E9%97%AE%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2022-08-29T12:04:11.532Z" itemprop="datePublished">2022-08-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="图的计数问题"><a href="#图的计数问题" class="headerlink" title="图的计数问题"></a>图的计数问题</h2><h3 id="Prufer序列"><a href="#Prufer序列" class="headerlink" title="Prufer序列"></a>Prufer序列</h3><p>我们可以将一颗有编号$n$个点($n\geq 2$)的无根树与一个长度为$n-2$的Prufer序列建立双射.换句话说,一颗有编号$n$个节点的无根树总共有$n^{n-2}$种(Cayley公式).</p>
+<p>首先证明一个树可以对应到一个序列:每次选择一个度数为$1$的编号最小的点,把它连向的点加到序列中并把这个点删去,直到最后只剩下两个节点,这样我们就把一棵树对应到一个序列.不难发现每个点出现的次数是其度数$-1$.</p>
+<p>然后证明一个序列可以还原成一棵树:</p>
+<p>我们可以通过序列得知每个点的度数,每次找到度数中最小的那个点并把它与序列中的第一个元素连边并删去序列中的第一个元素,不断这么做显然可以还原树.</p>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><p>一个$n$个图$m$条边的图有$k$个连通块,现在加入$k-1$条边使得图连通,求方案数.</p>
+<p>令$s_i$为第$i$个连通块的点数,$d_i$为第$i$个连通块所新连上的边数,如果我们令$\binom{n}{c_1,c_2,…,c_m}=\cfrac{n!}{c_1!c_2!…c_m!},\sum_{i=1}^mc_i=n\\$,也即将$n$个位置拆分成$m$个集合,第$i$个集合有$c_i$个位置的方案数.</p>
+<p>那我们所需要做的也就是枚举每个连通块所新连出的边数$d_i$,于是答案即$\sum_d[\sum d_i=2k-2]\binom{k-2}{d_1-1,d_2-1,…,d_k-1}\prod_{i=1}^ks_i^{d_i}\\$.</p>
+<p>注意到我们有多项式定理:$(x_1+x_2+…+x_m)^n=\sum_{c}[\sum c_i=n]\binom{n}{c_1,c_2,…,c_m}\prod_{i=1}^mx_i^{c_i}\\$.</p>
+<p>于是原式$=n^{k-2}\prod_{i=1}^k s_i$.</p>
+<h3 id="LGV引理"><a href="#LGV引理" class="headerlink" title="LGV引理"></a>LGV引理</h3><p>设$G$是一个有限的带权有向无环图,有点集$V$的一个大小为$n$的子集$A=\{a_1,a_2,…,a_n\}$作为起点集合,一个大小为$n$的子集$B=\{b_1,b_2,…,b_n\}$作为终点集合.</p>
+<p>记边$i$的权值为$w_i$.对于有向路径$p$,记路径上所有边的边权的乘积为$w(p)$.记$e(u,v)=\sum_{p:u\rightarrow v}w(p)$,即从$u$到$v$的所有路径的边权之和.</p>
+<p>记$P:A\rightarrow B=(p_1,p_2,…,p_n)$,$p_i$表示从$a_i$到$b_{\sigma(i)}$的一条路径,其中$\sigma$是一个排列,记$sign(\sigma)$为$-1$以这个排列的逆序对数量为幂的值.又记$\sigma(P)$为$P$所对应终点的排列.若满足$\forall 1\leq i,j\leq n,i\ne j$,$p_i$与$p_j$没有公共点,则记作$P^u$,否则记作$P^c$,若不作区分记作$P$.记$w(P)=\prod_{i=1}^n w(p_i)\\$.</p>
+<p>设矩阵$M$满足$M_{i,j}=e(a_i,b_j)$,那么有:</p>
+<script type="math/tex; mode=display">
+\det M=\sum_{P^u:A\rightarrow B}sign(\sigma(P^u))w(P^u)</script><p>证明:</p>
+<p>根据行列式的定义,我们有:</p>
+<script type="math/tex; mode=display">
+\det M=\sum_{\sigma}sign(\sigma)\prod_{i=1}^ne(a_i,b_{\sigma(i)})\\
+=\sum_{\sigma}sign(\sigma)\prod_{i=1}^n\sum_{p_i:a_i\rightarrow b_{\sigma(i)}}w(p_i)\\</script><p>考虑后面那部分,$\prod_{i=1}^n\sum_{p_i:a_i\rightarrow b_{\sigma(i)}}w(p_i)\\$形如一个卷积的形式,所以这个式子等价于所有对应排列为$\sigma$的$P$的$w(P)$,所以有:</p>
+<script type="math/tex; mode=display">
+\det M=\sum_{\sigma}sign(\sigma)(\sum_{P:\{a_1,...,a_n\}\rightarrow \{b_{\sigma(1)},...,b_{\sigma(n)}\}}w(P))\\
+=\sum_{P:A\rightarrow B}sign(\sigma(P))w(P)\\
+=\sum_{P^u:A\rightarrow B}sign(\sigma(P^u))w(P^u)+\sum_{P^c:A\rightarrow B}sign(\sigma(P^c))w(P^c)</script><p>接下来只需证明$\sum_{P^c:A\rightarrow B}sign(\sigma(P^c))w(P^c)=0\\$即可.</p>
+<p>设所有$P^c$组成的集合为$E$,考虑构造一个映射$f:E\rightarrow E$满足如下条件:</p>
+<ol>
+<li>$f(P^c)\ne P^c$.</li>
+<li>$f(f(P^c))=P^c$.</li>
+<li>$w(f(P^c))=w(P^c)$.</li>
+<li>$sign(f(P^c))=-sign(P^c)$.</li>
+</ol>
+<p>上面的结论即得证.</p>
+<p>我们不妨考虑$P^c$中的第一对相交的路径$p_i$和$p_j$,并交换它们的终点.显然满足上述条件,于是结论得证.</p>
+<h4 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h4><p>现在有$n$个点,第$i$个点位于$(a_i,1)$,需要走到$(b_i,n)$.一个在$(x,y)$的点可以走向$(x+1,y)$或$(x,y+1)$.求路径不相交的方案数.</p>
+<p>路径不相交,则终点排列只有可能是$\{1,2,…,n\}$,直接使用LGV引理即可.</p>
+<h3 id="矩阵树定理"><a href="#矩阵树定理" class="headerlink" title="矩阵树定理"></a>矩阵树定理</h3><h4 id="无向图情况"><a href="#无向图情况" class="headerlink" title="无向图情况"></a>无向图情况</h4><p>定义无向图的度数矩阵$D(G)$为:$D(G)_{i,j}=\begin{cases}0&amp;i\ne j\\\deg_{i}&amp;i=j\end{cases}$.</p>
+<p>令$w(i,j)$为$i$与$j$之间直接相连的无向边个数,定义无向图的邻接矩阵$A(G)_{i,j}=\begin{cases}0&amp;i=j\\w(i,j)&amp;i\ne j\end{cases}$</p>
+<p>定义无向图的基尔霍夫矩阵(又称拉普拉斯矩阵)$L(G)=D(G)-A(G)$.</p>
+<p>记$t(G)$为图$G$的生成树个数,那么有:$t(G)$等于基尔霍夫矩阵任意一个主余子式.</p>
+<p>引理:无向图的基尔霍夫矩阵的任意一个代数余子式都相等.</p>
+<p>证明:考虑删去第$i$行,设剩下的矩阵为$A=[\vec r_1,\vec r_2,…,\vec r_n]$,根据基尔霍夫矩阵的性质,不难发现$\sum{\vec r_i}=\vec 0$.$\forall 1\leq j&lt;k\leq n$,如果我们删去第$j$列,考虑将除了第$k$列的其它列全部加到第$k$列,于是得到矩阵$[\vec r_1,…,\vec r_{j-1},\vec r_{j+1},…,\vec r_{k-1},-\vec r_j,\vec r_{k+1},…,\vec r_n]$.我们接下来一路将第$k$列交换到第$j+1$列之前并取反,我们就得到了删去第$k$列的矩阵,于是有$M_{i,j}=(-1)^{1+(k-1)-(j+1)+1}M_{i,k}$,也就是$C_{i,j}=C_{i,k}$,同理可证明$C_{j,i}=C_{k,i}$.</p>
+<p>接下来,用$T$表示生成树的边的集合,设$w(T)=\prod_{e\in T}w(e)$,我们只需证明$C_{1,1}=\sum w(T)$.</p>
+<p>定义$\zeta(e,u)=v,e=\{u,v\}$,考虑构造一个$n\times m$的矩阵$A$满足$A_{i,j}=\begin{cases}1&amp;i\in e_j\and i&lt;\zeta(e_j,i)\-1&amp;i\in e_j\and i&gt;\zeta(e_j,i)\\0&amp;other\end{cases}\\$.</p>
+<p>注意到:</p>
+<script type="math/tex; mode=display">
+AA^T(i,j)=\sum_{k=1}^mA(i,k)A^T(k,j)\\
+=\sum_{k=1}^mA(i,k)A(j,k)\\</script><p>当$i=j$时,不难发现$AA^T(i,j)=\sum_{k=1}^m [i\in e_k]=\deg_i$.不然,注意到显然为$-\sum_{k=1}^m[i\in e_k][j\in e_k]$.也就是说,$AA^T=L$.</p>
+<p>定义$A$删去第一行后得到的矩阵为$B$,则$BB^T=M_{1,1}$.此时我们带入Cauchy-Binet公式,得到:</p>
+<script type="math/tex; mode=display">
+M_{1,1}=\sum_{|S|=n-1,S\subseteq\{1,2,...,m\}}\det(B[S]B^T[S])\\
+=\sum_{|S|=n-1,S\subseteq\{1,2,...,m\}}\det(B[S])^2</script><p>接下来我们需要证明:如果$S$集合构成了一棵生成树,那么$\det B[S]=\pm 1$.反之,$\det B[S]=0$.</p>
+<p>如果集合没有构成一个生成树,则至少存在一个简单环.如果有某个点是孤立点那么答案肯定是$0$,因此只需考虑每个点都与边连通的情况即可.</p>
+<p>考虑这种情况下,如果有两条边$(u_1,u_2)$和$(u_2,u_3)$被选上了,那么我们可以通过列变换将它们改为$(u_1,u_2)$和$(u_1,u_3)$.这样不断进行下去,如果存在环,一定会出现重边选择的情况,这个时候行列式的值为$0$.如果不存在环,那么我们可以通过这个操作得到一个菊花图.所以行列式为$\pm 1$.</p>
+<p>所以定理得证.</p>
+<h4 id="有向图情况"><a href="#有向图情况" class="headerlink" title="有向图情况"></a>有向图情况</h4><p>定义有向图的出度矩阵$D^{out}(G)=\begin{cases}0&amp;i\ne j\\\deg^{out}_i&amp;i=j\end{cases}$,类似地可以定义入度矩阵$D^{in}(G)$.</p>
+<p>令$cnte(i,j)$为从$i$直接连向$j$的有向边个数,定义有向图的邻接矩阵$A(G)_{i,j}=\begin{cases}0&amp;i=j\\cnte(i,j)&amp;i\ne j\end{cases}$</p>
+<p>定义有向图的出度基尔霍夫矩阵$L^{out}(G)=D^{out}(G)-A(G)$,同理可以定义其入度基尔霍夫矩阵$L^{in}(G)$.</p>
+<p>记$t^{root}(r,G)$为图$G$以$r$为根的根向生成树($r$为根时,所有边都从儿子指向父亲)个数,同理可以定义叶向生成树个数$t^{leaf}(r,G)$.</p>
+<p>设$M_{r,r}$为$L^{out}$的主余子式,有$t^{root}(r,G)=M_{r,r}$.叶向同理.</p>
+<p>下面只简单提到根向生成树的证明,叶向同理.</p>
+<p>类似于无向图,我们考虑构造$n\times m$矩阵$A$和$(n-1)\times m$矩阵$B$:</p>
+<script type="math/tex; mode=display">
+A_{i,j}=\begin{cases}1&e_j's\ head\ is \ i\\-1&e_j's\ tail\ is \ i\\0&other\end{cases}\\
+B_{i,j}=\begin{cases}1&e_j's\ head\ is \ i\\0&other\end{cases}</script><p>剩下的部分与无向图类似.</p>
+<h3 id="BEST定理"><a href="#BEST定理" class="headerlink" title="BEST定理"></a>BEST定理</h3><p>设$ec(G)$为有向图$G$的欧拉回路个数,若其存在欧拉回路,则:</p>
+<script type="math/tex; mode=display">
+ec(G)=t^{root}(G,x)\prod_{i=1}^n(\deg_i-1)!</script><p>其中$\deg_i=\deg^{in}_i=\deg_i^{out}$.</p>
+<p>考虑如果勒令以$x$为起点,我们保留除了$x$以外每个点的最后经过的出边,最后一定会形成一棵根向树.而其他点可以随便选(由于我们勒令了每个点存在一个出边,所以不可能走到死胡同),这样的答案是$t^{root}(G,x)\deg_x\prod_{i=1}^n(\deg_i-1)!$.</p>
+<p>但是如果没有规定起点,考虑循环重构,在我们选择不同的边当作初始边时,只需循环一下总体的顺序,就可以得到以另一条边为初始边的另一个图,所以答案要比规定起点的答案多除一个$\deg_x$.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lwlaymh.github.io/2022/08/29/%E5%9B%BE%E7%9A%84%E8%AE%A1%E6%95%B0%E9%97%AE%E9%A2%98/" data-id="cl7eprasw00040kvthpi9ahcq" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -125,7 +625,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/26/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E4%BC%98%E5%8C%96/" data-id="cl7biz3er0000lcvt7eizbzlt" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/08/26/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E4%BC%98%E5%8C%96/" data-id="cl7eprasj00000kvtao9jdccy" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -158,7 +658,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/25/%E6%A6%82%E7%8E%87%E4%B8%8E%E6%9C%9F%E6%9C%9B/" data-id="cl7biz3f20006lcvthtwsae6l" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/08/25/%E6%A6%82%E7%8E%87%E4%B8%8E%E6%9C%9F%E6%9C%9B/" data-id="cl7eprat000080kvt8nh4398q" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -191,7 +691,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/15/%E5%92%8C%E5%BC%8F/" data-id="cl7biz3f00003lcvtdq89euf4" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/08/15/%E5%92%8C%E5%BC%8F/" data-id="cl7eprasu00030kvte7wd51uj" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -224,7 +724,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/14/%E5%8D%9A%E5%BC%88%E8%AE%BA/" data-id="cl7biz3ey0001lcvtbgw5fapm" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/08/14/%E5%8D%9A%E5%BC%88%E8%AE%BA/" data-id="cl7eprasr00010kvt5qws9nc3" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -257,7 +757,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/14/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/" data-id="cl7biz3f20005lcvtf9yafunf" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/08/14/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/" data-id="cl7eprasz00070kvt0xe2g7gl" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -290,7 +790,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/14/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/" data-id="cl7biz3f40008lcvt58pgdgx7" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/08/14/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/" data-id="cl7eprat100090kvt537900rq" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -323,7 +823,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/14/%E6%95%B0%E8%AE%BA/" data-id="cl7biz3f30007lcvten2ze10t" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/08/14/%E6%95%B0%E8%AE%BA/" data-id="cl7eprasz00060kvt6kmq9bwd" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -356,40 +856,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/14/%E5%8F%8D%E6%BC%94/" data-id="cl7biz3ez0002lcvtbdltgavt" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-多项式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/08/14/%E5%A4%9A%E9%A1%B9%E5%BC%8F/" class="article-date">
-  <time class="dt-published" datetime="2022-08-14T14:25:04.193Z" itemprop="datePublished">2022-08-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="多项式"><a href="#多项式" class="headerlink" title="多项式"></a>多项式</h2>
-        
-          <p class="article-more-link">
-            <a href="/2022/08/14/%E5%A4%9A%E9%A1%B9%E5%BC%8F/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/14/%E5%A4%9A%E9%A1%B9%E5%BC%8F/" data-id="cl7biz3f10004lcvt96edgagx" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/08/14/%E5%8F%8D%E6%BC%94/" data-id="cl7eprast00020kvtcfefftxy" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -437,7 +904,11 @@
       <ul>
         
           <li>
-            <a href="/2022/08/27/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">(no title)</a>
+            <a href="/2022/08/29/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/29/%E5%9B%BE%E7%9A%84%E8%AE%A1%E6%95%B0%E9%97%AE%E9%A2%98/">(no title)</a>
           </li>
         
           <li>
@@ -450,10 +921,6 @@
         
           <li>
             <a href="/2022/08/15/%E5%92%8C%E5%BC%8F/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2022/08/14/%E5%8D%9A%E5%BC%88%E8%AE%BA/">(no title)</a>
           </li>
         
       </ul>
