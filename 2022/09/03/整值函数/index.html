@@ -9,12 +9,12 @@
   <meta name="description" content="整值函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LWLAymh的博客">
-<meta property="og:url" content="http://lwlaymh.github.io/2022/08/14/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:url" content="http://lwlaymh.github.io/2022/09/03/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="LWLAymh的博客">
 <meta property="og:description" content="整值函数">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-14T14:25:04.431Z">
-<meta property="article:modified_time" content="2022-08-15T01:30:04.660Z">
+<meta property="article:published_time" content="2022-09-03T07:26:28.051Z">
+<meta property="article:modified_time" content="2022-09-03T07:27:06.668Z">
 <meta property="article:author" content="LWLAymh">
 <meta name="twitter:card" content="summary">
   
@@ -75,8 +75,8 @@
       <div class="outer">
         <section id="main"><article id="post-整值函数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/08/14/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/" class="article-date">
-  <time class="dt-published" datetime="2022-08-14T14:25:04.431Z" itemprop="datePublished">2022-08-14</time>
+    <a href="/2022/09/03/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2022-09-03T07:26:28.051Z" itemprop="datePublished">2022-09-03</time>
 </a>
     
   </div>
@@ -124,6 +124,12 @@
 <p>另外,我们考虑函数$f(x)=\cfrac{x+m}{n}$,显然这是一个满足条件的函数,因此显然满足上述的条件.再考虑$m=0$的特殊情况:$\lfloor \cfrac{\lfloor\cfrac{x}{n}\rfloor}{m}\rfloor=\lfloor\cfrac{x}{nm}\rfloor$.</p>
 <p>而单调递减函数可以取相反数转化为单调递增函数.</p>
 <h4 id="迪利克雷抽屉原理"><a href="#迪利克雷抽屉原理" class="headerlink" title="迪利克雷抽屉原理"></a>迪利克雷抽屉原理</h4><p>$n$个物体放进$m$个盒子里,那么必定有一个盒子中放入了大于等于$\lceil\cfrac n m\rceil$个物品,有一个盒子放入了小于等于$\lfloor\cfrac n m\rfloor$个物体.</p>
+<h5 id="Example1"><a href="#Example1" class="headerlink" title="Example1"></a>Example1</h5><p>求证:每个由$n^2+1$个不同实数构成的序列都包含一个长为$n+1$的严格递增子序列或严格递减子序列.</p>
+<p>设$a_i$为第$i$个实数,$c_i$为以这个数为开头的最长的递增子序列,$d_i$表示以这个数为开头的最长的递减子序列.考虑反证法,如果不成立,那么$\forall 1\leq i\leq n^2+1$,$1\leq c_i\leq n\and 1\leq d_i\leq n$.那么一共有$n^2$种不同的有序对.</p>
+<p>根据抽屉原理,一共有$n^2+1$个有序对,所以一定有两个有序对相等.由于这些数字两两不同,所以一定可以把其中一个数字加到另一个数字的递增或递减子序列的后面,这样那个数字的$c_i$或者$d_i$就要$+1$,与我们的假设不符,因此该定理成立.</p>
+<h5 id="Example2"><a href="#Example2" class="headerlink" title="Example2"></a>Example2</h5><p>求证:若任意两个人间只有两种关系:朋友或敌人.那么对于六个人而言,一定有三个人两两都是朋友或者两两都是敌人.</p>
+<p>令$A$是这六个人中其中一个,根据抽屉原理,一定有大于等于$3$个人都是$A$的敌人或者都是$A$的朋友,不妨假设这三个人都是$A$的朋友.</p>
+<p>如果这三个人中有两个人是朋友,那么它们和A就一起构成了一组人.不然,他们三个人就构成了一组人.</p>
 <h4 id="计算区间内整数个数"><a href="#计算区间内整数个数" class="headerlink" title="计算区间内整数个数"></a>计算区间内整数个数</h4><p>整值函数的另一个应用是计算区间内整数个数:</p>
 <p>考虑基本性值$7,8,9,10$,不难发现:</p>
 <ol>
@@ -175,7 +181,7 @@ N(\alpha,n)=\sum_{k\in\mathbb{N_+}}[\lfloor k\alpha\rfloor\leq n]\\
 <h4 id="整值函数的和式"><a href="#整值函数的和式" class="headerlink" title="整值函数的和式"></a>整值函数的和式</h4><p>通常情况下,处理含整值函数的和式时,通过引入新变量进行代替以及通过转化为区间进行化简.</p>
 <p>如果遇到难以处理的情况,我们不妨考虑直接处理其中一段的和,使得剩下部分求和更为简单.</p>
 <p>处理整值函数的另一个方法是:考虑将整值函数内的东西移出,并且让里面的东西形如等差序列,这样我们就可以尝试使用恒等式来化简.</p>
-<h5 id="Example1"><a href="#Example1" class="headerlink" title="Example1"></a>Example1</h5><p>求$\sum_{k=0}^{n-1}\lfloor\sqrt k\rfloor$.</p>
+<h5 id="Example1-1"><a href="#Example1-1" class="headerlink" title="Example1"></a>Example1</h5><p>求$\sum_{k=0}^{n-1}\lfloor\sqrt k\rfloor$.</p>
 <p>我们有:</p>
 <script type="math/tex; mode=display">
 \sum_{k=0}^{n-1}\lfloor\sqrt k\rfloor=\sum_{0\leq k,m}[k<n][m=\lfloor\sqrt k\rfloor]m\\
@@ -192,7 +198,7 @@ N(\alpha,n)=\sum_{k\in\mathbb{N_+}}[\lfloor k\alpha\rfloor\leq n]\\
 <script type="math/tex; mode=display">
 \sum_{k=0}^{n-1}\lfloor\sqrt k\rfloor=\sum_{j,k}[1\leq j\leq \sqrt k][0\leq k<a^2]\\
 =\sum_{1\leq j<a}\sum_{k}[j^2\leq k<a^2]\\
-=\sum_{1\leq j<a}a^2-j^2=a^3-\cfrac{a(2a+1)(a+1)}{6}</script><h5 id="Example2"><a href="#Example2" class="headerlink" title="Example2"></a>Example2</h5><p>求$\sum_{k=0}^{m-1}\lfloor\cfrac{nk+x}{m}\rfloor,m\in\mathbb{N_+},n\in \mathbb{Z}$.</p>
+=\sum_{1\leq j<a}a^2-j^2=a^3-\cfrac{a(2a+1)(a+1)}{6}</script><h5 id="Example2-1"><a href="#Example2-1" class="headerlink" title="Example2"></a>Example2</h5><p>求$\sum_{k=0}^{m-1}\lfloor\cfrac{nk+x}{m}\rfloor,m\in\mathbb{N_+},n\in \mathbb{Z}$.</p>
 <p>由于$kn-(kn\mod m)=m\lfloor\cfrac{kn}{m}\rfloor$,我们有:</p>
 <p>$\lfloor\cfrac{x+kn}{m}\rfloor=\lfloor\cfrac{x+(kn\mod m)}{m}\rfloor+\cfrac{kn}{m}-\cfrac{kn\mod m}{m}$.</p>
 <p>这样,我们将整个式子的求和分为了三部分,第二项显然是等差数列求和,而如果我们令$g=\gcd(n,m)$,不难发现第三项是一个等差数列$0,g,2g,…m-g$重复了$g$次,而且正因为这,第一项里面的数也就自然组成了等差数列,由于我们有恒等式,那么这一项也就自然可以计算了.</p>
@@ -216,7 +222,7 @@ N(\alpha,n)=\sum_{k\in\mathbb{N_+}}[\lfloor k\alpha\rfloor\leq n]\\
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/14/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/" data-id="cl7lbwxyw00023svt8h8m2hjo" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/09/03/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/" data-id="cl7ll17i70005ucvt4j8x28cl" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -226,17 +232,8 @@ N(\alpha,n)=\sum_{k\in\mathbb{N_+}}[\lfloor k\alpha\rfloor\leq n]\\
     
 <nav id="article-nav">
   
-    <a href="/2022/08/14/%E5%8D%9A%E5%BC%88%E8%AE%BA/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/08/14/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/09/03/%E5%A4%9A%E9%A1%B9%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title"></div>
     </a>
@@ -276,6 +273,10 @@ N(\alpha,n)=\sum_{k\in\mathbb{N_+}}[\lfloor k\alpha\rfloor\leq n]\\
       <ul>
         
           <li>
+            <a href="/2022/09/03/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2022/09/03/%E5%A4%9A%E9%A1%B9%E5%BC%8F/">(no title)</a>
           </li>
         
@@ -289,10 +290,6 @@ N(\alpha,n)=\sum_{k\in\mathbb{N_+}}[\lfloor k\alpha\rfloor\leq n]\\
         
           <li>
             <a href="/2022/08/29/%E5%9B%BE%E7%9A%84%E8%AE%A1%E6%95%B0%E9%97%AE%E9%A2%98/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2022/08/26/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E4%BC%98%E5%8C%96/">(no title)</a>
           </li>
         
       </ul>
