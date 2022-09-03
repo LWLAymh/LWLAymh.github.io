@@ -6,15 +6,15 @@
   
   <title>LWLAymh的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="多项式">
+  <meta name="description" content="多项式基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LWLAymh的博客">
-<meta property="og:url" content="http://lwlaymh.github.io/2022/08/14/%E5%A4%9A%E9%A1%B9%E5%BC%8F/index.html">
+<meta property="og:url" content="http://lwlaymh.github.io/2022/09/03/%E5%A4%9A%E9%A1%B9%E5%BC%8F/index.html">
 <meta property="og:site_name" content="LWLAymh的博客">
-<meta property="og:description" content="多项式">
+<meta property="og:description" content="多项式基础">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-14T14:25:04.193Z">
-<meta property="article:modified_time" content="2022-08-25T12:47:09.553Z">
+<meta property="article:published_time" content="2022-09-03T03:11:08.326Z">
+<meta property="article:modified_time" content="2022-09-03T03:11:32.450Z">
 <meta property="article:author" content="LWLAymh">
 <meta name="twitter:card" content="summary">
   
@@ -75,8 +75,8 @@
       <div class="outer">
         <section id="main"><article id="post-多项式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/08/14/%E5%A4%9A%E9%A1%B9%E5%BC%8F/" class="article-date">
-  <time class="dt-published" datetime="2022-08-14T14:25:04.193Z" itemprop="datePublished">2022-08-14</time>
+    <a href="/2022/09/03/%E5%A4%9A%E9%A1%B9%E5%BC%8F/" class="article-date">
+  <time class="dt-published" datetime="2022-09-03T03:11:08.326Z" itemprop="datePublished">2022-09-03</time>
 </a>
     
   </div>
@@ -85,7 +85,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="多项式"><a href="#多项式" class="headerlink" title="多项式"></a>多项式</h2><span id="more"></span>
+        <h2 id="多项式基础"><a href="#多项式基础" class="headerlink" title="多项式基础"></a>多项式基础</h2><span id="more"></span>
 <h3 id="复数相关"><a href="#复数相关" class="headerlink" title="复数相关"></a>复数相关</h3><p>欧拉公式:$e^{i\pi}=-1$.</p>
 <p>也就是$e^{2i\pi}=1$,同时又有$e^{i\theta}=cos\theta+i·sin\theta$,证明使用复平面的单位圆.</p>
 <p>单位根:对于$x^n=1$,我们会有$n$个根,设第$k$个根为$\omega_n^k$.那么我们有:$\omega_n^k=e^{2\pi\frac k ni}=cos(2\pi\frac kn)+i·sin(2\pi\frac kn)$.</p>
@@ -110,9 +110,9 @@
 \\
 已知多项式点值表示法求系数表示法的过程被称为插值\\</script><h3 id="拉格朗日插值"><a href="#拉格朗日插值" class="headerlink" title="拉格朗日插值"></a>拉格朗日插值</h3><script type="math/tex; mode=display">
 构造多项式\sum_{i=0}^{n-1}y_i(\prod_{j=0且j\ne i}^{n-1}\frac {x-x_j}{x_i-x_j})\\
-显然当x=x_i时，该多项式的答案为y_i</script><h2 id="多项式乘法"><a href="#多项式乘法" class="headerlink" title="多项式乘法"></a>多项式乘法</h2><script type="math/tex; mode=display">
+显然当x=x_i时，该多项式的答案为y_i</script><h2 id="多项式运算"><a href="#多项式运算" class="headerlink" title="多项式运算"></a>多项式运算</h2><script type="math/tex; mode=display">
 考虑两个多项式相乘，如果我们已知他们的点值表示法，显然可以直接相乘\\
-这为我们提供了一种思路：先将系数表示法转化为点值表示法，进行相乘之后再转化回系数表示法\\</script><h3 id="快速傅里叶变换"><a href="#快速傅里叶变换" class="headerlink" title="快速傅里叶变换"></a>快速傅里叶变换</h3><h4 id="DFT"><a href="#DFT" class="headerlink" title="DFT"></a>DFT</h4><script type="math/tex; mode=display">
+这为我们提供了一种思路：先将系数表示法转化为点值表示法，进行相乘之后再转化回系数表示法\\</script><h3 id="多项式乘法-FFT"><a href="#多项式乘法-FFT" class="headerlink" title="多项式乘法(FFT)"></a>多项式乘法(FFT)</h3><h4 id="DFT"><a href="#DFT" class="headerlink" title="DFT"></a>DFT</h4><script type="math/tex; mode=display">
 将n次单位根（n=2^w）分别带入A(x)得到点值向量A(\omega_n^k)\\
 如果朴素带入，复杂度显然不可接受\\
 考虑A(x)=\sum_{i=0}^{n-1}a_ix^i=\sum_{i=2k,k\in\mathbb{N}}^{n-2}a_ix^i+\sum_{i=2k+1,k\in\mathbb{N}}^{n-1}a_ix^i\\
@@ -146,7 +146,7 @@ a_k=\frac{c_k}{n}</script><h4 id="写法"><a href="#写法" class="headerlink" t
 假设A_1(\omega_{\frac n 2}^k)和A_2(\omega_{\frac n 2}^k)分别存在a[k]和a[\frac n 2+k]中，我们设t=\omega_n^ka[k+\frac n 2]\\
 那么可以写出合并：\\
 a[k+\frac n 2]:=a[k]-t\\
-a[k]:=a[k]+t</script><h3 id="快速数论变换"><a href="#快速数论变换" class="headerlink" title="快速数论变换"></a>快速数论变换</h3><script type="math/tex; mode=display">
+a[k]:=a[k]+t</script><h3 id="快速数论变换-NTT"><a href="#快速数论变换-NTT" class="headerlink" title="快速数论变换(NTT)"></a>快速数论变换(NTT)</h3><script type="math/tex; mode=display">
 由于FFT中的单位根会产生精度误差，因此在膜意义下，通常会选择NTT来进行多项式乘法\\</script><script type="math/tex; mode=display">
 NTT与FFT的运算过程基本相同，证明过程基本相同，唯一不同的是将单位根改为了原根\\
 根据上面FFT的证明过程，我们知道：只需要证明原根满足以下条件，就可以进行变换\\
@@ -164,18 +164,26 @@ ps：注意到998244352=2^{23}\times 7\times 17\\
 给定g(x)，求f(x)=\sum_{y=1}^xf(x-y)g(y)，答案对998244353取膜\\</script><script type="math/tex; mode=display">
 假如我们已经知道了f(x)，x\in[1,\frac n 2]\\
 那我们可以计算出这段部分对f(y)，y\in[\frac n 2+1,n]的贡献\\
-这显然是一个卷积的形式，我们直接计算f和g的乘积并贡献上去</script><h3 id="多项式求逆"><a href="#多项式求逆" class="headerlink" title="多项式求逆"></a>多项式求逆</h3><script type="math/tex; mode=display">
-对于多项式P(x)，找到Q(x)使得Q(x)P(x)\equiv 1(\mod x^n)\\
-显然Q(x)是唯一的</script><script type="math/tex; mode=display">
-首先不妨设n=2^k\\
-如果我们已知P(x)Q_{k-1}(x)\equiv 1(\mod x^{2^{k-1}})\\
-同时肯定有P(x)Q_{k}(x)\equiv 1(\mod x^{2^{k-1}})\\
-相减得到Q_k(x)-Q_{k-1}(x)\equiv 0(\mod x^{2^{k-1}})\\
-两边平方：Q_k^2(x)+Q^2_{k-1}(x)-2Q_k(x)Q_{k-1}(x)\equiv 0(\mod x^{2^k})\\
-两边乘一下P(x)\\
+这显然是一个卷积的形式，我们直接计算f和g的乘积并贡献上去</script><h3 id="多项式求逆"><a href="#多项式求逆" class="headerlink" title="多项式求逆"></a>多项式求逆</h3><p>对于多项式$P(x)$,找到$Q(x)$使得$Q(x)P(x)\equiv 1(\mod x^n)\\$.显然$Q(x)$是唯一的.</p>
+<p>首先不妨设$n=2^k\\$.</p>
+<p>如果我们已知$P(x)Q_{k-1}(x)\equiv 1(\mod x^{2^{k-1}})\\$,同时肯定有$P(x)Q_{k}(x)\equiv 1(\mod x^{2^{k-1}})\\$,相减得到$Q_k(x)-Q_{k-1}(x)\equiv 0(\mod x^{2^{k-1}})\\$.</p>
+<p>两边平方:</p>
+<script type="math/tex; mode=display">
+Q_k^2(x)+Q^2_{k-1}(x)-2Q_k(x)Q_{k-1}(x)\equiv 0(\mod x^{2^k})\\</script><p>两边乘一下$P(x)$:</p>
+<script type="math/tex; mode=display">
 Q_k(x)-2Q_{k-1}(x)+P(x)Q_{k-1}^2(x)\equiv 0(\mod x^n)\\
-Q_k(x)\equiv 2Q_{k-1}(x)-P(x)Q_{k-1}^2(x)(\mod x^n)\\
-根据主定理，这么做复杂度是O(nlog_2n)的</script><h2 id="集合幂级数"><a href="#集合幂级数" class="headerlink" title="集合幂级数"></a>集合幂级数</h2><script type="math/tex; mode=display">
+Q_k(x)\equiv 2Q_{k-1}(x)-P(x)Q_{k-1}^2(x)(\mod x^n)\\</script><p>根据主定理，这么做复杂度是$O(n\log_2n)$的.</p>
+<h3 id="多项式除法"><a href="#多项式除法" class="headerlink" title="多项式除法"></a>多项式除法</h3><p>对于$n$次多项式$F(x)$和$m$次多项式$G(x)$,找到$Q(x),R(x)$使得$F(x)=G(x)Q(x)+R(x)\\$.</p>
+<p>考虑对于$n$次多项式$F(x)$,令$F_R(x)=x^n F(\cfrac{1}{x})$,如果设$f_i$为其$x^i$项前的系数,不难发现$f_R(i)=f(n-i)$.</p>
+<p>那么我们有:</p>
+<script type="math/tex; mode=display">
+F(x)=G(x)Q(x)+R(x)\\
+F(\cfrac{1}{x})=G(\cfrac{1}{x})Q(\cfrac{1}{x})+R(\cfrac{1}x)\\
+x^nF(\cfrac{1}{x})=x^mG(\cfrac{1}{x})x^{n-m}Q(\cfrac{1}{x})+x^{n-m+1}x^{m-1}R(\cfrac{1}{x})\\
+F_R(x)=G_R(x)Q_R(x)+x^{n-m+1}R_R(x)\\
+F_R(x)\equiv G_R(x)Q_R(x)\pmod {x^{n-m+1}}\\
+Q_R(x)\equiv F_R(x)G_R^{-1}(x)\pmod {x^{n-m+1}}</script><p>于是只要做一遍多项式求逆即可求得$Q(x)$,再做一遍相减既可以得到$R(x)$.</p>
+<h2 id="集合幂级数"><a href="#集合幂级数" class="headerlink" title="集合幂级数"></a>集合幂级数</h2><script type="math/tex; mode=display">
 形如\sum_{i=0}^{2^n-1}a_ix^i，其中二进制数i表示\{1,2,...,n\}的一个子集，用|i|表示该子集大小\\
 下述级数如无特别说明均为集合幂级数</script><script type="math/tex; mode=display">
 高维前缀和：
@@ -331,7 +339,7 @@ D(z)=(\sum_{k\geq 0}z^k)(\sum_{k\geq 0}(-1)^k\cfrac{z^k}{k!})\\
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/14/%E5%A4%9A%E9%A1%B9%E5%BC%8F/" data-id="cl7epvjnj0005movt93274hpi" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/09/03/%E5%A4%9A%E9%A1%B9%E5%BC%8F/" data-id="cl7lbwxyx00033svtg9k85c4b" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -341,17 +349,8 @@ D(z)=(\sum_{k\geq 0}z^k)(\sum_{k\geq 0}(-1)^k\cfrac{z^k}{k!})\\
     
 <nav id="article-nav">
   
-    <a href="/2022/08/14/%E5%8F%8D%E6%BC%94/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/08/14/%E9%80%92%E5%BD%92%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/09/03/%E6%95%B0%E8%AE%BA/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title"></div>
     </a>
@@ -378,7 +377,7 @@ D(z)=(\sum_{k\geq 0}z^k)(\sum_{k\geq 0}(-1)^k\cfrac{z^k}{k!})\\
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li></ul>
     </div>
   </div>
 
@@ -391,6 +390,14 @@ D(z)=(\sum_{k\geq 0}z^k)(\sum_{k\geq 0}(-1)^k\cfrac{z^k}{k!})\\
       <ul>
         
           <li>
+            <a href="/2022/09/03/%E5%A4%9A%E9%A1%B9%E5%BC%8F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/03/%E6%95%B0%E8%AE%BA/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2022/08/29/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">(no title)</a>
           </li>
         
@@ -400,14 +407,6 @@ D(z)=(\sum_{k\geq 0}z^k)(\sum_{k\geq 0}(-1)^k\cfrac{z^k}{k!})\\
         
           <li>
             <a href="/2022/08/26/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E4%BC%98%E5%8C%96/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2022/08/25/%E6%A6%82%E7%8E%87%E4%B8%8E%E6%9C%9F%E6%9C%9B/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2022/08/15/%E5%92%8C%E5%BC%8F/">(no title)</a>
           </li>
         
       </ul>
