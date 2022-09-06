@@ -9,12 +9,12 @@
   <meta name="description" content="数论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LWLAymh的博客">
-<meta property="og:url" content="http://lwlaymh.github.io/2022/09/03/%E6%95%B0%E8%AE%BA/index.html">
+<meta property="og:url" content="http://lwlaymh.github.io/2022/09/06/%E6%95%B0%E8%AE%BA/index.html">
 <meta property="og:site_name" content="LWLAymh的博客">
 <meta property="og:description" content="数论">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-09-03T08:51:11.908Z">
-<meta property="article:modified_time" content="2022-09-03T08:51:27.044Z">
+<meta property="article:published_time" content="2022-09-06T13:22:03.538Z">
+<meta property="article:modified_time" content="2022-09-06T13:21:25.490Z">
 <meta property="article:author" content="LWLAymh">
 <meta name="twitter:card" content="summary">
   
@@ -75,8 +75,8 @@
       <div class="outer">
         <section id="main"><article id="post-数论" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/09/03/%E6%95%B0%E8%AE%BA/" class="article-date">
-  <time class="dt-published" datetime="2022-09-03T08:51:11.908Z" itemprop="datePublished">2022-09-03</time>
+    <a href="/2022/09/06/%E6%95%B0%E8%AE%BA/" class="article-date">
+  <time class="dt-published" datetime="2022-09-06T13:22:03.538Z" itemprop="datePublished">2022-09-06</time>
 </a>
     
   </div>
@@ -96,6 +96,7 @@
 <ol>
 <li>$\gcd(kn,km)=k\gcd(n,m)$以及$lcm(kn,km)=k lcm(n,m)$.</li>
 <li>若$a\bot b$,则$\gcd(a^m-b^m,a^n-b^n)=a^{\gcd(n,m)}-b^{\gcd(n,m)}$.</li>
+<li>如果$n^a\equiv 1\pmod m\and n^b\equiv 1\pmod m$,则$n^{\gcd(a,b)}\equiv 1\pmod m$.</li>
 </ol>
 <p>(1)的证明较为显然,我们考虑(2)的证明.</p>
 <p>不妨假设$n\leq m$,当$n=m$时显然成立.</p>
@@ -106,6 +107,12 @@
 =\gcd(a^n(a^{m-n}-b^{m-n}),a^n-b^n)</script><p>由于$a\bot b$,所以显然$a^n-b^n\bot a^n$,于是:</p>
 <script type="math/tex; mode=display">
 \gcd(a^m-b^m,a^n-b^n)=\gcd(a^{m-n}-b^{m-n},a^n-b^n)</script><p>自然得证.</p>
+<p>接下来考虑(3)的证明:</p>
+<p>如果$a=b$,显然得证.不然,不妨设$a&gt;b$注意到:</p>
+<script type="math/tex; mode=display">
+n^a\equiv 1\pmod m\\
+n^a-n^{a-b}n^b\equiv 1-n^{a-b}\pmod m\\
+n^{a-b}\equiv 1\pmod m</script><p>自然得证.</p>
 <h4 id="一种预处理最大公约数的算法"><a href="#一种预处理最大公约数的算法" class="headerlink" title="一种预处理最大公约数的算法"></a>一种预处理最大公约数的算法</h4><p>存在一种$O(n)$预处理,$O(1)$求任意两个小于等于$n$的数的$\gcd$的方法:</p>
 <p>引理:</p>
 <p>对于任意整数$n$,存在一种划分方式$n=abc$,$a$,$b$,$c$三个数要么是质数,要么$\leq \sqrt n$.</p>
@@ -318,10 +325,16 @@ p>n^{\frac 1 4}</script><p>与我们前面的结论不符合.</p>
 n^{p-1}(p-1)!\equiv (p-1)!(\mod p)</script><p>根据威尔逊定理,显然可以推得费马小定理.</p>
 <p>根据费马小定理,我们可以考虑证明一个结论:$n^{p^k}\equiv n^{p^{k-1}}(\mod p^k)$.</p>
 <p>由于$n^{p-1}\equiv 1(\mod p)$,那么我们有$n^p\equiv n(\mod p)$,也即$\exist q\in\mathbb{Z}$满足$n^p=n+pq$,不断两边取$p$次方即可得到上述结论.</p>
-<h5 id="Example-5"><a href="#Example-5" class="headerlink" title="Example"></a>Example</h5><p>求证:如果质数$p$满足$p\equiv 3\pmod 4$,则不存在整数$n$满足$p|(n^2+1)$;如果其满足$p\equiv 1\pmod 4$,则一定存在一个整数$n$满足条件.</p>
+<h5 id="Example1-1"><a href="#Example1-1" class="headerlink" title="Example1"></a>Example1</h5><p>求证:如果质数$p$满足$p\equiv 3\pmod 4$,则不存在整数$n$满足$p|(n^2+1)$;如果其满足$p\equiv 1\pmod 4$,则一定存在一个整数$n$满足条件.</p>
 <p>先考虑证明前半部分,如果存在这样一个整数$n$,考虑$p|(n^2+1)$也就等价于$n^2\equiv -1\pmod p$,则$n^4\equiv 1\pmod p$.显然$p\bot n$,根据费马小定理,我们有$n^{p-1}\equiv 1\pmod p$,也就有$n^{p+1}\equiv -1\pmod p$.</p>
 <p>而由于$p\equiv 3\pmod 4$,所以$4|(p+1)$,所以$n^{p+1}\equiv 1\pmod p$,不符,因此一定不存在.</p>
 <p>反之,考虑威尔逊定理的变形$\prod_{k=1}^{\frac{p-1}2}-k^2\equiv -1\pmod p\\$.由于$p-1\equiv 0\pmod 4$,所以这个式子也就等价于$\prod _{k=1}^{\frac{p-1}2}k^2\equiv -1\pmod p$,也就是$((\cfrac{p-1}{2})!)^2\equiv -1\pmod p$,这就是一个解.</p>
+<h5 id="Example2-1"><a href="#Example2-1" class="headerlink" title="Example2"></a>Example2</h5><p>求证:如果$n&gt;1$,则$2^n\ne 1\pmod n$.</p>
+<p>如果$n$是质数,根据费马小定理,显然得证.</p>
+<p>不然,设$n=pq$,且$p$是$n$的最小质因子,若$2^{n}\equiv 1\pmod n$,则$2^n\equiv 1\pmod p$.</p>
+<p>若$p=2$,显然不成立.不然,有$2^{p-1}\equiv 1\pmod p$,由于$(p-1)\bot n$,显然不成立.</p>
+<p>另外,上面的过程显然可以推广为:</p>
+<p>如果$n&gt;1$,则对于任意质数$p$,$p^n\ne 1\pmod n$.</p>
 <h4 id="中国剩余定理-crt"><a href="#中国剩余定理-crt" class="headerlink" title="中国剩余定理(crt)"></a>中国剩余定理(crt)</h4><p>对于方程组$x\equiv a_i(\mod m_i)$,其中$m_i$两两互质,求$x$.</p>
 <p>令$m=\prod^k_{i=1}m_i$,设$M_i=\cfrac{m}{m_i}$,$N_i$是$M_i$在$\mod m_i$意义下逆元.</p>
 <p>则$x\equiv \sum^k_{i=1}M_iN_ia_i(\mod m)$.</p>
@@ -370,10 +383,14 @@ x\equiv m_1inv(\frac{m_1}g,\frac{m_2}g)\frac{a_2-a_1}g+a_1(\mod \frac{m_1m_2}g)<
 <p>根据阶的定义,我们如果要判断一个$a$不是$p$的原根,只需判断是否$\exists i$使得$a^i\equiv 1(\mod p)$.</p>
 <p>而由于$a^{\varphi(p)}\equiv 1(\mod p)$,因此一定有$i|\varphi(p)$,因此只需判断$\varphi(p)$的所有因数,复杂度$O(\sqrt{\varphi(p)})$.</p>
 <p>事实上,只需要判断对于$\varphi(p)$的所有质因子$w$,是否有$a^{\frac {\varphi(p)} w}\equiv 1(\mod p)$即可,复杂度$O(\log p)$.</p>
-<h5 id="Example1-1"><a href="#Example1-1" class="headerlink" title="Example1"></a>Example1</h5><p>给定$k$,$p$,$a$,求$x^k\equiv a(\mod p)$的所有解,其中$p\in prime$,$1\leq k \leq 10^5$.</p>
+<h5 id="Example1-2"><a href="#Example1-2" class="headerlink" title="Example1"></a>Example1</h5><p>给定$k$,$p$,$a$,求$x^k\equiv a(\mod p)$的所有解,其中$p\in prime$,$1\leq k \leq 10^5$.</p>
 <p>solution:</p>
 <p>考虑求出$p$的原根$g$,得到$g^r\equiv a(\mod p)$,同时由于$x\equiv g^y(\mod p)$,因此原方程变为:$g^{yk}\equiv g^r(\mod p)$</p>
 <p>于是有:$yk\equiv r(\mod p-1)$,即可求解.</p>
+<h5 id="Example2-2"><a href="#Example2-2" class="headerlink" title="Example2"></a>Example2</h5><p>证明:如果$\exist n,n^{m-1}\equiv 1\pmod m$,且对于所有满足$p|(m-1)$的$p$都满足$n^{\frac{m-1}{p}}\ne 1\pmod m$,那么$m$是素数.</p>
+<p>首先不难发现,$m\in prime\Leftrightarrow \varphi(m)=m-1$.</p>
+<p>考虑上面的过程中,不可能存在一个数$k$满足$0\leq k&lt;m-1,n^k\equiv 1\pmod m$.因此$\nexists 0\leq i,j&lt;m,i\ne j,n^i\equiv n^j\pmod m$.</p>
+<p>根据欧拉定理,$m-1=\varphi(m)$,因此得证.</p>
 <h3 id="积性函数"><a href="#积性函数" class="headerlink" title="积性函数"></a>积性函数</h3><p>若函数$f(x)$满足$\forall n,m\in \mathbb{N_+},n\bot m$,有$f(1)=1,f(nm)=f(n)f(m)$,则称其为积性函数.若$\forall n,m\in \mathbb{N_+}$,有$f(1)=1,f(nm)=f(n)f(m)$,则称其为完全积性函数.</p>
 <p>若函数$g(x)$是积性函数并且有$g(m)=\sum_{d|m}f(d)$,则$f(x)$也是积性函数,证明如下:</p>
 <p>不妨考虑数学归纳,首先$g(1)=f(1)=1$.</p>
@@ -441,7 +458,7 @@ N(n,m)=\cfrac{1}{n}\sum_{d|n}n^d\sum_{0\leq k<n}[d=\gcd(n,k)]\\
 <p>分情况讨论:</p>
 <p>若$p_i^{e_i}\perp a$,则为普通欧拉定理情况,即证明$b-c$是$\varphi(p_i^{e_i})$的因数.由于$\varphi(p_i^{e_i})$是$\varphi(m)$的因数,而$\varphi(m)$是$b-c$的因数,显然得证.</p>
 <p>不然,发现$e_i\leq\varphi(p_i^{e_i})\leq\varphi(m)\leq b$且$\varphi(m)\leq c$,又发现$p_i^{e_i}|a^{e_i}$,所以$p_i^{e_i}|a^b$,$p_i^{e_i}|a^c$,左右两边均为$0$,得证.</p>
-<h5 id="Example-6"><a href="#Example-6" class="headerlink" title="Example"></a>Example</h5><p>求$\sum_{1\leq a,b\leq p(p-1)}[a^b\equiv b^a(\mod p)],p\in prime$.</p>
+<h5 id="Example-5"><a href="#Example-5" class="headerlink" title="Example"></a>Example</h5><p>求$\sum_{1\leq a,b\leq p(p-1)}[a^b\equiv b^a(\mod p)],p\in prime$.</p>
 <p>我们有:</p>
 <script type="math/tex; mode=display">
 \sum_{1\leq a,b\leq p(p-1)}[a^b\equiv b^a(\mod p)]\\
@@ -526,9 +543,9 @@ f*g=s\\
 F(n)=\sum_{i=1}^nf(i)\\=\sum_{i=1}^n(s(i)-\sum_{j|i,j\ne i}f(j)g(\frac i j))\\
 =S(n)-\sum_{j=1}^n\sum_{k=2}^{\lfloor\frac n j\rfloor}g(k)f(j)\\=S(n)-\sum_{k=2}^ng(k)\sum_{j=1}^{\lfloor\frac n k\rfloor}f(j)\\
 =S(n)-\sum_{k=2}^ng(k)F(\lfloor\frac n k\rfloor)\\</script><p>复杂度证明和min25筛是一样的,不同点在于我们可以预处理$n^{\frac 2 3}$以内的$F$,这样复杂度可以降到$O(n^{\frac 2 3})$.</p>
-<h5 id="Example1-2"><a href="#Example1-2" class="headerlink" title="Example1"></a>Example1</h5><p>求$\sum_{i=1}^N\mu(i)\\$.</p>
+<h5 id="Example1-3"><a href="#Example1-3" class="headerlink" title="Example1"></a>Example1</h5><p>求$\sum_{i=1}^N\mu(i)\\$.</p>
 <p>由于$\mu*I=\epsilon$,于是考虑$g=I$.</p>
-<h5 id="Example2-1"><a href="#Example2-1" class="headerlink" title="Example2"></a>Example2</h5><p>求$\sum_{i=1}^N\varphi(i)\\$.</p>
+<h5 id="Example2-3"><a href="#Example2-3" class="headerlink" title="Example2"></a>Example2</h5><p>求$\sum_{i=1}^N\varphi(i)\\$.</p>
 <p>由于$\varphi*I=id$,于是考虑$g=I$.</p>
 <h5 id="Example3"><a href="#Example3" class="headerlink" title="Example3"></a>Example3</h5><p>求$\sum_{i=1}^N{\varphi(i)\times i}\\$<br>由于$\sum^N_{i=1}(f*g)(i)=\sum_{d|N}{f(i)\times g(\cfrac n d)}=\sum_{d|N}{\varphi(d)\times d\times g(\cfrac n d)}\\$<br>由于中间过程中乘出来的$d$很难处理,需要消掉它,于是考虑$g=id$.</p>
 <h5 id="Example4"><a href="#Example4" class="headerlink" title="Example4"></a>Example4</h5><p>$\sum_{i=1}^N{\varphi(i)\times i^2}\\$.<br>由Example3,于是考虑$g=id^2$.</p>
@@ -536,7 +553,7 @@ F(n)=\sum_{i=1}^nf(i)\\=\sum_{i=1}^n(s(i)-\sum_{j|i,j\ne i}f(j)g(\frac i j))\\
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/09/03/%E6%95%B0%E8%AE%BA/" data-id="cl7lo1sys0007wgvtcbrxb58r" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/09/06/%E6%95%B0%E8%AE%BA/" data-id="cl7q81gpl00054ovt9cb9fosw" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -587,7 +604,7 @@ F(n)=\sum_{i=1}^nf(i)\\=\sum_{i=1}^n(s(i)-\sum_{j|i,j\ne i}f(j)g(\frac i j))\\
       <ul>
         
           <li>
-            <a href="/2022/09/03/%E6%95%B0%E8%AE%BA/">(no title)</a>
+            <a href="/2022/09/06/%E6%95%B0%E8%AE%BA/">(no title)</a>
           </li>
         
           <li>
