@@ -4,18 +4,21 @@
   <meta charset="utf-8">
   
   
-  <title>LWLAymh的博客</title>
+  <title>概率与期望 | LWLAymh的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="title: 概率与期望categories: 数学tags: [具体数学,数学,OI]password: HopesandDreams 离散概率">
+  <meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LWLAymh的博客">
+<meta property="og:title" content="概率与期望">
 <meta property="og:url" content="http://lwlaymh.github.io/2022/08/25/%E6%A6%82%E7%8E%87%E4%B8%8E%E6%9C%9F%E6%9C%9B/index.html">
 <meta property="og:site_name" content="LWLAymh的博客">
-<meta property="og:description" content="title: 概率与期望categories: 数学tags: [具体数学,数学,OI]password: HopesandDreams 离散概率">
+<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-08-25T12:46:45.540Z">
-<meta property="article:modified_time" content="2022-09-14T12:24:11.126Z">
+<meta property="article:modified_time" content="2022-09-14T12:29:12.604Z">
 <meta property="article:author" content="LWLAymh">
+<meta property="article:tag" content="OI">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="具体数学">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="LWLAymh的博客" type="application/atom+xml">
@@ -79,136 +82,47 @@
   <time class="dt-published" datetime="2022-08-25T12:46:45.540Z" itemprop="datePublished">2022-08-25</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      概率与期望
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>title: 概率与期望<br>categories: 数学<br>tags: [具体数学,数学,OI]<br>password: HopesandDreams</p>
-<h2 id="离散概率"><a href="#离散概率" class="headerlink" title="离散概率"></a>离散概率</h2><span id="more"></span>
-<h3 id="基本定义"><a href="#基本定义" class="headerlink" title="基本定义"></a>基本定义</h3><p>概率空间$\Omega$:在一个给定问题中可能发生的所有情况.</p>
-<p>事件:$\Omega$的一个子集.</p>
-<p>基本事件$\omega$:$\Omega$中的单个元素,也可以看作集合大小为$1$的事件.</p>
-<p>概率:若$\omega\in \Omega$,我们称它发生的概率为$\Pr(\omega)$,有$\Pr(\omega)\geq 0$且$\sum_{\omega\in\Omega}\Pr(\omega)=1$.</p>
-<p>随机变量:在概率空间的基本事件上定义的函数.</p>
-<p>联合分布:如果两个随机变量$X$和$Y$定义在同一个概率空间$\Omega$上,对于每一个在$X$取值范围内的$x$以及在$Y$取值范围内的$y$,我们称$\Pr(X=x\and Y=y)$为它们的联合分布.</p>
-<p>独立:如果对于每一个在$X$取值范围内的$x$以及在$Y$取值范围内的$y$,$\Pr(X=x\and Y=y)=\Pr(X=x)\times \Pr(Y=y)$,我们称$X$和$Y$是独立的.</p>
-<p>期望(均值)$E X$:我们设概率空间上的随机变量$X$的期望$EX=\sum_{x\in X(\Omega)}x\times \Pr(X=x)=\sum_{w\in\Omega}X(\omega)\Pr(\omega)$.</p>
-<p>中位数:我们设概率空间上的随机变量$X$的中位数为满足$\Pr(X\leq x)\geq 0.5\and \Pr(X\geq x)\geq 0.5$的$x\in X(\Omega)$所组成的集合.</p>
-<p>众数:我们设概率空间上的随机变量$X$的众数为满足$\Pr(X= x)\geq \Pr(X=x’),\forall x’\in X(\Omega)$的$x\in X(\Omega)$所组成的集合.</p>
-<p>方差$VX$:我们设概率空间上的随机变量$X$的方差$VX=E((X-EX)^2)$.</p>
-<p>标准差$\sigma$:我们设概率空间上的随机变量$X$的标准差$\sigma=\sqrt{VX}$.</p>
-<h3 id="期望的简单运算"><a href="#期望的简单运算" class="headerlink" title="期望的简单运算"></a>期望的简单运算</h3><p>如果$X,Y$是定义在同一个概率空间上的两个随机变量,那么:</p>
-<ol>
-<li>$E(X+Y)=EX+EY$.</li>
-<li>$E(\alpha X)=\alpha EX$.</li>
-<li>如果$X$和$Y$互相独立,那么$E(XY)=(EX)(EY)$.</li>
-</ol>
-<p>上述法则都可以通过期望的定义简单证明.</p>
-<h3 id="方差的简单运算"><a href="#方差的简单运算" class="headerlink" title="方差的简单运算"></a>方差的简单运算</h3><p>我们考虑方差的定义式:</p>
-<script type="math/tex; mode=display">
-E((X-EX)^2)=E(X^2-2X(EX)+(EX)^2)\\
-=E(X^2)-2(EX)(EX)+(EX)^2\\
-=E(X^2)-(EX)^2</script><p>也即:方差等于随机变量平方的均值减均值的平方.</p>
-<p>当$X$和$Y$为独立的随机变量时,我们有:</p>
-<script type="math/tex; mode=display">
-V(X+Y)=E((X+Y)^2)-(EX+EY)^2\\
-=E((X+Y)^2)-(EX)^2-2(EX)(EY)-(EY)^2</script><p>而又有:</p>
-<script type="math/tex; mode=display">
-E((X+Y)^2)=E(X^2+2XY+Y^2)\\
-=E(X^2)+2(EX)(EY)+E(Y^2)</script><p>则:</p>
-<script type="math/tex; mode=display">
-V(X+Y)=E(X^2)+2(EX)(EY)+E(Y^2)-(EX)^2-2(EX)(EY)-(EY)^2
-\\=VX+VY</script><p>即:独立随机变量之和的方差等于它们的方差之和.</p>
-<p>接下来,我们可以得到切比雪夫不等式:</p>
-<script type="math/tex; mode=display">
-\Pr((X-EX)^2\geq \alpha)\leq \cfrac{VX}{\alpha},\alpha>0</script><p>证明如下:</p>
-<script type="math/tex; mode=display">
-VX=\sum_{\omega\in \Omega}(X(\omega)-EX)^2\Pr(\omega)\\
-\geq \sum_{\omega\in\Omega}(X(\omega)-EX)^2\Pr(\omega)[(X(\omega)-EX)^2\geq \alpha]\\
-\geq \sum_{\omega\in\Omega}\alpha\Pr(\omega)[(X(\omega)-EX)^2\geq \alpha]\\=\alpha \Pr((X-EX)^2\geq \alpha)</script><p>如果我们用$c^2VX$代替$\alpha$,我们就有:</p>
-<p>$\Pr(|X-EX|\geq c\sigma)\leq \cfrac{1}{c^2}$.</p>
-<p>简单来说,这个不等式说明:$X$落在$(EX-c\sigma,EX+c\sigma)$之外的概率至多为$\cfrac{1}{c^2}$.</p>
-<p>另外,如果我们取$n$个独立的样本$X_1,X_2,…,X_n$,令$S=\sum_{i=1}^nX_i$,那么它的均值是$nEX$,标准差是$\sqrt n\sigma$,也就是说,$\cfrac{S}{n}$落在$(EX-\cfrac{c\sigma}{\sqrt n},EX+\cfrac{c\sigma}{\sqrt n})$之外的概率小于等于$\cfrac{1}{c^2}$.</p>
-<h3 id="随机抽样调查"><a href="#随机抽样调查" class="headerlink" title="随机抽样调查"></a>随机抽样调查</h3><p>如果我们随机取得了$n$个值$X_1,X_2,…,X_n$,那么我们可以通过这些值来估计概率空间的期望和方差.</p>
-<p>$\hat EX=\cfrac{\sum_{i=1}^nX_i}{n}$.</p>
-<p>$\hat VX=\cfrac{\sum_{i=1}^nX_i^2}{n-1}-\cfrac{(\sum_{i=1}^nX_i)^2}{n(n-1)}$.</p>
-<p>这里的$\hat VX$似乎与定义不是那么相符.但是它拥有更好的性质:$E(\hat VX)=VX$.</p>
-<p>证明如下:</p>
-<script type="math/tex; mode=display">
-E(\hat VX)=\cfrac{1}{n-1}E(\sum_{i=1}^nX_i^2-\cfrac{1}{n}\sum_{j=1}^n\sum_{k=1}^nX_jX_k)\\
-=\cfrac{1}{n-1}(\sum_{i=1}^nE(X_i^2)-\cfrac{1}{n}\sum_{i=1}^n\sum_{j=1}^nE(X_iX_j))\\
-=\cfrac{1}{n-1}(\sum_{i=1}^nE(X^2)-\cfrac{1}{n}\sum_{i=1}^n\sum_{j=1}^n((EX)^2[j\ne k]+E(X^2)[j=k]))\\
-=\cfrac{1}{n-1}(nE(X^2)-\cfrac{1}{n}(nE(X^2)+n(n-1)(EX)^2))\\
-=E(X^2)-(EX)^2\\
-=VX</script><h3 id="条件概率"><a href="#条件概率" class="headerlink" title="条件概率"></a>条件概率</h3><p>已知事件B发生时事件A发生的概率为$P(A|B)=\frac{P(AB)}{P(B)}\\$.</p>
-<p>贝叶斯公式:如果有$\{B_i\}$是样本空间的一个划分,即$\forall i,j$,有$B_i\cap B_j=\empty$,并且有$\bigcup_{i=1}^nB_i=\Omega$.则有$P(B_i|A)=\frac{P(AB_i)}{P(A)}=\frac{P(AB_i)}{P(A)\sum P(B_j)}=\frac{P(A B_i)}{\sum_{j=1}^n P(A B_j)}=\frac{P(A|B_i)P(B_i)}{\sum_{j=1}^n P(A|B_j)P(B_j)}\\$.</p>
-<p>简化形式:$P(B|A)=\frac{P(A|B)P(B)}{P(A)}\\$.</p>
-<h3 id="概率生成函数"><a href="#概率生成函数" class="headerlink" title="概率生成函数"></a>概率生成函数</h3><p>如果$X$是定义在概率空间$\Omega$上的随机变量,那么它的概率生成函数为$G_X(z)=\sum_{k\geq 0}\Pr(X=k)z^k=E(z^X)$.</p>
-<p>不难发现$G_X(z)$需要满足的条件:所有系数都非负并且$G_X(1)=1$.</p>
-<p>我们发现,当我们定义了概率生成函数后,期望和方差都可以使用它来表示:</p>
-<script type="math/tex; mode=display">
-EX=G_X'(1)\\
-E(X^2)=G''_X(1)+G_X'(1)\\
-VX=G_X''(1)+G_X'(1)-(G_X'(1))^2</script><p>通常,我们也可以将方差和均值的定义扩展到任意函数上,于是我们定义:</p>
-<script type="math/tex; mode=display">
-Mean(G)=G'(1)\\
-Var(G)=G''(1)+G'(1)-(G'(1))^2</script><p>不过,求导的过程可能会有些麻烦,但我们可以直接使用泰勒定理:</p>
-<script type="math/tex; mode=display">
-G(1+t)=\sum_{i\geq 0}\cfrac{G^{(i)}(1)}{i!}t^i</script><p>另外,我们不难发现:$G_{X+Y}(z)=G_X(z)G_Y(z)$.</p>
-<p>根据前面的推导,我们有:</p>
-<script type="math/tex; mode=display">
-Mean(G_{X+Y})=Mean(G_X)+Mean(G_Y)\\
-Var(G_{X+Y})=Var(G_X)+Var(G_Y)</script><p>换句话说,若$G_X(1)=1,G_Y(1)=1$,那么这个式子与直接对$G_{X+Y}$使用求导的那个公式是等价的.注意,这里并没有要求这些生成函数的系数是非负的.</p>
-<p>于是我们有了另一个法则:</p>
-<script type="math/tex; mode=display">
-Mean(G_X)=Mean(G_{X+Y})-Mean(G_Y)\\
-Var(G_X)=Var(G_{X+Y})-Var(G_Y)</script><h4 id="Example1"><a href="#Example1" class="headerlink" title="Example1"></a>Example1</h4><p>一枚硬币正面向上的概率为$p$,反面向上的概率为$q$,设硬币正面向上为H,反面向上为T,不断抛掷硬币直到抛掷出连续的THTTH为止,求期望次数.</p>
-<p>考虑设$N$为所有不包含THTTH的硬币序列的生成函数,$S$为所有结尾为THTTH的硬币序列的生成函数,令$H=pz,T=qz$,$1$为空集,我们显然有:</p>
-<script type="math/tex; mode=display">
-1+N\times (H+T)=N+S\\
-N\times THTTH=S+S\times TTH</script><p>解方程即可.</p>
-<p>另外不难发现,这种方法取决于字符串的所有border,显然是通用方法.</p>
-<p>我们考虑扩展这个方法,设$A$是我们要找到的字符串,$m$是它的长度,令$A^{(k)}$表示$A$字符串的前$k$个字符所组成的字符串,$A_{(k)}$表示$A$字符串的后$k$个字符所组成的字符串.这样的形式与$k$阶导的形式可能会起冲突,但至少在接下来我们的式子中不会出现导数<del>(好吧其实是因为《具体数学》上就这么写的我也懒得改了)</del>.</p>
-<p>我们的方程将会变为:</p>
-<script type="math/tex; mode=display">
-1+N(H+T)=N+S\\
-N\times A=S(\sum_{k=0}^{m-1}A^{(k)}[A^{(m-k)}=A_{(m-k)}])</script><p>如果我们设$\tilde A$为将字符串$A$中的H替换成$\cfrac{1}{p}z$,T替换成$\cfrac{1}{q}z$之后的值,那么显然有:</p>
-<script type="math/tex; mode=display">
-N\times A=A\times S\times (\sum_{k=1}^{m}\tilde A_{(k)}[A^{(k)}=A_{(k)}])\\
-N=S\times (\sum_{k=1}^{m}\tilde A_{(k)}[A^{(k)}=A_{(k)}])\\
-\cfrac{S-1}{H+T-1}=S\times (\sum_{k=1}^{m}\tilde A_{(k)}[A^{(k)}=A_{(k)}])\\
-S\times(1+(1-H-T)\times (\sum_{k=1}^{m}\tilde A_{(k)}[A^{(k)}=A_{(k)}]))=1</script><p>这显然是一个卷积的形式.</p>
-<p>令$w=\sum_{k=1}^{m}\tilde A_{(k)}[A^{(k)}=A_{(k)}]$.</p>
-<p>令$H(z)=1$,$F(z)=(1+(1-z)\times w)$,$G(z)=S$.</p>
-<p>那么我们显然可以直接求$G(z)$的期望和方差,事实上:</p>
-<script type="math/tex; mode=display">
-EX=\sum_{k=1}^{m}\tilde A_{(k)}[A^{(k)}=A_{(k)}]\\
-VX=(EX)^2-\sum_{k=1}^m(2k-1)\tilde A_{(k)}[A^{(k)}=A_{(k)}]</script><p>如果硬币是均匀的($p=q=\cfrac 1 2$)我们引入另一个符号:我们设$A:A=\sum_{k=1}^m2^{k-1}[A^{(k)}=A_{(k)}]$.那么显然期望需要的抛硬币次数就是$2(A:A)$.</p>
-<h4 id="Example2-Penney游戏"><a href="#Example2-Penney游戏" class="headerlink" title="Example2(Penney游戏)"></a>Example2(Penney游戏)</h4><p>一枚均匀硬币,设硬币正面向上为H,反面向上为T.不断扔硬币直到扔出连续的HHT或HTT为止,求最后以HHT结尾的概率.</p>
-<p>我们设$S_A$为所有以HHT结尾的硬币序列的生成函数,设$S_B$为所有以HTT结尾的硬币序列的生成函数.$N$为其它的硬币序列的生成函数,令$H=T=0.5z$.</p>
-<p>我们显然有:</p>
-<script type="math/tex; mode=display">
-1+N(H+T)=N+S_A+S_B\\
-N\times HHT=S_A\\
-N\times HTT=S_A\times T+S_B</script><p>解方程并带入$z=1$,可以有得知以HHT结尾的概率为$\cfrac{2}3$.</p>
-<p>事实上,我们使用类似Example1的方法,设这两个硬币序列分别为$A$和$B$,那么可以求出:</p>
-<script type="math/tex; mode=display">
-\cfrac{S_A}{S_B}=\cfrac{B:B-B:A}{A:A-A:B}</script><h3 id="二项式分布"><a href="#二项式分布" class="headerlink" title="二项式分布"></a>二项式分布</h3><p>现在有一个大小为$n+1$的概率空间,其中$\Pr(\omega_k)=\binom{n}{k}p^kq^{n-k}\\$,我们把这样的概率序列称为二项式分布.</p>
-<p>如果我们令$H(z)=q+pz$,不难发现二项式分布的生成函数为$H(z)^n$.</p>
-<p>不难发现,满足二项式分布的随机变量的均值是$np$,方差是$npq$.</p>
-<p>与二项式分布相对应的还有负二项式分布,它的生成函数形如:$G(z)^n=(\cfrac{p}{1-qz})^n=\sum_{k}\binom{n+k-1}{k}p^nq^kz^k$.</p>
-<p>我们考虑如何求$G(z)$的方差和均值,不妨设$F(z)=\cfrac{1-qz}{p}=\cfrac{1}{p}-\cfrac{q}{p}z$,则$G(z)^n=F(z)^{-n}$.</p>
-<p>不难发现$F(z)$满足二项式分布.也就是说,以$(n,p,q)$为参数的负二项式分布也就是以$(-n,-\cfrac{q}{p},\cfrac{1}{p})$为参数的二项式分布.</p>
-
+        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="2ca551a70ab668f8d4669e01ee069665bdcfc76961c59e9616decaa67c549252">97c398eadf1db869ea7352f4e9c35d3d77458286ac1d2d7cb5e96e46f322d232bd477880dc0e623c6e2ca04ed683f90359ffa79c9f53a5e39a7cc44411699817534cd1543419879573e45cea44af6f75a15da6e656cadbea0f13eb6dbe19b70f516aaf4fc917fa036f326abed7edc7da7215f1841fd110b5193a37c4884784a00c241337425e26cb9d1732d10c423057e64cce253d46259b8990da01fdf76b280422d8648a664aee3ec0bb4a5b61b18729e4549f11b950c2ee1e3037c1708647a7015c37176126a3e5b382c340a8cd792a8f02c1828189628ff1c81f6b27f8066f9c57f700585383fc78c87ea5dffde7aced177fea9d3811d891d7165cdcf5a94e50a9223ef64c01a8dbbde4c5a19fe719fa8d030a9dbd100ef5c96259c812f9b2987e5744af02733ce579cab32e41ca9022d20460368593f5ba31958965aa6205b47d2266fc64831eefef1815210e49d31144d56c925b113ce89ac7de40105df3f82427126f6994d7bf89226758e0baea162084f6db03df825e3bc0a41762cde4c5fa6a091783578da3cbb556939f6e90be4b547faf82fd54a7b3ea00ed97984f550d1bbcfc11d515c93f0d58e7cf77db5922b0e4ad942e7ac2ab61d208be8c5ffe4cf7a9dcadf2c69254351be797d1ac212506eaa6321242da47f154043f837b7b3707fc359ab5e30b06c9c33404155fa0c97c4be9a7ef730eacf3c48e4ca419c401deaa8653835389d9c1c02f1260c679e1c2cc3d0475a699fea12f38d53b56c9b77d299bd414465002203382f936e38c9628c1d845f213db9c304821fb676cd1bcae8125185bbc255ef48a632d1526f60460fc93af416e1bdb2a26034560489325ec5a445a8d8c1c6ec6d289b8549c2cffcefdef04a6ddd8bdb4f4d2943b57f8d970cae4845b1990965c245f82e0ec94318acf0433e15004d84c35bf071a975a5ea955f428d209ae07e11878e5d227a5bd654e9dac3c886a28cdf5f26466ddf49c386d468f117d6ce3c541ae291d1053f810e6d29617ae10c80dc7aae93349a5729553aa3500d06d9ecade682a33a3d9a24a750325a7136cf444262faefa445e5562957c75b8acf2a4ed79b73790763a793b073b73ba929171c7a6641bc771df999d0e709d118381178321fb0854956533b91083272452c2f09c8e13193bf8f9c2f9025a45ebc423339b85f9bacd63844ab1f6be1277d8168fda1e82e72ff0399b67d98dc28d960823be21a297373987eae0ea099e0e3a4e8d71f1b719cb0de5e6cda557976d94f88b42f8542237e7e38835b4ecbadd0d14a9f4a9288f0cd830b4c6cbfca0a49a95948f6dbc89c213bbee848b4c6aedde9d6d55d7a40ded1e3d0e0ae3d331cbcb4fdedc4e46472a6409c18a80de306cf290a05ca14df8be4bfc2fded7254d58c2851bf970461f7f267521aa06b3ca82c6a9cca7d6cab24aa5992bac45364030631e3ad0cab4977322c437ba8a227b913b6b8a17989941a0094bfd6be9df6c9de00b2ac0036a5e5506aee93ccdd5fe7928d9e3fcfc2fa02c99ed788235df19f9d671c4464c9b2158fe1c9ef53b0b62b64eabc49e2247e80d1b1074ac23ef03f10185d3d7cd41cebac0205c400fae14c95b09c21d3cee47893ecea60a08b17d3f4e586b5b326117600563c06e57020a23d27d525d30d35d7be25da8885d1970cca565fc2b7ae5e416ec5762ef952331a99ec7df02b261c641f795376f7a5891f24affccade99672f51af0cc47795e37c9666171ea7dea6969ba84febac79dd5fb8ce7fe46d4d7925dacc9b4fbb396224cb1bef4b49d7bf5d86f18484bd4545e77b36c9946d6393c7a985b5125f7cc7a502d2b3e151562cfc5f77e691acd9571dfd2b65155526b338084223114c56cb00bccff1f5a19c9833c081f88a162397f139e5a1f844d37c80f17ad841d8e16bf4fc810178dd71bbeaee1aa31511ee0b3a2810b7ab3dc000dc370d093a181e5f1bce7e3caedacae06f7e9741e678c215aca800479593c259fa61a70e8627d176abe2cc21229644f556a6519bb61569c8169d311f3c5c5d4c47b9a7d0dac2913dae236a4c743072ba26a1589b967aba89395aef205841fb3c3586ae7e4f802cabbc6ef62e058b762452042e9d0bf797025ca3c266a950818486cbcd4dbc1dedef6c44de841fe97c429452f154b1b9a70f2643b2a2c87bcae259b8730409cccc0fcba9cba1409d5ae77410e9495ce5db95c01bdcfab5a8c06d3ba070fbf3dd51b7c1eaa9bce6e6b55cff209371ab668c9d02b1d35408b56f7332da20d5dbb2264ec5a3adf2a0a9dfe3bc6bd9da1fce822b40ce45f9ebb9d45591a6c5253859994b5e88814254d3e435dd2703cdf9037849cfc7d848e2273c3bdb617a34f3f192dade847e13336b6bbb40a42045a0c90f254871f0d2e64ec5a52c7e33cd0f232d5c70c39e81fb0a96feab4930f517e6a90af8ed869b344bf115f49bef496d774d9b830ab032e0e67610687587d052c9acb941e3ac197e0b01378a662bb3620c761079226b9fe6372b14a82f3a522649a0a917d00b414f82bb9402e7ac1809fc5261b135e8badcca3ebbc4ef3d5da670fd97eca19021edfd9e54ea70e6b910b66e6cc04fc489cde00a3cb57314ebea0edf29057f9074be42a954d42f427d573e42239a013523678b86e46ed27d2345974bd403d323eea365318e1872ecce6953db259114d349a846b444f3d302ed23c763d91f3fbddf719a9ee78e0f38aac4898e2f8a586f7bb1714073c6d7c9dbd9bac16721457ccdbc28be6823f4cc2478f4fc11ee9bfe9ab065ea94d5f830aa477f90b69cb6878fcb8ffc108d1800ad2fe32565b42b68c96018974d259201c504e785f5bd3504fda35d74d2527bcfbe608a25bfc31b92aeef0401ded0de869dafc3d6c67216fe2e67d9620056d82f1759bbe360ef1e651c5c3534a3fdcf9da5628be925f997a6f6bb44f49e22081ba099c00f08c05decaa23da00c6598148b67846e782c61f950b755a072b0a8dae69a54ec769afe5e48cbc6d9abefce91c17ae3f42b674b2fb73b4e7bb952c1ded578df1b58565d9ea335863f680d73980e140d77bf939bbed26d2fbf17dffd497dcd6c5ba694b7b8ae9b792afee617dc5be97f32adf1a2afa99be061adc681ff51e436148d47e6505d18de221eb42af75b31e86b13b9d5eba816492854e463ebec440a0948153a5d538ee1053f1185fb64531de7d1d08e3232e95ed3c37c937f63be9f307b9e23c5906c6a0e580010407c5334a1d5064606aaed53b57a0ebfdca46ac4ccea11711728dc464991544402a4b727a145d0984294eaab375941a27766de5f6aa3212e0e1669f214abf6f618285b5066108a730185ba9263c664dbc3deb7f38cfa1ace5f0b1b3816d8d601816e1c60281e4004610e893984855fbaee98cb6b33d8a873c8ca313ff57896fabfc1d75c76e9270efdda2602bc0fdf82dd76727d3be577ef69fa2b43309f6106a7e0f805eb76906804a612b3266b8a1d70909e1ef531c0d8b26772ae3b01a2951e4b594d5cfb6860f0983a76e166d7f661bfc7ff847370b6366e094c40dbce50b6e1395aa7769285bb35a6ed6fa7cec60bd18701a664d1f360be95ffd548db584507a8b11ae9db4b957a1eee15934f30dad216ef1df1dd2c8f2d22a425a612d511e194a51e3b479a567491dfe185e9d48f7414ca339de58031c180f25c3780eb1465967ba9409d1a7a0058ed788af580fb7aad8f910a5f9247be80528208429965f799d7e524165391df71763ffddf56204dd32fd201abf3a0dc655668e827932ee0237e52c89194eb4485687ae0d9e837ef99b58e058d26d5ac73fc5b94291d6f18524c663189339cd83c38553e43aa76278944ab83301bc3621b629535b00d31f3348bc4ca898d5b90b7a2e0e24452185692c6bcb538e1d7782be20f1cbbb6e7f54aa057ec4ca351462465f07232b9dcceb261f5fe1fb5c502aebb3242dbb9b20873b700722d286d3a6138057e8c0eae439d5c1b28cfe397dbf9f6bb077204358cdaf86d62003e6e2d253c04c20082e1db8b79686185021c13fb981c8a6b807f2604d0e4900640b1c81f62209875d89f0208b98fb98d23495e087dbea67f61fbeaf1728f7cd955233e86ff8f825a40beebd95b097d01b97f54da9a110037f7d79abccca320de53f910771eb7d12959d9447348bc5b91dc8bfcc10e8c1f60ac2000f0ccc56eb5302f9cb6e9b5a08a949439820b7e35ad8484c328824b3c2e0dba7e1215c74fe9d584894555a19299a754187aa90bbcdcb0dd01b5c3af554deb945f9e87a62d4a8be6858cad30266763fbf47b787ce09b65b28d2fadc9eb6ae9b90a9313d623cc9ddcde6f496a1ea00ecd339989d1b4b3b252050e4cb50149f8a2bf49252fdcce648ff7985f2db48f7e8cfb1311ebb85df51ab9b87cb826d2c4a72f081920bc56e4bf896bd043a8fdf85be5e5f48a2acb3567aef61baae7dd8ac8b06ce1f7cf4daa1cc2892a16b7fc7ed2c9f542f0d1ee57d47e8548b57ca6b8f7f663172ddf1d1c276b72023bbd77ac1875740002ba44f4a72bf717fc7f561069c4d1f0e1323b67fb0ba1cf698ee9a261db5f96ab543395a4a5058d0dd67ba08bc6a514027602e6c10eeffa7b4d5db5b6a29b951fcb2930931209e224b3941d105b2d54fd609c7c1a3299e7a4f6a283fbb64ab66e0db8b2c170e30d5948fb652b92465218c6f4bc06bd6e037755f0ee5ba4dad92d38b6341ecd9fb4575dea37fba68bb1f5f2ecd0654612a9d4715244c361878efe4dc7f0ea7cde65960e41d99724be9b9a72d59af2260e0832969d28dc5aedbe93dd4ab214f2a1176336124c918406caac6abc824f1efb966192ae892a4f3dd6efa0363186c06aa321092c8bf40dc9e489f4704c6f9667f6324f66e9d8689d6a7e928e5125d840b583e25e904ee6631082e22face22f08fca152dfb7deb21098579b54f33fabdddaaed7e14d2a153e2135b3f56e228fd290c844cc6a9d5cf0d41475da1229c4bb1a8151b68cc217e5032f084fe870e9c94485d8c0f10f3377c56c45cd694138046c210311058e9c7d2ad3ea15a2315b41b1a00214a5c27b2d35e88db552dc0e0ab2525971a99b0a51e0ea47d5c0c9bc1655664dcfe2575ce07a7eb3746c531e3d4024cdd2823736251a29c1ae4c7f0bb156be8381880416d585199fa7f2172ebd4906348924d74baa04b9743d70060189fb5a28100aaf20f094ac6e7617f08d85da91d94f48397c81395aecdf8ba2278be1693f67ba8d4861bc38d66052fae6d7f8fcf776b9354f8050c3a204d9b97881c6e31cce2648dba10bed6e465b9f11983ff443a0586b7a6af694e7f12da825ebc5dbd59cff859ebab2550cc3c81d491a4e23542ef00c3cd5027171a5fcd2db58ec586c98beb1dfc8a20a6ab15a32fd9a1fd17b8f4d061df02964319cd2f86c76964cd80605cbeb82ee0ee4e1689a54411e6e9d2f80b5bc659ae8303ab680d6730297f80129c0e0fe438cc2ec8f4262c653a9ba0ecb51605d8428dea2c5993c370c6db1efbf4b1bd6ea6a9371d12d5c8e9d4ff7e8ee79bf0b568638256713ff644a7cfbbf37bdfcde9d696c741f6da902a03c83b02b7627cdb74bf7983e8a9c21219c7b7d16bd02aeacc5f5e57a3a41aa658b058eff1f0c6463dfa69d90326926371c2196365d7caf6ca0cf069a42d9a5cc0e1b94c2fb6656e04e9dd0efc08f70f7b5319ff8d396aebe3ec4fec824b4a52d4335f8569c3fdc0ef9b664b8cdd57e6d5ff2612c4baecf16d2046ab24c910e52765e0070b73d1ad357dcec07822eaef8517111c2568355e01749aa02343ae027fd5a2606cbea94e4021baad6c882b13cb5c007fae8c80125eb44e7a8906e6a02319bff66f189f57a9f92ce6e719a9a4f0cc72eea67f5c8f021ce332d973d88a3a3a3a54172fe095f828987f2857ac221a66cbda7bd5d8c20adf172bfb42ae4e890dbaf98e3b43ccc220bf5fe40af34685ae127a12d67cb48ec41ebaccdec5b3a5c2ec3f2c5252eb645a7724be1cde889bf38f7fc507e910aacae86b14d91f70019c8726b7f24ae225132069437c93d0807e68307bbd09871518c01830f3033e6fe3719c75512be1537c55754ff851fde625f3e73da7d3517a705ee096f5137217a971013b6241686ac9ca459a698a5bc2d4c690cc056aac1c542552a236fdbd0ff529fde2ff517065052255d1db2f68b7302600bf9f3e5190895d5675f8d726e2f56c909ddde616a9675686421194a5c7d83e0ff73eea05b4c61b5cb9acd347bfcb6ba9902c6927cabe1606ef7772201bf956c44dca5e68c19612329527b56edf5a62b617a14157383e6195bb41d7e30d17613676d6cd1e293b1247d6ad2d72c7202ecb10ff7e92e87f2f7260d9005da712501522c700f559f0af7f7fdc9f05d9bc5177ac7cbbb4b0ce65df1279f68603dcbc21c363b5f000ece6f655d6f359c264d1c956f7077fc41c4eedec02fb4767b96358c1f7499e64f57422e64864e886f678e84589e0342d9d20a038a820254c498855e5eb32b41036aa844bb2ae91b0601dd84576ca7661c275e6ea27a92a2c7955d1035bedaa1bf034fbf5151da6a4e73be674bb0114db5632e81ab04e57505a8bb731ba8b4d93cd3305ea0b137a57ca27142490f56ce3a4d7ed691c6e7f3d6daa8d558b21a1b78de1ce460c52b1719d46e033ad089f34e67d2ca711c1923b90adfbb31f0f39c5887e4860a94e53ede4e63572215045d561733b3f1bcd84456beb07231ce7bf5edd15e2ef9534f0434f7bd3b0b57ca40da6dff2ab45ab06e8b6df37bb4e858d3d83217398a53fedeb010ccf0cd3e20bb8486f569ee84a4f8c4e08a8bdcf41f3cca67b97130c351d10a0a6a476c9ae440c6a69309b9a2807ae3f38cdc4756a5c93ecfa3954f26e375c43801a9bfe71f2a3822632e11234d4bd057ced77da57a08f9b6bf53eb7eea70c78c141c2262bba8bc50a2dfd016ef183a645fef674c1a0a5578da7a16789b91e53946a362eaa5da4b5a066347c1db7e5dd94eac7297e90345a4e72831393612871f2195be449a80b976f6f102c1409f483b22bde494071da97ab54417569c5272295378fa6f0d0842ff95a4c0f7dde6dba57390a129950e72a36a93a449dae5734b70ed52704d0b554388542123727657b082aaacb4fab79c00ced7f9a92daf95c2c1f8523dddd5bfa5af3e57e7c30a5f80b43d6a0f7dfd8abb6bd44888db94d30c73a17585179161ea11d5ed16cefb2c1c30dadc3f7be84a4fb196a9f124f23d1bdcd4a34bb28c473d38554bfbc0a9feb472c0cb553c191e39d67da597ce338ab71788d097a8281e64ecc62e1cdfd7093072e043d7e9a62221947afff6c30082996ff7cc7eb40c4443d5b2178b21f1144a356cfbb4140b16c0c0be7ee720fe98312b4f3a87ab7c3abfaed136e999108058f540bc36b7ee3cb4f382c574f5360bbe9a74ba55b47dbc32be02feb2fdeba60eafb70cf445fb6eeb4d7adc0ea6ef5ec5be858aac5815dea034e4a8aede22811f94ff5220c4b9c286ebdb533a7cf34d640eadb3353b7dac92b2a665855aa8ffa30d9a0a97023fbdbfa67849f7823945bff375c772f1e14b39dc471aaf43e8060cb22ee9a22e075fdc39c38789df86fb295738c17470a449d434bafed8272009f3d42f8c628631216e03990e8205581239400bbcba0ac653eeec0efff2473b81ceb1cd5c11329c70ebcc463c3440beb963dedc09c82a1773c3d217cee780d2c8815d56ac439838e1e8e832ccab52dfbcd944bd113395a8123cf3acece3ed8a722208c9ef56b797a9b8c4d5f9a360816548fe5e0b41962558c5e5161e2aa03c3095123c43cf3165dae575cf60238bc8073dfd2dad55f942df35eaf975585498c9dd04c25da54b7cd6e08eb15d1710c683524d310593370a0c7a669b5173538e5399064522b7d119b1ee15a5c235d35804c6ea82805ccba663ce7f5eb763755bea54c26d891fd78cad7d3a27fc0a0aa824ccc1266540a6e3131a021c6aa9bb27fb394df2ef5f0235e0fb9868cb3d2f665f69e8c6781f0946f5dd86805aaaf915b3fa836908708b0f4400d939bfd09a9d6cbcc390a0812a47a9321637dc2a8a57ba011299b264adb785d2fad910b0dbcca79df6b90e3540b18ce8af508acf4e6091f612c0f42f9aee4ff561fab0a05846a9d404a206edabbc112255aec17dab85ef5342c7d35f4296303095b329c84cad5eb69f33f17996e5c5d40dac320f45b9cda559bb92d40afd59aebe3fd0e68cb7e64c292c81cd4886150bb30e8680d62dac204dae88d063f62bbd7513e47a7d72d8dd02f7c6a2cdeba759f743c896c1b758259ab5615acf8634a46500f8fb2468062c08247ecd44e800c6fa35036e7c8d15e84b962b44606070883fecf24c9ed6e18d45e94d65fb0c541887853fe37caf1338609c982189823524943b107272586bba0813667094c58209e4dd8597792a61b4a94c42fd7f546f189767386481599e366fa6135e22ecc16981522371adc51d1cee7a390acadf7866d5b10cec740f41bce087b989dfb8ed5d6931cfb2cad53cc68e952adc04a2da1adf79b002487b293905563a4dd584d9a62e8ef5b4b34911e61e43dd12ac8428ddb4ae3a57199ca97a3d47a9a68d1b9671ee73b1a0278d5951c7f3b7a43d966d8cb384038f0d77059a93d295cc5d3fb71a235f8c438158af51c9da8dba69af012fcca44d5029821d509106445feba3a18d1545e727f239c05a89d86f609c240ee257521985ca8f536f515017f09569641e102b5a6bb30d8cb5fbe1fc0c6d4c684ea907e8cdebf17edb0e87559dc8ca4e52a9c563feb0119fc9d3cadc3b6003589e196a32ef8b9754706063c3899ba2513ac7c69e90177ca46a98664ac0ffd3e84c91b58124bd7b4d2ba70d72e13908dda7f6385c05b934b17d9f0fbac7186dcd0ec9b9467bed20cf215226408242c98c5ece03860adaa159eb26d0bc3f712e6d5a7256436d645505aab7c0e24b2ed5a216796fb1d67d93d3b4cac4627089b24fd9ba89ea0d24bb187ca0a753842f6e8b8d342970fa90c384c33d3bde1b0ec9855f3055d05f0e1c1d2dcaab5112dc01a075d9b686aa3ff72b2a6a0cb1e7a9967969a6605683e334ff636ffe7069f2a887d92bd2f293fa87c498025b6d2da25559aedff40ac7007c0dea2aaf4fcc412ca88e4427602078cae3aaaac80e2b1aa8adf797dc38e2abdebf73255517091a706cdfad4476a90b14ff30c9d687e7362388919cbd0c8b9f40ef31e1a344f30fbbc90543ff6c219cdccbfda83fbf300039a26e12333fe4d7c07790465b2391c85fa66e3b6e57baacee8d36e9efc7b4b37d18ec9fa66ff4d81faf026ec7b223505e7d01c2478210874f7d831578c85ef3f31162199b82543fb887ccf45fd3b53055c680471b485417947a28b9a2e6be0ed2395b6f0134db6121ae55a35bff1fedd0bbae970aa7de263ef860bcf2b6e5095e6cf75ee4b496f55fbaa12baee716cb0f749059ff9a1962e027d028fd5988dbfaad75d89b1a9d256d1ad3d169b865536956139565013581b88fb333beafedc74d7904a78577166269505ad6815fea7cc1c8890a34699f523bcc16547a72ad644c40a4dd2a58880ef2c055e5f6c4539f8a41083131a493609bc29cd9bc6c6a6624d369f3c02730508b99a2c665f2bd1d489b25ea01514dd155eeb5863cc0cf06a2668d5d3f1fe3ecef2b0b195e328a8b63ed8d4ecbaf55ea61542e06877ac954d798c7be5d1c75c348fb3114692c5d8b6e34f8368be74ea4e7b6b1f6764c3b834f266c9474c24a8e38062837739520e18a107cc89c503a284cfc528096f8029f44d5d1b47768c413dfb4ff46738dad07bf239fc5fa73c131ea081a97f90be4aacbf9bece22d97c00aab26eaadd52c00eade6f683e9815df47ac483cc7632e81638b3ff293d8a2f89a9fe3d449ff4c8a1bc64267d928072c2112706bb70f845fb9f01089e3b213c8d86deb9aca8f04c2b6e292ba49a9900c1670a2c9fdaa172defee9a88581a0a1a3220d64d45ee26d9964e8be58ba57cb5be67ae522b93ec0ab5ca42c7863c379a09f2ad9dc7d939e14b1f1b178f6a22c7ad4c431a5cfabd17c5d2b44de8ef09134163bc8d7f0aa13fb0bc22628766407af2145aac0999dc54059f372e79291decf5d3624dff921e8feb0fcae228ce42e282878ce0504fd09b33553b3d3ca73fceb1c7a1778921ed53d00cee48c0175810d7eec25efb61260122af195f44749e73a835f1a0c0a7d7319f8e581876c6c99dca732b43ee9412a6afd0687f05477fc0d99959e1f761f43df5194c27e4cb6452415947d2eef6e487d1197cb7f470270de366f38f7401d9622f765f822b8baf06457acfb408f7a00b5f5896f4389c53d48e3af394cffb41e148eeb37dfc514a04a0162f37d30a70f42fe3dbbed1ceff83c4bfa8042ba16434af00f36773837c123b12ac0da19c1e45559b8994385d4930141868843a909e4639c1079b3b466257b89789dc8e533880bf1fe56f7179c20c5ccb4a65731e50a2f371680d55fe548169bcbb0fb512176d6e6ee13a7796f6b8950e17112a8cbda0d1c09ac5234baeb4e389049cd3b12d5b84028d87b494fc2275d4207463495120d7fb7549578409d38f7e7266d811fec04a41e9cd286e66f7abbe39f61327316d2fb6945ca313ecd0ed297d4f5f6f5c992e0e4e06dd03d1a5106ac11d5ea927a8bb5fdcf3d7dfdf0306e266f861247ef64f8a030014d5dfd9219127f0df8e569419e04b9c5808f577569b3703720b70c1f8e3a09b1b149c89dd198093da7161b97418392c6c3bc1e6f4068720045450b59d26883385a2cd715f197a0b1648006bb82cabe9fe795ac7613afb1fd5622998bac5de8cb34de0fe78a6d5f9f572567ab2dc7eff7f41b8b92a1534a113db04091203772cc5ad8736b53d7313243d80b0e2b872eaa0b793d1d6412cc41927098fa74a65c9f9802e0cc963b8f1cdf1294ddcdb5bc05dae8006f0caaecc902290bc59be6e0a4d7b9f1df68c6733f72d904b56e674574ce444f4dfd4a2ffb8684a0340cf061295cdee6181b28a2fe0caea0b644fc4f59812caaa5a772b7292ffd286213067fd0f0ba533a8942e23a2877f4e97614335675c8c46b010b6f1ad3d8765f4d6b1b293678cb827aac8c0eb8e9f33641ebf90f6dc595cc4fd28bfcc2779892578b1e274f2dad9f2ecda15b9ec98cb3aa2b153d7c3becc31ae1a7b5a4adc865b3274b1e46ca8ae8c2e5770083987a18bfca1c5618ba6f763cb2186dc0e15aa6813f70efa97c5eb9d5dc28d1198848b0b95439107092243e832dac5315a49938046754e6965cce7791b9f8ebb116dcd06bc2654000ad8f85537ac208d3b7a03a81226b99b32e7c5d87f922462fb01070f0c4bb002649513ea09244efa12d9a0790a4b605fff76b3bbb273230e72d925abf03fddeeb59a3c0060098d2520e047d231efe4a87fd6ce3bbdcd6c5336dc9ead1908c03dfd115f6f46f9476caa23aa6b898f3493626ba62a8a12a3de5b01fcf133068212bbfca31ea98e5c800fdf3495debd9d493014c478fb86852a49f176ce26a558ef648d16dfc009e00f6d0cd9910291526dd027383b54ca9c0d04a7dd641be15d08523a6ced6ecb03879c471f128c07380e49309bef4e8f9fb1fddc019f7505160ca0d6d521d03ee7063d452c90d5d3e02a16013d1737c1bc8f40006b12fdf0accee60833e9ed0a4afe46d9ad6a4d1748455520ed383fa53c1d63045c6a36873aa681cee38122ef18069ec909596f8f8219f65689f71d16e6b1908b6ba84c9c26ebcf9e033f8a659866f9b8ec6c87b27efda7c30f2c96d4aaa1d3bea442724dc7808039372c25577972be989860b0b37b8a8ac0ef56e1f0178d293e489e152bc9370702cf79d77922039ce0d0eef58ab8ac668831c01ea5e010a65067cd4e93ae947536fc53ffdbb6786c1521f1bb6489d31cf9d826d7d987423eaec14cf816e38e08603501aae6c771c618402e984725895e405bb76b10245f6da94f1d81119f2348ce7eda6ce25ec3a2cecb253c2fbba68deef06c758d06473b834096cc57a52daff32c64ad0fabfd60ba9b68fc9a1f12aea71a390578838735f6a60f3c1ba0c84e6a882c6564ffc9810843ff23b1b82a172a0046375314885ed2dbf2557f618075206a40f0c9fc79538795eddd4382c042481e956b9b4adf45f0ecf66096c174c812003566a4857c36100b9620f75f7ec95f93f28204f9303fa1a2b8444d461e1be7968f77133b941afde7c85716c010e73ba566f0435c6ad7e02c94e6c18ea6fe1a56bf90a6a5d1545fff0f4d5282e67dc51bb2311dc663eb5b05e53cef031f13fd838d4b05d79f2db6d55b8d3d0d20f6b095357edcb5e225562c41551992ab3dc3577dd2d0488c2670cec33c2e001b89c314a4087811b22e74e77ab107d90e941530dc322cd169802d760c7f0e1f34f238860df6bd47a3335ba4cebe45cfb84b5cf9b216637fc8efb65c722af63639013a9ffd083c9d965ba18a0a381413b570b2ad1548aa989f1c10ecfc93e052c6774e43dabb3164c83da270445790d519c6a0b7151ed57f7fc2e6ac365a8440551150ebdf9f132dd1fdce45010041abf7a4a33ef2d1e9810481673b71542ae841adb57917b582a947dfb1f8adb385078b60577982b0753a32accc31cb63e9531564c2ecc3a768afb2d8cd4757f15648797dbe1aff83ebfc023e74b1ad99cabcaabcedbc4d8957a77553d4d1a91dbd6573715f4ec269c479770cf5749d77fa313b45660d5edd720f6428396b8ee1fa3e77d82dfd340c420876dfb02ab44b65ab422d2abc7384620954db5043ed8dfced090011375ea25816fdee4a2666bcbd1913b6fa2c1580a3ccc2e3504b78e0e91696db083d89488f0209b6f96988cd6167454337b318e2c06b88cc369c0f87007481758042580979122fb5f837e2211858c9bf3c7ec856a32e6e56b09b8d14489d76a57906a54471e6caf1ab8bd4c4bf98af7370a0838d6da06542d2ea518e65ec8c52f21b1e1af073f371495cacc57ed69cfa02c337236bda6a4d797979a7d1c1212b7cb4904b9f0cb752ad73bdcd5e790f09e0e8a9ec3511c19729e58b1e92b1e96148d15f9c10f60d4153d719b41e944bb998b9788309d40217ce11b668c08ce76ea9ede1afb00aea7d1eebe662c8b1572b09f07e748b5d114e032c67cc588fb5ff222655fdf0c3c13d4610c122c775467b116953a564b963a751f2c741bf1a7faa49a1a4ce8688b924f4fa3e5e599ca07eab54f83cd3a1dffcf436d621815663b5c42afc69dbaa08e047c769da264453691736572c4914c3912f39849551c825867c8afca111b0ec20af5a1b1a662ffddcafd0889a3f5ae974f79417b75df7238a03aa280939f0f8b4e81bb5c567debf073ffe7cefe8c9d4e71bb0c52767e95d0b6197cdb40d3a8db6a64787d2f31effa7a5e301a5679b88b2bd87545b7d4e9b77e6cfbc55005700cbb87067c5296bcd336df05142bb4b90596d1c1e087e0796cbc8d94190dcf95fa48d3dcb6e99cde59f98b7e948559d0cdad7884af84605cf0029502ad08c2ca0f5b8b1a28b2f5fb0c8d00f907296e095e9601becbc2ebe7dd6f0fa4c452c8182df9a7c03b74e1408256ba44d80cf7bec380b3cbcb32f56ad3d9238687bfaf7948644451aaa11a6fa11147a9cced76b70491c84caf48f255ae6a0e8873e0f2f4fc3e0bc096297a98572352fb8416bcea35e4c5dab2f2f59482ee2e0c5fbb36c7c05c98e21a9bc1aa2b93c2be6142a704510dbe5955d54f5329dff5b190a5d16191fcee62b842676a0bee20c17ff111a5a0049f0feec76f68a974703a67f6925d1bf921f98d858605e643e6d8f68fd68fde6a2c928919faa6e66b0bb225cea386f03cf220cce7551f8950011fea0ef589fb887f1489670de9f5b713ee6551d057558e1b97517e33ef21dbce6c5ce83e5ce7afbd7f3e2c004a6e574beeaf5b88a89ec1878f92cd3d66994a579af48a46469929e3eb9215752273e18e302ed9f180228426c6d18b43da941f17c8cca5dd7218ae59dd16c73321d29f0d472c177361bfb1f74a333a14d3f2e310e4ad7ddb0fd8df506122a1cde7251cc0686e1a286239d8feb939d1340a37f80498fa2b8330b3d0cbd0321174473303208182dfcfeb1c6267ced9d5da2a3907611cefdc5c4b6b2c023f07fbfe6c25760a4376ebbebf90490ebf1d86849daced147e62f5916fc6ddad3ed6689d3edcc2d5156b4ba4b338d6c3c42874169331e53d6cc6d30ab3e31725bfda1023ba69db1397a2895ef6f16a1e955060084c13a9276a795bf959c856a561ada21948212e50b630d1f0d4803ac1aecefc76b08ab9d5a846e2c1a07fd22346ed42ae51d055c286d147a5ffa0a5a99652f41cc9995ec6bb9ea7a5a896b9d3640efc060a4342805469baa1887d786ca86b2940df562f372a1528b56d70dd17d152ac6c063115d1391d31ecef296d65b67bb2753dc7abda61b8bd884c06ea0b1f8ddf61652c744cc870bc411155da8fa0b0df5f5807b5dec5814af640c0c407f23e1bc4aa1108ea0b2d6767fdaffd9ced2a76444778929bdd907260e3316cf04c0780ab17dc58ac69ec609cf6f3a5eb1d1582e2435bbda47e1f44974b5609c5d0ec2df512f705f058c978c36441c074c099e6b4e5732e3c0e23925769d1ca6d68b025c7b9c4be8229b2484a8b226a2664c2b6d8eef5e8f8958daad450f85afe8988c0f0191ffddbe4889cf2f52f839a043c9534ba606659d3a3cec5273361521d93768d6a9aeabbecbef4f40ca52eca5c68c1944e2716c287dbb41cc4e9ff5be1021729b9e744ae39070743712eafd96401f79e81c242449e2db2c5fb140d37394071b53bdf28bc965b8864115e76acb769259800e67cc25bad2b060b73f33c3cade07c932956c462519c1c0e48965227e99b54e572427b621be2f3ce885b7b6a67d0e1d270b3fbbb2545fa3ff9e4e2d9b2db021ab38e451440056f42dcf529949c25115cdff8e8b45b5ab7c73bb1030f5253c33fc9110d3b63e6cbfaaaf729f1f3aa707266f90135e44a03e473c3393d654207a1eb466b1d536d59a4f31ef093d90dafdfc676a7625d8ee2e0d660dad0a6cd875ac9f6c1d15729bf124168b98033c93e47e0b25e580e8f35a2cd8755f17baa664e0d2d24855a76bb4f018318ee5f7229f4cbbdbfbdaa85adc8bff288a4baeb46fb1241ad0ae4e2202fae7c201d047e51c180649296c509b5542b2aa2b38c511d8628e662002a898dd6d4431f2bc70553b19406dd2510dc2bae7173cc9ff57ff158c6a08576d537cfc43083ee9974d24d9659d3ae6e3d0065925b1c830afaa7e1cbd584b7089bc0b6f7695061a5809d887947ceab232cc0cd17de2fd2cde89b581d57069c6786f6a0e0f57606de5b38223b15aa24f88d4906efc7d76b868ee0e0ea32a02c5a471bb8277696af8cc8f2b5be5048b4bd1fd0b96c8396bc857e3a2f63f69a5a8ddbee1fe5ddbdd005d33595c061776616c33377a709bff23eee6e9817c23d3ad7ecaf3637e9564dfd0f543aeca894dc8b8943b1d7eb849bb389f68ca3e21b51c43f36b83be0683c31195f2353247a28ebe5e0a5d679bb4dda6972807c352736a87d43b28be27318347835ece3bdf02dddc095dc19a1a4f714200edd4eea52050c3452e77ab1ecc18dbfe9ac4e2af2230d8d33563633f0ae38ef781be67d07b6e21f0a2b51ea3bdc3314280ee9393d111c8ee3c309e872f9d75d92758ae2c5e3b8b99b8bec6cd7fe7f76aa10c15567f30bb2316c9b9d091ba88d9958a4eb5cbfdf963e948dca2b0989ac7834ba2a9844402c02d6300c</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lwlaymh.github.io/2022/08/25/%E6%A6%82%E7%8E%87%E4%B8%8E%E6%9C%9F%E6%9C%9B/" data-id="cl81ljppy000d48vtffiv5wob" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://lwlaymh.github.io/2022/08/25/%E6%A6%82%E7%8E%87%E4%B8%8E%E6%9C%9F%E6%9C%9B/" data-id="cl81los04000gfgvtdda9f3zl" data-title="概率与期望" class="article-share-link">Share</a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OI/" rel="tag">OI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6/" rel="tag">具体数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li></ul>
+
     </footer>
   </div>
   
@@ -219,7 +133,7 @@ N\times HTT=S_A\times T+S_B</script><p>解方程并带入$z=1$,可以有得知�
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          (no title)
+          动态规划的优化
         
       </div>
     </a>
@@ -227,7 +141,7 @@ N\times HTT=S_A\times T+S_B</script><p>解方程并带入$z=1$,可以有得知�
   
     <a href="/2022/08/15/%E5%92%8C%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">和式</div>
     </a>
   
 </nav>
@@ -244,7 +158,7 @@ N\times HTT=S_A\times T+S_B</script><p>解方程并带入$z=1$,可以有得知�
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/dp/">dp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a></li></ul>
     </div>
   </div>
 
@@ -254,7 +168,7 @@ N\times HTT=S_A\times T+S_B</script><p>解方程并带入$z=1$,可以有得知�
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OI/" rel="tag">OI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6/" rel="tag">具体数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/" rel="tag">博弈论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OI/" rel="tag">OI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/" rel="tag">dp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6/" rel="tag">具体数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/" rel="tag">博弈论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%9A%E9%A1%B9%E5%BC%8F/" rel="tag">多项式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" rel="tag">离散数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" rel="tag">线性代数</a></li></ul>
     </div>
   </div>
 
@@ -264,7 +178,7 @@ N\times HTT=S_A\times T+S_B</script><p>解方程并带入$z=1$,可以有得知�
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/OI/" style="font-size: 20px;">OI</a> <a href="/tags/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6/" style="font-size: 10px;">具体数学</a> <a href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/" style="font-size: 10px;">博弈论</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 20px;">数学</a>
+      <a href="/tags/OI/" style="font-size: 20px;">OI</a> <a href="/tags/dp/" style="font-size: 10px;">dp</a> <a href="/tags/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6/" style="font-size: 13.33px;">具体数学</a> <a href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/" style="font-size: 10px;">博弈论</a> <a href="/tags/%E5%A4%9A%E9%A1%B9%E5%BC%8F/" style="font-size: 10px;">多项式</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 16.67px;">数学</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" style="font-size: 10px;">离散数学</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" style="font-size: 10px;">线性代数</a>
     </div>
   </div>
 
@@ -286,7 +200,7 @@ N\times HTT=S_A\times T+S_B</script><p>解方程并带入$z=1$,可以有得知�
       <ul>
         
           <li>
-            <a href="/2022/09/13/%E6%95%B0%E8%AE%BA/">(no title)</a>
+            <a href="/2022/09/13/%E6%95%B0%E8%AE%BA/">数论</a>
           </li>
         
           <li>
@@ -294,15 +208,15 @@ N\times HTT=S_A\times T+S_B</script><p>解方程并带入$z=1$,可以有得知�
           </li>
         
           <li>
-            <a href="/2022/09/03/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/">(no title)</a>
+            <a href="/2022/09/03/%E6%95%B4%E5%80%BC%E5%87%BD%E6%95%B0/">整值函数</a>
           </li>
         
           <li>
-            <a href="/2022/09/03/%E5%A4%9A%E9%A1%B9%E5%BC%8F/">(no title)</a>
+            <a href="/2022/09/03/%E5%A4%9A%E9%A1%B9%E5%BC%8F/">多项式</a>
           </li>
         
           <li>
-            <a href="/2022/08/29/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">(no title)</a>
+            <a href="/2022/08/29/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a>
           </li>
         
       </ul>
