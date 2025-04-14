@@ -295,35 +295,25 @@
     <div class="post-body" itemprop="articleBody"><!-- toc -->
 <!-- tocstop -->
 <span id="more"></span>
-<p>2024的烟台一模数学压轴题是一道新定义题,是说证明<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%91%86%E7%BA%BF/5893005">摆线</a>上一点<span class="math inline">\(M(x_0,y_0)\)</span>的切线的倾斜角为<span class="math inline">\(\theta\)</span>,求证<span class="math inline">\(\frac{1+\cos
-2\theta}{y_0}=1\)</span>.在这个题下选用的参数方程是<span class="math inline">\(x=t-\sin t,y=1-\cos t\)</span>.</p>
+<p>2024的烟台一模数学压轴题是一道新定义题,是说证明<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%91%86%E7%BA%BF/5893005">摆线</a>上一点$M(x_0,y_0)$的切线的倾斜角为$\theta$,求证$\frac{1+\cos 2\theta}{y_0}=1$.在这个题下选用的参数方程是$x=t-\sin t,y=1-\cos t$.</p>
 <p>这个怎么做呢?我的文化课同学们纷纷使用强大的隐函数求导技巧把它杀穿了啊.可惜我不会隐函数求导,我只会链式法则.但是我考场只记得链式法则怎么用了而完全忘记了这个东西为啥是对的,所以就有了这篇复健博客.</p>
-<p>首先来复习一下微分<span class="math inline">\(\text d
-y\)</span>的定义啊,下面这段抄自我原本的高数笔记:</p>
-<p>考察<span class="math inline">\(\Delta y=f(x_0+\Delta
-x)-f(x_0)\)</span>,不妨假设<span class="math inline">\(f(x)\)</span>在<span class="math inline">\(x_0\)</span>处导数存在,自然有<span class="math inline">\(\lim_{\Delta x\rightarrow 0}\frac{\Delta y}{\Delta
-x}=f&#39;(x_0)\\\)</span>.考察<span class="math inline">\(\eta(\Delta
-x)=\frac{\Delta y}{\Delta x}-f&#39;(x_0)\)</span>,显然<span class="math inline">\(\Delta x\rightarrow 0\)</span>时<span class="math inline">\(\eta(\Delta x)\)</span>是一个无穷小量.</p>
-<p>那么,我们自然有: <span class="math display">\[
-\Delta y=f&#39;(x_0)\Delta x+\eta(\Delta x)\Delta x\\
-=f&#39;(x_0)\Delta x+o(\Delta x),\Delta x\rightarrow 0
-\]</span> 同时,如果我们有这个式子,可以两边同时除以<span class="math inline">\(\Delta x\)</span>以证明可导.</p>
+<p>首先来复习一下微分$\text d y$的定义啊,下面这段抄自我原本的高数笔记:</p>
+<p>考察$\Delta y=f(x_0+\Delta x)-f(x_0)$,不妨假设$f(x)$在$x_0$处导数存在,自然有$\lim_{\Delta x\rightarrow 0}\frac{\Delta y}{\Delta x}=f’(x_0)\\$.考察$\eta(\Delta x)=\frac{\Delta y}{\Delta x}-f’(x_0)$,显然$\Delta x\rightarrow 0$时$\eta(\Delta x)$是一个无穷小量.</p>
+<p>那么,我们自然有:</p>
+<script type="math/tex; mode=display">
+\Delta y=f'(x_0)\Delta x+\eta(\Delta x)\Delta x\\
+=f'(x_0)\Delta x+o(\Delta x),\Delta x\rightarrow 0</script><p>同时,如果我们有这个式子,可以两边同时除以$\Delta x$以证明可导.</p>
 <p>这就将一阶导数转化成了无穷小量的形式,我们借此给出微分的定义:</p>
-<p>设<span class="math inline">\(y=f(x)\)</span>在<span class="math inline">\(x_0\)</span>处有定义,假设有一个常数<span class="math inline">\(A\)</span>使得<span class="math inline">\(f(x_0+\Delta x)-f(x_0)=A\Delta x+o(\Delta
-x),\Delta x\rightarrow 0\)</span>,称<span class="math inline">\(f(x)\)</span>在<span class="math inline">\(x_0\)</span>处<strong>可微</strong>,并把<span class="math inline">\(\text df=\text dy=A\Delta x\)</span>称为<span class="math inline">\(f(x)\)</span>在<span class="math inline">\(x_0\)</span>处的<strong>微分</strong>,由于后半部分是一个更高阶的无穷小量,我们说微分是函数改变量的线性主要部分.这个时候结合导数极限的定义,就可以得到<span class="math inline">\(\text d y=f&#39;(x)\text d x\)</span>,<span class="math inline">\(f&#39;(x)=\frac{\text d y}{\text d
-x}\\\)</span>.这就是我们将导数称作<strong>微商</strong>的原因.</p>
-<p>一阶微分具有<strong>形式不变性</strong>.换言之就是,我们在求导的时候是需要选定一个自变量的,当选定的自变量是<span class="math inline">\(y\)</span>的时候,根据上面自然会有<span class="math inline">\(z=g(y),\text d z=g&#39;(y)\text d y\)</span>.</p>
-<p>但是当选定的自变量不是<span class="math inline">\(y\)</span>的时候,上面的形式是同样成立的.我们下面证明这个结论,令<span class="math inline">\(y=f(x)\)</span>: <span class="math display">\[
-[g(f(x))]&#39;=g&#39;(f(x))f&#39;(x)\\
-\text d z=g&#39;(f(x))f&#39;(x)\text d x\\
-\text d z=g&#39;(y)\text d y\\
-\]</span> 必须提出高阶微分不存在形式不变性,换句话说,<span class="math inline">\(z=g(y)\)</span>的二阶微分的形式不等价于<span class="math inline">\(z=g(y=f(x))\)</span>的二阶微分,你不能乱换元.</p>
-<p>根据上面的操作,我们很自然引出了链式法则,也就是: <span class="math display">\[
-\frac{\text d y}{\text d x}=\frac{\text d y}{\text d t}\frac{\text d
-t}{\text d x}=\frac{\text d y}{\text d t}\frac{1}{\frac{\text d x}{\text
-d t}}
-\]</span></p>
-<p>这样上面的题就可以迎刃而解了.</p>
+<p>设$y=f(x)$在$x_0$处有定义,假设有一个常数$A$使得$f(x_0+\Delta x)-f(x_0)=A\Delta x+o(\Delta x),\Delta x\rightarrow 0$,称$f(x)$在$x_0$处<strong>可微</strong>,并把$\text df=\text dy=A\Delta x$称为$f(x)$在$x_0$处的<strong>微分</strong>,由于后半部分是一个更高阶的无穷小量,我们说微分是函数改变量的线性主要部分.这个时候结合导数极限的定义,就可以得到$\text d y=f’(x)\text d x$,$f’(x)=\frac{\text d y}{\text d x}\\$.这就是我们将导数称作<strong>微商</strong>的原因.</p>
+<p>一阶微分具有<strong>形式不变性</strong>.换言之就是,我们在求导的时候是需要选定一个自变量的,当选定的自变量是$y$的时候,根据上面自然会有$z=g(y),\text d z=g’(y)\text d y$.</p>
+<p>但是当选定的自变量不是$y$的时候,上面的形式是同样成立的.我们下面证明这个结论,令$y=f(x)$:</p>
+<script type="math/tex; mode=display">
+[g(f(x))]'=g'(f(x))f'(x)\\
+\text d z=g'(f(x))f'(x)\text d x\\
+\text d z=g'(y)\text d y\\</script><p>必须提出高阶微分不存在形式不变性,换句话说,$z=g(y)$的二阶微分的形式不等价于$z=g(y=f(x))$的二阶微分,你不能乱换元.</p>
+<p>根据上面的操作,我们很自然引出了链式法则,也就是:</p>
+<script type="math/tex; mode=display">
+\frac{\text d y}{\text d x}=\frac{\text d y}{\text d t}\frac{\text d t}{\text d x}=\frac{\text d y}{\text d t}\frac{1}{\frac{\text d x}{\text d t}}</script><p>这样上面的题就可以迎刃而解了.</p>
 
     </div>
 
