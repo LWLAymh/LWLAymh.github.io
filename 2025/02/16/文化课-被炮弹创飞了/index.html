@@ -296,51 +296,72 @@
 <!-- tocstop -->
 <span id="more"></span>
 <p>高中物理的时候有这么一个题,然后今天刚好信物讲到了,顺手来总结一下.</p>
-<p>先来个简单版本:我从一个点打炮弹,目标与我的距离为$x$,且目标比我高$h$,问以什么样的角度打出炮弹能使得击中目标并且初速度最小.</p>
-<p>我们当然会第一反应认为这是一个很简单的问题,考虑$t=\frac{x}{v_0\cos \theta}$,因为我们很容易写出方程:</p>
-<script type="math/tex; mode=display">
+<p>先来个简单版本:我从一个点打炮弹,目标与我的距离为<span class="math inline">\(x\)</span>,且目标比我高<span class="math inline">\(h\)</span>,问以什么样的角度打出炮弹能使得击中目标并且初速度最小.</p>
+<p>我们当然会第一反应认为这是一个很简单的问题,考虑<span class="math inline">\(t=\frac{x}{v_0\cos
+\theta}\)</span>,因为我们很容易写出方程:</p>
+<p><span class="math display">\[
 x\frac{\sin\theta}{\cos\theta}-\frac{gx^2}{2v_0^2\cos^2\theta}=h\\
 \frac{1}{v_0^2}=\frac{1}{gx^2}(x\sin(2\theta)-h\cos(2\theta)-h)\\
-\frac{1}{v_0^2}=\frac{1}{gx^2}(\sqrt{x^2+h^2}\sin(2\theta-\varphi)-h),\varphi=\arctan(\frac{h}{x})</script><p>只需要对后面那个东西用辅助角公式就可以了对吧,非常简单啊!</p>
+\frac{1}{v_0^2}=\frac{1}{gx^2}(\sqrt{x^2+h^2}\sin(2\theta-\varphi)-h),\varphi=\arctan(\frac{h}{x})
+\]</span></p>
+<p>只需要对后面那个东西用辅助角公式就可以了对吧,非常简单啊!</p>
 <p>然而,我们稍微改下题面:</p>
-<p>我从一个高度为$h$的点打炮弹,初速度确定为$v_0$,问以什么样的角度打炮弹能打得最远.</p>
-<p>这有啥区别啊,只需要改个正负号就行了是吧,让我们看看:</p>
-<script type="math/tex; mode=display">
-\frac{1}{v_0^2}=\frac{1}{gx^2}(x\sin(2\theta)+h\cos(2\theta)+h)</script><p>这下发现问题了,这个$x$根本拿不出来啊.</p>
-<p>重新按部就班,发现只能用求根公式得到$x$的表达式,更进一步地,我们有:</p>
-<script type="math/tex; mode=display">
-x=\frac{v_0\cos\theta(v_0\sin\theta+\sqrt{v_0^2\sin^2\theta+2gh})}{g}</script><p>怎么办呢?yth老师给出了一个想法是使用柯西不等式,注意到:</p>
-<script type="math/tex; mode=display">
+<p>我从一个高度为<span class="math inline">\(h\)</span>的点打炮弹,初速度确定为<span class="math inline">\(v_0\)</span>,问以什么样的角度打炮弹能打得最远.</p>
+<p>这有啥区别啊,只需要改个正负号就行了是吧,让我们看看: <span class="math display">\[
+\frac{1}{v_0^2}=\frac{1}{gx^2}(x\sin(2\theta)+h\cos(2\theta)+h)
+\]</span></p>
+<p>这下发现问题了,这个<span class="math inline">\(x\)</span>根本拿不出来啊.</p>
+<p>重新按部就班,发现只能用求根公式得到<span class="math inline">\(x\)</span>的表达式,更进一步地,我们有: <span class="math display">\[
+x=\frac{v_0\cos\theta(v_0\sin\theta+\sqrt{v_0^2\sin^2\theta+2gh})}{g}
+\]</span></p>
+<p>怎么办呢?yth老师给出了一个想法是使用柯西不等式,注意到: <span class="math display">\[
 x=\frac{v_0\cos\theta(v_0\sin\theta+\sqrt{v_0^2\sin^2\theta+2gh})}{g}\\
-=\frac{v_0\sin\theta v_0\cos\theta+v_0\cos\theta\sqrt{v_0^2\sin^2\theta+2gh}}{g}\\
-\leq \frac{1}{g}(v_0\sqrt{v_0^2+2gh})</script><p>当且仅当$v_0^2\cos^2\theta=v_0\sin\theta\sqrt{v_0^2\sin^2\theta+2gh},\frac{1}{\tan^2\theta}=\frac{2gh}{v_0^2}+1$的时候取等.</p>
-<p>还有一种策略是考虑对隐函数求导然后令$\frac{\text d x}{\text d \theta}=0$,这样得到情况会和我们一开始的初始问题得到的答案相等,也就是当$\tan (2\theta)=-\frac{x}{h}$的时候$x$会取极限.这也很好理解,因为我们如果当前的速度没有用到极限打到最远,总能调整使得得到一个更小的速度打到当前的距离,因此距离还有提高的空间.</p>
+=\frac{v_0\sin\theta
+v_0\cos\theta+v_0\cos\theta\sqrt{v_0^2\sin^2\theta+2gh}}{g}\\
+\leq \frac{1}{g}(v_0\sqrt{v_0^2+2gh})
+\]</span> 当且仅当<span class="math inline">\(v_0^2\cos^2\theta=v_0\sin\theta\sqrt{v_0^2\sin^2\theta+2gh},\frac{1}{\tan^2\theta}=\frac{2gh}{v_0^2}+1\)</span>的时候取等.</p>
+<p>还有一种策略是考虑对隐函数求导然后令<span class="math inline">\(\frac{\text d x}{\text d
+\theta}=0\)</span>,这样得到情况会和我们一开始的初始问题得到的答案相等,也就是当<span class="math inline">\(\tan (2\theta)=-\frac{x}{h}\)</span>的时候<span class="math inline">\(x\)</span>会取极限.这也很好理解,因为我们如果当前的速度没有用到极限打到最远,总能调整使得得到一个更小的速度打到当前的距离,因此距离还有提高的空间.</p>
 <p>有没有更聪明一点的办法呢?</p>
-<p>我们注意到初速度是定值,根据机械能守恒定律,末速度的大小一定是个定值,我们考虑:</p>
-<script type="math/tex; mode=display">
-\vec v=\vec v_0+\Delta \vec v</script><p>通过机械能守恒定律可以算出$|\vec v|=\sqrt{v_0^2+2gh}$.</p>
-<p>注意到$\vec v$和$\vec v_0$的水平方向分速度是相同的.然后有一个天才的想法是,考虑上述那个向量式的三角形法则,设那个三角形的面积为$S$,注意到$\Delta \vec v=gt$,而$x=v_0\cos\theta t=\frac{2S}{g}\leq \frac{v_0\sqrt{v_0^2+2gh}}{g}$,也就是面积最大的时候应该是$\vec v_0$和$\vec v$夹角为$\frac{\pi}{2}$的时候.</p>
+<p>我们注意到初速度是定值,根据机械能守恒定律,末速度的大小一定是个定值,我们考虑:
+<span class="math display">\[
+\vec v=\vec v_0+\Delta \vec v
+\]</span></p>
+<p>通过机械能守恒定律可以算出<span class="math inline">\(|\vec
+v|=\sqrt{v_0^2+2gh}\)</span>.</p>
+<p>注意到<span class="math inline">\(\vec v\)</span>和<span class="math inline">\(\vec
+v_0\)</span>的水平方向分速度是相同的.然后有一个天才的想法是,考虑上述那个向量式的三角形法则,设那个三角形的面积为<span class="math inline">\(S\)</span>,注意到<span class="math inline">\(\Delta \vec v=gt\)</span>,而<span class="math inline">\(x=v_0\cos\theta t=\frac{2S}{g}\leq
+\frac{v_0\sqrt{v_0^2+2gh}}{g}\)</span>,也就是面积最大的时候应该是<span class="math inline">\(\vec v_0\)</span>和<span class="math inline">\(\vec v\)</span>夹角为<span class="math inline">\(\frac{\pi}{2}\)</span>的时候.</p>
 <p>直接从形式上来看:</p>
-<script type="math/tex; mode=display">
-\frac{v_0\sin\theta v_0\cos\theta+v_0\cos\theta\sqrt{v_0^2\sin^2\theta+2gh}}{g}</script><p>我们知道正交分解的时候从结果上来说可以作分方向的动能定理,因此初速度是$(v_0\cos\theta,v_0\sin\theta)$,末速度是$(v_0\cos\theta,-\sqrt{v_0^2\sin^2\theta+2gh}))$,因此$x=\frac{\vec v\times \vec v_0}{g}$.</p>
+<p><span class="math display">\[
+\frac{v_0\sin\theta
+v_0\cos\theta+v_0\cos\theta\sqrt{v_0^2\sin^2\theta+2gh}}{g}
+\]</span></p>
+<p>我们知道正交分解的时候从结果上来说可以作分方向的动能定理,因此初速度是<span class="math inline">\((v_0\cos\theta,v_0\sin\theta)\)</span>,末速度是<span class="math inline">\((v_0\cos\theta,-\sqrt{v_0^2\sin^2\theta+2gh}))\)</span>,因此<span class="math inline">\(x=\frac{\vec v\times \vec v_0}{g}\)</span>.</p>
 <p>这个想法过于震惊了,以至于我在之后多次回忆起这个题,想去找到初速度与末速度叉积的物理意义.但直到如今我也没有完全理解这个做法.</p>
 <p>写到这发现没活整了,顺便在这写一下另一个斜抛题:</p>
-<p>抛射质量为$m$的小球,抛射倾角为$\theta$,初速度大小为$v_0$,所受空气阻力$\vec F$与速度$\vec v$的关系为$\vec F=-k\vec v$,其中$k$为固定系数,求小球在空气中运行的轨迹曲线.</p>
-<p>考虑$\frac{\text d \vec v}{\text dt}=\vec a=\frac{\vec F+\vec G}{m}=\frac{1}{m}(-k\vec v+m\vec g)$.</p>
-<p>于是:</p>
-<script type="math/tex; mode=display">
+<p>抛射质量为<span class="math inline">\(m\)</span>的小球,抛射倾角为<span class="math inline">\(\theta\)</span>,初速度大小为<span class="math inline">\(v_0\)</span>,所受空气阻力<span class="math inline">\(\vec F\)</span>与速度<span class="math inline">\(\vec v\)</span>的关系为<span class="math inline">\(\vec F=-k\vec v\)</span>,其中<span class="math inline">\(k\)</span>为固定系数,求小球在空气中运行的轨迹曲线.</p>
+<p>考虑<span class="math inline">\(\frac{\text d \vec v}{\text dt}=\vec
+a=\frac{\vec F+\vec G}{m}=\frac{1}{m}(-k\vec v+m\vec g)\)</span>.</p>
+<p>于是: <span class="math display">\[
 \text d \vec v=\frac{1}{m}(-k\vec v+m\vec g)\text d t\\
-\int_{\vec v_0}^{\vec v}\text d \vec v=\int_{0}^t\frac{1}{m}(-k\vec v+m\vec g)\text d t\\
+\int_{\vec v_0}^{\vec v}\text d \vec v=\int_{0}^t\frac{1}{m}(-k\vec
+v+m\vec g)\text d t\\
 \vec v=\frac{-k\vec x}{m}+\vec g t+\vec v_0\\
-\begin{cases}\frac{\text d x}{\text d t}=\frac{-kx}{m}+v_0\cos\theta\\\frac{\text d y}{\text d t}=\frac{-ky}{m}+v_0\sin\theta+gt\end{cases}</script><p>对于第一个式子,令$w=\frac{-kx}{m}+v_0\cos\theta$我们有:</p>
-<script type="math/tex; mode=display">
+\begin{cases}\frac{\text d x}{\text d
+t}=\frac{-kx}{m}+v_0\cos\theta\\\frac{\text d y}{\text d
+t}=\frac{-ky}{m}+v_0\sin\theta+gt\end{cases}
+\]</span> 对于第一个式子,令<span class="math inline">\(w=\frac{-kx}{m}+v_0\cos\theta\)</span>我们有:
+<span class="math display">\[
 \frac{-m}{k}\frac{\text d w}{\text d t}=w\\
-\frac{-m}{k}\int_{v_0\cos\theta}^{w}\frac{\text d w}{w}=\int_{0}^t\text d t\\
+\frac{-m}{k}\int_{v_0\cos\theta}^{w}\frac{\text d w}{w}=\int_{0}^t\text
+d t\\
 \ln(\frac{\frac{-kx}{m}+v_0\cos\theta}{v_0\cos\theta})=\frac{-k}{m}t\\
 \frac{-kx}{mv_0\cos\theta}+1=e^{\frac{-k}{m}t}\\
-x=\frac{mv_0\cos\theta}{k}(1-e^{-\frac{k}{m}t})</script><p>同理解出$y=\frac{m}{k}((v_0\sin\theta+\frac{mg}{k})(1-e^{-\frac{k}{m}t})-gt)$.</p>
-<p>综上参数方程是:$\begin{cases}x=\frac{mv_0\cos\theta}{k}(1-e^{-\frac{k}{m}t})\\y=\frac{m}{k}((v_0\sin\theta+\frac{mg}{k})(1-e^{-\frac{k}{m}t})-gt)\end{cases}$.</p>
-<p>轨迹方程是:$y=(v_0\sin\theta+\frac{mg}{k})\frac{x}{v_0\cos\theta}+\frac{mg}{k}\ln(1-\frac{kx}{mv_0\cos\theta})$.</p>
+x=\frac{mv_0\cos\theta}{k}(1-e^{-\frac{k}{m}t})
+\]</span> 同理解出<span class="math inline">\(y=\frac{m}{k}((v_0\sin\theta+\frac{mg}{k})(1-e^{-\frac{k}{m}t})-gt)\)</span>.</p>
+<p>综上参数方程是:<span class="math inline">\(\begin{cases}x=\frac{mv_0\cos\theta}{k}(1-e^{-\frac{k}{m}t})\\y=\frac{m}{k}((v_0\sin\theta+\frac{mg}{k})(1-e^{-\frac{k}{m}t})-gt)\end{cases}\)</span>.</p>
+<p>轨迹方程是:<span class="math inline">\(y=(v_0\sin\theta+\frac{mg}{k})\frac{x}{v_0\cos\theta}+\frac{mg}{k}\ln(1-\frac{kx}{mv_0\cos\theta})\)</span>.</p>
 
     </div>
 

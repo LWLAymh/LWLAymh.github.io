@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lwlaymh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="约定 抛物线 定理1 定理2 定理3 引理     圆 定理(坎迪定理) 特例 通解     椭圆 定理1   其它">
+    <meta name="description" content="约定 抛物线  定理1 定理2 定理3  引理   圆  定理(坎迪定理)  特例 通解   椭圆  定理1  其它">
 <meta property="og:type" content="article">
 <meta property="og:title" content="被蝴蝶创飞了">
 <meta property="og:url" content="http://lwlaymh.github.io/2025/02/16/%E6%96%87%E5%8C%96%E8%AF%BE-%E8%A2%AB%E8%9D%B4%E8%9D%B6%E5%88%9B%E9%A3%9E%E4%BA%86/index.html">
 <meta property="og:site_name" content="LWLAymh的备忘录">
-<meta property="og:description" content="约定 抛物线 定理1 定理2 定理3 引理     圆 定理(坎迪定理) 特例 通解     椭圆 定理1   其它">
+<meta property="og:description" content="约定 抛物线  定理1 定理2 定理3  引理   圆  定理(坎迪定理)  特例 通解   椭圆  定理1  其它">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/ah1ipl9o.png">
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/9uzi7mgg.png">
@@ -301,72 +301,89 @@
     <div class="post-body" itemprop="articleBody"><!-- toc -->
 <ul>
 <li><a href="#约定">约定</a></li>
-<li><a href="#抛物线">抛物线</a><ul>
+<li><a href="#抛物线">抛物线</a>
+<ul>
 <li><a href="#定理1">定理1</a></li>
 <li><a href="#定理2">定理2</a></li>
-<li><a href="#定理3">定理3</a><ul>
+<li><a href="#定理3">定理3</a>
+<ul>
 <li><a href="#引理">引理</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#圆">圆</a><ul>
-<li><a href="#定理坎迪定理">定理(坎迪定理)</a><ul>
+</ul></li>
+</ul></li>
+<li><a href="#圆">圆</a>
+<ul>
+<li><a href="#定理坎迪定理">定理(坎迪定理)</a>
+<ul>
 <li><a href="#特例">特例</a></li>
 <li><a href="#通解">通解</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#椭圆">椭圆</a><ul>
+</ul></li>
+</ul></li>
+<li><a href="#椭圆">椭圆</a>
+<ul>
 <li><a href="#定理1-1">定理1</a></li>
-</ul>
-</li>
+</ul></li>
 <li><a href="#其它">其它</a></li>
 </ul>
 <!-- tocstop -->
 <span id="more"></span>
-<p>事情是这样的,很久很久很久以前,我做了一个圆锥曲线压轴题,大概就是椭圆$x$轴上蝴蝶定理硬算题给我整傻眼了.今天我闲的没事乱想突然意识到椭圆可以仿射变换到圆来解决,那么圆肯定有很优美的做法了吧!</p>
+<p>事情是这样的,很久很久很久以前,我做了一个圆锥曲线压轴题,大概就是椭圆<span class="math inline">\(x\)</span>轴上蝴蝶定理硬算题给我整傻眼了.今天我闲的没事乱想突然意识到椭圆可以仿射变换到圆来解决,那么圆肯定有很优美的做法了吧!</p>
 <p>然而我瞪了半天也没看出来,没办法最后拿联消判韦把圆的结论搓出来了.</p>
 <p>这个时候我又想看看其它的圆锥曲线,发现双曲线好像有点不太会,因为我不是很懂双曲线的内部是啥,然后我发现抛物线的蝴蝶定理更加优美.</p>
 <p>所以我就把这一坨东西出了思考题,下面是整理.</p>
-<h3><span id="约定">约定</span></h3><p>下文称$A,B,C$三点满足蝴蝶定理,当且仅当A,B,C三点都在圆锥曲线内部,并且过A的直线与圆锥曲线交于$P,Q$两点,$PB,QB$分别与圆锥曲线交于$P’,Q’$两点,而且$P’Q’$恒过$C$点.</p>
-<h3><span id="抛物线">抛物线</span></h3><h4><span id="定理1">定理1</span></h4><p>对于任何一条抛物线$y^2=2px$以及与其内部一点$A(a,0)$,过$A$点与抛物线相交的两个点的横坐标之积等于$a^2$.</p>
+<h3><span id="约定">约定</span></h3>
+<p>下文称<span class="math inline">\(A,B,C\)</span>三点满足蝴蝶定理,当且仅当A,B,C三点都在圆锥曲线内部,并且过A的直线与圆锥曲线交于<span class="math inline">\(P,Q\)</span>两点,<span class="math inline">\(PB,QB\)</span>分别与圆锥曲线交于<span class="math inline">\(P&#39;,Q&#39;\)</span>两点,而且<span class="math inline">\(P&#39;Q&#39;\)</span>恒过<span class="math inline">\(C\)</span>点.</p>
+<h3><span id="抛物线">抛物线</span></h3>
+<h4><span id="定理1">定理1</span></h4>
+<p>对于任何一条抛物线<span class="math inline">\(y^2=2px\)</span>以及与其内部一点<span class="math inline">\(A(a,0)\)</span>,过<span class="math inline">\(A\)</span>点与抛物线相交的两个点的横坐标之积等于<span class="math inline">\(a^2\)</span>.</p>
 <p>证明:联立即可.</p>
-<h4><span id="定理2">定理2</span></h4><p>对于任何一条抛物线$y^2=2px$以及其内部的三点$A(a,0),B(b,0),C(c,0)$,三点满足蝴蝶定理当且仅当$b^2=ac$.</p>
+<h4><span id="定理2">定理2</span></h4>
+<p>对于任何一条抛物线<span class="math inline">\(y^2=2px\)</span>以及其内部的三点<span class="math inline">\(A(a,0),B(b,0),C(c,0)\)</span>,三点满足蝴蝶定理当且仅当<span class="math inline">\(b^2=ac\)</span>.</p>
 <p>证明:由定理1,我们有:</p>
-<p>$\begin{cases}x_Px_Q=a^2\\x_Px_{P’}=b^2\\<br>x_Qx_{Q’}=b^2\\x_{P’}x_{Q’}=c^2\end{cases}$</p>
+<p><span class="math inline">\(\begin{cases}x_Px_Q=a^2\\x_Px_{P&#39;}=b^2\\
+x_Qx_{Q&#39;}=b^2\\x_{P&#39;}x_{Q&#39;}=c^2\end{cases}\)</span></p>
 <p>简单解一下就可以.</p>
-<h4><span id="定理3">定理3</span></h4><p>对于任何一条抛物线$y^2=2px$以及其内部的两点$A(x_a,y_a),B(x_b,y_b)$,要么存在一个点$C$使得$A,B,C$三点满足蝴蝶定理,要么$P’Q’$的斜率恒定.</p>
+<h4><span id="定理3">定理3</span></h4>
+<p>对于任何一条抛物线<span class="math inline">\(y^2=2px\)</span>以及其内部的两点<span class="math inline">\(A(x_a,y_a),B(x_b,y_b)\)</span>,要么存在一个点<span class="math inline">\(C\)</span>使得<span class="math inline">\(A,B,C\)</span>三点满足蝴蝶定理,要么<span class="math inline">\(P&#39;Q&#39;\)</span>的斜率恒定.</p>
 <p>证明:</p>
-<h5><span id="引理">引理</span></h5><p>如果一条动直线$Ax+By+C=0$中,$A,B,C$满足一次方程$pA+qB+C=0$,那么这条直线肯定过定点$(p,q)$.</p>
-<p>而如果可以找到一个参数$t$,使得可以做到将$A,B,C$分别表示为$f(t),g(t),h(t)$的形式,其中$f,g,h$都是关于$t$的一次函数或常函数,那么这条直线要么过定点,要么斜率恒定.</p>
-<p>对于$P’Q’$这条直线,这个$t$相当好找,可以是$k_{PQ}$,可以是$y_Py_Q$,可以是$y_P+y_Q$,然后带入简单检验一下即可.</p>
-<h3><span id="圆">圆</span></h3><h4><span id="定理坎迪定理">定理(坎迪定理)</span></h4><h5><span id="特例">特例</span></h5><p>对于任何一个圆$x^2+y^2=r^2$以及其内部三点$A(a,0),B(b,0),C(c,0)$,若三点满足蝴蝶定理,当且仅当$(a+c)(b^2+r^2)=2b(ac+r^2)$.</p>
-<h5><span id="通解">通解</span></h5><p>对于任何一个圆,我们有下图(图源自百度百科)</p>
-<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/ah1ipl9o.png" alt></p>
-<p>那么$\frac{1}{GP}-\frac{1}{HP}=\frac{1}{AP}-\frac{1}{BP}$.</p>
+<h5><span id="引理">引理</span></h5>
+<p>如果一条动直线<span class="math inline">\(Ax+By+C=0\)</span>中,<span class="math inline">\(A,B,C\)</span>满足一次方程<span class="math inline">\(pA+qB+C=0\)</span>,那么这条直线肯定过定点<span class="math inline">\((p,q)\)</span>.</p>
+<p>而如果可以找到一个参数<span class="math inline">\(t\)</span>,使得可以做到将<span class="math inline">\(A,B,C\)</span>分别表示为<span class="math inline">\(f(t),g(t),h(t)\)</span>的形式,其中<span class="math inline">\(f,g,h\)</span>都是关于<span class="math inline">\(t\)</span>的一次函数或常函数,那么这条直线要么过定点,要么斜率恒定.</p>
+<p>对于<span class="math inline">\(P&#39;Q&#39;\)</span>这条直线,这个<span class="math inline">\(t\)</span>相当好找,可以是<span class="math inline">\(k_{PQ}\)</span>,可以是<span class="math inline">\(y_Py_Q\)</span>,可以是<span class="math inline">\(y_P+y_Q\)</span>,然后带入简单检验一下即可.</p>
+<h3><span id="圆">圆</span></h3>
+<h4><span id="定理坎迪定理">定理(坎迪定理)</span></h4>
+<h5><span id="特例">特例</span></h5>
+<p>对于任何一个圆<span class="math inline">\(x^2+y^2=r^2\)</span>以及其内部三点<span class="math inline">\(A(a,0),B(b,0),C(c,0)\)</span>,若三点满足蝴蝶定理,当且仅当<span class="math inline">\((a+c)(b^2+r^2)=2b(ac+r^2)\)</span>.</p>
+<h5><span id="通解">通解</span></h5>
+<p>对于任何一个圆,我们有下图(图源自百度百科)</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/ah1ipl9o.png"></p>
+<p>那么<span class="math inline">\(\frac{1}{GP}-\frac{1}{HP}=\frac{1}{AP}-\frac{1}{BP}\)</span>.</p>
 <p><del>该定理的几何/代数证明好像都略麻烦,笔者决定开摆</del></p>
-<p>@Querainy 牛逼,下面给出他提供的曲线系<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/uakioi/qu-xian-xi">证明</a>:</p>
+<p><span class="citation" data-cites="Querainy">@Querainy</span>
+牛逼,下面给出他提供的曲线系<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/uakioi/qu-xian-xi">证明</a>:</p>
 <p>我们尝试把这个做法拓展到坎迪定理上.</p>
-<p>照葫芦画瓢,设圆心为$(x_0,y_0)$,得到$(CE,DF):(1+\lambda k_1k_2)x^2-2x_0x+x_0^2+y_0^2-r^2=0$.</p>
-<p>此时,$|AB|=\sqrt{r^2-y_0^2}$,$|AP|=|AB|-x_0,|BP|=|AB|+x_0$,$\frac{1}{AP}-\frac{1}{BP}=\frac{2x_0}{r^2-y_0^2-x_0^2}$.</p>
-<p>而$\frac{1}{GP}-\frac{1}{HP}=-\frac{y_1+y_2}{y_1y_2}=\frac{2x_0}{r^2-y_0^2-x_0^2}$.</p>
+<p>照葫芦画瓢,设圆心为<span class="math inline">\((x_0,y_0)\)</span>,得到<span class="math inline">\((CE,DF):(1+\lambda
+k_1k_2)x^2-2x_0x+x_0^2+y_0^2-r^2=0\)</span>.</p>
+<p>此时,<span class="math inline">\(|AB|=\sqrt{r^2-y_0^2}\)</span>,<span class="math inline">\(|AP|=|AB|-x_0,|BP|=|AB|+x_0\)</span>,<span class="math inline">\(\frac{1}{AP}-\frac{1}{BP}=\frac{2x_0}{r^2-y_0^2-x_0^2}\)</span>.</p>
+<p>而<span class="math inline">\(\frac{1}{GP}-\frac{1}{HP}=-\frac{y_1+y_2}{y_1y_2}=\frac{2x_0}{r^2-y_0^2-x_0^2}\)</span>.</p>
 <p>笔者后来思考了一下为什么这个是二次曲线系啊.</p>
-<p>我们考虑求过四个定点的二次曲线系,不妨假设这些二次曲线均为$Ax^2+By^2+Cxy+Dx+Ey+F=0$\\</p>
-<p>带入四个定点坐标,就可以得到关于$(A,B,C,D,E,F)$的四个方程.不妨先假设这四个方程线性无关.那么就有两个自由元,那么方程的任何一个解,就可以表示为两组线性无关的特解的线性组合.</p>
+<p>我们考虑求过四个定点的二次曲线系,不妨假设这些二次曲线均为<span class="math inline">\(Ax^2+By^2+Cxy+Dx+Ey+F=0\)</span>\</p>
+<p>带入四个定点坐标,就可以得到关于<span class="math inline">\((A,B,C,D,E,F)\)</span>的四个方程.不妨先假设这四个方程线性无关.那么就有两个自由元,那么方程的任何一个解,就可以表示为两组线性无关的特解的线性组合.</p>
 <p>注意到两个二次曲线线性相关,当且仅当它们是同一条曲线,这就证明了二次曲线系的正确性!</p>
 <p>那么怎么证明这四个方程线性无关呢,不太会啊,这次真摆了.</p>
-<h3><span id="椭圆">椭圆</span></h3><h4><span id="定理1">定理1</span></h4><p>对于任何一个椭圆$\frac{x^2}{r^2}+\frac{y^2}{d^2}=1(r&gt;d)$以及其内部三点$A(a,0),B(b,0),C(c,0)$,若三点满足蝴蝶定理,当且仅当$(a+c)(b^2+r^2)=2b(ac+r^2)$.</p>
+<h3><span id="椭圆">椭圆</span></h3>
+<h4><span id="定理1">定理1</span></h4>
+<p>对于任何一个椭圆<span class="math inline">\(\frac{x^2}{r^2}+\frac{y^2}{d^2}=1(r&gt;d)\)</span>以及其内部三点<span class="math inline">\(A(a,0),B(b,0),C(c,0)\)</span>,若三点满足蝴蝶定理,当且仅当<span class="math inline">\((a+c)(b^2+r^2)=2b(ac+r^2)\)</span>.</p>
 <p>证明:</p>
-<p>注意到圆的坎迪定理的特例,然后发现我们如果将椭圆的纵轴拉长使其成为一个圆,换言之就是对椭圆进行仿射变换,那么$A,B,C$三点坐标不变并且仍然满足蝴蝶定理.</p>
-<h3><span id="其它">其它</span></h3><p>众所周知,极点极线有一个经典内切四边形结论,其实也就是所谓的完全四边形啊.</p>
+<p>注意到圆的坎迪定理的特例,然后发现我们如果将椭圆的纵轴拉长使其成为一个圆,换言之就是对椭圆进行仿射变换,那么<span class="math inline">\(A,B,C\)</span>三点坐标不变并且仍然满足蝴蝶定理.</p>
+<h3><span id="其它">其它</span></h3>
+<p>众所周知,极点极线有一个经典内切四边形结论,其实也就是所谓的完全四边形啊.</p>
 <p>给张图,</p>
-<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/9uzi7mgg.png" alt></p>
-<p>其中$G,D,H,A$成调和点列.</p>
-<p>我们冷静一下,注意到$(AF,AE)$就是一个二次曲线,而且$F,C,B,E$是二次曲线上四个点,所以这个还可以用曲线系方程来证明这四个点成调和点列,非常有实力.</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/9uzi7mgg.png"></p>
+<p>其中<span class="math inline">\(G,D,H,A\)</span>成调和点列.</p>
+<p>我们冷静一下,注意到<span class="math inline">\((AF,AE)\)</span>就是一个二次曲线,而且<span class="math inline">\(F,C,B,E\)</span>是二次曲线上四个点,所以这个还可以用曲线系方程来证明这四个点成调和点列,非常有实力.</p>
 <p>当然,为了应对文化课,我们有更加简单的证明完全四边形调和点列的做法:</p>
-<p>不妨设$d=\frac{BC}{EF}$,令$\vec e=\vec{AE},\vec f=\vec{AF}$,则$\vec{AD}=\lambda_1\vec e+\mu_1d\vec f=\lambda_2d\vec e+\mu_2\vec f$,对比系数得到两个方程,再加上$\mu_1+\lambda_1=1,\mu_2+\lambda_2=1$,立刻解出结论.</p>
+<p>不妨设<span class="math inline">\(d=\frac{BC}{EF}\)</span>,令<span class="math inline">\(\vec e=\vec{AE},\vec f=\vec{AF}\)</span>,则<span class="math inline">\(\vec{AD}=\lambda_1\vec e+\mu_1d\vec
+f=\lambda_2d\vec e+\mu_2\vec f\)</span>,对比系数得到两个方程,再加上<span class="math inline">\(\mu_1+\lambda_1=1,\mu_2+\lambda_2=1\)</span>,立刻解出结论.</p>
 
     </div>
 
