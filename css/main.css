@@ -1115,7 +1115,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #c1ffff;
+  background: #1d8f7c;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2427,9 +2427,6 @@ header.header {
   max-width: 150px;
   padding: 5px;
 }
-.brand {
-  background: var(--btn-default-bg);
-}
 header.header {
   padding-top: 100px;
 }
@@ -2513,10 +2510,4 @@ header.header {
   margin-bottom: 60px;
   padding: 25px;
   background: rgba(255,255,255,0.8) none repeat scroll !important;
-}
-a.brand {
-  background-color: rgba(255,255,255,0) !important; /* 完全透明 */
-  box-shadow: none !important; /* 可选：去掉阴影 */
-  border: none !important; /* 可选：去掉边框 */
-  outline: none !important; /* 可选：去掉 focus 外框 */
 }
