@@ -310,6 +310,7 @@ td {
   font-size: 0.875em;
   line-height: 2;
   padding: 0 20px;
+  text-decoration: none;
   transition: background-color 0.2s ease-in-out;
 }
 .btn:hover {
@@ -1114,7 +1115,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #8ebb1c;
+  background: #d5ff95;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
