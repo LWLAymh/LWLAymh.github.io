@@ -184,6 +184,8 @@ body {
 }
 body {
   background: url("/images/background8.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   box-sizing: border-box;
   color: var(--text-color);
   font-family: 楷体, 'PingFang SC', 'Microsoft YaHei', sans-serif;
@@ -1112,7 +1114,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #38c8ff;
+  background: #8ebb1c;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
