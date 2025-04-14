@@ -1115,7 +1115,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #ff50ff;
+  background: #c1ffff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2515,7 +2515,8 @@ header.header {
   background: rgba(255,255,255,0.8) none repeat scroll !important;
 }
 a.brand {
-  outline: none !important;
-  box-shadow: none !important;
-  border: none !important;
+  background-color: rgba(255,255,255,0) !important; /* 完全透明 */
+  box-shadow: none !important; /* 可选：去掉阴影 */
+  border: none !important; /* 可选：去掉边框 */
+  outline: none !important; /* 可选：去掉 focus 外框 */
 }
