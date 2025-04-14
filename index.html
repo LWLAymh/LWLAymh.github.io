@@ -43,6 +43,25 @@
     lang   : 'zh-CN'
   };
 </script>
+<!-- 本地 MathJax + XyJax 配置 -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["/js/xyjax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [["$", "$"], ["\\(", "\\)"]],
+      displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+      skipTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+      processEscapes: true
+    },
+    TeX: {
+      extensions: ["AMSmath.js", "AMSsymbols.js", "color.js"]
+    }
+  });
+</script>
+
+<!-- 加载 MathJax 主脚本 -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS_HTML"></script>
 
   <title>LWLAymh的备忘录</title>
   
@@ -212,7 +231,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-04-14 15:16:20 / 修改时间：16:26:48" itemprop="dateCreated datePublished" datetime="2025-04-14T15:16:20+08:00">2025-04-14</time>
+              <time title="创建时间：2025-04-14 15:16:20 / 修改时间：16:36:47" itemprop="dateCreated datePublished" datetime="2025-04-14T15:16:20+08:00">2025-04-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">

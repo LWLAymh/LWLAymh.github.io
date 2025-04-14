@@ -45,6 +45,25 @@
     lang   : 'zh-CN'
   };
 </script>
+<!-- 本地 MathJax + XyJax 配置 -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["/js/xyjax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [["$", "$"], ["\\(", "\\)"]],
+      displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+      skipTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+      processEscapes: true
+    },
+    TeX: {
+      extensions: ["AMSmath.js", "AMSsymbols.js", "color.js"]
+    }
+  });
+</script>
+
+<!-- 加载 MathJax 主脚本 -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS_HTML"></script>
 
   <title>标签 | LWLAymh的备忘录
 </title>
