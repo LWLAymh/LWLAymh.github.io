@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lwlaymh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="KMP  Example1(zr23省选第一轮集训day5b) Example2(NOI2014 动物园)  border理论  定理  定理1 定理2(周期引理) 定理3 定理4 定理5 定理6  Example  Example1([POI2011]OKR-Periodicity)   SA  Example1  ACAM  Exa">
+    <meta name="description" content="KMP Example1(zr23省选第一轮集训day5b) Example2(NOI2014 动物园)   border理论 定理 定理1 定理2(周期引理) 定理3 定理4 定理5 定理6   Example Example1([POI2011]OKR-Periodicity)     SA Example1   ACAM Example1(uoj772企鹅游戏) Example2(loj">
 <meta property="og:type" content="article">
 <meta property="og:title" content="字符串">
 <meta property="og:url" content="http://lwlaymh.github.io/2024/10/05/%E5%AD%A6%E4%B9%A0-%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html">
 <meta property="og:site_name" content="LWLAymh的备忘录">
-<meta property="og:description" content="KMP  Example1(zr23省选第一轮集训day5b) Example2(NOI2014 动物园)  border理论  定理  定理1 定理2(周期引理) 定理3 定理4 定理5 定理6  Example  Example1([POI2011]OKR-Periodicity)   SA  Example1  ACAM  Exa">
+<meta property="og:description" content="KMP Example1(zr23省选第一轮集训day5b) Example2(NOI2014 动物园)   border理论 定理 定理1 定理2(周期引理) 定理3 定理4 定理5 定理6   Example Example1([POI2011]OKR-Periodicity)     SA Example1   ACAM Example1(uoj772企鹅游戏) Example2(loj">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-04T16:04:36.510Z">
 <meta property="article:modified_time" content="2025-04-14T16:44:28.986Z">
@@ -101,7 +101,7 @@
       <p class="site-title">LWLAymh的备忘录</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">我永远喜欢言和和！</p>
+      <p class="site-subtitle" itemprop="description">一路喧嚣到黄土中</p>
   </div>
 
   <div class="site-nav-right">
@@ -320,203 +320,164 @@
     
     <div class="post-body" itemprop="articleBody"><!-- toc -->
 <ul>
-<li><a href="#kmp">KMP</a>
-<ul>
+<li><a href="#kmp">KMP</a><ul>
 <li><a href="#example1zr23省选第一轮集训day5b">Example1(zr23省选第一轮集训day5b)</a></li>
 <li><a href="#example2noi2014-动物园">Example2(NOI2014 动物园)</a></li>
-</ul></li>
-<li><a href="#border理论">border理论</a>
-<ul>
-<li><a href="#定理">定理</a>
-<ul>
+</ul>
+</li>
+<li><a href="#border理论">border理论</a><ul>
+<li><a href="#定理">定理</a><ul>
 <li><a href="#定理1">定理1</a></li>
 <li><a href="#定理2周期引理">定理2(周期引理)</a></li>
 <li><a href="#定理3">定理3</a></li>
 <li><a href="#定理4">定理4</a></li>
 <li><a href="#定理5">定理5</a></li>
 <li><a href="#定理6">定理6</a></li>
-</ul></li>
-<li><a href="#example">Example</a>
-<ul>
+</ul>
+</li>
+<li><a href="#example">Example</a><ul>
 <li><a href="#example1poi2011okr-periodicity">Example1([POI2011]OKR-Periodicity)</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#sa">SA</a>
-<ul>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sa">SA</a><ul>
 <li><a href="#example1">Example1</a></li>
-</ul></li>
-<li><a href="#acam">ACAM</a>
-<ul>
+</ul>
+</li>
+<li><a href="#acam">ACAM</a><ul>
 <li><a href="#example1uoj772企鹅游戏">Example1(uoj772企鹅游戏)</a></li>
 <li><a href="#example2loj3396-novel">Example2(loj3396 novel)</a></li>
-</ul></li>
-<li><a href="#pam">PAM</a>
-<ul>
+</ul>
+</li>
+<li><a href="#pam">PAM</a><ul>
 <li><a href="#引理">引理</a></li>
 <li><a href="#算法">算法</a></li>
-</ul></li>
-<li><a href="#sam">SAM</a>
-<ul>
+</ul>
+</li>
+<li><a href="#sam">SAM</a><ul>
 <li><a href="#引理-1">引理</a></li>
 <li><a href="#约定">约定</a></li>
 <li><a href="#算法-1">算法</a></li>
-<li><a href="#应用">应用</a>
-<ul>
+<li><a href="#应用">应用</a><ul>
 <li><a href="#检查字符串是否出现">检查字符串是否出现</a></li>
 <li><a href="#不同子串个数">不同子串个数</a></li>
-</ul></li>
-<li><a href="#例题">例题</a>
-<ul>
+</ul>
+</li>
+<li><a href="#例题">例题</a><ul>
 <li><a href="#example1-1">Example1</a></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <!-- tocstop -->
 <span id="more"></span>
-<h3><span id="kmp">KMP</span></h3>
-<h5><span id="example1zr23省选第一轮集训day5b">Example1(zr23省选第一轮集训day5b)</span></h5>
-<p>必须提一下的是,能用KMP的前提是可以比较两个字符串是否相等,不一定是比较两个字母相等.只要能比较两个字符串是否相等,并且已知<span class="math inline">\(A=B\)</span>能快速判断是否有<span class="math inline">\(A+a=B+b\)</span>,那么就可以使用KMP.并不要求<span class="math inline">\(A=B\)</span>并且<span class="math inline">\(a=b\)</span>才有<span class="math inline">\(A+a=B+b\)</span>.</p>
-<p>因此,我们取<span class="math inline">\(p\)</span>的置换<span class="math inline">\(q\)</span>,然后找到所有和<span class="math inline">\(q\)</span>的大小关系一样的区间即可,要证明这是个等价关系,然后就可以上KMP了.</p>
-<h5><span id="example2noi2014-动物园">Example2(NOI2014 动物园)</span></h5>
-<p>自然的想法是先求border数组,然后每次暴力跳border直到当前前后缀不重叠.根据border的定义显然是对的.但这样复杂度不对.</p>
+<h3><span id="kmp">KMP</span></h3><h5><span id="example1zr23省选第一轮集训day5b">Example1(zr23省选第一轮集训day5b)</span></h5><p>必须提一下的是,能用KMP的前提是可以比较两个字符串是否相等,不一定是比较两个字母相等.只要能比较两个字符串是否相等,并且已知$A=B$能快速判断是否有$A+a=B+b$,那么就可以使用KMP.并不要求$A=B$并且$a=b$才有$A+a=B+b$.</p>
+<p>因此,我们取$p$的置换$q$,然后找到所有和$q$的大小关系一样的区间即可,要证明这是个等价关系,然后就可以上KMP了.</p>
+<h5><span id="example2noi2014-动物园">Example2(NOI2014 动物园)</span></h5><p>自然的想法是先求border数组,然后每次暴力跳border直到当前前后缀不重叠.根据border的定义显然是对的.但这样复杂度不对.</p>
 <p>另一个想法是我们能不能在做KMP的时候,直接判掉当前长度是否超过,如果超过就放弃呢?也不对,因为这样往前跳也会用到这个border数组,但往前跳有可能跳的很少.</p>
 <p>因此我们先求border,再第二遍做KMP,用另一个数组,但是往前跳的时候用border跳,其他情况正常做就行.</p>
-<h3><span id="border理论">border理论</span></h3>
-<h4><span id="定理">定理</span></h4>
-<h5><span id="定理1">定理1</span></h5>
-<p><span class="math inline">\(s\)</span>的某个border长度为<span class="math inline">\(k\)</span>等价于<span class="math inline">\(|s|-k\)</span>是<span class="math inline">\(s\)</span>的周期.</p>
+<h3><span id="border理论">border理论</span></h3><h4><span id="定理">定理</span></h4><h5><span id="定理1">定理1</span></h5><p>$s$的某个border长度为$k$等价于$|s|-k$是$s$的周期.</p>
 <p>证明显然.</p>
-<h5><span id="定理2周期引理">定理2(周期引理)</span></h5>
-<p>弱周期引理:如果<span class="math inline">\(p,q\)</span>是<span class="math inline">\(s\)</span>的周期且<span class="math inline">\(p+q\leq |s|\)</span>,那么<span class="math inline">\(\gcd(p,q)\)</span>是<span class="math inline">\(s\)</span>的周期.</p>
-<p>考虑分开两面证明,不妨设<span class="math inline">\(p&gt;q,r=p-q\)</span>,先证明<span class="math inline">\(\forall i&gt;q,s_i=s_{i+r}\)</span>,事实上<span class="math inline">\(s_i=s_{i-q}=s_{i-q+p}=s_{i+r}\)</span>.再考虑证明<span class="math inline">\(i\leq |s|-p,s_i=s_{i+r}\)</span>,事实上<span class="math inline">\(s_i=s_{i+p}=s_{i+p-q}=s_{i+r}\)</span>.</p>
-<p>由于<span class="math inline">\(p+q\leq
-|s|\)</span>,因此上面那个证明对所有<span class="math inline">\(i\)</span>成立,由此得证.</p>
-<p>强周期引理:如果<span class="math inline">\(p,q\)</span>是<span class="math inline">\(s\)</span>的周期且<span class="math inline">\(p+q-\gcd(p,q)\leq |s|\)</span>,那么<span class="math inline">\(\gcd(p,q)\)</span>是<span class="math inline">\(s\)</span>的周期.</p>
-<p>这个有一个生成函数证明.简单来说我们不妨设长度为<span class="math inline">\(p\)</span>的那个周期的生成函数为<span class="math inline">\(P(z)\)</span>,它是一个<span class="math inline">\(p-1\)</span>次的生成函数.同理定义<span class="math inline">\(Q(z)\)</span>.不妨设<span class="math inline">\(S_p(z)=\frac{P(z)}{1-z^p}\)</span>,同理定义<span class="math inline">\(S_q(z)\)</span>.</p>
-<p>如果我们能说明<span class="math inline">\(S_p(z)=S_q(z)\)</span>,由于这两个都是无穷项,由欧几里得算法立刻得到<span class="math inline">\(\gcd(p,q)\)</span>是其周期.考虑: <span class="math display">\[
+<h5><span id="定理2周期引理">定理2(周期引理)</span></h5><p>弱周期引理:如果$p,q$是$s$的周期且$p+q\leq |s|$,那么$\gcd(p,q)$是$s$的周期.</p>
+<p>考虑分开两面证明,不妨设$p&gt;q,r=p-q$,先证明$\forall i&gt;q,s_i=s_{i+r}$,事实上$s_i=s_{i-q}=s_{i-q+p}=s_{i+r}$.再考虑证明$i\leq |s|-p,s_i=s_{i+r}$,事实上$s_i=s_{i+p}=s_{i+p-q}=s_{i+r}$.</p>
+<p>由于$p+q\leq |s|$,因此上面那个证明对所有$i$成立,由此得证.</p>
+<p>强周期引理:如果$p,q$是$s$的周期且$p+q-\gcd(p,q)\leq |s|$,那么$\gcd(p,q)$是$s$的周期.</p>
+<p>这个有一个生成函数证明.简单来说我们不妨设长度为$p$的那个周期的生成函数为$P(z)$,它是一个$p-1$次的生成函数.同理定义$Q(z)$.不妨设$S_p(z)=\frac{P(z)}{1-z^p}$,同理定义$S_q(z)$.</p>
+<p>如果我们能说明$S_p(z)=S_q(z)$,由于这两个都是无穷项,由欧几里得算法立刻得到$\gcd(p,q)$是其周期.考虑:</p>
+<script type="math/tex; mode=display">
 S_p(z)-S_q(z)\\
 =\frac{P(z)}{1-z^p}-\frac{Q(z)}{1-z^q}\\
-=\frac{1-z^g}{(1-z^p)(1-z^q)}(\frac{1-z^q}{1-z^g}P(z)-\frac{1-z^p}{1-z^g}Q(z))
-\]</span> 此时注意到括号里面的那个东西的次数有限,设其为<span class="math inline">\(H(z)\)</span>,不难发现<span class="math inline">\(H(z)\)</span>的次数是<span class="math inline">\(p+q-g-1\)</span>.若<span class="math inline">\(H(z)\ne 0\)</span>,又因为<span class="math inline">\(\frac{1-z^g}{(1-z^p)(1-z^q)}\)</span>的常数项不为<span class="math inline">\(0\)</span>,因此<span class="math inline">\(\exists
-0\leq k\leq p+q-g-1,[z^k](S_p(z)-S_q(z))\ne 0\)</span>,但根据假设,<span class="math inline">\(\forall 0\leq k\leq n-1\leq
-p+q-g-1\)</span>,应该有<span class="math inline">\([z^k](S_p(z)-S_q(z))=0\)</span>,因此<span class="math inline">\(H(z)=0\)</span>,因此<span class="math inline">\(S_p(z)=S_q(z)\)</span>.</p>
-<h5><span id="定理3">定理3</span></h5>
-<p>若<span class="math inline">\(S\)</span>是<span class="math inline">\(T\)</span>的前缀,且<span class="math inline">\(T\)</span>有周期<span class="math inline">\(a\)</span>,<span class="math inline">\(S\)</span>有整周期<span class="math inline">\(b\)</span>,<span class="math inline">\(b|a,|S|\geq
-a\)</span>,则<span class="math inline">\(T\)</span>有周期<span class="math inline">\(b\)</span>.证明显然.</p>
-<h5><span id="定理4">定理4</span></h5>
-<p>若<span class="math inline">\(2|S|\geq |T|\)</span>,则<span class="math inline">\(S\)</span>在<span class="math inline">\(T\)</span>中的匹配位置必为等差序列.</p>
+=\frac{1-z^g}{(1-z^p)(1-z^q)}(\frac{1-z^q}{1-z^g}P(z)-\frac{1-z^p}{1-z^g}Q(z))</script><p>此时注意到括号里面的那个东西的次数有限,设其为$H(z)$,不难发现$H(z)$的次数是$p+q-g-1$.若$H(z)\ne 0$,又因为$\frac{1-z^g}{(1-z^p)(1-z^q)}$的常数项不为$0$,因此$\exists 0\leq k\leq p+q-g-1,<a href="S_p(z">z^k</a>-S_q(z))\ne 0$,但根据假设,$\forall 0\leq k\leq n-1\leq p+q-g-1$,应该有$<a href="S_p(z">z^k</a>-S_q(z))=0$,因此$H(z)=0$,因此$S_p(z)=S_q(z)$.</p>
+<h5><span id="定理3">定理3</span></h5><p>若$S$是$T$的前缀,且$T$有周期$a$,$S$有整周期$b$,$b|a,|S|\geq a$,则$T$有周期$b$.证明显然.</p>
+<h5><span id="定理4">定理4</span></h5><p>若$2|S|\geq |T|$,则$S$在$T$中的匹配位置必为等差序列.</p>
 <p>证明考虑WPL就行.</p>
-<h5><span id="定理5">定理5</span></h5>
-<p><span class="math inline">\(S\)</span>的长度大于等于<span class="math inline">\(\frac{n}{2}\)</span>的border长度构成一个等差序列.</p>
-<p>不妨设最长的border长度为<span class="math inline">\(n-p\)</span>,还有一个border长度是<span class="math inline">\(n-q\)</span>,<span class="math inline">\(q&gt;p\)</span>,那么必有长度为<span class="math inline">\(n-\gcd(p,q)\)</span>的border.注意到<span class="math inline">\(n-p\)</span>是最长的border,则<span class="math inline">\(\gcd(p,q)\geq p\)</span>,<span class="math inline">\(p|q\)</span>.</p>
-<h5><span id="定理6">定理6</span></h5>
-<p>一个串的所有border按照长度排序后,可以被划分成<span class="math inline">\(O(\log n)\)</span>个等差序列.</p>
-<p>首先,将该串的长度<span class="math inline">\(\geq
-\frac{n}{2}\)</span>的border拿出作为一个等差序列.考虑这些中长度最小的<span class="math inline">\(T\)</span>.</p>
-<p>再考虑最小循环节<span class="math inline">\(d\)</span>,如果<span class="math inline">\(d\leq \frac{n}{4}\)</span>,那么不断减小一定有<span class="math inline">\(|T|\leq
-\frac{3}{4}n\)</span>.反之则最长border本身就<span class="math inline">\(\leq
-\frac{3}{4}n\)</span>,于是剩下的border都是<span class="math inline">\(T\)</span>的border.这样就证明了<span class="math inline">\(O(\log n)\)</span>,事实上更紧凑的界是<span class="math inline">\(\lceil\log_2 |S|\rceil\)</span>,不会证.</p>
-<h4><span id="example">Example</span></h4>
-<h5><span id="example1poi2011okr-periodicity">Example1([POI2011]OKR-Periodicity)</span></h5>
-<p>注意到一个事实:如果这个字符串存在长度为<span class="math inline">\(k\)</span>的周期,等价于存在长度为<span class="math inline">\(len-k\)</span>的border,证明是显然的.</p>
+<h5><span id="定理5">定理5</span></h5><p>$S$的长度大于等于$\frac{n}{2}$的border长度构成一个等差序列.</p>
+<p>不妨设最长的border长度为$n-p$,还有一个border长度是$n-q$,$q&gt;p$,那么必有长度为$n-\gcd(p,q)$的border.注意到$n-p$是最长的border,则$\gcd(p,q)\geq p$,$p|q$.</p>
+<h5><span id="定理6">定理6</span></h5><p>一个串的所有border按照长度排序后,可以被划分成$O(\log n)$个等差序列.</p>
+<p>首先,将该串的长度$\geq \frac{n}{2}$的border拿出作为一个等差序列.考虑这些中长度最小的$T$.</p>
+<p>再考虑最小循环节$d$,如果$d\leq \frac{n}{4}$,那么不断减小一定有$|T|\leq \frac{3}{4}n$.反之则最长border本身就$\leq \frac{3}{4}n$,于是剩下的border都是$T$的border.这样就证明了$O(\log n)$,事实上更紧凑的界是$\lceil\log_2 |S|\rceil$,不会证.</p>
+<h4><span id="example">Example</span></h4><h5><span id="example1poi2011okr-periodicity">Example1([POI2011]OKR-Periodicity)</span></h5><p>注意到一个事实:如果这个字符串存在长度为$k$的周期,等价于存在长度为$len-k$的border,证明是显然的.</p>
 <p>考虑从小周期开始向大周期确定,首先可以用KMP求出所有前缀的最大border,然后就可以得到整个字符串的所有border.换句话说,我们实际上是在一步一步确定整个字符串的若干前缀的最大border.</p>
-<p>考虑border理论,设<span class="math inline">\(q\)</span>为最小周期,如果<span class="math inline">\(2q&lt;n\)</span>,也就是原串能写成<span class="math inline">\(tt\cdots t&#39;\)</span>的形式.我们不妨先求<span class="math inline">\(tt&#39;\)</span>对应的答案,然后在前面拼<span class="math inline">\(t\)</span>.根据<span class="math inline">\(\leq
-\frac{n}{2}\)</span>的border构成等差序列的结论,这样显然是正确的.</p>
-<p>如果<span class="math inline">\(2q\geq n\)</span>,此时必定有<span class="math inline">\(s=tat\)</span>,其中<span class="math inline">\(t\)</span>是border.考虑递归求解<span class="math inline">\(t\)</span>,然后就只需要找到一个<span class="math inline">\(a\)</span>满足条件,最小的<span class="math inline">\(a\)</span>是全<span class="math inline">\(0\)</span>,能放的话肯定放,不然我们就放一个<span class="math inline">\(0\cdots01\)</span>.</p>
-<p>为什么这样一定是对的呢?我们考虑什么时候全<span class="math inline">\(0\)</span>不合法:</p>
-<ol type="1">
-<li>新增一个长度<span class="math inline">\(l\)</span>的border,<span class="math inline">\(l\leq|t|+|a|\)</span>:考虑<span class="math inline">\(l\)</span>的最后一段是一段全<span class="math inline">\(0\)</span>,也就必然意味着<span class="math inline">\(t\)</span>的最后一段是全<span class="math inline">\(0\)</span>,这么不断推下去就可以说明整个序列都是全<span class="math inline">\(0\)</span>,此时放上<span class="math inline">\(0\cdots 01\)</span>必定合法.</li>
-<li>新增一个长度<span class="math inline">\(l\)</span>的border,<span class="math inline">\(l&gt;|t|+|a|\)</span>:不妨设当前的<span class="math inline">\(l\)</span>是最大的那个(最小的无意义,因为需要保证<span class="math inline">\(|l|&gt;|t|\)</span>),此时最短周期必然是<span class="math inline">\(d=2|t|+|a|-l\)</span>.由于<span class="math inline">\(|t|+|a|\)</span>也是周期并且二者之和<span class="math inline">\(\leq n\)</span>,因此必然有<span class="math inline">\(d|(|t|+|a|)\)</span>.把<span class="math inline">\(ta\)</span>按照<span class="math inline">\(d\)</span>长度划分.如果<span class="math inline">\(d\geq|a|\)</span>必有该串是全<span class="math inline">\(0\)</span>串,不然考虑此时<span class="math inline">\(d=|b|+|a|\)</span>,<span class="math inline">\(b\)</span>是<span class="math inline">\(t\)</span>的一段后缀.考虑此时的周期必然<span class="math inline">\(&lt;|b|+|a|\)</span>,首先不可能等于,如果大于的话可以平移一格.不妨假设周期比<span class="math inline">\(|b|-|a|\)</span>少了<span class="math inline">\(w\)</span>,那么此时必定有<span class="math inline">\(b\)</span>的前<span class="math inline">\(w\)</span>个字符是<span class="math inline">\(0\)</span>,但是由于<span class="math inline">\(0\cdots01\)</span>后面第一个<span class="math inline">\(b\)</span>也往前平移了<span class="math inline">\(w\)</span>格,因此它的第<span class="math inline">\(w\)</span>个字符必定是<span class="math inline">\(1\)</span>,这就保证了<span class="math inline">\(0\cdots 0 1\)</span>必定合法.</li>
+<p>考虑border理论,设$q$为最小周期,如果$2q&lt;n$,也就是原串能写成$tt\cdots t’$的形式.我们不妨先求$tt’$对应的答案,然后在前面拼$t$.根据$\leq \frac{n}{2}$的border构成等差序列的结论,这样显然是正确的.</p>
+<p>如果$2q\geq n$,此时必定有$s=tat$,其中$t$是border.考虑递归求解$t$,然后就只需要找到一个$a$满足条件,最小的$a$是全$0$,能放的话肯定放,不然我们就放一个$0\cdots01$.</p>
+<p>为什么这样一定是对的呢?我们考虑什么时候全$0$不合法:</p>
+<ol>
+<li>新增一个长度$l$的border,$l\leq|t|+|a|$:考虑$l$的最后一段是一段全$0$,也就必然意味着$t$的最后一段是全$0$,这么不断推下去就可以说明整个序列都是全$0$,此时放上$0\cdots 01$必定合法.</li>
+<li>新增一个长度$l$的border,$l&gt;|t|+|a|$:不妨设当前的$l$是最大的那个(最小的无意义,因为需要保证$|l|&gt;|t|$),此时最短周期必然是$d=2|t|+|a|-l$.由于$|t|+|a|$也是周期并且二者之和$\leq n$,因此必然有$d|(|t|+|a|)$.把$ta$按照$d$长度划分.如果$d\geq|a|$必有该串是全$0$串,不然考虑此时$d=|b|+|a|$,$b$是$t$的一段后缀.考虑此时的周期必然$&lt;|b|+|a|$,首先不可能等于,如果大于的话可以平移一格.不妨假设周期比$|b|-|a|$少了$w$,那么此时必定有$b$的前$w$个字符是$0$,但是由于$0\cdots01$后面第一个$b$也往前平移了$w$格,因此它的第$w$个字符必定是$1$,这就保证了$0\cdots 0 1$必定合法.</li>
 </ol>
-<h3><span id="sa">SA</span></h3>
-<h5><span id="example1">Example1</span></h5>
-<p>给定一个长度为<span class="math inline">\(n\)</span>的字符串,要从中从左往右选出若干段不相交的子串,使得选出的这些串中,每个串都是上一个串的严格子串.求最多能选出多少段.<span class="math inline">\(n\leq 5\times 10^5\)</span>.</p>
-<p>不难发现一定有一组答案每段的长度是<span class="math inline">\(k,k-1,\cdots
-,2,1\)</span>,我们不妨把串反过来,这样就是<span class="math inline">\(1,2,\cdots,k-1,k\)</span>.这样就可以设计一个简单的dp是<span class="math inline">\(f_{i,j}\)</span>表示以<span class="math inline">\(i\)</span>结尾,<span class="math inline">\(i\)</span>这段长度为<span class="math inline">\(j\)</span>是否可行,发现单调性后把dp状态扔进值里,<span class="math inline">\(f_i\)</span>表示以<span class="math inline">\(i\)</span>结尾的最大长度是多少,这样用SA做lcp就可以实现<span class="math inline">\(O(n^2)\)</span>.仔细观察转移过程,我们可以二分答案,然后用主席树+SA判断答案是否可行.复杂度<span class="math inline">\(O(n\log^2 n)\)</span>.</p>
-<p>那么怎么优化呢?我们考虑类似height的证明:<span class="math inline">\(f_i\leq f_{i-1}+1\)</span>,原因很简单,如果<span class="math inline">\(f_i&gt;f_{i-1}+1\)</span>,那么我们把<span class="math inline">\(f_i\)</span>那个序列的末尾字符全部删掉,自然得到了一个以<span class="math inline">\(i-1\)</span>结尾,长度为<span class="math inline">\(f_i-1&gt;f_{i-1}\)</span>的串,于是就可以类似height那样去掉二分,很厉害.</p>
-<h3><span id="acam">ACAM</span></h3>
-<p>用于对于每个文本串的前缀,求出它以哪些模式串为后缀.</p>
-<h5><span id="example1uoj772企鹅游戏">Example1(uoj772企鹅游戏)</span></h5>
-<p>考虑一个暴力:建出<span class="math inline">\(s\)</span>的AC自动机,然后我们记录fail树结构,然后把<span class="math inline">\(t\)</span>放上去跑,每次暴力向上跳fail树上的匹配节点,这样的复杂度就是<span class="math inline">\(O(\sum 匹配节点个数)\)</span>.</p>
+<h3><span id="sa">SA</span></h3><h5><span id="example1">Example1</span></h5><p>给定一个长度为$n$的字符串,要从中从左往右选出若干段不相交的子串,使得选出的这些串中,每个串都是上一个串的严格子串.求最多能选出多少段.$n\leq 5\times 10^5$.</p>
+<p>不难发现一定有一组答案每段的长度是$k,k-1,\cdots ,2,1$,我们不妨把串反过来,这样就是$1,2,\cdots,k-1,k$.这样就可以设计一个简单的dp是$f_{i,j}$表示以$i$结尾,$i$这段长度为$j$是否可行,发现单调性后把dp状态扔进值里,$f_i$表示以$i$结尾的最大长度是多少,这样用SA做lcp就可以实现$O(n^2)$.仔细观察转移过程,我们可以二分答案,然后用主席树+SA判断答案是否可行.复杂度$O(n\log^2 n)$.</p>
+<p>那么怎么优化呢?我们考虑类似height的证明:$f_i\leq f_{i-1}+1$,原因很简单,如果$f_i&gt;f_{i-1}+1$,那么我们把$f_i$那个序列的末尾字符全部删掉,自然得到了一个以$i-1$结尾,长度为$f_i-1&gt;f_{i-1}$的串,于是就可以类似height那样去掉二分,很厉害.</p>
+<h3><span id="acam">ACAM</span></h3><p>用于对于每个文本串的前缀,求出它以哪些模式串为后缀.</p>
+<h5><span id="example1uoj772企鹅游戏">Example1(uoj772企鹅游戏)</span></h5><p>考虑一个暴力:建出$s$的AC自动机,然后我们记录fail树结构,然后把$t$放上去跑,每次暴力向上跳fail树上的匹配节点,这样的复杂度就是$O(\sum 匹配节点个数)$.</p>
 <p>但是这个复杂度是正确的.</p>
-<p>为啥呢?首先对于任意节点,它在fail树上的祖先中匹配节点个数不可能超过<span class="math inline">\(O(\sqrt
-L)\)</span>个,这是个自然根号,因此复杂度至少是<span class="math inline">\(O(L\sqrt L)\)</span>.</p>
-<p>但还没完,考虑所有长度小于等于<span class="math inline">\(B\)</span>的模式串,他们会被匹配<span class="math inline">\(O(B|t|)\)</span>次.对于所有长度大于<span class="math inline">\(B\)</span>的模式串,考虑只有长度大于<span class="math inline">\(B\)</span>的文本串会匹配到他们,于是复杂度<span class="math inline">\(O(\frac{L^2}{B^2})\)</span>,<span class="math inline">\(B=L^{\frac{1}{3}}\)</span>得到<span class="math inline">\(O(L^{\frac{4}{3}})\)</span>.</p>
-<h5><span id="example2loj3396-novel">Example2(loj3396 novel)</span></h5>
-<p>offline.</p>
-<h3><span id="pam">PAM</span></h3>
-<h4><span id="引理">引理</span></h4>
-<ol type="1">
-<li>本质不同回文串最多只有<span class="math inline">\(n\)</span>个.</li>
+<p>为啥呢?首先对于任意节点,它在fail树上的祖先中匹配节点个数不可能超过$O(\sqrt L)$个,这是个自然根号,因此复杂度至少是$O(L\sqrt L)$.</p>
+<p>但还没完,考虑所有长度小于等于$B$的模式串,他们会被匹配$O(B|t|)$次.对于所有长度大于$B$的模式串,考虑只有长度大于$B$的文本串会匹配到他们,于是复杂度$O(\frac{L^2}{B^2})$,$B=L^{\frac{1}{3}}$得到$O(L^{\frac{4}{3}})$.</p>
+<h5><span id="example2loj3396-novel">Example2(loj3396 novel)</span></h5><p>offline.</p>
+<h3><span id="pam">PAM</span></h3><h4><span id="引理">引理</span></h4><ol>
+<li>本质不同回文串最多只有$n$个.</li>
 </ol>
-<p>证明:考虑类似manacher,每次将<span class="math inline">\(S\rightarrow
-S+c\)</span>,新产生的回文串一定是<span class="math inline">\(S+c\)</span>的最长回文后缀.</p>
-<h4><span id="算法">算法</span></h4>
-<p>回文自动机由转移边和fail树构成,经过一条转移边的影响是在前后均添加一个该字符,一个状态在fail树上指向它的最长回文border.</p>
-<p>我们记录两个根:长度为<span class="math inline">\(-1\)</span>的奇根和长度为<span class="math inline">\(0\)</span>的偶根,偶根的失配指针指向奇根.</p>
-<p>增量构造,每次加入个新字符,然后在fail树上跳祖先直到<span class="math inline">\(s_i=s_{i-len-1}\)</span>.</p>
-<p>继续跳这个节点,直到又遇到一个位置,那这个位置就是当前节点的fail指针所指向的点.这个操作是<span class="math inline">\(O(n)\)</span>的,因为这个fail指针只有一个永远不会访问,另外的都会访问至少一次,在访问的时候就会均摊掉求的时候往上跳的复杂度,因为深度直接减去这玩意了.</p>
-<h3><span id="sam">SAM</span></h3>
-<ol type="1">
-<li><span class="math inline">\(endpos(T)\)</span>表示子串<span class="math inline">\(T\)</span>在<span class="math inline">\(S\)</span>中出现位置的末尾集合,特别地,我们设<span class="math inline">\(endpos(\empty)=\{1,\cdots
-,|S|-1,|S|\}\)</span>.</li>
-<li>若两个不同的子串的<span class="math inline">\(endpos\)</span>相等,则称它们为一个<span class="math inline">\(endpos\)</span>等价类.</li>
+<p>证明:考虑类似manacher,每次将$S\rightarrow S+c$,新产生的回文串一定是$S+c$的最长回文后缀.</p>
+<h4><span id="算法">算法</span></h4><p>回文自动机由转移边和fail树构成,经过一条转移边的影响是在前后均添加一个该字符,一个状态在fail树上指向它的最长回文border.</p>
+<p>我们记录两个根:长度为$-1$的奇根和长度为$0$的偶根,偶根的失配指针指向奇根.</p>
+<p>增量构造,每次加入个新字符,然后在fail树上跳祖先直到$s_i=s_{i-len-1}$.</p>
+<p>继续跳这个节点,直到又遇到一个位置,那这个位置就是当前节点的fail指针所指向的点.这个操作是$O(n)$的,因为这个fail指针只有一个永远不会访问,另外的都会访问至少一次,在访问的时候就会均摊掉求的时候往上跳的复杂度,因为深度直接减去这玩意了.</p>
+<h3><span id="sam">SAM</span></h3><ol>
+<li>$endpos(T)$表示子串$T$在$S$中出现位置的末尾集合,特别地,我们设$endpos(\empty)=\{1,\cdots ,|S|-1,|S|\}$.</li>
+<li>若两个不同的子串的$endpos$相等,则称它们为一个$endpos$等价类.</li>
 </ol>
 <p>下面开始证明引理:</p>
-<h4><span id="引理">引理</span></h4>
-<ol type="1">
-<li><p>字符串<span class="math inline">\(s\)</span>的两个非空子串<span class="math inline">\(u\)</span>和<span class="math inline">\(w\)</span>的<span class="math inline">\(endpos\)</span>相同(假设<span class="math inline">\(|u|\leq |w|\)</span>),当且仅当字符串<span class="math inline">\(u\)</span>在<span class="math inline">\(s\)</span>中的每次出现,都是以<span class="math inline">\(w\)</span>后缀的形式存在.</p></li>
-<li><p>字符串<span class="math inline">\(s\)</span>的两个非空子串<span class="math inline">\(u\)</span>和<span class="math inline">\(w\)</span>的<span class="math inline">\(endpos\)</span>集合的交为空(假设<span class="math inline">\(|u|\leq |w|\)</span>),当且仅当字符串<span class="math inline">\(u\)</span>不是<span class="math inline">\(w\)</span>的后缀.</p></li>
-<li><p>字符串<span class="math inline">\(s\)</span>的两个非空子串<span class="math inline">\(u\)</span>和<span class="math inline">\(w\)</span>的<span class="math inline">\(endpos\)</span>集合的交为<span class="math inline">\(endpos(w)\)</span>(假设<span class="math inline">\(|u|\leq |w|\)</span>),当且仅当字符串<span class="math inline">\(u\)</span>是<span class="math inline">\(w\)</span>的后缀.</p></li>
+<h4><span id="引理">引理</span></h4><ol>
+<li><p>字符串$s$的两个非空子串$u$和$w$的$endpos$相同(假设$|u|\leq |w|$),当且仅当字符串$u$在$s$中的每次出现,都是以$w$后缀的形式存在.</p>
+</li>
+<li><p>字符串$s$的两个非空子串$u$和$w$的$endpos$集合的交为空(假设$|u|\leq |w|$),当且仅当字符串$u$不是$w$的后缀.</p>
+</li>
+<li><p>字符串$s$的两个非空子串$u$和$w$的$endpos$集合的交为$endpos(w)$(假设$|u|\leq |w|$),当且仅当字符串$u$是$w$的后缀.</p>
+</li>
 </ol>
 <p>证明都是显然的.</p>
-<ol start="4" type="1">
-<li>对于一个<span class="math inline">\(endpos\)</span>等价类中的子串<span class="math inline">\(u\)</span>,要么<span class="math inline">\(u\)</span>是这个等价类中最短的子串,要么存在一个子串<span class="math inline">\(w\)</span>且<span class="math inline">\(|w|+1=|u|\)</span>,<span class="math inline">\(w\)</span>是<span class="math inline">\(u\)</span>的后缀</li>
+<ol>
+<li>对于一个$endpos$等价类中的子串$u$,要么$u$是这个等价类中最短的子串,要么存在一个子串$w$且$|w|+1=|u|$,$w$是$u$的后缀</li>
 </ol>
 <p>由前面的引理,容易证明.</p>
-<ol start="5" type="1">
-<li>对于一个<span class="math inline">\(endpos\)</span>等价类中最短的子串<span class="math inline">\(w\)</span>,不妨设<span class="math inline">\(v\)</span>是<span class="math inline">\(w\)</span>去掉最前面的元素后得到的子串,那么<span class="math inline">\(v\)</span>在另一个<span class="math inline">\(endpos\)</span>等价类中,我们将<span class="math inline">\(endpos(w)\rightarrow endpos(v)\)</span>,记<span class="math inline">\(link(w)=v\)</span>或<span class="math inline">\(fa(w)=v\)</span>,这就是后缀链接link,这些关系构成树.</li>
+<ol>
+<li>对于一个$endpos$等价类中最短的子串$w$,不妨设$v$是$w$去掉最前面的元素后得到的子串,那么$v$在另一个$endpos$等价类中,我们将$endpos(w)\rightarrow endpos(v)$,记$link(w)=v$或$fa(w)=v$,这就是后缀链接link,这些关系构成树.</li>
 </ol>
-<p>首先除了<span class="math inline">\(\empty\)</span>,每个<span class="math inline">\(w\)</span>的出度都是<span class="math inline">\(1\)</span>,而我们发现所有的子串都会以<span class="math inline">\(\empty\)</span>作为祖先,这就证明了连通性.</p>
-<ol start="6" type="1">
-<li><span class="math inline">\(endpos\)</span>等价类的数量有<span class="math inline">\(O(n)\)</span>个.</li>
+<p>首先除了$\empty$,每个$w$的出度都是$1$,而我们发现所有的子串都会以$\empty$作为祖先,这就证明了连通性.</p>
+<ol>
+<li>$endpos$等价类的数量有$O(n)$个.</li>
 </ol>
-<p>考虑后缀链接树,显然一个点的<span class="math inline">\(endpos\)</span>集合包含它的所有儿子的<span class="math inline">\(endpos\)</span>集合的并,并且它所有儿子的<span class="math inline">\(endpos\)</span>集合两两无交,这等价于一个合并的过程.</p>
-<h4><span id="约定">约定</span></h4>
-<ol type="1">
-<li>记<span class="math inline">\(longest(v)\)</span>为<span class="math inline">\(v\)</span>这个<span class="math inline">\(endpos\)</span>等价类中最长的一个字符串,记<span class="math inline">\(len(v)\)</span>为它的长度.类似地定义<span class="math inline">\(shortest(v)\)</span>和<span class="math inline">\(minlen(v)\)</span>,不难发现<span class="math inline">\(minlen(v)=len(fa(v))+1\)</span>.每个节点的子串数量也就是<span class="math inline">\(len(v)-len(fa(v))\)</span>.</li>
-<li>记<span class="math inline">\(siz(v)\)</span>为<span class="math inline">\(v\)</span>这个<span class="math inline">\(endpos\)</span>等价类的<span class="math inline">\(endpos\)</span>集合的大小.</li>
+<p>考虑后缀链接树,显然一个点的$endpos$集合包含它的所有儿子的$endpos$集合的并,并且它所有儿子的$endpos$集合两两无交,这等价于一个合并的过程.</p>
+<h4><span id="约定">约定</span></h4><ol>
+<li>记$longest(v)$为$v$这个$endpos$等价类中最长的一个字符串,记$len(v)$为它的长度.类似地定义$shortest(v)$和$minlen(v)$,不难发现$minlen(v)=len(fa(v))+1$.每个节点的子串数量也就是$len(v)-len(fa(v))$.</li>
+<li>记$siz(v)$为$v$这个$endpos$等价类的$endpos$集合的大小.</li>
 </ol>
-<h4><span id="算法">算法</span></h4>
-<p>先来捋一下整个过程:整个SAM分为两部分:</p>
+<h4><span id="算法">算法</span></h4><p>先来捋一下整个过程:整个SAM分为两部分:</p>
 <p>第一部分:后缀链接树(parent tree).</p>
 <p>它的信息由下文中的fa记录.对于每一个节点:它对应一个endpos等价类,因此它拥有一个父亲节点,也就是后缀链接link指向的节点.同时它拥有一个len,表示这个endpos等价类中最长的子串的长度.</p>
 <p>第二部分:trie图.</p>
-<p>它的信息由下文中的son记录,表示一个endpos(设为x)通过一条trie边走到另一个endpos(设为y),不难发现x中的所有endpos+1所形成的集合包含y.我们注意这一点后,会发现只要从<span class="math inline">\(\empty\)</span>所代表的节点不断地走trie边,最后走到的节点的对应长度的子串就是我们想要的子串.这也意味着我们要保证对应长度的子串一定在走到节点的子串集合中.另外有个结论是trie图的边数是<span class="math inline">\(O(n)\)</span>的.这必然要求走trie走到的那个节点的<span class="math inline">\(len\)</span>的长度的区间包含了这个节点的<span class="math inline">\(len\)</span>的长度的区间<span class="math inline">\(+1\)</span>.</p>
+<p>它的信息由下文中的son记录,表示一个endpos(设为x)通过一条trie边走到另一个endpos(设为y),不难发现x中的所有endpos+1所形成的集合包含y.我们注意这一点后,会发现只要从$\empty$所代表的节点不断地走trie边,最后走到的节点的对应长度的子串就是我们想要的子串.这也意味着我们要保证对应长度的子串一定在走到节点的子串集合中.另外有个结论是trie图的边数是$O(n)$的.这必然要求走trie走到的那个节点的$len$的长度的区间包含了这个节点的$len$的长度的区间$+1$.</p>
 <p>也就是说,走trie边的过程是不断在字符串后面添加字符的过程,而走link的过程是不断在字符串前面删去字符串的过程(当然,反向link自然是不断在字符串前面加上另一个字符串集合的过程).</p>
 <p>下面给出构造代码.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">SAM</span>&#123;</span><br><span class="line">	<span class="type">int</span> fa;</span><br><span class="line">	<span class="type">int</span> son[<span class="number">27</span>];</span><br><span class="line">	<span class="type">int</span> len,siz;</span><br><span class="line">&#125;tr[MAXN&lt;&lt;<span class="number">1</span>|<span class="number">1</span>];</span><br><span class="line"><span class="type">int</span> cntp=<span class="number">1</span>,las=<span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> End[MAXN];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">add_c</span><span class="params">(<span class="type">int</span> c,<span class="type">int</span> i)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> x=++cntp;</span><br><span class="line">	End[i]=x;tr[x].siz=<span class="number">1</span>;<span class="comment">//新建一个endpos=&#123;i&#125;</span></span><br><span class="line">    <span class="comment">//End[i]存的是前缀[1,i]的结束位置,由于我们当前正在插入i,自然是x.</span></span><br><span class="line">	<span class="type">int</span> prex=las;</span><br><span class="line">	las=cntp;</span><br><span class="line">    <span class="comment">//las存储的是当前的终止节点,其实也就是End[i],我们每次要找到上一次的终止节点,根据它来操作.</span></span><br><span class="line">	tr[x].len=tr[prex].len+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(;prex&amp;&amp;tr[prex].son[c]==<span class="number">0</span>;prex=tr[prex].fa)tr[prex].son[c]=x;</span><br><span class="line">    <span class="comment">//考虑当前的串:[1,i-1]+&#x27;c&#x27;,如果前面存在一个endpos集合包含[j,i-1](这个集合可能是空子串所在的集合)并且它存在一条&#x27;c&#x27;边,那么就存在这么一个子串[j,i-1]+&#x27;c&#x27;,它的endpos应该是&#123;i&#125;这个集合的祖先.</span></span><br><span class="line">    <span class="comment">//如果在判断[j,i-1]的时候,发现[j,i-1]+&#x27;c&#x27;在原串中不存在,那么我们就直接连过来.可以发现在这个跳跃的过程中就是不断探索当前x的shortest的过程.</span></span><br><span class="line">	<span class="keyword">if</span>(!prex)&#123;</span><br><span class="line">        <span class="comment">//说明一直到最后都没有找到字母c,这也意味着c在前面根本没出现过,于是endpos=&#123;i&#125;的等价类是[1,i],[2,i],...,[i,i],所以父亲设为1.</span></span><br><span class="line">		tr[x].fa=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">return</span> ;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> y=tr[prex].son[c];</span><br><span class="line">    <span class="comment">//考虑这里的prex到底是什么意义,它意味着我们找到了一个最长的[j,i-1]的子串所在的endpos集合,并且[j,i-1]+&#x27;c&#x27;这个子串在原串存在,这也意味着[j,i-1]+&#x27;c&#x27;这个子串所在的endpos集合必然真包含&#123;i&#125;,而这个子串的长度是tr[prex].len+1.</span></span><br><span class="line">	<span class="keyword">if</span>(tr[y].len==tr[prex].len+<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="comment">//如果y这个节点的长度恰好也是tr[prex].len+1,那么必然意味着[j,i]这个子串完全就在y这里,而[j-1,i]这些子串不在y这里,但被y表示的endpos集合包含.</span></span><br><span class="line">		tr[x].fa=y;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//反之,这里y这个节点的endpos集合就可以分成两部分了:第一部分的endpos集合在加入[j,i]这个子串后不变:因为它们的长度都大于tr[prex].len+1,它们必然不可能存在一个endpos是i.而第二部分,其实也只包含一个子串:就是长度等于tr[prex].len+1的子串,它的endpos集合必然是第一部分的endpos集合并上&#123;i&#125;,根据我们上面所发现的parent tree的本质是合并endpos集合的性质,它应该是第一部分以及&#123;i&#125;的父亲(也就是这两部分合并的结果),我们把第二部分拿出来单独建点.</span></span><br><span class="line">		<span class="type">int</span> fay=++cntp;</span><br><span class="line">		tr[fay]=tr[y];</span><br><span class="line">		tr[fay].len=tr[prex].len+<span class="number">1</span>;</span><br><span class="line">		tr[y].fa=tr[x].fa=fay;</span><br><span class="line">		<span class="keyword">for</span>(;prex&amp;&amp;tr[prex].son[c]==y;prex=tr[prex].fa)tr[prex].son[c]=fay;</span><br><span class="line">        <span class="comment">//注意单独建点后,原本指向y的trie边要改向.这是为什么呢?考虑当前这条边是什么意义:它必然指向一个endpos集合要包含&#123;i&#125;的点,因为这样才能保证trie图的性质.此时指向y的点就不能是包含&#123;i-1&#125;的点了.</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> que[MAXN&lt;&lt;<span class="number">1</span>],l,r;</span><br><span class="line"><span class="type">int</span> ind[MAXn&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">work_siz</span><span class="params">()</span></span>&#123;<span class="comment">//通过一次拓扑排序处理出siz</span></span><br><span class="line">	l=<span class="number">1</span>,r=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=cnt;++i)&#123;</span><br><span class="line">		++ind[tr[i].fa];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=cnt;++i)&#123;</span><br><span class="line">		<span class="keyword">if</span>(ind[i]==<span class="number">0</span>)que[++r]=i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(l&lt;=r)&#123;</span><br><span class="line">		<span class="type">int</span> x=que[l];++l;</span><br><span class="line">		tr[tr[x].fa].siz+=tr[x].siz;</span><br><span class="line">		--ind[tr[x].fa];</span><br><span class="line">		<span class="keyword">if</span>(ind[tr[x].fa]==<span class="number">0</span>)que[++r]=tr[x].fa;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>其实还是省掉了很多说明:比如这里的复杂度证明以及边数证明,但是我们咕了吧.</p>
-<h4><span id="应用">应用</span></h4>
-<h5><span id="检查字符串是否出现">检查字符串是否出现</span></h5>
-<p>从根开始跳trie边就行.</p>
-<h5><span id="不同子串个数">不同子串个数</span></h5>
-<p>显然是<span class="math inline">\(\sum len_i-len_{fa_i}\)</span>.</p>
-<h4><span id="例题">例题</span></h4>
-<h5><span id="example1">Example1</span></h5>
-<p>给出一个长度为<span class="math inline">\(n\)</span>的小写字母串,你需要计算有多少对非空字符串<span class="math inline">\((A,B)\)</span>满足:</p>
-<ol type="1">
-<li><span class="math inline">\(AB\)</span>是原串的子串.</li>
-<li>每次<span class="math inline">\(A\)</span>在原串中作为子串出现后,要么紧跟着出现一个子串<span class="math inline">\(B\)</span>,要么<span class="math inline">\(A\)</span>后面放不下一个子串<span class="math inline">\(B\)</span>.</li>
+<h4><span id="应用">应用</span></h4><h5><span id="检查字符串是否出现">检查字符串是否出现</span></h5><p>从根开始跳trie边就行.</p>
+<h5><span id="不同子串个数">不同子串个数</span></h5><p>显然是$\sum len_i-len_{fa_i}$.</p>
+<h4><span id="例题">例题</span></h4><h5><span id="example1">Example1</span></h5><p>给出一个长度为$n$的小写字母串,你需要计算有多少对非空字符串$(A,B)$满足:</p>
+<ol>
+<li>$AB$是原串的子串.</li>
+<li>每次$A$在原串中作为子串出现后,要么紧跟着出现一个子串$B$,要么$A$后面放不下一个子串$B$.</li>
 </ol>
-<p>两个字符串被认为是不同的当且仅当他们在某个位置上字母不同,<span class="math inline">\(|S|\leq 2\times 10^5\)</span>.</p>
-<p>首先,我们考虑确定<span class="math inline">\((AB,A)\)</span>这个二元组,对反串建立SAM,我们自然有:</p>
-<ol type="1">
-<li><span class="math inline">\(AB\)</span>的endpos集合是<span class="math inline">\(A\)</span>的endpos集合的后缀.</li>
-<li><span class="math inline">\(A\)</span>的endpos集合中存在的最大的不存在于<span class="math inline">\(AB\)</span>的endpos集合的endpos的大小小于<span class="math inline">\(|AB|\)</span>.</li>
+<p>两个字符串被认为是不同的当且仅当他们在某个位置上字母不同,$|S|\leq 2\times 10^5$.</p>
+<p>首先,我们考虑确定$(AB,A)$这个二元组,对反串建立SAM,我们自然有:</p>
+<ol>
+<li>$AB$的endpos集合是$A$的endpos集合的后缀.</li>
+<li>$A$的endpos集合中存在的最大的不存在于$AB$的endpos集合的endpos的大小小于$|AB|$.</li>
 </ol>
-<p>看到这里你可能有疑问:为啥要建立反串.因为不建立反串的话<span class="math inline">\((AB,B)\)</span>的endpos可能根本没啥区别,这个很难处理<span class="math inline">\(A\)</span>.SAM最强大的武器还是在于它能快速处理endpos.</p>
-<p>那么接下来我们要在SAM上判断这两件事,我们需要一些更方便判断的条件.首先一个自然的发现是,<span class="math inline">\(A\)</span>的最大的endpos必然也是<span class="math inline">\(AB\)</span>的最大的endpos,我们进行一个类似重链剖分的操作:将每个点的重儿子设为它所有儿子中最大的endpos最大的那个.不难发现此时的<span class="math inline">\(A\)</span>与<span class="math inline">\(AB\)</span>必然在同一条重链上,且<span class="math inline">\(A\)</span>是<span class="math inline">\(AB\)</span>的祖先.不过显然这并不能保证一定是后缀,我们开始补条件,直到补到它充要:另一个显然的条件是,设<span class="math inline">\(mx_v\)</span>表示节点<span class="math inline">\(v\)</span>的轻儿子中最大的endpos最大是多少,那么<span class="math inline">\(A\)</span>与<span class="math inline">\(AB\)</span>间的所有<span class="math inline">\(mx\)</span>的最大值就是<span class="math inline">\(A\)</span>的endpos集合中存在的最大的不存在于<span class="math inline">\(AB\)</span>的endpos集合的endpos的大小,它需要小于<span class="math inline">\(|AB|\)</span>.进一步发现这个数字必然需要小于<span class="math inline">\(AB\)</span>的endpos的集合中最小的那个(不然就不是后缀),这被包含于小于<span class="math inline">\(|AB|\)</span>这个条件.</p>
+<p>看到这里你可能有疑问:为啥要建立反串.因为不建立反串的话$(AB,B)$的endpos可能根本没啥区别,这个很难处理$A$.SAM最强大的武器还是在于它能快速处理endpos.</p>
+<p>那么接下来我们要在SAM上判断这两件事,我们需要一些更方便判断的条件.首先一个自然的发现是,$A$的最大的endpos必然也是$AB$的最大的endpos,我们进行一个类似重链剖分的操作:将每个点的重儿子设为它所有儿子中最大的endpos最大的那个.不难发现此时的$A$与$AB$必然在同一条重链上,且$A$是$AB$的祖先.不过显然这并不能保证一定是后缀,我们开始补条件,直到补到它充要:另一个显然的条件是,设$mx_v$表示节点$v$的轻儿子中最大的endpos最大是多少,那么$A$与$AB$间的所有$mx$的最大值就是$A$的endpos集合中存在的最大的不存在于$AB$的endpos集合的endpos的大小,它需要小于$|AB|$.进一步发现这个数字必然需要小于$AB$的endpos的集合中最小的那个(不然就不是后缀),这被包含于小于$|AB|$这个条件.</p>
 <p>接下来就拆重链,写单调栈就行.</p>
 
     </div>

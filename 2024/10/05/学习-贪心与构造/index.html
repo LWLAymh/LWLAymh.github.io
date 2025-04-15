@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lwlaymh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="排除不优策略  Example1(CF1612E) Example2(CF1592F1) Example3(CF1592F2) Example4(CF1666E) Example5(2022zrtg十连测day7 Palindrome) Example6(23省选10连测 day9 C) Example7(异或粽子) Example8()  带悔贪心  Exa">
+    <meta name="description" content="排除不优策略 Example1(CF1612E) Example2(CF1592F1) Example3(CF1592F2) Example4(CF1666E) Example5(2022zrtg十连测day7 Palindrome) Example6(23省选10连测 day9 C) Example7(异或粽子) Example8()   带悔贪心 Example1 Example2 Exa">
 <meta property="og:type" content="article">
 <meta property="og:title" content="贪心与构造">
 <meta property="og:url" content="http://lwlaymh.github.io/2024/10/05/%E5%AD%A6%E4%B9%A0-%E8%B4%AA%E5%BF%83%E4%B8%8E%E6%9E%84%E9%80%A0/index.html">
 <meta property="og:site_name" content="LWLAymh的备忘录">
-<meta property="og:description" content="排除不优策略  Example1(CF1612E) Example2(CF1592F1) Example3(CF1592F2) Example4(CF1666E) Example5(2022zrtg十连测day7 Palindrome) Example6(23省选10连测 day9 C) Example7(异或粽子) Example8()  带悔贪心  Exa">
+<meta property="og:description" content="排除不优策略 Example1(CF1612E) Example2(CF1592F1) Example3(CF1592F2) Example4(CF1666E) Example5(2022zrtg十连测day7 Palindrome) Example6(23省选10连测 day9 C) Example7(异或粽子) Example8()   带悔贪心 Example1 Example2 Exa">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-04T16:04:37.410Z">
 <meta property="article:modified_time" content="2025-04-14T16:43:37.705Z">
@@ -101,7 +101,7 @@
       <p class="site-title">LWLAymh的备忘录</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">我永远喜欢言和和！</p>
+      <p class="site-subtitle" itemprop="description">一路喧嚣到黄土中</p>
   </div>
 
   <div class="site-nav-right">
@@ -165,8 +165,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">排除不优策略</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.0.1.</span> <span class="nav-text">Example1(CF1612E)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.0.2.</span> <span class="nav-text">Example2(CF1592F1)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.0.3.</span> <span class="nav-text">Example3(CF1592F2)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.0.4.</span> <span class="nav-text">Example4(CF1666E)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.0.5.</span> <span class="nav-text">Example5(2022zrtg十连测day7
-Palindrome)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.0.6.</span> <span class="nav-text">Example6(23省选10连测 day9 C)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.0.7.</span> <span class="nav-text">Example7(异或粽子)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.0.8.</span> <span class="nav-text">Example8()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">带悔贪心</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.2.</span> <span class="nav-text">Example2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.3.</span> <span class="nav-text">Example1([EER1]代价)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.4.</span> <span class="nav-text">Example2(loj3318)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.5.</span> <span class="nav-text">Example3</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.6.</span> <span class="nav-text">Example4([UOJ280]题目难度排序)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.7.</span> <span class="nav-text">Example5([CF1098D]Eels)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.8.</span> <span class="nav-text">Example6(称球游戏)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">2.0.8.1.</span> <span class="nav-text">信息论</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">2.0.8.2.</span> <span class="nav-text">判定树</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">2.0.8.3.</span> <span class="nav-text">子问题1(已知次品重量)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">2.0.8.4.</span> <span class="nav-text">子问题2(不知次品轻重,已有一个标准球,需知道次品轻重)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">2.0.8.5.</span> <span class="nav-text">子问题3(不知次品轻重,无标准球,需知道次品轻重)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">2.0.8.6.</span> <span class="nav-text">子问题4(不知次品轻重,已有一个标准球,无需知道次品轻重)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.9.</span> <span class="nav-text">Example7(Ucup 3rd Stage 8 H)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.1.</span> <span class="nav-text">模型1</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.1.1.</span> <span class="nav-text">Example1(国王游戏)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.1.2.</span> <span class="nav-text">模型通解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.1.3.</span> <span class="nav-text">Example2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.1.4.</span> <span class="nav-text">Example3</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.</span> <span class="nav-text">模型2</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.2.1.</span> <span class="nav-text">Example</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number"></span> <span class="nav-text">构造</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">增量构造</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.0.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.0.2.</span> <span class="nav-text">Example2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.0.3.</span> <span class="nav-text">Example3(CF1770H)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.0.4.</span> <span class="nav-text">Example4(ABC232H)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">找中间状态</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.1.</span> <span class="nav-text">Example1</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">贪心</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.1.</span> <span class="nav-text">排除不优策略</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">Example1(CF1612E)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">Example2(CF1592F1)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">Example3(CF1592F2)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">Example4(CF1666E)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.1.0.5.</span> <span class="nav-text">Example5(2022zrtg十连测day7 Palindrome)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.1.0.6.</span> <span class="nav-text">Example6(23省选10连测 day9 C)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.1.0.7.</span> <span class="nav-text">Example7(异或粽子)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.1.0.8.</span> <span class="nav-text">Example8()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.2.</span> <span class="nav-text">带悔贪心</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">Example2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.3.</span> <span class="nav-text">寻找下界并证明</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">Example1([EER1]代价)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">Example2(loj3318)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">Example3</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.3.0.4.</span> <span class="nav-text">Example4([UOJ280]题目难度排序)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.3.0.5.</span> <span class="nav-text">Example5([CF1098D]Eels)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.3.0.6.</span> <span class="nav-text">Example6(称球游戏)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">1.3.0.6.1.</span> <span class="nav-text">信息论</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">1.3.0.6.2.</span> <span class="nav-text">判定树</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">1.3.0.6.3.</span> <span class="nav-text">子问题1(已知次品重量)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">1.3.0.6.4.</span> <span class="nav-text">子问题2(不知次品轻重,已有一个标准球,需知道次品轻重)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">1.3.0.6.5.</span> <span class="nav-text">子问题3(不知次品轻重,无标准球,需知道次品轻重)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">1.3.0.6.6.</span> <span class="nav-text">子问题4(不知次品轻重,已有一个标准球,无需知道次品轻重)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.3.0.7.</span> <span class="nav-text">Example7(Ucup 3rd Stage 8 H)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.4.</span> <span class="nav-text">Exchange Arguments</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.4.1.</span> <span class="nav-text">模型1</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">Example1(国王游戏)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">模型通解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">Example2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.4.1.4.</span> <span class="nav-text">Example3</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.4.2.</span> <span class="nav-text">模型2</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">Example</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">构造</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.1.</span> <span class="nav-text">增量构造</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.1.0.2.</span> <span class="nav-text">Example2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.1.0.3.</span> <span class="nav-text">Example3(CF1770H)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.1.0.4.</span> <span class="nav-text">Example4(ABC232H)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.2.</span> <span class="nav-text">找中间状态</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.2.0.1.</span> <span class="nav-text">Example1</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -321,21 +320,18 @@ Palindrome)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link">
     
     <div class="post-body" itemprop="articleBody"><!-- toc -->
 <ul>
-<li><a href="#排除不优策略">排除不优策略</a>
-<ul>
+<li><a href="#排除不优策略">排除不优策略</a><ul>
 <li><a href="#example1cf1612e">Example1(CF1612E)</a></li>
 <li><a href="#example2cf1592f1">Example2(CF1592F1)</a></li>
 <li><a href="#example3cf1592f2">Example3(CF1592F2)</a></li>
 <li><a href="#example4cf1666e">Example4(CF1666E)</a></li>
-<li><a href="#example52022zrtg十连测day7-palindrome">Example5(2022zrtg十连测day7
-Palindrome)</a></li>
-<li><a href="#example623省选10连测-day9-c">Example6(23省选10连测 day9
-C)</a></li>
+<li><a href="#example52022zrtg十连测day7-palindrome">Example5(2022zrtg十连测day7 Palindrome)</a></li>
+<li><a href="#example623省选10连测-day9-c">Example6(23省选10连测 day9 C)</a></li>
 <li><a href="#example7异或粽子">Example7(异或粽子)</a></li>
 <li><a href="#example8">Example8()</a></li>
-</ul></li>
-<li><a href="#带悔贪心">带悔贪心</a>
-<ul>
+</ul>
+</li>
+<li><a href="#带悔贪心">带悔贪心</a><ul>
 <li><a href="#example1">Example1</a></li>
 <li><a href="#example2">Example2</a></li>
 <li><a href="#example1eer1代价">Example1([EER1]代价)</a></li>
@@ -343,339 +339,242 @@ C)</a></li>
 <li><a href="#example3">Example3</a></li>
 <li><a href="#example4uoj280题目难度排序">Example4([UOJ280]题目难度排序)</a></li>
 <li><a href="#example5cf1098deels">Example5([CF1098D]Eels)</a></li>
-<li><a href="#example6称球游戏">Example6(称球游戏)</a>
-<ul>
+<li><a href="#example6称球游戏">Example6(称球游戏)</a><ul>
 <li><a href="#信息论">信息论</a></li>
 <li><a href="#判定树">判定树</a></li>
 <li><a href="#子问题1已知次品重量">子问题1(已知次品重量)</a></li>
 <li><a href="#子问题2不知次品轻重已有一个标准球需知道次品轻重">子问题2(不知次品轻重,已有一个标准球,需知道次品轻重)</a></li>
 <li><a href="#子问题3不知次品轻重无标准球需知道次品轻重">子问题3(不知次品轻重,无标准球,需知道次品轻重)</a></li>
 <li><a href="#子问题4不知次品轻重已有一个标准球无需知道次品轻重">子问题4(不知次品轻重,已有一个标准球,无需知道次品轻重)</a></li>
-</ul></li>
-<li><a href="#example7ucup-3rd-stage-8-h">Example7(Ucup 3rd Stage 8
-H)</a></li>
-<li><a href="#模型1">模型1</a>
-<ul>
+</ul>
+</li>
+<li><a href="#example7ucup-3rd-stage-8-h">Example7(Ucup 3rd Stage 8 H)</a><ul>
+<li><a href="#模型1">模型1</a></li>
+</ul>
+</li>
 <li><a href="#example1国王游戏">Example1(国王游戏)</a></li>
 <li><a href="#模型通解">模型通解</a></li>
 <li><a href="#example2-1">Example2</a></li>
-<li><a href="#example3-1">Example3</a></li>
-</ul></li>
-<li><a href="#模型2">模型2</a>
-<ul>
-<li><a href="#example">Example</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#构造">构造</a>
-<ul>
-<li><a href="#增量构造">增量构造</a>
-<ul>
+<li><a href="#example3-1">Example3</a><ul>
+<li><a href="#模型2">模型2</a></li>
+</ul>
+</li>
+<li><a href="#example">Example</a><ul>
+<li><a href="#构造">构造</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#增量构造">增量构造</a><ul>
 <li><a href="#example1-1">Example1</a></li>
 <li><a href="#example2-2">Example2</a></li>
 <li><a href="#example3cf1770h">Example3(CF1770H)</a></li>
 <li><a href="#example4abc232h">Example4(ABC232H)</a></li>
-</ul></li>
-<li><a href="#找中间状态">找中间状态</a>
-<ul>
+</ul>
+</li>
+<li><a href="#找中间状态">找中间状态</a><ul>
 <li><a href="#example1-2">Example1</a></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <!-- tocstop -->
 <span id="more"></span>
-<p>##贪心</p>
-<h3><span id="排除不优策略">排除不优策略</span></h3>
-<h5><span id="example1cf1612e">Example1(CF1612E)</span></h5>
-<p>先把期望写开,我们发现如果选择了<span class="math inline">\(t\)</span>个消息<span class="math inline">\(a_1,a_2,...,a_t\)</span>,那么答案就是<span class="math inline">\(\sum[\exists
-j,m_i=a_j]\cfrac{\min(t,k_i)}{t}\)</span>.显然如果<span class="math inline">\(t\)</span>固定,那么每个<span class="math inline">\(a_j\)</span>的贡献是独立的.于是只需要枚举<span class="math inline">\(t\)</span>然后取贡献最大的.</p>
-<p>但是,如果<span class="math inline">\(t&gt;\max\{k_i\}\)</span>,这个时候<span class="math inline">\(t-1\)</span>的答案是<span class="math inline">\(t-1\)</span>个数之和除以<span class="math inline">\(t-1\)</span>,<span class="math inline">\(t\)</span>的答案是这<span class="math inline">\(t-1\)</span>个数之和加上另一个更小的数除以<span class="math inline">\(t\)</span>,而前者肯定比后者大,于是不用再进一步枚举.</p>
-<p>于是复杂度<span class="math inline">\(O(n\max\{k_i\})\)</span>.</p>
-<h5><span id="example2cf1592f1">Example2(CF1592F1)</span></h5>
-<p>首先,二操作和三操作一定没有用,因为它们都可以用两次一操作代替.</p>
+<h2><span id="贪心">贪心</span></h2><h3><span id="排除不优策略">排除不优策略</span></h3><h5><span id="example1cf1612e">Example1(CF1612E)</span></h5><p>先把期望写开,我们发现如果选择了$t$个消息$a_1,a_2,…,a_t$,那么答案就是$\sum[\exists j,m_i=a_j]\cfrac{\min(t,k_i)}{t}$.显然如果$t$固定,那么每个$a_j$的贡献是独立的.于是只需要枚举$t$然后取贡献最大的.</p>
+<p>但是,如果$t&gt;\max\{k_i\}$,这个时候$t-1$的答案是$t-1$个数之和除以$t-1$,$t$的答案是这$t-1$个数之和加上另一个更小的数除以$t$,而前者肯定比后者大,于是不用再进一步枚举.</p>
+<p>于是复杂度$O(n\max\{k_i\})$.</p>
+<h5><span id="example2cf1592f1">Example2(CF1592F1)</span></h5><p>首先,二操作和三操作一定没有用,因为它们都可以用两次一操作代替.</p>
 <p>再注意到四操作是可能有用的,因为我们拿一操作模拟四操作需要四金币的代价,而用一个四操作只需要三个金币.但是,由于拿一操作模拟四操作的时候,需要全局做一遍一操作,所以如果有两个四操作,模拟的时候两遍全局操作就可以抵消.因此,我们模拟两次四操作只需要六个金币的代价.换句话说,我们如果要用到四操作,只会使用一次或零次.</p>
-<p>首先区间异或可以差分(<span class="math inline">\(b_{i,j}=a_{i,j}\oplus a_{i+1,j}\oplus
-a_{i,j+1}\oplus
-a_{i+1,j+1}\)</span>)后转化为四个点的异或操作,而由于一操作操作了左上角的矩阵,所以它实际上是对三个在原矩阵外的点和一个在矩阵内的点操作.我们注意到如果矩阵内已经全都是<span class="math inline">\(0\)</span>了,那么矩阵外不可能是<span class="math inline">\(1\)</span>,也就是原矩阵也全都是<span class="math inline">\(0\)</span>了.</p>
-<p>枚举一下最后的操作是啥即可,另外注意到这一步操作必须把四个点全部变成<span class="math inline">\(0\)</span>才有用,不然还需要拿一操作去补,就不如直接用一操作.</p>
-<h5><span id="example3cf1592f2">Example3(CF1592F2)</span></h5>
-<p>首先注意到,如果我们对<span class="math inline">\((x,y)\)</span>使用操作四,那我们不可能再对一个<span class="math inline">\((x,i)\)</span>使用操作四,不然我们就可以用四次操作一代替这两次操作四.</p>
-<p>再通过上面的分析,注意到只有<span class="math inline">\(b_{x,y},b_{n,y},b_{x,m}\)</span>都是<span class="math inline">\(1\)</span>的时候才会使用四操作,不然,如果我们使用四操作,必然会再需要一个一操作来补,这样就是至少三个金币的代价.而由于这四个点中最多只有三个<span class="math inline">\(1\)</span>,所以一定不如直接用一操作来的划算.不然,如果三个都是<span class="math inline">\(1\)</span>,那么用了就一定不亏,因为无论如何也需要三次一操作,而就算我们用完后<span class="math inline">\(b_{n,m}\)</span>变成<span class="math inline">\(1\)</span>了,再不行也可以使用一次<span class="math inline">\(1\)</span>操作来补全.</p>
-<p>因此我们现在想要选尽可能多的三操作,满足两两操作不在同一行或同一列,这显然是一个二分图匹配问题.换句话说,如果<span class="math inline">\(b_{x,y},b_{n,y},b_{x,m}\)</span>都是<span class="math inline">\(1\)</span>,我们就把<span class="math inline">\(x\)</span>到<span class="math inline">\(y\)</span>连一条边,然后做二分图匹配,显然是最优的.</p>
-<h5><span id="example4cf1666e">Example4(CF1666E)</span></h5>
-<p>先想一下别的东西怎么求.</p>
+<p>首先区间异或可以差分($b_{i,j}=a_{i,j}\oplus a_{i+1,j}\oplus a_{i,j+1}\oplus a_{i+1,j+1}$)后转化为四个点的异或操作,而由于一操作操作了左上角的矩阵,所以它实际上是对三个在原矩阵外的点和一个在矩阵内的点操作.我们注意到如果矩阵内已经全都是$0$了,那么矩阵外不可能是$1$,也就是原矩阵也全都是$0$了.</p>
+<p>枚举一下最后的操作是啥即可,另外注意到这一步操作必须把四个点全部变成$0$才有用,不然还需要拿一操作去补,就不如直接用一操作.</p>
+<h5><span id="example3cf1592f2">Example3(CF1592F2)</span></h5><p>首先注意到,如果我们对$(x,y)$使用操作四,那我们不可能再对一个$(x,i)$使用操作四,不然我们就可以用四次操作一代替这两次操作四.</p>
+<p>再通过上面的分析,注意到只有$b_{x,y},b_{n,y},b_{x,m}$都是$1$的时候才会使用四操作,不然,如果我们使用四操作,必然会再需要一个一操作来补,这样就是至少三个金币的代价.而由于这四个点中最多只有三个$1$,所以一定不如直接用一操作来的划算.不然,如果三个都是$1$,那么用了就一定不亏,因为无论如何也需要三次一操作,而就算我们用完后$b_{n,m}$变成$1$了,再不行也可以使用一次$1$操作来补全.</p>
+<p>因此我们现在想要选尽可能多的三操作,满足两两操作不在同一行或同一列,这显然是一个二分图匹配问题.换句话说,如果$b_{x,y},b_{n,y},b_{x,m}$都是$1$,我们就把$x$到$y$连一条边,然后做二分图匹配,显然是最优的.</p>
+<h5><span id="example4cf1666e">Example4(CF1666E)</span></h5><p>先想一下别的东西怎么求.</p>
 <p>如果我们要求最大值最小或者最小值最大怎么办?我们可以二分后贪心,而显然它们的差就是一个答案的下界,问题在于这个下界是否可以取到.</p>
-<p>我们冷静一下,发现在可能的方案中,第<span class="math inline">\(i\)</span>条线段的右端点的位置一定是一段连续的区间.</p>
-<p>设<span class="math inline">\(f_i\)</span>表示第<span class="math inline">\(i\)</span>个分界点可能的最小值,<span class="math inline">\(g_i\)</span>表示第<span class="math inline">\(i\)</span>个分界点可能的最大值.假设我们目前二分的最大值要小于等于<span class="math inline">\(mx\)</span>,最小值要大于等于<span class="math inline">\(mn\)</span>,那么我们有转移: <span class="math display">\[
+<p>我们冷静一下,发现在可能的方案中,第$i$条线段的右端点的位置一定是一段连续的区间.</p>
+<p>设$f_i$表示第$i$个分界点可能的最小值,$g_i$表示第$i$个分界点可能的最大值.假设我们目前二分的最大值要小于等于$mx$,最小值要大于等于$mn$,那么我们有转移:</p>
+<script type="math/tex; mode=display">
 f_{i+1}=\max\{a_{i+1},f_i+mn\}\\
-g_{i+1}=\min\{a_{i+2},g_i+mx\}\\
-\]</span> 注意到<span class="math inline">\(f\)</span>与<span class="math inline">\(g\)</span>的转移是无关的,而显然对于第<span class="math inline">\(i\)</span>个分界点,它可以取<span class="math inline">\([f_i,g_i]\)</span>中一个数,一定存在一个取法使得答案能取到下界.</p>
-<p>为啥呢?只需让<span class="math inline">\(ans_{i}\)</span>表示第<span class="math inline">\(i\)</span>条分界线是啥,那么我们<span class="math inline">\(ans_i\)</span>是可以取<span class="math inline">\([ans_{i+1}-mx,ans_{i+1}-mn]\)</span>中的任何一个数字的,我们将其和上面求出的<span class="math inline">\([f_i,g_i]\)</span>求一下交集.如果交集为空,说明要么<span class="math inline">\(ans_{i+1}-mn&lt;f_i,f_{i+1}&lt;ans_{i+1}&lt;f_i+mn\)</span>,这是不可能的.另一种情况同理不可能,这就保证了一定可以取到答案.一定能使极差<span class="math inline">\(\leq mx-mn\)</span>.</p>
-<h5><span id="example52022zrtg十连测day7palindrome">Example5(2022zrtg十连测day7
-Palindrome)</span></h5>
-<p>首先注意到同种字符的相对顺序不可能改变.于是最后的回文串是哪个字符对应哪个字符就可以确定.</p>
-<p>这样我们的问题转化为现在有若干个点对<span class="math inline">\((l,r)\)</span>,我们想给每一个点对赋值:<span class="math inline">\(a_l=i,a_r=n-i+1\)</span>(注意如果<span class="math inline">\(n\)</span>是奇数,那么中心点应该是<span class="math inline">\(a_{mid}=\frac{n+1}{2}\)</span>),然后使整个序列逆序对数尽可能小.</p>
-<p>接下来讨论一下两个点对<span class="math inline">\((l_1,r_1)\)</span>,<span class="math inline">\((l_2,r_2)\)</span>之间的三种可能的关系:不交,包含,相交且不包含.会发现若<span class="math inline">\(l\)</span>小则让<span class="math inline">\(a_l\)</span>尽可能小就是最优的.</p>
-<h5><span id="example623省选10连测-day9-c">Example6(23省选10连测 day9 C)</span></h5>
-<p>强强题.</p>
-<p>首先发现这个<span class="math inline">\(\pm
-1\)</span>操作很奇怪.我们不妨这么考虑:设最后的答案序列为<span class="math inline">\(b\)</span>,那么答案其实就是<span class="math inline">\(\sum
-|b_i-a_i|\)</span>.这实际上是什么呢?实际上是数轴上<span class="math inline">\(a_i\)</span>和<span class="math inline">\(b_i\)</span>之间的距离.既然这样,那么我们同时反转<span class="math inline">\(a\)</span>和<span class="math inline">\(b\)</span>,这等价于翻转数轴,答案应该是不变的.这说明什么呢?如果我挑一个<span class="math inline">\(a\)</span>,将它和<span class="math inline">\(x\)</span>同时反转,那么答案不变.这么做后我们可以直接清空所有<span class="math inline">\(a\)</span>的最高位,只剩下<span class="math inline">\(x\)</span>可能有最高位.</p>
-<p>那<span class="math inline">\(x\)</span>的最高位一定会让若干<span class="math inline">\(a\)</span>往上变成它.注意到最多只会有一个<span class="math inline">\(a\)</span>会向上满足<span class="math inline">\(x\)</span>的最高位.证明的话同样考虑取反,如果有两个<span class="math inline">\(a\)</span>满足<span class="math inline">\(a_i\oplus b_i\)</span>和<span class="math inline">\(a_j\oplus b_j\)</span>这一位是<span class="math inline">\(1\)</span>,我们仍然考虑数轴,有<span class="math inline">\(|not(b_i)-a_i|\leq |a_i-b_i|\)</span>,这由<span class="math inline">\(a_i\oplus b_i\)</span>最高位是<span class="math inline">\(1\)</span>导出.因此两个都取反一定不劣.</p>
-<p>再考虑,我们会让哪个<span class="math inline">\(a\)</span>上去满足呢?自然的想法是取代价最小的那个,因为就算它不是,这里自然地有一个待悔贪心:其它的<span class="math inline">\(a\)</span>可以再变成它.</p>
+g_{i+1}=\min\{a_{i+2},g_i+mx\}\\</script><p>注意到$f$与$g$的转移是无关的,而显然对于第$i$个分界点,它可以取$[f_i,g_i]$中一个数,一定存在一个取法使得答案能取到下界.</p>
+<p>为啥呢?只需让$ans_{i}$表示第$i$条分界线是啥,那么我们$ans_i$是可以取$[ans_{i+1}-mx,ans_{i+1}-mn]$中的任何一个数字的,我们将其和上面求出的$[f_i,g_i]$求一下交集.如果交集为空,说明要么$ans_{i+1}-mn&lt;f_i,f_{i+1}&lt;ans_{i+1}&lt;f_i+mn$,这是不可能的.另一种情况同理不可能,这就保证了一定可以取到答案.一定能使极差$\leq mx-mn$.</p>
+<h5><span id="example52022zrtg十连测day7-palindrome">Example5(2022zrtg十连测day7 Palindrome)</span></h5><p>首先注意到同种字符的相对顺序不可能改变.于是最后的回文串是哪个字符对应哪个字符就可以确定.</p>
+<p>这样我们的问题转化为现在有若干个点对$(l,r)$,我们想给每一个点对赋值:$a_l=i,a_r=n-i+1$(注意如果$n$是奇数,那么中心点应该是$a_{mid}=\frac{n+1}{2}$),然后使整个序列逆序对数尽可能小.</p>
+<p>接下来讨论一下两个点对$(l_1,r_1)$,$(l_2,r_2)$之间的三种可能的关系:不交,包含,相交且不包含.会发现若$l$小则让$a_l$尽可能小就是最优的.</p>
+<h5><span id="example623省选10连测-day9-c">Example6(23省选10连测 day9 C)</span></h5><p>强强题.</p>
+<p>首先发现这个$\pm 1$操作很奇怪.我们不妨这么考虑:设最后的答案序列为$b$,那么答案其实就是$\sum |b_i-a_i|$.这实际上是什么呢?实际上是数轴上$a_i$和$b_i$之间的距离.既然这样,那么我们同时反转$a$和$b$,这等价于翻转数轴,答案应该是不变的.这说明什么呢?如果我挑一个$a$,将它和$x$同时反转,那么答案不变.这么做后我们可以直接清空所有$a$的最高位,只剩下$x$可能有最高位.</p>
+<p>那$x$的最高位一定会让若干$a$往上变成它.注意到最多只会有一个$a$会向上满足$x$的最高位.证明的话同样考虑取反,如果有两个$a$满足$a_i\oplus b_i$和$a_j\oplus b_j$这一位是$1$,我们仍然考虑数轴,有$|not(b_i)-a_i|\leq |a_i-b_i|$,这由$a_i\oplus b_i$最高位是$1$导出.因此两个都取反一定不劣.</p>
+<p>再考虑,我们会让哪个$a$上去满足呢?自然的想法是取代价最小的那个,因为就算它不是,这里自然地有一个待悔贪心:其它的$a$可以再变成它.</p>
 <p>于是就做完了.</p>
-<h5><span id="example7异或粽子">Example7(异或粽子)</span></h5>
-<h5><span id="example8">Example8()</span></h5>
-<h3><span id="带悔贪心">带悔贪心</span></h3>
-<h5><span id="example1">Example1</span></h5>
-<p>给定一个数组,给出若干次操作<span class="math inline">\([l,r,k]\)</span>表示可以将<span class="math inline">\(a[l\cdots r]\)</span>减一进行至多<span class="math inline">\(k\)</span>次,要求操作过程中数组时刻非负,求最大能做出的操作次数.</p>
+<h5><span id="example7异或粽子">Example7(异或粽子)</span></h5><h5><span id="example8">Example8()</span></h5><h3><span id="带悔贪心">带悔贪心</span></h3><h5><span id="example1">Example1</span></h5><p>给定一个数组,给出若干次操作$[l,r,k]$表示可以将$a[l\cdots r]$减一进行至多$k$次,要求操作过程中数组时刻非负,求最大能做出的操作次数.</p>
 <p>这题的做法是,我们每次遇到一个左端点,就将所有以它为左端点的区间全部操作,并把这些区间按照右端点为关键字扔进堆里.每次遇到一个地方的值变成了负的,就从堆中找右端点最大的区间杀掉.容易发现这样是正确的.</p>
 <p>为啥能想到带悔贪心呢?主要是因为我们发现不同的区间会彼此影响,而且有一个限制性的长期条件.因此先不管这个条件,最后再通过调整堆将这个条件调整至合法.</p>
-<h5><span id="example2">Example2</span></h5>
-<p>给定一个序列,每次可以选择相邻的两个数,使其中一个<span class="math inline">\(-1\)</span>,另一个<span class="math inline">\(-2\)</span>,求使得整个序列都小于等于<span class="math inline">\(0\)</span>的最小操作次数.</p>
+<h5><span id="example2">Example2</span></h5><p>给定一个序列,每次可以选择相邻的两个数,使其中一个$-1$,另一个$-2$,求使得整个序列都小于等于$0$的最小操作次数.</p>
 <p>我们明确一下带悔贪心的基本条件:</p>
-<ol type="1">
+<ol>
 <li>首先,贪心是需要保证局部最优性的,并且需要保证不考虑全局的前提下,求局部最优解就是全局最优解的一部分.按我的理解,贪心是和dp一样需要有无后效性的,你前面的决策做了就是做了,带悔贪心只能改变后面的决策的形态,而不能改变前面的决策.</li>
 <li>不同的操作之间会彼此影响,并且我们在不看全局的状态的前提下,无法第一时间确定当前对后面最优影响的操作是啥.通常情况下,感觉带悔贪心的每个操作会影响的操作是有限的.</li>
 <li>感觉能做带悔贪心的好像很多都可以设计一个复杂度更高的dp.不过这个似乎很合理,因为(2)告诉我们它能影响的操作大概率是不多的.</li>
 </ol>
-<p>我们看这个题,第一点基本随便编个贪心都可以满足:就是先不断做<span class="math inline">\((-2,-1)\)</span>,最后不够了再加个<span class="math inline">\((-1,-2)\)</span>补一下.而第二点呢?显然每个地方的操作只会影响前后两个位置接下来的操作(当然,被影响到的位置有可能继续影响别人).</p>
-<p>那么为什么能想到带悔贪心呢?其实只要发现有的时候<span class="math inline">\((-1,-2)+(-1,-2)\)</span>比<span class="math inline">\((-2,-1)\)</span>更优秀就自然能引到带悔贪心了.</p>
-<p>好,现在我们仍然是做那个看上去就不太对的贪心:先不断做<span class="math inline">\((-2,-1)\)</span>,最后不够了再加个<span class="math inline">\((-1,-2)\)</span>补一下.我们通过样例以及其它栗子发现:有的时候<span class="math inline">\((-1,-2)+(-1,-2)\)</span>比<span class="math inline">\((-2,-1)\)</span>更优秀,这启发我们:能不能在做后面位置的时候将前面的<span class="math inline">\((-2,-1)\)</span>变成<span class="math inline">\((-1,-2)+(-1,-2)\)</span>呢?注意这里我们不能直接换:带悔贪心要求我们不能改变前面操作的状态.因此我们引入一个操作:如果当前前面存在一个<span class="math inline">\((-2,-1)\)</span>操作,那么我可以在这个位置进行一个<span class="math inline">\((0,-3)\)</span>操作.显然<span class="math inline">\((0,-3)+(-2,-1)=(-1,-2)+(-1,-2)\)</span>.我们完成了反悔的操作!</p>
-<p>但是,我们直接认为<span class="math inline">\((-1,-2)\)</span>不可能反悔的原因是:它是一个补位操作,一个位置只有可能进行一次,这玩意不可能能反悔.可现在不一样了,我们的操作序列中有了两个<span class="math inline">\((-1,-2)+(-1,-2)\)</span>,怎么办呢?你当然可以对着这个操作再观察怎么反悔,但事实上有更高效的思路:我们直接考虑<span class="math inline">\((-3,0)\)</span>怎么反悔.这个看上去很疑惑:我们为了使<span class="math inline">\((-2,-1)\)</span>变成<span class="math inline">\((-1,-2)+(-1,-2)\)</span>而引入了一个新操作,这个新操作在原序列中是不存在的:它甚至有个很奇怪的限制条件:必须在前面存在<span class="math inline">\((-2,-1)\)</span>的时候才可以发动.那为什么我们可以直接考虑它如何反悔呢?</p>
-<p>先看第一个问题:<span class="math inline">\((-3,0)\)</span>这个技能的发动是有前提条件的:前面必须有<span class="math inline">\((-2,-1)\)</span>才可以.但你注意我们是在贪心啊,我们很清楚每个地方用了几个<span class="math inline">\((-2,-1)\)</span>,也很清楚每个地方用了几个<span class="math inline">\((-3,0)\)</span>.</p>
+<p>我们看这个题,第一点基本随便编个贪心都可以满足:就是先不断做$(-2,-1)$,最后不够了再加个$(-1,-2)$补一下.而第二点呢?显然每个地方的操作只会影响前后两个位置接下来的操作(当然,被影响到的位置有可能继续影响别人).</p>
+<p>那么为什么能想到带悔贪心呢?其实只要发现有的时候$(-1,-2)+(-1,-2)$比$(-2,-1)$更优秀就自然能引到带悔贪心了.</p>
+<p>好,现在我们仍然是做那个看上去就不太对的贪心:先不断做$(-2,-1)$,最后不够了再加个$(-1,-2)$补一下.我们通过样例以及其它栗子发现:有的时候$(-1,-2)+(-1,-2)$比$(-2,-1)$更优秀,这启发我们:能不能在做后面位置的时候将前面的$(-2,-1)$变成$(-1,-2)+(-1,-2)$呢?注意这里我们不能直接换:带悔贪心要求我们不能改变前面操作的状态.因此我们引入一个操作:如果当前前面存在一个$(-2,-1)$操作,那么我可以在这个位置进行一个$(0,-3)$操作.显然$(0,-3)+(-2,-1)=(-1,-2)+(-1,-2)$.我们完成了反悔的操作!</p>
+<p>但是,我们直接认为$(-1,-2)$不可能反悔的原因是:它是一个补位操作,一个位置只有可能进行一次,这玩意不可能能反悔.可现在不一样了,我们的操作序列中有了两个$(-1,-2)+(-1,-2)$,怎么办呢?你当然可以对着这个操作再观察怎么反悔,但事实上有更高效的思路:我们直接考虑$(-3,0)$怎么反悔.这个看上去很疑惑:我们为了使$(-2,-1)$变成$(-1,-2)+(-1,-2)$而引入了一个新操作,这个新操作在原序列中是不存在的:它甚至有个很奇怪的限制条件:必须在前面存在$(-2,-1)$的时候才可以发动.那为什么我们可以直接考虑它如何反悔呢?</p>
+<p>先看第一个问题:$(-3,0)$这个技能的发动是有前提条件的:前面必须有$(-2,-1)$才可以.但你注意我们是在贪心啊,我们很清楚每个地方用了几个$(-2,-1)$,也很清楚每个地方用了几个$(-3,0)$.</p>
 <p>再看第二个问题:这个新操作为何能反悔呢?其实第一个问题解决这个问题也就解决了,由于贪心,我们知道了巨大多的信息,这个信息量是dp不能比的.因此这个条件如果dp的话看上去需要多记一维,但是贪心完全不用.</p>
-<p>我们可以根据类似上面的操作迅速编出它怎么反悔:<span class="math inline">\((-3,0)\rightarrow
-(-1,-2)+(-2,-1)=(-3,0)+(0,-3)\)</span>,或者<span class="math inline">\((-3,0)\rightarrow
-(-1,-2)+(-1,-2)+(-1,-2)=(-3,0)+(0,-3)+(0,-3)\)</span>.</p>
-<p>最后遇到一个点,能用<span class="math inline">\((0,-3)\)</span>就用<span class="math inline">\((0,-3)\)</span>,不够用的再补齐.这个原因也很简单:如果我们在这里不用<span class="math inline">\((-3,0)\)</span>而用其它的代替的话,你会发现无论如何都等价于<span class="math inline">\((-3,0)\)</span>然后后面再反悔.</p>
+<p>我们可以根据类似上面的操作迅速编出它怎么反悔:$(-3,0)\rightarrow (-1,-2)+(-2,-1)=(-3,0)+(0,-3)$,或者$(-3,0)\rightarrow (-1,-2)+(-1,-2)+(-1,-2)=(-3,0)+(0,-3)+(0,-3)$.</p>
+<p>最后遇到一个点,能用$(0,-3)$就用$(0,-3)$,不够用的再补齐.这个原因也很简单:如果我们在这里不用$(-3,0)$而用其它的代替的话,你会发现无论如何都等价于$(-3,0)$然后后面再反悔.</p>
 <p>再总结一下这个题中包含的带悔贪心:</p>
-<p>这个带悔贪心包含若干个操作,这些操作之间可以<strong>互相转化</strong>,使得在前面进行的一个操作可以和在后面进行的一个操作一起,等价于前面进行了另一个操作.如同最经典的带悔贪心的模型,我们每次进行一个操作后,都会加入若干个可以进行的操作(在这个题中,一开始就在每个位置加入了无穷多的<span class="math inline">\((-2,-1)\)</span>和<span class="math inline">\((-1,-2)\)</span>的操作)(写一下代码就会发现,我们其实记录下了每个位置插入了多少个可行的<span class="math inline">\((-3,0)\)</span>操作).这些操作构成一个封闭的东西,使得反悔任意一个操作的反悔操作本身都可以使用若干操作表示出来.</p>
-<p>###寻找下界并证明</p>
-<h5><span id="example1eer1代价">Example1([EER1]代价)</span></h5>
-<p>给你一个长度为<span class="math inline">\(n\)</span>的序列<span class="math inline">\(a\)</span>,保证<span class="math inline">\(a_1=a_n=1\)</span>.每次你可以选择一个<span class="math inline">\(i(1&lt;i&lt;n)\)</span>将<span class="math inline">\(a_i\)</span>删去并付出<span class="math inline">\(a_{i-1}a_ia_{i+1}\)</span>的代价.删去<span class="math inline">\(a_i\)</span>后序列两端会接起来,求删成两个<span class="math inline">\(1\)</span>的最小代价.</p>
-<p>首先注意到,如果有一个<span class="math inline">\(1&lt;i&lt;n\)</span>满足<span class="math inline">\(a_i=1\)</span>,那这个点最后删显然更优秀:如果我们把它删了,不仅肯定比最后删它劣(最后删它只需要<span class="math inline">\(1\)</span>的代价),还有可能使原本能和它相邻的点这次和一个更大的数相邻了,显然不优秀.因此整个序列被若干个<span class="math inline">\(1\)</span>所划分.接下来我们只考虑中间所有数<span class="math inline">\(\geq 2\)</span>的情况.</p>
-<p>再思考一个事实:当<span class="math inline">\(a,b\geq
-2\)</span>时,一定有<span class="math inline">\(ab\geq
-a+b\)</span>.而考虑每两个相邻的点一定会被乘起来扔进答案,也就是说答案下界一定是<span class="math inline">\(\sum_{i=2}^{n-2}a_ia_{i+1}+\min_{i=2}^{n-1}{a_i}\)</span>.注意到这个下界是可以构造出来的:找到每一段最小的点然后从左/右挨个删点即可.</p>
-<h5><span id="example2loj3318">Example2(loj3318)</span></h5>
-<p>首先考虑:给出一个排列,从原排列换到它的最小步数一定是它的逆序对数.因为我们可以每次找到应当被放到边界的点,然后不断把它换过去.</p>
-<p>考虑现在构造<span class="math inline">\(a\)</span>数组,每次对于还没选的最大值,显然要扔到尽可能靠后的位置,然后不断递归处理.</p>
-<h5><span id="example3">Example3</span></h5>
-<p>给定一张图,每个点上有一个权值<span class="math inline">\(a_i\)</span>,我们每次可以删掉一个点以及其所有连边,代价是所有相邻的点的权值和.求删光图的最小代价.</p>
+<p>这个带悔贪心包含若干个操作,这些操作之间可以<strong>互相转化</strong>,使得在前面进行的一个操作可以和在后面进行的一个操作一起,等价于前面进行了另一个操作.如同最经典的带悔贪心的模型,我们每次进行一个操作后,都会加入若干个可以进行的操作(在这个题中,一开始就在每个位置加入了无穷多的$(-2,-1)$和$(-1,-2)$的操作)(写一下代码就会发现,我们其实记录下了每个位置插入了多少个可行的$(-3,0)$操作).这些操作构成一个封闭的东西,使得反悔任意一个操作的反悔操作本身都可以使用若干操作表示出来.</p>
+<h3><span id="寻找下界并证明">寻找下界并证明</span></h3><h5><span id="example1eer1代价">Example1([EER1]代价)</span></h5><p>给你一个长度为$n$的序列$a$,保证$a_1=a_n=1$.每次你可以选择一个$i(1&lt;i&lt;n)$将$a_i$删去并付出$a_{i-1}a_ia_{i+1}$的代价.删去$a_i$后序列两端会接起来,求删成两个$1$的最小代价.</p>
+<p>首先注意到,如果有一个$1&lt;i&lt;n$满足$a_i=1$,那这个点最后删显然更优秀:如果我们把它删了,不仅肯定比最后删它劣(最后删它只需要$1$的代价),还有可能使原本能和它相邻的点这次和一个更大的数相邻了,显然不优秀.因此整个序列被若干个$1$所划分.接下来我们只考虑中间所有数$\geq 2$的情况.</p>
+<p>再思考一个事实:当$a,b\geq 2$时,一定有$ab\geq a+b$.而考虑每两个相邻的点一定会被乘起来扔进答案,也就是说答案下界一定是$\sum_{i=2}^{n-2}a_ia_{i+1}+\min_{i=2}^{n-1}{a_i}$.注意到这个下界是可以构造出来的:找到每一段最小的点然后从左/右挨个删点即可.</p>
+<h5><span id="example2loj3318">Example2(loj3318)</span></h5><p>首先考虑:给出一个排列,从原排列换到它的最小步数一定是它的逆序对数.因为我们可以每次找到应当被放到边界的点,然后不断把它换过去.</p>
+<p>考虑现在构造$a$数组,每次对于还没选的最大值,显然要扔到尽可能靠后的位置,然后不断递归处理.</p>
+<h5><span id="example3">Example3</span></h5><p>给定一张图,每个点上有一个权值$a_i$,我们每次可以删掉一个点以及其所有连边,代价是所有相邻的点的权值和.求删光图的最小代价.</p>
 <p>首先注意到答案一共要更新边数次,不妨考虑边.</p>
 <p>一条边可能对答案有两种贡献,也就是与它相邻的两个点的点权.它会对答案贡献后删的那个点的点权.显然所有边取最小值时是一个下界.这个下界是可以构造出来的:我们按照点权从大往小删即可.</p>
-<h5><span id="example4uoj280题目难度排序">Example4([UOJ280]题目难度排序)</span></h5>
-<p>先考虑<span class="math inline">\(a_i\)</span>互不相同,那可以每次选一个最大的数,满足它加进去后整个集合的中位数<span class="math inline">\(\leq\)</span>还没选的数的最小的数.注意到这里一定能构造出合法解,且如果选了另一个数一定更劣.</p>
-<p>那如果可能存在<span class="math inline">\(a_i\)</span>相同呢,我们先按照大小排序,然后选出一对小于等于所有数的中位数的<span class="math inline">\((a_i,a_{i+1})\)</span>,然后这么选:<span class="math inline">\(a_i,a_{i+1},a_n,a_{i-1},a_{n-1},a_{i-2}...\)</span>,一直到左边全部被填完,然后按照互不相同的方法填.</p>
-<p>首先这么做一定是合法解,因为中位数会在<span class="math inline">\(a_i\)</span>上震荡.其次这么做为什么是最优解呢?我们考虑一开始如果选了另一对大于中位数的相等的数,那一定不合法,因为最后会剩一些小数,会把这些东西震荡到一个更小的中位数.而如果一开始选了一个单点,接下来一定要不断选更大的点,这样比它小的数就没法加进去了.而等左边全部被填完后,由于这个时候中位数已经没有办法保持不变了,所以必定接下来要增大,而中位数不断增大只能按照互不相同的方法填.</p>
-<h5><span id="example5cf1098deels">Example5([CF1098D]Eels)</span></h5>
-<p>首先,我们猜测:我们一开始先让最小的两个互相吃,可能是最优秀的.接下来我们尝试证明这个猜测.</p>
-<p>首先,对于一个不危险的操作来说,假设这次操作的两个数是<span class="math inline">\(a\)</span>和<span class="math inline">\(b\)</span>,其中<span class="math inline">\(2a&lt;b\)</span>.我们尝试判断一下这个操作满足什么条件.这个时候,注意到如果<span class="math inline">\(b\)</span>之前吃过别的鱼,假设是<span class="math inline">\(c\)</span>和<span class="math inline">\(d\)</span>(不妨假设<span class="math inline">\(d\geq c\)</span>),有<span class="math inline">\(b=c+d\)</span>,由鸽笼原理,发现<span class="math inline">\(d&gt;a\)</span>.这意味着:如果<span class="math inline">\(a\)</span>都没被操作掉,那么<span class="math inline">\(d\)</span>必不可能被操作掉,这也就是说<span class="math inline">\(b\)</span>不可能出现.因此<span class="math inline">\(b\)</span>在这次操作前一定没有吃过别的鱼.那互相残杀的鱼的重量就都一定小于<span class="math inline">\(b\)</span>,且<span class="math inline">\(a\)</span>就是所有一开始小于<span class="math inline">\(b\)</span>的鱼的和.</p>
-<p>我们按照鱼的重量从小到大排序,你会发现一次不危险操作涉及到的鱼一定是一条满足自己大于比自己小的所有鱼的重量和的两倍的鱼,我们称其为大鱼,也就是<span class="math inline">\(w_i&gt;2\sum_{j=1}^{i-1}w_j\)</span>,我们对此计数就可以完成一次操作.</p>
+<h5><span id="example4uoj280题目难度排序">Example4([UOJ280]题目难度排序)</span></h5><p>先考虑$a_i$互不相同,那可以每次选一个最大的数,满足它加进去后整个集合的中位数$\leq$还没选的数的最小的数.注意到这里一定能构造出合法解,且如果选了另一个数一定更劣.</p>
+<p>那如果可能存在$a_i$相同呢,我们先按照大小排序,然后选出一对小于等于所有数的中位数的$(a_i,a_{i+1})$,然后这么选:$a_i,a_{i+1},a_n,a_{i-1},a_{n-1},a_{i-2}…$,一直到左边全部被填完,然后按照互不相同的方法填.</p>
+<p>首先这么做一定是合法解,因为中位数会在$a_i$上震荡.其次这么做为什么是最优解呢?我们考虑一开始如果选了另一对大于中位数的相等的数,那一定不合法,因为最后会剩一些小数,会把这些东西震荡到一个更小的中位数.而如果一开始选了一个单点,接下来一定要不断选更大的点,这样比它小的数就没法加进去了.而等左边全部被填完后,由于这个时候中位数已经没有办法保持不变了,所以必定接下来要增大,而中位数不断增大只能按照互不相同的方法填.</p>
+<h5><span id="example5cf1098deels">Example5([CF1098D]Eels)</span></h5><p>首先,我们猜测:我们一开始先让最小的两个互相吃,可能是最优秀的.接下来我们尝试证明这个猜测.</p>
+<p>首先,对于一个不危险的操作来说,假设这次操作的两个数是$a$和$b$,其中$2a<b$.我们尝试判断一下这个操作满足什么条件.这个时候,注意到如果$b$之前吃过别的鱼,假设是$c$和$d$(不妨假设$d\geq c$),有$b="c+d$,由鸽笼原理,发现$d">a$.这意味着:如果$a$都没被操作掉,那么$d$必不可能被操作掉,这也就是说$b$不可能出现.因此$b$在这次操作前一定没有吃过别的鱼.那互相残杀的鱼的重量就都一定小于$b$,且$a$就是所有一开始小于$b$的鱼的和.</b$.我们尝试判断一下这个操作满足什么条件.这个时候,注意到如果$b$之前吃过别的鱼,假设是$c$和$d$(不妨假设$d\geq></p>
+<p>我们按照鱼的重量从小到大排序,你会发现一次不危险操作涉及到的鱼一定是一条满足自己大于比自己小的所有鱼的重量和的两倍的鱼,我们称其为大鱼,也就是$w_i&gt;2\sum_{j=1}^{i-1}w_j$,我们对此计数就可以完成一次操作.</p>
 <p>那么问题又来了,这个东西一定是最小的吗?</p>
 <p>我们考虑一个事实:我们要最小化不危险操作的数量,但很明显的一点是:每只大鱼都必须经过一次不危险操作才能变成一只更大的鱼,当然,如果它选择自杀,那么吃掉它的那只鱼会继承它的地位,在不死的情况下仍然要进行至少一次不危险操作才能变成更大的鱼,因此这显然是一个下界.而又可以构造出答案.</p>
-<p>那么如何多组询问呢?首先发现大鱼不会很多,最多<span class="math inline">\(\log
-w\)</span>个,我们考虑一下这个两倍的用处,我们按照值域<span class="math inline">\([1,1],[2,2],[3,4],[5,8],...,[2^{k-1}+1,2^k]\)</span>将鱼分成若干组,不难发现大鱼只有可能是每个区间中最小的数字,因为不然,那么这个区间中最小的数字乘以二一定比它自己大.这个东西就很好维护了.</p>
-<h5><span id="example6称球游戏">Example6(称球游戏)</span></h5>
-<p>给定<span class="math inline">\(n\)</span>个球(其中有一个次品球,重量和其它球不一样)和一架天平,求最少通过多少次操作才能找到这个球.</p>
+<p>那么如何多组询问呢?首先发现大鱼不会很多,最多$\log w$个,我们考虑一下这个两倍的用处,我们按照值域$[1,1],[2,2],[3,4],[5,8],…,[2^{k-1}+1,2^k]$将鱼分成若干组,不难发现大鱼只有可能是每个区间中最小的数字,因为不然,那么这个区间中最小的数字乘以二一定比它自己大.这个东西就很好维护了.</p>
+<h5><span id="example6称球游戏">Example6(称球游戏)</span></h5><p>给定$n$个球(其中有一个次品球,重量和其它球不一样)和一架天平,求最少通过多少次操作才能找到这个球.</p>
 <p>我们通过这个游戏来引入信息论和判定树作为一个构造下界的工具.</p>
 <p>首先引入一套语言体系来简化文字:</p>
-<ol type="1">
-<li><span class="math inline">\(S\)</span>表示标准球.</li>
-<li><span class="math inline">\(&lt;A,B&gt;\)</span>表示称量集合<span class="math inline">\(A\)</span>和集合<span class="math inline">\(B\)</span>,<span class="math inline">\(&lt;A,B&gt;=0\)</span>表示平衡,<span class="math inline">\(&lt;A,B&gt;=A\)</span>表示<span class="math inline">\(A\)</span>较重,<span class="math inline">\(&lt;A,B&gt;=B\)</span>表示<span class="math inline">\(B\)</span>较重.</li>
+<ol>
+<li>$S$表示标准球.</li>
+<li>$<a,b>$表示称量集合$A$和集合$B$,$<a,b>=0$表示平衡,$<a,b>=A$表示$A$较重,$<a,b>=B$表示$B$较重.</a,b></a,b></a,b></a,b></li>
 </ol>
-<h6><span id="信息论">信息论</span></h6>
-<p>如果一个随机变量<span class="math inline">\(x\)</span>有<span class="math inline">\(n\)</span>种取值,出现概率分别为<span class="math inline">\(p_1,p_2,\cdots,p_n\)</span>,则其熵为<span class="math inline">\(H(x)=f(p_1,p_2,\cdots ,p_n)=\sum{C p_i\ln
-\frac{1}{p_i}}\)</span>,<span class="math inline">\(C\)</span>为正整数,通常取<span class="math inline">\(1\)</span>.(事实上这里的定义与真正的信息论的定义有一定的差别,不过原理是类似的,这里简化了一些.)</p>
-<p>定理1:在得到关于随机变量<span class="math inline">\(x\)</span>的一个熵为<span class="math inline">\(h\)</span>的信息后,<span class="math inline">\(x\)</span>的熵会减少<span class="math inline">\(h\)</span>.</p>
+<h6><span id="信息论">信息论</span></h6><p>如果一个随机变量$x$有$n$种取值,出现概率分别为$p_1,p_2,\cdots,p_n$,则其熵为$H(x)=f(p_1,p_2,\cdots ,p_n)=\sum{C p_i\ln \frac{1}{p_i}}$,$C$为正整数,通常取$1$.(事实上这里的定义与真正的信息论的定义有一定的差别,不过原理是类似的,这里简化了一些.)</p>
+<p>定理1:在得到关于随机变量$x$的一个熵为$h$的信息后,$x$的熵会减少$h$.</p>
 <p>定理2:当一个随机变量的各种取值概率相等时,它的熵最大.</p>
-<p>用信息论估计一下称球游戏的上界,如果我们已知次品轻重,由于一共有<span class="math inline">\(n\)</span>个球,每个球等概率成为次品,因此总熵是<span class="math inline">\(\ln
-n\)</span>,每称一次能得到的信息有三种:平衡,左边重,右边重,因此称一次能得到的熵是<span class="math inline">\(\ln 3\)</span>,也就是说我们至少要猜<span class="math inline">\(\frac{\ln n}{\ln 3}=\log_3
-n\)</span>次.如果我们不知道次品的轻重,那么至少要猜<span class="math inline">\(\frac{\ln 2n}{\ln 3}=\log_3 2n\)</span>次.</p>
+<p>用信息论估计一下称球游戏的上界,如果我们已知次品轻重,由于一共有$n$个球,每个球等概率成为次品,因此总熵是$\ln n$,每称一次能得到的信息有三种:平衡,左边重,右边重,因此称一次能得到的熵是$\ln 3$,也就是说我们至少要猜$\frac{\ln n}{\ln 3}=\log_3 n$次.如果我们不知道次品的轻重,那么至少要猜$\frac{\ln 2n}{\ln 3}=\log_3 2n$次.</p>
 <p>这就是称球游戏的信息论下界,接下来我们要做的无非就是证明这个下界能否取得到.</p>
-<h6><span id="判定树">判定树</span></h6>
-<p>我们考虑将称量的决策树建立出来,每个叶子节点表示我们得到的答案,每个非叶子节点代表一次称量,每个非叶子节点有三个儿子,分别表示如果称量的结果是左偏/右偏/平衡时,接下来的策略.显然判定树的深度就是最坏情况下称量的次数.</p>
-<p><span class="math inline">\(n\)</span>个叶子的树的最小深度是<span class="math inline">\(\lceil\log_3
-n\rceil\)</span>,这得出和信息论一样的下界估计(信息论的结论好像就是拿哈夫曼树证明的,不太懂).</p>
-<h6><span id="子问题1已知次品重量">子问题1(已知次品重量)</span></h6>
-<p>不妨假设<span class="math inline">\(f(n)\)</span>表示有<span class="math inline">\(n\)</span>个球的最少次数,注意到<span class="math inline">\(f(3)=1\)</span>.</p>
-<p>根据信息论,<span class="math inline">\(f(n)\geq \lceil\log_3
-n\rceil\)</span>,下面证明等号成立:</p>
-<p>首先考虑证明<span class="math inline">\(f(3^m)=m\)</span>,<span class="math inline">\(m=1\)</span>时已经得证.<span class="math inline">\(m&gt;1\)</span>时,考虑将所有球分成等数量的三份,称量其中两份.由于已知次品重量,这一次就可以找到次品在哪一份中,因此<span class="math inline">\(f(3^m)\leq
-f(3^{m-1})+1\)</span>.综合信息论下界<span class="math inline">\(f(3^m)\geq
-m\)</span>,我们不难得出以上结论.至于<span class="math inline">\(n\ne
-3^m\)</span>的情况,我们类似这个过程按照<span class="math inline">\(n\bmod 3\)</span>的值讨论一下即可,于是有<span class="math inline">\(f(n)\leq f(\lceil\frac n3\rceil)+1\)</span>.</p>
-<h6><span id="子问题2不知次品轻重已有一个标准球需知道次品轻重">子问题2(不知次品轻重,已有一个标准球,需知道次品轻重)</span></h6>
-<p>根据信息论下界,<span class="math inline">\(f(n)\geq \lceil\log_3
-2n\rceil\)</span>.</p>
+<h6><span id="判定树">判定树</span></h6><p>我们考虑将称量的决策树建立出来,每个叶子节点表示我们得到的答案,每个非叶子节点代表一次称量,每个非叶子节点有三个儿子,分别表示如果称量的结果是左偏/右偏/平衡时,接下来的策略.显然判定树的深度就是最坏情况下称量的次数.</p>
+<p>$n$个叶子的树的最小深度是$\lceil\log_3 n\rceil$,这得出和信息论一样的下界估计(信息论的结论好像就是拿哈夫曼树证明的,不太懂).</p>
+<h6><span id="子问题1已知次品重量">子问题1(已知次品重量)</span></h6><p>不妨假设$f(n)$表示有$n$个球的最少次数,注意到$f(3)=1$.</p>
+<p>根据信息论,$f(n)\geq \lceil\log_3 n\rceil$,下面证明等号成立:</p>
+<p>首先考虑证明$f(3^m)=m$,$m=1$时已经得证.$m&gt;1$时,考虑将所有球分成等数量的三份,称量其中两份.由于已知次品重量,这一次就可以找到次品在哪一份中,因此$f(3^m)\leq f(3^{m-1})+1$.综合信息论下界$f(3^m)\geq m$,我们不难得出以上结论.至于$n\ne 3^m$的情况,我们类似这个过程按照$n\bmod 3$的值讨论一下即可,于是有$f(n)\leq f(\lceil\frac n3\rceil)+1$.</p>
+<h6><span id="子问题2不知次品轻重已有一个标准球需知道次品轻重">子问题2(不知次品轻重,已有一个标准球,需知道次品轻重)</span></h6><p>根据信息论下界,$f(n)\geq \lceil\log_3 2n\rceil$.</p>
 <p>比起上面的问题,这个问题在于:如果我们称量不平衡,是不知道次品球在两堆中的哪一堆的.但我们思考到:虽然我们不知道在哪一堆,但我们得到了一个额外的信息:如果它在哪一堆,它的重量我们也就知道了.</p>
 <p>下面证明引理:</p>
 <p><strong>引理</strong></p>
-<p>有两堆球,第一堆有<span class="math inline">\(n\)</span>个球,第二堆有<span class="math inline">\(m\)</span>个,已知其中有一个次品,并且次品如果在第一堆中只可能是重球,在第二堆中只可能是轻球.设此时的称量次数是<span class="math inline">\(g(n,m)\)</span>,则<span class="math inline">\(g(n,m)=\lceil\log_3(n+m)\rceil\)</span>.</p>
-<p>先证明信息论下界,不难发现仍然是<span class="math inline">\(g(n,m)=\lceil\log_3(n+m)\rceil\)</span>.</p>
-<p>首先不难发现,<span class="math inline">\(g(1,0)=g(0,1)=0,g(1,1)=g(2,0)=g(0,2)=1\)</span>.</p>
-<p>仍然使用数学归纳,假设<span class="math inline">\(n+m&lt;k(k\geq
-3)\)</span>的时候成立,我们接下来证明<span class="math inline">\(n+m=k\)</span>的时候仍然成立.</p>
+<p>有两堆球,第一堆有$n$个球,第二堆有$m$个,已知其中有一个次品,并且次品如果在第一堆中只可能是重球,在第二堆中只可能是轻球.设此时的称量次数是$g(n,m)$,则$g(n,m)=\lceil\log_3(n+m)\rceil$.</p>
+<p>先证明信息论下界,不难发现仍然是$g(n,m)=\lceil\log_3(n+m)\rceil$.</p>
+<p>首先不难发现,$g(1,0)=g(0,1)=0,g(1,1)=g(2,0)=g(0,2)=1$.</p>
+<p>仍然使用数学归纳,假设$n+m&lt;k(k\geq 3)$的时候成立,我们接下来证明$n+m=k$的时候仍然成立.</p>
 <p><strong>情况1</strong></p>
-<p>若<span class="math inline">\(n=3p,m=3q\)</span>,我们将<span class="math inline">\(n\)</span>分成等数量的三堆:<span class="math inline">\(A_1,B_1,C_1\)</span>,将<span class="math inline">\(m\)</span>分成等质量的三堆<span class="math inline">\(A_2,B_2,C_2\)</span>.</p>
-<p>接下来称量<span class="math inline">\(\lang
-A_1+A_2,B_1+B_2\rang\)</span>.</p>
-<ol type="1">
-<li>如果<span class="math inline">\(\langle A_1+A_2,B_1+B_2\rang=
-0\)</span>,那么答案在<span class="math inline">\(C_1\cup
-C_2\)</span>中,此时有<span class="math inline">\(g(n,m)=g(\frac{n}{3},\frac{m}{3})+1\)</span>.</li>
-<li>如果<span class="math inline">\(\lang A_1+A_2,B_1+B_2\rang=
-A_1+A_2\)</span>,由于若次品在<span class="math inline">\(A_2\)</span>中,那么它不可能是重球,因此次品不可能在<span class="math inline">\(A_2\)</span>中,同理不可能在<span class="math inline">\(B_1\)</span>中,只可能在<span class="math inline">\(A_1\cup B_2\)</span>中,此时有<span class="math inline">\(g(n,m)=g(\frac{n}{3},\frac{m}{3})+1\)</span>.</li>
-<li><span class="math inline">\(\lang A_1+A_2,B_1+B_2\rang=
-B_1+B_2\)</span>,同理.</li>
+<p>若$n=3p,m=3q$,我们将$n$分成等数量的三堆:$A_1,B_1,C_1$,将$m$分成等质量的三堆$A_2,B_2,C_2$.</p>
+<p>接下来称量$\lang A_1+A_2,B_1+B_2\rang$.</p>
+<ol>
+<li>如果$\langle A_1+A_2,B_1+B_2\rang= 0$,那么答案在$C_1\cup C_2$中,此时有$g(n,m)=g(\frac{n}{3},\frac{m}{3})+1$.</li>
+<li>如果$\lang A_1+A_2,B_1+B_2\rang= A_1+A_2$,由于若次品在$A_2$中,那么它不可能是重球,因此次品不可能在$A_2$中,同理不可能在$B_1$中,只可能在$A_1\cup B_2$中,此时有$g(n,m)=g(\frac{n}{3},\frac{m}{3})+1$.</li>
+<li>$\lang A_1+A_2,B_1+B_2\rang= B_1+B_2$,同理.</li>
 </ol>
 <p>此时数学归纳成立.</p>
 <p><strong>情况2</strong></p>
-<p><span class="math inline">\(n=3p+1,m=3q+2\)</span>.此时我们将第一堆分成<span class="math inline">\(A_1(p),B_1(p),C_1(p+1)\)</span>,将第二堆分成<span class="math inline">\(A_2(q+1),B_2(q+1),C_2(q)\)</span>,然后<span class="math inline">\(\lang A_1
-+A_2,B_1+B_2\rang\)</span>,接下来和情况1一样,于是有<span class="math inline">\(g(n,m)=\max\{g(p,q+1),g(p+1,q)\}=\lceil\log_3
-\frac{n+m}3\rceil+1\)</span>.</p>
-<p>同理,当<span class="math inline">\(n,m\bmod
-3\)</span>的值是其它组合的时候,也都可以类似操作.引理得证.</p>
+<p>$n=3p+1,m=3q+2$.此时我们将第一堆分成$A_1(p),B_1(p),C_1(p+1)$,将第二堆分成$A_2(q+1),B_2(q+1),C_2(q)$,然后$\lang A_1 +A_2,B_1+B_2\rang$,接下来和情况1一样,于是有$g(n,m)=\max\{g(p,q+1),g(p+1,q)\}=\lceil\log_3 \frac{n+m}3\rceil+1$.</p>
+<p>同理,当$n,m\bmod 3$的值是其它组合的时候,也都可以类似操作.引理得证.</p>
 <p>由此引理得证.</p>
-<p>回到原问题,进行数学归纳,我们继续来讨论<span class="math inline">\(n\bmod 3\)</span>的值.</p>
+<p>回到原问题,进行数学归纳,我们继续来讨论$n\bmod 3$的值.</p>
 <p><strong>情况1</strong></p>
-<p>当<span class="math inline">\(n=3p\)</span>时,直接分成<span class="math inline">\(A(p),B(p),C(p)\)</span>,然后<span class="math inline">\(\lang A,B\rang\)</span>.如果平衡则接下来需要<span class="math inline">\(f(p)=\lceil\log_3
-2p\rceil\)</span>次,不然根据引理,需要<span class="math inline">\(\lceil\log_3(p+p)\rceil\)</span>次,因此<span class="math inline">\(f(n)=\lceil\log_3 2p\rceil+1=\lceil\log_3
-6p\rceil=\lceil\log_3 2n\rceil\)</span>.</p>
+<p>当$n=3p$时,直接分成$A(p),B(p),C(p)$,然后$\lang A,B\rang$.如果平衡则接下来需要$f(p)=\lceil\log_3 2p\rceil$次,不然根据引理,需要$\lceil\log_3(p+p)\rceil$次,因此$f(n)=\lceil\log_3 2p\rceil+1=\lceil\log_3 6p\rceil=\lceil\log_3 2n\rceil$.</p>
 <p><strong>情况2</strong></p>
-<p>当<span class="math inline">\(n=3p+1\)</span>时,一种自然的想法是分成<span class="math inline">\(A(p+1),B(p),C(p)\)</span>,但是这种想法是错误的!我们考虑判定树,这种情况下,所有的叶子被分成了<span class="math inline">\(2p+2,2p,2p\)</span>,这显然是不优秀的.正确的做法是分成<span class="math inline">\(A=\{S,1,\cdots p\},B=\{p+1,\cdots
-2p+1\},C=\{2p+2,\cdots 3p+1\}\)</span>.由于存在标准球,此时如果<span class="math inline">\(\lang A,B\rang=A\ or\ B\)</span>,那么转化成<span class="math inline">\(g(p,p+1)=\lceil\log_3(2p+1)\rceil\)</span>,不然转化成<span class="math inline">\(f(p)=\lceil\log_32p\rceil\)</span>.</p>
+<p>当$n=3p+1$时,一种自然的想法是分成$A(p+1),B(p),C(p)$,但是这种想法是错误的!我们考虑判定树,这种情况下,所有的叶子被分成了$2p+2,2p,2p$,这显然是不优秀的.正确的做法是分成$A=\{S,1,\cdots p\},B=\{p+1,\cdots 2p+1\},C=\{2p+2,\cdots 3p+1\}$.由于存在标准球,此时如果$\lang A,B\rang=A or B$,那么转化成$g(p,p+1)=\lceil\log_3(2p+1)\rceil$,不然转化成$f(p)=\lceil\log_32p\rceil$.</p>
 <p>剩下的情况也都类似,该问题解决.</p>
-<h6><span id="子问题3不知次品轻重无标准球需知道次品轻重">子问题3(不知次品轻重,无标准球,需知道次品轻重)</span></h6>
-<p>考虑在第一次称量后,无论结果如何都会得到一个标准球,因此后面的问题都等价于子问题2,只需考虑第一次操作.再思考一下不难发现,在子问题2中,只有<span class="math inline">\(n\bmod
-3=1\)</span>的时候才会需要用到标准球,因此只有这里需要多一步.拟合一下函数,可以得到该问题<span class="math inline">\(f(n)=\lceil\log_3(2n+2)\rceil\)</span>.</p>
-<h6><span id="子问题4不知次品轻重已有一个标准球无需知道次品轻重">子问题4(不知次品轻重,已有一个标准球,无需知道次品轻重)</span></h6>
-<p>这个问题复杂一些,而且难以估计下界.但我们可以用一下最优化dp来估计下界.</p>
-<p>首先假设有无穷个标准球,我们每次将<span class="math inline">\(a\)</span>个球放左边,<span class="math inline">\(b\)</span>个球放右边,<span class="math inline">\(a\leq b\)</span>,在左边补上<span class="math inline">\(b-a\)</span>个标准球.</p>
-<ol type="1">
-<li>如果天平不平衡,转化为引理问题(因为此时找到次品是谁必然知道它的轻重),因此需要<span class="math inline">\(\lceil\log_3(a+b)\rceil+1\)</span>步.</li>
-<li>如果天平平衡,需要<span class="math inline">\(f(n-a-b)+1\)</span>步.</li>
+<h6><span id="子问题3不知次品轻重无标准球需知道次品轻重">子问题3(不知次品轻重,无标准球,需知道次品轻重)</span></h6><p>考虑在第一次称量后,无论结果如何都会得到一个标准球,因此后面的问题都等价于子问题2,只需考虑第一次操作.再思考一下不难发现,在子问题2中,只有$n\bmod 3=1$的时候才会需要用到标准球,因此只有这里需要多一步.拟合一下函数,可以得到该问题$f(n)=\lceil\log_3(2n+2)\rceil$.</p>
+<h6><span id="子问题4不知次品轻重已有一个标准球无需知道次品轻重">子问题4(不知次品轻重,已有一个标准球,无需知道次品轻重)</span></h6><p>这个问题复杂一些,而且难以估计下界.但我们可以用一下最优化dp来估计下界.</p>
+<p>首先假设有无穷个标准球,我们每次将$a$个球放左边,$b$个球放右边,$a\leq b$,在左边补上$b-a$个标准球.</p>
+<ol>
+<li>如果天平不平衡,转化为引理问题(因为此时找到次品是谁必然知道它的轻重),因此需要$\lceil\log_3(a+b)\rceil+1$步.</li>
+<li>如果天平平衡,需要$f(n-a-b)+1$步.</li>
 </ol>
-<p>我们有<span class="math inline">\(f(n)=\min_{a,b}\{\max\{f(n-a-b),\lceil\log_3(a+b)\rceil\}\}+1\)</span>.</p>
-<p>注意到接下来的步数只与<span class="math inline">\(a+b\)</span>有关,取<span class="math inline">\(b-a\leq 1\)</span>,于是一个标准球已经够用了.</p>
-<p>构造方程后手算几项,注意到<span class="math inline">\(f(n)=\lceil\log_3(2n-1)\rceil\)</span>.</p>
-<p>接下来归纳法就简单了,只需要对于<span class="math inline">\(n\bmod
-3\)</span>的余数讨论一下,然后再讨论一下<span class="math inline">\(a\)</span>的取值即可.</p>
-<h5><span id="example7ucup-3rd-stage-8-h">Example7(Ucup 3rd Stage 8 H)</span></h5>
-<p>每次可以询问一个区间,交互库返回这个区间中的次大元素所在位置,求<span class="math inline">\(n\)</span>所在位置.要求询问次数<span class="math inline">\(\leq \lceil1.5\log_2
-n\rceil\)</span>,询问区间总长度<span class="math inline">\(\leq
-3n\)</span>.</p>
+<p>我们有$f(n)=\min_{a,b}\{\max\{f(n-a-b),\lceil\log_3(a+b)\rceil\}\}+1$.</p>
+<p>注意到接下来的步数只与$a+b$有关,取$b-a\leq 1$,于是一个标准球已经够用了.</p>
+<p>构造方程后手算几项,注意到$f(n)=\lceil\log_3(2n-1)\rceil$.</p>
+<p>接下来归纳法就简单了,只需要对于$n\bmod 3$的余数讨论一下,然后再讨论一下$a$的取值即可.</p>
+<h5><span id="example7ucup-3rd-stage-8-h">Example7(Ucup 3rd Stage 8 H)</span></h5><p>每次可以询问一个区间,交互库返回这个区间中的次大元素所在位置,求$n$所在位置.要求询问次数$\leq \lceil1.5\log_2 n\rceil$,询问区间总长度$\leq 3n$.</p>
 <p>一个自然的想法是先问一下全局次大值,然后二分,但这样询问区间总长度就会爆掉.</p>
-<p>因此考虑设<span class="math inline">\(T(n)\)</span>表示长度为<span class="math inline">\(n\)</span>的,已知次大值(并且次大值)的最小次数.我们考虑每次判断一下最大值在哪边,因此把这个区间拆成两半,然后询问一下次大值所在的那一半,这样就可以判断最大值在不在那一半.</p>
-<p>那么我们当然有方程<span class="math inline">\(T(n)=\min_{m&lt;n}\{\max\{T(m)+1,T(n-m)+2\}\}\)</span>.</p>
-<p>当然有<span class="math inline">\(m_n\leq
-m_{n+1}\)</span>,于是直接dp即可.</p>
-<p>###Exchange Arguments</p>
-<h4><span id="模型1">模型1</span></h4>
-<p>给定<span class="math inline">\(n\)</span>个元素<span class="math inline">\(x_1,...,x_n\)</span>,以及一个定义域为这些元素的序列,定义域为有序集合的函数<span class="math inline">\(F\)</span>.求出对于所有的<span class="math inline">\(n\)</span>阶排列<span class="math inline">\(p\)</span>,表达式<span class="math inline">\(F(\{x_{p_1},x_{p_2},...,x_{p_n}\})\)</span>最小值.</p>
+<p>因此考虑设$T(n)$表示长度为$n$的,已知次大值(并且次大值)的最小次数.我们考虑每次判断一下最大值在哪边,因此把这个区间拆成两半,然后询问一下次大值所在的那一半,这样就可以判断最大值在不在那一半.</p>
+<p>那么我们当然有方程$T(n)=\min_{m&lt;n}\{\max\{T(m)+1,T(n-m)+2\}\}$.</p>
+<p>当然有$m_n\leq m_{n+1}$,于是直接dp即可.</p>
+<h3><span id="exchange-arguments">Exchange Arguments</span></h3><h4><span id="模型1">模型1</span></h4><p>给定$n$个元素$x_1,…,x_n$,以及一个定义域为这些元素的序列,定义域为有序集合的函数$F$.求出对于所有的$n$阶排列$p$,表达式$F(\{x_{p_1},x_{p_2},…,x_{p_n}\})$最小值.</p>
 <p>事实上会发现一些NPC问题也可以直接转化为这个模型,但是并无贪心解.我们接下来考虑这个模型内哪些问题是有贪心解的.</p>
-<h5><span id="example1国王游戏">Example1(国王游戏)</span></h5>
-<p>给定<span class="math inline">\(n\)</span>个二元正整数对<span class="math inline">\((a_i,b_i)\)</span>,将它们按照任意顺序排成一列.定义排成一列的代价为每个二元组的<span class="math inline">\(a\)</span>乘上序列中这个二元组之后的所有二元组的<span class="math inline">\(b\)</span>之和的总和,求最小代价.<span class="math inline">\(n,a_i,b_i\leq 10^6\)</span>.</p>
-<p>转化为上面的形式,也即:<span class="math inline">\(F(\{(a_1,b_1),...,(a_n,b_n)\})=\sum_{1\leq
-i&lt;j\leq k}a_ib_j\)</span>.</p>
-<p>考虑调整法,令排列<span class="math inline">\((q_1,...,q_n)=(p_1,...,p_{i-1},p_{i+1},p_i,p_{i+2},...,p_n)\)</span>.则:
-<span class="math display">\[
-F(\{(a_{p_1},b_{p_1}),...,(a_{p_n},b_{p_n})\})-F(\{(a_{q_1},b_{q_1}),...,(a_{q_n},b_{q_n})\})=a_{p_i}b_{p_{i+1}}-a_{p_{i+1}}b_{p_i}
-\]</span> 因而如果<span class="math inline">\(a_{p_i}b_{p_{i+1}}-a_{p_{i+1}}b_{p_i}&gt;0\)</span>,则<span class="math inline">\(F(\{(a_{p_1},b_{p_1}),...,(a_{p_n},b_{p_n})\})&gt;F(\{(a_{q_1},b_{q_1}),...,(a_{q_n},b_{q_n})\})\)</span>,也就是说<span class="math inline">\((p_1,...,p_n)\)</span>不是最优解.因此只有满足<span class="math inline">\(\forall 1\leq i&lt;n\)</span>,<span class="math inline">\(\cfrac{a_{p_i}}{b_{p_i}}\leq
-\cfrac{a_{p_{i+1}}}{b_{p_{i+1}}}\)</span>可能是最优解.</p>
-<p>如果一个<span class="math inline">\(p\)</span>满足这样的性质,则所有<span class="math inline">\(\cfrac{a}{b}\)</span>相等的数在排列中一定是连续的一段.而根据式子,这样的排列交换<span class="math inline">\(\cfrac{a}{b}\)</span>相等的两个位置,是不会使答案改变的.因此直接按照<span class="math inline">\(\cfrac{a}{b}\)</span>排序即可.</p>
+<h5><span id="example1国王游戏">Example1(国王游戏)</span></h5><p>给定$n$个二元正整数对$(a_i,b_i)$,将它们按照任意顺序排成一列.定义排成一列的代价为每个二元组的$a$乘上序列中这个二元组之后的所有二元组的$b$之和的总和,求最小代价.$n,a_i,b_i\leq 10^6$.</p>
+<p>转化为上面的形式,也即:$F(\{(a_1,b_1),…,(a_n,b_n)\})=\sum_{1\leq i&lt;j\leq k}a_ib_j$.</p>
+<p>考虑调整法,令排列$(q_1,…,q_n)=(p_1,…,p_{i-1},p_{i+1},p_i,p_{i+2},…,p_n)$.则:</p>
+<script type="math/tex; mode=display">
+F(\{(a_{p_1},b_{p_1}),...,(a_{p_n},b_{p_n})\})-F(\{(a_{q_1},b_{q_1}),...,(a_{q_n},b_{q_n})\})=a_{p_i}b_{p_{i+1}}-a_{p_{i+1}}b_{p_i}</script><p>因而如果$a_{p_i}b_{p_{i+1}}-a_{p_{i+1}}b_{p_i}&gt;0$,则$F(\{(a_{p_1},b_{p_1}),…,(a_{p_n},b_{p_n})\})&gt;F(\{(a_{q_1},b_{q_1}),…,(a_{q_n},b_{q_n})\})$,也就是说$(p_1,…,p_n)$不是最优解.因此只有满足$\forall 1\leq i&lt;n$,$\cfrac{a_{p_i}}{b_{p_i}}\leq \cfrac{a_{p_{i+1}}}{b_{p_{i+1}}}$可能是最优解.</p>
+<p>如果一个$p$满足这样的性质,则所有$\cfrac{a}{b}$相等的数在排列中一定是连续的一段.而根据式子,这样的排列交换$\cfrac{a}{b}$相等的两个位置,是不会使答案改变的.因此直接按照$\cfrac{a}{b}$排序即可.</p>
 <p>我以前所使用的调整法大概是先构造一个贪心策略,然后证明这个策略改变后一定不优秀或更劣.但是这样对于多峰函数会卡在一个局部最优解上而找不到全局最优解.但是,如果我们说不满足这个条件的一定不是最优解(可以使用调整得到更优解),我们再证明满足这个条件(即调整过程DAG的终止点)的都是最优解,继续做下去,就是很严谨的.</p>
 <p>换句话说,我们要用调整法,就一定要证明调整过程中的DAG的零出度点是最优解.</p>
-<h5><span id="模型通解">模型通解</span></h5>
-<p>设给出的元素的集合为<span class="math inline">\(S\)</span>,定义<span class="math inline">\(S\)</span>上的一种二元比较关系<span class="math inline">\(\leq\)</span>,将所有元素按照比较关系排序.在上一个问题中,不难发现以下性质:</p>
-<ol type="1">
-<li>强完全性:<span class="math inline">\(\forall a,b\in S\)</span>,<span class="math inline">\(a\leq b\or b\leq a=1\)</span>.</li>
-<li>传递性:<span class="math inline">\(\forall a,b,c\in S\)</span>,<span class="math inline">\(a\leq b,b\leq c\Rightarrow a\leq c\)</span>.</li>
-<li><span class="math inline">\(\forall a,b\in S\)</span>,如果<span class="math inline">\(a\leq b\)</span>,则对于任意一个包含<span class="math inline">\(\{a,b\}\)</span>作为子段的元素序列<span class="math inline">\(\{s_1,...,s_{k-1},a,b,s_{k+2},...,s_n\}\)</span>和<span class="math inline">\(\{s_1,...,s_{k-1},b,a,s_{k+2},...,s_n\}\)</span>都有:<span class="math inline">\(F(\{s_1,...,s_{k-1},a,b,s_{k+2},...,s_n\})\leq
-F(\{s_1,...,s_{k-1},b,a,s_{k+2},...,s_n\})\)</span>.</li>
+<h5><span id="模型通解">模型通解</span></h5><p>设给出的元素的集合为$S$,定义$S$上的一种二元比较关系$\leq$,将所有元素按照比较关系排序.在上一个问题中,不难发现以下性质:</p>
+<ol>
+<li>强完全性:$\forall a,b\in S$,$a\leq b\or b\leq a=1$.</li>
+<li>传递性:$\forall a,b,c\in S$,$a\leq b,b\leq c\Rightarrow a\leq c$.</li>
+<li>$\forall a,b\in S$,如果$a\leq b$,则对于任意一个包含$\{a,b\}$作为子段的元素序列$\{s_1,…,s_{k-1},a,b,s_{k+2},…,s_n\}$和$\{s_1,…,s_{k-1},b,a,s_{k+2},…,s_n\}$都有:$F(\{s_1,…,s_{k-1},a,b,s_{k+2},…,s_n\})\leq F(\{s_1,…,s_{k-1},b,a,s_{k+2},…,s_n\})$.</li>
 </ol>
-<p>问题满足以上性质,那么我们按照这种二元比较关系对元素排序后的答案一定是最优的.原因在于,首先这种操作构成DAG,而定义<span class="math inline">\(\leq\)</span>后自然也就定义了<span class="math inline">\(=\)</span>,所以DAG的零出度点自然是最优解点.</p>
-<p>分析题目时,应该先分析第三条性质得到<span class="math inline">\(\leq\)</span>的定义,然后判断是否符合前两条性质.</p>
-<h5><span id="example2">Example2</span></h5>
-<p>给定<span class="math inline">\(n\)</span>个包含小写字符的字符串<span class="math inline">\(s_1,...,s_n\)</span>,找到一个<span class="math inline">\(n\)</span>阶排列<span class="math inline">\(p\)</span>,将<span class="math inline">\(s_{p_1},s_{p_2},...,s_{p_n}\)</span>顺序拼接得到<span class="math inline">\(S\)</span>,使<span class="math inline">\(S\)</span>的字典序最小.</p>
-<p>令<span class="math inline">\(s\leq t\)</span>当且仅当<span class="math inline">\(s+t\)</span>的字典序<span class="math inline">\(\leq\)</span><span class="math inline">\(t+s\)</span>的字典序.显然满足性质(1)和(3).接下来只需要证明其满足传递性即可.</p>
-<p>此时我们注意到:<span class="math inline">\(s+t\)</span>的字典序小于等于<span class="math inline">\(t+s\)</span>的字典序当且仅当<span class="math inline">\(s^{\infty}\leq
-t^{\infty}\)</span>.原因是:不妨设<span class="math inline">\(s\)</span>的长度<span class="math inline">\(\leq
-t\)</span>的长度.若<span class="math inline">\(s\)</span>不是<span class="math inline">\(t\)</span>的前缀,那显然只需比较<span class="math inline">\(t\)</span>的前缀和<span class="math inline">\(s\)</span>的字典序即可,此时上面两个条件等价;若<span class="math inline">\(s\)</span>是<span class="math inline">\(t\)</span>的前缀,则我们需要比较<span class="math inline">\(t\)</span>的前缀和<span class="math inline">\(t\)</span>的后缀,注意到<span class="math inline">\(t\)</span>的前缀还是<span class="math inline">\(s\)</span>,于是需要比较<span class="math inline">\(s\)</span>和<span class="math inline">\(t\)</span>的后缀.类似可得.</p>
+<p>问题满足以上性质,那么我们按照这种二元比较关系对元素排序后的答案一定是最优的.原因在于,首先这种操作构成DAG,而定义$\leq$后自然也就定义了$=$,所以DAG的零出度点自然是最优解点.</p>
+<p>分析题目时,应该先分析第三条性质得到$\leq$的定义,然后判断是否符合前两条性质.</p>
+<h5><span id="example2">Example2</span></h5><p>给定$n$个包含小写字符的字符串$s_1,…,s_n$,找到一个$n$阶排列$p$,将$s_{p_1},s_{p_2},…,s_{p_n}$顺序拼接得到$S$,使$S$的字典序最小.</p>
+<p>令$s\leq t$当且仅当$s+t$的字典序$\leq$$t+s$的字典序.显然满足性质(1)和(3).接下来只需要证明其满足传递性即可.</p>
+<p>此时我们注意到:$s+t$的字典序小于等于$t+s$的字典序当且仅当$s^{\infty}\leq t^{\infty}$.原因是:不妨设$s$的长度$\leq t$的长度.若$s$不是$t$的前缀,那显然只需比较$t$的前缀和$s$的字典序即可,此时上面两个条件等价;若$s$是$t$的前缀,则我们需要比较$t$的前缀和$t$的后缀,注意到$t$的前缀还是$s$,于是需要比较$s$和$t$的后缀.类似可得.</p>
 <p>于是这题可以使用后缀数组求任意两个字符串的后缀的最长公共前缀实现.</p>
-<h5><span id="example3">Example3</span></h5>
-<p>有<span class="math inline">\(n\)</span>个箱子,第<span class="math inline">\(i\)</span>个箱子有重量<span class="math inline">\(w_i\)</span>和承载量<span class="math inline">\(v_i\)</span>,<span class="math inline">\((w_i,v_i&gt;0)\)</span>,将它们堆成一列使得每一个箱子上面的箱子总重量都不大于它的承载量.</p>
-<p>考虑最大化<span class="math inline">\(\min_{i=1}^n\{v_i-\sum_{j=1}^{i-1}w_j\}\)</span>,并判断是否<span class="math inline">\(\geq 0\)</span>.</p>
-<p>我们令<span class="math inline">\(b_i=-(v_i+w_i),a_i=-v_i\)</span>,则我们要最大化<span class="math inline">\(\min\{\sum_{j=1}^{i-1}b_i-\sum_{j=1}^ia_i\}\)</span>.</p>
+<h5><span id="example3">Example3</span></h5><p>有$n$个箱子,第$i$个箱子有重量$w_i$和承载量$v_i$,$(w_i,v_i&gt;0)$,将它们堆成一列使得每一个箱子上面的箱子总重量都不大于它的承载量.</p>
+<p>考虑最大化$\min_{i=1}^n\{v_i-\sum_{j=1}^{i-1}w_j\}$,并判断是否$\geq 0$.</p>
+<p>我们令$b_i=-(v_i+w_i),a_i=-v_i$,则我们要最大化$\min\{\sum_{j=1}^{i-1}b_i-\sum_{j=1}^ia_i\}$.</p>
 <p>我们接下来将证明所有形如这样的题的通法.</p>
-<p>首先,定义<span class="math inline">\(x\leq y\)</span>当且仅当<span class="math inline">\(F(\{x,y\})\leq
-F(\{y,x\})\)</span>,那么对于两个元素<span class="math inline">\((a_1,b_1),(a_2,b_2)\)</span>,显然<span class="math inline">\((a_1,b_1)\leq (a_2,b_2)\)</span>当且仅当<span class="math inline">\(\min\{-a_1,b_1-a_1-a_2\}\geq\min\{-a_2,b_2-a_1-a_2\}\)</span>.接下来我们证明这样的定义是满足性质的.</p>
+<p>首先,定义$x\leq y$当且仅当$F(\{x,y\})\leq F(\{y,x\})$,那么对于两个元素$(a_1,b_1),(a_2,b_2)$,显然$(a_1,b_1)\leq (a_2,b_2)$当且仅当$\min\{-a_1,b_1-a_1-a_2\}\geq\min\{-a_2,b_2-a_1-a_2\}$.接下来我们证明这样的定义是满足性质的.</p>
 <p>对于性质(3),显然成立,因为交换两个相邻位置不会对前面或后面产生影响,而前后对于这两个位置的影响也都可以抵消.</p>
 <p>性质(1)显然成立.</p>
 <p>再分析一下这个式子,这相当于不等式左边的两个元素都大于等于右边的最小值.我们讨论一下两种情况:</p>
-<ol type="1">
-<li>都大于等于第一个元素,则相当于<span class="math inline">\(a_1\leq
-a_2\and b_1-a_1\geq 0\)</span>.</li>
-<li>都大于等于第二个元素,则相当于<span class="math inline">\(b_1\geq
-b_2\and b_2-a_2\leq 0\)</span>.</li>
+<ol>
+<li>都大于等于第一个元素,则相当于$a_1\leq a_2\and b_1-a_1\geq 0$.</li>
+<li>都大于等于第二个元素,则相当于$b_1\geq b_2\and b_2-a_2\leq 0$.</li>
 </ol>
-<p>可能这里后面和<span class="math inline">\(0\)</span>比较没有移项来得简洁.但是,相减的两项是同一个元素的两项,我们显然把它俩放在一类是更优秀的.</p>
-<p>注意到需要对<span class="math inline">\(b-a\)</span>的符号进行讨论:</p>
-<ol type="1">
-<li>若<span class="math inline">\(sgn(b_1-a_1)&gt;sgn(b_2-a_2)\)</span>,则不等式成立.</li>
-<li>若<span class="math inline">\(sgn(b_1-a_1)=sgn(b_2-a_2)=1\)</span>,则不等式成立当且仅当<span class="math inline">\(a_1\leq a_2\)</span>.</li>
-<li>若<span class="math inline">\(sgn(b_1-a_1)=sgn(b_2-a_2)=0\)</span>,则不等式成立.</li>
-<li>若<span class="math inline">\(sgn(b_1-a_1)=sgn(b_2-a_2)=-1\)</span>,则不等式成立当且仅当<span class="math inline">\(b_1\geq b_2\)</span>.</li>
+<p>可能这里后面和$0$比较没有移项来得简洁.但是,相减的两项是同一个元素的两项,我们显然把它俩放在一类是更优秀的.</p>
+<p>注意到需要对$b-a$的符号进行讨论:</p>
+<ol>
+<li>若$sgn(b_1-a_1)&gt;sgn(b_2-a_2)$,则不等式成立.</li>
+<li>若$sgn(b_1-a_1)=sgn(b_2-a_2)=1$,则不等式成立当且仅当$a_1\leq a_2$.</li>
+<li>若$sgn(b_1-a_1)=sgn(b_2-a_2)=0$,则不等式成立.</li>
+<li>若$sgn(b_1-a_1)=sgn(b_2-a_2)=-1$,则不等式成立当且仅当$b_1\geq b_2$.</li>
 </ol>
-<p>这四条中(2)和(4)的证明是显然的,(3)则是因为此时<span class="math inline">\(b_1=a_1\)</span>,<span class="math inline">\(b_2=a_2\)</span>,两条件必有一真.(1)则是因为此时满足<span class="math inline">\(b_1-a_1&gt;b_2-a_2\and sgn(b_1-a_1)\geq 0\and
-sgn(b_2-a_2)\leq 0\)</span>.也就有<span class="math inline">\(a_2-a_1&gt;b_2-b_1\and b_1\geq a_1\and b_2\leq
-a_2\)</span>.怎么着都能成立.</p>
-<p>由此发现,对于<span class="math inline">\(sgn(b-a)\)</span>相同的类,内部排序是一定满足传递性的.</p>
-<p>但是不同类之间并没有满足传递性,因此我们把排序条件修正为: <span class="math display">\[
+<p>这四条中(2)和(4)的证明是显然的,(3)则是因为此时$b_1=a_1$,$b_2=a_2$,两条件必有一真.(1)则是因为此时满足$b_1-a_1&gt;b_2-a_2\and sgn(b_1-a_1)\geq 0\and sgn(b_2-a_2)\leq 0$.也就有$a_2-a_1&gt;b_2-b_1\and b_1\geq a_1\and b_2\leq a_2$.怎么着都能成立.</p>
+<p>由此发现,对于$sgn(b-a)$相同的类,内部排序是一定满足传递性的.</p>
+<p>但是不同类之间并没有满足传递性,因此我们把排序条件修正为:</p>
+<script type="math/tex; mode=display">
 (a_1,b_1)\leq (a_2,b_2)\\\Updownarrow \\
-(sgn(b_1-a_1)&gt;sgn(b_2-a_2))\\\or(sgn(b_1-a_1)=sgn(b_2-a_2)\and
-F(\{1,2\})\leq F(\{2,1\})
-\]</span></p>
-<h4><span id="模型2">模型2</span></h4>
-<p>给定<span class="math inline">\(n\)</span>个元素<span class="math inline">\(x_1,...,x_n\)</span>,以及一个定义域为这些元素的序列,值域为有序集合的函数<span class="math inline">\(F\)</span>.求出对于给定整数<span class="math inline">\(k\)</span>,所有的<span class="math inline">\(n\)</span>阶排列<span class="math inline">\(p\)</span>的长度为<span class="math inline">\(k\)</span>的子序列,表达式<span class="math inline">\(F(\{x_{p_1},x_{p_2},...,x_{p_k}\})\)</span>最小值.</p>
-<p>如果<span class="math inline">\(k=n\)</span>,则就是模型1.不然,我们考虑先选出一个大小为<span class="math inline">\(k\)</span>的子集,然后使用模型1.不难发现,我们最后取出的<span class="math inline">\(\{x_{p_1},x_{p_2},...,x_{p_k}\}\)</span>一定是<span class="math inline">\(n=k\)</span>时最优解的一个子序列.这在一些情况下可以降低问题的难度.</p>
-<h5><span id="example">Example</span></h5>
-<p>有<span class="math inline">\(n\)</span>个物品,第<span class="math inline">\(i\)</span>个物品有非负费用<span class="math inline">\(c_i\)</span>和价值<span class="math inline">\(v_i\)</span>,两个人进行如下博弈:</p>
-<ol type="1">
-<li>第一个人要么选择一个物品,付出<span class="math inline">\(c_i\)</span>的代价;要么选择结束游戏.</li>
-<li>第二个人可以选择删除这个物品,这会使博弈回到第一步,且第一个人付出的代价不会消失(这个操作最多可以进行<span class="math inline">\(k\)</span>次);也可以选择不操作,此时第一个人获得<span class="math inline">\(v_i\)</span>的收益,博弈结束.</li>
-<li>第一个人的总收益为收益减去付出的所有代价,第一个人希望最大化收益,第二个人希望最小化收益.<span class="math inline">\((n\leq 1.5\times 10^5,k\leq 9)\)</span></li>
+(sgn(b_1-a_1)>sgn(b_2-a_2))\\\or(sgn(b_1-a_1)=sgn(b_2-a_2)\and F(\{1,2\})\leq F(\{2,1\})</script><h4><span id="模型2">模型2</span></h4><p>给定$n$个元素$x_1,…,x_n$,以及一个定义域为这些元素的序列,值域为有序集合的函数$F$.求出对于给定整数$k$,所有的$n$阶排列$p$的长度为$k$的子序列,表达式$F(\{x_{p_1},x_{p_2},…,x_{p_k}\})$最小值.</p>
+<p>如果$k=n$,则就是模型1.不然,我们考虑先选出一个大小为$k$的子集,然后使用模型1.不难发现,我们最后取出的$\{x_{p_1},x_{p_2},…,x_{p_k}\}$一定是$n=k$时最优解的一个子序列.这在一些情况下可以降低问题的难度.</p>
+<h5><span id="example">Example</span></h5><p>有$n$个物品,第$i$个物品有非负费用$c_i$和价值$v_i$,两个人进行如下博弈:</p>
+<ol>
+<li>第一个人要么选择一个物品,付出$c_i$的代价;要么选择结束游戏.</li>
+<li>第二个人可以选择删除这个物品,这会使博弈回到第一步,且第一个人付出的代价不会消失(这个操作最多可以进行$k$次);也可以选择不操作,此时第一个人获得$v_i$的收益,博弈结束.</li>
+<li>第一个人的总收益为收益减去付出的所有代价,第一个人希望最大化收益,第二个人希望最小化收益.$(n\leq 1.5\times 10^5,k\leq 9)$</li>
 </ol>
-<p>注意到第一个人要么一开始就结束游戏,要么连续选择<span class="math inline">\(k+1\)</span>个,然后收益为<span class="math inline">\(\min_{i=1}^{k-1}\{v_{x_i}-\sum_{j=1}^ic_{x_j}\}\)</span>(如果第一个人把一个收益很大的放在最后选,那第二个人可以直接结束游戏防止他选到).注意到这和模型1的Example3是类似的,于是我们可以先排序,然后dp出子序列,复杂度<span class="math inline">\(O(n\log n+nk)\)</span>.</p>
-<h2><span id="构造">构造</span></h2>
-<h3><span id="增量构造">增量构造</span></h3>
-<h5><span id="example1">Example1</span></h5>
-<p>平面上有<span class="math inline">\(n\)</span>条直线,将整个平面划分成若干部分.求证:这些部分可以黑白染色使得两个边相邻的部分颜色不相同,并给出构造方案.</p>
-<p>考虑数学归纳,现在已经有<span class="math inline">\(n\)</span>条直线的答案,求<span class="math inline">\(n+1\)</span>条直线的答案.我们将直线加到这个平面上,并将在这条直线其中一边的部分颜色全部取反.</p>
-<h5><span id="example2">Example2</span></h5>
-<p>给定若干个角度<span class="math inline">\(a_1,\cdots,a_n\in
-\{90\degree ,270\degree\}\)</span>,要求构造一个<span class="math inline">\(n\)</span>边形(边必须平行于坐标轴),使得其内角依次是<span class="math inline">\(a_1,\cdots,a_n\)</span>.</p>
-<p>首先有解条件显然是判定它们的和是否是<span class="math inline">\(180\degree(n-2)\)</span>.</p>
-<p>注意到相邻的<span class="math inline">\(90\degree\)</span>和<span class="math inline">\(270\degree\)</span>无非是在原序列上修修改改,这个可以一起合并起来.不断合并就做完了.</p>
-<h5><span id="example3cf1770h">Example3(CF1770H)</span></h5>
-<p>呃,简单来说就是把边界往里缩,每次找左上和右上的四个点做匹配,然后剩下的缩进去.</p>
+<p>注意到第一个人要么一开始就结束游戏,要么连续选择$k+1$个,然后收益为$\min_{i=1}^{k-1}\{v_{x_i}-\sum_{j=1}^ic_{x_j}\}$(如果第一个人把一个收益很大的放在最后选,那第二个人可以直接结束游戏防止他选到).注意到这和模型1的Example3是类似的,于是我们可以先排序,然后dp出子序列,复杂度$O(n\log n+nk)$.</p>
+<h2><span id="构造">构造</span></h2><h3><span id="增量构造">增量构造</span></h3><h5><span id="example1">Example1</span></h5><p>平面上有$n$条直线,将整个平面划分成若干部分.求证:这些部分可以黑白染色使得两个边相邻的部分颜色不相同,并给出构造方案.</p>
+<p>考虑数学归纳,现在已经有$n$条直线的答案,求$n+1$条直线的答案.我们将直线加到这个平面上,并将在这条直线其中一边的部分颜色全部取反.</p>
+<h5><span id="example2">Example2</span></h5><p>给定若干个角度$a_1,\cdots,a_n\in \{90\degree ,270\degree\}$,要求构造一个$n$边形(边必须平行于坐标轴),使得其内角依次是$a_1,\cdots,a_n$.</p>
+<p>首先有解条件显然是判定它们的和是否是$180\degree(n-2)$.</p>
+<p>注意到相邻的$90\degree$和$270\degree$无非是在原序列上修修改改,这个可以一起合并起来.不断合并就做完了.</p>
+<h5><span id="example3cf1770h">Example3(CF1770H)</span></h5><p>呃,简单来说就是把边界往里缩,每次找左上和右上的四个点做匹配,然后剩下的缩进去.</p>
 <p>原题解的那个图特别清晰.</p>
-<h5><span id="example4abc232h">Example4(ABC232H)</span></h5>
-<p>放在这个模块下就好想了,剥一行一列就行.最后可能会剩个边界情况,简单讨论.</p>
-<h3><span id="找中间状态">找中间状态</span></h3>
-<p>常见于操作可逆,想要让<span class="math inline">\(S\rightarrow
-T\)</span>.这个时候可以找一个中间状态<span class="math inline">\(A\)</span>,让<span class="math inline">\(S\rightarrow A,T\rightarrow A\)</span>.</p>
-<h5><span id="example1">Example1</span></h5>
-<p>坐标系上每个整点有个灯,初始只有<span class="math inline">\((X,0)\)</span>亮着,每次把<span class="math inline">\((x,y)\)</span>,<span class="math inline">\((x,y+1)\)</span>,<span class="math inline">\((x+1,y)\)</span>状态反转,给出终止状态,求初始亮的点的坐标,保证有解且唯一解.</p>
-<p><span class="math inline">\(n\leq 10^5\)</span>,坐标的绝对值均<span class="math inline">\(\leq 10^{17}\)</span>.</p>
+<h5><span id="example4abc232h">Example4(ABC232H)</span></h5><p>放在这个模块下就好想了,剥一行一列就行.最后可能会剩个边界情况,简单讨论.</p>
+<h3><span id="找中间状态">找中间状态</span></h3><p>常见于操作可逆,想要让$S\rightarrow T$.这个时候可以找一个中间状态$A$,让$S\rightarrow A,T\rightarrow A$.</p>
+<h5><span id="example1">Example1</span></h5><p>坐标系上每个整点有个灯,初始只有$(X,0)$亮着,每次把$(x,y)$,$(x,y+1)$,$(x+1,y)$状态反转,给出终止状态,求初始亮的点的坐标,保证有解且唯一解.</p>
+<p>$n\leq 10^5$,坐标的绝对值均$\leq 10^{17}$.</p>
 <p>首先我们发现,如果我们上面有若干个亮点,我们一定能把他们全杀了,变到下面,但下面的亮点没办法处理.怎么办呢?</p>
-<p>一个想法是,我们将所有的亮点全都推到一条直线<span class="math inline">\(y=-inf\)</span>,然后比对.我们注意到<span class="math inline">\((X,0)\)</span>向下推的过程类似一个组合数递推的过程,由经典公式<span class="math inline">\(\binom{S}{T}\equiv [T\subseteq S]\bmod
-2\)</span>可知,我们取<span class="math inline">\(inf=2^{63}-1\)</span>即可.然后最后在这条线上一定是有一个区间是<span class="math inline">\(1\)</span>,我们需要找到区间左端点,我们选择在直线上随便找到一个<span class="math inline">\(1\)</span>,由于<span class="math inline">\(inf\)</span>很大,大于<span class="math inline">\(10^{17}\)</span>,因此这一步是好找的.然后最后二分+算贡献就可以找到左端点.</p>
-<p>这个题有个改版,<span class="math inline">\(n\leq
-10^4\)</span>,但是初始点可能是<span class="math inline">\((X,Y)\)</span>.</p>
-<p>这个题怎么做呢?类似上面的,我们考虑找到两个点<span class="math inline">\((j,-inf)\)</span>和<span class="math inline">\((k,-inf)\)</span>是亮的,并且他们分别是最靠左的和最靠右的,然后我们就能反解出<span class="math inline">\(X\)</span>和<span class="math inline">\(Y\)</span>.而上述条件满足当且仅当<span class="math inline">\([j-X \subseteq Y+inf]\)</span>.</p>
-<p>如果我们随便找一个点<span class="math inline">\((p,-inf)\)</span>满足条件,那我们接下来只需要枚举<span class="math inline">\(w\)</span>,判断<span class="math inline">\((p-2^w,-inf)\)</span>是否是亮的,这样就能找到最靠左的,同理可以找到最靠右的.</p>
-<p>那么怎么找到这个点呢?我们二分,每次判断一个区间<span class="math inline">\([l,r]\)</span>中是否有亮的.这个是难以判断的,但是好判断的是,这个区间中亮的灯的数量是奇数还是偶数.因此我们拿这个判断就行,有奇数就去奇数,两个都是偶数随便去一个.</p>
+<p>一个想法是,我们将所有的亮点全都推到一条直线$y=-inf$,然后比对.我们注意到$(X,0)$向下推的过程类似一个组合数递推的过程,由经典公式$\binom{S}{T}\equiv [T\subseteq S]\bmod 2$可知,我们取$inf=2^{63}-1$即可.然后最后在这条线上一定是有一个区间是$1$,我们需要找到区间左端点,我们选择在直线上随便找到一个$1$,由于$inf$很大,大于$10^{17}$,因此这一步是好找的.然后最后二分+算贡献就可以找到左端点.</p>
+<p>这个题有个改版,$n\leq 10^4$,但是初始点可能是$(X,Y)$.</p>
+<p>这个题怎么做呢?类似上面的,我们考虑找到两个点$(j,-inf)$和$(k,-inf)$是亮的,并且他们分别是最靠左的和最靠右的,然后我们就能反解出$X$和$Y$.而上述条件满足当且仅当$[j-X \subseteq Y+inf]$.</p>
+<p>如果我们随便找一个点$(p,-inf)$满足条件,那我们接下来只需要枚举$w$,判断$(p-2^w,-inf)$是否是亮的,这样就能找到最靠左的,同理可以找到最靠右的.</p>
+<p>那么怎么找到这个点呢?我们二分,每次判断一个区间$[l,r]$中是否有亮的.这个是难以判断的,但是好判断的是,这个区间中亮的灯的数量是奇数还是偶数.因此我们拿这个判断就行,有奇数就去奇数,两个都是偶数随便去一个.</p>
 
     </div>
 
