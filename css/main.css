@@ -1167,7 +1167,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #6a75ff;
+  background: #ee6c71;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2037,6 +2037,7 @@ pre code {
 }
 .post-eof {
   background: #ccc;
+  height: 1px;
   margin: 80px auto 60px;
   width: 8%;
 }
