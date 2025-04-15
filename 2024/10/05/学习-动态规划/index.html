@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lwlaymh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="动态规划的设计 分析状态 Example1 Example2(CF1007E)   可删除dp Example1   dp分界点 Example1(2022zrtg十连测day7 Permutation)   基于贪心的dp Example1(CF1666E)   数位dp Example1([2022qbxt国庆Day3]string) Example2([CF1194G])   树形dp">
+    <meta name="description" content="动态规划的设计  分析状态  Example1 Example2(CF1007E)  可删除dp  Example1  dp分界点  Example1(2022zrtg十连测day7 Permutation)  基于贪心的dp  Example1(CF1666E)  数位dp  Example1([2022qbxt国庆Day3]string)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动态规划相关">
 <meta property="og:url" content="http://lwlaymh.github.io/2024/10/05/%E5%AD%A6%E4%B9%A0-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/index.html">
 <meta property="og:site_name" content="LWLAymh的备忘录">
-<meta property="og:description" content="动态规划的设计 分析状态 Example1 Example2(CF1007E)   可删除dp Example1   dp分界点 Example1(2022zrtg十连测day7 Permutation)   基于贪心的dp Example1(CF1666E)   数位dp Example1([2022qbxt国庆Day3]string) Example2([CF1194G])   树形dp">
+<meta property="og:description" content="动态规划的设计  分析状态  Example1 Example2(CF1007E)  可删除dp  Example1  dp分界点  Example1(2022zrtg十连测day7 Permutation)  基于贪心的dp  Example1(CF1666E)  数位dp  Example1([2022qbxt国庆Day3]string)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-04T16:04:35.860Z">
 <meta property="article:modified_time" content="2025-04-14T16:38:49.598Z">
@@ -101,7 +101,7 @@
       <p class="site-title">LWLAymh的备忘录</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">一路喧嚣到黄土中</p>
+      <p class="site-subtitle" itemprop="description">我们曾在这坐过</p>
   </div>
 
   <div class="site-nav-right">
@@ -165,7 +165,19 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">动态规划的设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.1.</span> <span class="nav-text">分析状态</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">Example2(CF1007E)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.2.</span> <span class="nav-text">可删除dp</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">Example1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.3.</span> <span class="nav-text">dp分界点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.3.1.</span> <span class="nav-text">Example1(2022zrtg十连测day7 Permutation)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.4.</span> <span class="nav-text">基于贪心的dp</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.4.1.</span> <span class="nav-text">Example1(CF1666E)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.5.</span> <span class="nav-text">数位dp</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.5.1.</span> <span class="nav-text">Example1([2022qbxt国庆Day3]string)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.5.2.</span> <span class="nav-text">Example2([CF1194G])</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.6.</span> <span class="nav-text">树形dp</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.6.1.</span> <span class="nav-text">Example1([JLoi2016]侦察守卫)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.7.</span> <span class="nav-text">轮廓线dp(插头dp)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.7.1.</span> <span class="nav-text">Example1</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.8.</span> <span class="nav-text">高斯消元处理后效性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.8.1.</span> <span class="nav-text">Example1</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.9.</span> <span class="nav-text">最短路处理后效性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.9.1.</span> <span class="nav-text">Example1([2022qbxt国庆Day2]operation)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.10.</span> <span class="nav-text">组合意义</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.10.0.1.</span> <span class="nav-text">Example1([NOI2009] 管道取珠)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.10.0.2.</span> <span class="nav-text">Example2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.11.</span> <span class="nav-text">二项式定理展开</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.11.1.</span> <span class="nav-text">Example1</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.12.</span> <span class="nav-text">线头dp</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.12.0.1.</span> <span class="nav-text">Example1([20zr普及组五连测day1]区间)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.12.0.2.</span> <span class="nav-text">Example2([2022qbxt国庆Day6]rps)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.12.0.3.</span> <span class="nav-text">Example3([COCI2020-2021#2] Svjetlo)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.12.0.4.</span> <span class="nav-text">Example4(CF626F)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.12.0.5.</span> <span class="nav-text">Example5([XVII Open Cup named after E.V. Pankratiev. Grand Prix of Japan(openstrain contest 1489) J]Travel in Sugar Country)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.13.</span> <span class="nav-text">相对顺序不变</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.13.1.</span> <span class="nav-text">Example1([bzoj4621]Tc605)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.14.</span> <span class="nav-text">拆分区间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.14.1.</span> <span class="nav-text">Example1([22zr提高组十连测day4]零二)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.14.2.</span> <span class="nav-text">Example2([SDOI2010]地精部落)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.14.3.</span> <span class="nav-text">Example3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.14.4.</span> <span class="nav-text">Example4([AGC039E] Pairing Points)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.14.5.</span> <span class="nav-text">Example5([AGC035D] Add and Remove)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.14.6.</span> <span class="nav-text">Example6([CF607B]Zuma)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.14.7.</span> <span class="nav-text">Example7(LOJ 3215)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.15.</span> <span class="nav-text">相互独立</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.15.0.1.</span> <span class="nav-text">Example1(2019zrtg十连测day1 origami)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.15.0.2.</span> <span class="nav-text">Example2(CF1616G Just Add an Edge)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.16.</span> <span class="nav-text">费用提前&#x2F;延后计算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.16.0.1.</span> <span class="nav-text">Example1([22zr提高组十连测day3]多)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.16.0.2.</span> <span class="nav-text">Example(2022zrnoip十连测day9-消失(vanish))</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.17.</span> <span class="nav-text">建立双射</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.17.0.1.</span> <span class="nav-text">Example1([SDOI2010]地精部落)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.17.0.2.</span> <span class="nav-text">Example2(2019zrtg十连测day1 group)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.17.0.3.</span> <span class="nav-text">Example3(AGC056B)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.18.</span> <span class="nav-text">分维处理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.18.0.1.</span> <span class="nav-text">Example1([CF1621G]Weighted Increasing Subsequences)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">动态规划的优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.1.</span> <span class="nav-text">递进转移</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.1.0.2.</span> <span class="nav-text">Example2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.2.</span> <span class="nav-text">反向操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.1.</span> <span class="nav-text">Example1(CF1810G)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.3.</span> <span class="nav-text">矩阵加速</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.3.1.</span> <span class="nav-text">Example1(luoguP4007小Y和恐怖的奴隶主)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.3.2.</span> <span class="nav-text">Example2([NOI Online#3提高组]魔法值)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.3.3.</span> <span class="nav-text">Example3([CF 1474F])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.3.4.</span> <span class="nav-text">Example4([CF 1152F2])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.3.5.</span> <span class="nav-text">Example5([NOI2020] 美食家)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.4.</span> <span class="nav-text">分步合并</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.4.1.</span> <span class="nav-text">Example([2022qbxt国庆Day6]permutation)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.5.</span> <span class="nav-text">合并更新</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.5.1.</span> <span class="nav-text">Example(2022zrtg十连测day7 Zero)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.6.</span> <span class="nav-text">交换状态和值</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.6.0.1.</span> <span class="nav-text">Example1(CF1620F)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.6.0.2.</span> <span class="nav-text">Example2(AGC033D)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.6.0.3.</span> <span class="nav-text">Example3</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.6.0.4.</span> <span class="nav-text">Example4(uoj708)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.7.</span> <span class="nav-text">斜率优化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.7.0.1.</span> <span class="nav-text">Example1(Codechef TSUM2)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.8.</span> <span class="nav-text">WQS二分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.9.</span> <span class="nav-text">四边形不等式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.9.1.</span> <span class="nav-text">判定&#x2F;性质定理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.9.1.1.</span> <span class="nav-text">定理1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.9.1.2.</span> <span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.9.1.3.</span> <span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.9.1.4.</span> <span class="nav-text">定理4</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.9.1.5.</span> <span class="nav-text">定理5</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.9.2.</span> <span class="nav-text">决策单调性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.9.2.1.</span> <span class="nav-text">最短路型dp</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">2.9.2.1.1.</span> <span class="nav-text">Example1(LOJ6039[雅礼集训2017Day5]珠宝)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.9.2.2.</span> <span class="nav-text">k点最短路型dp</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">2.9.2.2.1.</span> <span class="nav-text">Example1 基站选址</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">2.9.2.2.2.</span> <span class="nav-text">Example2(CF gym 102984F)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.9.2.3.</span> <span class="nav-text">区间型dp</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">2.9.2.3.1.</span> <span class="nav-text">定理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.9.3.</span> <span class="nav-text">四边形不等式判断凸性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.9.3.1.</span> <span class="nav-text">Example1(CF1661F)</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">动态规划的设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.1.</span> <span class="nav-text">分析状态</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">Example2(CF1007E)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.2.</span> <span class="nav-text">可删除dp</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">Example1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.3.</span> <span class="nav-text">dp分界点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.3.1.</span> <span class="nav-text">Example1(2022zrtg十连测day7
+Permutation)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.4.</span> <span class="nav-text">基于贪心的dp</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.4.1.</span> <span class="nav-text">Example1(CF1666E)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.5.</span> <span class="nav-text">数位dp</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.5.1.</span> <span class="nav-text">Example1([2022qbxt国庆Day3]string)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.5.2.</span> <span class="nav-text">Example2([CF1194G])</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.6.</span> <span class="nav-text">树形dp</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.6.1.</span> <span class="nav-text">Example1([JLoi2016]侦察守卫)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.7.</span> <span class="nav-text">轮廓线dp(插头dp)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.7.1.</span> <span class="nav-text">Example1</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.8.</span> <span class="nav-text">高斯消元处理后效性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.8.1.</span> <span class="nav-text">Example1</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.9.</span> <span class="nav-text">最短路处理后效性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.9.1.</span> <span class="nav-text">Example1([2022qbxt国庆Day2]operation)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.10.</span> <span class="nav-text">组合意义</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.10.0.1.</span> <span class="nav-text">Example1([NOI2009] 管道取珠)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.10.0.2.</span> <span class="nav-text">Example2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.11.</span> <span class="nav-text">二项式定理展开</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.11.1.</span> <span class="nav-text">Example1</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.12.</span> <span class="nav-text">线头dp</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.12.0.1.</span> <span class="nav-text">Example1([20zr普及组五连测day1]区间)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.12.0.2.</span> <span class="nav-text">Example2([2022qbxt国庆Day6]rps)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.12.0.3.</span> <span class="nav-text">Example3([COCI2020-2021#2]
+Svjetlo)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.12.0.4.</span> <span class="nav-text">Example4(CF626F)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.12.0.5.</span> <span class="nav-text">Example5([XVII
+Open Cup named after E.V. Pankratiev. Grand Prix of Japan(openstrain
+contest 1489) J]Travel in Sugar Country)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.13.</span> <span class="nav-text">相对顺序不变</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.13.1.</span> <span class="nav-text">Example1([bzoj4621]Tc605)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.14.</span> <span class="nav-text">拆分区间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.14.1.</span> <span class="nav-text">Example1([22zr提高组十连测day4]零二)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.14.2.</span> <span class="nav-text">Example2([SDOI2010]地精部落)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.14.3.</span> <span class="nav-text">Example3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.14.4.</span> <span class="nav-text">Example4([AGC039E] Pairing
+Points)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.14.5.</span> <span class="nav-text">Example5([AGC035D] Add and
+Remove)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.14.6.</span> <span class="nav-text">Example6([CF607B]Zuma)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.14.7.</span> <span class="nav-text">Example7(LOJ 3215)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.15.</span> <span class="nav-text">相互独立</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.15.0.1.</span> <span class="nav-text">Example1(2019zrtg十连测day1
+origami)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.15.0.2.</span> <span class="nav-text">Example2(CF1616G Just Add an
+Edge)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.16.</span> <span class="nav-text">费用提前&#x2F;延后计算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.16.0.1.</span> <span class="nav-text">Example(2022zrnoip十连测day9-消失(vanish))</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.16.0.2.</span> <span class="nav-text">Example2(2019zrtg十连测day1
+group)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.16.0.3.</span> <span class="nav-text">Example3(AGC056B)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.17.</span> <span class="nav-text">分维处理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.17.0.1.</span> <span class="nav-text">Example1([CF1621G]Weighted
+Increasing Subsequences)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">动态规划的优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.1.</span> <span class="nav-text">递进转移</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.1.0.2.</span> <span class="nav-text">Example2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.2.</span> <span class="nav-text">反向操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.1.</span> <span class="nav-text">Example1(CF1810G)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.3.</span> <span class="nav-text">矩阵加速</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.3.1.</span> <span class="nav-text">Example1(luoguP4007小Y和恐怖的奴隶主)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.3.2.</span> <span class="nav-text">Example2([NOI
+Online#3提高组]魔法值)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.3.3.</span> <span class="nav-text">Example3([CF 1474F])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.3.4.</span> <span class="nav-text">Example4([CF 1152F2])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.3.5.</span> <span class="nav-text">Example5([NOI2020] 美食家)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.4.</span> <span class="nav-text">分步合并</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.4.1.</span> <span class="nav-text">Example([2022qbxt国庆Day6]permutation)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.5.</span> <span class="nav-text">合并更新</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.5.1.</span> <span class="nav-text">Example(2022zrtg十连测day7
+Zero)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.6.</span> <span class="nav-text">交换状态和值</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.6.0.1.</span> <span class="nav-text">Example1(CF1620F)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.6.0.2.</span> <span class="nav-text">Example2(AGC033D)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.6.0.3.</span> <span class="nav-text">Example3</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.6.0.4.</span> <span class="nav-text">Example4(uoj708)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.7.</span> <span class="nav-text">斜率优化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.7.0.1.</span> <span class="nav-text">Example1(Codechef TSUM2)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.8.</span> <span class="nav-text">WQS二分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.9.</span> <span class="nav-text">四边形不等式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.9.1.</span> <span class="nav-text">判定&#x2F;性质定理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.9.1.1.</span> <span class="nav-text">定理2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.9.1.2.</span> <span class="nav-text">定理3</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.9.1.3.</span> <span class="nav-text">定理4</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.9.1.4.</span> <span class="nav-text">定理5</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.9.2.</span> <span class="nav-text">决策单调性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.9.2.1.</span> <span class="nav-text">最短路型dp</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">2.9.2.1.1.</span> <span class="nav-text">Example1(LOJ6039[雅礼集训2017Day5]珠宝)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.9.2.2.</span> <span class="nav-text">k点最短路型dp</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">2.9.2.2.1.</span> <span class="nav-text">Example1 基站选址</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">2.9.2.2.2.</span> <span class="nav-text">Example2(CF gym 102984F)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.9.2.3.</span> <span class="nav-text">区间型dp</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.9.3.</span> <span class="nav-text">四边形不等式判断凸性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.9.3.1.</span> <span class="nav-text">Example1(CF1661F)</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -320,533 +332,726 @@
     
     <div class="post-body" itemprop="articleBody"><!-- toc -->
 <ul>
-<li><a href="#动态规划的设计">动态规划的设计</a><ul>
-<li><a href="#分析状态">分析状态</a><ul>
+<li><a href="#动态规划的设计">动态规划的设计</a>
+<ul>
+<li><a href="#分析状态">分析状态</a>
+<ul>
 <li><a href="#example1">Example1</a></li>
 <li><a href="#example2cf1007e">Example2(CF1007E)</a></li>
-</ul>
-</li>
-<li><a href="#可删除dp">可删除dp</a><ul>
+</ul></li>
+<li><a href="#可删除dp">可删除dp</a>
+<ul>
 <li><a href="#example1-1">Example1</a></li>
-</ul>
-</li>
-<li><a href="#dp分界点">dp分界点</a><ul>
-<li><a href="#example12022zrtg十连测day7-permutation">Example1(2022zrtg十连测day7 Permutation)</a></li>
-</ul>
-</li>
-<li><a href="#基于贪心的dp">基于贪心的dp</a><ul>
+</ul></li>
+<li><a href="#dp分界点">dp分界点</a>
+<ul>
+<li><a href="#example12022zrtg十连测day7-permutation">Example1(2022zrtg十连测day7
+Permutation)</a></li>
+</ul></li>
+<li><a href="#基于贪心的dp">基于贪心的dp</a>
+<ul>
 <li><a href="#example1cf1666e">Example1(CF1666E)</a></li>
-</ul>
-</li>
-<li><a href="#数位dp">数位dp</a><ul>
+</ul></li>
+<li><a href="#数位dp">数位dp</a>
+<ul>
 <li><a href="#example12022qbxt国庆day3string">Example1([2022qbxt国庆Day3]string)</a></li>
 <li><a href="#example2cf1194g">Example2([CF1194G])</a></li>
-</ul>
-</li>
-<li><a href="#树形dp">树形dp</a><ul>
+</ul></li>
+<li><a href="#树形dp">树形dp</a>
+<ul>
 <li><a href="#example1jloi2016侦察守卫">Example1([JLoi2016]侦察守卫)</a></li>
-</ul>
-</li>
-<li><a href="#轮廓线dp插头dp">轮廓线dp(插头dp)</a><ul>
+</ul></li>
+<li><a href="#轮廓线dp插头dp">轮廓线dp(插头dp)</a>
+<ul>
 <li><a href="#example1-2">Example1</a></li>
-</ul>
-</li>
-<li><a href="#高斯消元处理后效性">高斯消元处理后效性</a><ul>
+</ul></li>
+<li><a href="#高斯消元处理后效性">高斯消元处理后效性</a>
+<ul>
 <li><a href="#example1-3">Example1</a></li>
-</ul>
-</li>
-<li><a href="#最短路处理后效性">最短路处理后效性</a><ul>
+</ul></li>
+<li><a href="#最短路处理后效性">最短路处理后效性</a>
+<ul>
 <li><a href="#example12022qbxt国庆day2operation">Example1([2022qbxt国庆Day2]operation)</a></li>
-</ul>
-</li>
-<li><a href="#组合意义">组合意义</a><ul>
-<li><a href="#example1noi2009-管道取珠">Example1([NOI2009] 管道取珠)</a></li>
+</ul></li>
+<li><a href="#组合意义">组合意义</a>
+<ul>
+<li><a href="#example1noi2009-管道取珠">Example1([NOI2009]
+管道取珠)</a></li>
 <li><a href="#example2">Example2</a></li>
-</ul>
-</li>
-<li><a href="#二项式定理展开">二项式定理展开</a><ul>
+</ul></li>
+<li><a href="#二项式定理展开">二项式定理展开</a>
+<ul>
 <li><a href="#example1-4">Example1</a></li>
-</ul>
-</li>
-<li><a href="#线头dp">线头dp</a><ul>
+</ul></li>
+<li><a href="#线头dp">线头dp</a>
+<ul>
 <li><a href="#example120zr普及组五连测day1区间">Example1([20zr普及组五连测day1]区间)</a></li>
 <li><a href="#example22022qbxt国庆day6rps">Example2([2022qbxt国庆Day6]rps)</a></li>
-<li><a href="#example3coci2020-20212-svjetlo">Example3([COCI2020-2021#2] Svjetlo)</a></li>
+<li><a href="#example3coci2020-20212-svjetlo">Example3([COCI2020-2021#2]
+Svjetlo)</a></li>
 <li><a href="#example4cf626f">Example4(CF626F)</a></li>
-<li><a href="#example5xvii-open-cup-named-after-ev-pankratiev-grand-prix-of-japanopenstrain-contest-1489-jtravel-in-sugar-country">Example5([XVII Open Cup named after E.V. Pankratiev. Grand Prix of Japan(openstrain contest 1489) J]Travel in Sugar Country)</a></li>
-</ul>
-</li>
-<li><a href="#相对顺序不变">相对顺序不变</a><ul>
+<li><a href="#example5xvii-open-cup-named-after-ev-pankratiev-grand-prix-of-japanopenstrain-contest-1489-jtravel-in-sugar-country">Example5([XVII
+Open Cup named after E.V. Pankratiev. Grand Prix of Japan(openstrain
+contest 1489) J]Travel in Sugar Country)</a></li>
+</ul></li>
+<li><a href="#相对顺序不变">相对顺序不变</a>
+<ul>
 <li><a href="#example1bzoj4621tc605">Example1([bzoj4621]Tc605)</a></li>
-</ul>
-</li>
-<li><a href="#拆分区间">拆分区间</a><ul>
+</ul></li>
+<li><a href="#拆分区间">拆分区间</a>
+<ul>
 <li><a href="#example122zr提高组十连测day4零二">Example1([22zr提高组十连测day4]零二)</a></li>
 <li><a href="#example2sdoi2010地精部落">Example2([SDOI2010]地精部落)</a></li>
 <li><a href="#example3">Example3</a></li>
-<li><a href="#example4agc039e-pairing-points">Example4([AGC039E] Pairing Points)</a></li>
-<li><a href="#example5agc035d-add-and-remove">Example5([AGC035D] Add and Remove)</a></li>
+<li><a href="#example4agc039e-pairing-points">Example4([AGC039E] Pairing
+Points)</a></li>
+<li><a href="#example5agc035d-add-and-remove">Example5([AGC035D] Add and
+Remove)</a></li>
 <li><a href="#example6cf607bzuma">Example6([CF607B]Zuma)</a></li>
 <li><a href="#example7loj-3215">Example7(LOJ 3215)</a></li>
-</ul>
-</li>
-<li><a href="#相互独立">相互独立</a><ul>
-<li><a href="#example12019zrtg十连测day1-origami">Example1(2019zrtg十连测day1 origami)</a></li>
-<li><a href="#example2cf1616g-just-add-an-edge">Example2(CF1616G Just Add an Edge)</a></li>
-</ul>
-</li>
-<li><a href="#费用提前延后计算">费用提前/延后计算</a><ul>
+</ul></li>
+<li><a href="#相互独立">相互独立</a>
+<ul>
+<li><a href="#example12019zrtg十连测day1-origami">Example1(2019zrtg十连测day1
+origami)</a></li>
+<li><a href="#example2cf1616g-just-add-an-edge">Example2(CF1616G Just
+Add an Edge)</a></li>
+</ul></li>
+<li><a href="#费用提前延后计算">费用提前/延后计算</a>
+<ul>
 <li><a href="#example2022zrnoip十连测day9-消失vanish">Example(2022zrnoip十连测day9-消失(vanish))</a></li>
-<li><a href="#example22019zrtg十连测day1-group">Example2(2019zrtg十连测day1 group)</a></li>
+<li><a href="#example22019zrtg十连测day1-group">Example2(2019zrtg十连测day1
+group)</a></li>
 <li><a href="#example3agc056b">Example3(AGC056B)</a></li>
-</ul>
-</li>
-<li><a href="#分维处理">分维处理</a><ul>
-<li><a href="#example1cf1621gweighted-increasing-subsequences">Example1([CF1621G]Weighted Increasing Subsequences)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#动态规划的优化">动态规划的优化</a><ul>
-<li><a href="#递进转移">递进转移</a><ul>
+</ul></li>
+<li><a href="#分维处理">分维处理</a>
+<ul>
+<li><a href="#example1cf1621gweighted-increasing-subsequences">Example1([CF1621G]Weighted
+Increasing Subsequences)</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#动态规划的优化">动态规划的优化</a>
+<ul>
+<li><a href="#递进转移">递进转移</a>
+<ul>
 <li><a href="#example1-5">Example1</a></li>
 <li><a href="#example2-1">Example2</a></li>
-</ul>
-</li>
-<li><a href="#反向操作">反向操作</a><ul>
+</ul></li>
+<li><a href="#反向操作">反向操作</a>
+<ul>
 <li><a href="#example1cf1810g">Example1(CF1810G)</a></li>
-</ul>
-</li>
-<li><a href="#矩阵加速">矩阵加速</a><ul>
+</ul></li>
+<li><a href="#矩阵加速">矩阵加速</a>
+<ul>
 <li><a href="#example1luogup4007小y和恐怖的奴隶主">Example1(luoguP4007小Y和恐怖的奴隶主)</a></li>
-<li><a href="#example2noi-online3提高组魔法值">Example2([NOI Online#3提高组]魔法值)</a></li>
+<li><a href="#example2noi-online3提高组魔法值">Example2([NOI
+Online#3提高组]魔法值)</a></li>
 <li><a href="#example3cf-1474f">Example3([CF 1474F])</a></li>
 <li><a href="#example4cf-1152f2">Example4([CF 1152F2])</a></li>
-<li><a href="#example5noi2020-美食家">Example5([NOI2020] 美食家)</a></li>
-</ul>
-</li>
-<li><a href="#分步合并">分步合并</a><ul>
+<li><a href="#example5noi2020-美食家">Example5([NOI2020]
+美食家)</a></li>
+</ul></li>
+<li><a href="#分步合并">分步合并</a>
+<ul>
 <li><a href="#example2022qbxt国庆day6permutation">Example([2022qbxt国庆Day6]permutation)</a></li>
-</ul>
-</li>
-<li><a href="#合并更新">合并更新</a><ul>
-<li><a href="#example2022zrtg十连测day7-zero">Example(2022zrtg十连测day7 Zero)</a></li>
-</ul>
-</li>
-<li><a href="#交换状态和值">交换状态和值</a><ul>
+</ul></li>
+<li><a href="#合并更新">合并更新</a>
+<ul>
+<li><a href="#example2022zrtg十连测day7-zero">Example(2022zrtg十连测day7
+Zero)</a></li>
+</ul></li>
+<li><a href="#交换状态和值">交换状态和值</a>
+<ul>
 <li><a href="#example1cf1620f">Example1(CF1620F)</a></li>
 <li><a href="#example2agc033d">Example2(AGC033D)</a></li>
 <li><a href="#example3-1">Example3</a></li>
 <li><a href="#example4uoj708">Example4(uoj708)</a></li>
-</ul>
-</li>
-<li><a href="#斜率优化">斜率优化</a><ul>
+</ul></li>
+<li><a href="#斜率优化">斜率优化</a>
+<ul>
 <li><a href="#example1codechef-tsum2">Example1(Codechef TSUM2)</a></li>
-</ul>
-</li>
+</ul></li>
 <li><a href="#wqs二分">WQS二分</a></li>
-<li><a href="#四边形不等式">四边形不等式</a><ul>
-<li><a href="#判定性质定理">判定/性质定理</a><ul>
+<li><a href="#四边形不等式">四边形不等式</a>
+<ul>
+<li><a href="#判定性质定理">判定/性质定理</a>
+<ul>
 <li><a href="#定理2">定理2</a></li>
 <li><a href="#定理3">定理3</a></li>
 <li><a href="#定理4">定理4</a></li>
 <li><a href="#定理5">定理5</a></li>
-</ul>
-</li>
-<li><a href="#决策单调性">决策单调性</a><ul>
-<li><a href="#最短路型dp">最短路型dp</a><ul>
+</ul></li>
+<li><a href="#决策单调性">决策单调性</a>
+<ul>
+<li><a href="#最短路型dp">最短路型dp</a>
+<ul>
 <li><a href="#example1loj6039雅礼集训2017day5珠宝">Example1(LOJ6039[雅礼集训2017Day5]珠宝)</a></li>
-</ul>
-</li>
-<li><a href="#k点最短路型dp">k点最短路型dp</a><ul>
+</ul></li>
+<li><a href="#k点最短路型dp">k点最短路型dp</a>
+<ul>
 <li><a href="#example1-基站选址">Example1 基站选址</a></li>
 <li><a href="#example2cf-gym-102984f">Example2(CF gym 102984F)</a></li>
-</ul>
-</li>
-<li><a href="#区间型dp">区间型dp</a><ul>
+</ul></li>
+<li><a href="#区间型dp">区间型dp</a>
+<ul>
 <li><a href="#定理">定理</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#四边形不等式判断凸性">四边形不等式判断凸性</a><ul>
+</ul></li>
+</ul></li>
+<li><a href="#四边形不等式判断凸性">四边形不等式判断凸性</a>
+<ul>
 <li><a href="#example1cf1661f">Example1(CF1661F)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+</ul></li>
+</ul></li>
+</ul></li>
 </ul>
 <!-- tocstop -->
 <span id="more"></span>
-<h2><span id="动态规划的设计">动态规划的设计</span></h2><h3><span id="分析状态">分析状态</span></h3><h5><span id="example1">Example1</span></h5><p>给定一个序列,初始为空,进行多次操作,每次在序列末尾等概率加入一个$[1,m]$中的数字,然后进行以下判断:</p>
-<ol>
-<li>如果当前序列末尾两个数字相同且小于$t$,假设都是$x$,那就将它们都删去,加入一个$x+1$.</li>
-<li>如果当前序列没有可以删的数字,并且序列长度为$n$,终止操作.</li>
+<h2><span id="动态规划的设计">动态规划的设计</span></h2>
+<h3><span id="分析状态">分析状态</span></h3>
+<h5><span id="example1">Example1</span></h5>
+<p>给定一个序列,初始为空,进行多次操作,每次在序列末尾等概率加入一个<span class="math inline">\([1,m]\)</span>中的数字,然后进行以下判断:</p>
+<ol type="1">
+<li>如果当前序列末尾两个数字相同且小于<span class="math inline">\(t\)</span>,假设都是<span class="math inline">\(x\)</span>,那就将它们都删去,加入一个<span class="math inline">\(x+1\)</span>.</li>
+<li>如果当前序列没有可以删的数字,并且序列长度为<span class="math inline">\(n\)</span>,终止操作.</li>
 </ol>
-<p>给定$n,m,t$,求最终序列的元素和的期望.</p>
-<p>$n,m\leq 10^3,t\leq 10^9$.</p>
-<p>首先$t\leq 10^9$显然是没用的,因为它最多也就能这么凑:$m+n-2,m+n-3,\cdots,m,m$,合成一个$m+n-1$,因此我们令$t=\min\{t,m+n-1\}$即可.</p>
-<p>然后我们发现一个事实:如果这个序列某一个位置$i$,有$a_i&lt;a_{i+1}$,那么无论后面怎么做,这里的$a_i$都必不可能被删除.以此,我们不妨设$f_{i,j}$表示序列长度为$i$,序列开头元素为$j$的期望.然后发现中间的枚举巨大麻烦,完全不可以转移.</p>
+<p>给定<span class="math inline">\(n,m,t\)</span>,求最终序列的元素和的期望.</p>
+<p><span class="math inline">\(n,m\leq 10^3,t\leq 10^9\)</span>.</p>
+<p>首先<span class="math inline">\(t\leq
+10^9\)</span>显然是没用的,因为它最多也就能这么凑:<span class="math inline">\(m+n-2,m+n-3,\cdots,m,m\)</span>,合成一个<span class="math inline">\(m+n-1\)</span>,因此我们令<span class="math inline">\(t=\min\{t,m+n-1\}\)</span>即可.</p>
+<p>然后我们发现一个事实:如果这个序列某一个位置<span class="math inline">\(i\)</span>,有<span class="math inline">\(a_i&lt;a_{i+1}\)</span>,那么无论后面怎么做,这里的<span class="math inline">\(a_i\)</span>都必不可能被删除.以此,我们不妨设<span class="math inline">\(f_{i,j}\)</span>表示序列长度为<span class="math inline">\(i\)</span>,序列开头元素为<span class="math inline">\(j\)</span>的期望.然后发现中间的枚举巨大麻烦,完全不可以转移.</p>
 <p>题解的思维顺序感觉很乱,于是我来<del>马后炮一下</del>重整一下顺序.</p>
-<p>首先,我们的限制一共有两种:一个是数的大小不能超过$t$,另一个是序列的长度不能超过$n$.我们不妨设$ans_{n,t}$表示在上述两种限制下的答案.接下来我们要做的,无非是开始分析转移$ans$需要求出哪些量,这些量又可以如何转移即可.</p>
-<p>分析一下$ans_{n,t}$,考虑枚举一下开头元素是什么,那么第二个位置就不能是这个元素,然后后面再计算贡献,因此我们自然有$ans_{n,t}=\sum_{x=1}^tE(n个位置,第一个位置是x并且没有被删去)$.</p>
+<p>首先,我们的限制一共有两种:一个是数的大小不能超过<span class="math inline">\(t\)</span>,另一个是序列的长度不能超过<span class="math inline">\(n\)</span>.我们不妨设<span class="math inline">\(ans_{n,t}\)</span>表示在上述两种限制下的答案.接下来我们要做的,无非是开始分析转移<span class="math inline">\(ans\)</span>需要求出哪些量,这些量又可以如何转移即可.</p>
+<p>分析一下<span class="math inline">\(ans_{n,t}\)</span>,考虑枚举一下开头元素是什么,那么第二个位置就不能是这个元素,然后后面再计算贡献,因此我们自然有<span class="math inline">\(ans_{n,t}=\sum_{x=1}^tE(n个位置,第一个位置是x并且没有被删去)\)</span>.</p>
 <p>然后你就会发现这个问题真正难做的地方:我们这么顺着做,每次把第一个元素抠出去,但是这个元素是会影响后面的操作的!举个栗子:</p>
-<p>如果插入的数是:$3,3,3$,最终的答案应该是$4,3$.</p>
-<p>但如果我们一开始把第一个位置扣出去,就变成了$3,[3,3]$,最终的答案就变成了$3,4$.也就是说,这里的动态规划问题在转移子问题的时候,需要前面的那个位置作为信息.不妨设$g_{i,j}$表示当前后面还有$i-1$个位置,当前前面已经放好了一个$j$,这个$j$不能被删掉的期望,显然有$ans_{n,t}=\sum_{x}^tg_{n,x}P(最终序列中,这里是k)$,问题只在于如何求$g$.这个$g_{n,k}$是钦定了这个位置放$k$的期望,后面我们需要将它乘上这个位置放$k$的概率才能得到真实的答案.这很合理,因为我们通常的一切概率与期望的递推通常都是有一个隐含的条件概率乘法的.</p>
-<p>可能第一反应是,这个$g_{n,k}=(k+\sum_{j\ne k}g_{n-1,j})$.但是实际上这个是不对的.这里的$k$不能删掉不意味着后面的$j$不能删掉,事实上后面的$j$爱怎么删怎么删,只要不搞出一个$k$来就可以.因此我们需要设$f_{i,j}$表示当前后面还有$i$个位置,第一个位置不能是$j$,也不能曾经是$j$(因为这里只要是$j$都应该与前面合并),剩下的乱选的方案数.这个东西看上去它就不好转移,因为它限制太强了.我们正难则反!设$f_{i,j}$表示后面还有$i$个位置,第一个位置现在或曾经是过$j$的期望.那么全集是什么呢?全集是$ans_i$.</p>
-<p>还没完啊,我们还需要求一下这里是$k$的概率,由于还有一个类似的$f$,我们还要求一下这里曾经是$k$的概率.设前者为$q_{i,k}$,后者为$p_{i,k}$.我们来强调一下这里设计的原则:这里的$p$其实还蛮奇怪的,因为它设计的是:只要我当前在队首拿到了$k$,我立刻停止后面的操作.这很好理解,因为后面无论怎么玩,这里都曾出现过$k$了.但是这个理解方式可以帮助我们写出下面的转移方程.</p>
-<p>对于前者,我们发现这里是$k$等价于这里是$k$并且后面没有出现过$k$,也就是$q_{i,k}=p_{i,k}(1-p_{i-1,k}\times [k&lt;t])$.这里加一个限制是因为有不能超过$t$的限制.</p>
-<p>对于后者,这里的$k$有很多种可能出现过,一种是直接加入,一种是合并而来,于是$p_{i,k}=\frac{1}{m}[k\leq m]+p_{i,k-1}p_{i-1,k-1}$.</p>
-<p>因此我们几经辗转,终于得到了$g$的转移式子:</p>
-<script type="math/tex; mode=display">
-q_{i,k}g_{n,k}=p_{i,k}(k+ans_{i-1}-f_{i-1,k}p_{i-1,k})</script><p>就差$f$了.$f$有两种可能:要么最后仍然是$k$,要么这个$k$已经被杀掉了.于是:</p>
-<script type="math/tex; mode=display">
-p_{i,k}f_{i,k}=q_{i,k}g_{i,k}+(p_{i,k}-q_{i,k})f_{i,k+1}</script><h5><span id="example2cf1007e">Example2(CF1007E)</span></h5><p>首先我们需要发现一个很强的性质:作用到了第$i$个站台就会清空前面所有站台.清空后就和$a_i$无关了,而如果还没涉及到一定和$a_i$有关,那么涉及到了一半怎么办呢?我们考虑这里涉及到了一半,那么前面一定被清空了,我们根据前面的清空情况现场计算这里的答案.</p>
-<p>这启发我们:我们可以对这个做文章,我们设$f_{i,j}$表示只考虑前$i$个站台,要撑$j$个单位时间需要的最少火车数量.$g_{i,j}$表示只考虑前$i$个站台,要撑$j$个单位时间,并且$[1,i-1]$全部清空需要的最少火车数.另外,这两个dp数组都要求不能有火车漏到后面,也就是火车不能坐上后面的人,不然设为$+\infty$表示无法满足(对于全局,我们在$n+1$处放一个$a=+\infty,b=0,c=+\infty$来保证一定会满载).为什么需要$g$作为辅助dp数组呢?我们先对着$f$分析.</p>
-<p>考虑$f_{i,j}$的转移,根据上面的分析,我们有两种可能:</p>
-<p>第一种,前$j$轮中根本没接走站台$i$的人.此时需要满足$f_{i-1,j}\ne +\infty\and a_i+j\times b_i\leq c_i$.那么这里怎么更新$g$呢?设$L=sa_{i-1}+sb_{i-1}\times j$,显然$g_{i,j}=\lceil\frac{L}{K}\rceil$,并且需要保证此时没有用到$i$以后的站台,因此需要保证$\lceil\frac{L}{K}\rceil K\leq sa_{i}+sb_i\times j$.注意到由于这里保证了$f_{i-1,j}$是可以取到的,因此我们可以撑到第$j$秒,剩下的火车在$j+\varepsilon$秒全选.</p>
-<p>第二种,前$j$轮中有火车接走站台$i$的人.设最后一次是在$r$时间接走的站台$i$,那么此时必然清空了$[1,i-1]$,这里用了$g_{i,r}$.然后为了防止这里在$[r+1,j]$这段时间中爆掉,因此还需要$w=\lceil\frac{\max\{0,rem+(j-r)b_i-c_i\}}{K}\rceil$,其中$rem$是$r$时刻$i$剩下的人数.这些火车都要在$r$时刻之前解决(因为我们设了最后一次在$r$时间接走),不难发现我们其实不在乎前面具体怎么解决的,而只要在$r$这里保证没出问题就行.另外还要保证这个过程没有走到后面,也就有$wK\leq rem$.但是,接下来在$[r+1,j]$时刻就只需要对前面做操作,不过和一开始不一样的是,此时被清空了,因此我们设$f_{i,j,0}$表示只考虑前$i$个站台,要撑$j$个单位时间需要的最少火车数量,但是$[1,i]$都被清空为$0$过.</p>
+<p>如果插入的数是:<span class="math inline">\(3,3,3\)</span>,最终的答案应该是<span class="math inline">\(4,3\)</span>.</p>
+<p>但如果我们一开始把第一个位置扣出去,就变成了<span class="math inline">\(3,[3,3]\)</span>,最终的答案就变成了<span class="math inline">\(3,4\)</span>.也就是说,这里的动态规划问题在转移子问题的时候,需要前面的那个位置作为信息.不妨设<span class="math inline">\(g_{i,j}\)</span>表示当前后面还有<span class="math inline">\(i-1\)</span>个位置,当前前面已经放好了一个<span class="math inline">\(j\)</span>,这个<span class="math inline">\(j\)</span>不能被删掉的期望,显然有<span class="math inline">\(ans_{n,t}=\sum_{x}^tg_{n,x}P(最终序列中,这里是k)\)</span>,问题只在于如何求<span class="math inline">\(g\)</span>.这个<span class="math inline">\(g_{n,k}\)</span>是钦定了这个位置放<span class="math inline">\(k\)</span>的期望,后面我们需要将它乘上这个位置放<span class="math inline">\(k\)</span>的概率才能得到真实的答案.这很合理,因为我们通常的一切概率与期望的递推通常都是有一个隐含的条件概率乘法的.</p>
+<p>可能第一反应是,这个<span class="math inline">\(g_{n,k}=(k+\sum_{j\ne
+k}g_{n-1,j})\)</span>.但是实际上这个是不对的.这里的<span class="math inline">\(k\)</span>不能删掉不意味着后面的<span class="math inline">\(j\)</span>不能删掉,事实上后面的<span class="math inline">\(j\)</span>爱怎么删怎么删,只要不搞出一个<span class="math inline">\(k\)</span>来就可以.因此我们需要设<span class="math inline">\(f_{i,j}\)</span>表示当前后面还有<span class="math inline">\(i\)</span>个位置,第一个位置不能是<span class="math inline">\(j\)</span>,也不能曾经是<span class="math inline">\(j\)</span>(因为这里只要是<span class="math inline">\(j\)</span>都应该与前面合并),剩下的乱选的方案数.这个东西看上去它就不好转移,因为它限制太强了.我们正难则反!设<span class="math inline">\(f_{i,j}\)</span>表示后面还有<span class="math inline">\(i\)</span>个位置,第一个位置现在或曾经是过<span class="math inline">\(j\)</span>的期望.那么全集是什么呢?全集是<span class="math inline">\(ans_i\)</span>.</p>
+<p>还没完啊,我们还需要求一下这里是<span class="math inline">\(k\)</span>的概率,由于还有一个类似的<span class="math inline">\(f\)</span>,我们还要求一下这里曾经是<span class="math inline">\(k\)</span>的概率.设前者为<span class="math inline">\(q_{i,k}\)</span>,后者为<span class="math inline">\(p_{i,k}\)</span>.我们来强调一下这里设计的原则:这里的<span class="math inline">\(p\)</span>其实还蛮奇怪的,因为它设计的是:只要我当前在队首拿到了<span class="math inline">\(k\)</span>,我立刻停止后面的操作.这很好理解,因为后面无论怎么玩,这里都曾出现过<span class="math inline">\(k\)</span>了.但是这个理解方式可以帮助我们写出下面的转移方程.</p>
+<p>对于前者,我们发现这里是<span class="math inline">\(k\)</span>等价于这里是<span class="math inline">\(k\)</span>并且后面没有出现过<span class="math inline">\(k\)</span>,也就是<span class="math inline">\(q_{i,k}=p_{i,k}(1-p_{i-1,k}\times
+[k&lt;t])\)</span>.这里加一个限制是因为有不能超过<span class="math inline">\(t\)</span>的限制.</p>
+<p>对于后者,这里的<span class="math inline">\(k\)</span>有很多种可能出现过,一种是直接加入,一种是合并而来,于是<span class="math inline">\(p_{i,k}=\frac{1}{m}[k\leq
+m]+p_{i,k-1}p_{i-1,k-1}\)</span>.</p>
+<p>因此我们几经辗转,终于得到了<span class="math inline">\(g\)</span>的转移式子: <span class="math display">\[
+q_{i,k}g_{n,k}=p_{i,k}(k+ans_{i-1}-f_{i-1,k}p_{i-1,k})
+\]</span> 就差<span class="math inline">\(f\)</span>了.<span class="math inline">\(f\)</span>有两种可能:要么最后仍然是<span class="math inline">\(k\)</span>,要么这个<span class="math inline">\(k\)</span>已经被杀掉了.于是: <span class="math display">\[
+p_{i,k}f_{i,k}=q_{i,k}g_{i,k}+(p_{i,k}-q_{i,k})f_{i,k+1}
+\]</span></p>
+<h5><span id="example2cf1007e">Example2(CF1007E)</span></h5>
+<p>首先我们需要发现一个很强的性质:作用到了第<span class="math inline">\(i\)</span>个站台就会清空前面所有站台.清空后就和<span class="math inline">\(a_i\)</span>无关了,而如果还没涉及到一定和<span class="math inline">\(a_i\)</span>有关,那么涉及到了一半怎么办呢?我们考虑这里涉及到了一半,那么前面一定被清空了,我们根据前面的清空情况现场计算这里的答案.</p>
+<p>这启发我们:我们可以对这个做文章,我们设<span class="math inline">\(f_{i,j}\)</span>表示只考虑前<span class="math inline">\(i\)</span>个站台,要撑<span class="math inline">\(j\)</span>个单位时间需要的最少火车数量.<span class="math inline">\(g_{i,j}\)</span>表示只考虑前<span class="math inline">\(i\)</span>个站台,要撑<span class="math inline">\(j\)</span>个单位时间,并且<span class="math inline">\([1,i-1]\)</span>全部清空需要的最少火车数.另外,这两个dp数组都要求不能有火车漏到后面,也就是火车不能坐上后面的人,不然设为<span class="math inline">\(+\infty\)</span>表示无法满足(对于全局,我们在<span class="math inline">\(n+1\)</span>处放一个<span class="math inline">\(a=+\infty,b=0,c=+\infty\)</span>来保证一定会满载).为什么需要<span class="math inline">\(g\)</span>作为辅助dp数组呢?我们先对着<span class="math inline">\(f\)</span>分析.</p>
+<p>考虑<span class="math inline">\(f_{i,j}\)</span>的转移,根据上面的分析,我们有两种可能:</p>
+<p>第一种,前<span class="math inline">\(j\)</span>轮中根本没接走站台<span class="math inline">\(i\)</span>的人.此时需要满足<span class="math inline">\(f_{i-1,j}\ne +\infty\and a_i+j\times b_i\leq
+c_i\)</span>.那么这里怎么更新<span class="math inline">\(g\)</span>呢?设<span class="math inline">\(L=sa_{i-1}+sb_{i-1}\times j\)</span>,显然<span class="math inline">\(g_{i,j}=\lceil\frac{L}{K}\rceil\)</span>,并且需要保证此时没有用到<span class="math inline">\(i\)</span>以后的站台,因此需要保证<span class="math inline">\(\lceil\frac{L}{K}\rceil K\leq sa_{i}+sb_i\times
+j\)</span>.注意到由于这里保证了<span class="math inline">\(f_{i-1,j}\)</span>是可以取到的,因此我们可以撑到第<span class="math inline">\(j\)</span>秒,剩下的火车在<span class="math inline">\(j+\varepsilon\)</span>秒全选.</p>
+<p>第二种,前<span class="math inline">\(j\)</span>轮中有火车接走站台<span class="math inline">\(i\)</span>的人.设最后一次是在<span class="math inline">\(r\)</span>时间接走的站台<span class="math inline">\(i\)</span>,那么此时必然清空了<span class="math inline">\([1,i-1]\)</span>,这里用了<span class="math inline">\(g_{i,r}\)</span>.然后为了防止这里在<span class="math inline">\([r+1,j]\)</span>这段时间中爆掉,因此还需要<span class="math inline">\(w=\lceil\frac{\max\{0,rem+(j-r)b_i-c_i\}}{K}\rceil\)</span>,其中<span class="math inline">\(rem\)</span>是<span class="math inline">\(r\)</span>时刻<span class="math inline">\(i\)</span>剩下的人数.这些火车都要在<span class="math inline">\(r\)</span>时刻之前解决(因为我们设了最后一次在<span class="math inline">\(r\)</span>时间接走),不难发现我们其实不在乎前面具体怎么解决的,而只要在<span class="math inline">\(r\)</span>这里保证没出问题就行.另外还要保证这个过程没有走到后面,也就有<span class="math inline">\(wK\leq rem\)</span>.但是,接下来在<span class="math inline">\([r+1,j]\)</span>时刻就只需要对前面做操作,不过和一开始不一样的是,此时被清空了,因此我们设<span class="math inline">\(f_{i,j,0}\)</span>表示只考虑前<span class="math inline">\(i\)</span>个站台,要撑<span class="math inline">\(j\)</span>个单位时间需要的最少火车数量,但是<span class="math inline">\([1,i]\)</span>都被清空为<span class="math inline">\(0\)</span>过.</p>
 <p>每一步看上去都很合理,但是如何想到可以这么dp的呢?说到底,dp是解决一个最优子问题的,我们发现我们知道时间,以及前面是否清空,就可以得知目前的状态.另外,由于我们是枚举目前的状态,因此中间的转移过程是易知的.</p>
 <p>这个题的启发性大概有以下几点:</p>
-<ol>
+<ol type="1">
 <li>设计状态的时候,只考虑记录经过的时间/前面的初始值/目前考虑到第几位,由上面三点可以还原出所有状态.</li>
-<li>由于我们确定了当前考虑到了第几位,我们就可以进行递推:原因很简单,只要我们考虑到某一位,就一定会影响前面所有的位置(全部清空以至于到达这里).一开始我犯了一个错是将$g_{1,t,0/1}$全部设为$0$,因为我觉得无论如何$0$位置都是清空的,但实际上这是错误的!因为在$t$时刻的$1$位置不一定合法.这就是这个设计巧妙的地方:它时刻保证了前$i$个的合法性,并且如果我们想要让$i$位置合法,一定要求让$[1,i-1]$合法.</li>
-<li>转移的时候,由于钦定了某一时刻是否选,因此我们可以直接算出从$r\rightarrow t$这个过程中会积累的量,这些量必然要在$r$时刻清理掉.由于钦定导致限制加强,因此这里就容易处理了.</li>
+<li>由于我们确定了当前考虑到了第几位,我们就可以进行递推:原因很简单,只要我们考虑到某一位,就一定会影响前面所有的位置(全部清空以至于到达这里).一开始我犯了一个错是将<span class="math inline">\(g_{1,t,0/1}\)</span>全部设为<span class="math inline">\(0\)</span>,因为我觉得无论如何<span class="math inline">\(0\)</span>位置都是清空的,但实际上这是错误的!因为在<span class="math inline">\(t\)</span>时刻的<span class="math inline">\(1\)</span>位置不一定合法.这就是这个设计巧妙的地方:它时刻保证了前<span class="math inline">\(i\)</span>个的合法性,并且如果我们想要让<span class="math inline">\(i\)</span>位置合法,一定要求让<span class="math inline">\([1,i-1]\)</span>合法.</li>
+<li>转移的时候,由于钦定了某一时刻是否选,因此我们可以直接算出从<span class="math inline">\(r\rightarrow
+t\)</span>这个过程中会积累的量,这些量必然要在<span class="math inline">\(r\)</span>时刻清理掉.由于钦定导致限制加强,因此这里就容易处理了.</li>
 </ol>
-<h3><span id="可删除dp">可删除dp</span></h3><h5><span id="example1">Example1</span></h5><p>定义一个有根树为大菊花,当且仅当这棵树的根的度数$\leq m\and\nexists x\ne root,\deg(x)&gt;2$.对于每一条边,求将这条边连接的两个点合并后,以新点为根的大菊花数量.$(n\leq 5\times 10^5,m\leq 50)$</p>
-<p>注意到以一个点为根的大菊花数量是一个关于树的大小的背包合并.这样通过前缀后缀做到$O(nm^2)$.</p>
-<p>注意到这个背包是可删除的,所以就能做到$O(nm)$.</p>
-<h3><span id="dp分界点">dp分界点</span></h3><h4><span id="example12022zrtg十连测day7-permutation">Example1(2022zrtg十连测day7 Permutation)</span></h4><p>首先注意到$[3,n]$一定会被分成两段递减的序列,分别跟在$1$和$2$的后面,假设$1$在$2$前面,这样算出答案后乘以$n$即可.</p>
-<p>注意到$i+1$一定可以放到$i$的前面,设$f_i$表示在$i$和$i+1$之间有分界点,这两个点后面分界合法的方案数.每次可以枚举下一个合法的分界点,不难发现这个分界点也即$i$的倍数$\pm 1$之类的,于是可以实现,复杂度$O(n\ln n)$.</p>
-<h3><span id="基于贪心的dp">基于贪心的dp</span></h3><h4><span id="example1cf1666e">Example1(CF1666E)</span></h4><p>先想一下别的东西怎么求.</p>
+<h3><span id="可删除dp">可删除dp</span></h3>
+<h5><span id="example1">Example1</span></h5>
+<p>定义一个有根树为大菊花,当且仅当这棵树的根的度数<span class="math inline">\(\leq m\and\nexists x\ne
+root,\deg(x)&gt;2\)</span>.对于每一条边,求将这条边连接的两个点合并后,以新点为根的大菊花数量.<span class="math inline">\((n\leq 5\times 10^5,m\leq 50)\)</span></p>
+<p>注意到以一个点为根的大菊花数量是一个关于树的大小的背包合并.这样通过前缀后缀做到<span class="math inline">\(O(nm^2)\)</span>.</p>
+<p>注意到这个背包是可删除的,所以就能做到<span class="math inline">\(O(nm)\)</span>.</p>
+<h3><span id="dp分界点">dp分界点</span></h3>
+<h4><span id="example12022zrtg十连测day7permutation">Example1(2022zrtg十连测day7
+Permutation)</span></h4>
+<p>首先注意到<span class="math inline">\([3,n]\)</span>一定会被分成两段递减的序列,分别跟在<span class="math inline">\(1\)</span>和<span class="math inline">\(2\)</span>的后面,假设<span class="math inline">\(1\)</span>在<span class="math inline">\(2\)</span>前面,这样算出答案后乘以<span class="math inline">\(n\)</span>即可.</p>
+<p>注意到<span class="math inline">\(i+1\)</span>一定可以放到<span class="math inline">\(i\)</span>的前面,设<span class="math inline">\(f_i\)</span>表示在<span class="math inline">\(i\)</span>和<span class="math inline">\(i+1\)</span>之间有分界点,这两个点后面分界合法的方案数.每次可以枚举下一个合法的分界点,不难发现这个分界点也即<span class="math inline">\(i\)</span>的倍数<span class="math inline">\(\pm
+1\)</span>之类的,于是可以实现,复杂度<span class="math inline">\(O(n\ln
+n)\)</span>.</p>
+<h3><span id="基于贪心的dp">基于贪心的dp</span></h3>
+<h4><span id="example1cf1666e">Example1(CF1666E)</span></h4>
+<p>先想一下别的东西怎么求.</p>
 <p>如果我们要求最大值最小或者最小值最大怎么办?我们可以二分后贪心,而显然它们的差就是一个答案的下界,问题在于这个下界是否可以取到.</p>
-<p>我们冷静一下,发现在可能的方案中,第$i$条线段的右端点的位置一定是一段连续的区间.</p>
-<p>设$f_i$表示第$i$个分界点可能的最小值,$g_i$表示第$i$个分界点可能的最大值.假设我们目前二分的最大值要小于等于$mx$,最小值要大于等于$mn$,那么我们有转移:</p>
-<script type="math/tex; mode=display">
+<p>我们冷静一下,发现在可能的方案中,第<span class="math inline">\(i\)</span>条线段的右端点的位置一定是一段连续的区间.</p>
+<p>设<span class="math inline">\(f_i\)</span>表示第<span class="math inline">\(i\)</span>个分界点可能的最小值,<span class="math inline">\(g_i\)</span>表示第<span class="math inline">\(i\)</span>个分界点可能的最大值.假设我们目前二分的最大值要小于等于<span class="math inline">\(mx\)</span>,最小值要大于等于<span class="math inline">\(mn\)</span>,那么我们有转移: <span class="math display">\[
 f_{i+1}=\max\{a_{i+1},f_i+mn\}\\
-g_{i+1}=\min\{a_{i+2},g_i+mx\}\\</script><p>注意到$f$与$g$的转移是无关的,而显然对于第$i$个分界点,它可以取$[f_i,g_i]$中一个数,一定存在一个取法使得答案能取到下界.</p>
-<p>为啥呢?只需让$ans_{i}$表示第$i$条分界线是啥,那么我们$ans_i$是可以取$[ans_{i+1}-mx,ans_{i+1}-mn]$中的任何一个数字的,我们将其和上面求出的$[f_i,g_i]$求一下交集.如果交集为空,说明要么$ans_{i+1}-mn&lt;f_i,f_{i+1}&lt;ans_{i+1}&lt;f_i+mn$,这是不可能的.另一种情况同理不可能,这就保证了一定可以取到答案.一定能使极差$\leq mx-mn$.</p>
-<h3><span id="数位dp">数位dp</span></h3><h4><span id="example12022qbxt国庆day3string">Example1([2022qbxt国庆Day3]string)</span></h4><p>首先设$f_{i,j}$表示长度为$i$的,以$S[n-j+1…n]$为子序列的字符串个数.</p>
-<p>考虑按位处理,每次将$T$的一个后缀设为极大,然后不断地向前扩展这个后缀的长度,直到所到的位置再改为极大就会超出$k$.这个时候我们停止更改,并且继续倒着修改,仍然修改每位,直到最后所积累的总数恰好为$k$.</p>
+g_{i+1}=\min\{a_{i+2},g_i+mx\}\\
+\]</span> 注意到<span class="math inline">\(f\)</span>与<span class="math inline">\(g\)</span>的转移是无关的,而显然对于第<span class="math inline">\(i\)</span>个分界点,它可以取<span class="math inline">\([f_i,g_i]\)</span>中一个数,一定存在一个取法使得答案能取到下界.</p>
+<p>为啥呢?只需让<span class="math inline">\(ans_{i}\)</span>表示第<span class="math inline">\(i\)</span>条分界线是啥,那么我们<span class="math inline">\(ans_i\)</span>是可以取<span class="math inline">\([ans_{i+1}-mx,ans_{i+1}-mn]\)</span>中的任何一个数字的,我们将其和上面求出的<span class="math inline">\([f_i,g_i]\)</span>求一下交集.如果交集为空,说明要么<span class="math inline">\(ans_{i+1}-mn&lt;f_i,f_{i+1}&lt;ans_{i+1}&lt;f_i+mn\)</span>,这是不可能的.另一种情况同理不可能,这就保证了一定可以取到答案.一定能使极差<span class="math inline">\(\leq mx-mn\)</span>.</p>
+<h3><span id="数位dp">数位dp</span></h3>
+<h4><span id="example12022qbxt国庆day3string">Example1([2022qbxt国庆Day3]string)</span></h4>
+<p>首先设<span class="math inline">\(f_{i,j}\)</span>表示长度为<span class="math inline">\(i\)</span>的,以<span class="math inline">\(S[n-j+1...n]\)</span>为子序列的字符串个数.</p>
+<p>考虑按位处理,每次将<span class="math inline">\(T\)</span>的一个后缀设为极大,然后不断地向前扩展这个后缀的长度,直到所到的位置再改为极大就会超出<span class="math inline">\(k\)</span>.这个时候我们停止更改,并且继续倒着修改,仍然修改每位,直到最后所积累的总数恰好为<span class="math inline">\(k\)</span>.</p>
 <p>当然,做的时候一定要时刻铭记后面的部分设为的是极大字符串还是极小字符串,这里设为极大是简单的,因为可以直接继承上一位的枚举.</p>
 <p>考虑这个过程,我们每将一个位置的值设为更大,相当于松弛了后面的所有序列,因此也就是一个数位dp.</p>
-<h4><span id="example2cf1194g">Example2([CF1194G])</span></h4><p>第一反应就是枚举$x’$和$y’$,然后用数位dp枚举$d$使得$x=dx’,y=dy’$.</p>
-<p>但是有一个问题在于如果$\gcd(x’,y’)\ne 1$怎么办,这样有可能会算重.我们发现我们只判断$\gcd(x’,y’)=1$的情况就行,然后写一个$2^8$判断$x’,2x’,3x’,4x’$以及对应的$y’$出现了没有.复杂度$(9^4\times 2^8\times \log_{10}n)$,有点难过.</p>
-<p>但是我们发现这个$2^8$可能大了点,注意到只要出现一个我们就不用再记了,因此唯一需要记的是一对都没出现过的情况,这里只有$3^4\times 2$的状态量,就可以快一点.</p>
-<h3><span id="树形dp">树形dp</span></h3><h4><span id="example1jloi2016侦察守卫">Example1([JLoi2016]侦察守卫)</span></h4><p>首先第一反应是记录子树内到子树根节点的最远的未被覆盖的点和最近的监测站,但是这样是$O(nd^2)$的复杂度.冷静一下,发现这两个一定只会有一个值有意义,这样就是$O(nd)$的了.</p>
-<p>写的时候犯了个很蠢的错:树形dp由于需要合并,所以如果有多步转移,一定要先把所有dp值都会进行的dp转移写成赋值转移,把其它的写成取$\min$转移.</p>
-<h3><span id="轮廓线dp插头dp">轮廓线dp(插头dp)</span></h3><h4><span id="example1">Example1</span></h4><p>现在有一个$[1,n]$的排列,现在要从中选出一个集合$S$,满足$\forall x\in S,2x\notin S,3x\notin S$,求方案数.</p>
-<p>首先考虑将每个数分解为$a\times 2^b\times 3^c$的形式,显然$a$不相同的数之间互不干扰.</p>
-<p>对于$a$相同的一群数,我们考虑将$(b,c)$作为它在矩阵上的位置,不难发现上面的要求其实也就是选一个数就不能选它右边的数和下边的数,可以使用轮廓线dp转移.</p>
-<h3><span id="高斯消元处理后效性">高斯消元处理后效性</span></h3><h4><span id="example1">Example1</span></h4><p>$n$个点的树,一开始位于一号点,每个点有一个颜色($0$或$1$),每次随机选择一个点$v$,从当前所在点移动到$v$并将$v$的颜色取反(不是将这条路径上的颜色取反),当整棵树颜色相同时停止,求期望移动距离(每条边的长度为$1$,当然不为$1$也能做).</p>
-<p>$n\leq 100000$.</p>
+<h4><span id="example2cf1194g">Example2([CF1194G])</span></h4>
+<p>第一反应就是枚举<span class="math inline">\(x&#39;\)</span>和<span class="math inline">\(y&#39;\)</span>,然后用数位dp枚举<span class="math inline">\(d\)</span>使得<span class="math inline">\(x=dx&#39;,y=dy&#39;\)</span>.</p>
+<p>但是有一个问题在于如果<span class="math inline">\(\gcd(x&#39;,y&#39;)\ne
+1\)</span>怎么办,这样有可能会算重.我们发现我们只判断<span class="math inline">\(\gcd(x&#39;,y&#39;)=1\)</span>的情况就行,然后写一个<span class="math inline">\(2^8\)</span>判断<span class="math inline">\(x&#39;,2x&#39;,3x&#39;,4x&#39;\)</span>以及对应的<span class="math inline">\(y&#39;\)</span>出现了没有.复杂度<span class="math inline">\((9^4\times 2^8\times
+\log_{10}n)\)</span>,有点难过.</p>
+<p>但是我们发现这个<span class="math inline">\(2^8\)</span>可能大了点,注意到只要出现一个我们就不用再记了,因此唯一需要记的是一对都没出现过的情况,这里只有<span class="math inline">\(3^4\times 2\)</span>的状态量,就可以快一点.</p>
+<h3><span id="树形dp">树形dp</span></h3>
+<h4><span id="example1jloi2016侦察守卫">Example1([JLoi2016]侦察守卫)</span></h4>
+<p>首先第一反应是记录子树内到子树根节点的最远的未被覆盖的点和最近的监测站,但是这样是<span class="math inline">\(O(nd^2)\)</span>的复杂度.冷静一下,发现这两个一定只会有一个值有意义,这样就是<span class="math inline">\(O(nd)\)</span>的了.</p>
+<p>写的时候犯了个很蠢的错:树形dp由于需要合并,所以如果有多步转移,一定要先把所有dp值都会进行的dp转移写成赋值转移,把其它的写成取<span class="math inline">\(\min\)</span>转移.</p>
+<h3><span id="轮廓线dp插头dp">轮廓线dp(插头dp)</span></h3>
+<h4><span id="example1">Example1</span></h4>
+<p>现在有一个<span class="math inline">\([1,n]\)</span>的排列,现在要从中选出一个集合<span class="math inline">\(S\)</span>,满足<span class="math inline">\(\forall
+x\in S,2x\notin S,3x\notin S\)</span>,求方案数.</p>
+<p>首先考虑将每个数分解为<span class="math inline">\(a\times 2^b\times
+3^c\)</span>的形式,显然<span class="math inline">\(a\)</span>不相同的数之间互不干扰.</p>
+<p>对于<span class="math inline">\(a\)</span>相同的一群数,我们考虑将<span class="math inline">\((b,c)\)</span>作为它在矩阵上的位置,不难发现上面的要求其实也就是选一个数就不能选它右边的数和下边的数,可以使用轮廓线dp转移.</p>
+<h3><span id="高斯消元处理后效性">高斯消元处理后效性</span></h3>
+<h4><span id="example1">Example1</span></h4>
+<p><span class="math inline">\(n\)</span>个点的树,一开始位于一号点,每个点有一个颜色(<span class="math inline">\(0\)</span>或<span class="math inline">\(1\)</span>),每次随机选择一个点<span class="math inline">\(v\)</span>,从当前所在点移动到<span class="math inline">\(v\)</span>并将<span class="math inline">\(v\)</span>的颜色取反(不是将这条路径上的颜色取反),当整棵树颜色相同时停止,求期望移动距离(每条边的长度为<span class="math inline">\(1\)</span>,当然不为<span class="math inline">\(1\)</span>也能做).</p>
+<p><span class="math inline">\(n\leq 100000\)</span>.</p>
 <p>首先我们发现这个树形结构很难搞,怎么办呢?</p>
 <p>我会弱化问题!先考虑期望进行多少轮.</p>
-<p>不难发现这个问题下,这个树没有任何意义,我们只需要看当前选中的点是$1$还是$0$就可以.不妨设$f_{i}$表示当前有$i$个点是$1$,最后全$1$或者全$0$所需要的期望步数,显然$f_0=f_n=0$,$f_{i}=\frac{1}{2}(f_{i+1}+f_{i-1})+1$.欸,这不luoguP7099嘛.看来这个思路很对啊!</p>
+<p>不难发现这个问题下,这个树没有任何意义,我们只需要看当前选中的点是<span class="math inline">\(1\)</span>还是<span class="math inline">\(0\)</span>就可以.不妨设<span class="math inline">\(f_{i}\)</span>表示当前有<span class="math inline">\(i\)</span>个点是<span class="math inline">\(1\)</span>,最后全<span class="math inline">\(1\)</span>或者全<span class="math inline">\(0\)</span>所需要的期望步数,显然<span class="math inline">\(f_0=f_n=0\)</span>,<span class="math inline">\(f_{i}=\frac{1}{2}(f_{i+1}+f_{i-1})+1\)</span>.欸,这不luoguP7099嘛.看来这个思路很对啊!</p>
 <p>但是其实寄了,这个东西怎么想都很难拓展.一开始还想过计算每条边对期望的贡献,但也很难搞.</p>
-<p>正确的做法是什么呢?正确的做法是我们统计每个点的贡献!你可能会很好奇这个点能有什么贡献,事实上,假设我们当前在$u$,只要当前没有结束,我们还要选点$v$,对答案的期望的贡献就是$u$到这棵树上所有点的距离之和除以$n$,而这是一个定值.也就是说,只要我们统计一下到了每个点$u$多少次(要求不是最后一次),我们就可以全部加一加乘一乘得到答案.我们脱离了树的结构!</p>
-<p>我们设$f_{i,j,0/1}$表示当前场面上有$i$个$1$,$j$号点这里是$0$还是$1$,它在结束前能被期望选多少次,注意$f_{n/0,j,0/1}=0$.但是这个转移显然有点垃圾,我们再冷静一下:似乎我们不在乎每个点具体编号,只在乎它当前的颜色,于是我们可以设$f_{i,0/1}$表示当前有$i$个$1$,$0/1$染色的点在接下来的操作中期望选择多少次.</p>
-<p>我们可以写出以下转移:</p>
-<script type="math/tex; mode=display">
+<p>正确的做法是什么呢?正确的做法是我们统计每个点的贡献!你可能会很好奇这个点能有什么贡献,事实上,假设我们当前在<span class="math inline">\(u\)</span>,只要当前没有结束,我们还要选点<span class="math inline">\(v\)</span>,对答案的期望的贡献就是<span class="math inline">\(u\)</span>到这棵树上所有点的距离之和除以<span class="math inline">\(n\)</span>,而这是一个定值.也就是说,只要我们统计一下到了每个点<span class="math inline">\(u\)</span>多少次(要求不是最后一次),我们就可以全部加一加乘一乘得到答案.我们脱离了树的结构!</p>
+<p>我们设<span class="math inline">\(f_{i,j,0/1}\)</span>表示当前场面上有<span class="math inline">\(i\)</span>个<span class="math inline">\(1\)</span>,<span class="math inline">\(j\)</span>号点这里是<span class="math inline">\(0\)</span>还是<span class="math inline">\(1\)</span>,它在结束前能被期望选多少次,注意<span class="math inline">\(f_{n/0,j,0/1}=0\)</span>.但是这个转移显然有点垃圾,我们再冷静一下:似乎我们不在乎每个点具体编号,只在乎它当前的颜色,于是我们可以设<span class="math inline">\(f_{i,0/1}\)</span>表示当前有<span class="math inline">\(i\)</span>个<span class="math inline">\(1\)</span>,<span class="math inline">\(0/1\)</span>染色的点在接下来的操作中期望选择多少次.</p>
+<p>我们可以写出以下转移: <span class="math display">\[
 f_{0/n,0/1}=0\\
-f_{i,0}=\frac{i}{n}f_{i-1,0}+\frac{n-i-1}{n}f_{i+1,0}+\frac{1}{n}(f_{i+1,1}+[i+1\ne n])\\
-f_{i,1}=\frac{i-1}{n}f_{i-1,1}+\frac{n-i}{n}f_{i+1,1}+\frac{1}{n}(f_{i-1,0}+[i-1\ne 0])</script><p>为啥最后加上了$[i+1\ne n]$呢?因为我们统计的是在没结束的情况下的答案.</p>
+f_{i,0}=\frac{i}{n}f_{i-1,0}+\frac{n-i-1}{n}f_{i+1,0}+\frac{1}{n}(f_{i+1,1}+[i+1\ne
+n])\\
+f_{i,1}=\frac{i-1}{n}f_{i-1,1}+\frac{n-i}{n}f_{i+1,1}+\frac{1}{n}(f_{i-1,0}+[i-1\ne
+0])
+\]</span> 为啥最后加上了<span class="math inline">\([i+1\ne
+n]\)</span>呢?因为我们统计的是在没结束的情况下的答案.</p>
 <p>乍一看这个转移成环并且极其复杂,可能需要高斯消元,但实际上不用,我们冷静观察一下:</p>
-<p>我们假设我们已经求出了$f_{i,0/1}$和$f_{i-1,0/1}$,我们发现我们可以用这两个方程求出$f_{i+1,0/1}$,然后就比较典了:我们将所有的函数表示成$af_{1,0}+bf_{1,1}+c$的形式(之所以这么表示,是因为我们架设了$f_{1,0/1}$已经求出来了,虽然实际上没求出来),而由于我们有右边界,我们可以用它表示出$f_{n,0/1}$,而$f_{n,0/1}$我们已知,这样就可以解一个二元一次方程组.</p>
-<h3><span id="最短路处理后效性">最短路处理后效性</span></h3><h4><span id="example12022qbxt国庆day2operation">Example1([2022qbxt国庆Day2]operation)</span></h4><p>首先注意到,$a_i=1$的时候和$a_i\ne 1$的时候其实没有太大区别,我们在操作完后也需要用各种方式抵消影响.我们设$f_i$为$a_i=1$,而其他$a$全都为$0$时的答案,不难发现最后的答案也就是$\sum{a_if_i}$.</p>
-<p>而上面的转移自然是:$f_i=\min\{b_i,w+\sum_{j=l}^rf_j\}$.</p>
+<p>我们假设我们已经求出了<span class="math inline">\(f_{i,0/1}\)</span>和<span class="math inline">\(f_{i-1,0/1}\)</span>,我们发现我们可以用这两个方程求出<span class="math inline">\(f_{i+1,0/1}\)</span>,然后就比较典了:我们将所有的函数表示成<span class="math inline">\(af_{1,0}+bf_{1,1}+c\)</span>的形式(之所以这么表示,是因为我们架设了<span class="math inline">\(f_{1,0/1}\)</span>已经求出来了,虽然实际上没求出来),而由于我们有右边界,我们可以用它表示出<span class="math inline">\(f_{n,0/1}\)</span>,而<span class="math inline">\(f_{n,0/1}\)</span>我们已知,这样就可以解一个二元一次方程组.</p>
+<h3><span id="最短路处理后效性">最短路处理后效性</span></h3>
+<h4><span id="example12022qbxt国庆day2operation">Example1([2022qbxt国庆Day2]operation)</span></h4>
+<p>首先注意到,<span class="math inline">\(a_i=1\)</span>的时候和<span class="math inline">\(a_i\ne
+1\)</span>的时候其实没有太大区别,我们在操作完后也需要用各种方式抵消影响.我们设<span class="math inline">\(f_i\)</span>为<span class="math inline">\(a_i=1\)</span>,而其他<span class="math inline">\(a\)</span>全都为<span class="math inline">\(0\)</span>时的答案,不难发现最后的答案也就是<span class="math inline">\(\sum{a_if_i}\)</span>.</p>
+<p>而上面的转移自然是:<span class="math inline">\(f_i=\min\{b_i,w+\sum_{j=l}^rf_j\}\)</span>.</p>
 <p>但是,这个转移是有后效性的,不能直接进行dp,不过我们考虑用类似最短路的操作来处理.</p>
-<p>换句话说,由于每次$f_i$最小的点不可能再被更新到,我们就把它设为已更新的点.当一个区间中的所有点都被标记为已更新后,我们就拿这个区间去更新别的点.</p>
-<p>我们把每个线段挂到线段树上的节点,当我们把一个点标记为已更新,也就是检查这个点对应的线段树上叶子节点到根的路径上所有的线段树节点对应的区间是否全更新.均摊下来,一个区间只会被检查$\log n$次,这样就做完了.</p>
-<h3><span id="组合意义">组合意义</span></h3><h5><span id="example1noi2009-管道取珠">Example1([NOI2009] 管道取珠)</span></h5><p>考虑组合意义,$\sum a_i^2$的意义也即满足操作序列$u$和操作序列$v$的最终结果相同的二元组$(u,v)$的数量.</p>
-<p>不妨设$dp_{i,j,k}$为第一个装置上方已经动了$i$个珠子,下放动了$j$个珠子,第二个装置上方动了$k$个珠子,下方动了$i+j-k$个珠子,并且两个装置截至目前的操作序列完全一样的方案数.显然$dp_{n,m,n}$即答案.</p>
-<h5><span id="example2">Example2</span></h5><p>求长度为$n$的排列的$(\sum_{i=2}^{n-1}[a_i&lt;a_{i-1}\And a_i&lt;a_{i+1}])^k$的期望$(n\leq 10^9,k\leq 500)$.</p>
-<p>$O(n^2k^2)$是显然的,枚举最小值在哪就行.</p>
-<p>注意到我们要求的是$\sum ans^k$,而加入$1$的时候,对于每个长度为$n-1$的排列,有$(n-2-2ans)$个位置加入后会使答案加一,那我们要求的也就是:</p>
-<script type="math/tex; mode=display">
-\sum(n-1-2ans)(ans+1)^k+\sum(2ans+2)ans^k</script><p>推一推式子就可以做到$O(nk^2)$,然后上拉格朗日插值就做完了.</p>
+<p>换句话说,由于每次<span class="math inline">\(f_i\)</span>最小的点不可能再被更新到,我们就把它设为已更新的点.当一个区间中的所有点都被标记为已更新后,我们就拿这个区间去更新别的点.</p>
+<p>我们把每个线段挂到线段树上的节点,当我们把一个点标记为已更新,也就是检查这个点对应的线段树上叶子节点到根的路径上所有的线段树节点对应的区间是否全更新.均摊下来,一个区间只会被检查<span class="math inline">\(\log n\)</span>次,这样就做完了.</p>
+<h3><span id="组合意义">组合意义</span></h3>
+<h5><span id="example1noi2009-管道取珠">Example1([NOI2009] 管道取珠)</span></h5>
+<p>考虑组合意义,<span class="math inline">\(\sum
+a_i^2\)</span>的意义也即满足操作序列<span class="math inline">\(u\)</span>和操作序列<span class="math inline">\(v\)</span>的最终结果相同的二元组<span class="math inline">\((u,v)\)</span>的数量.</p>
+<p>不妨设<span class="math inline">\(dp_{i,j,k}\)</span>为第一个装置上方已经动了<span class="math inline">\(i\)</span>个珠子,下放动了<span class="math inline">\(j\)</span>个珠子,第二个装置上方动了<span class="math inline">\(k\)</span>个珠子,下方动了<span class="math inline">\(i+j-k\)</span>个珠子,并且两个装置截至目前的操作序列完全一样的方案数.显然<span class="math inline">\(dp_{n,m,n}\)</span>即答案.</p>
+<h5><span id="example2">Example2</span></h5>
+<p>求长度为<span class="math inline">\(n\)</span>的排列的<span class="math inline">\((\sum_{i=2}^{n-1}[a_i&lt;a_{i-1}\And
+a_i&lt;a_{i+1}])^k\)</span>的期望<span class="math inline">\((n\leq
+10^9,k\leq 500)\)</span>.</p>
+<p><span class="math inline">\(O(n^2k^2)\)</span>是显然的,枚举最小值在哪就行.</p>
+<p>注意到我们要求的是<span class="math inline">\(\sum
+ans^k\)</span>,而加入<span class="math inline">\(1\)</span>的时候,对于每个长度为<span class="math inline">\(n-1\)</span>的排列,有<span class="math inline">\((n-2-2ans)\)</span>个位置加入后会使答案加一,那我们要求的也就是:
+<span class="math display">\[
+\sum(n-1-2ans)(ans+1)^k+\sum(2ans+2)ans^k
+\]</span> 推一推式子就可以做到<span class="math inline">\(O(nk^2)\)</span>,然后上拉格朗日插值就做完了.</p>
 <p>等一下,这是noip模拟赛啊,哪来的拉格朗日插值?</p>
-<p>注意到我们可以考虑组合意义,$ans^k$等价于从所有的地方中可重复地选出$k$个位置,如果随便选肯定可以钦定,问题在于可能会选出两个间隔为$1$的位置,这就比较麻烦了.所以我们不妨直接把所有被选中的位置求出来,能合并成一段波动序列的合并.这样,我们设$f_{i,j}$表示已经选了$i$段波动序列,其中有$j$个谷的方案数.最后这些谷每个至少被选中一次,做一个辅助数组维护波动序列的数量即可,复杂度$O(k^3)$.</p>
-<h3><span id="二项式定理展开">二项式定理展开</span></h3><h4><span id="example1">Example1</span></h4><p>求$\sum_{i=1}^n\sum_{j=1}^n(a_i\oplus a_j)^2$,$n\leq 10^5$,$a_i\leq 10^9$.</p>
-<p>考虑设$f_i$表示只考虑前$i$低的位置,高位全部默认为$0$的方案数.如果我们设$cnt_i$表示$a$中第$i$位为$1$的数个数,那根据$(a+b)^2=a^2+2ab+b^2$,我们只需要求出$g_{i}$表示只考虑前$i$低的位置,第$i+1$位是$1$的数和第$i+1$位是$0$的数两两异或之和,显然有$f_i=f_{i-1}+2cnt_i\times2^i\times g_{i-1}+cnt_i2^{i+1}$.</p>
-<p>$g$可以用$O(n\log a)$的复杂度求,这样总复杂度$O(n\log^2 a)$.</p>
-<h3><span id="线头dp">线头dp</span></h3><h5><span id="example120zr普及组五连测day1区间">Example1([20zr普及组五连测day1]区间)</span></h5><p>令$dp_{i,j,k}$表示目前倒到第$i$个水杯,前面还有$j$个延续过来的未结束的线头,目前已经选定了$k$个人,转移的话需要枚举当前有几个人在此开始以及有多少人在此结束,这样是$O(n^5)$的复杂度,不太能接受.但不妨考虑先将有几个人在此开始以及前面的继承处理到目前的数组中,然后再选择若干个人结束,这样分开了两个过程,于是实现了$O(n^4)$的复杂度.</p>
-<h5><span id="example22022qbxt国庆day6rps">Example2([2022qbxt国庆Day6]rps)</span></h5><p>首先三次询问的做法没区别,我们只考虑r的情况.</p>
-<p>注意到我们肯定是想拿s去把p杀掉,不然p就会把r杀掉.考虑一个线头dp,设$dp_{i,0/1/2}$表示前$i$个数,0:无接头;1:有接头无线头;2:有线头的情况.这样一个线头每延申就会使答案减少,而如果我们把一个?改为s也会使答案减少,大概做一做.</p>
-<h5><span id="example3coci2020-20212-svjetlo">Example3([COCI2020-2021#2] Svjetlo)</span></h5><p>首先发现,我们得到的序列不可能首尾相同,不然我们可以同时去掉开头和结尾.</p>
+<p>注意到我们可以考虑组合意义,<span class="math inline">\(ans^k\)</span>等价于从所有的地方中可重复地选出<span class="math inline">\(k\)</span>个位置,如果随便选肯定可以钦定,问题在于可能会选出两个间隔为<span class="math inline">\(1\)</span>的位置,这就比较麻烦了.所以我们不妨直接把所有被选中的位置求出来,能合并成一段波动序列的合并.这样,我们设<span class="math inline">\(f_{i,j}\)</span>表示已经选了<span class="math inline">\(i\)</span>段波动序列,其中有<span class="math inline">\(j\)</span>个谷的方案数.最后这些谷每个至少被选中一次,做一个辅助数组维护波动序列的数量即可,复杂度<span class="math inline">\(O(k^3)\)</span>.</p>
+<h3><span id="二项式定理展开">二项式定理展开</span></h3>
+<h4><span id="example1">Example1</span></h4>
+<p>求<span class="math inline">\(\sum_{i=1}^n\sum_{j=1}^n(a_i\oplus
+a_j)^2\)</span>,<span class="math inline">\(n\leq 10^5\)</span>,<span class="math inline">\(a_i\leq 10^9\)</span>.</p>
+<p>考虑设<span class="math inline">\(f_i\)</span>表示只考虑前<span class="math inline">\(i\)</span>低的位置,高位全部默认为<span class="math inline">\(0\)</span>的方案数.如果我们设<span class="math inline">\(cnt_i\)</span>表示<span class="math inline">\(a\)</span>中第<span class="math inline">\(i\)</span>位为<span class="math inline">\(1\)</span>的数个数,那根据<span class="math inline">\((a+b)^2=a^2+2ab+b^2\)</span>,我们只需要求出<span class="math inline">\(g_{i}\)</span>表示只考虑前<span class="math inline">\(i\)</span>低的位置,第<span class="math inline">\(i+1\)</span>位是<span class="math inline">\(1\)</span>的数和第<span class="math inline">\(i+1\)</span>位是<span class="math inline">\(0\)</span>的数两两异或之和,显然有<span class="math inline">\(f_i=f_{i-1}+2cnt_i\times2^i\times
+g_{i-1}+cnt_i2^{i+1}\)</span>.</p>
+<p><span class="math inline">\(g\)</span>可以用<span class="math inline">\(O(n\log a)\)</span>的复杂度求,这样总复杂度<span class="math inline">\(O(n\log^2 a)\)</span>.</p>
+<h3><span id="线头dp">线头dp</span></h3>
+<h5><span id="example120zr普及组五连测day1区间">Example1([20zr普及组五连测day1]区间)</span></h5>
+<p>令<span class="math inline">\(dp_{i,j,k}\)</span>表示目前倒到第<span class="math inline">\(i\)</span>个水杯,前面还有<span class="math inline">\(j\)</span>个延续过来的未结束的线头,目前已经选定了<span class="math inline">\(k\)</span>个人,转移的话需要枚举当前有几个人在此开始以及有多少人在此结束,这样是<span class="math inline">\(O(n^5)\)</span>的复杂度,不太能接受.但不妨考虑先将有几个人在此开始以及前面的继承处理到目前的数组中,然后再选择若干个人结束,这样分开了两个过程,于是实现了<span class="math inline">\(O(n^4)\)</span>的复杂度.</p>
+<h5><span id="example22022qbxt国庆day6rps">Example2([2022qbxt国庆Day6]rps)</span></h5>
+<p>首先三次询问的做法没区别,我们只考虑r的情况.</p>
+<p>注意到我们肯定是想拿s去把p杀掉,不然p就会把r杀掉.考虑一个线头dp,设<span class="math inline">\(dp_{i,0/1/2}\)</span>表示前<span class="math inline">\(i\)</span>个数,0:无接头;1:有接头无线头;2:有线头的情况.这样一个线头每延申就会使答案减少,而如果我们把一个?改为s也会使答案减少,大概做一做.</p>
+<h5><span id="example3coci2020-20212svjetlo">Example3([COCI2020-2021#2]
+Svjetlo)</span></h5>
+<p>首先发现,我们得到的序列不可能首尾相同,不然我们可以同时去掉开头和结尾.</p>
 <p>然后发现,如果一棵子树内的点全部被点亮,这棵子树可以直接删去.这一步是必须做的,不然会多一步讨论.</p>
-<p>我们设$dp_{u,0/1,1/2}$为$u$的状态为$0/1$,以$u$为根的子树内有$1/2$个线头的方案数.注意如果子树内有$0/2$个线头,那么会在$u$处存在两个接头;不然则会只存在一个接头.</p>
+<p>我们设<span class="math inline">\(dp_{u,0/1,1/2}\)</span>为<span class="math inline">\(u\)</span>的状态为<span class="math inline">\(0/1\)</span>,以<span class="math inline">\(u\)</span>为根的子树内有<span class="math inline">\(1/2\)</span>个线头的方案数.注意如果子树内有<span class="math inline">\(0/2\)</span>个线头,那么会在<span class="math inline">\(u\)</span>处存在两个接头;不然则会只存在一个接头.</p>
 <p>通过不断将下方的点合并到当前子树的根节点上,我们可以完成整个过程.</p>
-<p>注意到两个接头如果在相邻的两个节点就可以自动接起来,因此$dp_{u,s,2}$的两个接头实际上一个位于$u$,另一个位于$u$的随便一个儿子.</p>
+<p>注意到两个接头如果在相邻的两个节点就可以自动接起来,因此<span class="math inline">\(dp_{u,s,2}\)</span>的两个接头实际上一个位于<span class="math inline">\(u\)</span>,另一个位于<span class="math inline">\(u\)</span>的随便一个儿子.</p>
 <p>换句话说,做线头dp的时候一定要注意,线头的相接是自然的过程(即两个线头相邻就会相接)还是需要手动接起来的过程.</p>
-<h5><span id="example4cf626f">Example4(CF626F)</span></h5><p>先按照权值排序,一个人可以选择新建一个组,加入一个组,加入一个组并删除这个组</p>
-<p>设$dp_{i,j,k}$表示目前走到$i$,前面分成$j$组,总贡献不超过$k$的方案数.做的过程中是一个线头dp,每次每组的贡献都要加上当前位置和前面位置的差值.</p>
-<h5><span id="example5xvii-open-cup-named-after-ev-pankratiev-grand-prix-of-japanopenstrain-contest-1489-jtravel-in-sugar-country">Example5([XVII Open Cup named after E.V. Pankratiev. Grand Prix of Japan(openstrain contest 1489) J]Travel in Sugar Country)</span></h5><p>一条线段上有$n(\leq 100)$个商店,要从中选出$k(\leq 10)$个不同的商店$s_1,s_2,\cdots,s_k$,使得按顺序遍历这$k$个商店的路径长度是$m(\leq 30)$的倍数,求方案数.</p>
+<h5><span id="example4cf626f">Example4(CF626F)</span></h5>
+<p>先按照权值排序,一个人可以选择新建一个组,加入一个组,加入一个组并删除这个组</p>
+<p>设<span class="math inline">\(dp_{i,j,k}\)</span>表示目前走到<span class="math inline">\(i\)</span>,前面分成<span class="math inline">\(j\)</span>组,总贡献不超过<span class="math inline">\(k\)</span>的方案数.做的过程中是一个线头dp,每次每组的贡献都要加上当前位置和前面位置的差值.</p>
+<h5><span id="example5xviiopen-cup-named-after-ev-pankratiev-grand-prix-of-japanopenstraincontest-1489-jtravel-in-sugar-country">Example5([XVII
+Open Cup named after E.V. Pankratiev. Grand Prix of Japan(openstrain
+contest 1489) J]Travel in Sugar Country)</span></h5>
+<p>一条线段上有<span class="math inline">\(n(\leq
+100)\)</span>个商店,要从中选出<span class="math inline">\(k(\leq
+10)\)</span>个不同的商店<span class="math inline">\(s_1,s_2,\cdots,s_k\)</span>,使得按顺序遍历这<span class="math inline">\(k\)</span>个商店的路径长度是<span class="math inline">\(m(\leq 30)\)</span>的倍数,求方案数.</p>
 <p>这种来回走的也是一种线头dp的形式.</p>
-<p>我们设$dp_{i,j,w,l}$表示目前在判断了$i$个商店,选了$j$个,并且目前整个图有$w$条”路径”(连续走动),走过的路在$\bmod m$一意义下为$l$的方案数.最后的答案就是$dp_{n,k,1,0}$.</p>
-<p>首先,我们对每个点求出$D(1,x)$,然后$D(x,y)=|D(1,y)-D(1,x)|$,不难发现$x$越大$D(1,x)$越大(不考虑取膜的问题),因此如果我们按照从左到右的顺序逐渐往里加入,那么我们就需要讨论这个新加入的点它的左右点的$D$和它的大小关系,也就是它左右点的加入时间,这显然可以使用线头dp实现.</p>
-<p>我们先枚举一下起点和终点并将它们扔到图上,这样初始图上有一条路径($s_1\rightarrow s_1$),接下来,我们每插入一个点$x$,我们考虑它的贡献:</p>
-<ol>
-<li>新建一条路径,此时这个点的左右端点必然都是在他后面加入,它对总长度的贡献是$-2D(1,x)$,对方案数的贡献为$1$.</li>
-<li>插入到原来一条路径的开头/结尾.此时这个点有一个端点是比它早的,有一个会比它晚,对总长度的贡献为$0$.</li>
-<li>作为中心点合并两条路径,此时对总长度的贡献为$2D(1,x)$.</li>
+<p>我们设<span class="math inline">\(dp_{i,j,w,l}\)</span>表示目前在判断了<span class="math inline">\(i\)</span>个商店,选了<span class="math inline">\(j\)</span>个,并且目前整个图有<span class="math inline">\(w\)</span>条”路径”(连续走动),走过的路在<span class="math inline">\(\bmod m\)</span>一意义下为<span class="math inline">\(l\)</span>的方案数.最后的答案就是<span class="math inline">\(dp_{n,k,1,0}\)</span>.</p>
+<p>首先,我们对每个点求出<span class="math inline">\(D(1,x)\)</span>,然后<span class="math inline">\(D(x,y)=|D(1,y)-D(1,x)|\)</span>,不难发现<span class="math inline">\(x\)</span>越大<span class="math inline">\(D(1,x)\)</span>越大(不考虑取膜的问题),因此如果我们按照从左到右的顺序逐渐往里加入,那么我们就需要讨论这个新加入的点它的左右点的<span class="math inline">\(D\)</span>和它的大小关系,也就是它左右点的加入时间,这显然可以使用线头dp实现.</p>
+<p>我们先枚举一下起点和终点并将它们扔到图上,这样初始图上有一条路径(<span class="math inline">\(s_1\rightarrow
+s_1\)</span>),接下来,我们每插入一个点<span class="math inline">\(x\)</span>,我们考虑它的贡献:</p>
+<ol type="1">
+<li>新建一条路径,此时这个点的左右端点必然都是在他后面加入,它对总长度的贡献是<span class="math inline">\(-2D(1,x)\)</span>,对方案数的贡献为<span class="math inline">\(1\)</span>.</li>
+<li>插入到原来一条路径的开头/结尾.此时这个点有一个端点是比它早的,有一个会比它晚,对总长度的贡献为<span class="math inline">\(0\)</span>.</li>
+<li>作为中心点合并两条路径,此时对总长度的贡献为<span class="math inline">\(2D(1,x)\)</span>.</li>
 </ol>
-<p>这样我们就做到了$O(n^4km)$的复杂度.如果我们加两维$0/1$表示目前起点和终点是否加入,就可以把复杂度优化到$O(n^2km)$.</p>
-<h3><span id="相对顺序不变">相对顺序不变</span></h3><p>如果遇到一些会不断改变当前状态的题目,有时可以考虑改变前后的一些元素的相对顺序是否改变.以及如果有两个物体相遇后交换位置的题目,如果物体本质相同,同样可以考虑直接穿过而不是交换.</p>
-<h4><span id="example1bzoj4621tc605">Example1([bzoj4621]Tc605)</span></h4><p>注意到最终的序列一定是由若干个数字段组成,而数字段的顺序也即原本序列的顺序,于是此题显然.</p>
-<h3><span id="拆分区间">拆分区间</span></h3><p>有的时候,注意到一个区间可以通过某些方式拆分成两个区间(断点可能是需要枚举的,也可能是固定的),从而可以递归处理/区间dp.</p>
-<h4><span id="example122zr提高组十连测day4零二">Example1([22zr提高组十连测day4]零二)</span></h4><p>先考虑数字两两不同的时候怎么做,我们先找到$A$中的全局最大值所在位置和$B$中的全局最大值所在的位置.由于从堆中取出全局最大值后,堆一定成为了空堆.因此我们注意到此时$A$取出的数量和$B$的长度一定是相等的.</p>
-<p>进一步考虑,这意味着一个全局最大值将把$B$序列分成两部分,这两部分将由$A$中相等的两部分分别生成.不妨假设这个全局最大值的位置是$x$,那么对于$[1,x]$这一段的$A$生成的$B$数组,它的最大值一定在末尾位置,而前面任意,显然它的数量等价于直接删掉最大值后的$A$能生成的$B$的数量.对于$[1,x+1]$则任意.</p>
-<p>那么我们所需要做的就是求出$A$的某一段删掉若干次最大值后的序列所能生成的$B$的数量.不妨设$dp_{l,r,i}$表示$[l,r]$中所有$\leq i$的数字组成的序列所能生成的数量.</p>
-<p>如果$[l,r]$这段区间中没有数字$i$,那显然$dp_{l,r,i}=dp_{l,r,i-1}$,不然,我们可以枚举两端分开的位置,那这个位置一定在数字$i$的后面.于是可以转移.</p>
+<p>这样我们就做到了<span class="math inline">\(O(n^4km)\)</span>的复杂度.如果我们加两维<span class="math inline">\(0/1\)</span>表示目前起点和终点是否加入,就可以把复杂度优化到<span class="math inline">\(O(n^2km)\)</span>.</p>
+<h3><span id="相对顺序不变">相对顺序不变</span></h3>
+<p>如果遇到一些会不断改变当前状态的题目,有时可以考虑改变前后的一些元素的相对顺序是否改变.以及如果有两个物体相遇后交换位置的题目,如果物体本质相同,同样可以考虑直接穿过而不是交换.</p>
+<h4><span id="example1bzoj4621tc605">Example1([bzoj4621]Tc605)</span></h4>
+<p>注意到最终的序列一定是由若干个数字段组成,而数字段的顺序也即原本序列的顺序,于是此题显然.</p>
+<h3><span id="拆分区间">拆分区间</span></h3>
+<p>有的时候,注意到一个区间可以通过某些方式拆分成两个区间(断点可能是需要枚举的,也可能是固定的),从而可以递归处理/区间dp.</p>
+<h4><span id="example122zr提高组十连测day4零二">Example1([22zr提高组十连测day4]零二)</span></h4>
+<p>先考虑数字两两不同的时候怎么做,我们先找到<span class="math inline">\(A\)</span>中的全局最大值所在位置和<span class="math inline">\(B\)</span>中的全局最大值所在的位置.由于从堆中取出全局最大值后,堆一定成为了空堆.因此我们注意到此时<span class="math inline">\(A\)</span>取出的数量和<span class="math inline">\(B\)</span>的长度一定是相等的.</p>
+<p>进一步考虑,这意味着一个全局最大值将把<span class="math inline">\(B\)</span>序列分成两部分,这两部分将由<span class="math inline">\(A\)</span>中相等的两部分分别生成.不妨假设这个全局最大值的位置是<span class="math inline">\(x\)</span>,那么对于<span class="math inline">\([1,x]\)</span>这一段的<span class="math inline">\(A\)</span>生成的<span class="math inline">\(B\)</span>数组,它的最大值一定在末尾位置,而前面任意,显然它的数量等价于直接删掉最大值后的<span class="math inline">\(A\)</span>能生成的<span class="math inline">\(B\)</span>的数量.对于<span class="math inline">\([1,x+1]\)</span>则任意.</p>
+<p>那么我们所需要做的就是求出<span class="math inline">\(A\)</span>的某一段删掉若干次最大值后的序列所能生成的<span class="math inline">\(B\)</span>的数量.不妨设<span class="math inline">\(dp_{l,r,i}\)</span>表示<span class="math inline">\([l,r]\)</span>中所有<span class="math inline">\(\leq i\)</span>的数字组成的序列所能生成的数量.</p>
+<p>如果<span class="math inline">\([l,r]\)</span>这段区间中没有数字<span class="math inline">\(i\)</span>,那显然<span class="math inline">\(dp_{l,r,i}=dp_{l,r,i-1}\)</span>,不然,我们可以枚举两端分开的位置,那这个位置一定在数字<span class="math inline">\(i\)</span>的后面.于是可以转移.</p>
 <p>至于可能出现相同数字的情况,我们只需要把每个数字的下标作为第二关键字即可,容易发现这样做之后转化为了两两不同的情况.</p>
-<h4><span id="example2sdoi2010地精部落">Example2([SDOI2010]地精部落)</span></h4><p>注意到第$n$个元素一定是山峰.所以我们考虑用第$n$个元素分割整个区间为两部分.</p>
-<p>设$f_n$为$n$个元素且开头为山谷的答案.枚举第$n$个元素在位置$k$($k-1$是奇数),则$f_kf_{n-1-k}\binom{n-1}{k}\rightarrow f_n$.</p>
-<h4><span id="example3">Example3</span></h4><p>给定数组$a$,每次可以选择一个数删掉并把两边的数接起来,要求操作过程中不能出现相邻的数相同,求方案数.$n\leq 500$.</p>
-<p>考虑枚举最后选的点,那么这个点左右一定互不相干.我们假设$f_{l,r}$为将$[l,r]$删干净后再去删$a_{l-1},a_{r+1}$的方案数,然后枚举$[l,r]$中最后删哪个点即可做区间dp.</p>
-<h4><span id="example4agc039e-pairing-points">Example4([AGC039E] Pairing Points)</span></h4><p>注意到这么一个事实:如果场上已经有了一个叉,那么接下来的边不能再穿过这个叉了.</p>
-<p>首先需要破环为链,考虑从$1$号点这里断开,枚举$1$号点连接哪个点,然后就可以让$(2,2n)$这些点断开了.我们设计$f_{i,j,k}$或$<a href="k">i,j</a>$表示区间$[i,j]$中的$k$向外连了一条边.答案是枚举$1$号点连了哪个点,也就是$\sum_{i=3}^{2n-1} f_{2,2n,i}$.</p>
-<p>于是我们现在的问题在于如何求$f_{i,j,k}$.由于边要联通,所以与$k$相连的这条边必然被$[i,j]$中的某两个点所连接的边穿过.我们考虑枚举最靠外的那条边,假设为$x\leftrightarrow y$.这样整个区间被分为了两个部分:$<a href="x">i,k</a>,<a href="y">k,j</a>$.但是问题并没有得到解决.因为$[i,x]$和$[y,j]$之间的确不可能出现连边了,但$[x,k]$和$[k,y]$之间仍然可能出现连边.但我们发现:在$[i,k]$中一定存在一个分界线,使得分界线两侧是连到不同的两边的.</p>
-<p>我们不妨再枚举一下这两个分界线,分别设为$p,q$.现在整个区间被分为了三个部分:$<a href="x">i,p</a>,<a href="k">p,q</a>,<a href="y">q,j</a>$,三个部分之间并没有连边,于是成功将区间拆分.</p>
+<h4><span id="example2sdoi2010地精部落">Example2([SDOI2010]地精部落)</span></h4>
+<p>注意到第<span class="math inline">\(n\)</span>个元素一定是山峰.所以我们考虑用第<span class="math inline">\(n\)</span>个元素分割整个区间为两部分.</p>
+<p>设<span class="math inline">\(f_n\)</span>为<span class="math inline">\(n\)</span>个元素且开头为山谷的答案.枚举第<span class="math inline">\(n\)</span>个元素在位置<span class="math inline">\(k\)</span>(<span class="math inline">\(k-1\)</span>是奇数),则<span class="math inline">\(f_kf_{n-1-k}\binom{n-1}{k}\rightarrow
+f_n\)</span>.</p>
+<h4><span id="example3">Example3</span></h4>
+<p>给定数组<span class="math inline">\(a\)</span>,每次可以选择一个数删掉并把两边的数接起来,要求操作过程中不能出现相邻的数相同,求方案数.<span class="math inline">\(n\leq 500\)</span>.</p>
+<p>考虑枚举最后选的点,那么这个点左右一定互不相干.我们假设<span class="math inline">\(f_{l,r}\)</span>为将<span class="math inline">\([l,r]\)</span>删干净后再去删<span class="math inline">\(a_{l-1},a_{r+1}\)</span>的方案数,然后枚举<span class="math inline">\([l,r]\)</span>中最后删哪个点即可做区间dp.</p>
+<h4><span id="example4agc039e-pairingpoints">Example4([AGC039E] Pairing
+Points)</span></h4>
+<p>注意到这么一个事实:如果场上已经有了一个叉,那么接下来的边不能再穿过这个叉了.</p>
+<p>首先需要破环为链,考虑从<span class="math inline">\(1\)</span>号点这里断开,枚举<span class="math inline">\(1\)</span>号点连接哪个点,然后就可以让<span class="math inline">\((2,2n)\)</span>这些点断开了.我们设计<span class="math inline">\(f_{i,j,k}\)</span>或<span class="math inline">\([i,j](k)\)</span>表示区间<span class="math inline">\([i,j]\)</span>中的<span class="math inline">\(k\)</span>向外连了一条边.答案是枚举<span class="math inline">\(1\)</span>号点连了哪个点,也就是<span class="math inline">\(\sum_{i=3}^{2n-1} f_{2,2n,i}\)</span>.</p>
+<p>于是我们现在的问题在于如何求<span class="math inline">\(f_{i,j,k}\)</span>.由于边要联通,所以与<span class="math inline">\(k\)</span>相连的这条边必然被<span class="math inline">\([i,j]\)</span>中的某两个点所连接的边穿过.我们考虑枚举最靠外的那条边,假设为<span class="math inline">\(x\leftrightarrow
+y\)</span>.这样整个区间被分为了两个部分:<span class="math inline">\([i,k](x),[k,j](y)\)</span>.但是问题并没有得到解决.因为<span class="math inline">\([i,x]\)</span>和<span class="math inline">\([y,j]\)</span>之间的确不可能出现连边了,但<span class="math inline">\([x,k]\)</span>和<span class="math inline">\([k,y]\)</span>之间仍然可能出现连边.但我们发现:在<span class="math inline">\([i,k]\)</span>中一定存在一个分界线,使得分界线两侧是连到不同的两边的.</p>
+<p>我们不妨再枚举一下这两个分界线,分别设为<span class="math inline">\(p,q\)</span>.现在整个区间被分为了三个部分:<span class="math inline">\([i,p](x),[p,q](k),[q,j](y)\)</span>,三个部分之间并没有连边,于是成功将区间拆分.</p>
 <p>这个故事告诉我们:拆分区间的很重要的条件是:将一个区间拆分为若干相互无联系的区间,而我们的重点就是找到一种方式使得区间间相互无联系.</p>
-<h4><span id="example5agc035d-add-and-remove">Example5([AGC035D] Add and Remove)</span></h4><p>首先自然想到区间dp.但是难以处理的是如果一个区间$[l,r]$中间删掉一个点$p$之后,$[l,p-1]$和$[p+1,r]$会拼起来,仍然会相互影响.</p>
-<p>换一种方式,我们找到$[l+1,r-1]$中最后删除的点$p$,这样区间$[l,r]$的答案就是最终三个数的答案.这么枚举的好处是,我们发现删除$[l+1,p-1]$的时候,对$p$产生的贡献和删除$[p+1,r-1]$的时候对$p$的贡献是完全独立的,他俩可以分开.</p>
-<p>再看每个位置的贡献,我们考虑计算出这个位置会对答案贡献多少倍,不妨假设$a_l$贡献了$x$倍,$a_r$贡献了$y$倍,那么由于$a_p$会两边都贡献到,所以$a_p$会对答案贡献$x+y$倍.</p>
-<p>于是设计一个dp是:$f_{l,r,x,y}$表示删除$[l+1,r-1]$后,$xa_l+ya_r$最小是多少.自然有$f_{l,r,x,y}=\min\{f_{l,p,x,x+y}+f_{p,r,x+y,y}+(x+y)a_p\}$.</p>
-<p>至于复杂度,前两维肯定是$n^2$的空间复杂度,而后两维则意味着每次向下会由两个转移而来,最多转移$n$层,因此是$2^n$的空间,于是时间复杂度不会超过$O(n^32^n)$,其实经过一些奇怪计算应该是不会超过$O(2^n)$的.</p>
-<h4><span id="example6cf607bzuma">Example6([CF607B]Zuma)</span></h4><p>这个题的关键在于拆分区间,因此一定要判断哪个点是最后删除的.</p>
-<p>我们不妨设$f_{l,r}$表示删除$[l,r]$区间的代价.接下来我们无非要枚举$k$,使得$k$是最后删的.但发现这很难处理.</p>
-<p>所以我们怎么办呢?我们考虑判断边界是如何删掉的.比如$l$,它要么是自己被删,要么一定是找到一个和它一样的点,这两个点一起删.我们注意到如果$a_l=a_k$,那么这等价于$f_{l+1,k-1}+[l=k-1]+f_{k+1,r}$.因此可以做区间dp了.</p>
-<h4><span id="example7loj-3215">Example7(LOJ 3215)</span></h4><p>首先考虑一下$m=2^k-1$的情况,首先我们要判断有几个数最高位是$1$,然后接下来判断第二位哪些数字是$1$.</p>
-<p>我们发现这类似一个拆分区间的过程,因为当我们决定了最高位之后,最高位是$1$的就一定大于最高位是$0$的了,这两个区间就没有影响了.因此可以设$f_{l,r,k}$表示$[l,r]$这个区间,前面已经有了$k$个$1$的最大贡献.</p>
-<p>那么对于$m\ne 2^k-1$的情况我们怎么办呢?我们只需要类似数位dp那样在状态里加一个lim防止超过$m$就行了.</p>
-<h3><span id="相互独立">相互独立</span></h3><h5><span id="example12019zrtg十连测day1-origami">Example1(2019zrtg十连测day1 origami)</span></h5><p>看上去很不好做,先考虑宽为$1$怎么做.</p>
-<p>这个时候放在最下面的显然是一段区间,不难发现有一个暴力做法是,我们枚举这段区间$[l,r]$,然后看$[1,l-1]$和$[r+1,m]$能不能折进来.也就是判断以$r$和$r+1$为中心的回文串最大长度以及在这个范围内有没有已经折进来的区间.想到这一步,不难发现左右是独立的.</p>
-<p>于是我们设$f_i$表示能不能折成以$[1,i]$为最下层,$g_i$表示能不能折成$[i,n]$为最下层,那$[l,r]$能折出来当且仅当$f_r=g_l=1$,做个前缀和就可以知道有多少个区间能折出来.</p>
+<h4><span id="example5agc035d-add-andremove">Example5([AGC035D] Add and
+Remove)</span></h4>
+<p>首先自然想到区间dp.但是难以处理的是如果一个区间<span class="math inline">\([l,r]\)</span>中间删掉一个点<span class="math inline">\(p\)</span>之后,<span class="math inline">\([l,p-1]\)</span>和<span class="math inline">\([p+1,r]\)</span>会拼起来,仍然会相互影响.</p>
+<p>换一种方式,我们找到<span class="math inline">\([l+1,r-1]\)</span>中最后删除的点<span class="math inline">\(p\)</span>,这样区间<span class="math inline">\([l,r]\)</span>的答案就是最终三个数的答案.这么枚举的好处是,我们发现删除<span class="math inline">\([l+1,p-1]\)</span>的时候,对<span class="math inline">\(p\)</span>产生的贡献和删除<span class="math inline">\([p+1,r-1]\)</span>的时候对<span class="math inline">\(p\)</span>的贡献是完全独立的,他俩可以分开.</p>
+<p>再看每个位置的贡献,我们考虑计算出这个位置会对答案贡献多少倍,不妨假设<span class="math inline">\(a_l\)</span>贡献了<span class="math inline">\(x\)</span>倍,<span class="math inline">\(a_r\)</span>贡献了<span class="math inline">\(y\)</span>倍,那么由于<span class="math inline">\(a_p\)</span>会两边都贡献到,所以<span class="math inline">\(a_p\)</span>会对答案贡献<span class="math inline">\(x+y\)</span>倍.</p>
+<p>于是设计一个dp是:<span class="math inline">\(f_{l,r,x,y}\)</span>表示删除<span class="math inline">\([l+1,r-1]\)</span>后,<span class="math inline">\(xa_l+ya_r\)</span>最小是多少.自然有<span class="math inline">\(f_{l,r,x,y}=\min\{f_{l,p,x,x+y}+f_{p,r,x+y,y}+(x+y)a_p\}\)</span>.</p>
+<p>至于复杂度,前两维肯定是<span class="math inline">\(n^2\)</span>的空间复杂度,而后两维则意味着每次向下会由两个转移而来,最多转移<span class="math inline">\(n\)</span>层,因此是<span class="math inline">\(2^n\)</span>的空间,于是时间复杂度不会超过<span class="math inline">\(O(n^32^n)\)</span>,其实经过一些奇怪计算应该是不会超过<span class="math inline">\(O(2^n)\)</span>的.</p>
+<h4><span id="example6cf607bzuma">Example6([CF607B]Zuma)</span></h4>
+<p>这个题的关键在于拆分区间,因此一定要判断哪个点是最后删除的.</p>
+<p>我们不妨设<span class="math inline">\(f_{l,r}\)</span>表示删除<span class="math inline">\([l,r]\)</span>区间的代价.接下来我们无非要枚举<span class="math inline">\(k\)</span>,使得<span class="math inline">\(k\)</span>是最后删的.但发现这很难处理.</p>
+<p>所以我们怎么办呢?我们考虑判断边界是如何删掉的.比如<span class="math inline">\(l\)</span>,它要么是自己被删,要么一定是找到一个和它一样的点,这两个点一起删.我们注意到如果<span class="math inline">\(a_l=a_k\)</span>,那么这等价于<span class="math inline">\(f_{l+1,k-1}+[l=k-1]+f_{k+1,r}\)</span>.因此可以做区间dp了.</p>
+<h4><span id="example7loj-3215">Example7(LOJ 3215)</span></h4>
+<p>首先考虑一下<span class="math inline">\(m=2^k-1\)</span>的情况,首先我们要判断有几个数最高位是<span class="math inline">\(1\)</span>,然后接下来判断第二位哪些数字是<span class="math inline">\(1\)</span>.</p>
+<p>我们发现这类似一个拆分区间的过程,因为当我们决定了最高位之后,最高位是<span class="math inline">\(1\)</span>的就一定大于最高位是<span class="math inline">\(0\)</span>的了,这两个区间就没有影响了.因此可以设<span class="math inline">\(f_{l,r,k}\)</span>表示<span class="math inline">\([l,r]\)</span>这个区间,前面已经有了<span class="math inline">\(k\)</span>个<span class="math inline">\(1\)</span>的最大贡献.</p>
+<p>那么对于<span class="math inline">\(m\ne
+2^k-1\)</span>的情况我们怎么办呢?我们只需要类似数位dp那样在状态里加一个lim防止超过<span class="math inline">\(m\)</span>就行了.</p>
+<h3><span id="相互独立">相互独立</span></h3>
+<h5><span id="example12019zrtg十连测day1origami">Example1(2019zrtg十连测day1
+origami)</span></h5>
+<p>看上去很不好做,先考虑宽为<span class="math inline">\(1\)</span>怎么做.</p>
+<p>这个时候放在最下面的显然是一段区间,不难发现有一个暴力做法是,我们枚举这段区间<span class="math inline">\([l,r]\)</span>,然后看<span class="math inline">\([1,l-1]\)</span>和<span class="math inline">\([r+1,m]\)</span>能不能折进来.也就是判断以<span class="math inline">\(r\)</span>和<span class="math inline">\(r+1\)</span>为中心的回文串最大长度以及在这个范围内有没有已经折进来的区间.想到这一步,不难发现左右是独立的.</p>
+<p>于是我们设<span class="math inline">\(f_i\)</span>表示能不能折成以<span class="math inline">\([1,i]\)</span>为最下层,<span class="math inline">\(g_i\)</span>表示能不能折成<span class="math inline">\([i,n]\)</span>为最下层,那<span class="math inline">\([l,r]\)</span>能折出来当且仅当<span class="math inline">\(f_r=g_l=1\)</span>,做个前缀和就可以知道有多少个区间能折出来.</p>
 <p>通过上面的启示,我们不难发现横着折和竖着折也是相互独立的,于是分别算出答案后乘起来就好.</p>
-<h5><span id="example2cf1616g-just-add-an-edge">Example2(CF1616G Just Add an Edge)</span></h5><p>我们来一点一点捋这个题:</p>
-<p>首先,任意一条路径一定形如$1\rightarrow x\cup y\rightarrow n$,并且$1\rightarrow x$和$y\rightarrow n$不交,然后添加边$x\rightarrow y$.</p>
-<p>那么什么时候$1\rightarrow x$和$y\rightarrow n$没有交并且他们的并是$[1,n]$呢?考虑将$1\rightarrow x$这条路径上的点染色为$0$,$y\rightarrow n$上的点染色为$1$,由于边只有从前往后的,因此$[1,y-1]$必然为$0$,$[x+1,n]$必然为$1$.至于中间部分一定是一段一段地跳跃.</p>
-<p>我们用dp做中间的跳跃过程,具体地,假设我们已经确定了$y$,现在想要找到$x$,我们现在假设染色的末尾是$(i,i+1)$,也就是$i$染色和$i+1$的染色不一样,然后不断向后接上就行.</p>
-<p>那么怎么优化这个dp呢?我们找到任意一个$p$,满足$p\nrightarrow p+1$,那么$p$和$p+1$永远不可能染同种颜色,我们直接以它为断点,自然发现$p$的左右两部分独立.</p>
-<p>然后就是这题的细节部分,首先是计数的时候有可能算上了$p\rightarrow p+1$这条边,要特判.另外的问题是会发现首尾的位置很特殊,这里的做法是建立$0$和$n+1$两个虚点,向所有点连边.</p>
-<p>总之$O(nm)$的dp是自然的,而且会发现这个是一个类似连续性的东西,因此想到了在中间找断点中间合并,进一步发现左右两部分无关.</p>
-<h3><span id="费用提前延后计算">费用提前/延后计算</span></h3><p>有的时候,我们注意到一个费用是很难及时算到dp数组里的,但是这个费用可能可以早在之前题前算上或之后再补上.</p>
-<h5><span id="example122zr提高组十连测day3多">Example1([22zr提高组十连测day3]多)</span></h5><p>首先考虑已知一个序列,如何快速求它最后有几个位置不是$0$.考虑从后往前枚举,每次判断当前数是否在以前已经枚举到过,如果枚举过就将其$-1$并重复判断操作,直到为$0$或得到一个没有出现过的数.</p>
-<p>考虑设计dp状态,判断一个位置是否能是$0$相当于判断后面的已知序列的$mex$,这个要记入状态中,于是考虑设$dp_{i,j}$表示当前到了第$i$个位置,后面的数的$mex-1$是$j$的方案数.</p>
-<p>但是如果直接这么设会发现,当前$i$的加入有可能会改变$mex$的值,而这个改变是很难处理的,因为如果$i$位置选择了$j+1$这个数字,那么$mex$要向上伸展到某一个值,而如果不选择$j+1$,也有可能选择一个更大的值后不断落到$j+1$,这意味着我们转移时需要枚举补上$j+1$这个数字后的$mex$并用刷表法转移.</p>
-<p>不妨设这个数字是$k$.如果我们插入一个数字后直接更新当前的答案,可以发现这个$k$是没有办法处理的.所以考虑延后计算费用,即当我们插入的数字并没有引起$mex$的改变的时候,忽略此时带来的组合数贡献(因为这个数字可以任选,可以理解为将其暂时存下来后来需要它的时候再把它乘入答案);当我们引起改变的时候,我们从之前存下来的那些数字中取出一些补全$[j+2,k]$这些数字.</p>
-<p>另外,注意到计算组合数的时候每个数字有两个,没有办法判断当前还剩下哪些数字,不妨直接认为两个相等的数字本质不同,算完答案后再整体除以$2^{n}$.</p>
-<h5><span id="example2022zrnoip十连测day9-消失vanish">Example(2022zrnoip十连测day9-消失(vanish))</span></h5><p>$O(n^3)$的暴力是显然的:设$f_{i,j,k}$表示目前考虑到第$i$个位置,前面还有$j$个A,已经选了$k$个B的方案数,对A也类似做一做,最后枚举中点合并即可.</p>
-<p>问题在于如何优化到$n^2$.</p>
-<p>第一反应是删掉一维,但是这三维好像哪一位都不能删:第二维要累积答案,第三维要最后做合并.但是,注意到第二维和第三维可以合并!换句话说,我们做一个费用提前计算,每次加入A的时候,枚举它接下来要杀掉几个B,那我们接下来就额外多需要一些B.于是我们设$f_{i,j}$表示目前考虑到$i$,还需要$j$个B才能凑齐$c_B$个B的答案,就可以实现了.</p>
+<h5><span id="example2cf1616g-just-add-anedge">Example2(CF1616G Just Add an
+Edge)</span></h5>
+<p>我们来一点一点捋这个题:</p>
+<p>首先,任意一条路径一定形如<span class="math inline">\(1\rightarrow
+x\cup y\rightarrow n\)</span>,并且<span class="math inline">\(1\rightarrow x\)</span>和<span class="math inline">\(y\rightarrow n\)</span>不交,然后添加边<span class="math inline">\(x\rightarrow y\)</span>.</p>
+<p>那么什么时候<span class="math inline">\(1\rightarrow
+x\)</span>和<span class="math inline">\(y\rightarrow
+n\)</span>没有交并且他们的并是<span class="math inline">\([1,n]\)</span>呢?考虑将<span class="math inline">\(1\rightarrow x\)</span>这条路径上的点染色为<span class="math inline">\(0\)</span>,<span class="math inline">\(y\rightarrow n\)</span>上的点染色为<span class="math inline">\(1\)</span>,由于边只有从前往后的,因此<span class="math inline">\([1,y-1]\)</span>必然为<span class="math inline">\(0\)</span>,<span class="math inline">\([x+1,n]\)</span>必然为<span class="math inline">\(1\)</span>.至于中间部分一定是一段一段地跳跃.</p>
+<p>我们用dp做中间的跳跃过程,具体地,假设我们已经确定了<span class="math inline">\(y\)</span>,现在想要找到<span class="math inline">\(x\)</span>,我们现在假设染色的末尾是<span class="math inline">\((i,i+1)\)</span>,也就是<span class="math inline">\(i\)</span>染色和<span class="math inline">\(i+1\)</span>的染色不一样,然后不断向后接上就行.</p>
+<p>那么怎么优化这个dp呢?我们找到任意一个<span class="math inline">\(p\)</span>,满足<span class="math inline">\(p\nrightarrow p+1\)</span>,那么<span class="math inline">\(p\)</span>和<span class="math inline">\(p+1\)</span>永远不可能染同种颜色,我们直接以它为断点,自然发现<span class="math inline">\(p\)</span>的左右两部分独立.</p>
+<p>然后就是这题的细节部分,首先是计数的时候有可能算上了<span class="math inline">\(p\rightarrow
+p+1\)</span>这条边,要特判.另外的问题是会发现首尾的位置很特殊,这里的做法是建立<span class="math inline">\(0\)</span>和<span class="math inline">\(n+1\)</span>两个虚点,向所有点连边.</p>
+<p>总之<span class="math inline">\(O(nm)\)</span>的dp是自然的,而且会发现这个是一个类似连续性的东西,因此想到了在中间找断点中间合并,进一步发现左右两部分无关.</p>
+<h3><span id="费用提前延后计算">费用提前/延后计算</span></h3>
+<p>有的时候,我们注意到一个费用是很难及时算到dp数组里的,但是这个费用可能可以早在之前题前算上或之后再补上.</p>
+<p>#####Example1([22zr提高组十连测day3]多)</p>
+<p>首先考虑已知一个序列,如何快速求它最后有几个位置不是<span class="math inline">\(0\)</span>.考虑从后往前枚举,每次判断当前数是否在以前已经枚举到过,如果枚举过就将其<span class="math inline">\(-1\)</span>并重复判断操作,直到为<span class="math inline">\(0\)</span>或得到一个没有出现过的数.</p>
+<p>考虑设计dp状态,判断一个位置是否能是<span class="math inline">\(0\)</span>相当于判断后面的已知序列的<span class="math inline">\(mex\)</span>,这个要记入状态中,于是考虑设<span class="math inline">\(dp_{i,j}\)</span>表示当前到了第<span class="math inline">\(i\)</span>个位置,后面的数的<span class="math inline">\(mex-1\)</span>是<span class="math inline">\(j\)</span>的方案数.</p>
+<p>但是如果直接这么设会发现,当前<span class="math inline">\(i\)</span>的加入有可能会改变<span class="math inline">\(mex\)</span>的值,而这个改变是很难处理的,因为如果<span class="math inline">\(i\)</span>位置选择了<span class="math inline">\(j+1\)</span>这个数字,那么<span class="math inline">\(mex\)</span>要向上伸展到某一个值,而如果不选择<span class="math inline">\(j+1\)</span>,也有可能选择一个更大的值后不断落到<span class="math inline">\(j+1\)</span>,这意味着我们转移时需要枚举补上<span class="math inline">\(j+1\)</span>这个数字后的<span class="math inline">\(mex\)</span>并用刷表法转移.</p>
+<p>不妨设这个数字是<span class="math inline">\(k\)</span>.如果我们插入一个数字后直接更新当前的答案,可以发现这个<span class="math inline">\(k\)</span>是没有办法处理的.所以考虑延后计算费用,即当我们插入的数字并没有引起<span class="math inline">\(mex\)</span>的改变的时候,忽略此时带来的组合数贡献(因为这个数字可以任选,可以理解为将其暂时存下来后来需要它的时候再把它乘入答案);当我们引起改变的时候,我们从之前存下来的那些数字中取出一些补全<span class="math inline">\([j+2,k]\)</span>这些数字.</p>
+<p>另外,注意到计算组合数的时候每个数字有两个,没有办法判断当前还剩下哪些数字,不妨直接认为两个相等的数字本质不同,算完答案后再整体除以<span class="math inline">\(2^{n}\)</span>.</p>
+<h5><span id="example2022zrnoip十连测day9-消失vanish">Example(2022zrnoip十连测day9-消失(vanish))</span></h5>
+<p><span class="math inline">\(O(n^3)\)</span>的暴力是显然的:设<span class="math inline">\(f_{i,j,k}\)</span>表示目前考虑到第<span class="math inline">\(i\)</span>个位置,前面还有<span class="math inline">\(j\)</span>个A,已经选了<span class="math inline">\(k\)</span>个B的方案数,对A也类似做一做,最后枚举中点合并即可.</p>
+<p>问题在于如何优化到<span class="math inline">\(n^2\)</span>.</p>
+<p>第一反应是删掉一维,但是这三维好像哪一位都不能删:第二维要累积答案,第三维要最后做合并.但是,注意到第二维和第三维可以合并!换句话说,我们做一个费用提前计算,每次加入A的时候,枚举它接下来要杀掉几个B,那我们接下来就额外多需要一些B.于是我们设<span class="math inline">\(f_{i,j}\)</span>表示目前考虑到<span class="math inline">\(i\)</span>,还需要<span class="math inline">\(j\)</span>个B才能凑齐<span class="math inline">\(c_B\)</span>个B的答案,就可以实现了.</p>
 <p>咋说呢,大概是发现答案和后两维有关,而且注意到后两维之和是不大的,于是考虑把它俩合并起来做费用提前计算.</p>
-<h3><span id="建立双射">建立双射</span></h3><h5><span id="example1sdoi2010地精部落">Example1([SDOI2010]地精部落)</span></h5><p>设$f_{i,j}$表示长度为$i$,开头为山峰且高度为$j$的方案数;$g_{i,j}$表示长度为$i$,开头为山谷且高度为$j$的方案数.注意到这俩显然是一个双射,也就是$f_{i,j}=g_{i,i-j+1}$.</p>
-<p>首先我们可以插入一个数,假如插入的数是山峰,那原本的所有大于等于$j$的数都向上平移一格,于是自然有:$f_{i,j}=\sum_{k=1}^{j-1}g_{i-1,k}=\sum_{k=1}^{j-1}f_{i-1,i-k}$.</p>
-<p>另外,这个式子可以稍微转化为:$f_{i,j}=f_{i-1,i-j+1}+f_{i,j-1}=g_{i-1,j-1}+f_{i,j-1}$.</p>
-<p>上式可以这么理解:我们讨论一下$j$和$j-1$是否相邻,如果相邻必然是$j$是山峰,$j-1$是山谷,不然则交换它俩后也仍然是合法的序列.</p>
-<h5><span id="example22019zrtg十连测day1-group">Example2(2019zrtg十连测day1 group)</span></h5><p>首先注意到$2k\leq n\and nk\leq 10^5$,不难发现$k\leq 500$.</p>
+<p>###建立双射</p>
+<p>#####Example1([SDOI2010]地精部落)</p>
+<p>设<span class="math inline">\(f_{i,j}\)</span>表示长度为<span class="math inline">\(i\)</span>,开头为山峰且高度为<span class="math inline">\(j\)</span>的方案数;<span class="math inline">\(g_{i,j}\)</span>表示长度为<span class="math inline">\(i\)</span>,开头为山谷且高度为<span class="math inline">\(j\)</span>的方案数.注意到这俩显然是一个双射,也就是<span class="math inline">\(f_{i,j}=g_{i,i-j+1}\)</span>.</p>
+<p>首先我们可以插入一个数,假如插入的数是山峰,那原本的所有大于等于<span class="math inline">\(j\)</span>的数都向上平移一格,于是自然有:<span class="math inline">\(f_{i,j}=\sum_{k=1}^{j-1}g_{i-1,k}=\sum_{k=1}^{j-1}f_{i-1,i-k}\)</span>.</p>
+<p>另外,这个式子可以稍微转化为:<span class="math inline">\(f_{i,j}=f_{i-1,i-j+1}+f_{i,j-1}=g_{i-1,j-1}+f_{i,j-1}\)</span>.</p>
+<p>上式可以这么理解:我们讨论一下<span class="math inline">\(j\)</span>和<span class="math inline">\(j-1\)</span>是否相邻,如果相邻必然是<span class="math inline">\(j\)</span>是山峰,<span class="math inline">\(j-1\)</span>是山谷,不然则交换它俩后也仍然是合法的序列.</p>
+<h5><span id="example22019zrtg十连测day1group">Example2(2019zrtg十连测day1
+group)</span></h5>
+<p>首先注意到<span class="math inline">\(2k\leq n\and nk\leq
+10^5\)</span>,不难发现<span class="math inline">\(k\leq
+500\)</span>.</p>
 <p>冷静一下,发现如果我们把所有组长列出来按照经验排序,再把所有组员列出来按照经验排序,然后按照顺序匹对一定是最优的.</p>
-<p>再冷静一下,类似卡特兰数,这等价于先把所有人按照经验从小到大排序,然后任意前缀选择的组长数量大于等于组员,枚举这个差量和前面选的组长的总量就可以做到$O(nk^2)$.当然其实只要控制组长的数量大于等于组员的数量即可.</p>
+<p>再冷静一下,类似卡特兰数,这等价于先把所有人按照经验从小到大排序,然后任意前缀选择的组长数量大于等于组员,枚举这个差量和前面选的组长的总量就可以做到<span class="math inline">\(O(nk^2)\)</span>.当然其实只要控制组长的数量大于等于组员的数量即可.</p>
 <p>注意经验相同的话要让想当组长的到前面.</p>
-<p>另外当时还推了个性质:都可以的人群中一定存在一个分界点$w$,使得成为组长的经验$\geq w$,成为组员的经验$\leq w$,但是没用上这个性质.</p>
-<h5><span id="example3agc056b">Example3(AGC056B)</span></h5><p>双序列计数,考虑把$x$双射到某个东西上.</p>
-<p>考虑最后的图一定是个$DAG$,但同层之间没有啥限制,我们不妨假设同层的最左侧是最大值,这样就完成了映射.</p>
-<p>设$dp_{l,r,mx}$表示只考虑$[l,r]$这一段的线段,然后最大值所在位置需要$\geq mx$的答案.转移的话枚举一手最大值扔哪,然后大概能做?</p>
-<h3><span id="分维处理">分维处理</span></h3><p>简单来说就是如果问题有两维,我们找到简单的那一维处理.</p>
-<h5><span id="example1cf1621gweighted-increasing-subsequences">Example1([CF1621G]Weighted Increasing Subsequences)</span></h5><h2><span id="动态规划的优化">动态规划的优化</span></h2><h3><span id="递进转移">递进转移</span></h3><p>瞎起的名,主要用于大量字符串算法.比如SA中的求height.</p>
-<h5><span id="example1">Example1</span></h5><p>有$m$种礼物,每种礼物有无数个(有有限个也能做),$n$个朋友,第$i$个朋友喜欢第$j$个礼物的概率是$p_{i,j}$,$\forall i,\sum p_{i,j}=1$.</p>
-<p>现在你可以选$n$件礼物.购买完成后你会按照朋友的编号逐个进行以下操作:如果自己手上的礼物有他喜欢的那一个,就将那个给他.求一种策略,最大化拿到喜爱的礼物的朋友个数的期望值.</p>
-<p>$n\leq 3000,m\leq 300$.</p>
-<p>首先一个显然的想法是:不同礼物对期望的贡献是独立的,也就是和的期望等于期望的和,我们只需要算出每个礼物的贡献即可.进一步地,我们需要求出$g_{i,j}$表示第$i$种礼物一共选了$j$个,被拿走的期望个数.然后我们只需要对其做背包就可以了.</p>
-<p>那么$g$怎么求呢?这个是简单的,我们设$f_{i,j}$表示喜欢第$i$种礼物的人有$j$个的概率,不难发现$g_{i,j}=\sum_{k=0}^n\min\{j,k\}f_{i,k}$.递推式就有$g_{i,j}=g_{i,j-1}+\sum_{k=j}^nf_{i,k}$.$f$同样是做一个背包.</p>
-<p>但是,这两个背包的复杂度都是$O(n^2m)$的.我们需要对它们进行优化.</p>
-<p>先看最后求答案的背包:自然的想法是,不难发现$g_{i,j}$满足四边形不等式,而其转移是经典的$k$点最短路,因此可以用决策单调性优化.</p>
-<p>但实际上有点多此一举,事实上我们这么考虑:由于$g_i$是上凸函数,它的斜率逐渐减少,那么我们就必然是能选小的就选小的.我们可以设计一个贪心来解决这个问题:记录下来当前每种礼物选了几个,设为$c_i$,每次选当前$g_{i,c_i+1}-g_{i,c_i}$最大的那个即可,这可以用堆实现.为啥这个是对的呢?因为$c_i$越大,能有的贡献就越小,不可能出现为了后面的贡献而让前面吃亏的情况,这就可以贪心了.于是第一个背包得到了解决.这里复杂度$O(n^2\log n)$,不太确定有没有$O(n^2)$的做法.</p>
-<p>但是第二个背包,也就是$f$怎么求呢?我们发现我们没有必要把$g$全都求出来,只需要求目前需要的一部分就可以了,由于$\sum f=1$,因此后缀和可以改为前缀和,考虑到每往后推一位是$O(n)$的,但是只会往后推总共$O(n)$位,因此这里复杂度$O(n^2)$.</p>
-<h5><span id="example2">Example2</span></h5><p>给一个字符串,求一个最大长度$L\leq \frac{n}{2}$,使得前$L$个字符与后$L$个字符循环同构.</p>
-<p>不难发现循环同构一定长这样:</p>
-<script type="math/tex; mode=display">
-ABSBA</script><p>我们枚举$A$的长度,然后就只需要求$B$,设$f_{i}$表示字符串去掉开头和结尾的$i$个字符后的border,有$f_{i-1}\leq f_i+1$.然后就做完了.</p>
-<h3><span id="反向操作">反向操作</span></h3><p>其实本质上是因为,DAG把边反向后仍然是一个DAG,这意味着我们大部分dp都可以进行反向操作.</p>
-<h4><span id="example1cf1810g">Example1(CF1810G)</span></h4><p>其实这题有一个很自然的容斥做法,但我们先略过.</p>
-<p>一般而言先考虑对于每个$k$暴力做.那怎么维护最大前缀和这个东西呢?如果我们从左往右扫,其实是很难维护的.因为我们无法接受加一维以维护它.更进一步为什么无法维护呢?因为你新加一个元素,它是不会影响前面的前缀和的,只会影响一个.这导致你的取$\max$操作很艰难.但如果!我把这个dp反过来,我设$f_{i,j}$表示<strong>从后往前</strong>dp到$i$,当前的最大前缀和是$j$的概率是多少,这个dp的转移极其简单:</p>
-<script type="math/tex; mode=display">
-P\times f_{i,j}\rightarrow f_{i-1,\max\{0,j+a_{i-1}\}}</script><p>最后在$f_{1,j}$处乘上$h_j$.</p>
-<p>但是这样是$O(n^3)$的,怎么办呢?</p>
-<p>考虑把这个dp反过来!我们设$g_{i,j}$表示如果初始只有$f_{i,j}=1$,dp到最后的答案是多少.于是只需要:</p>
-<script type="math/tex; mode=display">
-P\times g_{i-1,\max\{0,j+a_{i-1}\}}\rightarrow g_{i,j}\\</script><p>我认真考虑过这个$P$应该乘在哪边.实际上确实应该在左边.原因比较简单,因为答案是一串乘法,你不能把这些$P$变成除法.但还有一个问题是,为什么反向的时候没有把这些反向呢?</p>
+<p>另外当时还推了个性质:都可以的人群中一定存在一个分界点<span class="math inline">\(w\)</span>,使得成为组长的经验<span class="math inline">\(\geq w\)</span>,成为组员的经验<span class="math inline">\(\leq w\)</span>,但是没用上这个性质.</p>
+<h5><span id="example3agc056b">Example3(AGC056B)</span></h5>
+<p>双序列计数,考虑把<span class="math inline">\(x\)</span>双射到某个东西上.</p>
+<p>考虑最后的图一定是个<span class="math inline">\(DAG\)</span>,但同层之间没有啥限制,我们不妨假设同层的最左侧是最大值,这样就完成了映射.</p>
+<p>设<span class="math inline">\(dp_{l,r,mx}\)</span>表示只考虑<span class="math inline">\([l,r]\)</span>这一段的线段,然后最大值所在位置需要<span class="math inline">\(\geq
+mx\)</span>的答案.转移的话枚举一手最大值扔哪,然后大概能做?</p>
+<h3><span id="分维处理">分维处理</span></h3>
+<p>简单来说就是如果问题有两维,我们找到简单的那一维处理.</p>
+<h5><span id="example1cf1621gweightedincreasing-subsequences">Example1([CF1621G]Weighted
+Increasing Subsequences)</span></h5>
+<h2><span id="动态规划的优化">动态规划的优化</span></h2>
+<h3><span id="递进转移">递进转移</span></h3>
+<p>瞎起的名,主要用于大量字符串算法.比如SA中的求height.</p>
+<h5><span id="example1">Example1</span></h5>
+<p>有<span class="math inline">\(m\)</span>种礼物,每种礼物有无数个(有有限个也能做),<span class="math inline">\(n\)</span>个朋友,第<span class="math inline">\(i\)</span>个朋友喜欢第<span class="math inline">\(j\)</span>个礼物的概率是<span class="math inline">\(p_{i,j}\)</span>,<span class="math inline">\(\forall i,\sum p_{i,j}=1\)</span>.</p>
+<p>现在你可以选<span class="math inline">\(n\)</span>件礼物.购买完成后你会按照朋友的编号逐个进行以下操作:如果自己手上的礼物有他喜欢的那一个,就将那个给他.求一种策略,最大化拿到喜爱的礼物的朋友个数的期望值.</p>
+<p><span class="math inline">\(n\leq 3000,m\leq 300\)</span>.</p>
+<p>首先一个显然的想法是:不同礼物对期望的贡献是独立的,也就是和的期望等于期望的和,我们只需要算出每个礼物的贡献即可.进一步地,我们需要求出<span class="math inline">\(g_{i,j}\)</span>表示第<span class="math inline">\(i\)</span>种礼物一共选了<span class="math inline">\(j\)</span>个,被拿走的期望个数.然后我们只需要对其做背包就可以了.</p>
+<p>那么<span class="math inline">\(g\)</span>怎么求呢?这个是简单的,我们设<span class="math inline">\(f_{i,j}\)</span>表示喜欢第<span class="math inline">\(i\)</span>种礼物的人有<span class="math inline">\(j\)</span>个的概率,不难发现<span class="math inline">\(g_{i,j}=\sum_{k=0}^n\min\{j,k\}f_{i,k}\)</span>.递推式就有<span class="math inline">\(g_{i,j}=g_{i,j-1}+\sum_{k=j}^nf_{i,k}\)</span>.<span class="math inline">\(f\)</span>同样是做一个背包.</p>
+<p>但是,这两个背包的复杂度都是<span class="math inline">\(O(n^2m)\)</span>的.我们需要对它们进行优化.</p>
+<p>先看最后求答案的背包:自然的想法是,不难发现<span class="math inline">\(g_{i,j}\)</span>满足四边形不等式,而其转移是经典的<span class="math inline">\(k\)</span>点最短路,因此可以用决策单调性优化.</p>
+<p>但实际上有点多此一举,事实上我们这么考虑:由于<span class="math inline">\(g_i\)</span>是上凸函数,它的斜率逐渐减少,那么我们就必然是能选小的就选小的.我们可以设计一个贪心来解决这个问题:记录下来当前每种礼物选了几个,设为<span class="math inline">\(c_i\)</span>,每次选当前<span class="math inline">\(g_{i,c_i+1}-g_{i,c_i}\)</span>最大的那个即可,这可以用堆实现.为啥这个是对的呢?因为<span class="math inline">\(c_i\)</span>越大,能有的贡献就越小,不可能出现为了后面的贡献而让前面吃亏的情况,这就可以贪心了.于是第一个背包得到了解决.这里复杂度<span class="math inline">\(O(n^2\log n)\)</span>,不太确定有没有<span class="math inline">\(O(n^2)\)</span>的做法.</p>
+<p>但是第二个背包,也就是<span class="math inline">\(f\)</span>怎么求呢?我们发现我们没有必要把<span class="math inline">\(g\)</span>全都求出来,只需要求目前需要的一部分就可以了,由于<span class="math inline">\(\sum
+f=1\)</span>,因此后缀和可以改为前缀和,考虑到每往后推一位是<span class="math inline">\(O(n)\)</span>的,但是只会往后推总共<span class="math inline">\(O(n)\)</span>位,因此这里复杂度<span class="math inline">\(O(n^2)\)</span>.</p>
+<h5><span id="example2">Example2</span></h5>
+<p>给一个字符串,求一个最大长度<span class="math inline">\(L\leq
+\frac{n}{2}\)</span>,使得前<span class="math inline">\(L\)</span>个字符与后<span class="math inline">\(L\)</span>个字符循环同构.</p>
+<p>不难发现循环同构一定长这样: <span class="math display">\[
+ABSBA
+\]</span> 我们枚举<span class="math inline">\(A\)</span>的长度,然后就只需要求<span class="math inline">\(B\)</span>,设<span class="math inline">\(f_{i}\)</span>表示字符串去掉开头和结尾的<span class="math inline">\(i\)</span>个字符后的border,有<span class="math inline">\(f_{i-1}\leq f_i+1\)</span>.然后就做完了.</p>
+<h3><span id="反向操作">反向操作</span></h3>
+<p>其实本质上是因为,DAG把边反向后仍然是一个DAG,这意味着我们大部分dp都可以进行反向操作.</p>
+<h4><span id="example1cf1810g">Example1(CF1810G)</span></h4>
+<p>其实这题有一个很自然的容斥做法,但我们先略过.</p>
+<p>一般而言先考虑对于每个<span class="math inline">\(k\)</span>暴力做.那怎么维护最大前缀和这个东西呢?如果我们从左往右扫,其实是很难维护的.因为我们无法接受加一维以维护它.更进一步为什么无法维护呢?因为你新加一个元素,它是不会影响前面的前缀和的,只会影响一个.这导致你的取<span class="math inline">\(\max\)</span>操作很艰难.但如果!我把这个dp反过来,我设<span class="math inline">\(f_{i,j}\)</span>表示<strong>从后往前</strong>dp到<span class="math inline">\(i\)</span>,当前的最大前缀和是<span class="math inline">\(j\)</span>的概率是多少,这个dp的转移极其简单: <span class="math display">\[
+P\times f_{i,j}\rightarrow f_{i-1,\max\{0,j+a_{i-1}\}}
+\]</span> 最后在<span class="math inline">\(f_{1,j}\)</span>处乘上<span class="math inline">\(h_j\)</span>.</p>
+<p>但是这样是<span class="math inline">\(O(n^3)\)</span>的,怎么办呢?</p>
+<p>考虑把这个dp反过来!我们设<span class="math inline">\(g_{i,j}\)</span>表示如果初始只有<span class="math inline">\(f_{i,j}=1\)</span>,dp到最后的答案是多少.于是只需要:
+<span class="math display">\[
+P\times g_{i-1,\max\{0,j+a_{i-1}\}}\rightarrow g_{i,j}\\
+\]</span> 我认真考虑过这个<span class="math inline">\(P\)</span>应该乘在哪边.实际上确实应该在左边.原因比较简单,因为答案是一串乘法,你不能把这些<span class="math inline">\(P\)</span>变成除法.但还有一个问题是,为什么反向的时候没有把这些反向呢?</p>
 <p>原因是这类型dp比较特殊,我们要算的其实是一个类似DAG路径上的信息,因此边权无需改变.</p>
-<h3><span id="矩阵加速">矩阵加速</span></h3><h4><span id="example1luogup4007小y和恐怖的奴隶主">Example1(luoguP4007小Y和恐怖的奴隶主)</span></h4><p>首先考虑直接将随从的状态压起来,拿组合数分析一下会发现状态数大概小于等于$200$.也就是说转移矩阵大概是$200\times 200$的,设状态数为$S$.</p>
-<p>继续考虑,如果直接做的话复杂度是$O(TS^3\log n)$,过不了.</p>
-<p>我们考虑将一个$n$在$w$进制下分解,然后预处理每一位所对应的矩阵,这样复杂度来到了$O(wS^3\log_wn+TS^2\log_w n)$,平衡一下复杂度即可,大概取$w=4$会比较优秀.</p>
-<h4><span id="example2noi-online3提高组魔法值">Example2([NOI Online#3提高组]魔法值)</span></h4><p>重新定义矩阵乘法:用$\oplus$替换原本的$+$,然后用邻接矩阵作为转移矩阵.</p>
+<h3><span id="矩阵加速">矩阵加速</span></h3>
+<h4><span id="example1luogup4007小y和恐怖的奴隶主">Example1(luoguP4007小Y和恐怖的奴隶主)</span></h4>
+<p>首先考虑直接将随从的状态压起来,拿组合数分析一下会发现状态数大概小于等于<span class="math inline">\(200\)</span>.也就是说转移矩阵大概是<span class="math inline">\(200\times 200\)</span>的,设状态数为<span class="math inline">\(S\)</span>.</p>
+<p>继续考虑,如果直接做的话复杂度是<span class="math inline">\(O(TS^3\log
+n)\)</span>,过不了.</p>
+<p>我们考虑将一个<span class="math inline">\(n\)</span>在<span class="math inline">\(w\)</span>进制下分解,然后预处理每一位所对应的矩阵,这样复杂度来到了<span class="math inline">\(O(wS^3\log_wn+TS^2\log_w
+n)\)</span>,平衡一下复杂度即可,大概取<span class="math inline">\(w=4\)</span>会比较优秀.</p>
+<h4><span id="example2noionline3提高组魔法值">Example2([NOI
+Online#3提高组]魔法值)</span></h4>
+<p>重新定义矩阵乘法:用<span class="math inline">\(\oplus\)</span>替换原本的<span class="math inline">\(+\)</span>,然后用邻接矩阵作为转移矩阵.</p>
 <p>直接做仍然过不了,不过可以用和上面那个题一样的方法来优化复杂度.</p>
-<h4><span id="example3cf-1474f">Example3([CF 1474F])</span></h4><p>首先需要注意到,LIS的起点和终点一定在这条线的拐角处,也就是山谷和山峰处.</p>
+<h4><span id="example3cf-1474f">Example3([CF 1474F])</span></h4>
+<p>首先需要注意到,LIS的起点和终点一定在这条线的拐角处,也就是山谷和山峰处.</p>
 <p>LIS的长度是好求的.问题在于计数上.</p>
 <p>首先枚举一下LIS的起点和终点,但是接下来似乎怎么dp都需要和值域有关.而且如果从起点走到终点,判断中间具体的方案数,这个东西似乎也不能快速处理,一条线上的似乎也很难捆绑更新.</p>
-<p>我们冷静一下,令$f_i=\sum_{j,a_j=a_i-1}f_j$,这个东西一条直线上的位置不能捆绑更新的原因在于,随着我们从左往右走,是需要不断更新后面的$\sum$的值的,这一点很难处理.每次移动需要加入一条横线上的点对应的$f$.</p>
-<p>再冷静一下,既然从左到右扫不行,我们能不能考虑从下往上扫呢?考虑设$f_{i,j}$表示所有$a_x=i$的$x$中第$j$小的$x$的答案,我们仍然可以从下往上扫.</p>
+<p>我们冷静一下,令<span class="math inline">\(f_i=\sum_{j,a_j=a_i-1}f_j\)</span>,这个东西一条直线上的位置不能捆绑更新的原因在于,随着我们从左往右走,是需要不断更新后面的<span class="math inline">\(\sum\)</span>的值的,这一点很难处理.每次移动需要加入一条横线上的点对应的<span class="math inline">\(f\)</span>.</p>
+<p>再冷静一下,既然从左到右扫不行,我们能不能考虑从下往上扫呢?考虑设<span class="math inline">\(f_{i,j}\)</span>表示所有<span class="math inline">\(a_x=i\)</span>的<span class="math inline">\(x\)</span>中第<span class="math inline">\(j\)</span>小的<span class="math inline">\(x\)</span>的答案,我们仍然可以从下往上扫.</p>
 <p>但是,这么扫的复杂度仍然和值域有关.这怎么办呢?这个加入可规律多了,注意到在经过一个山峰或山谷之前,我们需要处理的点的数量和相对顺序都是恒定的,而它们的转移也之和上一次转移(上一条横线)有关,于是可以直接拿矩阵加速这个过程.</p>
-<h4><span id="example4cf-1152f2">Example4([CF 1152F2])</span></h4><p>注意到$m$和$k$很小,这一定是突破口.</p>
-<p>又注意到如果$a_{i+1}&gt;a_i$,那么限制很强,反之很弱.而且又要求没有相同的数字.考虑从小到大加入数字,这样每加入一个数字$x+1$,我们考虑它只能插入$[x+1-m,x]$后面,我们直接用一个二进制数$S$表示$[x+1-m,x]$中的数字是否存在,然后就可以在转移上直接调用$popcount(S)$.设$dp_{i,j,S}$表示目前考虑完了数字$i$,插入了$j$个数字,存在情况是$S$.直接对它做矩阵加速就可以做到$O((2^mk)^3\log n)$.</p>
-<h4><span id="example5noi2020-美食家">Example5([NOI2020] 美食家)</span></h4><p>设$dp_{i,j}$表示第$i$天走到城市$j$的最大收益,一眼矩阵加速.</p>
+<h4><span id="example4cf-1152f2">Example4([CF 1152F2])</span></h4>
+<p>注意到<span class="math inline">\(m\)</span>和<span class="math inline">\(k\)</span>很小,这一定是突破口.</p>
+<p>又注意到如果<span class="math inline">\(a_{i+1}&gt;a_i\)</span>,那么限制很强,反之很弱.而且又要求没有相同的数字.考虑从小到大加入数字,这样每加入一个数字<span class="math inline">\(x+1\)</span>,我们考虑它只能插入<span class="math inline">\([x+1-m,x]\)</span>后面,我们直接用一个二进制数<span class="math inline">\(S\)</span>表示<span class="math inline">\([x+1-m,x]\)</span>中的数字是否存在,然后就可以在转移上直接调用<span class="math inline">\(popcount(S)\)</span>.设<span class="math inline">\(dp_{i,j,S}\)</span>表示目前考虑完了数字<span class="math inline">\(i\)</span>,插入了<span class="math inline">\(j\)</span>个数字,存在情况是<span class="math inline">\(S\)</span>.直接对它做矩阵加速就可以做到<span class="math inline">\(O((2^mk)^3\log n)\)</span>.</p>
+<h4><span id="example5noi2020-美食家">Example5([NOI2020] 美食家)</span></h4>
+<p>设<span class="math inline">\(dp_{i,j}\)</span>表示第<span class="math inline">\(i\)</span>天走到城市<span class="math inline">\(j\)</span>的最大收益,一眼矩阵加速.</p>
 <p>但是有两个问题需要解决:</p>
-<p>第一个问题是,怎么处理美食节.这个没什么,在两个美食节之间做矩阵加速,在美食节节点上特殊处理一下就行.不过这样复杂度要乘上$k$.我们可以一开始就预处理出转移矩阵的二的幂次,然后这里就可以加快速度.</p>
+<p>第一个问题是,怎么处理美食节.这个没什么,在两个美食节之间做矩阵加速,在美食节节点上特殊处理一下就行.不过这样复杂度要乘上<span class="math inline">\(k\)</span>.我们可以一开始就预处理出转移矩阵的二的幂次,然后这里就可以加快速度.</p>
 <p>第二个问题是,怎么处理边权.一个自然的想法是拆边,但边很多,拆不过来.怎么办呢?我们可以拆点.将一个点拆成若干个点连起来,对于一条边就找到对应的点连过去就行.</p>
-<h3><span id="分步合并">分步合并</span></h3><p>大概是有的时候如果询问比较多,我们可能需要处理前缀/后缀数组然后拼起来答案.</p>
+<h3><span id="分步合并">分步合并</span></h3>
+<p>大概是有的时候如果询问比较多,我们可能需要处理前缀/后缀数组然后拼起来答案.</p>
 <p>这个时候我们会发现,如果要拼起来答案就要枚举一个区间,但是实际上可以一步一步来.</p>
-<h4><span id="example2022qbxt国庆day6permutation">Example([2022qbxt国庆Day6]permutation)</span></h4><p>首先遇到排列先扔平面直角坐标系上.</p>
+<h4><span id="example2022qbxt国庆day6permutation">Example([2022qbxt国庆Day6]permutation)</span></h4>
+<p>首先遇到排列先扔平面直角坐标系上.</p>
 <p>考虑合法序列一定长什么样,如果我们把这个序列的若干个下降子段拿一个矩阵括起来,那这些矩阵显然横纵坐标都不能相交.</p>
-<p>我们设$f_{l,r}$表示$a_l$和$a_r$必选的前提下,$[l,r]$这个区间的下降子序列个数.</p>
+<p>我们设<span class="math inline">\(f_{l,r}\)</span>表示<span class="math inline">\(a_l\)</span>和<span class="math inline">\(a_r\)</span>必选的前提下,<span class="math inline">\([l,r]\)</span>这个区间的下降子序列个数.</p>
 <p>然后,我们考虑枚举删掉点,对着剩下来的序列做dp.</p>
-<p>考虑设$dp_{i,j}$表示前$i$个点,最大值为$j$的方案数,不难发现最后一个矩阵的最小值一定是$a_{i}$.然后$dp_{a,b}=\sum_{i&lt; a,j&lt;b}dp_{i,j}f_{i+1,a}$.</p>
-<p>这个转移是$n^4$的,但是这显然是一个前缀和的形式,于是做一下二维前缀和就可以做到$n^2$,这样我们就得到了一个复杂度$O(n^3)$的东西.</p>
-<p>继续考虑,由于是多个点,我们考虑维护前缀后缀然后在这个点拼起来.注意到,如果我们想求这个点不选的方案数,那还需要枚举它左右两边选的点,很麻烦,所以我们求一下这个点必选的方案数.这样我们每次需要枚举这个点$i$,它所在矩阵的最左边的点$k$,最右边的点$k$,然后此时的答案为$pre[j-1][a[k]-1]\times nxt[k+1][a[j]+1]\times f[j][i]\times f[i][k]$.</p>
+<p>考虑设<span class="math inline">\(dp_{i,j}\)</span>表示前<span class="math inline">\(i\)</span>个点,最大值为<span class="math inline">\(j\)</span>的方案数,不难发现最后一个矩阵的最小值一定是<span class="math inline">\(a_{i}\)</span>.然后<span class="math inline">\(dp_{a,b}=\sum_{i&lt;
+a,j&lt;b}dp_{i,j}f_{i+1,a}\)</span>.</p>
+<p>这个转移是<span class="math inline">\(n^4\)</span>的,但是这显然是一个前缀和的形式,于是做一下二维前缀和就可以做到<span class="math inline">\(n^2\)</span>,这样我们就得到了一个复杂度<span class="math inline">\(O(n^3)\)</span>的东西.</p>
+<p>继续考虑,由于是多个点,我们考虑维护前缀后缀然后在这个点拼起来.注意到,如果我们想求这个点不选的方案数,那还需要枚举它左右两边选的点,很麻烦,所以我们求一下这个点必选的方案数.这样我们每次需要枚举这个点<span class="math inline">\(i\)</span>,它所在矩阵的最左边的点<span class="math inline">\(k\)</span>,最右边的点<span class="math inline">\(k\)</span>,然后此时的答案为<span class="math inline">\(pre[j-1][a[k]-1]\times nxt[k+1][a[j]+1]\times
+f[j][i]\times f[i][k]\)</span>.</p>
 <p>冷静一下,这样一步枚举了两边的分界点,所以可能不是很优秀,我们一步一步来.</p>
-<p>设$g_{i,j}$为接下来我们要选$[i,j]$,$i$是矩阵左端点,$j$任意且这两个点必在矩阵中,左右两边的方案数.初始条件$g_{i,j}=pre[i-1][a[j]-1]\times nxt[j+1][a[i]+1]$.</p>
+<p>设<span class="math inline">\(g_{i,j}\)</span>为接下来我们要选<span class="math inline">\([i,j]\)</span>,<span class="math inline">\(i\)</span>是矩阵左端点,<span class="math inline">\(j\)</span>任意且这两个点必在矩阵中,左右两边的方案数.初始条件<span class="math inline">\(g_{i,j}=pre[i-1][a[j]-1]\times
+nxt[j+1][a[i]+1]\)</span>.</p>
 <p>然后我们不断转移右端点,将右端点往里缩,这一步可以使用树状数组优化,最后更新答案即可.</p>
 <p>很厉害.</p>
-<h3><span id="合并更新">合并更新</span></h3><h4><span id="example2022zrtg十连测day7-zero">Example(2022zrtg十连测day7 Zero)</span></h4><p>设$k=\max\{i,j\}$,首先可以求出$x,y,z$分别表示:</p>
-<ol>
-<li>$x$:只包含第一行的格子的以$k$为右端点的和为$0$的最小矩形的左端点$-1$.</li>
-<li>$y$:只包含第二行的格子的以$k$为右端点的和为$0$的最小矩形的左端点$-1$.</li>
-<li>$z$:同时包含两行的格子的以$k$为右端点的和为$0$的最小矩形的左端点$-1$.</li>
+<h3><span id="合并更新">合并更新</span></h3>
+<h4><span id="example2022zrtg十连测day7zero">Example(2022zrtg十连测day7
+Zero)</span></h4>
+<p>设<span class="math inline">\(k=\max\{i,j\}\)</span>,首先可以求出<span class="math inline">\(x,y,z\)</span>分别表示:</p>
+<ol type="1">
+<li><span class="math inline">\(x\)</span>:只包含第一行的格子的以<span class="math inline">\(k\)</span>为右端点的和为<span class="math inline">\(0\)</span>的最小矩形的左端点<span class="math inline">\(-1\)</span>.</li>
+<li><span class="math inline">\(y\)</span>:只包含第二行的格子的以<span class="math inline">\(k\)</span>为右端点的和为<span class="math inline">\(0\)</span>的最小矩形的左端点<span class="math inline">\(-1\)</span>.</li>
+<li><span class="math inline">\(z\)</span>:同时包含两行的格子的以<span class="math inline">\(k\)</span>为右端点的和为<span class="math inline">\(0\)</span>的最小矩形的左端点<span class="math inline">\(-1\)</span>.</li>
 </ol>
-<p>那么自然有转移:</p>
-<script type="math/tex; mode=display">
+<p>那么自然有转移: <span class="math display">\[
 f(i,k)\leftarrow \max\{f(i,k-1),f(i,y)+1\}\\
 f(k,j)\leftarrow \max\{f(k-1,j),f(x,j)+1\}\\
-f(k,k)\leftarrow \max\{f(k,k-1),f(k-1,k),f(z,z)+1\}</script><p>转移正确的原因是两维转移顺序无所谓,所以可以乱转移.</p>
-<p>冷静一下这个过程,我们先只考虑第一个转移:注意到$f(i,k)$关于$i$不降,于是显然当$f(i,y)\ne f(i,k-1)$的时候才会由$f(i,y)+1$转移过来.我们不妨设$p_i$表示最小的位置满足$f(i,p_i)=f(i,k-1)$,那转移也就是$f(i,k)\leftarrow f(i,k-1)+[p_i\leq y]$.并且每进行一次转移,都会满足$p_i\leq y$的$p_i$设为$k$.</p>
-<p>也就是说我们需要维护:我们令一个点为它对应的$i$在当前$k$的$f$值,将这个点放到$p_i$位置上.然后我们每次找到$y$并把所有在$y$位置前的点都合并到$k$这个点上,并打一个加法$tag$,这显然可以并查集启发式合并.</p>
-<p>把前两个转移这么一起做,然后用二分可以得到两个转移分别的$p_k$.</p>
-<p>最后还需要处理一下$f_{k,k}$,暴力转移即可.</p>
-<p>有一个问题是为啥能想到按照$\max\{i,j\}$为顺序进行转移,这里是由于转移顺序无区别,我们需要规定一个顺序进行转移,于是考虑到找到较长的那一部分进行转移.</p>
-<h3><span id="交换状态和值">交换状态和值</span></h3><p>通常是dp值较小而状态较大的情况,而且二者间通常需要满足单调性.</p>
-<h5><span id="example1cf1620f">Example1(CF1620F)</span></h5><p>首先讨论一下最大值最小值之类的不难发现:这题是二分图的充要条件是$\nexists 1\leq i<j<k\leq n$,$a_i>a_j&gt;a_k$.</j<k\leq></p>
-<p>然后相当于是整个序列可以拆分成两个上升子序列,一个想法是$dp_{i,j}$表示现在做到$i$,另一个上升子序列的终点是$j$,是否合法.然后继续做.但这样复杂度挂掉了.</p>
-<p>咋优化咧?注意到dp状态很大而值很小,且显然在$i$一定的情况下,$j$的值越小越容易满足.所以设$dp_i$表示一个上升子序列的终点是$i$,另一个上升子序列的终点最小是多少,这样就可以做了.</p>
-<h5><span id="example2agc033d">Example2(AGC033D)</span></h5><p>首先自然的设计是$dp_{l,r,u,d}$,然后优化一下就是$O(n^4)$.然后咋做?</p>
-<p>注意到答案不超过$\log$级别,所以设$dp_{l,r,u,c}$表示答案为$c$的时候,最大的$d$是多少.然后就$O(n^3\log n)$.</p>
-<h5><span id="example3">Example3</span></h5><p>给定一个序列,两个人博弈.Alice每次可以使序列最左边的数$a_i$减去$[1,a_i]$中的一个数字,减成$0$就删掉.Bob可以对最右边的数做类似的操作,不能操作者输.问结果.$(n\leq 2000)$</p>
-<p>先考虑一个$O(n^2a^2)$的dp,比较显然,因为一个人取数显然要么取$1$要么全取,又发现不可能两个人一起取一堆(先取的那个人取完就赢了),于是设$dp_{l,r,x,y}$表示目前Alice在取第$l$堆,Bob在取第$r$堆,第$l$堆为$x$,第$r$堆为$y$的情况下谁赢.直接转移.</p>
-<p>诶,好像优化不动了,无论咋做都要知道当前这堆数字是啥啊,那就一定要把$a$存状态里诶.</p>
-<p>能不能再更新一下策略,注意到最后Alice如果要全选的话,剩下的是$1$还是更大的数好像无所谓.那:如果$a_1=x$的时候,Alice能赢,那$a_1=x+1$的时候Alice一定能赢.也就是这个东西满足单调性.又冷静一下,如果两个人不断一直持续选$1$,那最后一定会选到一个人清空堆为止.而且清空堆的那个一定输了.因为如果清空了还赢了,那他一开始就直接清空了.不可能一开始选着选着一个人还没清空堆另一个人就跑了.这个性质启示我们或许后两维可以删掉一维,因为大部分情况下那一维都应该等于$a_l$或$a_r$.</p>
+f(k,k)\leftarrow \max\{f(k,k-1),f(k-1,k),f(z,z)+1\}
+\]</span> 转移正确的原因是两维转移顺序无所谓,所以可以乱转移.</p>
+<p>冷静一下这个过程,我们先只考虑第一个转移:注意到<span class="math inline">\(f(i,k)\)</span>关于<span class="math inline">\(i\)</span>不降,于是显然当<span class="math inline">\(f(i,y)\ne f(i,k-1)\)</span>的时候才会由<span class="math inline">\(f(i,y)+1\)</span>转移过来.我们不妨设<span class="math inline">\(p_i\)</span>表示最小的位置满足<span class="math inline">\(f(i,p_i)=f(i,k-1)\)</span>,那转移也就是<span class="math inline">\(f(i,k)\leftarrow f(i,k-1)+[p_i\leq
+y]\)</span>.并且每进行一次转移,都会满足<span class="math inline">\(p_i\leq y\)</span>的<span class="math inline">\(p_i\)</span>设为<span class="math inline">\(k\)</span>.</p>
+<p>也就是说我们需要维护:我们令一个点为它对应的<span class="math inline">\(i\)</span>在当前<span class="math inline">\(k\)</span>的<span class="math inline">\(f\)</span>值,将这个点放到<span class="math inline">\(p_i\)</span>位置上.然后我们每次找到<span class="math inline">\(y\)</span>并把所有在<span class="math inline">\(y\)</span>位置前的点都合并到<span class="math inline">\(k\)</span>这个点上,并打一个加法<span class="math inline">\(tag\)</span>,这显然可以并查集启发式合并.</p>
+<p>把前两个转移这么一起做,然后用二分可以得到两个转移分别的<span class="math inline">\(p_k\)</span>.</p>
+<p>最后还需要处理一下<span class="math inline">\(f_{k,k}\)</span>,暴力转移即可.</p>
+<p>有一个问题是为啥能想到按照<span class="math inline">\(\max\{i,j\}\)</span>为顺序进行转移,这里是由于转移顺序无区别,我们需要规定一个顺序进行转移,于是考虑到找到较长的那一部分进行转移.</p>
+<h3><span id="交换状态和值">交换状态和值</span></h3>
+<p>通常是dp值较小而状态较大的情况,而且二者间通常需要满足单调性.</p>
+<h5><span id="example1cf1620f">Example1(CF1620F)</span></h5>
+<p>首先讨论一下最大值最小值之类的不难发现:这题是二分图的充要条件是<span class="math inline">\(\nexists 1\leq i&lt;j&lt;k\leq n\)</span>,<span class="math inline">\(a_i&gt;a_j&gt;a_k\)</span>.</p>
+<p>然后相当于是整个序列可以拆分成两个上升子序列,一个想法是<span class="math inline">\(dp_{i,j}\)</span>表示现在做到<span class="math inline">\(i\)</span>,另一个上升子序列的终点是<span class="math inline">\(j\)</span>,是否合法.然后继续做.但这样复杂度挂掉了.</p>
+<p>咋优化咧?注意到dp状态很大而值很小,且显然在<span class="math inline">\(i\)</span>一定的情况下,<span class="math inline">\(j\)</span>的值越小越容易满足.所以设<span class="math inline">\(dp_i\)</span>表示一个上升子序列的终点是<span class="math inline">\(i\)</span>,另一个上升子序列的终点最小是多少,这样就可以做了.</p>
+<h5><span id="example2agc033d">Example2(AGC033D)</span></h5>
+<p>首先自然的设计是<span class="math inline">\(dp_{l,r,u,d}\)</span>,然后优化一下就是<span class="math inline">\(O(n^4)\)</span>.然后咋做?</p>
+<p>注意到答案不超过<span class="math inline">\(\log\)</span>级别,所以设<span class="math inline">\(dp_{l,r,u,c}\)</span>表示答案为<span class="math inline">\(c\)</span>的时候,最大的<span class="math inline">\(d\)</span>是多少.然后就<span class="math inline">\(O(n^3\log n)\)</span>.</p>
+<h5><span id="example3">Example3</span></h5>
+<p>给定一个序列,两个人博弈.Alice每次可以使序列最左边的数<span class="math inline">\(a_i\)</span>减去<span class="math inline">\([1,a_i]\)</span>中的一个数字,减成<span class="math inline">\(0\)</span>就删掉.Bob可以对最右边的数做类似的操作,不能操作者输.问结果.<span class="math inline">\((n\leq 2000)\)</span></p>
+<p>先考虑一个<span class="math inline">\(O(n^2a^2)\)</span>的dp,比较显然,因为一个人取数显然要么取<span class="math inline">\(1\)</span>要么全取,又发现不可能两个人一起取一堆(先取的那个人取完就赢了),于是设<span class="math inline">\(dp_{l,r,x,y}\)</span>表示目前Alice在取第<span class="math inline">\(l\)</span>堆,Bob在取第<span class="math inline">\(r\)</span>堆,第<span class="math inline">\(l\)</span>堆为<span class="math inline">\(x\)</span>,第<span class="math inline">\(r\)</span>堆为<span class="math inline">\(y\)</span>的情况下谁赢.直接转移.</p>
+<p>诶,好像优化不动了,无论咋做都要知道当前这堆数字是啥啊,那就一定要把<span class="math inline">\(a\)</span>存状态里诶.</p>
+<p>能不能再更新一下策略,注意到最后Alice如果要全选的话,剩下的是<span class="math inline">\(1\)</span>还是更大的数好像无所谓.那:如果<span class="math inline">\(a_1=x\)</span>的时候,Alice能赢,那<span class="math inline">\(a_1=x+1\)</span>的时候Alice一定能赢.也就是这个东西满足单调性.又冷静一下,如果两个人不断一直持续选<span class="math inline">\(1\)</span>,那最后一定会选到一个人清空堆为止.而且清空堆的那个一定输了.因为如果清空了还赢了,那他一开始就直接清空了.不可能一开始选着选着一个人还没清空堆另一个人就跑了.这个性质启示我们或许后两维可以删掉一维,因为大部分情况下那一维都应该等于<span class="math inline">\(a_l\)</span>或<span class="math inline">\(a_r\)</span>.</p>
 <p>然后咧?另一维怎么去掉呢?</p>
-<p>等一下,我们开一个四维的dp存$0/1$是不是太奢侈了?</p>
-<p>所以我们把一个状态改为dp的值,设$dp_{l,r}$表示当前Alice在$l$,Bob在$r$,Bob还没动$a_r$的前提下,$a_l$至少要是多少Alice才能赢,Bob做一个类似的dp.最后只需要比较$dp_{1,1}$和$a_1$的大小就行.</p>
+<p>等一下,我们开一个四维的dp存<span class="math inline">\(0/1\)</span>是不是太奢侈了?</p>
+<p>所以我们把一个状态改为dp的值,设<span class="math inline">\(dp_{l,r}\)</span>表示当前Alice在<span class="math inline">\(l\)</span>,Bob在<span class="math inline">\(r\)</span>,Bob还没动<span class="math inline">\(a_r\)</span>的前提下,<span class="math inline">\(a_l\)</span>至少要是多少Alice才能赢,Bob做一个类似的dp.最后只需要比较<span class="math inline">\(dp_{1,1}\)</span>和<span class="math inline">\(a_1\)</span>的大小就行.</p>
 <p>问题来了,这玩意咋转移啊?</p>
-<p>首先,如果当前Alice开始选$l$,Bob开始选$r$,那Alice的获胜条件显然是$dp_{l,r}\leq a_r$</p>
-<p>如果可以全选(也就是Alice开始选$l+1$,Bob开始选$r$的时候Alice能赢),就直接让$dp_{l,r}=1$.不然,由于清空堆的人要输,所以Alice为了不输,必须要让$dp_{l,r-1}$也满足条件,一个自然的想法是$dp_{l,r-1}+a_r+1$,但是这个值好像没有必要:因为Bob并不是只有会不断清空$a_r$的,如果目前的$[l+1,r]$这个状态,Bob的值已经赢不了了,那我Alice就可以直接把左边清空.所以一旦Bob走到了不能稳赢$[l+1,r]$的值,Bob就必须全清空,所以如果我们设$g_{l,r}$是Bob的$dp$数组,那其实这里应该是$a_r+1+dp_{l,r-1}-g_{l+1,r}$,因为Bob的策略一定是一步一步走到$g_{l+1,r}$后清空,这个情况我们已经杀了他了.</p>
-<h5><span id="example4uoj708">Example4(uoj708)</span></h5><p>自然的想法是$dp_{i,j}$表示$i$子树内划分成$j$个连通块是否合法,然后我们发现如果$j$满足条件,那么$j+2$一定满足条件(判掉一些边界情况).</p>
-<h3><span id="斜率优化">斜率优化</span></h3><p>一般的斜率优化就略了.</p>
-<p>值得一提的是,斜率优化还有一种理解方式是:将前面的点当作直线,后面的当作一条平行于$y$轴的直线进行查询.</p>
-<h5><span id="example1codechef-tsum2">Example1(Codechef TSUM2)</span></h5><p>点分治+斜率优化,注意需要使用第二种理解方式的斜率优化.</p>
+<p>首先,如果当前Alice开始选<span class="math inline">\(l\)</span>,Bob开始选<span class="math inline">\(r\)</span>,那Alice的获胜条件显然是<span class="math inline">\(dp_{l,r}\leq a_r\)</span></p>
+<p>如果可以全选(也就是Alice开始选<span class="math inline">\(l+1\)</span>,Bob开始选<span class="math inline">\(r\)</span>的时候Alice能赢),就直接让<span class="math inline">\(dp_{l,r}=1\)</span>.不然,由于清空堆的人要输,所以Alice为了不输,必须要让<span class="math inline">\(dp_{l,r-1}\)</span>也满足条件,一个自然的想法是<span class="math inline">\(dp_{l,r-1}+a_r+1\)</span>,但是这个值好像没有必要:因为Bob并不是只有会不断清空<span class="math inline">\(a_r\)</span>的,如果目前的<span class="math inline">\([l+1,r]\)</span>这个状态,Bob的值已经赢不了了,那我Alice就可以直接把左边清空.所以一旦Bob走到了不能稳赢<span class="math inline">\([l+1,r]\)</span>的值,Bob就必须全清空,所以如果我们设<span class="math inline">\(g_{l,r}\)</span>是Bob的<span class="math inline">\(dp\)</span>数组,那其实这里应该是<span class="math inline">\(a_r+1+dp_{l,r-1}-g_{l+1,r}\)</span>,因为Bob的策略一定是一步一步走到<span class="math inline">\(g_{l+1,r}\)</span>后清空,这个情况我们已经杀了他了.</p>
+<h5><span id="example4uoj708">Example4(uoj708)</span></h5>
+<p>自然的想法是<span class="math inline">\(dp_{i,j}\)</span>表示<span class="math inline">\(i\)</span>子树内划分成<span class="math inline">\(j\)</span>个连通块是否合法,然后我们发现如果<span class="math inline">\(j\)</span>满足条件,那么<span class="math inline">\(j+2\)</span>一定满足条件(判掉一些边界情况).</p>
+<h3><span id="斜率优化">斜率优化</span></h3>
+<p>一般的斜率优化就略了.</p>
+<p>值得一提的是,斜率优化还有一种理解方式是:将前面的点当作直线,后面的当作一条平行于<span class="math inline">\(y\)</span>轴的直线进行查询.</p>
+<h5><span id="example1codechef-tsum2">Example1(Codechef TSUM2)</span></h5>
+<p>点分治+斜率优化,注意需要使用第二种理解方式的斜率优化.</p>
 <p>不过第一种应该也可以用.</p>
-<h3><span id="wqs二分">WQS二分</span></h3><p>能用WQS二分解决的问题通常形如:需要在$n$个物品中选择恰好$m$个,使得最后答案最大.并且如果令$f_i$表示选了$i$个的最大答案,$f_i$必须是凸函数且是单调不降的.</p>
-<p>遇到这种问题,我们通常二分一个数$C$,每选择一个物品就减去$C$的答案.不难发现这样我们一定能逼近$f_m$.</p>
-<h3><span id="四边形不等式">四边形不等式</span></h3><p>对于定义在$\mathbb{Z}$上的二元函数$w$,若对定义域上任意$a,b,c,d(a\leq b\leq c\leq d)$都有$w(a,c)+w(b,d)\leq w(a,d)+w(b,c)$,也就是交叉小于包含,则称函数$w$满足四边形不等式.如果等式成立,那么我们称其满足四边形恒等式.</p>
-<p>不难发现这意味着:$w$所形成的矩阵中的任意一个子矩阵的差分(左上角+右下角-左下角-右上角)都小于等于$0$.</p>
-<p>如果它还满足$\forall 1\leq l’\leq l\leq r\leq r’\leq n,w(l,r)\leq w(l’,r’)$，我们称其满足区间包含单调性.</p>
-<p>需要声明的一点是:四边形不等式只能处理$\min$型dp的问题,对于$\max$型dp需要取相反数改成$\min$.</p>
-<h4><span id="判定性质定理">判定/性质定理</span></h4><h5><span id="定理1">定理1</span></h5><p>若二元函数$w(x,y)$满足$w(a,b)+w(a+1,b+1)\leq w(a,b+1)+w(a+1,b)$.其中$a&lt;a+1\leq b&lt;b+1$,则$w$满足四边形不等式.</p>
+<h3><span id="wqs二分">WQS二分</span></h3>
+<p>能用WQS二分解决的问题通常形如:需要在<span class="math inline">\(n\)</span>个物品中选择恰好<span class="math inline">\(m\)</span>个,使得最后答案最大.并且如果令<span class="math inline">\(f_i\)</span>表示选了<span class="math inline">\(i\)</span>个的最大答案,<span class="math inline">\(f_i\)</span>必须是凸函数且是单调不降的.</p>
+<p>遇到这种问题,我们通常二分一个数<span class="math inline">\(C\)</span>,每选择一个物品就减去<span class="math inline">\(C\)</span>的答案.不难发现这样我们一定能逼近<span class="math inline">\(f_m\)</span>.</p>
+<h3><span id="四边形不等式">四边形不等式</span></h3>
+<p>对于定义在<span class="math inline">\(\mathbb{Z}\)</span>上的二元函数<span class="math inline">\(w\)</span>,若对定义域上任意<span class="math inline">\(a,b,c,d(a\leq b\leq c\leq d)\)</span>都有<span class="math inline">\(w(a,c)+w(b,d)\leq
+w(a,d)+w(b,c)\)</span>,也就是交叉小于包含,则称函数<span class="math inline">\(w\)</span>满足四边形不等式.如果等式成立,那么我们称其满足四边形恒等式.</p>
+<p>不难发现这意味着:<span class="math inline">\(w\)</span>所形成的矩阵中的任意一个子矩阵的差分(左上角+右下角-左下角-右上角)都小于等于<span class="math inline">\(0\)</span>.</p>
+<p>如果它还满足<span class="math inline">\(\forall 1\leq l&#39;\leq
+l\leq r\leq r&#39;\leq n,w(l,r)\leq
+w(l&#39;,r&#39;)\)</span>，我们称其满足区间包含单调性.</p>
+<p>需要声明的一点是:四边形不等式只能处理<span class="math inline">\(\min\)</span>型dp的问题,对于<span class="math inline">\(\max\)</span>型dp需要取相反数改成<span class="math inline">\(\min\)</span>.</p>
+<h4><span id="判定性质定理">判定/性质定理</span></h4>
+<p>#####定理1</p>
+<p>若二元函数<span class="math inline">\(w(x,y)\)</span>满足<span class="math inline">\(w(a,b)+w(a+1,b+1)\leq
+w(a,b+1)+w(a+1,b)\)</span>.其中<span class="math inline">\(a&lt;a+1\leq
+b&lt;b+1\)</span>,则<span class="math inline">\(w\)</span>满足四边形不等式.</p>
 <p>证明:</p>
-<p>对于$a+1&lt;c$ 有</p>
-<script type="math/tex; mode=display">
+<p>对于<span class="math inline">\(a+1&lt;c\)</span> 有 <span class="math display">\[
 w(a,c)+w(a+1,c+1)\leq w(a,c+1)+w(a+1,c)\\
-w(a+1,c+1)\leq w(a,c+1)+w(a+1,c)-w(a,c)\\</script><p>同时有:</p>
-<script type="math/tex; mode=display">
+w(a+1,c+1)\leq w(a,c+1)+w(a+1,c)-w(a,c)\\
+\]</span> 同时有: <span class="math display">\[
 w(a+1,c)+w(a+2,c+1)\leq w(a+1,c+1)+w(a+2,c)\\
-w(a+1,c)+w(a+2,c+1)-w(a+2,c)\leq w(a+1,c+1)\\</script><p>联立得到:</p>
-<script type="math/tex; mode=display">
+w(a+1,c)+w(a+2,c+1)-w(a+2,c)\leq w(a+1,c+1)\\
+\]</span> 联立得到: <span class="math display">\[
 w(a+1,c)+w(a+2,c+1)-w(a+2,c)\leq w(a,c+1)+w(a+1,c)-w(a,c)\\
-w(a+2,c+1)+w(a,c)\leq w(a+1,c)+w(a+2,c+1)</script><p>同理可推至四边形不等式定义式.</p>
-<p>事实上,这意味着一个$2\times 2$的子矩阵的差分满足条件,那么自然满足四边形不等式,无需推导.</p>
-<h5><span id="定理2">定理2</span></h5><p>若$w_1(l,r),w_2(l,r)$满足四边形不等式(或区间包含单调性),则$\forall c_1,c_2\geq 0$,$(c_1w_1+c_2w_2)$满足四边形不等式(或区间包含单调性).</p>
+w(a+2,c+1)+w(a,c)\leq w(a+1,c)+w(a+2,c+1)
+\]</span> 同理可推至四边形不等式定义式.</p>
+<p>事实上,这意味着一个<span class="math inline">\(2\times
+2\)</span>的子矩阵的差分满足条件,那么自然满足四边形不等式,无需推导.</p>
+<h5><span id="定理2">定理2</span></h5>
+<p>若<span class="math inline">\(w_1(l,r),w_2(l,r)\)</span>满足四边形不等式(或区间包含单调性),则<span class="math inline">\(\forall c_1,c_2\geq 0\)</span>,<span class="math inline">\((c_1w_1+c_2w_2)\)</span>满足四边形不等式(或区间包含单调性).</p>
 <p>证明显然.</p>
-<h5><span id="定理3">定理3</span></h5><p>若$\exists f(x),g(x)$使得$w(l,r)=f(r)-g(l)$,则$w$满足四边形恒等式.当$f,g$单调递增时,$w$还满足区间包含单调性.</p>
+<h5><span id="定理3">定理3</span></h5>
+<p>若<span class="math inline">\(\exists f(x),g(x)\)</span>使得<span class="math inline">\(w(l,r)=f(r)-g(l)\)</span>,则<span class="math inline">\(w\)</span>满足四边形恒等式.当<span class="math inline">\(f,g\)</span>单调递增时,<span class="math inline">\(w\)</span>还满足区间包含单调性.</p>
 <p>证明显然.</p>
-<h5><span id="定理4">定理4</span></h5><p>设$h$是一个单调递增的下凸函数(一阶导数单调递增),若$w(l,r)$满足四边形不等式和区间包含单调性,则复合函数$h(w(l,r))$也满足四边形不等式和区间包含单调性.</p>
-<p>令$l_1\leq l_2\leq r_1\leq r_2$,由于$w$满足四边形不等式,于是有:</p>
-<script type="math/tex; mode=display">
+<h5><span id="定理4">定理4</span></h5>
+<p>设<span class="math inline">\(h\)</span>是一个单调递增的下凸函数(一阶导数单调递增),若<span class="math inline">\(w(l,r)\)</span>满足四边形不等式和区间包含单调性,则复合函数<span class="math inline">\(h(w(l,r))\)</span>也满足四边形不等式和区间包含单调性.</p>
+<p>令<span class="math inline">\(l_1\leq l_2\leq r_1\leq
+r_2\)</span>,由于<span class="math inline">\(w\)</span>满足四边形不等式,于是有: <span class="math display">\[
 w(l_1,r_1)+w(l_2,r_2)\leq w(l_1,r_2)+w(l_2,r_1)\\
-0\leq w(l_1,r_1)-w(l_2,r_1)\leq w(l_1,r_2)-w(l_2,r_2)</script><p>令$t=w(l_1,r_2)-w(l_2,r_2)$,我们有:</p>
-<script type="math/tex; mode=display">
+0\leq w(l_1,r_1)-w(l_2,r_1)\leq w(l_1,r_2)-w(l_2,r_2)
+\]</span> 令<span class="math inline">\(t=w(l_1,r_2)-w(l_2,r_2)\)</span>,我们有: <span class="math display">\[
 w(l_1,r_1)\leq w(l_2,r_1)+t\\
 w(l_1,r_2)=w(l_2,r_2)+t\\
 h(w(l_1,r_1))-h(w(l_2,r_1))\leq h(w(l_2,r_1)+t)-h(w(l_2,r_1))\\
-h(w(l_1,r_2))-h(w(l_2,r_2))=h(w(l_2,r_2)+t)-h(w(l_2,r_2))</script><p>不妨令$\Delta h(x)=h(x+t)-h(x)$,由于$h$是下凸函数,所以$\Delta h$函数单调递增.</p>
-<p>那么也就有:</p>
-<script type="math/tex; mode=display">
+h(w(l_1,r_2))-h(w(l_2,r_2))=h(w(l_2,r_2)+t)-h(w(l_2,r_2))
+\]</span> 不妨令<span class="math inline">\(\Delta
+h(x)=h(x+t)-h(x)\)</span>,由于<span class="math inline">\(h\)</span>是下凸函数,所以<span class="math inline">\(\Delta h\)</span>函数单调递增.</p>
+<p>那么也就有: <span class="math display">\[
 h(w(l_1,r_1))-h(w(l_2,r_1))\leq \Delta h(w(l_2,r_1))\\
-h(w(l_1,r_2))-h(w(l_2,r_2))=\Delta h(w(l_2,r_2))</script><p>由于$w(l_2,r_1)\leq w(l_2,r_2)$,所以$\Delta h(w(l_2,r_1))\leq \Delta h(w(l_2,r_2))$于是:</p>
-<script type="math/tex; mode=display">
+h(w(l_1,r_2))-h(w(l_2,r_2))=\Delta h(w(l_2,r_2))
+\]</span> 由于<span class="math inline">\(w(l_2,r_1)\leq
+w(l_2,r_2)\)</span>,所以<span class="math inline">\(\Delta
+h(w(l_2,r_1))\leq \Delta h(w(l_2,r_2))\)</span>于是: <span class="math display">\[
 h(w(l_1,r_1))-h(w(l_2,r_1))\leq h(w(l_1,r_2))-h(w(l_2,r_2))\\
-h(w(l_1,r_1))+h(w(l_2,r_2))\leq h(w(l_1,r_2))+h(w(l_2,r_1))</script><p>证毕.</p>
-<h5><span id="定理5">定理5</span></h5><p>设$h$是一个下凸函数(一阶导数单调递增),若$w(l,r)$满足四边形恒等式和区间包含单调性,则复合函数$h(w(l,r))$也满足四边形不等式.</p>
-<p>证明类似定理4,因为满足四边形恒等式所以不必用到$h$单调递增的性质.</p>
-<h4><span id="决策单调性">决策单调性</span></h4><p>对于形如$f_i=\min_{1 \leq j&lt;i}\{f_j+w(j,i)\}$的状态转移方程,记$p_i$为$f_i$的最优决策.若$p$在$[1,n]$上单调不降,则称$f$具有决策单调性.</p>
-<p>值得一提的是,我们也可以把题目中的$\min$改为$\max$,并且把$+w$改为$-w$,那么下面的结论同样成立.</p>
-<h5><span id="最短路型dp">最短路型dp</span></h5><p>定理：对于形如$f_i=\min_{1 \leq j&lt;i}{f_j+w(j,i)}$的状态转移方程,若$w$满足四边形不等式,则$f$有决策单调性.</p>
+h(w(l_1,r_1))+h(w(l_2,r_2))\leq h(w(l_1,r_2))+h(w(l_2,r_1))
+\]</span> 证毕.</p>
+<h5><span id="定理5">定理5</span></h5>
+<p>设<span class="math inline">\(h\)</span>是一个下凸函数(一阶导数单调递增),若<span class="math inline">\(w(l,r)\)</span>满足四边形恒等式和区间包含单调性,则复合函数<span class="math inline">\(h(w(l,r))\)</span>也满足四边形不等式.</p>
+<p>证明类似定理4,因为满足四边形恒等式所以不必用到<span class="math inline">\(h\)</span>单调递增的性质.</p>
+<h4><span id="决策单调性">决策单调性</span></h4>
+<p>对于形如<span class="math inline">\(f_i=\min_{1 \leq
+j&lt;i}\{f_j+w(j,i)\}\)</span>的状态转移方程,记<span class="math inline">\(p_i\)</span>为<span class="math inline">\(f_i\)</span>的最优决策.若<span class="math inline">\(p\)</span>在<span class="math inline">\([1,n]\)</span>上单调不降,则称<span class="math inline">\(f\)</span>具有决策单调性.</p>
+<p>值得一提的是,我们也可以把题目中的<span class="math inline">\(\min\)</span>改为<span class="math inline">\(\max\)</span>,并且把<span class="math inline">\(+w\)</span>改为<span class="math inline">\(-w\)</span>,那么下面的结论同样成立.</p>
+<h5><span id="最短路型dp">最短路型dp</span></h5>
+<p>定理：对于形如<span class="math inline">\(f_i=\min_{1 \leq
+j&lt;i}{f_j+w(j,i)}\)</span>的状态转移方程,若<span class="math inline">\(w\)</span>满足四边形不等式,则<span class="math inline">\(f\)</span>有决策单调性.</p>
 <p>证明:</p>
-<p>$\forall i\in[1,n],\forall j\in[0,p_i-1]$,根据$p$的定义,有:</p>
-<script type="math/tex; mode=display">
+<p><span class="math inline">\(\forall i\in[1,n],\forall
+j\in[0,p_i-1]\)</span>,根据<span class="math inline">\(p\)</span>的定义,有: <span class="math display">\[
 f_{p_i}+w(p_i,i)\leq f_j+w(j,i)\\
-f_{p_i}-f_j\leq w(j,i)-w(p_i,i)\\</script><p>而对于$k\in[i+1,n]$,根据$w$的四边形不等式,有:</p>
-<script type="math/tex; mode=display">
+f_{p_i}-f_j\leq w(j,i)-w(p_i,i)\\
+\]</span> 而对于<span class="math inline">\(k\in[i+1,n]\)</span>,根据<span class="math inline">\(w\)</span>的四边形不等式,有: <span class="math display">\[
 w(j,i)+w(p_i,k)\leq w(j,k)+w(p_i,i)\\
-w(j,i)-w(p_i,i)\leq w(j,k)-w(p_i,k)\\</script><p>联立得到:</p>
-<script type="math/tex; mode=display">
+w(j,i)-w(p_i,i)\leq w(j,k)-w(p_i,k)\\
+\]</span> 联立得到: <span class="math display">\[
 f_{p_i}-f_j\leq w(j,k)-w(p_i,k)\\
-f_{p_i}+w(p_i,k)\leq w(j,k)+f_j\\</script><p>即:$j$对$k$的更新一定不如$p_i$对$k$的更新更优,因此$p_k\in[p_i,n]$,因此$f$有决策单调性.</p>
-<h6><span id="example1loj6039雅礼集训2017day5珠宝">Example1(LOJ6039[雅礼集训2017Day5]珠宝)</span></h6><p>首先发现代价很小但是物品很多,于是想到按照代价分类.然后同种代价要选肯定由价值从小往大选,这一段可以前缀和做.</p>
-<p>于是我们设$f_i$表示价值为$i$的答案,自然有:$f_i=\max\{f_{i-kc}+sum_{c,k}\}$.</p>
-<p>如果我们把$c$相同的分层,那这显然是一个最短路型dp,其中$w(i,j)=sum_{c,\frac{i-j}{c}}$.</p>
-<p>显然这个转移只会让$\mod c$相同的相互转移,于是后面的$w(i,j)$可以理解为一段数字的和,自然满足四边形不等式($\max$也满足,因为交叉等于包含).</p>
-<h5><span id="k点最短路型dp">k点最短路型dp</span></h5><p>对于形如$f_{x,j}=\min_{i=1}^{x-1}\{f_{i,j-1}+w_{i,x}\}$的状态转移方程,若$w$满足四边形不等式,则$f$有决策单调性.证明同上.</p>
-<p>值得一提的是,如果形如$f_x=\min_{i=1}^{x-1}{w_{i,x}}$,我们也可以看作$k$点最短路型的$k=1$的特例.</p>
-<h6><span id="example1-基站选址">Example1 基站选址</span></h6><p>令$f(i,j)$为在第$j$个位置建造第$i$个基站的代价最小值,那么我们有转移:</p>
-<script type="math/tex; mode=display">
-f(i,j)=\min_{1\leq k<j}\{f(i-1,k)+\sum_{l=k+1}^{j-1}w_l[d_l-s_l>d_k][d_l+s_l<d_j]+c_j\}</script><p>考虑后面的式子,不难发现满足四边形不等式(可能出现包含的时候中间部分贡献一次答案,交叉的时候中间部分不贡献答案的情况),于是可以使用四边形不等式优化.</p>
-<p>考虑使用二分维护决策单调性,那么后面的是一个经典的二维数点.但由于维护决策单调性时$d_k$单调递增,更新答案时$d_j$单调递增,于是可以直接使用线段树维护,复杂度$O(nk\log n)$.当然也可以直接用一个主席树维护.</p>
-<p>也可以考虑分治维护,更加好写,复杂度$O(nk\log^2n)$.</p>
-<p>另外,我们可以再使用WQS二分处理第一维,复杂度$O(n\log k\log n)$.</p>
-<h6><span id="example2cf-gym-102984f">Example2(CF gym 102984F)</span></h6><p>自然的设计是$f_{i,j,k}$表示前$i$个,已经打了$j$个,末尾有连续$k$个的最大价值.但是这个状态都已经超了.</p>
-<p>我们可以用一下经典套路,把它转化为$f_{i,j}$表示前$i$个,目前打了$j$个且第$i$个没打中,然后每次枚举一个打中了的区间,这样看上去就有了优化的可能性.而如果我们把它改成$f_{i,j}$表示前$i$个,目前有$j$个没打中而且第$i$个没打中,这就是经典的k点最短路dp.</p>
-<p>接下来我们尝试证明决策单调性:$dp_{i,j}=\max\{dp_{k,j-1}+\sum_{l=k+1}^{i-1}C_{l-k}A_l+P\}$.</p>
-<p>令$w(l,r)=\sum_{k=l+1}^{r-1}C_{k-l}A_k+P$,接下来我们证明:$w(l+1,r)+w(l,r-1)\geq w(l,r)+w(l+1,r-1)$即可.讨论一下每个$A$面前的系数就能发现这是成立的.</p>
-<h5><span id="区间型dp">区间型dp</span></h5><p>引理:在状态转移方程$f_{i,j}=\min_{i\leq k&lt;j}\{f_{i,k}+f_{k+1,j}+w(i,j)\}$中(通常$f_{i,i}=w(i,i)=0,f_{i,i+1}=w_{i,i+1}$),如果$w$满足四边形不等式和区间包含单调性,那么$f$也满足四边形不等式.</p>
+f_{p_i}+w(p_i,k)\leq w(j,k)+f_j\\
+\]</span> 即:<span class="math inline">\(j\)</span>对<span class="math inline">\(k\)</span>的更新一定不如<span class="math inline">\(p_i\)</span>对<span class="math inline">\(k\)</span>的更新更优,因此<span class="math inline">\(p_k\in[p_i,n]\)</span>,因此<span class="math inline">\(f\)</span>有决策单调性.</p>
+<h6><span id="example1loj6039雅礼集训2017day5珠宝">Example1(LOJ6039[雅礼集训2017Day5]珠宝)</span></h6>
+<p>首先发现代价很小但是物品很多,于是想到按照代价分类.然后同种代价要选肯定由价值从小往大选,这一段可以前缀和做.</p>
+<p>于是我们设<span class="math inline">\(f_i\)</span>表示价值为<span class="math inline">\(i\)</span>的答案,自然有:<span class="math inline">\(f_i=\max\{f_{i-kc}+sum_{c,k}\}\)</span>.</p>
+<p>如果我们把<span class="math inline">\(c\)</span>相同的分层,那这显然是一个最短路型dp,其中<span class="math inline">\(w(i,j)=sum_{c,\frac{i-j}{c}}\)</span>.</p>
+<p>显然这个转移只会让<span class="math inline">\(\mod
+c\)</span>相同的相互转移,于是后面的<span class="math inline">\(w(i,j)\)</span>可以理解为一段数字的和,自然满足四边形不等式(<span class="math inline">\(\max\)</span>也满足,因为交叉等于包含).</p>
+<h5><span id="k点最短路型dp">k点最短路型dp</span></h5>
+<p>对于形如<span class="math inline">\(f_{x,j}=\min_{i=1}^{x-1}\{f_{i,j-1}+w_{i,x}\}\)</span>的状态转移方程,若<span class="math inline">\(w\)</span>满足四边形不等式,则<span class="math inline">\(f\)</span>有决策单调性.证明同上.</p>
+<p>值得一提的是,如果形如<span class="math inline">\(f_x=\min_{i=1}^{x-1}{w_{i,x}}\)</span>,我们也可以看作<span class="math inline">\(k\)</span>点最短路型的<span class="math inline">\(k=1\)</span>的特例.</p>
+<h6><span id="example1-基站选址">Example1 基站选址</span></h6>
+<p>令<span class="math inline">\(f(i,j)\)</span>为在第<span class="math inline">\(j\)</span>个位置建造第<span class="math inline">\(i\)</span>个基站的代价最小值,那么我们有转移: <span class="math display">\[
+f(i,j)=\min_{1\leq
+k&lt;j}\{f(i-1,k)+\sum_{l=k+1}^{j-1}w_l[d_l-s_l&gt;d_k][d_l+s_l&lt;d_j]+c_j\}
+\]</span>
+考虑后面的式子,不难发现满足四边形不等式(可能出现包含的时候中间部分贡献一次答案,交叉的时候中间部分不贡献答案的情况),于是可以使用四边形不等式优化.</p>
+<p>考虑使用二分维护决策单调性,那么后面的是一个经典的二维数点.但由于维护决策单调性时<span class="math inline">\(d_k\)</span>单调递增,更新答案时<span class="math inline">\(d_j\)</span>单调递增,于是可以直接使用线段树维护,复杂度<span class="math inline">\(O(nk\log
+n)\)</span>.当然也可以直接用一个主席树维护.</p>
+<p>也可以考虑分治维护,更加好写,复杂度<span class="math inline">\(O(nk\log^2n)\)</span>.</p>
+<p>另外,我们可以再使用WQS二分处理第一维,复杂度<span class="math inline">\(O(n\log k\log n)\)</span>.</p>
+<h6><span id="example2cf-gym-102984f">Example2(CF gym 102984F)</span></h6>
+<p>自然的设计是<span class="math inline">\(f_{i,j,k}\)</span>表示前<span class="math inline">\(i\)</span>个,已经打了<span class="math inline">\(j\)</span>个,末尾有连续<span class="math inline">\(k\)</span>个的最大价值.但是这个状态都已经超了.</p>
+<p>我们可以用一下经典套路,把它转化为<span class="math inline">\(f_{i,j}\)</span>表示前<span class="math inline">\(i\)</span>个,目前打了<span class="math inline">\(j\)</span>个且第<span class="math inline">\(i\)</span>个没打中,然后每次枚举一个打中了的区间,这样看上去就有了优化的可能性.而如果我们把它改成<span class="math inline">\(f_{i,j}\)</span>表示前<span class="math inline">\(i\)</span>个,目前有<span class="math inline">\(j\)</span>个没打中而且第<span class="math inline">\(i\)</span>个没打中,这就是经典的k点最短路dp.</p>
+<p>接下来我们尝试证明决策单调性:<span class="math inline">\(dp_{i,j}=\max\{dp_{k,j-1}+\sum_{l=k+1}^{i-1}C_{l-k}A_l+P\}\)</span>.</p>
+<p>令<span class="math inline">\(w(l,r)=\sum_{k=l+1}^{r-1}C_{k-l}A_k+P\)</span>,接下来我们证明:<span class="math inline">\(w(l+1,r)+w(l,r-1)\geq
+w(l,r)+w(l+1,r-1)\)</span>即可.讨论一下每个<span class="math inline">\(A\)</span>面前的系数就能发现这是成立的.</p>
+<h5><span id="区间型dp">区间型dp</span></h5>
+<p>引理:在状态转移方程<span class="math inline">\(f_{i,j}=\min_{i\leq
+k&lt;j}\{f_{i,k}+f_{k+1,j}+w(i,j)\}\)</span>中(通常<span class="math inline">\(f_{i,i}=w(i,i)=0,f_{i,i+1}=w_{i,i+1}\)</span>),如果<span class="math inline">\(w\)</span>满足四边形不等式和区间包含单调性,那么<span class="math inline">\(f\)</span>也满足四边形不等式.</p>
 <p>证明:</p>
-<p>只需证明$f_{i,j}+f_{i+1,j+1}\leq f_{i,j+1}+f_{i+1,j}$即可,考虑$j-i=1$的时候,显然成立.</p>
-<p>使用数学归纳,假设当$b-a&lt;k$时,$f$满足四边形不等式,考虑$j-i=k$的情况:</p>
-<p>设$f_{i,j+1}$的最优决策为$x$,$f_{i+1,j}$的最优决策为$y$,则有:</p>
-<script type="math/tex; mode=display">
-f_{i,j+1}+f_{i+1,j}=f_{i,x}+f_{x+1,j+1}+w(i,j+1)+f_{i+1,y}+f_{y+1,j}+w(i+1,j)\\</script><p>对于$f_{i,j}$和$f_{i+1,j+1}$来说,$x$和$y$不一定最优,所以有:</p>
-<script type="math/tex; mode=display">
-f_{i,j}+f_{i+1,j+1}\leq f_{i,x}+f_{x+1,j}+w(i,j)+f_{i+1,y}+f_{y+1,j+1}+w(i+1,j+1)\\</script><p>$w$和归纳假设都可以比较两个式子右边的大小,最终得到:</p>
-<script type="math/tex; mode=display">
-f_{i,j}+f_{i+1,j+1}\leq f_{i,j+1}+f_{i+1,j}\\</script><h6><span id="定理">定理</span></h6><p>记$p_{i,j}$为$f_{i,j}$的最优决策,若$f$满足四边形不等式,那么对于$\forall i&lt;j，有p_{i,j-1}\leq p_{i,j}\leq p_{i+1,j}\\$.</p>
+<p>只需证明<span class="math inline">\(f_{i,j}+f_{i+1,j+1}\leq
+f_{i,j+1}+f_{i+1,j}\)</span>即可,考虑<span class="math inline">\(j-i=1\)</span>的时候,显然成立.</p>
+<p>使用数学归纳,假设当<span class="math inline">\(b-a&lt;k\)</span>时,<span class="math inline">\(f\)</span>满足四边形不等式,考虑<span class="math inline">\(j-i=k\)</span>的情况:</p>
+<p>设<span class="math inline">\(f_{i,j+1}\)</span>的最优决策为<span class="math inline">\(x\)</span>,<span class="math inline">\(f_{i+1,j}\)</span>的最优决策为<span class="math inline">\(y\)</span>,则有: <span class="math display">\[
+f_{i,j+1}+f_{i+1,j}=f_{i,x}+f_{x+1,j+1}+w(i,j+1)+f_{i+1,y}+f_{y+1,j}+w(i+1,j)\\
+\]</span> 对于<span class="math inline">\(f_{i,j}\)</span>和<span class="math inline">\(f_{i+1,j+1}\)</span>来说,<span class="math inline">\(x\)</span>和<span class="math inline">\(y\)</span>不一定最优,所以有: <span class="math display">\[
+f_{i,j}+f_{i+1,j+1}\leq
+f_{i,x}+f_{x+1,j}+w(i,j)+f_{i+1,y}+f_{y+1,j+1}+w(i+1,j+1)\\
+\]</span> <span class="math inline">\(w\)</span>和归纳假设都可以比较两个式子右边的大小,最终得到:
+<span class="math display">\[
+f_{i,j}+f_{i+1,j+1}\leq f_{i,j+1}+f_{i+1,j}\\
+\]</span> ###### 定理</p>
+<p>记<span class="math inline">\(p_{i,j}\)</span>为<span class="math inline">\(f_{i,j}\)</span>的最优决策,若<span class="math inline">\(f\)</span>满足四边形不等式,那么对于<span class="math inline">\(\forall i&lt;j，有p_{i,j-1}\leq p_{i,j}\leq
+p_{i+1,j}\\\)</span>.</p>
 <p>证明:</p>
-<p>记$p=p_{i,j}$,$\forall k,i&lt;k\leq p$,因为$f$满足四边形不等式,所以有:</p>
-<script type="math/tex; mode=display">
+<p>记<span class="math inline">\(p=p_{i,j}\)</span>,<span class="math inline">\(\forall k,i&lt;k\leq p\)</span>,因为<span class="math inline">\(f\)</span>满足四边形不等式,所以有: <span class="math display">\[
 f_{i,k}+f_{i+1,p}\leq f_{i,p}+f_{i+1,k}\\
-f_{i+1,p}-f_{i+1,j}\leq f_{i,p}-f_{i,k}</script><p>根据$p$定义,有:</p>
-<script type="math/tex; mode=display">
+f_{i+1,p}-f_{i+1,j}\leq f_{i,p}-f_{i,k}
+\]</span> 根据<span class="math inline">\(p\)</span>定义,有: <span class="math display">\[
 f_{i,p}+f_{p+1,j}\leq f_{i,k}+f_{k+1,j}\\
-f_{i,p}-f_{i,k}\leq f_{k+1,j}-f_{p+1,j}</script><p>由上两式移项联立,得到:</p>
-<script type="math/tex; mode=display">
+f_{i,p}-f_{i,k}\leq f_{k+1,j}-f_{p+1,j}
+\]</span> 由上两式移项联立,得到: <span class="math display">\[
 f_{i+1,p}-f_{i+1,k}\leq f_{k+1,j}-f_{p+1,j}\\
 f_{i+1,p}+f_{p+1,j}\leq f_{i+1,k}+f_{k+1,j}\\
-f_{i+1,p}+f_{p+1,j}+w_{i+1,j}\leq f_{i+1,k}+f_{k+1,j}+w_{i+1,j}\\</script><p>因此对于$f_{i+1,j}$,$p$比任意的$k&lt;p$更优,因此$p_{i+1,j}\geq p_{i,j}$,另一方向同理.</p>
-<h4><span id="四边形不等式判断凸性">四边形不等式判断凸性</span></h4><p>判断一个函数的凸性只需判断$f(k)+f(k+2)\geq 2f(k+1)$,而这只需证明$k$的时候的答案和$k+2$时的答案可以调整出两个$k+1$的答案(不一定是最小答案)并且这两个$k+1$的答案的和小于等于$k$时和$k+2$时的答案之和即可.</p>
-<h5><span id="example1cf1661f">Example1(CF1661F)</span></h5><p>首先考虑四个点$(a,b,c,d)$,注意到其一定满足四边形不等式,也就是$w_{ac}+w_{bd}\geq w_{ad}+w_{bc}$.</p>
-<p>我们现在想证明,设$f_k$为新增$k$个传送机后的减少的答案,我们考虑证明$f_k+f_{k+2}\geq 2f_{k+1}$.</p>
-<p>我们画出$f_k$时选的点和$f_{k+2}$时选的点,注意到我们可以用这两次调整出两个$k+1$的答案,并且这两个答案的和小于等于$f_k+f_{k+2}$,于是证明了最小的$f_{k+1}$是更小的.</p>
-<p>于是我们可以使用二分,每次二分一个最小增加量$w$,然后对于每一段二分出在这一段中再增加一个传送机的增加量小于等于$w$的最大的传送机数量,然后就可以做了.</p>
+f_{i+1,p}+f_{p+1,j}+w_{i+1,j}\leq f_{i+1,k}+f_{k+1,j}+w_{i+1,j}\\
+\]</span> 因此对于<span class="math inline">\(f_{i+1,j}\)</span>,<span class="math inline">\(p\)</span>比任意的<span class="math inline">\(k&lt;p\)</span>更优,因此<span class="math inline">\(p_{i+1,j}\geq p_{i,j}\)</span>,另一方向同理.</p>
+<h4><span id="四边形不等式判断凸性">四边形不等式判断凸性</span></h4>
+<p>判断一个函数的凸性只需判断<span class="math inline">\(f(k)+f(k+2)\geq
+2f(k+1)\)</span>,而这只需证明<span class="math inline">\(k\)</span>的时候的答案和<span class="math inline">\(k+2\)</span>时的答案可以调整出两个<span class="math inline">\(k+1\)</span>的答案(不一定是最小答案)并且这两个<span class="math inline">\(k+1\)</span>的答案的和小于等于<span class="math inline">\(k\)</span>时和<span class="math inline">\(k+2\)</span>时的答案之和即可.</p>
+<h5><span id="example1cf1661f">Example1(CF1661F)</span></h5>
+<p>首先考虑四个点<span class="math inline">\((a,b,c,d)\)</span>,注意到其一定满足四边形不等式,也就是<span class="math inline">\(w_{ac}+w_{bd}\geq w_{ad}+w_{bc}\)</span>.</p>
+<p>我们现在想证明,设<span class="math inline">\(f_k\)</span>为新增<span class="math inline">\(k\)</span>个传送机后的减少的答案,我们考虑证明<span class="math inline">\(f_k+f_{k+2}\geq 2f_{k+1}\)</span>.</p>
+<p>我们画出<span class="math inline">\(f_k\)</span>时选的点和<span class="math inline">\(f_{k+2}\)</span>时选的点,注意到我们可以用这两次调整出两个<span class="math inline">\(k+1\)</span>的答案,并且这两个答案的和小于等于<span class="math inline">\(f_k+f_{k+2}\)</span>,于是证明了最小的<span class="math inline">\(f_{k+1}\)</span>是更小的.</p>
+<p>于是我们可以使用二分,每次二分一个最小增加量<span class="math inline">\(w\)</span>,然后对于每一段二分出在这一段中再增加一个传送机的增加量小于等于<span class="math inline">\(w\)</span>的最大的传送机数量,然后就可以做了.</p>
 
     </div>
 
