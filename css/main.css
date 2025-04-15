@@ -1001,6 +1001,7 @@ pre code {
   font-weight: normal;
   line-height: 1.5;
   margin: 0;
+  color: #222;
 }
 .site-subtitle {
   color: #333;
@@ -1137,7 +1138,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #2e037d;
+  background: #ffcca2;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
