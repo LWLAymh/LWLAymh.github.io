@@ -71,7 +71,7 @@
 <script src="/js/third-party/math/mathjax.js" defer></script>
 
 
-
+<link rel="dns-prefetch" href="waline-server-pearl.vercel.app">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -298,6 +298,20 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2025/04/14/%E6%96%87%E5%8C%96%E8%AF%BE-%E8%A2%AB%E7%81%AB%E8%BD%A6%E5%88%9B%E9%A3%9E%E4%BA%86/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2025/04/14/%E6%96%87%E5%8C%96%E8%AF%BE-%E8%A2%AB%E7%81%AB%E8%BD%A6%E5%88%9B%E9%A3%9E%E4%BA%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 </div>
 
         </div>
@@ -312,110 +326,70 @@
 <p>为啥这篇文章总是传不上去???</p>
 <p>为啥这篇文章总是传不上去???</p>
 <p>事情是这样的,几天前,我们班被出了这么一道物理思考题(为表述方便略有简化).</p>
-<p>有一辆以<span class="math inline">\(v_0\)</span>行驶的质量超级大的火车,上面站了一个质量为<span class="math inline">\(m\)</span>的人随火车一起运动.突然，这个人相对于火车以<span class="math inline">\(\Delta
-v\)</span>的速度向前平跳(也就是说此时他相对于地面的速度为<span class="math inline">\(v_0+\Delta
-v\)</span>),求这个人做这个起跳需要多少能量.</p>
-<p>注意这里火车质量很大,所以火车在此人跳跃过程中始终以<span class="math inline">\(v_0\)</span>速度前进.</p>
-<p>我看到这个题觉得很简单啊,肯定是<span class="math inline">\(\frac{m}{2}((v_0+\Delta
-v)^2-v_0^2)\)</span>.然后发现答案竟然是<span class="math inline">\(\frac{m}{2}(\Delta v)^2\)</span>.</p>
+<p>有一辆以$v_0$行驶的质量超级大的火车,上面站了一个质量为$m$的人随火车一起运动.突然，这个人相对于火车以$\Delta v$的速度向前平跳(也就是说此时他相对于地面的速度为$v_0+\Delta v$),求这个人做这个起跳需要多少能量.</p>
+<p>注意这里火车质量很大,所以火车在此人跳跃过程中始终以$v_0$速度前进.</p>
+<p>我看到这个题觉得很简单啊,肯定是$\frac{m}{2}((v_0+\Delta v)^2-v_0^2)$.然后发现答案竟然是$\frac{m}{2}(\Delta v)^2$.</p>
 <p>下面是我们物理课代表给出的解释:</p>
-<p>虽然人的动能变化确实是<span class="math inline">\(\frac{m}{2}((v_0+\Delta
-v)^2-v_0^2)\)</span>,但是在他起跳的过程中,火车对他是有一个力的.而且,因为火车在运动,所以虽然起跳的时候人相对于火车没有运动,但这个力的作用点相对于地面竟然是运动着的!</p>
-<p>因此,不妨设这个力为<span class="math inline">\(F\)</span>,注意这里的<span class="math inline">\(F\)</span>不一定是常数,而是一个关于时间<span class="math inline">\(t\)</span>的函数,我们自然有:<span class="math inline">\(W=\int_{t_0}^{t_1}Fx
-\text{d}t\)</span>,注意到作用点的速度恒为<span class="math inline">\(v_0\)</span>,因此<span class="math inline">\(W=v_0\int_{t_0}^{t_1}F \text{d}t=v_0\Delta
-p=v_0\Delta vm\)</span>,把这个加上后恰好得出答案.</p>
+<p>虽然人的动能变化确实是$\frac{m}{2}((v_0+\Delta v)^2-v_0^2)$,但是在他起跳的过程中,火车对他是有一个力的.而且,因为火车在运动,所以虽然起跳的时候人相对于火车没有运动,但这个力的作用点相对于地面竟然是运动着的!</p>
+<p>因此,不妨设这个力为$F$,注意这里的$F$不一定是常数,而是一个关于时间$t$的函数,我们自然有:$W=\int_{t_0}^{t_1}Fx \text{d}t$,注意到作用点的速度恒为$v_0$,因此$W=v_0\int_{t_0}^{t_1}F \text{d}t=v_0\Delta p=v_0\Delta vm$,把这个加上后恰好得出答案.</p>
 <p>这时我意识到这个事情其实就等价于任何惯性参考系参考下能量都是守恒的.所以我们直接以火车为参考系,立即得出答案.</p>
 <p>但是为啥呢?而且我总觉得上面那个力的分析非常诡异,因为我总感觉起跳是瞬间的,这个力理论上不应该做功啊.</p>
 <p>通过在网上海量搜索后,我大概找到了这么两种理解方式啊.</p>
-<p>第一种是,我们冷静一下.如果没有外力干扰,那么火车其实<strong>并不能匀速前进</strong>.设火车质量为<span class="math inline">\(M\)</span>,当人的速度为<span class="math inline">\(v_0+\Delta
-v\)</span>的时候,根据动量守恒,火车的速度应该为<span class="math inline">\(v_0-\frac{m}{M}\Delta v\)</span>.</p>
-<p>注意这个时候不能以火车为参考系了,因为火车不再是惯性参考系了,所以我们加入一个以<span class="math inline">\(v_0\)</span>匀速前进的青蛙作为新的参考系.不难发现在青蛙参考系和在地面参考系下,火车和人的系统的动能增量是相等的,都是<span class="math inline">\(\frac{1}{2}(m(\Delta v)^2+M(\frac{m}{M}\Delta
-v)^2)\)</span>.</p>
-<p>然后,因为火车质量非常非常非常大,我们注意到<span class="math inline">\(\lim_{M\rightarrow +\infty}\frac{m}{M}\Delta
-v=0\)</span>,完活.</p>
+<p>第一种是,我们冷静一下.如果没有外力干扰,那么火车其实<strong>并不能匀速前进</strong>.设火车质量为$M$,当人的速度为$v_0+\Delta v$的时候,根据动量守恒,火车的速度应该为$v_0-\frac{m}{M}\Delta v$.</p>
+<p>注意这个时候不能以火车为参考系了,因为火车不再是惯性参考系了,所以我们加入一个以$v_0$匀速前进的青蛙作为新的参考系.不难发现在青蛙参考系和在地面参考系下,火车和人的系统的动能增量是相等的,都是$\frac{1}{2}(m(\Delta v)^2+M(\frac{m}{M}\Delta v)^2)$.</p>
+<p>然后,因为火车质量非常非常非常大,我们注意到$\lim_{M\rightarrow +\infty}\frac{m}{M}\Delta v=0$,完活.</p>
 <p>但是这个过程别说还是进行了近似估计了,就是和现实也不符啊.你火车肯定要有动力来源使得其能进行匀速直线运动.但是这个理解方式的优越性在于,它试图将火车和人视作一个系统来观察,这个角度下我们完全不要去管二者分别的动能了,而是直接分析系统动能.</p>
 <p>所以我反思了一下为什么我觉得一开始的那个做法很奇怪,我注意到对人做功的力同时一定对火车作负功,那么也就是一定还有一个对火车作正功的外力,这个力同时也是整个系统的外力.</p>
 <p>对这个施加在火车上的外力进行完全一样的分析,就可以得到相同的答案.</p>
 <p>或者更一般地,我们来证明惯性参考系下的所需要的能量恒定:</p>
-<p>我们已知: <span class="math display">\[
-\int_{t_0}^{t_1}Fv\ \text{d}t=\frac{m}{2}(v_1^2-v_0^2)+\Delta E
-\]</span> 要证: <span class="math display">\[
-\int_{t_0}^{t_1}F(v-v_w)\
-\text{d}t=\frac{m}{2}((v_1-v_w)^2-(v_0-v_w)^2)+\Delta E
-\]</span></p>
-<p>而注意到: <span class="math display">\[
-\int_{t_0}^{t_1}F(v-v_w)\ \text{d}t=\int_{t_0}^{t_1}F(v)\
-\text{d}t-\int_{t_0}^{t_1}Fv_w\
-\text{d}t=\frac{m}{2}(v_1^2-v_0^2)-v_wm(v_1-v_0)+\Delta E
-\]</span></p>
-<p>这就证明了该结论!</p>
+<p>我们已知:</p>
+<script type="math/tex; mode=display">
+\int_{t_0}^{t_1}Fv\ \text{d}t=\frac{m}{2}(v_1^2-v_0^2)+\Delta E</script><p>要证:</p>
+<script type="math/tex; mode=display">
+\int_{t_0}^{t_1}F(v-v_w)\ \text{d}t=\frac{m}{2}((v_1-v_w)^2-(v_0-v_w)^2)+\Delta E</script><p>而注意到:</p>
+<script type="math/tex; mode=display">
+\int_{t_0}^{t_1}F(v-v_w)\ \text{d}t=\int_{t_0}^{t_1}F(v)\ \text{d}t-\int_{t_0}^{t_1}Fv_w\ \text{d}t=\frac{m}{2}(v_1^2-v_0^2)-v_wm(v_1-v_0)+\Delta E</script><p>这就证明了该结论!</p>
 <p><del>不过这个做法虽然相当理性但是一点都不直观啊,为什么两个平方竟然可以在这里线性加减,我其实还是没找到更加易于理解的方式啊,如果有大佬知道可以联系我一下qwq</del></p>
-<p>哦哦我突然瞎想出了一个相当简洁的方式啊,就是我们不难注意到只要满足动量守恒以及做功的方程<span class="math inline">\(W=Fx\)</span>,我们很自然可以推导出动能差的表达式,而这两个基础的表达式都是线性的,因此动能差也一定与选取哪个惯性参考系无关!</p>
+<p>哦哦我突然瞎想出了一个相当简洁的方式啊,就是我们不难注意到只要满足动量守恒以及做功的方程$W=Fx$,我们很自然可以推导出动能差的表达式,而这两个基础的表达式都是线性的,因此动能差也一定与选取哪个惯性参考系无关!</p>
 <p>换句话说,这个动能差的表达式中的平方是我们积分积出来的,但是积分是可以加减的!</p>
 <hr>
-<p>在大半夜和Querainy 和Minuses
-深入交流之后,我发现上面的过程还是太感性理解了,我们来添加一些细节.</p>
-<p>首先,Minuses
-提供了在宏观下动量定理和牛二等价的证明(他原本的形式用的全是向量,但是我比较懒,所以换成一维情况了):</p>
-<p><span class="math display">\[
-F\ \text{d}t=m\ \text{d}v
-\]</span></p>
-<p><span class="math display">\[
-F=\frac{\text{d}v}{\text{d}t}m=am
-\]</span></p>
-<p>然后,他又提供了只要有牛顿第二定律和<span class="math inline">\(W=Fx\)</span>的定义,我们就可以推导惯性参考系下动能定理的证明:</p>
-<p><span class="math display">\[
-F=m\frac{\text{d}v}{\text{d}t}
-\]</span></p>
-<p><span class="math display">\[
-F\text{d}x=m\frac{\text{d}v}{\text{d}t}\text{d}x=mv\ \text{d}v
-\]</span></p>
-<p><span class="math display">\[
-W=\int_{t_0}^{t_1}F\text{d}x=m\int_{t_0}^{t_1}v\text{d}v=\frac{1}{2}m(v_1^2-v_0^2)
-\]</span></p>
-<p>Minuses 无敌,可让天下一先.</p>
+<p>在大半夜和Querainy 和Minuses 深入交流之后,我发现上面的过程还是太感性理解了,我们来添加一些细节.</p>
+<p>首先,Minuses 提供了在宏观下动量定理和牛二等价的证明(他原本的形式用的全是向量,但是我比较懒,所以换成一维情况了):</p>
+<script type="math/tex; mode=display">
+F\ \text{d}t=m\ \text{d}v</script><script type="math/tex; mode=display">
+F=\frac{\text{d}v}{\text{d}t}m=am</script><p>然后,他又提供了只要有牛顿第二定律和$W=Fx$的定义,我们就可以推导惯性参考系下动能定理的证明:</p>
+<script type="math/tex; mode=display">
+F=m\frac{\text{d}v}{\text{d}t}</script><script type="math/tex; mode=display">
+F\text{d}x=m\frac{\text{d}v}{\text{d}t}\text{d}x=mv\ \text{d}v</script><script type="math/tex; mode=display">
+W=\int_{t_0}^{t_1}F\text{d}x=m\int_{t_0}^{t_1}v\text{d}v=\frac{1}{2}m(v_1^2-v_0^2)</script><p>Minuses 无敌,可让天下一先.</p>
 <hr>
-<p>Querainy提出我之前的说法是错误的,因为在不同参考系下牛顿第二定律的确不会有影响,但是<span class="math inline">\(W=Fx\)</span>是受到了影响的.例如在上面的例子中,如果以火车为参考系,那么火车与人之间的力对人是没有做功的.但是以地面为参考系,那么这个力因为作用点在变所以是做功了的.</p>
+<p>Querainy提出我之前的说法是错误的,因为在不同参考系下牛顿第二定律的确不会有影响,但是$W=Fx$是受到了影响的.例如在上面的例子中,如果以火车为参考系,那么火车与人之间的力对人是没有做功的.但是以地面为参考系,那么这个力因为作用点在变所以是做功了的.</p>
 <p>然而这个做功的改变在上面的积分形式中就可以发现,由于速度的改变导致平方项不能完美消除,因此这个做功的改变会抵消切换参考系(伽利略变换)带来的<strong>动能形式的改变</strong>.</p>
-<p>这个自我修正bug看上去相当诡异,但是一想到动能定理本身就是从<span class="math inline">\(W=Fx\)</span>和牛顿第二定律推导出来的,因此有自洽性也非常合理.</p>
-<table style="width:6%;">
-<colgroup>
-<col style="width: 5%">
-</colgroup>
-<tbody>
-<tr>
-<td>追根溯源看上面整个问题,我们会发现,如果我们换参考系然后看动能,动能的变化量的确是不一样的.</td>
-</tr>
-<tr>
-<td>但是问题在于,我们在意的不是动能的变化量,而是我引起这个变化需要外加多少能量.如果我引起这个变化所需要外加的能量不变,那么就仍然满足能量守恒定律.</td>
-</tr>
-<tr>
-<td>如果我们换参考系,动能的变化量改变,但是同时原本不做功的力也会随之进行做功.事实上由于力的作用点最多只在一个惯性参考系下才是静止的,因此换参考系几乎一定会引起力的做功.</td>
-</tr>
-</tbody>
-</table>
-<p>所以我们其实还可以再举一个类似的例子:</p>
-<p>考虑一个劲度系数为<span class="math inline">\(k\)</span>的弹簧连在地上,上面放了一个重物<span class="math inline">\(M\)</span>,我们来观察一下这个东西.</p>
-<p>不妨取<strong>重物放上弹簧后的平衡位置</strong>为重力势能和弹性势能的零点,设弹簧原长位置相对于此位置距离为<span class="math inline">\(x_0\)</span>,此时当然有<span class="math inline">\(kx_0=Mg\)</span>那考虑系统的弹性势能:</p>
-<p><span class="math display">\[
-E_{p1}=\frac{k}{2}(x-x_0)^2- \frac{k}{2}(x_0)^2=\frac{k}{2}x^2-kx_0x
-\]</span></p>
-<p>重力势能:</p>
-<p><span class="math display">\[
-E_{p2}=Mgx
-\]</span></p>
-<p>那么总势能当然是:</p>
-<p><span class="math display">\[
-E_p=\frac{1}{2}kx^2-kx_0x+Mgx=\frac{1}{2}kx^2
-\]</span></p>
+<p>这个自我修正bug看上去相当诡异,但是一想到动能定理本身就是从$W=Fx$和牛顿第二定律推导出来的,因此有自洽性也非常合理.</p>
 <hr>
-<p>时隔不知道多长时间,现在我们来证明柯尼希定理:质点系在参考系<span class="math inline">\(A\)</span>中的总动能等于质点系在质心系中的动能与质心在参考系<span class="math inline">\(A\)</span>中的动能之和.</p>
-<p>不妨设质心系下质点系的总动能为<span class="math inline">\(E_{kS}\)</span>,参考系<span class="math inline">\(A\)</span>下的总动能为<span class="math inline">\(E_{kA}\)</span>,质心相对于<span class="math inline">\(A\)</span>参考系的速度为<span class="math inline">\(\vec v_C\)</span>,我们当然有:</p>
-<p>$$ E_{kS}=m_i(v_i-v_C)^2\</p>
-<p>=E_{kA}+(M(v_C)^2-2m_iv_iv_C)\</p>
-<p>=E_{kA}+(M(v_C)<sup>2-2(v_C)</sup>2m_i)\</p>
-<p>=E_{kA}-M(v_C)^2 $$</p>
-<p>那这就给出了一个更强的结论,而且这里的质心参考系甚至不需要是惯性系.</p>
+<p>追根溯源看上面整个问题,我们会发现,如果我们换参考系然后看动能,动能的变化量的确是不一样的.</p>
+<p>但是问题在于,我们在意的不是动能的变化量,而是我引起这个变化需要外加多少能量.如果我引起这个变化所需要外加的能量不变,那么就仍然满足能量守恒定律.</p>
+<p>如果我们换参考系,动能的变化量改变,但是同时原本不做功的力也会随之进行做功.事实上由于力的作用点最多只在一个惯性参考系下才是静止的,因此换参考系几乎一定会引起力的做功.</p>
+<hr>
+<p>所以我们其实还可以再举一个类似的例子:</p>
+<p>考虑一个劲度系数为$k$的弹簧连在地上,上面放了一个重物$M$,我们来观察一下这个东西.</p>
+<p>不妨取<strong>重物放上弹簧后的平衡位置</strong>为重力势能和弹性势能的零点,设弹簧原长位置相对于此位置距离为$x_0$,此时当然有$kx_0=Mg$那考虑系统的弹性势能:</p>
+<script type="math/tex; mode=display">
+E_{p1}=\frac{k}{2}(x-x_0)^2- \frac{k}{2}(x_0)^2=\frac{k}{2}x^2-kx_0x</script><p>重力势能:</p>
+<script type="math/tex; mode=display">
+E_{p2}=Mgx</script><p>那么总势能当然是:</p>
+<script type="math/tex; mode=display">
+E_p=\frac{1}{2}kx^2-kx_0x+Mgx=\frac{1}{2}kx^2</script><hr>
+<p>时隔不知道多长时间,现在我们来证明柯尼希定理:质点系在参考系$A$中的总动能等于质点系在质心系中的动能与质心在参考系$A$中的动能之和.</p>
+<p>不妨设质心系下质点系的总动能为$E_{kS}$,参考系$A$下的总动能为$E_{kA}$,质心相对于$A$参考系的速度为$\vec v_C$,我们当然有:</p>
+<script type="math/tex; mode=display">
+E_{kS}=\frac{k}{2}\sum m_i(\vec v_i-\vec v_C)^2\\
+
+=E_{kA}+\frac{k}{2}(M\sum (\vec v_C)^2-2\sum m_i\vec v_i\vec v_C)\\
+
+=E_{kA}+\frac{k}{2}(M\sum (\vec v_C)^2-2(\vec v_C)^2\sum m_i)\\
+
+=E_{kA}-\frac{k}{2}M(\vec v_C)^2</script><p>那这就给出了一个更强的结论,而且这里的质心参考系甚至不需要是惯性系.</p>
 
     </div>
 
@@ -448,6 +422,7 @@ E_p=\frac{1}{2}kx^2-kx_0x+Mgx=\frac{1}{2}kx^2
 
 
 
+    <div class="comments" id="waline"></div>
 </div>
   </main>
 
@@ -483,6 +458,17 @@ E_p=\frac{1}{2}kx^2-kx_0x+Mgx=\frac{1}{2}kx^2
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"waline-server-pearl.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"有什么想法?","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2025/04/14/%E6%96%87%E5%8C%96%E8%AF%BE-%E8%A2%AB%E7%81%AB%E8%BD%A6%E5%88%9B%E9%A3%9E%E4%BA%86/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
 
   <!-- 音乐播放器 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
