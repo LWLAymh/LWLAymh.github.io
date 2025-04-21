@@ -177,18 +177,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">59</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -318,25 +318,28 @@
     <div class="post-body" itemprop="articleBody"><!-- toc -->
 <!-- tocstop -->
 <span id="more"></span>
-<p>在YT2S 2021级生2课上有一个著名的open problem,也就是在计算自由交配的时候能否拆开考虑,下面我来尝试写一点自己的理解.</p>
+<p>在YT2S 2021级生2课上有一个著名的open
+problem,也就是在计算自由交配的时候能否拆开考虑,下面我来尝试写一点自己的理解.</p>
 <p>首先来看两个问题(前置条件均为孟德尔第二次杂交实验):</p>
-<ol>
+<ol type="1">
 <li>将F2中双显性植株自由交配,求后代表现型及比例.</li>
 <li>将F2中单显性植株(包括两种单显性植株)自由交配,求后代表现型及比例.</li>
 </ol>
-<p>为了方便笔者书写,不妨设这两对基因是$A/a$和$B/b$.</p>
-<p>先来看第一个问题,双显性植株中应该有:$\frac{1}{9}AABB,\frac{2}{9}AABb,\frac{2}{9}AaBB,\frac{4}{9}AaBb$.先让第一组基因自由交配,也就是只看$A/a$,我们有$\frac{1}{3}AA$和$\frac{2}{3}Aa$,产生$\frac{2}{3}A$和$\frac{1}{3}a$配子,得到$AA:Aa:aa=4:4:1$,也就是$A_:aa=8:1$.对另一对也这么考虑,最终得到$A_B_:A_bb:aaB_:aabb=64:8:8:1$.</p>
+<p>为了方便笔者书写,不妨设这两对基因是<span class="math inline">\(A/a\)</span>和<span class="math inline">\(B/b\)</span>.</p>
+<p>先来看第一个问题,双显性植株中应该有:<span class="math inline">\(\frac{1}{9}AABB,\frac{2}{9}AABb,\frac{2}{9}AaBB,\frac{4}{9}AaBb\)</span>.先让第一组基因自由交配,也就是只看<span class="math inline">\(A/a\)</span>,我们有<span class="math inline">\(\frac{1}{3}AA\)</span>和<span class="math inline">\(\frac{2}{3}Aa\)</span>,产生<span class="math inline">\(\frac{2}{3}A\)</span>和<span class="math inline">\(\frac{1}{3}a\)</span>配子,得到<span class="math inline">\(AA:Aa:aa=4:4:1\)</span>,也就是<span class="math inline">\(A\_:aa=8:1\)</span>.对另一对也这么考虑,最终得到<span class="math inline">\(A\_B\_:A\_bb:aaB\_:aabb=64:8:8:1\)</span>.</p>
 <p>非常合理且简洁对吧,但如果你同样拆开考虑第二个问题,会发现这么做是错误的.</p>
-<p>我们生物老师LL老师给出的解释是,单显性植株的个体是$A_bb$和$aaB_$,它们的基因型并没有组合的非常彻底,也就是并没有出现$aabb$和$A_B_$个体,导致不能乱拆开.</p>
+<p>我们生物老师LL老师给出的解释是,单显性植株的个体是<span class="math inline">\(A\_bb\)</span>和<span class="math inline">\(aaB\_\)</span>,它们的基因型并没有组合的非常彻底,也就是并没有出现<span class="math inline">\(aabb\)</span>和<span class="math inline">\(A\_B\_\)</span>个体,导致不能乱拆开.</p>
 <p>而直觉上感觉这个东西和独立性有关对吧,我们来简单证明一下:</p>
-<p>约定$X$是$AA,Aa$或$aa$,$Y$则是$BB,Bb,bb$,那么:$P(XY)=P(Y|X)P(X)$.如果可以拆开,那么$P(XY)=P(X)P(Y)$,于是有:$P(Y|X)=P(Y)$,也就是这两种基因型互相独立就行,老师说的对啊!</p>
+<p>约定<span class="math inline">\(X\)</span>是<span class="math inline">\(AA,Aa\)</span>或<span class="math inline">\(aa\)</span>,<span class="math inline">\(Y\)</span>则是<span class="math inline">\(BB,Bb,bb\)</span>,那么:<span class="math inline">\(P(XY)=P(Y|X)P(X)\)</span>.如果可以拆开,那么<span class="math inline">\(P(XY)=P(X)P(Y)\)</span>,于是有:<span class="math inline">\(P(Y|X)=P(Y)\)</span>,也就是这两种基因型互相独立就行,老师说的对啊!</p>
 <p>如果只是这样就水了一篇博客非常无聊对吧,能不能证明一点更好玩的结论呢?</p>
-<p>考虑设产生四种配子$AB,Ab,aB,ab$的概率分别是$x,y,z,w$,其中$x+y+z+w=1$.</p>
-<p>使用生成函数技巧,配子法给出的答案应该是:$(x AB+y Ab+z aB+w ab)^2$,而拆分再乘起来的答案应该是$((x+y)A+(z+w)a)^2((x+z)B+(y+w)b)^2$,其中$A,B,a,b$均为形式幂.</p>
+<p>考虑设产生四种配子<span class="math inline">\(AB,Ab,aB,ab\)</span>的概率分别是<span class="math inline">\(x,y,z,w\)</span>,其中<span class="math inline">\(x+y+z+w=1\)</span>.</p>
+<p>使用生成函数技巧,配子法给出的答案应该是:<span class="math inline">\((x\ AB+y\ Ab+z\ aB+w\
+ab)^2\)</span>,而拆分再乘起来的答案应该是<span class="math inline">\(((x+y)A+(z+w)a)^2((x+z)B+(y+w)b)^2\)</span>,其中<span class="math inline">\(A,B,a,b\)</span>均为形式幂.</p>
 <p>如果两边相等,有:</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 (x\ AB+y\ Ab+z\ aB+w\ ab)^2=((x+y)A+(z+w)a)^2((x+z)B+(y+w)b)^2\\
-(x+y+z+w)(x\ AB+y\ Ab+z\ aB+w\ ab)=((x+y)A+(z+w)a)((x+z)B+(y+w)b)\\</script><p>两边展开,就可以知道它的充分必要条件是$P(ab)=P(a)P(b)$,也就是产生$a$和$b$的配子概率是独立的.</p>
+(x+y+z+w)(x\ AB+y\ Ab+z\ aB+w\ ab)=((x+y)A+(z+w)a)((x+z)B+(y+w)b)\\
+\]</span> 两边展开,就可以知道它的充分必要条件是<span class="math inline">\(P(ab)=P(a)P(b)\)</span>,也就是产生<span class="math inline">\(a\)</span>和<span class="math inline">\(b\)</span>的配子概率是独立的.</p>
 
     </div>
 

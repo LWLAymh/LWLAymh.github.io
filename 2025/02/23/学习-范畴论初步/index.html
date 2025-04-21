@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lwlaymh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="基础集合论 映射 二元运算与二元关系 保序映射 Dilworth定理 商集   ZFC公理体系 外延公理 配对公理 分离公理(模式) 并集公理 幂集公理 无穷公理 替换公理(模式) 正则公理 选择公理 Zorn引理 良序定理     集合的基数 Cantor-Bernstein定理 可数无穷与不可数无穷     简单范畴论 范畴 函子 范畴实例 Kleisli范畴">
+    <meta name="description" content="基础集合论  映射 二元运算与二元关系  保序映射 Dilworth定理 商集  ZFC公理体系  外延公理 配对公理 分离公理(模式) 并集公理 幂集公理 无穷公理 替换公理(模式) 正则公理 选择公理  Zorn引理 良序定理   集合的基数  Cantor-Bernstein定理 可数无穷与不可数无穷   简单范畴论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="范畴论初步">
 <meta property="og:url" content="http://lwlaymh.github.io/2025/02/23/%E5%AD%A6%E4%B9%A0-%E8%8C%83%E7%95%B4%E8%AE%BA%E5%88%9D%E6%AD%A5/index.html">
 <meta property="og:site_name" content="LWLAymh的备忘录">
-<meta property="og:description" content="基础集合论 映射 二元运算与二元关系 保序映射 Dilworth定理 商集   ZFC公理体系 外延公理 配对公理 分离公理(模式) 并集公理 幂集公理 无穷公理 替换公理(模式) 正则公理 选择公理 Zorn引理 良序定理     集合的基数 Cantor-Bernstein定理 可数无穷与不可数无穷     简单范畴论 范畴 函子 范畴实例 Kleisli范畴">
+<meta property="og:description" content="基础集合论  映射 二元运算与二元关系  保序映射 Dilworth定理 商集  ZFC公理体系  外延公理 配对公理 分离公理(模式) 并集公理 幂集公理 无穷公理 替换公理(模式) 正则公理 选择公理  Zorn引理 良序定理   集合的基数  Cantor-Bernstein定理 可数无穷与不可数无穷   简单范畴论">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-02-23T14:12:51.168Z">
 <meta property="article:modified_time" content="2025-04-14T16:40:44.822Z">
@@ -180,18 +180,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">59</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -320,15 +320,17 @@
     
     <div class="post-body" itemprop="articleBody"><!-- toc -->
 <ul>
-<li><a href="#基础集合论">基础集合论</a><ul>
+<li><a href="#基础集合论">基础集合论</a>
+<ul>
 <li><a href="#映射">映射</a></li>
-<li><a href="#二元运算与二元关系">二元运算与二元关系</a><ul>
+<li><a href="#二元运算与二元关系">二元运算与二元关系</a>
+<ul>
 <li><a href="#保序映射">保序映射</a></li>
 <li><a href="#dilworth定理">Dilworth定理</a></li>
 <li><a href="#商集">商集</a></li>
-</ul>
-</li>
-<li><a href="#zfc公理体系">ZFC公理体系</a><ul>
+</ul></li>
+<li><a href="#zfc公理体系">ZFC公理体系</a>
+<ul>
 <li><a href="#外延公理">外延公理</a></li>
 <li><a href="#配对公理">配对公理</a></li>
 <li><a href="#分离公理模式">分离公理(模式)</a></li>
@@ -337,210 +339,325 @@
 <li><a href="#无穷公理">无穷公理</a></li>
 <li><a href="#替换公理模式">替换公理(模式)</a></li>
 <li><a href="#正则公理">正则公理</a></li>
-<li><a href="#选择公理">选择公理</a><ul>
+<li><a href="#选择公理">选择公理</a>
+<ul>
 <li><a href="#zorn引理">Zorn引理</a></li>
 <li><a href="#良序定理">良序定理</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#集合的基数">集合的基数</a><ul>
+</ul></li>
+</ul></li>
+<li><a href="#集合的基数">集合的基数</a>
+<ul>
 <li><a href="#cantor-bernstein定理">Cantor-Bernstein定理</a></li>
 <li><a href="#可数无穷与不可数无穷">可数无穷与不可数无穷</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#简单范畴论">简单范畴论</a><ul>
+</ul></li>
+</ul></li>
+<li><a href="#简单范畴论">简单范畴论</a>
+<ul>
 <li><a href="#范畴">范畴</a></li>
 <li><a href="#函子">函子</a></li>
-<li><a href="#范畴实例">范畴实例</a><ul>
+<li><a href="#范畴实例">范畴实例</a>
+<ul>
 <li><a href="#kleisli范畴">Kleisli范畴</a></li>
-</ul>
-</li>
-</ul>
-</li>
+</ul></li>
+</ul></li>
 </ul>
 <!-- tocstop -->
 <span id="more"></span>
-<h2><span id="基础集合论">基础集合论</span></h2><h3><span id="映射">映射</span></h3><p>设$A,B$为两个集合,$\varphi$称为从$A$到$B$的一个<strong>映射</strong>,如果对于任意$a\in A$,$\exists b\in B,b=\varphi(a)$.此时$b$称为$a$在$\varphi$下的像,$a$称为$b$在$\varphi$下的原像或反像.一般地,这个定义可以拓展到$S\subseteq A$,$\varphi(S)=\{\varphi(a)\mid a\in S\}$,定义$\varphi^{-1}(T)=\{a|\varphi(a)\in T,a\in S\}$.</p>
-<p>如果$\forall a_1,a_2\in A,a_1\ne a_2,\varphi(a_1)\ne \varphi(a_2)$,称$\varphi$是<strong>单射</strong>.</p>
-<p>如果$\forall b\in B,\exists a\in A,\varphi(a)=b$.称$\varphi$为<strong>满射</strong>.</p>
-<p>如果$\varphi$既是单射又是满射,称其为<strong>双射</strong>或<strong>一一映射</strong>.</p>
-<p>如果$A=B$,我们又称$\varphi$为一个<strong>变换</strong>.</p>
-<p>设$f:A\rightarrow B,g:B\rightarrow A$,那么:</p>
-<ol>
-<li>如果$g\circ f=id_A$,称$g$是$f$的一个<strong>左逆</strong>,不难发现$f$存在左逆当且仅当$f$是单射.</li>
-<li>如果$f\circ g=id_B$,称$g$是$f$的一个<strong>右逆</strong>,不难发现$f$存在右逆当且仅当$f$是满射.</li>
-<li>如果$g$既是$f$的左逆又是$f$的右逆,则称$g$为$f$的<strong>逆</strong>,不难发现$f$存在逆当且仅当$f$是双射,并且逆唯一.</li>
+<h2><span id="基础集合论">基础集合论</span></h2>
+<h3><span id="映射">映射</span></h3>
+<p>设<span class="math inline">\(A,B\)</span>为两个集合,<span class="math inline">\(\varphi\)</span>称为从<span class="math inline">\(A\)</span>到<span class="math inline">\(B\)</span>的一个<strong>映射</strong>,如果对于任意<span class="math inline">\(a\in A\)</span>,<span class="math inline">\(\exists b\in B,b=\varphi(a)\)</span>.此时<span class="math inline">\(b\)</span>称为<span class="math inline">\(a\)</span>在<span class="math inline">\(\varphi\)</span>下的像,<span class="math inline">\(a\)</span>称为<span class="math inline">\(b\)</span>在<span class="math inline">\(\varphi\)</span>下的原像或反像.一般地,这个定义可以拓展到<span class="math inline">\(S\subseteq A\)</span>,<span class="math inline">\(\varphi(S)=\{\varphi(a)\mid a\in
+S\}\)</span>,定义<span class="math inline">\(\varphi^{-1}(T)=\{a|\varphi(a)\in T,a\in
+S\}\)</span>.</p>
+<p>如果<span class="math inline">\(\forall a_1,a_2\in A,a_1\ne
+a_2,\varphi(a_1)\ne \varphi(a_2)\)</span>,称<span class="math inline">\(\varphi\)</span>是<strong>单射</strong>.</p>
+<p>如果<span class="math inline">\(\forall b\in B,\exists a\in
+A,\varphi(a)=b\)</span>.称<span class="math inline">\(\varphi\)</span>为<strong>满射</strong>.</p>
+<p>如果<span class="math inline">\(\varphi\)</span>既是单射又是满射,称其为<strong>双射</strong>或<strong>一一映射</strong>.</p>
+<p>如果<span class="math inline">\(A=B\)</span>,我们又称<span class="math inline">\(\varphi\)</span>为一个<strong>变换</strong>.</p>
+<p>设<span class="math inline">\(f:A\rightarrow B,g:B\rightarrow
+A\)</span>,那么:</p>
+<ol type="1">
+<li>如果<span class="math inline">\(g\circ f=id_A\)</span>,称<span class="math inline">\(g\)</span>是<span class="math inline">\(f\)</span>的一个<strong>左逆</strong>,不难发现<span class="math inline">\(f\)</span>存在左逆当且仅当<span class="math inline">\(f\)</span>是单射.</li>
+<li>如果<span class="math inline">\(f\circ g=id_B\)</span>,称<span class="math inline">\(g\)</span>是<span class="math inline">\(f\)</span>的一个<strong>右逆</strong>,不难发现<span class="math inline">\(f\)</span>存在右逆当且仅当<span class="math inline">\(f\)</span>是满射.</li>
+<li>如果<span class="math inline">\(g\)</span>既是<span class="math inline">\(f\)</span>的左逆又是<span class="math inline">\(f\)</span>的右逆,则称<span class="math inline">\(g\)</span>为<span class="math inline">\(f\)</span>的<strong>逆</strong>,不难发现<span class="math inline">\(f\)</span>存在逆当且仅当<span class="math inline">\(f\)</span>是双射,并且逆唯一.</li>
 </ol>
-<h3><span id="二元运算与二元关系">二元运算与二元关系</span></h3><p>集合$A,B$的<strong>笛卡尔积</strong>或<strong>直积</strong>是指$A$的元素与$B$的元素构成的有序对的集合,即$A\times B=\{(a,b)\mid a\in A,b\in B\}$.可以推广到多元对.</p>
-<p>集合$A$上的一个<strong>二元运算</strong>是由$A\times A$到$A$的一个映射.对于定义在$U$上的一个二元运算,不妨用$+$来表示,集合$A,B\subseteq U$的<strong>闵可夫斯基和</strong>定义为$A+B=\{a+b\mid a\in A,b\in B\}$.OI中常见的如取背包等算法,其实就是在做闵和后去除或合并若干点.</p>
-<p>集合$A$上的一个<strong>二元关系</strong>$R$定义为$A\times A$的一个子集(可以理解为满足二元关系的解集),如果$(a_1,a_2)\in R$,就称$a_1,a_2$有关系$R$,记作$a_1Ra_2$,注意这里有序.</p>
-<p>如果$R$满足以下三个性质:</p>
-<ol>
-<li>反身性:$\forall a\in A,aRa$.</li>
-<li>对称性:$a_1Ra_2\Leftrightarrow a_2Ra_1$.</li>
-<li>传递性:$a_1Ra_2,a_2Ra_3\Leftrightarrow a_1Ra_3$.</li>
+<h3><span id="二元运算与二元关系">二元运算与二元关系</span></h3>
+<p>集合<span class="math inline">\(A,B\)</span>的<strong>笛卡尔积</strong>或<strong>直积</strong>是指<span class="math inline">\(A\)</span>的元素与<span class="math inline">\(B\)</span>的元素构成的有序对的集合,即<span class="math inline">\(A\times B=\{(a,b)\mid a\in A,b\in
+B\}\)</span>.可以推广到多元对.</p>
+<p>集合<span class="math inline">\(A\)</span>上的一个<strong>二元运算</strong>是由<span class="math inline">\(A\times A\)</span>到<span class="math inline">\(A\)</span>的一个映射.对于定义在<span class="math inline">\(U\)</span>上的一个二元运算,不妨用<span class="math inline">\(+\)</span>来表示,集合<span class="math inline">\(A,B\subseteq
+U\)</span>的<strong>闵可夫斯基和</strong>定义为<span class="math inline">\(A+B=\{a+b\mid a\in A,b\in
+B\}\)</span>.OI中常见的如取背包等算法,其实就是在做闵和后去除或合并若干点.</p>
+<p>集合<span class="math inline">\(A\)</span>上的一个<strong>二元关系</strong><span class="math inline">\(R\)</span>定义为<span class="math inline">\(A\times
+A\)</span>的一个子集(可以理解为满足二元关系的解集),如果<span class="math inline">\((a_1,a_2)\in R\)</span>,就称<span class="math inline">\(a_1,a_2\)</span>有关系<span class="math inline">\(R\)</span>,记作<span class="math inline">\(a_1Ra_2\)</span>,注意这里有序.</p>
+<p>如果<span class="math inline">\(R\)</span>满足以下三个性质:</p>
+<ol type="1">
+<li>反身性:<span class="math inline">\(\forall a\in A,aRa\)</span>.</li>
+<li>对称性:<span class="math inline">\(a_1Ra_2\Leftrightarrow
+a_2Ra_1\)</span>.</li>
+<li>传递性:<span class="math inline">\(a_1Ra_2,a_2Ra_3\Leftrightarrow
+a_1Ra_3\)</span>.</li>
 </ol>
-<p>则称$R$是一个<strong>等价关系</strong>,不难发现满足等价关系的元素构成了若干个集合,称作<strong>等价类</strong>.等价关系通常记作$\sim$.</p>
+<p>则称<span class="math inline">\(R\)</span>是一个<strong>等价关系</strong>,不难发现满足等价关系的元素构成了若干个集合,称作<strong>等价类</strong>.等价关系通常记作<span class="math inline">\(\sim\)</span>.</p>
 <p>如果将等价关系的(2)改作:</p>
-<ol>
-<li>反对称性:$a_1Ra_2,a_2Ra_1\Leftrightarrow a_1=a_2$.</li>
+<ol start="2" type="1">
+<li>反对称性:<span class="math inline">\(a_1Ra_2,a_2Ra_1\Leftrightarrow
+a_1=a_2\)</span>.</li>
 </ol>
-<p>则称$R$是一个<strong>偏序关系</strong>,具有某种偏序关系的集合称为<strong>偏序集</strong>,如果任意两个元素都存在偏序关系,称作<strong>全序集</strong>.如果一个全序集的任意一个子集存在最小元,则称其为<strong>良序集</strong>.</p>
-<p>偏序关系通常记作$\leq $.</p>
-<h4><span id="保序映射">保序映射</span></h4><p>对于映射$f:A\rightarrow B$,如果$\forall a,a’\in A,a\leq a’\Rightarrow f(a)\leq f(a’)$,则称其为保序的.</p>
-<h4><span id="dilworth定理">Dilworth定理</span></h4><p>对于偏序集$(A,R)$来说,定义:</p>
-<ol>
-<li>链:$A’\subseteq A,\forall x,y\in A’,[xRy\lor yRx]=1$.</li>
-<li>反链:$A’\subseteq A,\forall x,y\in A’,[xRy\lor yRx]=0$.</li>
+<p>则称<span class="math inline">\(R\)</span>是一个<strong>偏序关系</strong>,具有某种偏序关系的集合称为<strong>偏序集</strong>,如果任意两个元素都存在偏序关系,称作<strong>全序集</strong>.如果一个全序集的任意一个子集存在最小元,则称其为<strong>良序集</strong>.</p>
+<p>偏序关系通常记作$$.</p>
+<h4><span id="保序映射">保序映射</span></h4>
+<p>对于映射<span class="math inline">\(f:A\rightarrow
+B\)</span>,如果<span class="math inline">\(\forall a,a&#39;\in A,a\leq
+a&#39;\Rightarrow f(a)\leq f(a&#39;)\)</span>,则称其为保序的.</p>
+<h4><span id="dilworth定理">Dilworth定理</span></h4>
+<p>对于偏序集<span class="math inline">\((A,R)\)</span>来说,定义:</p>
+<ol type="1">
+<li>链:<span class="math inline">\(A&#39;\subseteq A,\forall x,y\in
+A&#39;,[xRy\lor yRx]=1\)</span>.</li>
+<li>反链:<span class="math inline">\(A&#39;\subseteq A,\forall x,y\in
+A&#39;,[xRy\lor yRx]=0\)</span>.</li>
 <li>链覆盖:挑出最少数量的链,使得其可重复覆盖了所有点.</li>
 </ol>
 <p>Dilworth定理是说:一个偏序集的最长反链等于最小链覆盖.</p>
-<p>考虑数学归纳,$|A|\leq 3$显然成立.</p>
-<p>当$|A|&gt;3$时,如果存在一个点和其它任何点都没有偏序关系,那显然把它删掉就可以数学归纳.</p>
-<p>反之,设其最长反链数为$d$,下面证明其最小链覆盖也是$d$.</p>
-<p>考虑取一条尽可能长的链$A’$,设其中最大的为$M$,最小的为$m$(如果有多个就任取一个).</p>
-<p>考虑$T=A\setminus A’$,如果$T$中的最长反链数小于$d$,则数学归纳成立.</p>
-<p>反之,则一定可以取出一个反链$S$,使得$S\cap A’=\empty$.考虑设$A^{+}=\{x|x\in A\land \exists s\in S,sRx\}$,$A^{-}=\{x|x\in A\land \exists s\in S,xRs\}$.不难发现$m$一定不在$|A^{+}|$中,不然取出的那条链$A’$可以更长.同理$M$一定不在$|A^{-}|$中,也即$|A^+|,|A^-|&lt;|A|$.</p>
-<p>我们又发现$A^+\cup A^-=A$,原因是如果一个点不在这两个集合中,一定可以添加到最长反链中.</p>
-<p>我们还发现由于偏序关系的反身性,$S\subseteq A^{+}\cap A^{-}$.</p>
-<p>由数学归纳,$A^+$和$A^-$中的最小链覆盖均为$d$,并且一个以$S$中元素开头,一个以$S$中元素结尾,我们把它俩拼起来就是一个大小为$d$的新的大小为$d$的链覆盖.而且显然不会有更优的结果了.</p>
-<h4><span id="商集">商集</span></h4><p>考虑定义一种等价关系$\sim$,我们可以在此基础上定义商集$A/\sim=\{[a]|a\in A\}$,其中$[a]$是$a$所在的等价类.</p>
-<p>商群有一个很漂亮的应用是,通过$\N$来定义$\Z$.(默认加法和乘法都存在幺元,结合律,消去律,交换律,分配律)</p>
-<p>这个是怎么做呢?考虑定义一种等价关系$\sim$,$(n,m)\sim(n’,m’)$当且仅当$n+m’=m+n’$.虽然我们手上没有加法逆元和乘法逆元,但我们有加法和乘法的消去律,这样可以验证该等价关系满足反身性,传递性,对称性.</p>
-<p>然后我们将$\N/\sim$定义为整数,更确切地,对于任意一组$(n,m)$其代表的就是$n-m$这个整数.</p>
-<p>容易定义加法:$(n,m)+(n’,m’)=(n+n’,m+m’)$,乘法$(n,m)\times (n’,m’)=(mm’+nn’,mn’+m’n)$.也可以定义大小关系$(n,m)\leq (n’,m’)\Leftrightarrow n+m’\leq m+n’$.</p>
+<p>考虑数学归纳,<span class="math inline">\(|A|\leq
+3\)</span>显然成立.</p>
+<p>当<span class="math inline">\(|A|&gt;3\)</span>时,如果存在一个点和其它任何点都没有偏序关系,那显然把它删掉就可以数学归纳.</p>
+<p>反之,设其最长反链数为<span class="math inline">\(d\)</span>,下面证明其最小链覆盖也是<span class="math inline">\(d\)</span>.</p>
+<p>考虑取一条尽可能长的链<span class="math inline">\(A&#39;\)</span>,设其中最大的为<span class="math inline">\(M\)</span>,最小的为<span class="math inline">\(m\)</span>(如果有多个就任取一个).</p>
+<p>考虑<span class="math inline">\(T=A\setminus
+A&#39;\)</span>,如果<span class="math inline">\(T\)</span>中的最长反链数小于<span class="math inline">\(d\)</span>,则数学归纳成立.</p>
+<p>反之,则一定可以取出一个反链<span class="math inline">\(S\)</span>,使得<span class="math inline">\(S\cap
+A&#39;=\empty\)</span>.考虑设<span class="math inline">\(A^{+}=\{x|x\in
+A\land \exists s\in S,sRx\}\)</span>,<span class="math inline">\(A^{-}=\{x|x\in A\land \exists s\in
+S,xRs\}\)</span>.不难发现<span class="math inline">\(m\)</span>一定不在<span class="math inline">\(|A^{+}|\)</span>中,不然取出的那条链<span class="math inline">\(A&#39;\)</span>可以更长.同理<span class="math inline">\(M\)</span>一定不在<span class="math inline">\(|A^{-}|\)</span>中,也即<span class="math inline">\(|A^+|,|A^-|&lt;|A|\)</span>.</p>
+<p>我们又发现<span class="math inline">\(A^+\cup
+A^-=A\)</span>,原因是如果一个点不在这两个集合中,一定可以添加到最长反链中.</p>
+<p>我们还发现由于偏序关系的反身性,<span class="math inline">\(S\subseteq
+A^{+}\cap A^{-}\)</span>.</p>
+<p>由数学归纳,<span class="math inline">\(A^+\)</span>和<span class="math inline">\(A^-\)</span>中的最小链覆盖均为<span class="math inline">\(d\)</span>,并且一个以<span class="math inline">\(S\)</span>中元素开头,一个以<span class="math inline">\(S\)</span>中元素结尾,我们把它俩拼起来就是一个大小为<span class="math inline">\(d\)</span>的新的大小为<span class="math inline">\(d\)</span>的链覆盖.而且显然不会有更优的结果了.</p>
+<h4><span id="商集">商集</span></h4>
+<p>考虑定义一种等价关系<span class="math inline">\(\sim\)</span>,我们可以在此基础上定义商集<span class="math inline">\(A/\sim=\{[a]|a\in A\}\)</span>,其中<span class="math inline">\([a]\)</span>是<span class="math inline">\(a\)</span>所在的等价类.</p>
+<p>商群有一个很漂亮的应用是,通过<span class="math inline">\(\N\)</span>来定义<span class="math inline">\(\Z\)</span>.(默认加法和乘法都存在幺元,结合律,消去律,交换律,分配律)</p>
+<p>这个是怎么做呢?考虑定义一种等价关系<span class="math inline">\(\sim\)</span>,<span class="math inline">\((n,m)\sim(n&#39;,m&#39;)\)</span>当且仅当<span class="math inline">\(n+m&#39;=m+n&#39;\)</span>.虽然我们手上没有加法逆元和乘法逆元,但我们有加法和乘法的消去律,这样可以验证该等价关系满足反身性,传递性,对称性.</p>
+<p>然后我们将<span class="math inline">\(\N/\sim\)</span>定义为整数,更确切地,对于任意一组<span class="math inline">\((n,m)\)</span>其代表的就是<span class="math inline">\(n-m\)</span>这个整数.</p>
+<p>容易定义加法:<span class="math inline">\((n,m)+(n&#39;,m&#39;)=(n+n&#39;,m+m&#39;)\)</span>,乘法<span class="math inline">\((n,m)\times
+(n&#39;,m&#39;)=(mm&#39;+nn&#39;,mn&#39;+m&#39;n)\)</span>.也可以定义大小关系<span class="math inline">\((n,m)\leq (n&#39;,m&#39;)\Leftrightarrow
+n+m&#39;\leq m+n&#39;\)</span>.</p>
 <p>不过由于我们定义的是等价类,所以还要证明这样的定义是良定义的,这个是容易验证的.</p>
-<p>还有相反数,定义$-(n,m)=(m,n)$即可,容易验证二者之和处于$(0,0)$这个等价类,也容易验证相反数唯一.</p>
-<p>同理可以用$\Z$构造$\mathbb Q$,构造二元组$\Z\times \N_+$,定义$(r,s)\sim (r’,s’)\Leftrightarrow rs’=r’s$,容易验证其满足等价关系的性质.实际上其对应的就是$\frac{r}{s}$这个有理数,对着构造四则运算即可.</p>
-<h3><span id="zfc公理体系">ZFC公理体系</span></h3><h4><span id="外延公理">外延公理</span></h4><p>$A=B\Leftrightarrow (A\subset B)\and (B\subset A)$.</p>
-<h4><span id="配对公理">配对公理</span></h4><p>对于任意元素$a,b$,存在集合$\{a,b\}$.特别地,当$a=b$的时候存在集合$\{a\}$.</p>
-<p>值得一提的是可以将数对$(a,b)$定义为$\{\{a\},\{a,b\}\}$,下面的幂集公理说明了数对属于$2^{2^{A\cup B}},a\in A,b\in B$.</p>
-<h4><span id="分离公理模式">分离公理(模式)</span></h4><p>对于一个集合$A$,和一个性质$P$,若$\alpha$满足性质$P$则称$P(\alpha)$.那么存在集合:</p>
-<script type="math/tex; mode=display">
-\{x|x\in A\and P(x)\}</script><p>注意全体集合并不构成集合(ZFC公理体系不提供一种方式生成全体集合的集合),因此分离公理避免了罗素悖论.</p>
-<p>之所以称为模式,是因为其对于每个性质$P$都构造了相应的公理.</p>
-<h4><span id="并集公理">并集公理</span></h4><p>允许将集合取并.</p>
-<h4><span id="幂集公理">幂集公理</span></h4><p>一个集合的所有子集构成一个新的集合(可以记作$2^A$).</p>
-<h4><span id="无穷公理">无穷公理</span></h4><p>称满足以下性质的集合为归纳集:</p>
-<ol>
-<li>$\empty \in A$.</li>
-<li>若$\alpha \in A$,则$\{\alpha \}\cup \alpha \in A$.</li>
+<p>还有相反数,定义<span class="math inline">\(-(n,m)=(m,n)\)</span>即可,容易验证二者之和处于<span class="math inline">\((0,0)\)</span>这个等价类,也容易验证相反数唯一.</p>
+<p>同理可以用<span class="math inline">\(\Z\)</span>构造<span class="math inline">\(\mathbb Q\)</span>,构造二元组<span class="math inline">\(\Z\times \N_+\)</span>,定义<span class="math inline">\((r,s)\sim (r&#39;,s&#39;)\Leftrightarrow
+rs&#39;=r&#39;s\)</span>,容易验证其满足等价关系的性质.实际上其对应的就是<span class="math inline">\(\frac{r}{s}\)</span>这个有理数,对着构造四则运算即可.</p>
+<h3><span id="zfc公理体系">ZFC公理体系</span></h3>
+<h4><span id="外延公理">外延公理</span></h4>
+<p><span class="math inline">\(A=B\Leftrightarrow (A\subset B)\and
+(B\subset A)\)</span>.</p>
+<h4><span id="配对公理">配对公理</span></h4>
+<p>对于任意元素<span class="math inline">\(a,b\)</span>,存在集合<span class="math inline">\(\{a,b\}\)</span>.特别地,当<span class="math inline">\(a=b\)</span>的时候存在集合<span class="math inline">\(\{a\}\)</span>.</p>
+<p>值得一提的是可以将数对<span class="math inline">\((a,b)\)</span>定义为<span class="math inline">\(\{\{a\},\{a,b\}\}\)</span>,下面的幂集公理说明了数对属于<span class="math inline">\(2^{2^{A\cup B}},a\in A,b\in B\)</span>.</p>
+<h4><span id="分离公理模式">分离公理(模式)</span></h4>
+<p>对于一个集合<span class="math inline">\(A\)</span>,和一个性质<span class="math inline">\(P\)</span>,若<span class="math inline">\(\alpha\)</span>满足性质<span class="math inline">\(P\)</span>则称<span class="math inline">\(P(\alpha)\)</span>.那么存在集合: <span class="math display">\[
+\{x|x\in A\and P(x)\}
+\]</span>
+注意全体集合并不构成集合(ZFC公理体系不提供一种方式生成全体集合的集合),因此分离公理避免了罗素悖论.</p>
+<p>之所以称为模式,是因为其对于每个性质<span class="math inline">\(P\)</span>都构造了相应的公理.</p>
+<h4><span id="并集公理">并集公理</span></h4>
+<p>允许将集合取并.</p>
+<h4><span id="幂集公理">幂集公理</span></h4>
+<p>一个集合的所有子集构成一个新的集合(可以记作<span class="math inline">\(2^A\)</span>).</p>
+<h4><span id="无穷公理">无穷公理</span></h4>
+<p>称满足以下性质的集合为归纳集:</p>
+<ol type="1">
+<li><span class="math inline">\(\empty \in A\)</span>.</li>
+<li>若<span class="math inline">\(\alpha \in A\)</span>,则<span class="math inline">\(\{\alpha \}\cup \alpha \in A\)</span>.</li>
 </ol>
 <p>则归纳集存在.</p>
-<h4><span id="替换公理模式">替换公理(模式)</span></h4><p>对于集合$A$和一种定义在集合$A$上的映射$F$,存在集合$A’$使得$x\in A’\Leftrightarrow x=F(a),a\in A$.</p>
-<p>用替换公理可以证明映射也是一种集合,并且从$A\rightarrow B$的所有映射可以构成集合,可以记作$B^A$.</p>
-<h4><span id="正则公理">正则公理</span></h4><p>对任何非空集合$A$,存在$a\in A$使得$\forall a’\in A$,$a’\notin a$,也就是$a\cap A=\empty$.</p>
-<h4><span id="选择公理">选择公理</span></h4><p>说对于任何一族非空集$A$,总能从其中的每个集合$a$选出一个元素.</p>
+<h4><span id="替换公理模式">替换公理(模式)</span></h4>
+<p>对于集合<span class="math inline">\(A\)</span>和一种定义在集合<span class="math inline">\(A\)</span>上的映射<span class="math inline">\(F\)</span>,存在集合<span class="math inline">\(A&#39;\)</span>使得<span class="math inline">\(x\in A&#39;\Leftrightarrow x=F(a),a\in
+A\)</span>.</p>
+<p>用替换公理可以证明映射也是一种集合,并且从<span class="math inline">\(A\rightarrow
+B\)</span>的所有映射可以构成集合,可以记作<span class="math inline">\(B^A\)</span>.</p>
+<h4><span id="正则公理">正则公理</span></h4>
+<p>对任何非空集合<span class="math inline">\(A\)</span>,存在<span class="math inline">\(a\in A\)</span>使得<span class="math inline">\(\forall a&#39;\in A\)</span>,<span class="math inline">\(a&#39;\notin a\)</span>,也就是<span class="math inline">\(a\cap A=\empty\)</span>.</p>
+<h4><span id="选择公理">选择公理</span></h4>
+<p>说对于任何一族非空集<span class="math inline">\(A\)</span>,总能从其中的每个集合<span class="math inline">\(a\)</span>选出一个元素.</p>
 <p>选择公理独立于其它的集合公理,一些数学家好像还不愿意承认选择公理.</p>
 <p>选择公理等价于另外两个命题:Zorn引理和良序定理.</p>
-<h5><span id="zorn引理">Zorn引理</span></h5><p>如果$X$上的一个偏序关系$\leq$,满足其每条链$A$都存在上界($\exists x\in X,\forall a\in A,x\geq a$),那么$X$存在极大元$(\exists x\in X,\forall a\in X,a\geq x\Rightarrow a=x)$.</p>
-<p>Zorn引理可以证明选择公理,简单来说就是定义偏序关系$(A’’,g’’)\leq (A’,g’)$当且仅当$A’’\subseteq A’$并且$\forall x\in A’’,g’’(x)=g’(x)$.这样拿出来的极大元就是我们需要的$A\rightarrow g(A)$.</p>
-<h5><span id="良序定理">良序定理</span></h5><p>所有的集合都可以被良序排列,或者说都存在一种偏序,使得其任意子集都是良序集.</p>
-<p>良序定理的证明要用的Zorn引理,即考虑所有的二元对$(S,R)$组成的集合,其中满足$S$对于偏序关系$R$来说是良序的,我们定义两个二元对$a,b$满足$a\leq b$当且仅当它们的$R$相等并且$S_a\subseteq S_b$.现在取出一个全序的子集并找到其中最大的集合(也就是其它所有集合的并)$(S,R)$,注意到如果$S$是全集则证毕,如果不是,则取一个全集中不在$S$的元素$x$接到$S$的后面得到了一个更大的集合,这就产生了矛盾,具体细节过程可以参考下面关于集合基数的全序性的证明.</p>
+<h5><span id="zorn引理">Zorn引理</span></h5>
+<p>如果<span class="math inline">\(X\)</span>上的一个偏序关系<span class="math inline">\(\leq\)</span>,满足其每条链<span class="math inline">\(A\)</span>都存在上界(<span class="math inline">\(\exists x\in X,\forall a\in A,x\geq
+a\)</span>),那么<span class="math inline">\(X\)</span>存在极大元<span class="math inline">\((\exists x\in X,\forall a\in X,a\geq x\Rightarrow
+a=x)\)</span>.</p>
+<p>Zorn引理可以证明选择公理,简单来说就是定义偏序关系<span class="math inline">\((A&#39;&#39;,g&#39;&#39;)\leq
+(A&#39;,g&#39;)\)</span>当且仅当<span class="math inline">\(A&#39;&#39;\subseteq A&#39;\)</span>并且<span class="math inline">\(\forall x\in
+A&#39;&#39;,g&#39;&#39;(x)=g&#39;(x)\)</span>.这样拿出来的极大元就是我们需要的<span class="math inline">\(A\rightarrow g(A)\)</span>.</p>
+<h5><span id="良序定理">良序定理</span></h5>
+<p>所有的集合都可以被良序排列,或者说都存在一种偏序,使得其任意子集都是良序集.</p>
+<p>良序定理的证明要用的Zorn引理,即考虑所有的二元对<span class="math inline">\((S,R)\)</span>组成的集合,其中满足<span class="math inline">\(S\)</span>对于偏序关系<span class="math inline">\(R\)</span>来说是良序的,我们定义两个二元对<span class="math inline">\(a,b\)</span>满足<span class="math inline">\(a\leq
+b\)</span>当且仅当它们的<span class="math inline">\(R\)</span>相等并且<span class="math inline">\(S_a\subseteq
+S_b\)</span>.现在取出一个全序的子集并找到其中最大的集合(也就是其它所有集合的并)<span class="math inline">\((S,R)\)</span>,注意到如果<span class="math inline">\(S\)</span>是全集则证毕,如果不是,则取一个全集中不在<span class="math inline">\(S\)</span>的元素<span class="math inline">\(x\)</span>接到<span class="math inline">\(S\)</span>的后面得到了一个更大的集合,这就产生了矛盾,具体细节过程可以参考下面关于集合基数的全序性的证明.</p>
 <p>良序定理可以证明选择公理,因为只需每个集合选最小的元素再用替换公理模式换掉就行了.</p>
-<h3><span id="集合的基数">集合的基数</span></h3><p>如果存在单射$\varphi:A\rightarrow B$,则称$|A|\leq |B|$.如果存在双射,则称$|A|=|B|$.</p>
-<p>如果使用选择公理的话,可以说明如果存在满射$\varphi:A\rightarrow B$,则称$|A|\geq |B|$.</p>
+<h3><span id="集合的基数">集合的基数</span></h3>
+<p>如果存在单射<span class="math inline">\(\varphi:A\rightarrow
+B\)</span>,则称<span class="math inline">\(|A|\leq
+|B|\)</span>.如果存在双射,则称<span class="math inline">\(|A|=|B|\)</span>.</p>
+<p>如果使用选择公理的话,可以说明如果存在满射<span class="math inline">\(\varphi:A\rightarrow B\)</span>,则称<span class="math inline">\(|A|\geq |B|\)</span>.</p>
 <p>值得一提的是这种偏序关系是全序的,这个怎么证明呢?</p>
-<p>考虑现在有$A,B$两个集合,接下来我们证明一定存在一个从$A$到$B$的映射,且其要么为单射要么为满射.</p>
-<p>我们记$X$为所有$A$的子集到$B$的单射组成的集合,并且我们定义这样一种偏序关系:若$f:A_f\rightarrow B,g:A_g\rightarrow B,A_f\subseteq A_g,\forall a\in A_f,f(a)=g(a)$.</p>
-<p>这样的话,我们不妨取出$X$的一个全序的子集$I$,显然其存在上界.</p>
-<p>根据Zorn引理,$X$存在极大元$g:A_g\rightarrow B$,此时我们开始讨论:</p>
-<p>如果$A_g=A$,那么找到了一个单射$g:A\rightarrow B$.</p>
-<p>反之,如果$A_g\subsetneq A$,考虑如果$g(A_g)=B$,也就是找到了一个满射;反之,考虑取$a’\in A\setminus A_g,b’\in B\setminus g(A_g)$,在$g$的基础上加上映射$a’\mapsto b’$,这是一个比$g$还要大的元,不符合Zorn引理.</p>
-<h4><span id="cantor-bernstein定理">Cantor-Bernstein定理</span></h4><p>如果$|A|\leq |B|\and |B|\leq |A|$,则$|A|=|B|$.</p>
-<p>不妨设$f:A\rightarrow B,g:B\rightarrow A$我们考虑一个感性的做法:考虑将这个东西画成二分图,然后要找它的完美匹配.我们不妨先把不同的连通块拆开,你会发现大部分的图都可以用$f,f^{-1}$来构造双射,只有一种除外:那就是以一个$B$中节点开始不断延伸的无限的,我们在这里使用$g,g^{-1}$来构造即可.</p>
-<p>如果要把上面的东西写成形式化的东西,我们可以这么写:取$C_0=B\setminus f(A)$,$C_n=f(g(C_{n-1}))$,那么对于$C=\cup_{n\geq 0}C_n$,使用$g,g^{-1}$构造双射,剩下的使用$f,f^{-1}$构造双射.</p>
-<h4><span id="可数无穷与不可数无穷">可数无穷与不可数无穷</span></h4><p>我们称集合$A$是<strong>可数</strong>的,当且仅当$|A|=|\N|$.</p>
+<p>考虑现在有<span class="math inline">\(A,B\)</span>两个集合,接下来我们证明一定存在一个从<span class="math inline">\(A\)</span>到<span class="math inline">\(B\)</span>的映射,且其要么为单射要么为满射.</p>
+<p>我们记<span class="math inline">\(X\)</span>为所有<span class="math inline">\(A\)</span>的子集到<span class="math inline">\(B\)</span>的单射组成的集合,并且我们定义这样一种偏序关系:若<span class="math inline">\(f:A_f\rightarrow B,g:A_g\rightarrow B,A_f\subseteq
+A_g,\forall a\in A_f,f(a)=g(a)\)</span>.</p>
+<p>这样的话,我们不妨取出<span class="math inline">\(X\)</span>的一个全序的子集<span class="math inline">\(I\)</span>,显然其存在上界.</p>
+<p>根据Zorn引理,<span class="math inline">\(X\)</span>存在极大元<span class="math inline">\(g:A_g\rightarrow B\)</span>,此时我们开始讨论:</p>
+<p>如果<span class="math inline">\(A_g=A\)</span>,那么找到了一个单射<span class="math inline">\(g:A\rightarrow B\)</span>.</p>
+<p>反之,如果<span class="math inline">\(A_g\subsetneq
+A\)</span>,考虑如果<span class="math inline">\(g(A_g)=B\)</span>,也就是找到了一个满射;反之,考虑取<span class="math inline">\(a&#39;\in A\setminus A_g,b&#39;\in B\setminus
+g(A_g)\)</span>,在<span class="math inline">\(g\)</span>的基础上加上映射<span class="math inline">\(a&#39;\mapsto b&#39;\)</span>,这是一个比<span class="math inline">\(g\)</span>还要大的元,不符合Zorn引理.</p>
+<h4><span id="cantor-bernstein定理">Cantor-Bernstein定理</span></h4>
+<p>如果<span class="math inline">\(|A|\leq |B|\and |B|\leq
+|A|\)</span>,则<span class="math inline">\(|A|=|B|\)</span>.</p>
+<p>不妨设<span class="math inline">\(f:A\rightarrow B,g:B\rightarrow
+A\)</span>我们考虑一个感性的做法:考虑将这个东西画成二分图,然后要找它的完美匹配.我们不妨先把不同的连通块拆开,你会发现大部分的图都可以用<span class="math inline">\(f,f^{-1}\)</span>来构造双射,只有一种除外:那就是以一个<span class="math inline">\(B\)</span>中节点开始不断延伸的无限的,我们在这里使用<span class="math inline">\(g,g^{-1}\)</span>来构造即可.</p>
+<p>如果要把上面的东西写成形式化的东西,我们可以这么写:取<span class="math inline">\(C_0=B\setminus f(A)\)</span>,<span class="math inline">\(C_n=f(g(C_{n-1}))\)</span>,那么对于<span class="math inline">\(C=\cup_{n\geq 0}C_n\)</span>,使用<span class="math inline">\(g,g^{-1}\)</span>构造双射,剩下的使用<span class="math inline">\(f,f^{-1}\)</span>构造双射.</p>
+<h4><span id="可数无穷与不可数无穷">可数无穷与不可数无穷</span></h4>
+<p>我们称集合<span class="math inline">\(A\)</span>是<strong>可数</strong>的,当且仅当<span class="math inline">\(|A|=|\N|\)</span>.</p>
 <p>我们可以发现可数个可数集合的并一定可数,因为你可以把这些位置全排列起来然后绕着数.</p>
 <p>这样就可以发现,首先整系数多项式方程有可数个,因此整系数多项式方程的根也有可数个,我们将这些数称作代数数,其它实数称为超越数.</p>
 <p>这又有一个结论是说,代数数对四则运算构成域.</p>
-<p>首先一个代数数的加法逆元和乘法逆元(只要不是$0$)肯定一定是代数数,你只需要对着原方程改一改就可以构造出新方程.</p>
-<p>幺元肯定也是存在的,因为$1$和$0$显然都是代数数.</p>
-<p>我们接下来看两个代数数$x,y$.考虑如何构造$x+y$作为根的方程.</p>
-<p>下面是qyc老师给的做法,直接考虑有方程:</p>
-<script type="math/tex; mode=display">
+<p>首先一个代数数的加法逆元和乘法逆元(只要不是<span class="math inline">\(0\)</span>)肯定一定是代数数,你只需要对着原方程改一改就可以构造出新方程.</p>
+<p>幺元肯定也是存在的,因为<span class="math inline">\(1\)</span>和<span class="math inline">\(0\)</span>显然都是代数数.</p>
+<p>我们接下来看两个代数数<span class="math inline">\(x,y\)</span>.考虑如何构造<span class="math inline">\(x+y\)</span>作为根的方程.</p>
+<p>下面是qyc老师给的做法,直接考虑有方程: <span class="math display">\[
 X=\sum_{k=0}^na_kx^k=0\\
-Y=\sum_{k=0}^mb_ky^k=0</script><p>对于加法,考虑:$(x+y)^0,(x+y)^1,\cdots$,这些东西,先把它们对$X$取膜再对$Y$取膜,得到的一定是$nm$维的,只需要取$nm+1$个就会出现线性相关.乘法同理考虑$(xy)^0,(xy)^1,\cdots$即可.</p>
-<p>值得一提的是,$|\R|=2^{|\N|}$.这个是怎么构造的呢?只需要证明$[0,1]$上的实数和自然数集合能一一对应就可以了对吧,考虑将这些实数写成二进制下的形式,然后如果$k$在取出的自然数子集中,那么小数点后第$k+1$位为$1$否则为$0$,这样就构造了一组映射.</p>
-<p>不过其实这样做有一点小问题,那就是$0.1=0.0111\cdots$,但这两个数字对应的集合并不相等.然而会出问题的点的个数是可数无穷个,因此其实差一下也没什么问题.如果或者可以反复来一下证明$|\R|\leq 2^{|\N|}$并且$|\R|\geq 2^{|\N|}$,用上面的构造就行.</p>
-<h2><span id="简单范畴论">简单范畴论</span></h2><h3><span id="范畴">范畴</span></h3><p>一个<strong>范畴</strong>$\mathcal C$应当包含以下:</p>
-<ol>
-<li>一个类$\rm{Ob}(\mathcal C)$,其元素称作$\mathcal C$的<strong>对象</strong>.</li>
-<li>对于$X,Y\in \rm{Ob}(\mathcal C)$指定一个集合$\text{Hom}_{\mathcal C}(X,Y)$,称作$\mathcal C$中从$X$到$Y$的<strong>态射</strong>.</li>
+Y=\sum_{k=0}^mb_ky^k=0
+\]</span></p>
+<p>对于加法,考虑:<span class="math inline">\((x+y)^0,(x+y)^1,\cdots\)</span>,这些东西,先把它们对<span class="math inline">\(X\)</span>取膜再对<span class="math inline">\(Y\)</span>取膜,得到的一定是<span class="math inline">\(nm\)</span>维的,只需要取<span class="math inline">\(nm+1\)</span>个就会出现线性相关.乘法同理考虑<span class="math inline">\((xy)^0,(xy)^1,\cdots\)</span>即可.</p>
+<p>值得一提的是,<span class="math inline">\(|\R|=2^{|\N|}\)</span>.这个是怎么构造的呢?只需要证明<span class="math inline">\([0,1]\)</span>上的实数和自然数集合能一一对应就可以了对吧,考虑将这些实数写成二进制下的形式,然后如果<span class="math inline">\(k\)</span>在取出的自然数子集中,那么小数点后第<span class="math inline">\(k+1\)</span>位为<span class="math inline">\(1\)</span>否则为<span class="math inline">\(0\)</span>,这样就构造了一组映射.</p>
+<p>不过其实这样做有一点小问题,那就是<span class="math inline">\(0.1=0.0111\cdots\)</span>,但这两个数字对应的集合并不相等.然而会出问题的点的个数是可数无穷个,因此其实差一下也没什么问题.如果或者可以反复来一下证明<span class="math inline">\(|\R|\leq 2^{|\N|}\)</span>并且<span class="math inline">\(|\R|\geq 2^{|\N|}\)</span>,用上面的构造就行.</p>
+<h2><span id="简单范畴论">简单范畴论</span></h2>
+<h3><span id="范畴">范畴</span></h3>
+<p>一个<strong>范畴</strong><span class="math inline">\(\mathcal
+C\)</span>应当包含以下:</p>
+<ol type="1">
+<li>一个类<span class="math inline">\(\rm{Ob}(\mathcal
+C)\)</span>,其元素称作<span class="math inline">\(\mathcal
+C\)</span>的<strong>对象</strong>.</li>
+<li>对于<span class="math inline">\(X,Y\in \rm{Ob}(\mathcal
+C)\)</span>指定一个集合<span class="math inline">\(\text{Hom}_{\mathcal
+C}(X,Y)\)</span>,称作<span class="math inline">\(\mathcal
+C\)</span>中从<span class="math inline">\(X\)</span>到<span class="math inline">\(Y\)</span>的<strong>态射</strong>.</li>
 </ol>
 <p>对于态射来说,其还应当具有以下特点:</p>
-<ol>
-<li>对于$X\in \text{Ob}(\mathcal C)$存在其到自身的<strong>恒等态射</strong>$\text{id}_X\in \text{Hom}_{\mathcal C}(X,X)$.</li>
-<li>态射间可以进行合成,换言之存在<strong>合成映射</strong>$\circ:\text{Hom}_{\mathcal C}(Y,Z)\times \text{Hom}_{\mathcal C}(X,Y)\to \text{Hom}_{\mathcal C}(X,Z),(g,f)\mapsto g\circ f$.</li>
+<ol type="1">
+<li>对于<span class="math inline">\(X\in \text{Ob}(\mathcal
+C)\)</span>存在其到自身的<strong>恒等态射</strong><span class="math inline">\(\text{id}_X\in \text{Hom}_{\mathcal
+C}(X,X)\)</span>.</li>
+<li>态射间可以进行合成,换言之存在<strong>合成映射</strong><span class="math inline">\(\circ:\text{Hom}_{\mathcal C}(Y,Z)\times
+\text{Hom}_{\mathcal C}(X,Y)\to \text{Hom}_{\mathcal
+C}(X,Z),(g,f)\mapsto g\circ f\)</span>.</li>
 </ol>
 <p>另外,合成映射还应当满足:</p>
-<ol>
-<li><strong>结合律</strong>:对于$\mathcal C$中的态射$h,g,f$,如果合成有意义,那么$h(gf)=(hg)f$.</li>
-<li><strong>单位元</strong>:对于$f\in \text{Hom}_{\mathcal C}(X,Y)$,$f\circ \text{id}_X=f=\text{id}_Y\circ f$.</li>
+<ol type="1">
+<li><strong>结合律</strong>:对于<span class="math inline">\(\mathcal
+C\)</span>中的态射<span class="math inline">\(h,g,f\)</span>,如果合成有意义,那么<span class="math inline">\(h(gf)=(hg)f\)</span>.</li>
+<li><strong>单位元</strong>:对于<span class="math inline">\(f\in
+\text{Hom}_{\mathcal C}(X,Y)\)</span>,<span class="math inline">\(f\circ
+\text{id}_X=f=\text{id}_Y\circ f\)</span>.</li>
 </ol>
-<p>由上得知恒等态射的唯一性,因为如果存在两种恒等态射,必定有$\text{id}_X=\text{id}_X\text{id’}_X=\text{id’}_X$.</p>
-<p>在此基础上可以定义所谓<strong>交换图表</strong>,意味着态射的合成是所谓殊途同归的.例如,如果下面这个图表是交换的:</p>
-<script type="math/tex; mode=display">
+<p>由上得知恒等态射的唯一性,因为如果存在两种恒等态射,必定有<span class="math inline">\(\text{id}_X=\text{id}_X\text{id&#39;}_X=\text{id&#39;}_X\)</span>.</p>
+<p>在此基础上可以定义所谓<strong>交换图表</strong>,意味着态射的合成是所谓殊途同归的.例如,如果下面这个图表是交换的:
+<span class="math display">\[
 \xymatrix{
-R\ar[r]^u\ar[d]_x&S\ar[d]^v\\
-T\ar[r]_y&U
-}</script><p>这意味着$yx=vu$.</p>
+R\ar[r]^u\ar[d]_x&amp;S\ar[d]^v\\
+T\ar[r]_y&amp;U
+}
+\]</span> 这意味着<span class="math inline">\(yx=vu\)</span>.</p>
 <p>必须要指出的是,我们这里范畴所包含的对象并不是单指某一特定元素,而也有可能是某一数学结构(例如集合).</p>
 <p>特别地,如果:</p>
-<ol>
-<li>如果对于$f\in \text{Hom}(X,Y)$,$\exists g\in \text{Hom}(Y,X)$使得$gf=\text{id}_X$,那么称$g$是$f$的一个<strong>左逆</strong>,称$f$是<strong>左可逆</strong>的或者是<strong>单态射</strong>.同理可以定义<strong>右逆</strong>以及所谓<strong>满态射</strong>.</li>
-<li>如果$f$左右均可逆,易见左右逆相等,记作$f^{-1}$,易见$f^{-1}$可逆而且$(f^{-1})^{-1}=f$.此时称$f$是<strong>同构</strong>的.</li>
+<ol type="1">
+<li>如果对于<span class="math inline">\(f\in
+\text{Hom}(X,Y)\)</span>,<span class="math inline">\(\exists g\in
+\text{Hom}(Y,X)\)</span>使得<span class="math inline">\(gf=\text{id}_X\)</span>,那么称<span class="math inline">\(g\)</span>是<span class="math inline">\(f\)</span>的一个<strong>左逆</strong>,称<span class="math inline">\(f\)</span>是<strong>左可逆</strong>的或者是<strong>单态射</strong>.同理可以定义<strong>右逆</strong>以及所谓<strong>满态射</strong>.</li>
+<li>如果<span class="math inline">\(f\)</span>左右均可逆,易见左右逆相等,记作<span class="math inline">\(f^{-1}\)</span>,易见<span class="math inline">\(f^{-1}\)</span>可逆而且<span class="math inline">\((f^{-1})^{-1}=f\)</span>.此时称<span class="math inline">\(f\)</span>是<strong>同构</strong>的.</li>
 </ol>
 <p>同构还有以下性质:</p>
-<ol>
-<li>$(\text{id}_X)^{-1}=\text{id}_X$.</li>
-<li>如果$f$和$g$均为同构并且合成有意义,那么$gf$是同构并且$(gf)^{-1}=f^{-1}g^{-1}$.</li>
+<ol type="1">
+<li><span class="math inline">\((\text{id}_X)^{-1}=\text{id}_X\)</span>.</li>
+<li>如果<span class="math inline">\(f\)</span>和<span class="math inline">\(g\)</span>均为同构并且合成有意义,那么<span class="math inline">\(gf\)</span>是同构并且<span class="math inline">\((gf)^{-1}=f^{-1}g^{-1}\)</span>.</li>
 </ol>
 <p>于是在此基础上追加定义:</p>
-<ol>
-<li>自同态幺半群:$\text{End}_{\mathcal C}(X)=\text{Hom}_{\mathcal C}(X,X)$.</li>
-<li>自同构群:$\text{Aut}_{\mathcal C}(X)=(\text{End}_{\mathcal C}(X))^\times$.</li>
+<ol type="1">
+<li>自同态幺半群:<span class="math inline">\(\text{End}_{\mathcal
+C}(X)=\text{Hom}_{\mathcal C}(X,X)\)</span>.</li>
+<li>自同构群:<span class="math inline">\(\text{Aut}_{\mathcal
+C}(X)=(\text{End}_{\mathcal C}(X))^\times\)</span>.</li>
 </ol>
-<p>如此起名的原因是由抽象代数知识见到$\text{End}$对二元运算$\circ$构成幺半群,$\text{Aut}$则构成群.</p>
-<p>我们还可以定义所谓<strong>子范畴</strong>.称$\mathcal C’$是$\mathcal C$的子范畴当且仅当:</p>
-<ol>
-<li>$\text{Ob}(\mathcal C’)\subseteq \text{Ob}(\mathcal C)$.</li>
-<li>$\forall X,Y\in\text{Ob}(\mathcal C’)$都有$\text{Hom}_{\mathcal C’}(X,Y)\subseteq \text{Hom}_{\mathcal C}(X,Y)$.</li>
-<li>$\forall X\in \text{Ob}(\mathcal C’)$,$\text{id}_X=\text{id}_X’$.</li>
-<li>态射在$\mathcal C’$中的合成运算应从$\mathcal C$中继承而来.</li>
+<p>如此起名的原因是由抽象代数知识见到<span class="math inline">\(\text{End}\)</span>对二元运算<span class="math inline">\(\circ\)</span>构成幺半群,<span class="math inline">\(\text{Aut}\)</span>则构成群.</p>
+<p>我们还可以定义所谓<strong>子范畴</strong>.称<span class="math inline">\(\mathcal C&#39;\)</span>是<span class="math inline">\(\mathcal C\)</span>的子范畴当且仅当:</p>
+<ol type="1">
+<li><span class="math inline">\(\text{Ob}(\mathcal C&#39;)\subseteq
+\text{Ob}(\mathcal C)\)</span>.</li>
+<li><span class="math inline">\(\forall X,Y\in\text{Ob}(\mathcal
+C&#39;)\)</span>都有<span class="math inline">\(\text{Hom}_{\mathcal
+C&#39;}(X,Y)\subseteq \text{Hom}_{\mathcal C}(X,Y)\)</span>.</li>
+<li><span class="math inline">\(\forall X\in \text{Ob}(\mathcal
+C&#39;)\)</span>,<span class="math inline">\(\text{id}_X=\text{id}_X&#39;\)</span>.</li>
+<li>态射在<span class="math inline">\(\mathcal
+C&#39;\)</span>中的合成运算应从<span class="math inline">\(\mathcal
+C\)</span>中继承而来.</li>
 </ol>
-<p>特别地,如果$\forall X,Y\in \text{Ob}(\mathcal C’),\text{Hom}(X,Y)_{\mathcal C’}=\text{Hom}_{\mathcal C}(X,Y)$,则称$\mathcal C’$是$\mathcal C$的一个全子范畴.</p>
-<h3><span id="函子">函子</span></h3><p>我们定义从$\mathcal C’$到$\mathcal C$的<strong>函子</strong>$F$需要有以下性质:</p>
-<ol>
-<li>$\forall X\in \text{Ob}(\mathcal C’)$,指定一个$\mathcal C$中的对象$FX$.或记作$F:\text{Ob}(\mathcal C’)\to\text{Ob}(\mathcal C)$.</li>
-<li>$\forall X,Y\in \text{Ob}(\mathcal C’)$,对于态射$f:X\to Y$指定一个$\mathcal C$中的对象$Ff$.或记作$F:\text{Hom}_\mathcal C’(X,Y)\to\text{Hom}_\mathcal C(FX,FY)$.</li>
+<p>特别地,如果<span class="math inline">\(\forall X,Y\in
+\text{Ob}(\mathcal C&#39;),\text{Hom}(X,Y)_{\mathcal
+C&#39;}=\text{Hom}_{\mathcal C}(X,Y)\)</span>,则称<span class="math inline">\(\mathcal C&#39;\)</span>是<span class="math inline">\(\mathcal C\)</span>的一个全子范畴.</p>
+<h3><span id="函子">函子</span></h3>
+<p>我们定义从<span class="math inline">\(\mathcal C&#39;\)</span>到<span class="math inline">\(\mathcal C\)</span>的<strong>函子</strong><span class="math inline">\(F\)</span>需要有以下性质:</p>
+<ol type="1">
+<li><span class="math inline">\(\forall X\in \text{Ob}(\mathcal
+C&#39;)\)</span>,指定一个<span class="math inline">\(\mathcal
+C\)</span>中的对象<span class="math inline">\(FX\)</span>.或记作<span class="math inline">\(F:\text{Ob}(\mathcal C&#39;)\to\text{Ob}(\mathcal
+C)\)</span>.</li>
+<li><span class="math inline">\(\forall X,Y\in \text{Ob}(\mathcal
+C&#39;)\)</span>,对于态射<span class="math inline">\(f:X\to
+Y\)</span>指定一个<span class="math inline">\(\mathcal
+C\)</span>中的对象<span class="math inline">\(Ff\)</span>.或记作<span class="math inline">\(F:\text{Hom}_\mathcal
+C&#39;(X,Y)\to\text{Hom}_\mathcal C(FX,FY)\)</span>.</li>
 </ol>
 <p>上述对态射的函子还应当满足以下性质:</p>
-<ol>
-<li>$\forall g,f\in \text{Hom}_{\mathcal C’}$,它们的合成有意义,则$F(gf)=F(g)F(f)$.</li>
-<li>$\forall X\in \text{Ob}(\mathcal C’)$,$F(\text{id}_X)=\text{id}_{FX}$.</li>
+<ol type="1">
+<li><span class="math inline">\(\forall g,f\in \text{Hom}_{\mathcal
+C&#39;}\)</span>,它们的合成有意义,则<span class="math inline">\(F(gf)=F(g)F(f)\)</span>.</li>
+<li><span class="math inline">\(\forall X\in \text{Ob}(\mathcal
+C&#39;)\)</span>,<span class="math inline">\(F(\text{id}_X)=\text{id}_{FX}\)</span>.</li>
 </ol>
-<p>我们一般也将上述函子记作$F:\mathcal C’\to \mathcal C$.这当然意味着函子是可以合成的并仍然满足结合律.</p>
-<p>既然$F$可以在某种程度上看作映射,我们当然还可以引出以下定义:</p>
-<ol>
-<li>如果$\forall T\in \text{Ob}(\mathcal C),\exists X\in \text{Ob}(\mathcal C’)$使得$T\cong FX$,则称$F$是<strong>本质满</strong>的.</li>
-<li>如果$\forall X,Y\in \text{Ob}(\mathcal C’)$,$F:\text{Hom}_{\mathcal C’}(X,Y)\to \text{Hom}_{\mathcal C}(FX,FY)$均为单射,则称$F$是<strong>忠实</strong>的.如果均为满射,则称其为<strong>全</strong>的.如果均为双射,则称其为<strong>全忠实</strong>的.</li>
+<p>我们一般也将上述函子记作<span class="math inline">\(F:\mathcal
+C&#39;\to \mathcal
+C\)</span>.这当然意味着函子是可以合成的并仍然满足结合律.</p>
+<p>既然<span class="math inline">\(F\)</span>可以在某种程度上看作映射,我们当然还可以引出以下定义:</p>
+<ol type="1">
+<li>如果<span class="math inline">\(\forall T\in \text{Ob}(\mathcal
+C),\exists X\in \text{Ob}(\mathcal C&#39;)\)</span>使得<span class="math inline">\(T\cong FX\)</span>,则称<span class="math inline">\(F\)</span>是<strong>本质满</strong>的.</li>
+<li>如果<span class="math inline">\(\forall X,Y\in \text{Ob}(\mathcal
+C&#39;)\)</span>,<span class="math inline">\(F:\text{Hom}_{\mathcal
+C&#39;}(X,Y)\to \text{Hom}_{\mathcal
+C}(FX,FY)\)</span>均为单射,则称<span class="math inline">\(F\)</span>是<strong>忠实</strong>的.如果均为满射,则称其为<strong>全</strong>的.如果均为双射,则称其为<strong>全忠实</strong>的.</li>
 </ol>
 <p>回忆到Haskell语言中对函子的定义:</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">Functor</span> f <span class="keyword">where</span></span></span><br><span class="line">	fmap :: (a-&gt;b)-&gt;f a-&gt; f b</span><br><span class="line">	(&lt;$) :: b -&gt; f a -&gt; f b</span><br><span class="line">	(&lt;$) = fmap.const</span><br><span class="line">(&lt;$&gt;) :: <span class="type">Functor</span> f =&gt; (a-&gt;b)-&gt;f a -&gt; f b</span><br><span class="line">(&lt;$&gt;) = fmap</span><br></pre></td></tr></table></figure>
 <p>回忆到Haskell语言中对函子的要求:</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">fmap</span> id == id</span><br><span class="line"><span class="title">fmap</span> (f.g)==(fmap f).(fmap g)</span><br></pre></td></tr></table></figure>
 <p>容易见到其类似性.</p>
-<p>函子的类型很多,比如最平凡的一类函子是所谓<strong>忘却函子</strong>.但我们在这里着重提所谓$\text{Hom}$函子,其是Haskell语言中Curring化的基础:</p>
-<p>对于范畴$\mathcal C$以及其对象$X$,我们定义函子$\text{Hom}_{\mathcal C}(X,\sdot):\mathcal C\to Set$,它映对象$Y$为集合$\text{Hom}_{\mathcal C}(X,Y)$,映态射$f:Y\to Z$为映射$\text{Hom}_{\mathcal C}(X,\sdot)f:\text{Hom}_{\mathcal C}(X,Y)\to \text{Hom}_{\mathcal C}(X,Z),h\mapsto f\circ h$.</p>
-<p>同理可以定义函子$\text{Hom}_{\mathcal C}(\sdot,X)$.</p>
-<p>对于函子$\text{Hom}_{\mathcal C}(X,\sdot)$,我们可以一窥其在Haskell中的具体定义:</p>
+<p>函子的类型很多,比如最平凡的一类函子是所谓<strong>忘却函子</strong>.但我们在这里着重提所谓<span class="math inline">\(\text{Hom}\)</span>函子,其是Haskell语言中Curring化的基础:</p>
+<p>对于范畴<span class="math inline">\(\mathcal
+C\)</span>以及其对象<span class="math inline">\(X\)</span>,我们定义函子<span class="math inline">\(\text{Hom}_{\mathcal C}(X,\sdot):\mathcal C\to
+Set\)</span>,它映对象<span class="math inline">\(Y\)</span>为集合<span class="math inline">\(\text{Hom}_{\mathcal C}(X,Y)\)</span>,映态射<span class="math inline">\(f:Y\to Z\)</span>为映射<span class="math inline">\(\text{Hom}_{\mathcal
+C}(X,\sdot)f:\text{Hom}_{\mathcal C}(X,Y)\to \text{Hom}_{\mathcal
+C}(X,Z),h\mapsto f\circ h\)</span>.</p>
+<p>同理可以定义函子<span class="math inline">\(\text{Hom}_{\mathcal
+C}(\sdot,X)\)</span>.</p>
+<p>对于函子<span class="math inline">\(\text{Hom}_{\mathcal
+C}(X,\sdot)\)</span>,我们可以一窥其在Haskell中的具体定义:</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">instance</span> <span class="type">Functor</span> ((-&gt;) a) <span class="keyword">where</span></span></span><br><span class="line">  <span class="comment">-- fmap :: (b-&gt;c)-&gt;(a-&gt;b)-&gt;(a-&gt;c)</span></span><br><span class="line">  fmap fbc fab = fbc.fab</span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="keyword">instance</span> <span class="type">Applicative</span> ((-&gt;) a) <span class="keyword">where</span></span></span><br><span class="line">  <span class="comment">-- pure :: c-&gt;(a-&gt;c)</span></span><br><span class="line">  <span class="comment">-- &lt;*&gt; :: (a-&gt;(b-&gt;c))-&gt;(a-&gt;b)-&gt;(a-&gt;c)</span></span><br><span class="line">  pure tb = \ta -&gt; tb</span><br><span class="line">  (&lt;*&gt;) fabc fab = \ta -&gt; ((fmap (fabc ta) fab) ta)</span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="keyword">instance</span> <span class="type">Monad</span> ((-&gt;) r) <span class="keyword">where</span></span></span><br><span class="line">  <span class="comment">-- (&gt;&gt;=) :: (r-&gt;a)-&gt;(a-&gt;(r-&gt;b))-&gt;(r-&gt;b)</span></span><br><span class="line">  (&gt;&gt;=) fra farb = \tr -&gt; ( farb (fra tr) tr )</span><br></pre></td></tr></table></figure>
-<h3><span id="范畴实例">范畴实例</span></h3><h4><span id="kleisli范畴">Kleisli范畴</span></h4><p>简单理解Kleisli范畴的话就是,我们被允许给一个元素进行如下的操作:</p>
-<ol>
+<h3><span id="范畴实例">范畴实例</span></h3>
+<h4><span id="kleisli范畴">Kleisli范畴</span></h4>
+<p>简单理解Kleisli范畴的话就是,我们被允许给一个元素进行如下的操作:</p>
+<ol type="1">
 <li>加上修饰.</li>
 <li>合并修饰.</li>
 </ol>
@@ -575,7 +692,7 @@ T\ar[r]_y&U
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2025/03/10/%E9%9A%8F%E7%AC%94-%E8%AA%93/" rel="next" title="誓">
+                <a href="/2025/03/10/%E6%9C%AA%E5%AE%8C%E6%88%90-%E8%AA%93/" rel="next" title="誓">
                   誓 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
