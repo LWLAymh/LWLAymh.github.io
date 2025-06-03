@@ -202,7 +202,14 @@ t)\)</span>的控制.因此会以<span class="math inline">\(\frac{\delta}{2}\)<
 <li>张力<span class="math inline">\(T\)</span>.</li>
 <li>线密度<span class="math inline">\(\rho\)</span>.</li>
 </ol>
-<p>对于弦的振动解微分方程,这里我不是很想解了啊!所以我们直接放结论,最终得到的会是一个无穷级数,这个无穷级数的每一项都会以正弦规律振动,其中第<span class="math inline">\(n\)</span>项的频率满足: <span class="math display">\[
+<p>对于弦的振动解微分方程,这里我不是很想解了啊!所以我们直接放结论,对于弦上一个点<span class="math inline">\(u(x,t)\)</span>,首先是一维振动方程: <span class="math display">\[
+\frac{\partial^2 u}{\partial x^2}=\frac{\rho}{T}\frac{\partial^2
+u}{\partial t^2}
+\]</span></p>
+<p>最终得到的会是一个无穷级数,这个无穷级数的每一项都形如: <span class="math display">\[
+u_n(x,t)=c_n\sin(\omega_n t+\theta_n)\sin(\frac{n\pi}{L}x)
+\]</span> 其中第<span class="math inline">\(n\)</span>项的频率满足:
+<span class="math display">\[
 f_n=\frac{n}{2L}\sqrt{\frac{T}{\rho}}
 \]</span> 其中我们将<span class="math inline">\(f_1\)</span>称为<strong>基频</strong>,相应的声音称为<strong>基音</strong>,而将剩下的频率对应的声音统称为泛音,其中<span class="math inline">\(f_n,n\geq 2\)</span>对应的是第<span class="math inline">\(n-1\)</span>泛音.</p>
 <p>特别地,如果我们干脆记<span class="math inline">\(f=f_1\)</span>,上述结果告诉我们弦的振动产生的一列频率是:
@@ -210,7 +217,7 @@ f_n=\frac{n}{2L}\sqrt{\frac{T}{\rho}}
 f,2f,3f,\cdots
 \]</span> 这个序列通常被称为<strong>泛音列</strong>.</p>
 <p>特别地,上述的频率其实是固定了点来讨论的,实际上的泛音要更为复杂,会在一根弦上的不同位置处产生不同的加权.实际上对于不同的<span class="math inline">\(n\)</span>,它们的泛音列长这个样子:<img src="https://y.gtimg.cn/music/photo_new/T062M000004QlDkO0nCeWY.jpg?max_age=0"></p>
-<p>其中标注的点在振动中均是固定不变的.</p>
+<p>其中标注的点(波节)在振动中均是固定不变的.</p>
 <p>这其实是某些弦乐演奏中一些按弦技巧的基础.例如这里,如果我用手轻触中间点,我就可以消灭掉所有的<span class="math inline">\(f_{2k+1}\)</span>,泛音列中只剩下<span class="math inline">\(2f,4f,\cdots\)</span>.我们后面会再提这个事,这意味着我弹出的音高了八度.那如果我按<span class="math inline">\(\frac{1}{3}\)</span>处呢?那泛音列中就会只剩下<span class="math inline">\(3f,6f,9f,\cdots\)</span>,也就是先高一个纯八度,再高一个纯五度.</p>
 <p>还有拨弦,如果我在中间拨弦会发生什么呢?由于我的拨动使得整个弦应该以中间为对称形成一个偶函数,中间的点一定在波动,因此泛音列中剩下的就会是<span class="math inline">\(f,3f,5f,\cdots\)</span>.</p>
 <h4><span id="管乐器">管乐器</span></h4>
@@ -370,7 +377,7 @@ C\to &amp;&amp; G\to &amp;&amp;D\to &amp;&amp;A\to &amp;&amp;E\to
 \]</span> 这下这下了.</p>
 <h4><span id="纯律">纯律</span></h4>
 <p>其实我们刚才就能见到真正完美符合简单整数比的律根本调不出来.但是能不能让一些常用的音程(比如纯八度,纯五度,纯四度,大三度)尽可能准呢.这就是纯律在干的事.</p>
-<p>还是规定<span class="math inline">\(C\)</span>的频率为<span class="math inline">\(1\)</span>.接下来用正三和弦(一个大三度和一个小三度)<span class="math inline">\(C-E-G\)</span>,<span class="math inline">\(F-A-C&#39;\)</span>,<span class="math inline">\(G-B-D&#39;\)</span>的比例是<span class="math inline">\(4:5:6\)</span>确定剩下的: <span class="math display">\[
+<p>还是规定<span class="math inline">\(C\)</span>的频率为<span class="math inline">\(1\)</span>.接下来用正三和弦(一个大三度和一个小三度)<span class="math inline">\(I:C-E-G\)</span>,<span class="math inline">\(IV:F-A-C&#39;\)</span>,<span class="math inline">\(V:G-B-D&#39;\)</span>的比例是<span class="math inline">\(4:5:6\)</span>确定剩下的: <span class="math display">\[
 \begin{aligned}
 C&amp;&amp;D&amp;&amp;E&amp;&amp;F&amp;&amp;G&amp;&amp;A&amp;&amp;B&amp;&amp;C&#39;&amp;&amp;D&#39;\\
 1&amp;&amp;\frac{9}{8}&amp;&amp;\frac{5}{4}&amp;&amp;\frac{4}{3}&amp;&amp;\frac{3}{2}&amp;&amp;\frac{5}{3}&amp;&amp;\frac{15}{8}&amp;&amp;2&amp;&amp;\frac{9}{4}
@@ -3915,10 +3922,7 @@ ID改成了张小北的想法是：我要提醒自己，自己并非什么天生
 <ul>
 <li><a href="#矩阵引入">矩阵引入</a>
 <ul>
-<li><a href="#矩阵运算">矩阵运算</a>
-<ul>
-<li><a href="#kronecker积">Kronecker积</a></li>
-</ul></li>
+<li><a href="#矩阵运算">矩阵运算</a></li>
 <li><a href="#分块矩阵">分块矩阵</a></li>
 </ul></li>
 <li><a href="#线性方程组">线性方程组</a>
@@ -4119,6 +4123,12 @@ ID改成了张小北的想法是：我要提醒自己，自己并非什么天生
 <li><a href="#张量积">张量积</a>
 <ul>
 <li><a href="#张量积与直和">张量积与直和</a></li>
+<li><a href="#kronecker积">Kronecker积</a></li>
+<li><a href="#张量积与对偶空间">张量积与对偶空间</a></li>
+<li><a href="#张量代数">张量代数</a>
+<ul>
+<li><a href="#另一种构造">另一种构造</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5473,37 +5483,6 @@ n\)</span>矩阵<span class="math inline">\(A\)</span>,它的<strong>转置</str
 <li><span class="math inline">\((rA)^T=rA^T\)</span>.</li>
 <li><span class="math inline">\((AB)^T=B^TA^T\)</span>.</li>
 </ol>
-<h5><span id="kronecker积">Kronecker积</span></h5>
-<p>对于矩阵<span class="math inline">\(X\in F^{n\times m},Y\in
-F^{p\times q}\)</span>,我们定义它们的克罗内多积为: <span class="math display">\[
-X\otimes
-Y=\begin{bmatrix}x_{1,1}Y&amp;x_{1,2}Y&amp;\cdots&amp;x_{1,m}Y\\x_{2,1}Y&amp;x_{2,2}Y&amp;\cdots&amp;x_{2,m}Y\\\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\x_{n,1}Y&amp;x_{n,2}Y&amp;\cdots&amp;x_{n,m}Y\end{bmatrix}\in
-F^{(np)\times (mq)}
-\]</span> 克罗内多积显然不满足交换律.</p>
-<p>事实上,设<span class="math inline">\(X,Y,Z\)</span>在下列运算中有意义,克罗内多积满足以下性质:</p>
-<ol type="1">
-<li>结合律:<span class="math inline">\(X\otimes Y\otimes Z=X\otimes
-(Y\otimes Z)\)</span>.</li>
-<li>左分配律:<span class="math inline">\(X\otimes (Y+Z)=X\otimes
-Y+X\otimes Z\)</span>.</li>
-<li>右分配律:<span class="math inline">\((X+Y)\otimes Z=X\otimes
-Z+Y\otimes Z\)</span>.</li>
-<li><span class="math inline">\((X\otimes Y)^T=X^T\otimes
-Y^T\)</span>.</li>
-<li><span class="math inline">\((X\otimes Y)(U\otimes V)=(XU)\otimes
-(YV)\)</span>.</li>
-<li><span class="math inline">\(X^{-1}\otimes Y^{-1}=(X\otimes
-Y)^{-1}\)</span>.</li>
-<li><span class="math inline">\(\det(X\otimes Y)=\det(X)^m\det(Y)^n,X\in
-F^{n\times n},Y\in F^{m\times m}\)</span>.</li>
-<li><span class="math inline">\(rank(X\otimes Y)=rank(X)\times
-rank(Y)\)</span>.</li>
-</ol>
-<p>克罗内多积的性质有一个很有用的特例是: <span class="math display">\[
-A\otimes B\otimes C=(A\otimes I_n\otimes I_n)(I_n\otimes B\otimes
-I_n)(I_n\otimes I_n\otimes C)\\
-A,B,C\in F^{n\times n}
-\]</span></p>
 <h4><span id="分块矩阵">分块矩阵</span></h4>
 <p>我们考虑将一个矩阵看作若干个子矩阵的拼接,类似于我们求逆矩阵时做的那样:将若干个矩阵拼接起来.</p>
 <p>换句话说,我们尝试将矩阵看作元素放入矩阵中,并尝试根据基本的矩阵运算去做这种矩阵的运算.</p>
@@ -8621,7 +8600,7 @@ I)|_{V_j}=N|_{V_j}\)</span>是幂零的,所以<span class="math inline">\(V_j\)<
 \mu_i \pmod{(x-\mu_i)^n}\)</span>,留神到<span class="math inline">\(f(T)|V_j=\mu_j\)</span>,原因是<span class="math inline">\((T-\mu_j)^n|_{V_j}=0\)</span>,那按照我们刚才对唯一性的论证,这必然说明了<span class="math inline">\(f(T)=S\)</span>.</p>
 <h3><span id="张量积">张量积</span></h3>
 <p>给定两个<span class="math inline">\(F\)</span>上的向量空间<span class="math inline">\(V,W\)</span>,我们想要通过它们构造新的向量空间<span class="math inline">\(V\otimes
-W\)</span>(这里并非直积,只是暂且用这个符号).我们希望这个配对满足:</p>
+W\)</span>(这里并非直积,只是用这个符号).我们希望这个配对满足:</p>
 <ol type="1">
 <li><span class="math inline">\(V\times W\to V\otimes
 W\)</span>是双线性的.</li>
@@ -8693,10 +8672,10 @@ Mul}(V_1,\cdots,V_n;M)\)</span>,如果<span class="math inline">\(V_1,\cdots,V_n
 V_n;M)\)</span>中只有零映射(对所有<span class="math inline">\(M\)</span>),那其<span class="math inline">\(id\)</span>映射也是零映射,自然意味着其是零空间.</p>
 <p>于此之外,如果想要跳过张量积的构造而直接探究张量积的性质,可能需要先判断<span class="math inline">\(\{v_1\otimes\cdots\otimes
 v_n\}\)</span>集合是否的确生成了<span class="math inline">\(V_1\otimes\cdots\otimes
-V_n\)</span>.于此只需要取<span class="math inline">\(K=\langlev_1\otimes\cdots\otimes v_n|\forall
-v_i\in V_i\rangle\)</span>,然后判断<span class="math inline">\(M=(V_1\otimes \cdots \otimes
-V_n)/K\)</span>是否为零空间即可.此时<span class="math inline">\(\forall
-\varphi\)</span>作为商映射,当然都有<span class="math inline">\(\varphi(v_1\otimes \cdots \otimes
+V_n\)</span>.于此只需要取<span class="math inline">\(K=\langle
+v_1\otimes\cdots\otimes v_n|\forall v_i\in
+V_i\rangle\)</span>,然后判断<span class="math inline">\(M=(V_1\otimes
+\cdots \otimes V_n)/K\)</span>是否为零空间即可.此时<span class="math inline">\(\forall \varphi\)</span>作为商映射,当然都有<span class="math inline">\(\varphi(v_1\otimes \cdots \otimes
 v_n)=0\)</span>,我们想说明<span class="math inline">\(\varphi\)</span>的确是零映射,这首先需要保证即使只有<span class="math inline">\(v_1\otimes \cdots \otimes
 v_n\)</span>上的限制也可以有类似外延公理的结论.</p>
 <p>换言之,如果两个在<span class="math inline">\(V_1\otimes \cdots
@@ -8704,6 +8683,16 @@ v_n\)</span>上的限制也可以有类似外延公理的结论.</p>
 v_n)=g(v_1\otimes \cdots \otimes v_n)\)</span>则<span class="math inline">\(f\equiv
 g\)</span>,只需回忆到这上面的映射与多重线性映射一一对应,而多重线性映射上用外延公理就搞定了.</p>
 <p>这就看到,用与多重线性映射一一对应的性质同样是张量积的某种泛性质.</p>
+<p>我们还可以看到,如果<span class="math inline">\(f_1,\cdots,f_n\)</span>都是满的,则<span class="math inline">\(f_1\otimes\cdots\otimes
+f_n\)</span>亦然,这是显然的.</p>
+<p>可能稍不显然的是如果<span class="math inline">\(f_1,\cdots,f_n\)</span>都是单的,则<span class="math inline">\(f_1\otimes\cdots\otimes
+f_n\)</span>也是单的.此时<span class="math inline">\(W_i\)</span>可以分解出一个与<span class="math inline">\(V_i\)</span>同构的<span class="math inline">\(\im
+f_i\)</span>部分,干脆记作<span class="math inline">\(W_i\cong V_i\oplus
+V_i&#39;\)</span>,并假设<span class="math inline">\(f_i:V_i\to
+W_i\)</span>是自然的嵌入映射.回忆到张量积在同构下有交换律和对直和的分配律(下面会证),见到<span class="math inline">\(W_1\otimes \cdots \otimes W_n\cong (V_1\otimes
+\cdots\otimes V_n)\oplus V&#39;\)</span>,此时<span class="math inline">\(f_1\otimes \cdots\otimes
+f_n\)</span>就是自然的嵌入映射.你可能会想欸,不对啊,<span class="math inline">\(V&#39;\)</span>里也会有一些<span class="math inline">\(V_i\)</span>项啊.可是,回忆到如果某一分量为零,则其在张量积中拿到的结果就是<span class="math inline">\(0\)</span>,所以<span class="math inline">\(f_1\otimes \cdots\otimes
+f_n\)</span>只会对前面有意义.</p>
 <h4><span id="张量积与直和">张量积与直和</span></h4>
 <p>接下来考虑证明以下结论:</p>
 <ol type="1">
@@ -8722,8 +8711,150 @@ W)\)</span>.</li>
 <p>考虑(1),下面证明<span class="math inline">\(V_1\otimes(V_2\otimes
 V_3)\cong V_1\otimes V_2\otimes
 V_3\)</span>,其关键是构造以下线性映射:</p>
-<p>$$</p>
-<p>$$</p>
+<p>[摆了,章节15.2TODO,记得把下面的Kronecker基一块做了]</p>
+<h4><span id="kronecker积">Kronecker积</span></h4>
+<p>对于矩阵<span class="math inline">\(X\in F^{n\times m},Y\in
+F^{p\times q}\)</span>,我们定义它们的克罗内多积为: <span class="math display">\[
+X\otimes
+Y=\begin{bmatrix}x_{1,1}Y&amp;x_{1,2}Y&amp;\cdots&amp;x_{1,m}Y\\x_{2,1}Y&amp;x_{2,2}Y&amp;\cdots&amp;x_{2,m}Y\\\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\x_{n,1}Y&amp;x_{n,2}Y&amp;\cdots&amp;x_{n,m}Y\end{bmatrix}\in
+F^{(np)\times (mq)}
+\]</span> 克罗内多积显然不满足交换律.</p>
+<p>事实上,设<span class="math inline">\(X,Y,Z\)</span>在下列运算中有意义,克罗内多积满足以下性质:</p>
+<ol type="1">
+<li>结合律:<span class="math inline">\(X\otimes Y\otimes Z=X\otimes
+(Y\otimes Z)\)</span>.</li>
+<li>左分配律:<span class="math inline">\(X\otimes (Y+Z)=X\otimes
+Y+X\otimes Z\)</span>.</li>
+<li>右分配律:<span class="math inline">\((X+Y)\otimes Z=X\otimes
+Z+Y\otimes Z\)</span>.</li>
+<li><span class="math inline">\((X\otimes Y)^T=X^T\otimes
+Y^T\)</span>.</li>
+<li><span class="math inline">\((X\otimes Y)(U\otimes V)=(XU)\otimes
+(YV)\)</span>.</li>
+<li><span class="math inline">\(X^{-1}\otimes Y^{-1}=(X\otimes
+Y)^{-1}\)</span>.</li>
+<li><span class="math inline">\(\det(X\otimes Y)=\det(X)^m\det(Y)^n,X\in
+F^{n\times n},Y\in F^{m\times m}\)</span>.</li>
+<li><span class="math inline">\(rank(X\otimes Y)=rank(X)\times
+rank(Y)\)</span>.</li>
+</ol>
+<p>克罗内多积的性质有一个很有用的特例是: <span class="math display">\[
+A\otimes B\otimes C=(A\otimes I_n\otimes I_n)(I_n\otimes B\otimes
+I_n)(I_n\otimes I_n\otimes C)\\
+A,B,C\in F^{n\times n}
+\]</span></p>
+<h4><span id="张量积与对偶空间">张量积与对偶空间</span></h4>
+<p>回忆到典范配对,如今我们可以用张量积将其表示为线性映射<span class="math inline">\(V^\vee\otimes V\to F,\lambda\otimes v\mapsto
+\langle\lambda,v\rangle=\lambda(v)\)</span>,这被称为<strong>缩并</strong>映射.</p>
+<p>从前的柯里化过程<span class="math inline">\({\rm Bil}(V,W)\cong {\rm
+Hom}(V,W)\)</span>就可以被记作单射<span class="math inline">\(\Theta:V^\vee\otimes W\to {\rm
+Hom}(V,W),\lambda\otimes w\mapsto \langle \lambda,\_\rangle
+w\)</span>.</p>
+<p>这个映射总是单射,当维数是有限维的时候则是满的.</p>
+<p>也许还该简单验证此结论,首先检查<span class="math inline">\(V^\vee\times W\to {\rm
+Hom}(V,W)\)</span>,这的确是一个双线性映射,于是由泛性质立刻诱导出映射<span class="math inline">\(V^\vee\otimes W\to {\rm Hom}(V,W)\)</span>.</p>
+<p>接下来证明其是单射,只需要证明其<span class="math inline">\(\ker=\{0\}\)</span>即可.而其<span class="math inline">\(\ker\)</span>中的元素总形如<span class="math inline">\(\sum_{i=1}^k \lambda_i\otimes
+w_i\)</span>,不妨假设<span class="math inline">\(w_1,\cdots,w_k\)</span>是线性无关的(可以把相关的项整理到<span class="math inline">\(\lambda_i\)</span>里面).</p>
+<p>此时由于其在<span class="math inline">\(\ker\)</span>里,所以<span class="math inline">\(\forall v\in V\)</span>,总有<span class="math inline">\(\sum_{i=1}^k \langle \lambda_i,v\rangle
+w_i=0\)</span>,然而<span class="math inline">\(w_i\)</span>线性无关,所以<span class="math inline">\(\langle \lambda_i,v\rangle\equiv
+0\)</span>,可是<span class="math inline">\(v\)</span>是任取的,这必然意味着<span class="math inline">\(\lambda_i\equiv 0\)</span>.</p>
+<p>接下来考虑证明当<span class="math inline">\(V,W\)</span>其一是有限维的时候上述映射是单的,容易发现<span class="math inline">\(\Theta\)</span>的像总是有限维的(因为左边是有限求和).当<span class="math inline">\(V,W\)</span>其一是有限维的,<span class="math inline">\(T\in {\rm
+Hom}(V,W)\)</span>就是有限秩的,此时就可以取其像的基<span class="math inline">\(w_1,\cdots,w_n\)</span>,对所有<span class="math inline">\(v\in V\)</span>,<span class="math inline">\(T(v)\)</span>都可以唯一表述为<span class="math inline">\(c_1w_1+\cdots+c_nw_n\)</span>,然而这里面每一个<span class="math inline">\(c_i\)</span>对<span class="math inline">\(v\)</span>都是线性的,从而它们都可以表示为<span class="math inline">\(V^\vee\)</span>中的元素而与<span class="math inline">\(v\)</span>的选取无关,这就搞定了.</p>
+<p>万事俱备,再看<span class="math inline">\({\rm
+End}(V)\)</span>上,既然<span class="math inline">\(V^\vee\otimes
+V\)</span>带有一个典范的缩并映射,在有限维的情况下,那与之同构的<span class="math inline">\({\rm End}(V)\)</span>也该带有一个到<span class="math inline">\(F\)</span>的典范映射.我们断言这个映射就是<span class="math inline">\({\rm Tr}\)</span>映射.有下述图表:</p>
+<p><span class="math display">\[
+\xymatrix{
+V^\vee\otimes V\ar[rd]_{\text{contraction}}\ar[rr]^{\sim}&amp;&amp;{\rm
+End (V)}\ar[ld]^{\rm Trace}\\
+&amp;F&amp;
+}
+\]</span></p>
+<p>如何检验这个结论,我们之前刻画Trace的办法只有取对偶基<span class="math inline">\(\check v_1,\cdots,\check v_n\)</span>,然后将<span class="math inline">\(v=\sum c_i v_i\)</span>和<span class="math inline">\(\lambda=d_i \check v_i\)</span>,那典范配对<span class="math inline">\(\Theta(\lambda\otimes v)=\sum_{i,j}\langle\check
+v_i,\_\rangle v_j\)</span>,也就是说其将<span class="math inline">\(v_i\)</span>映射到了<span class="math inline">\(\sum_j c_jd_i\)</span>,从而见到其<span class="math inline">\({\rm Tr}=\sum_i
+c_id_i=\langle\lambda,v\rangle\)</span>.</p>
+<p>如果写成矩阵形式的话,<span class="math inline">\(\lambda\in
+V^\vee\)</span>可以写成一个<span class="math inline">\(1\times
+n\)</span>的矩阵,<span class="math inline">\(w\in
+W\)</span>可以写成一个<span class="math inline">\(m\times
+1\)</span>的矩阵,那其实<span class="math inline">\(\Theta(\lambda\otimes
+w)\)</span>就是<span class="math inline">\(w\lambda\)</span>这个<span class="math inline">\(m\times n\)</span>的矩阵.</p>
+<p>最后来看曾经想要拿到的那个结论,下面我们引入一个典范的同构<span class="math inline">\(\Psi:V_1^\vee\otimes \cdots\otimes V_n^\vee\to
+(V_1\otimes \cdots\otimes V_n)^\vee\)</span>,策略是观察<span class="math inline">\(V_1^\vee\times \cdots\times V_n^\vee\to
+(V_1\otimes \cdots\otimes V_n)^\vee\)</span>自然是一个线性映射.</p>
+<p>我们希望当每个<span class="math inline">\(V_i\)</span>都是有限维的时候,上述映射是同构.</p>
+<p>[抄不动了,命题15.3.5]</p>
+<h4><span id="张量代数">张量代数</span></h4>
+<p>设<span class="math inline">\(F\)</span>是一个域,一个<span class="math inline">\(F\)</span>上的<strong>代数</strong>需要以下资料:</p>
+<ol type="1">
+<li>一个环<span class="math inline">\(A\)</span>,其需要带有<span class="math inline">\(F\)</span>向量空间的结构,使得环的加法等价于向量空间的加法.</li>
+<li>环的乘法<span class="math inline">\(A\times A\to
+A\)</span>需要是双线性的.</li>
+</ol>
+<p>请沿之前引入代数结构的常规讨论把代数的结构一块搞定,其实大部分在环那里已经做完了,代数结构更强,因此只需要限定同态必须也态射到代数就行.也许还需要检验理想对标量乘法封闭,只需要观察到<span class="math inline">\(tI=(t 1_A)I\subseteq I\)</span>就行.</p>
+<p>下面定义<span class="math inline">\(T(V)=\bigoplus_{n\geq
+0}V^{\otimes n}\)</span></p>
+<p>[15.5],累哦.</p>
+<p>来进入对称代数与外代数,考虑<span class="math inline">\(C\in {\rm
+Mul}(V,\cdots,V;M)\)</span>,任意置换<span class="math inline">\(\sigma\)</span>,定义:</p>
+<ol type="1">
+<li>如果<span class="math inline">\(C(\cdots,x,y,\cdots)=C(\cdots,y,x,\cdots)\)</span>,则称其为<strong>对称的</strong>.对称性等价于说<span class="math inline">\(C(v_1,\cdots,v_n)=C(v_{\sigma(1)},\cdots,v_{\sigma(n)})\)</span>.</li>
+<li>如果说<span class="math inline">\(C(v_1,\cdots,v_n)={\rm
+sgn}(\sigma)C(v_{\sigma(1)},\cdots,v_{\sigma(n)})\)</span>,则称其为<strong>反对称的</strong>.</li>
+<li>如果<span class="math inline">\(C(\cdots,x,x,\cdots)=0\)</span>,则称其为<strong>交错的</strong>.</li>
+</ol>
+<p>当<span class="math inline">\({\rm char}F\ne
+2\)</span>的时候,交错和反对称是等价的.不然,起码交错的一定是反对称的.下面定义:</p>
+<ol type="1">
+<li><span class="math inline">\(I_{Sym}\)</span>为形如<span class="math inline">\(x\otimes y-y\otimes
+x\)</span>的元素生成的理想.</li>
+<li><span class="math inline">\(I_{\wedge}\)</span>为形如<span class="math inline">\(x\otimes x\)</span>生成的理想.</li>
+</ol>
+<p>这样就可以定义相应的<strong>对称代数</strong><span class="math inline">\(Sym(V)=T(V)/I_{Sym}\)</span>,<strong>外代数</strong><span class="math inline">\(\bigwedge
+(V)=T(V)/I_\wedge\)</span>.还可以定义<span class="math inline">\(\Sym^m(V)=V^{\otimes
+m}/I_{sym}^m\)</span>,同理定义<span class="math inline">\(\bigwedge^m(V)\)</span>,容易发现<span class="math inline">\(Sym^0(V)=F=\bigwedge^0(V),Sym^1(V)=V=\bigwedge^1(V)\)</span>.</p>
+<p>在其中的<span class="math inline">\(\otimes\)</span>运算被自然变成了新的运算,设前者仍是通常的乘法符号,而后者符号采取<span class="math inline">\(\wedge\)</span>.</p>
+<p>外代数里一个重要的性质是如果<span class="math inline">\(\omega\in
+\bigwedge^p(V),\eta\in \bigwedge^q(V)\)</span>,则<span class="math inline">\(\omega
+\eta=(-1)^{pq}\eta\omega\)</span>,原因是只需要假设<span class="math inline">\(\omega=x_1\wedge\cdots\wedge
+x_p,\eta=y_1\wedge\cdots\wedge y_q\)</span>,其中<span class="math inline">\(x_i,y_i\in V\)</span>,而外代数的定义已经给出<span class="math inline">\(x\wedge y=-y\wedge x\)</span>,这就完事了.</p>
+<p>既然我们可以将一个对称代数或者外代数分成若干层,那考虑对于任意线性映射<span class="math inline">\(\psi:V\to
+W\)</span>,我们都可以通过在各个分量上诱导从而拿到:<span class="math inline">\(Sym(\psi):Sym(V)\to Sym(W),x_1\cdots x_m\mapsto
+\psi(x_1)\cdots \psi(x_m)\)</span>,其中<span class="math inline">\(\psi(x_m)是限制在\)</span>V^{m}$上的.这应该是平凡的.</p>
+<p>最后我们想要说明对称代数与外代数确实对应着我们的多重线性映射.也就是<span class="math inline">\({\rm Hom}(Sym^m,M)\)</span>同构于所有的对称<span class="math inline">\(m\)</span>重线性映射.外代数类似.而这些依照理想的定义的确如此.</p>
+<p>接下来来展现二者的结构,不妨设<span class="math inline">\(\dim
+V=n\)</span>,取其一组基<span class="math inline">\(v_1,\cdots
+v_n\)</span>,我们说:</p>
+<ol type="1">
+<li>当<span class="math inline">\(m&gt; n\)</span>的时候,<span class="math inline">\(\bigwedge^m (V)=\{0\}\)</span>.</li>
+<li>当<span class="math inline">\(0\leq m\leq n\)</span>的时候,<span class="math inline">\(\dim
+\bigwedge^m(V)=\binom{n}{m}\)</span>.更确切地说,任意一组下标<span class="math inline">\(1\leq i_1&lt;\cdots&lt;i_m\leq n\)</span>,<span class="math inline">\(v_{i_1}\wedge\cdots\wedge
+v_{i_m}\)</span>构成<span class="math inline">\(\bigwedge^m(V)\)</span>的基.</li>
+<li>作为(2)的推论,<span class="math inline">\(\dim \bigwedge
+(V)=2^n\)</span>.</li>
+</ol>
+<p>(1)比较显然,因为当<span class="math inline">\(m&gt;n\)</span>的时候,任何一个元素被生成的方式<span class="math inline">\(v&#39;_{1}\wedge\cdots\wedge
+v&#39;_{m}\)</span>一定线性相关,所以自然为<span class="math inline">\(0\)</span>.</p>
+<p>接下来看(2),我们早在行列式的讨论处就证明过了当<span class="math inline">\(m=n\)</span>的时候,交错形式是一维的,那当然导出<span class="math inline">\(dim \bigwedge^n(V)=1\)</span>.而且若<span class="math inline">\(\psi\in {\rm End}(V)\)</span>,则当然有<span class="math inline">\(\bigwedge^n(\psi)=det(\psi){\rm
+id}_{\wedge^n(V)}\)</span>.</p>
+<p>而由之前张量积的结论,<span class="math inline">\(v_{i_1}\wedge\cdots\wedge
+v_{i_m}\)</span>这些元素肯定构成了一组生成元,只需要证明它们的确线性无关即可.只需证明:</p>
+<p><span class="math display">\[
+\sum_{1\leq j_1&lt;\cdots&lt;j_m\leq
+n}c_{j_1,\cdots,j_m}v_{j_1}\wedge\cdots\wedge v_{j_m}=0\Rightarrow
+c_{j_1,\cdots,j_m}\equiv 0
+\]</span></p>
+<p>做法呼之欲出,取<span class="math inline">\(V&#39;=\langle
+v_{i_1,},\cdots,v_{i_m}\rangle\)</span>,定义<span class="math inline">\(\psi:V\to V&#39;\)</span>,方法是<span class="math inline">\(\psi(v_j)=\begin{cases}v_j&amp;j\in
+\{i_1,\cdots,i_m\}\\0&amp;otherwise\end{cases}\)</span>.此时其诱导出了<span class="math inline">\(\bigwedge^m(\psi):\bigwedge^m(V)\to
+\bigwedge^m(V&#39;)\)</span>.然后两边做映射.如果<span class="math inline">\(\{j_1,\cdots,j_m\}\ne
+\{i_1,\cdots,i_m\}\)</span>那就会变成零,最后就会导出<span class="math inline">\(c_{i_1,\cdots,i_m}v_{i_1}\wedge\cdots\wedge
+v_{i_m}=0\)</span>,然而左边是在<span class="math inline">\(\bigwedge^m(V&#39;)\)</span>这个<span class="math inline">\(\dim=1\)</span>的空间中,所以一定能导出<span class="math inline">\(c_{i_1,\cdots,i_m}=0\)</span>.</p>
+<p>[这里得补一个Plucker embedding]</p>
+<p>最后我们可以来定义交错矩阵:<span class="math inline">\(A\in
+M_{n\times n}(R)\)</span>,若<span class="math inline">\(a_{i,j}=-a_{j,i}\)</span>而且<span class="math inline">\(a_{i,i}=0\)</span>.[15.6.13]</p>
+<h5><span id="另一种构造">另一种构造</span></h5>
+<p>[15.9TODO]</p>
 ]]></content>
       <categories>
         <category>大学课程</category>
@@ -21827,7 +21958,7 @@ f(x)\)</span>的部分就可以被控制住,这就搞定了.</p>
 <p>Cesaro收敛的另一个好处在于,当<span class="math inline">\(f(x+0)\)</span>和<span class="math inline">\(f(x-0)\)</span>存在的时候,由于如果逐点收敛一定就能导出Cesaro收敛,因此,如果傅里叶级数在某一点处收敛,则它必然也在这一点处Cesaro收敛且收敛于同一个<span class="math inline">\(\frac{f(x+0)+f(x-0)}{2}\)</span>,换言之如果收敛则一定收敛于此.</p>
 <h5><span id="平均收敛">平均收敛</span></h5>
 <p>考虑如果一列函数<span class="math inline">\(f_n\)</span>,如果<span class="math inline">\(\int |f_n-f|\to
-0\)</span>则我们称这列函数<strong>平均收敛</strong>到<span class="math inline">\(f\)</span>.一个平均收敛的函数列可以处处点不收敛.</p>
+0\)</span>则我们称这列函数<strong>平均收敛</strong>到<span class="math inline">\(f\)</span>.一个平均收敛的函数列可以处处点不收敛,一个逐点收敛的函数也可能并不平均收敛(因为积分不一定收敛).</p>
 <p>考虑定义<strong>平方可积函数</strong><span class="math inline">\(f\)</span>为几乎处处连续而且只有有限个瑕点的<span class="math inline">\(f\)</span>并且满足<span class="math inline">\(\int_{-\pi}^\pi f^2{\rm
 d}x&lt;\infty\)</span>.容易见到闭区间上的平方可积要强于绝对可积,原因正是柯西不等式:</p>
 <p><span class="math display">\[

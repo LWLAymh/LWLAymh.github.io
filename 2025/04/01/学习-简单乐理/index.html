@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://y.gtimg.cn/music/photo_new/T062M000004QlDkO0nCeWY.jpg?max_age=0">
 <meta property="og:image" content="https://img2022.cnblogs.com/blog/662544/202204/662544-20220411164109167-1657776014.png">
 <meta property="article:published_time" content="2025-04-01T06:04:34.710Z">
-<meta property="article:modified_time" content="2025-05-28T15:57:12.448Z">
+<meta property="article:modified_time" content="2025-06-02T06:12:54.474Z">
 <meta property="article:author" content="LWLAymh">
 <meta property="article:tag" content="乐理">
 <meta name="twitter:card" content="summary">
@@ -286,7 +286,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-05-28 23:57:12" itemprop="dateModified" datetime="2025-05-28T23:57:12+08:00">2025-05-28</time>
+      <time title="修改时间：2025-06-02 14:12:54" itemprop="dateModified" datetime="2025-06-02T14:12:54+08:00">2025-06-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -378,7 +378,14 @@ t)\)</span>的控制.因此会以<span class="math inline">\(\frac{\delta}{2}\)<
 <li>张力<span class="math inline">\(T\)</span>.</li>
 <li>线密度<span class="math inline">\(\rho\)</span>.</li>
 </ol>
-<p>对于弦的振动解微分方程,这里我不是很想解了啊!所以我们直接放结论,最终得到的会是一个无穷级数,这个无穷级数的每一项都会以正弦规律振动,其中第<span class="math inline">\(n\)</span>项的频率满足: <span class="math display">\[
+<p>对于弦的振动解微分方程,这里我不是很想解了啊!所以我们直接放结论,对于弦上一个点<span class="math inline">\(u(x,t)\)</span>,首先是一维振动方程: <span class="math display">\[
+\frac{\partial^2 u}{\partial x^2}=\frac{\rho}{T}\frac{\partial^2
+u}{\partial t^2}
+\]</span></p>
+<p>最终得到的会是一个无穷级数,这个无穷级数的每一项都形如: <span class="math display">\[
+u_n(x,t)=c_n\sin(\omega_n t+\theta_n)\sin(\frac{n\pi}{L}x)
+\]</span> 其中第<span class="math inline">\(n\)</span>项的频率满足:
+<span class="math display">\[
 f_n=\frac{n}{2L}\sqrt{\frac{T}{\rho}}
 \]</span> 其中我们将<span class="math inline">\(f_1\)</span>称为<strong>基频</strong>,相应的声音称为<strong>基音</strong>,而将剩下的频率对应的声音统称为泛音,其中<span class="math inline">\(f_n,n\geq 2\)</span>对应的是第<span class="math inline">\(n-1\)</span>泛音.</p>
 <p>特别地,如果我们干脆记<span class="math inline">\(f=f_1\)</span>,上述结果告诉我们弦的振动产生的一列频率是:
@@ -386,7 +393,7 @@ f_n=\frac{n}{2L}\sqrt{\frac{T}{\rho}}
 f,2f,3f,\cdots
 \]</span> 这个序列通常被称为<strong>泛音列</strong>.</p>
 <p>特别地,上述的频率其实是固定了点来讨论的,实际上的泛音要更为复杂,会在一根弦上的不同位置处产生不同的加权.实际上对于不同的<span class="math inline">\(n\)</span>,它们的泛音列长这个样子:<img src="https://y.gtimg.cn/music/photo_new/T062M000004QlDkO0nCeWY.jpg?max_age=0"></p>
-<p>其中标注的点在振动中均是固定不变的.</p>
+<p>其中标注的点(波节)在振动中均是固定不变的.</p>
 <p>这其实是某些弦乐演奏中一些按弦技巧的基础.例如这里,如果我用手轻触中间点,我就可以消灭掉所有的<span class="math inline">\(f_{2k+1}\)</span>,泛音列中只剩下<span class="math inline">\(2f,4f,\cdots\)</span>.我们后面会再提这个事,这意味着我弹出的音高了八度.那如果我按<span class="math inline">\(\frac{1}{3}\)</span>处呢?那泛音列中就会只剩下<span class="math inline">\(3f,6f,9f,\cdots\)</span>,也就是先高一个纯八度,再高一个纯五度.</p>
 <p>还有拨弦,如果我在中间拨弦会发生什么呢?由于我的拨动使得整个弦应该以中间为对称形成一个偶函数,中间的点一定在波动,因此泛音列中剩下的就会是<span class="math inline">\(f,3f,5f,\cdots\)</span>.</p>
 <h4><span id="管乐器">管乐器</span></h4>
@@ -546,7 +553,7 @@ C\to &amp;&amp; G\to &amp;&amp;D\to &amp;&amp;A\to &amp;&amp;E\to
 \]</span> 这下这下了.</p>
 <h4><span id="纯律">纯律</span></h4>
 <p>其实我们刚才就能见到真正完美符合简单整数比的律根本调不出来.但是能不能让一些常用的音程(比如纯八度,纯五度,纯四度,大三度)尽可能准呢.这就是纯律在干的事.</p>
-<p>还是规定<span class="math inline">\(C\)</span>的频率为<span class="math inline">\(1\)</span>.接下来用正三和弦(一个大三度和一个小三度)<span class="math inline">\(C-E-G\)</span>,<span class="math inline">\(F-A-C&#39;\)</span>,<span class="math inline">\(G-B-D&#39;\)</span>的比例是<span class="math inline">\(4:5:6\)</span>确定剩下的: <span class="math display">\[
+<p>还是规定<span class="math inline">\(C\)</span>的频率为<span class="math inline">\(1\)</span>.接下来用正三和弦(一个大三度和一个小三度)<span class="math inline">\(I:C-E-G\)</span>,<span class="math inline">\(IV:F-A-C&#39;\)</span>,<span class="math inline">\(V:G-B-D&#39;\)</span>的比例是<span class="math inline">\(4:5:6\)</span>确定剩下的: <span class="math display">\[
 \begin{aligned}
 C&amp;&amp;D&amp;&amp;E&amp;&amp;F&amp;&amp;G&amp;&amp;A&amp;&amp;B&amp;&amp;C&#39;&amp;&amp;D&#39;\\
 1&amp;&amp;\frac{9}{8}&amp;&amp;\frac{5}{4}&amp;&amp;\frac{4}{3}&amp;&amp;\frac{3}{2}&amp;&amp;\frac{5}{3}&amp;&amp;\frac{15}{8}&amp;&amp;2&amp;&amp;\frac{9}{4}
