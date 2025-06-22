@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lwlaymh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="在YT2S 2021级生2课上有一个著名的open problem,也就是在计算自由交配的时候能否拆开考虑,下面我来尝试写一点自己的理解. 首先来看两个问题(前置条件均为孟德尔第二次杂交实验):  将F2中双显性植株自由交配,求后代表现型及比例.  将F2中单显性植株(包括两种单显性植株)自由交配,求后代表现型及比例.   为了方便笔者书写,不妨设这两对基因是$A &#x2F; a $和$B &#x2F; b $.">
+    <meta name="description" content="在YT2S 2021级生2课上有一个著名的open problem,也就是在计算自由交配的时候能否拆开考虑,下面我来尝试写一点自己的理解. 首先来看两个问题(前置条件均为孟德尔第二次杂交实验):  将F2中双显性植株自由交配,求后代表现型及比例. 将F2中单显性植株(包括两种单显性植株)自由交配,求后代表现型及比例.  为了方便笔者书写,不妨设这两对基因是$A &#x2F; a \(和\)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="被豌豆创飞了">
 <meta property="og:url" content="http://lwlaymh.github.io/2025/06/22/%E6%96%87%E5%8C%96%E8%AF%BE-%E8%A2%AB%E8%B1%8C%E8%B1%86%E5%88%9B%E9%A3%9E%E4%BA%86/index.html">
 <meta property="og:site_name" content="LWLAymh的备忘录">
-<meta property="og:description" content="在YT2S 2021级生2课上有一个著名的open problem,也就是在计算自由交配的时候能否拆开考虑,下面我来尝试写一点自己的理解. 首先来看两个问题(前置条件均为孟德尔第二次杂交实验):  将F2中双显性植株自由交配,求后代表现型及比例.  将F2中单显性植株(包括两种单显性植株)自由交配,求后代表现型及比例.   为了方便笔者书写,不妨设这两对基因是$A &#x2F; a $和$B &#x2F; b $.">
+<meta property="og:description" content="在YT2S 2021级生2课上有一个著名的open problem,也就是在计算自由交配的时候能否拆开考虑,下面我来尝试写一点自己的理解. 首先来看两个问题(前置条件均为孟德尔第二次杂交实验):  将F2中双显性植株自由交配,求后代表现型及比例. 将F2中单显性植株(包括两种单显性植株)自由交配,求后代表现型及比例.  为了方便笔者书写,不妨设这两对基因是$A &#x2F; a \(和\)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-22T08:57:48.983Z">
 <meta property="article:modified_time" content="2025-06-22T08:57:48.983Z">
@@ -179,7 +179,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -190,7 +190,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -311,30 +311,43 @@
     
     
     <div class="post-body" itemprop="articleBody"><span id="more"></span>
-<p>在YT2S 2021级生2课上有一个著名的open problem,也就是在计算自由交配的时候能否拆开考虑,下面我来尝试写一点自己的理解.</p>
+<p>在YT2S 2021级生2课上有一个著名的open
+problem,也就是在计算自由交配的时候能否拆开考虑,下面我来尝试写一点自己的理解.</p>
 <p>首先来看两个问题(前置条件均为孟德尔第二次杂交实验):</p>
-<ol>
-<li><p>将F2中双显性植株自由交配,求后代表现型及比例.</p>
-</li>
-<li><p>将F2中单显性植株(包括两种单显性植株)自由交配,求后代表现型及比例.</p>
-</li>
+<ol type="1">
+<li><p>将F2中双显性植株自由交配,求后代表现型及比例.</p></li>
+<li><p>将F2中单显性植株(包括两种单显性植株)自由交配,求后代表现型及比例.</p></li>
 </ol>
-<p>为了方便笔者书写,不妨设这两对基因是$A / a $和$B / b $.</p>
-<p>先来看第一个问题,双显性植株中应该有:$\frac { 1  } { 9  } AABB , \frac { 2  } { 9  } AABb , \frac { 2  } { 9  } AaBB , \frac { 4  } { 9  } AaBb $.先让第一组基因自由交配,也就是只看$A / a $,我们有$\frac { 1  } { 3  } AA $和$\frac { 2  } { 3  } Aa $,产生$\frac { 2  } { 3  } A $和$\frac { 1  } { 3  } a $配子,得到$AA : Aa : aa = 4 : 4 : 1 $,也就是$A _ : aa = 8 : 1 $.对另一对也这么考虑,最终得到$A _ B _ : A _ bb : aaB _ : aabb = 64 : 8 : 8 : 1 $.</p>
+<p>为了方便笔者书写,不妨设这两对基因是$A / a <span class="math inline">\(和\)</span>B / b $.</p>
+<p>先来看第一个问题,双显性植株中应该有:$ { 9 } AABB , { 9 } AABb , { 9 }
+AaBB , { 9 } AaBb <span class="math inline">\(.先让第一组基因自由交配,也就是只看\)</span>A / a
+<span class="math inline">\(,我们有\)</span> { 3 } AA <span class="math inline">\(和\)</span> { 3 } Aa <span class="math inline">\(,产生\)</span> { 3 } A <span class="math inline">\(和\)</span> { 3 } a <span class="math inline">\(配子,得到\)</span>AA : Aa : aa = 4 : 4 : 1 <span class="math inline">\(,也就是\)</span>A _ : aa = 8 : 1 <span class="math inline">\(.对另一对也这么考虑,最终得到\)</span>A _ B _ : A _
+bb : aaB _ : aabb = 64 : 8 : 8 : 1 $.</p>
 <p>非常合理且简洁对吧,但如果你同样拆开考虑第二个问题,会发现这么做是错误的.</p>
-<p>我们生物老师LL老师给出的解释是,单显性植株的个体是$A _ bb $和$aaB _ $,它们的基因型并没有组合的非常彻底,也就是并没有出现$aabb $和$A _ B _ $个体,导致不能乱拆开.</p>
+<p>我们生物老师LL老师给出的解释是,单显性植株的个体是$A _ bb <span class="math inline">\(和\)</span>aaB _ <span class="math inline">\(,它们的基因型并没有组合的非常彻底,也就是并没有出现\)</span>aabb
+<span class="math inline">\(和\)</span>A _ B _ $个体,导致不能乱拆开.</p>
 <p>而直觉上感觉这个东西和独立性有关对吧,我们来简单证明一下:</p>
-<p>约定$X $是$AA , Aa $或$aa $,$Y $则是$BB , Bb , bb $,那么:$P ( XY ) = P ( Y | X ) P ( X ) $.如果可以拆开,那么$P ( XY ) = P ( X ) P ( Y ) $,于是有:$P ( Y | X ) = P ( Y ) $,也就是这两种基因型互相独立就行,老师说的对啊!</p>
+<p>约定$X <span class="math inline">\(是\)</span>AA , Aa <span class="math inline">\(或\)</span>aa <span class="math inline">\(,\)</span>Y <span class="math inline">\(则是\)</span>BB , Bb , bb <span class="math inline">\(,那么:\)</span>P ( XY ) = P ( Y | X ) P ( X )
+<span class="math inline">\(.如果可以拆开,那么\)</span>P ( XY ) = P ( X
+) P ( Y ) <span class="math inline">\(,于是有:\)</span>P ( Y | X ) = P (
+Y ) $,也就是这两种基因型互相独立就行,老师说的对啊!</p>
 <p>如果只是这样就水了一篇博客非常无聊对吧,能不能证明一点更好玩的结论呢?</p>
-<p>考虑设产生四种配子$AB , Ab , aB , ab $的概率分别是$x , y , z , w $,其中$x + y + z + w = 1 $.</p>
-<p>使用生成函数技巧,配子法给出的答案应该是:$( x  AB + y  Ab + z  aB + w  ab ) ^2 $,而拆分再乘起来的答案应该是$( ( x + y ) A + ( z + w ) a ) ^2 ( ( x + z ) B + ( y + w ) b ) ^2 $,其中$A , B , a , b $均为形式幂.</p>
+<p>考虑设产生四种配子$AB , Ab , aB , ab <span class="math inline">\(的概率分别是\)</span>x , y , z , w <span class="math inline">\(,其中\)</span>x + y + z + w = 1 $.</p>
+<p>使用生成函数技巧,配子法给出的答案应该是:$( x  AB + y  Ab + z  aB + w
+ ab ) ^2 <span class="math inline">\(,而拆分再乘起来的答案应该是\)</span>( ( x + y ) A
++ ( z + w ) a ) ^2 ( ( x + z ) B + ( y + w ) b ) ^2 <span class="math inline">\(,其中\)</span>A , B , a , b $均为形式幂.</p>
 <p>如果两边相等,有:</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-( x \ AB + y \ Ab + z \ aB + w \ ab ) ^2 & = ( ( x + y ) A + ( z + w ) a ) ^2 ( ( x + z ) B + ( y + w ) b ) ^2 \\
-( x + y + z + w ) ( x \ AB + y \ Ab + z \ aB + w \ ab ) & = ( ( x + y ) A + ( z + w ) a ) ( ( x + z ) B + ( y + w ) b ) \\
+$$
+<span class="math display">\[\begin{aligned}
+( x \ AB + y \ Ab + z \ aB + w \ ab ) ^2 &amp; = ( ( x + y ) A + ( z + w
+) a ) ^2 ( ( x + z ) B + ( y + w ) b ) ^2 \\
+( x + y + z + w ) ( x \ AB + y \ Ab + z \ aB + w \ ab ) &amp; = ( ( x +
+y ) A + ( z + w ) a ) ( ( x + z ) B + ( y + w ) b ) \\
 
-\end{aligned}</script><p>两边展开,就可以知道它的充分必要条件是$P ( ab ) = P ( a ) P ( b ) $,也就是产生$a $和$b $的配子概率是独立的.</p>
+\end{aligned}\]</span>
+<p>$$</p>
+<p>两边展开,就可以知道它的充分必要条件是$P ( ab ) = P ( a ) P ( b )
+<span class="math inline">\(,也就是产生\)</span>a <span class="math inline">\(和\)</span>b $的配子概率是独立的.</p>
 
     </div>
 
