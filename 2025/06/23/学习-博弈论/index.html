@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/%E5%A4%B4%E5%83%8F1.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/%E5%A4%B4%E5%83%8F1.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/%E5%A4%B4%E5%83%8F1.jpg">
+  <link rel="mask-icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lwlaymh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="Bash游戏 \(A\)和\(B\),有\(n\)颗石子,每次可以取\(x\)颗,其中\(1 \leq x \leq m \\\),求\(A\)是否能赢. 考虑直接令石子数量为状态,有\(SG ( x ) &#x3D; mex \{ SG ( y ) | \max \{ 0 , x - m \} \leq y \leq x - 1 \} \\\),注意到\(SG ( x ) &#x3D; 0\)当且仅">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博弈论">
+<meta property="og:url" content="http://lwlaymh.github.io/2025/06/23/%E5%AD%A6%E4%B9%A0-%E5%8D%9A%E5%BC%88%E8%AE%BA/index.html">
+<meta property="og:site_name" content="LWLAymh的备忘录">
+<meta property="og:description" content="Bash游戏 \(A\)和\(B\),有\(n\)颗石子,每次可以取\(x\)颗,其中\(1 \leq x \leq m \\\),求\(A\)是否能赢. 考虑直接令石子数量为状态,有\(SG ( x ) &#x3D; mex \{ SG ( y ) | \max \{ 0 , x - m \} \leq y \leq x - 1 \} \\\),注意到\(SG ( x ) &#x3D; 0\)当且仅">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-22T16:00:25.047Z">
+<meta property="article:modified_time" content="2025-06-22T16:00:25.048Z">
+<meta property="article:author" content="LWLAymh">
+<meta property="article:tag" content="OI">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://lwlaymh.github.io/2025/06/23/%E5%AD%A6%E4%B9%A0-%E5%8D%9A%E5%BC%88%E8%AE%BA/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://lwlaymh.github.io/2025/06/23/%E5%AD%A6%E4%B9%A0-%E5%8D%9A%E5%BC%88%E8%AE%BA/","path":"2025/06/23/学习-博弈论/","title":"博弈论"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>博弈论 | LWLAymh的备忘录</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+  <script src="/js/third-party/addtoany.js" defer></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+<link rel="dns-prefetch" href="my-repository-jade-beta-79.vercel.app">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">LWLAymh的备忘录</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">混乱节拍拼凑出血肉喧嚷</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">Bash游戏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">Nim游戏</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.1.</span> <span class="nav-text">Example1(Nimk游戏)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.</span> <span class="nav-text">Example2(Multi-Nim游戏)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">SG游戏</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">3.1.</span> <span class="nav-text">Example1(Anti-SG游戏)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">3.2.</span> <span class="nav-text">Example2(Every-SG)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">3.3.</span> <span class="nav-text">Example2.5(Every-SG)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">3.4.</span> <span class="nav-text">Example3(Nim on tree)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">3.5.</span> <span class="nav-text">Example4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">3.6.</span> <span class="nav-text">Example5</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">斐波那契博弈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">二分图博弈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">5.1.</span> <span class="nav-text">Example1([2022qbxt国庆Day5]C)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">树上博弈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">6.1.</span> <span class="nav-text">Example1(zr[23省选10连 day1]
+Clashmas)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">散题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">7.0.1.</span> <span class="nav-text">Problem1([CSP-S2020]贪吃蛇)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">7.0.2.</span> <span class="nav-text">Problem2([AGC023D]Go Home)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">7.0.3.</span> <span class="nav-text">Problem3(牛客38727E)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">7.0.4.</span> <span class="nav-text">Problem4(arc155D)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">7.0.5.</span> <span class="nav-text">Problem5</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">7.0.6.</span> <span class="nav-text">Problem6</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">7.0.7.</span> <span class="nav-text">Problem7</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">7.0.8.</span> <span class="nav-text">Problem8</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="LWLAymh"
+      src="/images/%E5%A4%B4%E5%83%8F1.jpg">
+  <p class="site-author-name" itemprop="name">LWLAymh</p>
+  <div class="site-description" itemprop="description">不过是白日梦里一瞬息</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/LWLAymh" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LWLAymh" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lwlaymh@outlook.com" title="E-Mail → mailto:lwlaymh@outlook.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/LWLAymh" title="WeChat → LWLAymh" rel="noopener me"><i class="fab fa-skype fa-fw"></i>WeChat</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://minyuchengmin.github.io/" title="https:&#x2F;&#x2F;minyuchengmin.github.io" rel="noopener" target="_blank">ycm的blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://shanlunjiajian.github.io/" title="http:&#x2F;&#x2F;shanlunjiajian.github.io" rel="noopener" target="_blank">qyc的blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.cnblogs.com/do-while-true" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;do-while-true" rel="noopener" target="_blank">dwt的blog</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lwlaymh.github.io/2025/06/23/%E5%AD%A6%E4%B9%A0-%E5%8D%9A%E5%BC%88%E8%AE%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F1.jpg">
+      <meta itemprop="name" content="LWLAymh">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LWLAymh的备忘录">
+      <meta itemprop="description" content="不过是白日梦里一瞬息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="博弈论 | LWLAymh的备忘录">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          博弈论
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-06-23 00:00:25" itemprop="dateCreated datePublished" datetime="2025-06-23T00:00:25+08:00">2025-06-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OI/" itemprop="url" rel="index"><span itemprop="name">OI</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2025/06/23/%E5%AD%A6%E4%B9%A0-%E5%8D%9A%E5%BC%88%E8%AE%BA/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2025/06/23/%E5%AD%A6%E4%B9%A0-%E5%8D%9A%E5%BC%88%E8%AE%BA/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><span id="more"></span>
+<h3><span id="bash游戏">Bash游戏</span></h3>
+<p><span class="math inline">\(A\)</span>和<span class="math inline">\(B\)</span>,有<span class="math inline">\(n\)</span>颗石子,每次可以取<span class="math inline">\(x\)</span>颗,其中<span class="math inline">\(1
+\leq x \leq m \\\)</span>,求<span class="math inline">\(A\)</span>是否能赢.</p>
+<p>考虑直接令石子数量为状态,有<span class="math inline">\(SG ( x ) = mex
+\{ SG ( y ) | \max \{ 0 , x - m \} \leq y \leq x - 1 \}
+\\\)</span>,注意到<span class="math inline">\(SG ( x ) =
+0\)</span>当且仅当<span class="math inline">\(x \equiv 0 ( \mod m + 1
+)\)</span>.</p>
+<p>我们使用数学归纳证明:</p>
+<p>当<span class="math inline">\(0 \leq x \leq
+m\)</span>时,显然成立.</p>
+<p>而对于<span class="math inline">\(x\)</span>,如果<span class="math inline">\(x \equiv 0 ( \mod m + 1 )
+\\\)</span>,那么集合<span class="math inline">\(S = \{ y \in \mathbb{ Z
+} | \max \{ 0 , x - m \} \leq y \leq x - 1 \}\)</span>中一定<span class="math inline">\(\nexists y\)</span>满足<span class="math inline">\(y \equiv 0 ( \mod m + 1 ) \\\)</span>.</p>
+<p>也就是<span class="math inline">\(\nexists y\)</span>满足<span class="math inline">\(SG ( y ) = 0\)</span>,那么<span class="math inline">\(SG ( n ) = 0\)</span>.反之,一定存在.</p>
+<h3><span id="nim游戏">Nim游戏</span></h3>
+<p><span class="math inline">\(A\)</span>和<span class="math inline">\(B\)</span>,有<span class="math inline">\(n\)</span>堆石子,第<span class="math inline">\(i\)</span>堆石子有<span class="math inline">\(x_i\)</span>个石子.每次可以任选一堆取走若干个石子,最后不能取的人输.求先手是否必胜.</p>
+<p>注意到如果<span class="math inline">\(x\)</span>均等于<span class="math inline">\(0\)</span>一定先手必败.考虑令<span class="math inline">\(w = x_1 \oplus x_2 \oplus . . . \oplus
+x_n\)</span>(<span class="math inline">\(w\)</span>即为全游戏的<span class="math inline">\(SG\)</span>值),那么先手必败当且仅当<span class="math inline">\(w = 0 \\\)</span>.</p>
+<p>证明:</p>
+<p>只需证明当<span class="math inline">\(w \ne
+0\)</span>时一定存在一种方法使得<span class="math inline">\(w = 0
+\\\)</span>.</p>
+<p>考虑<span class="math inline">\(w\)</span>的最高位为第<span class="math inline">\(k\)</span>位,那么一定存在一个<span class="math inline">\(x_i\)</span>的第<span class="math inline">\(k\)</span>位为<span class="math inline">\(1\)</span>.将它改为<span class="math inline">\(0\)</span>,然后这个<span class="math inline">\(x_i\)</span>的后面几位可以随意更改.</p>
+<h4><span id="example1nimk游戏">Example1(Nimk游戏)</span></h4>
+<p><span class="math inline">\(A\)</span>和<span class="math inline">\(B\)</span>,有<span class="math inline">\(n\)</span>堆石子,第<span class="math inline">\(i\)</span>堆石子有<span class="math inline">\(x_i\)</span>个石子.每次可以任选不超过<span class="math inline">\(k\)</span>堆取走若干个石子,最后不能取的人输.</p>
+<p>将<span class="math inline">\(x_i\)</span>写成二进制,如果每一位的<span class="math inline">\(1\)</span>的个数均是<span class="math inline">\(k
++ 1\)</span>的倍数,那么先手一定必败.道理是差不多的.</p>
+<h4><span id="example2multi-nim游戏">Example2(Multi-Nim游戏)</span></h4>
+<p>Nim游戏,但是玩家每回合可以将任意一堆石子数量大于等于<span class="math inline">\(2\)</span>的石子堆分成任意两堆不为空的石子堆.没法操作的人输.</p>
+<p>本质仍然是SG游戏,我们正常做就行.</p>
+<p><span class="math inline">\(SG ( x ) = mex \{ \{ SG ( v ) | x
+\rightarrow v \} , \{ SG ( x - i ) \oplus SG ( i ) | 1 \leq i &lt; x \}
+\} \\\)</span>.</p>
+<p>找一下规律可以发现:</p>
+$$
+<span class="math display">\[\begin{aligned}
+SG ( x ) &amp; = \begin{cases}
+x - 1 &amp; x \equiv 0 ( \mod 4 ) \\
+x &amp; x \equiv 1 或 2 ( \mod 4 ) \\
+x + 1 &amp; x \equiv 3 ( \mod 4 ) \\
+
+\end{cases} \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>不妨设当<span class="math inline">\(x \leq 4
+k\)</span>时结论成立.</p>
+<p>当<span class="math inline">\(x = 4 k +
+1\)</span>时,前半部分一定是取遍了<span class="math inline">\([ 1 , 4 k
+]\)</span>.</p>
+<p>但是一定不存在<span class="math inline">\(a\)</span>和<span class="math inline">\(b\)</span>满足<span class="math inline">\(a + b =
+4 k + 1\)</span>并且<span class="math inline">\(SG ( a ) \oplus SG ( b )
+= 4 k + 1\)</span>.讨论一下<span class="math inline">\(a\)</span>和<span class="math inline">\(b\)</span>在<span class="math inline">\(\mod
+4\)</span>意义下的值就会发现不可能.</p>
+<p>其他的是同理的.</p>
+<h3><span id="sg游戏">SG游戏</span></h3>
+<p><span class="math inline">\(n\)</span>个DAG,每个DAG只有一个起始点,起始点上有一枚棋子.<span class="math inline">\(A\)</span>和<span class="math inline">\(B\)</span>每次可以选一个图,将上面的棋子沿DAG移动一条边,不能移动的人输.</p>
+<p>直接使用<span class="math inline">\(SG ( u ) = mex \{ SG ( v ) | u
+\rightarrow v \}\)</span>.</p>
+<p>那么先手必败当且仅当所有DAG初始节点的SG异或起来是<span class="math inline">\(0\)</span>.</p>
+<p>首先如果<span class="math inline">\(SG ( u ) = x\)</span>,那么<span class="math inline">\(\forall 0 \leq y &lt; x\)</span>,<span class="math inline">\(\exists v\)</span>使得<span class="math inline">\(u \rightarrow v\)</span>且<span class="math inline">\(SG ( v ) =
+y\)</span>.可以发现这就如同Nim游戏了.</p>
+<p>但是与Nim游戏不同的是,可能<span class="math inline">\(\exists y &gt;
+x\)</span>,但是仍然可以转移到.</p>
+<p>但在这种情况下,我可以继续转移到一个<span class="math inline">\(u
+&#39;\)</span>使得<span class="math inline">\(SG ( u &#39; ) =
+x\)</span>,因此异或值不变.</p>
+<h4><span id="example1anti-sg游戏">Example1(Anti-SG游戏)</span></h4>
+<p>SG游戏,但是不能取的人赢.</p>
+<p>SJ定理:</p>
+<p>先手必胜当且仅当下面两个条件满足一个:</p>
+<ol type="1">
+<li><p>游戏的SG函数不为<span class="math inline">\(0\)</span>且游戏中某个单一游戏的SG函数大于<span class="math inline">\(1\)</span>.</p></li>
+<li><p>游戏的SG函数为<span class="math inline">\(0\)</span>且游戏中没有单一游戏的SG函数大于<span class="math inline">\(1\)</span>.</p></li>
+</ol>
+<p>如果没有单一游戏的SG函数大于<span class="math inline">\(1\)</span>,那么显然游戏的SG函数为<span class="math inline">\(0\)</span>就赢了,否则就输了.</p>
+<p>而如果SG函数为<span class="math inline">\(0\)</span>且存在某个单一游戏的SG函数大于<span class="math inline">\(1\)</span>,一定是输的.</p>
+<p>因为这个情况下,后手先按照正常<span class="math inline">\(SG\)</span>游戏压着先手,最后一定会剩两堆一样大于<span class="math inline">\(1\)</span>的,无论你怎么选,对手都可以压着你.如果你把一堆全选了,此时对手就可以把另一堆剩下一个,这样就必输;如果你把这一堆选的只剩下一个,对手就可以把它那一堆全选了,这样就也是必输的.</p>
+<h4><span id="example2every-sg">Example2(Every-SG)</span></h4>
+<p>SG游戏,但是每次每个能移动的游戏都必须移动,不能移动任何游戏的人输.</p>
+<p>对于每个子游戏,如果先手必胜,先手一定会尽可能多争取时间.</p>
+<p>反之,先手一定会尽可能早结束游戏.</p>
+<p>在<span class="math inline">\(DAG\)</span>上dp的时候除了<span class="math inline">\(SG\)</span>我们再加一维表示时间耗费,就可以dp了.</p>
+<h4><span id="example25every-sg">Example2.5(Every-SG)</span></h4>
+<p>n个游戏,每个游戏两堆石子,每次可以从大的那堆中取小的那堆石子大小的整数倍的石子.</p>
+<p>直接套用Every-SG的做法就行.</p>
+<h4><span id="example3nim-on-tree">Example3(Nim on tree)</span></h4>
+<p>一棵有根树两个人,每次可以挑一棵真子树删掉,不能操作者输.</p>
+<p>结论:<span class="math inline">\(SG ( u ) = \bigoplus_{ u \rightarrow
+v } ( SG ( v ) + 1 )\)</span>.</p>
+<p>考虑归纳假设.如果<span class="math inline">\(u\)</span>只有<span class="math inline">\(v\)</span>一个儿子.那么要么将<span class="math inline">\(v\)</span>子树全删,要么删一部分,有:</p>
+<p><span class="math display">\[
+SG ( u ) = mex ( x | x = 0 \lor 0 \leq x - 1 &lt; SG ( v ) ) = SG ( v )
++ 1
+\]</span></p>
+<p>而如果有多个儿子,则每个儿子都相当于是一个SG子游戏,异或起来即可.</p>
+<p>另一种理解方式:考虑只有一个儿子的情况,那么相当于这个儿子的所有状态都向终止节点连了一条边,终止节点的<span class="math inline">\(SG\)</span>为<span class="math inline">\(0\)</span>,而显然<span class="math inline">\(SG\)</span>图中的其它节点的<span class="math inline">\(SG\)</span>均要<span class="math inline">\(+
+1\)</span>.</p>
+<h4><span id="example4">Example4</span></h4>
+<p><span class="math inline">\(n\)</span>个有根仙人掌,保证所有的环与树的结构只有一个公共点(环只有一条连到环外的边).</p>
+<p>两个人分别操作删边,与根不连通的边都被删掉.</p>
+<p>结论:奇环<span class="math inline">\(SG = 1\)</span>,偶环<span class="math inline">\(SG = 0\)</span>.</p>
+<p>这么考虑:边数为<span class="math inline">\(k\)</span>的链的<span class="math inline">\(SG\)</span>为<span class="math inline">\(k\)</span>.</p>
+<p>而拆开奇环后,你得到的两条链奇偶性一定相同,因而不可能得到<span class="math inline">\(1\)</span>.偶环同理,不可能得到<span class="math inline">\(0\)</span>.</p>
+<h4><span id="example5">Example5</span></h4>
+<p>无向图,每次删掉一条边以及与根节点不连通的部分,无法操作者输.</p>
+<p>考虑Example2.</p>
+<p>Fusion定理:将偶环替换成一个新点,奇环替换成一个新点连出去一条边,做边双.对于一个边双,<span class="math inline">\(SG\)</span>值只和他边的奇偶性有关.证明大概和上面一样.</p>
+<h3><span id="斐波那契博弈">斐波那契博弈</span></h3>
+<p>一个数<span class="math inline">\(N\)</span>,两个人轮流令他减去一个数,第一次不能减完,每次减的不能超过上一次的两倍.</p>
+<p>不能操作者输.</p>
+<p>结论为:当且仅当<span class="math inline">\(N\)</span>是斐波那契数时,先手必败.</p>
+<p>考虑归纳证明:</p>
+<p>先证明当<span class="math inline">\(N\)</span>是斐波那契数时必败,不妨假设<span class="math inline">\(N = N_0 + N_1\)</span>,</p>
+<p>考虑将<span class="math inline">\(N\)</span>看成两堆,因为如果第一次取走了大于<span class="math inline">\(N_1\)</span>颗石子,由于<span class="math inline">\(N_0 \leq N_1
+\\\)</span>,则后手第二步可以全取走,必败.</p>
+<p>并且一开始先手一定要在<span class="math inline">\(N_0\)</span>堆取石子,原因是如果取了大于<span class="math inline">\(N_0\)</span>颗石子,由于<span class="math inline">\(N = N_0 + N_1 \leq 3 N_0
+\\\)</span>.这样下一步后手就可以全取完.</p>
+<p>那么现在先手应该开始取<span class="math inline">\(N_0\)</span>这一堆,如果在这一堆取的过程中,先手一直取得不超过<span class="math inline">\(N_0\)</span>剩下的数,那么根据归纳假设,后手一定可以取走<span class="math inline">\(N_0\)</span>堆的最后一个石子,此时局面变成了只剩<span class="math inline">\(N_1\)</span>颗石子.只要此时先手不能一次取走<span class="math inline">\(N_1\)</span>颗石子,先手就必败.而后手最后一步拿走石子最多会拿走<span class="math inline">\(\frac{ 2 }{ 3 } N_0\)</span>的石子,但是,<span class="math inline">\(\frac{ 4 }{ 3 } N_0 &lt;
+N_1\)</span>,因此一定不可能.</p>
+<p>否则,仍然是先手取走了<span class="math inline">\(N_0\)</span>全部石子,又当了先手取<span class="math inline">\(N_1\)</span>的石子.仍然是必败的.</p>
+<p>齐肯多夫定理:任意一个正整数都可以被表示成若干不连续的斐波那契数之和.</p>
+<p>设<span class="math inline">\(N = \sum_{ i = 1 }^k f_{ p_i
+}\)</span>,其中<span class="math inline">\(p_1 &lt; p_2 &lt; p_3 &lt; .
+. . &lt; p_k \\\)</span>,先手取走<span class="math inline">\(f_{ p_1 }
+\\\)</span>.由于<span class="math inline">\(2 f_{ p_1 } &lt; f_{ p_2
+}\)</span>,因此后手接下来无论如何不可能取得大于等于<span class="math inline">\(f_{ p_2 } \\\)</span>,问题转化为一堆大小为<span class="math inline">\(f_{ p_2
+}\)</span>的石子,此时先手必败.因此原问题的先手必胜.</p>
+<h3><span id="二分图博弈">二分图博弈</span></h3>
+<p>给出一张二分图和起点<span class="math inline">\(S\)</span>,<span class="math inline">\(A\)</span>和<span class="math inline">\(B\)</span>轮流操作,每次操作只能选与上一个被选的点相邻的点,且不能选已经选过的点.</p>
+<p>考虑二分图的所有最大匹配,如果在所有的最大匹配的方案中都包含了起点<span class="math inline">\(S\)</span>,那么先手必胜,否则先手必败.</p>
+<p>证明:</p>
+<p>如果所有匹配都包含<span class="math inline">\(S\)</span>,那么<span class="math inline">\(A\)</span>只需要每次走到一个和<span class="math inline">\(S\)</span>匹配的点即可.<span class="math inline">\(B\)</span>无论如何不可能走到一个不在最大匹配中的点,不然,我们将路径全部取反,就得到了一个最大匹配不变但不包含<span class="math inline">\(S\)</span>的点,与假设不符.</p>
+<p>而如果存在一个匹配不包含<span class="math inline">\(S\)</span>,如果<span class="math inline">\(A\)</span>仍然第一步走到一个和<span class="math inline">\(S\)</span>匹配的点那么<span class="math inline">\(B\)</span>一定能想办法走到一个不在当前<span class="math inline">\(A\)</span>选择的最大匹配中的点而在一个不包含<span class="math inline">\(S\)</span>的最大匹配中的点,于是<span class="math inline">\(B\)</span>必胜.</p>
+<h4><span id="example12022qbxt国庆day5c">Example1([2022qbxt国庆Day5]C)</span></h4>
+<p>显然,一个人敢抢金条当且仅当没有人敢抢他的金条.假设<span class="math inline">\(dp_{ S , x } = 0 / 1\)</span>表示目前集合<span class="math inline">\(S\)</span>中的所有人都已经离场了,而目前金条在<span class="math inline">\(x\)</span>手中,金条会不会被抢.显然,如果<span class="math inline">\(\exists y\)</span>满足<span class="math inline">\(dp_{ S \cup \{ x \} , y } =
+0\)</span>,也就是金条在<span class="math inline">\(y\)</span>手里不会被抢,那<span class="math inline">\(x\)</span>手中的金条必定会被抢.</p>
+<p>将这个抢的过程看作二分图博弈中走到相邻的点的过程,于是这个问题等价于二分图博弈.也就是说,如果二分图博弈先手必胜,那么第一个拿到金条的人一定会被抢.</p>
+<p>因此,我们需要找到所有与<span class="math inline">\(S\)</span>匹配的可能出现在最大匹配中的边,对应编号最小的那个点,金条最后一定在他手里.(第一步这么走后,一定能构造出)</p>
+<p>这个怎么构造呢,我们考虑先跑一遍dinic求最大匹配,然后做一遍tarjan缩点,然后如果<span class="math inline">\(S\)</span>和<span class="math inline">\(x\)</span>并未匹配,那么我们判断二者是否在一个强连通分量中,如果在,那他们可以被匹配.</p>
+<p>至于判断<span class="math inline">\(S\)</span>是否一定在其中,只需要先删去<span class="math inline">\(S\)</span>,跑dinic,再在残联网络上加上<span class="math inline">\(S\)</span>,判断是否有新的增广路.</p>
+<h3><span id="树上博弈">树上博弈</span></h3>
+<h4><span id="example1zr23省选10连-day1clashmas">Example1(zr[23省选10连 day1]
+Clashmas)</span></h4>
+<p>注意到删点对树形态的影响,考虑重心</p>
+<ol type="1">
+<li><span class="math inline">\(n\)</span>为奇数,重心为后手点.</li>
+</ol>
+<p>注意到此时后手一定可以通过一些方式维持重心不变,因此后手必胜.</p>
+<ol start="2" type="1">
+<li><span class="math inline">\(n\)</span>为奇数,重心为先手点.</li>
+</ol>
+<p>我们不妨设先手是A,后手是B.</p>
+<p>考虑一个事实:对于这样一棵树,我们删着删着一定会出现一个时刻使得此时<span class="math inline">\(n\)</span>为偶数,有两个重心(比如最后只剩下两个点的时刻),根据(4)和(5)的讨论,此时胜负已分.而且不难注意到此时A变为了实际上的后手.</p>
+<p>根据(5),如果B掌控了任意一个重心,那A就输了.因此A必定要使当前局面的两个中心均为A的点.考虑原重心的所有儿子,它们有的是A点,有的是B点.由于树的重心的性质,树的重心的移动一定是一点一点挪的,也就是说第一次出现上面的局面的时候,两个重心必有一个是原重心,另一个是原重心的儿子,接下来A和B就要对于另一个重心能取到哪个儿子做争夺.我们不妨设A的点的集合为<span class="math inline">\(S_A\)</span>,B的点的集合为<span class="math inline">\(S_B\)</span>.以原重心为根建树,设其所有儿子组成的集合为<span class="math inline">\(S_C\)</span>,不难发现A能胜利(也就是让两个重心全都属于他)当且仅当<span class="math inline">\(\sum_{ u \in S_A \cap S_C } siz_u \geq \sum_{ u
+\in S_B \cap S_C } siz_u\)</span>.</p>
+<p>原因很简单:A和B必然每次都会去杀属于对方的子树中<span class="math inline">\(siz\)</span>最大的那棵.由于A有着先手优势,因此只要满足上面的条件,A总能获胜.</p>
+<ol start="3" type="1">
+<li><span class="math inline">\(n\)</span>为偶数,唯一重心,重心为后手点.</li>
+</ol>
+<p>类似(2)的讨论,最后一定有某个时刻使得此时<span class="math inline">\(n\)</span>为偶数,有两个重心(比如最后只剩下两个点的时刻),此时A仍然是先手,根据(5),只要他掌控一个重心就可以获胜.</p>
+<p>类似地,不难发现胜利条件等价于(2).</p>
+<ol start="4" type="1">
+<li><span class="math inline">\(n\)</span>为偶数,两个重心,重心均为后手点.</li>
+</ol>
+<p>注意到此时整棵树分为两个大小相等的部分,因此后手一定可以维持这个场面不动,后手必胜.</p>
+<ol start="5" type="1">
+<li><span class="math inline">\(n\)</span>为偶数,至少有一个重心是先手点.</li>
+</ol>
+<p>注意到此时先手一定存在一种方式开局,使得重心仍为这个先手点,这样就转化为第一种情况,先手必胜.</p>
+<h3><span id="散题">散题</span></h3>
+<h5><span id="problem1csp-s2020贪吃蛇">Problem1([CSP-S2020]贪吃蛇)</span></h5>
+<p>首先注意到,如果一个蛇吃完后还不是最小的蛇,那它一定会吃.因为被吃的蛇是单调不降的,而吃蛇的蛇是单调不增的,因此下一个蛇如果要吃,那一定会比它还小,所以至少会先被吃掉,而那条蛇会被吃掉,它就一定不会选,所以无论如何这条蛇都不会被吃掉.</p>
+<p>我们考虑如果吃完后变成了最小的蛇后会怎么样,我们设<span class="math inline">\(f_i\)</span>为还剩<span class="math inline">\(i\)</span>条蛇的时候能不能吃,那<span class="math inline">\(f_i = 1\)</span>的话,要么<span class="math inline">\(i = 2\)</span>,要么吃完后不是最小的,要么<span class="math inline">\(f_{ i - 1 } = 0\)</span>.</p>
+<p>递归做就好了.另外这题需要复杂度<span class="math inline">\(O ( n
+)\)</span>,需要用几个队列/双端队列维护.</p>
+<h5><span id="problem2agc023dgo-home">Problem2([AGC023D]Go Home)</span></h5>
+<p>首先,最后一个人要么是最左边的,要么是最右边的.而显然这两边中人数较少的一个将会是最后一个到家的,那么这个人的目标就是帮助另一边的人尽可能快到家,于是会帮着它投票.以此类推不断递归下去.</p>
+<h5><span id="problem3牛客38727e">Problem3(牛客38727E)</span></h5>
+<p>首先考虑如果有人作为第<span class="math inline">\(n - p +
+1\)</span>个人复读了,那接下来复读一定不会被惩罚,于是没复读的都会复读,这样这个人就必死.于是最多只会复读<span class="math inline">\(n - p\)</span>个人.</p>
+<p>继续思考,如果有人作为第<span class="math inline">\(n - 2 p +
+1\)</span>个人复读了会怎么样,后面的人也都不会被惩罚了,于是也会继续复读.</p>
+<p>以此类推,会发现最后只会有<span class="math inline">\(n \mod
+p\)</span>个人复读,并且一定是前<span class="math inline">\(n \mod
+p\)</span>在一轮内复读完.</p>
+<h5><span id="problem4arc155d">Problem4(arc155D)</span></h5>
+<p>考虑直接转移,但是有可能出现在原地转的情况,注意到这种情况我们只需要记录<span class="math inline">\(f_{ i , j }\)</span>表示当前的<span class="math inline">\(G\)</span>是<span class="math inline">\(i\)</span>,<span class="math inline">\(G\)</span>的倍数还剩下<span class="math inline">\(j\)</span>个,然后做转移,再进一步发现我们只关心<span class="math inline">\(j\)</span>的奇偶性.于是记<span class="math inline">\(f_{ i , 0 / 1 }\)</span>即可.</p>
+<p>这题给我最大的启示是,我们不能假定让双方共同遵守一个”君子协定”,博弈论最重要的就是博弈,不能说我们最后再选倍数之类的,他的转移路线会变化的.</p>
+<h5><span id="problem5">Problem5</span></h5>
+<p>给一个“日”字型图,七条边,每条边有一堆石子.每次可以选任意多条不构成环的边,然后将这些边上的石子堆取走任意多个石子.求先手必胜策略,以及如果每条边的石子数量在<span class="math inline">\([ l_i , r_i
+]\)</span>,那么有多少种先手必胜的情况.</p>
+<p>考虑将这个图分成三部分,上面三条边,中间一条边,下面三条边.那么这三部分一定不能全选至少两部分,不然会构成环.反之一定构不成环.</p>
+<p>先手必败当且仅当,这三部分内部的边上石子均相等,并且所有边异或值为<span class="math inline">\(0\)</span>.</p>
+<p>否则,考虑将上部分和下部分三条边先全改成相等的,会修改较大的两条边.</p>
+<p>接下来,我们剩了三条边,我们只能选择改其中一条,使得他们仨异或值为<span class="math inline">\(0\)</span>.</p>
+<p>换句话说,我们现在有<span class="math inline">\(x_1 , x_2 ,
+x_3\)</span>,我们要将其中一个<span class="math inline">\(x_i\)</span>改为<span class="math inline">\(y_i\)</span>,其他不变,使得他们仨异或值为<span class="math inline">\(0\)</span>.和Nim游戏类似,假设他们仨异或值的最高位为<span class="math inline">\(k\)</span>.那么一定有一个<span class="math inline">\(x_i\)</span>的第<span class="math inline">\(k\)</span>位为<span class="math inline">\(1\)</span>,将它改为<span class="math inline">\(0\)</span>,后面就可以随意变换.</p>
+<p>思路具体怎么想到的呢,可以发现整个图只有三个环,并且这三个环都可以由这几部分组成.接下来就可以每个部分的<span class="math inline">\([ l_i , r_i
+]\)</span>求个交,用FWT做一遍异或卷积.数位dp也可以做.</p>
+<h5><span id="problem6">Problem6</span></h5>
+<p>Nim游戏,但是每堆石子有一个<span class="math inline">\(K_i\)</span>.如果这堆石子剩<span class="math inline">\(x_i\)</span>个每次最多取<span class="math inline">\(\lfloor \frac{ x_i }{ K_i }
+\rfloor\)</span>个石子.求先手是否必胜.</p>
+<p>结论是</p>
+<p>SG(n-n k,k)&amp;n(k)\</p>
+<p>n k&amp;n=0(k)\</p>
+<p>\end{cases}\</p>
+<p>考虑数学归纳就可以证明.</p>
+<p>然后我们就只需要对于<span class="math inline">\(k\)</span>是否大于<span class="math inline">\(\sqrt{ n }\)</span>讨论一下,如果<span class="math inline">\(k &lt; \sqrt{ n }\)</span>暴力,最多只会做<span class="math inline">\(\sqrt{ n
+}\)</span>次.否则,意识到此时可以通过求一个区间<span class="math inline">\([ l , r ]\)</span>,满足<span class="math inline">\(\forall x \in [ l , r ] , \lfloor \frac{ x }{ k }
+\rfloor\)</span>均相等,加速一下.这种区间最多只会有<span class="math inline">\(\sqrt{ n }\)</span>个.</p>
+<h5><span id="problem7">Problem7</span></h5>
+<p>一个数<span class="math inline">\(N\)</span>,两个人轮流令他减去一个数,第一次不能减完,每次减的不能超过上一次.不能操作者输.</p>
+<p>先手必败当且仅当<span class="math inline">\(N =
+2^k\)</span>,不然,每次选lowbit即可.</p>
+<h5><span id="problem8">Problem8</span></h5>
+<p>A和B,有<span class="math inline">\(n\)</span>颗石子,每次可以取<span class="math inline">\(x\)</span>颗,其中<span class="math inline">\(1
+\leq x \leq \lceil \frac{ n }{ 2 } \rceil \\\)</span>.</p>
+<p>仍然令石子数量为状态,注意到<span class="math inline">\(SG ( x ) =
+0\)</span>当且仅当<span class="math inline">\(x + 1 = 2^k -
+1\)</span>,也即<span class="math inline">\(x = 2^k - 2
+\\\)</span>.首先,注意到:</p>
+$$
+<span class="math display">\[\begin{aligned}
+n - \lceil \frac{ n }{ 2 } \rceil &amp; = \lfloor \frac{ n }{ 2 }
+\rfloor \\
+SG ( n ) &amp; = mex \{ SG ( y ) | \lfloor \frac{ n }{ 2 } \rfloor \leq
+y \leq n - 1 \} \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>设<span class="math inline">\(n = 2^k - w\)</span>,其中:</p>
+$$
+<span class="math display">\[\begin{aligned}
+- 2^{ k - 1 } + 2 &amp; \leq w \leq 2 \\
+\lfloor \frac{ 2^k - w }{ 2 } \rfloor &amp; = 2^{ k - 1 } - \lfloor
+\frac{ w }{ 2 } \rfloor \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>当<span class="math inline">\(w = 2\)</span>时,原式<span class="math inline">\(= 2^{ k - 1 } - 1 &gt; 2^{ k - 1 } - 2
+\\\)</span>.反之.<span class="math inline">\(2^k - 2
+\leq\)</span>原式.因此数学归纳即可证明.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/OI/" rel="tag"># OI</a>
+          </div>
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+      <a class="a2a_button_telegram"></a>
+      <a class="a2a_button_wechat"></a>
+      <a class="a2a_button_qzone"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/06/23/%E5%AD%A6%E4%B9%A0-%E5%8C%97%E5%A4%A7%E7%9B%B8%E5%85%B3%E9%80%89%E6%8B%94%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98%E6%B1%87%E6%80%BB/" rel="prev" title="北大相关选拔数学真题汇总">
+                  <i class="fa fa-angle-left"></i> 北大相关选拔数学真题汇总
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/06/23/%E5%AD%A6%E4%B9%A0-%E5%8F%8D%E6%BC%94%E4%B8%8E%E5%AE%B9%E6%96%A5/" rel="next" title="反演与容斥">
+                  反演与容斥 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">LWLAymh</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"my-repository-jade-beta-79.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"有什么想法?","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2025/06/23/%E5%AD%A6%E4%B9%A0-%E5%8D%9A%E5%BC%88%E8%AE%BA/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+  <!-- 音乐播放器 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
+  <div id="aplayer" class="aplayer" data-id="7637648380" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true" data-order="random" data-theme="#F58EA8"></div>
+  <script src="https://unpkg.com/meting@1.2/dist/Meting.min.js"></script>
+  <!-- 音乐播放器 end -->
+</body>
+</html>
