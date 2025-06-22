@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lwlaymh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="离散概率 基本定义 概率空间$$:在一个给定问题中可能发生的所有情况. 事件:$$的一个子集. 基本事件$\(:\)$中的单个元素,也可以看作集合大小为$1 $的事件. 概率:若$\(,我们称它发生的概率为\)( ) \(,有\)( ) \(且\)_{ } ( ) &#x3D; 1 $. 随机变量:在概率空间的基本事件上定义的函数. 联合分布:如果两个随机变量$X \(和\)Y \(">
+    <meta name="description" content="离散概率基本定义概率空间$\Omega $:在一个给定问题中可能发生的所有情况. 事件:$\Omega $的一个子集. 基本事件$\omega $:$\Omega $中的单个元素,也可以看作集合大小为$1 $的事件. 概率:若$\omega \in \Omega $,我们称它发生的概率为$\Pr ( \omega ) $,有$\Pr ( \omega ) \geq 0 $且$\sum _{ \o">
 <meta property="og:type" content="article">
 <meta property="og:title" content="概率与期望">
 <meta property="og:url" content="http://lwlaymh.github.io/2025/06/22/%E5%AD%A6%E4%B9%A0-%E6%A6%82%E7%8E%87%E4%B8%8E%E6%9C%9F%E6%9C%9B/index.html">
 <meta property="og:site_name" content="LWLAymh的备忘录">
-<meta property="og:description" content="离散概率 基本定义 概率空间$$:在一个给定问题中可能发生的所有情况. 事件:$$的一个子集. 基本事件$\(:\)$中的单个元素,也可以看作集合大小为$1 $的事件. 概率:若$\(,我们称它发生的概率为\)( ) \(,有\)( ) \(且\)_{ } ( ) &#x3D; 1 $. 随机变量:在概率空间的基本事件上定义的函数. 联合分布:如果两个随机变量$X \(和\)Y \(">
+<meta property="og:description" content="离散概率基本定义概率空间$\Omega $:在一个给定问题中可能发生的所有情况. 事件:$\Omega $的一个子集. 基本事件$\omega $:$\Omega $中的单个元素,也可以看作集合大小为$1 $的事件. 概率:若$\omega \in \Omega $,我们称它发生的概率为$\Pr ( \omega ) $,有$\Pr ( \omega ) \geq 0 $且$\sum _{ \o">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-22T08:57:48.611Z">
 <meta property="article:modified_time" content="2025-06-22T08:57:48.613Z">
@@ -165,12 +165,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">离散概率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.1.</span> <span class="nav-text">基本定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.2.</span> <span class="nav-text">期望的简单运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.3.</span> <span class="nav-text">方差的简单运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.4.</span> <span class="nav-text">随机抽样调查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.5.</span> <span class="nav-text">条件概率</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.5.1.</span> <span class="nav-text">贝叶斯公式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.6.</span> <span class="nav-text">概率生成函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.6.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.6.2.</span> <span class="nav-text">Example2(Penney游戏)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.6.3.</span> <span class="nav-text">Example3([SDOI2017] 硬币游戏)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.7.</span> <span class="nav-text">二项式分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.8.</span> <span class="nav-text">模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.8.1.</span> <span class="nav-text">树上随机游走</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.1.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.1.2.</span> <span class="nav-text">Example2</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.8.2.</span> <span class="nav-text">计数与期望的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.2.1.</span> <span class="nav-text">Example(CodeChef Secplayer)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.8.3.</span> <span class="nav-text">一些小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.3.1.</span> <span class="nav-text">Example1(CF865C)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.3.2.</span> <span class="nav-text">Example2(猎人杀)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.3.3.</span> <span class="nav-text">Example3(AGC019F)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">数据随机下的性质</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.1.</span> <span class="nav-text">树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.2.</span> <span class="nav-text">数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.3.</span> <span class="nav-text">序列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">随机化算法的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.1.</span> <span class="nav-text">数值概率算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.2.</span> <span class="nav-text">Monte Carlo算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.2.0.1.</span> <span class="nav-text">求解最优化问题的Monte
-Carlo算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.2.0.2.</span> <span class="nav-text">求解判定性问题的Monte
-Carlo算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.2.0.3.</span> <span class="nav-text">正确率与复杂度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.2.0.4.</span> <span class="nav-text">算法设计思路1</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.2.0.4.1.</span> <span class="nav-text">设计一个能解决问题的确定性算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.2.0.4.2.</span> <span class="nav-text">向算法引入随机化优化复杂度</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.2.0.5.</span> <span class="nav-text">算法设计思路2</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.2.0.5.1.</span> <span class="nav-text">设计一个能解决问题的确定性算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.2.0.5.2.</span> <span class="nav-text">向算法引入随机化优化复杂度</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.2.0.6.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.2.0.6.1.</span> <span class="nav-text">Example 1(Millar-Rabin算法)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.2.0.6.2.</span> <span class="nav-text">Example2(CodeChef MSTONE)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.2.0.6.3.</span> <span class="nav-text">Example3(CF364D Ghd)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.2.0.6.4.</span> <span class="nav-text">Example4([POI2014]Couriers)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.2.0.7.</span> <span class="nav-text">Example5([NOI2013] 向量内积)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.3.</span> <span class="nav-text">Las Vegas算法(Sherwood算法)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.3.0.1.</span> <span class="nav-text">算法设计思路</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.3.0.1.1.</span> <span class="nav-text">设计一个能解决问题的确定性算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.3.0.1.2.</span> <span class="nav-text">向算法引入随机化优化复杂度</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.3.0.2.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.3.0.2.1.</span> <span class="nav-text">快速排序算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.3.0.2.2.</span> <span class="nav-text">一类由Monte
-Carlo算法改造而成的算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.3.0.2.3.</span> <span class="nav-text">Example3(CF329C Graph
-Reconstruction)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.3.0.2.4.</span> <span class="nav-text">Example4([Petrozavodsk
-Summer-2015. Moscow IPT Contest B]Game With A Fairy)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.4.</span> <span class="nav-text">爬山与模拟退火</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">3.4.1.</span> <span class="nav-text">爬山</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">3.4.2.</span> <span class="nav-text">模拟退火</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">离散概率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.1.</span> <span class="nav-text">基本定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.2.</span> <span class="nav-text">期望的简单运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.3.</span> <span class="nav-text">方差的简单运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.4.</span> <span class="nav-text">随机抽样调查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.5.</span> <span class="nav-text">条件概率</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.5.1.</span> <span class="nav-text">贝叶斯公式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.6.</span> <span class="nav-text">概率生成函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.6.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.6.2.</span> <span class="nav-text">Example2(Penney游戏)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.6.3.</span> <span class="nav-text">Example3([SDOI2017] 硬币游戏)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.7.</span> <span class="nav-text">二项式分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.8.</span> <span class="nav-text">模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.8.1.</span> <span class="nav-text">树上随机游走</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.1.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.1.2.</span> <span class="nav-text">Example2</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.8.2.</span> <span class="nav-text">计数与期望的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.2.1.</span> <span class="nav-text">Example(CodeChef Secplayer)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.8.3.</span> <span class="nav-text">一些小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.3.1.</span> <span class="nav-text">Example1(CF865C)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.3.2.</span> <span class="nav-text">Example2(猎人杀)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.3.3.</span> <span class="nav-text">Example3(AGC019F)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">数据随机下的性质</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.1.</span> <span class="nav-text">树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.2.</span> <span class="nav-text">数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.3.</span> <span class="nav-text">序列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">随机化算法的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.1.</span> <span class="nav-text">数值概率算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.2.</span> <span class="nav-text">Monte Carlo算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.2.0.1.</span> <span class="nav-text">求解最优化问题的Monte Carlo算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.2.0.2.</span> <span class="nav-text">求解判定性问题的Monte Carlo算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.2.0.3.</span> <span class="nav-text">正确率与复杂度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.2.0.4.</span> <span class="nav-text">算法设计思路1</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.2.0.4.1.</span> <span class="nav-text">设计一个能解决问题的确定性算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.2.0.4.2.</span> <span class="nav-text">向算法引入随机化优化复杂度</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.2.0.5.</span> <span class="nav-text">算法设计思路2</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.2.0.5.1.</span> <span class="nav-text">设计一个能解决问题的确定性算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.2.0.5.2.</span> <span class="nav-text">向算法引入随机化优化复杂度</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.2.0.6.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.2.0.6.1.</span> <span class="nav-text">Example 1(Millar-Rabin算法)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.2.0.6.2.</span> <span class="nav-text">Example2(CodeChef MSTONE)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.2.0.6.3.</span> <span class="nav-text">Example3(CF364D Ghd)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.2.0.6.4.</span> <span class="nav-text">Example4([POI2014]Couriers)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.2.0.7.</span> <span class="nav-text">Example5([NOI2013] 向量内积)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.3.</span> <span class="nav-text">Las Vegas算法(Sherwood算法)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.3.0.1.</span> <span class="nav-text">算法设计思路</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.3.0.1.1.</span> <span class="nav-text">设计一个能解决问题的确定性算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.3.0.1.2.</span> <span class="nav-text">向算法引入随机化优化复杂度</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.3.0.2.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.3.0.2.1.</span> <span class="nav-text">快速排序算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.3.0.2.2.</span> <span class="nav-text">一类由Monte Carlo算法改造而成的算法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.3.0.2.3.</span> <span class="nav-text">Example3(CF329C Graph Reconstruction)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">3.3.0.2.4.</span> <span class="nav-text">Example4([Petrozavodsk Summer-2015. Moscow IPT Contest B]Game With A Fairy)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.4.</span> <span class="nav-text">爬山与模拟退火</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">3.4.1.</span> <span class="nav-text">爬山</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">3.4.2.</span> <span class="nav-text">模拟退火</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -185,7 +180,7 @@ Summer-2015. Moscow IPT Contest B]Game With A Fairy)</span></a></li></ol></li></
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -317,604 +312,345 @@ Summer-2015. Moscow IPT Contest B]Game With A Fairy)</span></a></li></ol></li></
     
     
     <div class="post-body" itemprop="articleBody"><span id="more"></span>
-<h2><span id="离散概率">离散概率</span></h2>
-<h3><span id="基本定义">基本定义</span></h3>
-<p>概率空间$$:在一个给定问题中可能发生的所有情况.</p>
-<p>事件:$$的一个子集.</p>
-<p>基本事件$<span class="math inline">\(:\)</span>$中的单个元素,也可以看作集合大小为$1
-$的事件.</p>
-<p>概率:若$<span class="math inline">\(,我们称它发生的概率为\)</span>( )
-<span class="math inline">\(,有\)</span>( ) <span class="math inline">\(且\)</span>_{ } ( ) = 1 $.</p>
+<h2><span id="离散概率">离散概率</span></h2><h3><span id="基本定义">基本定义</span></h3><p>概率空间$\Omega $:在一个给定问题中可能发生的所有情况.</p>
+<p>事件:$\Omega $的一个子集.</p>
+<p>基本事件$\omega $:$\Omega $中的单个元素,也可以看作集合大小为$1 $的事件.</p>
+<p>概率:若$\omega \in \Omega $,我们称它发生的概率为$\Pr ( \omega ) $,有$\Pr ( \omega ) \geq 0 $且$\sum _{ \omega \in \Omega  } \Pr ( \omega ) = 1 $.</p>
 <p>随机变量:在概率空间的基本事件上定义的函数.</p>
-<p>联合分布:如果两个随机变量$X <span class="math inline">\(和\)</span>Y
-<span class="math inline">\(定义在同一个概率空间\)</span><span class="math inline">\(上,对于每一个在\)</span>X <span class="math inline">\(取值范围内的\)</span>x <span class="math inline">\(以及在\)</span>Y <span class="math inline">\(取值范围内的\)</span>y <span class="math inline">\(,我们称\)</span>( X = x Y = y )
-$为它们的联合分布.</p>
-<p>独立:如果对于每一个在$X <span class="math inline">\(取值范围内的\)</span>x <span class="math inline">\(以及在\)</span>Y <span class="math inline">\(取值范围内的\)</span>y <span class="math inline">\(,\)</span>( X = x Y = y ) = ( X = x ) ( Y = y )
-<span class="math inline">\(,我们称\)</span>X <span class="math inline">\(和\)</span>Y $是独立的.</p>
-<p>期望(均值)$E X <span class="math inline">\(:我们设概率空间上的随机变量\)</span>X <span class="math inline">\(的期望\)</span>EX = <em>{ x X ( ) } x ( X = x ) =
-</em>{ w } X ( ) ( ) $.</p>
-<p>中位数:我们设概率空间上的随机变量$X <span class="math inline">\(的中位数为满足\)</span>( X x ) . 5 ( X x ) . 5
-<span class="math inline">\(的\)</span>x X ( ) $所组成的集合.</p>
-<p>众数:我们设概率空间上的随机变量$X <span class="math inline">\(的众数为满足\)</span>( X = x ) ( X = x ’ ) , x ’ X
-( ) <span class="math inline">\(的\)</span>x X ( ) $所组成的集合.</p>
-<p>方差$VX <span class="math inline">\(:我们设概率空间上的随机变量\)</span>X <span class="math inline">\(的方差\)</span>VX = E ( ( X - EX ) ^2 ) $.</p>
-<p>标准差$<span class="math inline">\(:我们设概率空间上的随机变量\)</span>X <span class="math inline">\(的标准差\)</span>= $.</p>
-<h3><span id="期望的简单运算">期望的简单运算</span></h3>
-<p>如果$X , Y $是定义在同一个概率空间上的两个随机变量,那么:</p>
-<ol type="1">
-<li><p>$E ( X + Y ) = EX + EY $.</p></li>
-<li><p>$E ( X ) = EX $.</p></li>
-<li><p>如果$X <span class="math inline">\(和\)</span>Y <span class="math inline">\(互相独立,那么\)</span>E ( XY ) = ( EX ) ( EY )
-$.</p></li>
+<p>联合分布:如果两个随机变量$X $和$Y $定义在同一个概率空间$\Omega $上,对于每一个在$X $取值范围内的$x $以及在$Y $取值范围内的$y $,我们称$\Pr ( X = x \land Y = y ) $为它们的联合分布.</p>
+<p>独立:如果对于每一个在$X $取值范围内的$x $以及在$Y $取值范围内的$y $,$\Pr ( X = x \land Y = y ) = \Pr ( X = x ) \times \Pr ( Y = y ) $,我们称$X $和$Y $是独立的.</p>
+<p>期望(均值)$E X $:我们设概率空间上的随机变量$X $的期望$EX = \sum _{ x \in X ( \Omega )  } x \times \Pr ( X = x ) = \sum _{ w \in \Omega  } X ( \omega ) \Pr ( \omega ) $.</p>
+<p>中位数:我们设概率空间上的随机变量$X $的中位数为满足$\Pr ( X \leq x ) \geq 0 . 5 \land \Pr ( X \geq x ) \geq 0 . 5 $的$x \in X ( \Omega ) $所组成的集合.</p>
+<p>众数:我们设概率空间上的随机变量$X $的众数为满足$\Pr ( X = x ) \geq \Pr ( X = x ‘ ) , \forall x ‘ \in X ( \Omega ) $的$x \in X ( \Omega ) $所组成的集合.</p>
+<p>方差$VX $:我们设概率空间上的随机变量$X $的方差$VX = E ( ( X - EX ) ^2 ) $.</p>
+<p>标准差$\sigma $:我们设概率空间上的随机变量$X $的标准差$\sigma = \sqrt { VX  } $.</p>
+<h3><span id="期望的简单运算">期望的简单运算</span></h3><p>如果$X , Y $是定义在同一个概率空间上的两个随机变量,那么:</p>
+<ol>
+<li><p>$E ( X + Y ) = EX + EY $.</p>
+</li>
+<li><p>$E ( \alpha X ) = \alpha EX $.</p>
+</li>
+<li><p>如果$X $和$Y $互相独立,那么$E ( XY ) = ( EX ) ( EY ) $.</p>
+</li>
 </ol>
 <p>上述法则都可以通过期望的定义简单证明.</p>
-<h3><span id="方差的简单运算">方差的简单运算</span></h3>
-<p>我们考虑方差的定义式:</p>
-<p><span class="math display">\[
+<h3><span id="方差的简单运算">方差的简单运算</span></h3><p>我们考虑方差的定义式:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-E ( ( X - EX ) ^2 ) &amp; = E ( X ^2 - 2 X ( EX ) + ( EX ) ^2 ) \\
-&amp; = E ( X ^2 ) - 2 ( EX ) ( EX ) + ( EX ) ^2 \\
-&amp; = E ( X ^2 ) - ( EX ) ^2
-\end{aligned}
-\]</span></p>
-<p>也即:方差等于随机变量平方的均值减均值的平方.</p>
-<p>当$X <span class="math inline">\(和\)</span>Y
-$为独立的随机变量时,我们有:</p>
-<p><span class="math display">\[
+E ( ( X - EX ) ^2 ) & = E ( X ^2 - 2 X ( EX ) + ( EX ) ^2 ) \\
+& = E ( X ^2 ) - 2 ( EX ) ( EX ) + ( EX ) ^2 \\
+& = E ( X ^2 ) - ( EX ) ^2 
+\end{aligned}</script><p>也即:方差等于随机变量平方的均值减均值的平方.</p>
+<p>当$X $和$Y $为独立的随机变量时,我们有:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-V ( X + Y ) &amp; = E ( ( X + Y ) ^2 ) - ( EX + EY ) ^2 \\
-&amp; = E ( ( X + Y ) ^2 ) - ( EX ) ^2 - 2 ( EX ) ( EY ) - ( EY ) ^2
-\end{aligned}
-\]</span></p>
-<p>而又有:</p>
-<p><span class="math display">\[
+V ( X + Y ) & = E ( ( X + Y ) ^2 ) - ( EX + EY ) ^2 \\
+& = E ( ( X + Y ) ^2 ) - ( EX ) ^2 - 2 ( EX ) ( EY ) - ( EY ) ^2 
+\end{aligned}</script><p>而又有:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-E ( ( X + Y ) ^2 ) &amp; = E ( X ^2 + 2 XY + Y ^2 ) \\
-&amp; = E ( X ^2 ) + 2 ( EX ) ( EY ) + E ( Y ^2 )
-\end{aligned}
-\]</span></p>
-<p>则:</p>
-<p><span class="math display">\[
+E ( ( X + Y ) ^2 ) & = E ( X ^2 + 2 XY + Y ^2 ) \\
+& = E ( X ^2 ) + 2 ( EX ) ( EY ) + E ( Y ^2 ) 
+\end{aligned}</script><p>则:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-V ( X + Y ) &amp; = E ( X ^2 ) + 2 ( EX ) ( EY ) + E ( Y ^2 ) - ( EX )
-^2 - 2 ( EX ) ( EY ) - ( EY ) ^2 \\
-&amp; = VX + VY
-\end{aligned}
-\]</span></p>
-<p>即:独立随机变量之和的方差等于它们的方差之和.</p>
+V ( X + Y ) & = E ( X ^2 ) + 2 ( EX ) ( EY ) + E ( Y ^2 ) - ( EX ) ^2 - 2 ( EX ) ( EY ) - ( EY ) ^2 \\
+& = VX + VY 
+\end{aligned}</script><p>即:独立随机变量之和的方差等于它们的方差之和.</p>
 <p>接下来,我们可以得到切比雪夫不等式:</p>
-<p><span class="math display">\[
-\Pr ( ( X - EX ) ^2 \geq \alpha ) \leq \cfrac { VX  } { \alpha  } ,
-\alpha &gt; 0
-\]</span></p>
-<p>证明如下:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
+\Pr ( ( X - EX ) ^2 \geq \alpha ) \leq \cfrac { VX  } { \alpha  } , \alpha > 0</script><p>证明如下:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-VX &amp; = \sum _{ \omega \in \Omega  } ( X ( \omega ) - EX ) ^2 \Pr (
-\omega ) \\
-&amp; \geq \sum _{ \omega \in \Omega  } ( X ( \omega ) - EX ) ^2 \Pr (
-\omega ) [ ( X ( \omega ) - EX ) ^2 &amp; \geq \alpha ] \\
-&amp; \geq \sum _{ \omega \in \Omega  } \alpha \Pr ( \omega ) [ ( X (
-\omega ) - EX ) ^2 &amp; \geq \alpha ] \\
-&amp; = \alpha \Pr ( ( X - EX ) ^2 &amp; \geq \alpha )
-\end{aligned}
-\]</span></p>
-<p>如果我们用$c ^2 VX <span class="math inline">\(代替\)</span>$,我们就有:</p>
-<p>$( | X - EX | c ) { c ^2 } $.</p>
-<p>简单来说,这个不等式说明:$X <span class="math inline">\(落在\)</span>(
-EX - c , EX + c ) <span class="math inline">\(之外的概率至多为\)</span>
-{ c ^2 } $.</p>
-<p>另外,如果我们取$n <span class="math inline">\(个独立的样本\)</span>X
-_1 , X _2 , . . . , X <em>n <span class="math inline">\(,令\)</span>S =
-</em>{ i = 1 } ^n X _i <span class="math inline">\(,那么它的均值是\)</span>nEX <span class="math inline">\(,标准差是\)</span> <span class="math inline">\(,也就是说,\)</span> { n } <span class="math inline">\(落在\)</span>( EX - { } , EX + { } ) <span class="math inline">\(之外的概率小于等于\)</span> { c ^2 } $.</p>
-<h3><span id="随机抽样调查">随机抽样调查</span></h3>
-<p>如果我们随机取得了$n <span class="math inline">\(个值\)</span>X _1 ,
-X _2 , . . . , X _n
-$,那么我们可以通过这些值来估计概率空间的期望和方差.</p>
-<p>$EX = { n } $.</p>
-<p>$VX = { n - 1 } - { n ( n - 1 ) } $.</p>
-<p>这里的$VX <span class="math inline">\(似乎与定义不是那么相符.但是它拥有更好的性质:\)</span>E
-( VX ) = VX $.</p>
+VX & = \sum _{ \omega \in \Omega  } ( X ( \omega ) - EX ) ^2 \Pr ( \omega ) \\
+& \geq \sum _{ \omega \in \Omega  } ( X ( \omega ) - EX ) ^2 \Pr ( \omega ) [ ( X ( \omega ) - EX ) ^2 & \geq \alpha ] \\
+& \geq \sum _{ \omega \in \Omega  } \alpha \Pr ( \omega ) [ ( X ( \omega ) - EX ) ^2 & \geq \alpha ] \\
+& = \alpha \Pr ( ( X - EX ) ^2 & \geq \alpha ) 
+\end{aligned}</script><p>如果我们用$c ^2 VX $代替$\alpha $,我们就有:</p>
+<p>$\Pr ( | X - EX | \geq c \sigma ) \leq \cfrac { 1  } { c ^2  } $.</p>
+<p>简单来说,这个不等式说明:$X $落在$( EX - c \sigma , EX + c \sigma ) $之外的概率至多为$\cfrac { 1  } { c ^2  } $.</p>
+<p>另外,如果我们取$n $个独立的样本$X _1 , X _2 , . . . , X _n $,令$S = \sum _{ i = 1  } ^n X _i $,那么它的均值是$nEX $,标准差是$\sqrt { n  } \sigma $,也就是说,$\cfrac { S  } { n  } $落在$( EX - \cfrac { c \sigma  } { \sqrt { n  }  } , EX + \cfrac { c \sigma  } { \sqrt { n  }  } ) $之外的概率小于等于$\cfrac { 1  } { c ^2  } $.</p>
+<h3><span id="随机抽样调查">随机抽样调查</span></h3><p>如果我们随机取得了$n $个值$X _1 , X _2 , . . . , X _n $,那么我们可以通过这些值来估计概率空间的期望和方差.</p>
+<p>$\hat EX = \cfrac { \sum _{ i = 1  } ^n X _i  } { n  } $.</p>
+<p>$\hat VX = \cfrac { \sum _{ i = 1  } ^n X _i ^2  } { n - 1  } - \cfrac { ( \sum _{ i = 1  } ^n X _i ) ^2  } { n ( n - 1 )  } $.</p>
+<p>这里的$\hat VX $似乎与定义不是那么相符.但是它拥有更好的性质:$E ( \hat VX ) = VX $.</p>
 <p>证明如下:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-E ( \hat VX ) &amp; = \cfrac { 1  } { n - 1  } E ( \sum _{ i = 1  } ^n X
-_i ^2 - \cfrac { 1  } { n  } \sum _{ j = 1  } ^n \sum _{ k = 1  } ^n X
-_j X _k ) \\
-&amp; = \cfrac { 1  } { n - 1  } ( \sum _{ i = 1  } ^n E ( X _i ^2 ) -
-\cfrac { 1  } { n  } \sum _{ i = 1  } ^n \sum _{ j = 1  } ^n E ( X _i X
-_j ) ) \\
-&amp; = \cfrac { 1  } { n - 1  } ( \sum _{ i = 1  } ^n E ( X ^2 ) -
-\cfrac { 1  } { n  } \sum _{ i = 1  } ^n \sum _{ j = 1  } ^n ( ( EX ) ^2
-[ j \ne k ] + E ( X ^2 ) [ j &amp; = k ] ) ) \\
-&amp; = \cfrac { 1  } { n - 1  } ( nE ( X ^2 ) - \cfrac { 1  } { n  } (
-nE ( X ^2 ) + n ( n - 1 ) ( EX ) ^2 ) ) \\
-&amp; = E ( X ^2 ) - ( EX ) ^2 \\
-&amp; = VX
-\end{aligned}
-\]</span></p>
-<h3><span id="条件概率">条件概率</span></h3>
-<p>已知事件B发生时事件A发生的概率为$P ( A | B ) = { P ( B ) } \ $.</p>
-<h4><span id="贝叶斯公式">贝叶斯公式</span></h4>
-<p>贝叶斯公式:如果有${ B _i } <span class="math inline">\(是样本空间的一个划分,即\)</span>i , j <span class="math inline">\(,有\)</span>B _i B <em>j = <span class="math inline">\(,并且有\)</span></em>{ i = 1 } ^n B _i = <span class="math inline">\(.则有\)</span>P ( B _i | A ) = { P ( A ) } = { P (
-A ) P ( B <em>j ) } = { </em>{ j = 1 } ^n P ( A B <em>j ) } = { </em>{ j
-= 1 } ^n P ( A | B _j ) P ( B _j ) } \ $.</p>
-<p>简化形式:$P ( B | A ) = { P ( A ) } \ $.</p>
-<p>另外,我们考虑设$O ( B ) = { P ( B ) } <span class="math inline">\(,称\)</span> { P ( B | E ) }
-$为贝叶斯算子,则同理可得:</p>
-<p><span class="math display">\[
-O ( B | E ) = O ( B ) \cfrac { P ( B | E )  } { P ( \lnot B | E )  }
-\]</span></p>
-<p>这个公式更加精准地分开了先验概率和后验概率,也表现了贝叶斯算子对先验概率的改变.</p>
-<h3><span id="概率生成函数">概率生成函数</span></h3>
-<p>如果$X <span class="math inline">\(是定义在概率空间\)</span><span class="math inline">\(上的随机变量,那么它的概率生成函数为\)</span>G
-<em>X ( z ) = </em>{ k } ( X = k ) z ^k = E ( z ^X ) $.</p>
-<p>不难发现$G _X ( z ) <span class="math inline">\(需要满足的条件:所有系数都非负并且\)</span>G _X ( 1
-) = 1 $.</p>
+E ( \hat VX ) & = \cfrac { 1  } { n - 1  } E ( \sum _{ i = 1  } ^n X _i ^2 - \cfrac { 1  } { n  } \sum _{ j = 1  } ^n \sum _{ k = 1  } ^n X _j X _k ) \\
+& = \cfrac { 1  } { n - 1  } ( \sum _{ i = 1  } ^n E ( X _i ^2 ) - \cfrac { 1  } { n  } \sum _{ i = 1  } ^n \sum _{ j = 1  } ^n E ( X _i X _j ) ) \\
+& = \cfrac { 1  } { n - 1  } ( \sum _{ i = 1  } ^n E ( X ^2 ) - \cfrac { 1  } { n  } \sum _{ i = 1  } ^n \sum _{ j = 1  } ^n ( ( EX ) ^2 [ j \ne k ] + E ( X ^2 ) [ j & = k ] ) ) \\
+& = \cfrac { 1  } { n - 1  } ( nE ( X ^2 ) - \cfrac { 1  } { n  } ( nE ( X ^2 ) + n ( n - 1 ) ( EX ) ^2 ) ) \\
+& = E ( X ^2 ) - ( EX ) ^2 \\
+& = VX 
+\end{aligned}</script><h3><span id="条件概率">条件概率</span></h3><p>已知事件B发生时事件A发生的概率为$P ( A | B ) = \frac { P ( AB )  } { P ( B )  } \ $.</p>
+<h4><span id="贝叶斯公式">贝叶斯公式</span></h4><p>贝叶斯公式:如果有$\{ B _i \} $是样本空间的一个划分,即$\forall i , j $,有$B _i \cap B _j = \emptyset $,并且有$\bigcup _{ i = 1  } ^n B _i = \Omega $.则有$P ( B _i | A ) = \frac { P ( AB _i )  } { P ( A )  } = \frac { P ( AB _i )  } { P ( A ) \sum P ( B _j )  } = \frac { P ( A B _i )  } { \sum _{ j = 1  } ^n P ( A B _j )  } = \frac { P ( A | B _i ) P ( B _i )  } { \sum _{ j = 1  } ^n P ( A | B _j ) P ( B _j )  } \ $.</p>
+<p>简化形式:$P ( B | A ) = \frac { P ( A | B ) P ( B )  } { P ( A )  } \ $.</p>
+<p>另外,我们考虑设$O ( B ) = \cfrac { P ( B )  } { P ( \lnot B )  } $,称$\cfrac { P ( B | E )  } { P ( \lnot B | E )  } $为贝叶斯算子,则同理可得:</p>
+<script type="math/tex; mode=display">
+O ( B | E ) = O ( B ) \cfrac { P ( B | E )  } { P ( \lnot B | E )  }</script><p>这个公式更加精准地分开了先验概率和后验概率,也表现了贝叶斯算子对先验概率的改变.</p>
+<h3><span id="概率生成函数">概率生成函数</span></h3><p>如果$X $是定义在概率空间$\Omega $上的随机变量,那么它的概率生成函数为$G _X ( z ) = \sum _{ k \geq 0  } \Pr ( X = k ) z ^k = E ( z ^X ) $.</p>
+<p>不难发现$G _X ( z ) $需要满足的条件:所有系数都非负并且$G _X ( 1 ) = 1 $.</p>
 <p>我们发现,当我们定义了概率生成函数后,期望和方差都可以使用它来表示:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-EX &amp; = G _X &#39; ( 1 ) \\
-E ( X ^2 ) &amp; = G &#39; &#39; _X ( 1 ) + G _X &#39; ( 1 ) \\
-VX &amp; = G _X &#39; &#39; ( 1 ) + G _X &#39; ( 1 ) - ( G _X &#39; ( 1
-) ) ^2
-\end{aligned}
-\]</span></p>
-<p>通常,我们也可以将方差和均值的定义扩展到任意函数上,于是我们定义:</p>
-<p><span class="math display">\[
+EX & = G _X ' ( 1 ) \\
+E ( X ^2 ) & = G ' ' _X ( 1 ) + G _X ' ( 1 ) \\
+VX & = G _X ' ' ( 1 ) + G _X ' ( 1 ) - ( G _X ' ( 1 ) ) ^2 
+\end{aligned}</script><p>通常,我们也可以将方差和均值的定义扩展到任意函数上,于是我们定义:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-Mean ( G ) &amp; = G &#39; ( 1 ) \\
-Var ( G ) &amp; = G &#39; &#39; ( 1 ) + G &#39; ( 1 ) - ( G &#39; ( 1 )
-) ^2
-\end{aligned}
-\]</span></p>
-<p>不过,求导的过程可能会有些麻烦,但我们可以直接使用泰勒定理:</p>
-<p><span class="math display">\[
-G ( 1 + t ) = \sum _{ i \geq 0  } \cfrac { G ^{ ( i )  } ( 1 )  } { i
-!  } t ^i
-\]</span></p>
-<p>另外,我们不难发现:$G _{ X + Y } ( z ) = G _X ( z ) G _Y ( z ) $.</p>
+Mean ( G ) & = G ' ( 1 ) \\
+Var ( G ) & = G ' ' ( 1 ) + G ' ( 1 ) - ( G ' ( 1 ) ) ^2 
+\end{aligned}</script><p>不过,求导的过程可能会有些麻烦,但我们可以直接使用泰勒定理:</p>
+<script type="math/tex; mode=display">
+G ( 1 + t ) = \sum _{ i \geq 0  } \cfrac { G ^{ ( i )  } ( 1 )  } { i !  } t ^i</script><p>另外,我们不难发现:$G _{ X + Y  } ( z ) = G _X ( z ) G _Y ( z ) $.</p>
 <p>根据前面的推导,我们有:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-Mean ( G _{ X + Y  } ) &amp; = Mean ( G _X ) + Mean ( G _Y ) \\
-Var ( G _{ X + Y  } ) &amp; = Var ( G _X ) + Var ( G _Y )
-\end{aligned}
-\]</span></p>
-<p>换句话说,若$G _X ( 1 ) = 1 , G <em>Y ( 1 ) = 1 <span class="math inline">\(,那么这个式子与直接对\)</span>G </em>{ X + Y }
-$使用求导的那个公式是等价的.注意,这里并没有要求这些生成函数的系数是非负的.</p>
+Mean ( G _{ X + Y  } ) & = Mean ( G _X ) + Mean ( G _Y ) \\
+Var ( G _{ X + Y  } ) & = Var ( G _X ) + Var ( G _Y ) 
+\end{aligned}</script><p>换句话说,若$G _X ( 1 ) = 1 , G _Y ( 1 ) = 1 $,那么这个式子与直接对$G _{ X + Y  } $使用求导的那个公式是等价的.注意,这里并没有要求这些生成函数的系数是非负的.</p>
 <p>于是我们有了另一个法则:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-Mean ( G _X ) &amp; = Mean ( G _{ X + Y  } ) - Mean ( G _Y ) \\
-Var ( G _X ) &amp; = Var ( G _{ X + Y  } ) - Var ( G _Y )
-\end{aligned}
-\]</span></p>
-<h4><span id="example1">Example1</span></h4>
-<p>一枚硬币正面向上的概率为$p <span class="math inline">\(,反面向上的概率为\)</span>q
-$,设硬币正面向上为H,反面向上为T,不断抛掷硬币直到抛掷出连续的THTTH为止,求期望次数.</p>
-<p>考虑设$N <span class="math inline">\(为所有不包含THTTH的硬币序列的生成函数,\)</span>S
-<span class="math inline">\(为所有只有结尾为THTTH的硬币序列的生成函数,令\)</span>H
-= pz , T = qz $,$1 $为空集,我们显然有:</p>
-<p><span class="math display">\[
+Mean ( G _X ) & = Mean ( G _{ X + Y  } ) - Mean ( G _Y ) \\
+Var ( G _X ) & = Var ( G _{ X + Y  } ) - Var ( G _Y ) 
+\end{aligned}</script><h4><span id="example1">Example1</span></h4><p>一枚硬币正面向上的概率为$p $,反面向上的概率为$q $,设硬币正面向上为H,反面向上为T,不断抛掷硬币直到抛掷出连续的THTTH为止,求期望次数.</p>
+<p>考虑设$N $为所有不包含THTTH的硬币序列的生成函数,$S $为所有只有结尾为THTTH的硬币序列的生成函数,令$H = pz , T = qz $,$1 $为空集,我们显然有:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-1 + N \times ( H + T ) &amp; = N + S \\
-N \times THTTH &amp; = S + S \times TTH
-\end{aligned}
-\]</span></p>
-<p>解方程即可.</p>
+1 + N \times ( H + T ) & = N + S \\
+N \times THTTH & = S + S \times TTH 
+\end{aligned}</script><p>解方程即可.</p>
 <p>另外不难发现,这种方法取决于字符串的所有border,显然是通用方法.</p>
-<p>我们考虑扩展这个方法,设$A <span class="math inline">\(是我们要找到的字符串,\)</span>m <span class="math inline">\(是它的长度,令\)</span>A ^{ ( k ) } <span class="math inline">\(表示\)</span>A <span class="math inline">\(字符串的前\)</span>k <span class="math inline">\(个字符所组成的字符串,\)</span>A _{ ( k ) } <span class="math inline">\(表示\)</span>A <span class="math inline">\(字符串的后\)</span>k <span class="math inline">\(个字符所组成的字符串.这样的形式与\)</span>k
-$阶导的形式可能会起冲突,但至少在接下来我们的式子中不会出现导数<del>(好吧其实是因为《具体数学》上就这么写的我也懒得改了)</del>.</p>
+<p>我们考虑扩展这个方法,设$A $是我们要找到的字符串,$m $是它的长度,令$A ^{ ( k )  } $表示$A $字符串的前$k $个字符所组成的字符串,$A _{ ( k )  } $表示$A $字符串的后$k $个字符所组成的字符串.这样的形式与$k $阶导的形式可能会起冲突,但至少在接下来我们的式子中不会出现导数<del>(好吧其实是因为《具体数学》上就这么写的我也懒得改了)</del>.</p>
 <p>我们的方程将会变为:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-1 + N ( H + T ) &amp; = N + S \\
-N \times A &amp; = S ( \sum _{ k = 0  } ^{ m - 1  } A ^{ ( k )  } [ A ^{
-( m - k )  } &amp; = A _{ ( m - k )  } ] )
-\end{aligned}
-\]</span></p>
-<p>如果我们设$ <span class="math inline">\(为将字符串\)</span>A <span class="math inline">\(中的H替换成\)</span> { p } z <span class="math inline">\(,T替换成\)</span> { q } z
-$之后的值,那么显然有:</p>
-<p><span class="math display">\[
+1 + N ( H + T ) & = N + S \\
+N \times A & = S ( \sum _{ k = 0  } ^{ m - 1  } A ^{ ( k )  } [ A ^{ ( m - k )  } & = A _{ ( m - k )  } ] ) 
+\end{aligned}</script><p>如果我们设$\tilde { A  } $为将字符串$A $中的H替换成$\cfrac { 1  } { p  } z $,T替换成$\cfrac { 1  } { q  } z $之后的值,那么显然有:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-N \times A &amp; = A \times S \times ( \sum _{ k = 1  } ^{ m  } \tilde {
-A  } _{ ( k )  } [ A ^{ ( k )  } &amp; = A _{ ( k )  } ] ) \\
-N &amp; = S \times ( \sum _{ k = 1  } ^{ m  } \tilde { A  } _{ ( k )  }
-[ A ^{ ( k )  } &amp; = A _{ ( k )  } ] ) \\
-\cfrac { S - 1  } { H + T - 1  } &amp; = S \times ( \sum _{ k = 1  } ^{
-m  } \tilde { A  } _{ ( k )  } [ A ^{ ( k )  } &amp; = A _{ ( k )  } ] )
-\\
-S \times ( 1 + ( 1 - H - T ) \times ( \sum _{ k = 1  } ^{ m  } \tilde {
-A  } _{ ( k )  } [ A ^{ ( k )  } &amp; = A _{ ( k )  } ] ) ) &amp; = 1
-\end{aligned}
-\]</span></p>
-<p>这显然是一个卷积的形式.</p>
-<p>令$w = <em>{ k = 1 } ^{ m } </em>{ ( k ) } [ A ^{ ( k ) } = A _{ ( k
-) } ] $.</p>
-<p>令$H ( z ) = 1 <span class="math inline">\(,\)</span>F ( z ) = ( 1 +
-( 1 - z ) w ) <span class="math inline">\(,\)</span>G ( z ) = S $.</p>
+N \times A & = A \times S \times ( \sum _{ k = 1  } ^{ m  } \tilde { A  } _{ ( k )  } [ A ^{ ( k )  } & = A _{ ( k )  } ] ) \\
+N & = S \times ( \sum _{ k = 1  } ^{ m  } \tilde { A  } _{ ( k )  } [ A ^{ ( k )  } & = A _{ ( k )  } ] ) \\
+\cfrac { S - 1  } { H + T - 1  } & = S \times ( \sum _{ k = 1  } ^{ m  } \tilde { A  } _{ ( k )  } [ A ^{ ( k )  } & = A _{ ( k )  } ] ) \\
+S \times ( 1 + ( 1 - H - T ) \times ( \sum _{ k = 1  } ^{ m  } \tilde { A  } _{ ( k )  } [ A ^{ ( k )  } & = A _{ ( k )  } ] ) ) & = 1 
+\end{aligned}</script><p>这显然是一个卷积的形式.</p>
+<p>令$w = \sum _{ k = 1  } ^{ m  } \tilde { A  } _{ ( k )  } [ A ^{ ( k )  } = A _{ ( k )  } ] $.</p>
+<p>令$H ( z ) = 1 $,$F ( z ) = ( 1 + ( 1 - z ) \times w ) $,$G ( z ) = S $.</p>
 <p>那么我们显然可以直接求$G ( z ) $的期望和方差,事实上:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-EX &amp; = \sum _{ k = 1  } ^{ m  } \tilde { A  } _{ ( k )  } [ A ^{ ( k
-)  } &amp; = A _{ ( k )  } ] \\
-VX &amp; = ( EX ) ^2 - \sum _{ k = 1  } ^m ( 2 k - 1 ) \tilde { A  } _{
-( k )  } [ A ^{ ( k )  } &amp; = A _{ ( k )  } ]
-\end{aligned}
-\]</span></p>
-<p>如果硬币是均匀的($p = q = { 2 } <span class="math inline">\()我们引入另一个符号:我们设\)</span>A : A = _{ k =
-1 } ^m 2 ^{ k } [ A ^{ ( k ) } = A _{ ( k ) } ] <span class="math inline">\(.那么显然期望需要的抛硬币次数就是\)</span>( A : A
-) $.</p>
-<h4><span id="example2penney游戏">Example2(Penney游戏)</span></h4>
-<p>一枚均匀硬币,设硬币正面向上为H,反面向上为T.不断扔硬币直到扔出连续的HHT或HTT为止,求最后以HHT结尾的概率.</p>
-<p>我们设$S _A <span class="math inline">\(为所有以HHT结尾的硬币序列的生成函数,设\)</span>S
-_B <span class="math inline">\(为所有以HTT结尾的硬币序列的生成函数.\)</span>N
-<span class="math inline">\(为其它的硬币序列的生成函数,令\)</span>H = T
-= 0 . 5 z $.</p>
+EX & = \sum _{ k = 1  } ^{ m  } \tilde { A  } _{ ( k )  } [ A ^{ ( k )  } & = A _{ ( k )  } ] \\
+VX & = ( EX ) ^2 - \sum _{ k = 1  } ^m ( 2 k - 1 ) \tilde { A  } _{ ( k )  } [ A ^{ ( k )  } & = A _{ ( k )  } ] 
+\end{aligned}</script><p>如果硬币是均匀的($p = q = \cfrac { 1  } { 2  } $)我们引入另一个符号:我们设$A : A = \sum _{ k = 1  } ^m 2 ^{ k  } [ A ^{ ( k )  } = A _{ ( k )  } ] $.那么显然期望需要的抛硬币次数就是$( A : A ) $.</p>
+<h4><span id="example2penney游戏">Example2(Penney游戏)</span></h4><p>一枚均匀硬币,设硬币正面向上为H,反面向上为T.不断扔硬币直到扔出连续的HHT或HTT为止,求最后以HHT结尾的概率.</p>
+<p>我们设$S _A $为所有以HHT结尾的硬币序列的生成函数,设$S _B $为所有以HTT结尾的硬币序列的生成函数.$N $为其它的硬币序列的生成函数,令$H = T = 0 . 5 z $.</p>
 <p>我们显然有:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-1 + N ( H + T ) &amp; = N + S _A + S _B \\
-N \times HHT &amp; = S _A \\
-N \times HTT &amp; = S _A \times T + S _B
-\end{aligned}
-\]</span></p>
-<p>解方程并带入$z = 1 <span class="math inline">\(,可以有得知以HHT结尾的概率为\)</span> { 3 } $.</p>
-<p>事实上,我们使用类似Example1的方法,设这两个硬币序列分别为$A <span class="math inline">\(和\)</span>B $,那么可以求出:</p>
-<p><span class="math display">\[
-\cfrac { S _A  } { S _B  } = \cfrac { B : B - B : A  } { A : A - A :
-B  }
-\]</span></p>
-<h4><span id="example3sdoi2017-硬币游戏">Example3([SDOI2017] 硬币游戏)</span></h4>
-<p>是Example2的超级加强版.</p>
-<p>把上面的东西给形式化一下,不妨设$g <em>i <span class="math inline">\(表示进行了\)</span>i <span class="math inline">\(步还未结束的概率,\)</span>f </em>{ k , i } <span class="math inline">\(为进行了\)</span>i <span class="math inline">\(步恰好第\)</span>k <span class="math inline">\(个人胜利的概率,\)</span>F , G
-$是它们的生成函数,我们自然有:</p>
-<ol type="1">
-<li><p>$1 + xG ( x ) = _k F _k ( x ) + G ( x ) $.</p></li>
-<li><p>$( { 2 } x ) ^L G ( x ) = _{ j = 1 } ^n F <em>j ( x ) </em>{ i =
-0 } ^{ L - 1 } ( { 2 } x ) ^i [ A _k ^{ ( L - i ) } = { A <em>j } </em>{
-( L - i ) } ] $.</p></li>
+1 + N ( H + T ) & = N + S _A + S _B \\
+N \times HHT & = S _A \\
+N \times HTT & = S _A \times T + S _B 
+\end{aligned}</script><p>解方程并带入$z = 1 $,可以有得知以HHT结尾的概率为$\cfrac { 2  } { 3  } $.</p>
+<p>事实上,我们使用类似Example1的方法,设这两个硬币序列分别为$A $和$B $,那么可以求出:</p>
+<script type="math/tex; mode=display">
+\cfrac { S _A  } { S _B  } = \cfrac { B : B - B : A  } { A : A - A : B  }</script><h4><span id="example3sdoi2017-硬币游戏">Example3([SDOI2017] 硬币游戏)</span></h4><p>是Example2的超级加强版.</p>
+<p>把上面的东西给形式化一下,不妨设$g _i $表示进行了$i $步还未结束的概率,$f _{ k , i  } $为进行了$i $步恰好第$k $个人胜利的概率,$F , G $是它们的生成函数,我们自然有:</p>
+<ol>
+<li><p>$1 + xG ( x ) = \sum _k F _k ( x ) + G ( x ) $.</p>
+</li>
+<li><p>$( \frac { 1  } { 2  } x ) ^L G ( x ) = \sum _{ j = 1  } ^n F _j ( x ) \sum _{ i = 0  } ^{ L - 1  } ( \frac { 1  } { 2  } x ) ^i [ A _k ^{ ( L - i )  } = { A _j  } _{ ( L - i )  } ] $.</p>
+</li>
 </ol>
-<p>第一个式子的用处在于带入$x = 1 <span class="math inline">\(,发现\)</span>_{ k } F _k ( 1 ) = 1 $.</p>
+<p>第一个式子的用处在于带入$x = 1 $,发现$\sum _{ k  } F _k ( 1 ) = 1 $.</p>
 <p>把(2)化简一下,有:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-x ^L G ( x ) &amp; = \sum _{ j = 1  } ^n F _j ( x ) \sum _{ i = 0  } ^{
-L - 1  } ( \frac { 1  } { 2  } x ) ^{ i - L  } [ A _k ^{ ( L - i )  }
-&amp; = { A _j  } _{ ( L - i )  } ] \\
-x ^L G ( x ) &amp; = \sum _{ j = 1  } ^n F _j ( x ) \sum _{ i = 1  } ^{
-L  } ( \frac { 1  } { 2  } x ) ^{ - i  } [ A _k ^{ ( i )  } &amp; = { A
-_j  } _{ ( i )  } ]
-\end{aligned}
-\]</span></p>
-<p>带入$x = 1 $,有:</p>
-<p><span class="math display">\[
-G ( 1 ) = \sum _{ j = 1  } ^n F _j ( 1 ) \sum _{ i = 1  } ^{ L  } 2 ^i [
-A _k ^{ ( i )  } = { A _j  } _{ ( i )  } ]
-\]</span></p>
-<p>不难发现对于不同的$k <span class="math inline">\(,(2)的右边不同,而左边一定相同,这样就给出了\)</span>n
-<span class="math inline">\(个等式,算上(1)一共有\)</span>n + 1 <span class="math inline">\(个等式,可以算出\)</span>G ( 1 ) , F _{ 1 n } ( 1 )
-<span class="math inline">\(这\)</span>n + 1 $个未知数.</p>
-<h3><span id="二项式分布">二项式分布</span></h3>
-<p>现在有一个大小为$n + 1 <span class="math inline">\(的概率空间,其中\)</span>( _k ) = { k } p ^k q ^{ n
-- k } \ $,我们把这样的概率序列称为二项式分布.</p>
-<p>如果我们令$H ( z ) = q + pz <span class="math inline">\(,不难发现二项式分布的生成函数为\)</span>H ( z ) ^n
-$.</p>
-<p>不难发现,满足二项式分布的随机变量的均值是$np <span class="math inline">\(,方差是\)</span>npq $.</p>
-<p>与二项式分布相对应的还有负二项式分布,它的生成函数形如:$G ( z ) ^n = (
-{ 1 - qz } ) ^n = _{ k } { k } p ^n q ^k z ^k $.</p>
-<p>我们考虑如何求$G ( z ) <span class="math inline">\(的方差和均值,不妨设\)</span>F ( z ) = { p } = { p
-} - { p } z <span class="math inline">\(,则\)</span>G ( z ) ^n = F ( z )
-^{ - n } $.</p>
-<p>不难发现$F ( z ) <span class="math inline">\(满足二项式分布.也就是说,以\)</span>( n , p , q )
-<span class="math inline">\(为参数的负二项式分布也就是以\)</span>( - n ,
-- { p } , { p } ) $为参数的二项式分布.</p>
-<h3><span id="模型">模型</span></h3>
-<h4><span id="树上随机游走">树上随机游走</span></h4>
-<p>随机游走指每次从相邻的点中随机选一个走过去，
-重复这样的过程若干次.</p>
-<h5><span id="example1">Example1</span></h5>
-<p>给一棵所有边长都为$1 <span class="math inline">\(的\)</span>n <span class="math inline">\(个点的树,问所有点对\)</span>( i , j ) ( 1 i , j n
-) <span class="math inline">\(中,从\)</span>i <span class="math inline">\(走到\)</span>j $的期望距离的最大值是多少.</p>
-<p>由于树上简单路径唯一,我们考虑设$f _u <span class="math inline">\(表示\)</span>u <span class="math inline">\(随机走到它父亲的期望,\)</span>g _v <span class="math inline">\(表示\)</span>v <span class="math inline">\(的父亲(假设是\)</span>u <span class="math inline">\()走到\)</span>v $的期望.</p>
+x ^L G ( x ) & = \sum _{ j = 1  } ^n F _j ( x ) \sum _{ i = 0  } ^{ L - 1  } ( \frac { 1  } { 2  } x ) ^{ i - L  } [ A _k ^{ ( L - i )  } & = { A _j  } _{ ( L - i )  } ] \\
+x ^L G ( x ) & = \sum _{ j = 1  } ^n F _j ( x ) \sum _{ i = 1  } ^{ L  } ( \frac { 1  } { 2  } x ) ^{ - i  } [ A _k ^{ ( i )  } & = { A _j  } _{ ( i )  } ] 
+\end{aligned}</script><p>带入$x = 1 $,有:</p>
+<script type="math/tex; mode=display">
+G ( 1 ) = \sum _{ j = 1  } ^n F _j ( 1 ) \sum _{ i = 1  } ^{ L  } 2 ^i [ A _k ^{ ( i )  } = { A _j  } _{ ( i )  } ]</script><p>不难发现对于不同的$k $,(2)的右边不同,而左边一定相同,这样就给出了$n $个等式,算上(1)一共有$n + 1 $个等式,可以算出$G ( 1 ) , F _{ 1 \cdots n  } ( 1 ) $这$n + 1 $个未知数.</p>
+<h3><span id="二项式分布">二项式分布</span></h3><p>现在有一个大小为$n + 1 $的概率空间,其中$\Pr ( \omega _k ) = \binom { n  } { k  } p ^k q ^{ n - k  } \ $,我们把这样的概率序列称为二项式分布.</p>
+<p>如果我们令$H ( z ) = q + pz $,不难发现二项式分布的生成函数为$H ( z ) ^n $.</p>
+<p>不难发现,满足二项式分布的随机变量的均值是$np $,方差是$npq $.</p>
+<p>与二项式分布相对应的还有负二项式分布,它的生成函数形如:$G ( z ) ^n = ( \cfrac { p  } { 1 - qz  } ) ^n = \sum _{ k  } \binom { n + k - 1  } { k  } p ^n q ^k z ^k $.</p>
+<p>我们考虑如何求$G ( z ) $的方差和均值,不妨设$F ( z ) = \cfrac { 1 - qz  } { p  } = \cfrac { 1  } { p  } - \cfrac { q  } { p  } z $,则$G ( z ) ^n = F ( z ) ^{ - n  } $.</p>
+<p>不难发现$F ( z ) $满足二项式分布.也就是说,以$( n , p , q ) $为参数的负二项式分布也就是以$( - n , - \cfrac { q  } { p  } , \cfrac { 1  } { p  } ) $为参数的二项式分布.</p>
+<h3><span id="模型">模型</span></h3><h4><span id="树上随机游走">树上随机游走</span></h4><p>随机游走指每次从相邻的点中随机选一个走过去， 重复这样的过程若干次.</p>
+<h5><span id="example1">Example1</span></h5><p>给一棵所有边长都为$1 $的$n $个点的树,问所有点对$( i , j ) ( 1 \leq i , j \leq n ) $中,从$i $走到$j $的期望距离的最大值是多少.</p>
+<p>由于树上简单路径唯一,我们考虑设$f _u $表示$u $随机走到它父亲的期望,$g _v $表示$v $的父亲(假设是$u $)走到$v $的期望.</p>
 <p>对于$f _u $,我们有:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-f _u &amp; = \cfrac { \sum _{ u \rightarrow v  } ( f _v + f _u )  } {
-\deg _u  } + 1 \\
-f _u &amp; = \deg _u + \sum _{ u \rightarrow v  } f _v
-\end{aligned}
-\]</span></p>
-<p>对于$g _v $,我们有:</p>
-<p><span class="math display">\[
+f _u & = \cfrac { \sum _{ u \rightarrow v  } ( f _v + f _u )  } { \deg _u  } + 1 \\
+f _u & = \deg _u + \sum _{ u \rightarrow v  } f _v 
+\end{aligned}</script><p>对于$g _v $,我们有:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-g _v &amp; = \cfrac { g _u + g _v + \sum _{ u \rightarrow w , w \ne v  }
-( g _v + f _w )  } { \deg _u  } + 1 \\
-g _v &amp; = g _u + \sum _{ u \rightarrow w , w \ne v  } f _w + \deg _u
-\end{aligned}
-\]</span></p>
-<h5><span id="example2">Example2</span></h5>
-<p>给出一棵$n $个节点的树,每个点有可能是黑白两种颜色的一种.</p>
-<p>现在从$1 <span class="math inline">\(号点开始随机游走(即走这个点的每条出边的概率是相同的),每到一个点,如果这个点是黑点,或者这是白点并且这个点第一次经过,那么答案\)</span>+
-1 $.当走到度数为$1 $的节点时游走停止.</p>
+g _v & = \cfrac { g _u + g _v + \sum _{ u \rightarrow w , w \ne v  } ( g _v + f _w )  } { \deg _u  } + 1 \\
+g _v & = g _u + \sum _{ u \rightarrow w , w \ne v  } f _w + \deg _u 
+\end{aligned}</script><h5><span id="example2">Example2</span></h5><p>给出一棵$n $个节点的树,每个点有可能是黑白两种颜色的一种.</p>
+<p>现在从$1 $号点开始随机游走(即走这个点的每条出边的概率是相同的),每到一个点,如果这个点是黑点,或者这是白点并且这个点第一次经过,那么答案$+ 1 $.当走到度数为$1 $的节点时游走停止.</p>
 <p>注意到黑白点对答案的贡献是互相独立的,所以分开讨论:</p>
-<p>如果只有黑点,那么显然答案就是路径的期望长度,我们设$f <em>u <span class="math inline">\(表示以\)</span>u <span class="math inline">\(为起点的路径的期望长度,不难注意到\)</span>f </em>{
-leaf } = 1 <span class="math inline">\(且\)</span>f _u = 1 + { <em>u }
-</em>{ u v v u } f _v <span class="math inline">\(.这个dp转移显然是有后效性的,可以使用高斯消元做,但有一个经典做法:我们求得\)</span>f
-_u = k <em>u f </em>{ fa } + b _u
-$,然后就可以采取带入化简的方法做了.</p>
-<p>如果只有白点,考虑每个点只会贡献一次,所以我们要求出的就是每个点被走到的概率.注意到一个点被走到一定是从它父亲走来的,于是我们需要求出$g
-_v <span class="math inline">\(表示从\)</span>v <span class="math inline">\(的父亲(假设是\)</span>u <span class="math inline">\()走到\)</span>v <span class="math inline">\(的概率,再令\)</span>f _u <span class="math inline">\(表示从\)</span>u
-$走到父亲的概率,类似Example1,我们有:</p>
-<p><span class="math display">\[
+<p>如果只有黑点,那么显然答案就是路径的期望长度,我们设$f _u $表示以$u $为起点的路径的期望长度,不难注意到$f _{ leaf  } = 1 $且$f _u = 1 + \cfrac { 1  } { \deg _u  } \sum _{ u \rightarrow v \lor v \rightarrow u  } f _v $.这个dp转移显然是有后效性的,可以使用高斯消元做,但有一个经典做法:我们求得$f _u = k _u f _{ fa  } + b _u $,然后就可以采取带入化简的方法做了.</p>
+<p>如果只有白点,考虑每个点只会贡献一次,所以我们要求出的就是每个点被走到的概率.注意到一个点被走到一定是从它父亲走来的,于是我们需要求出$g _v $表示从$v $的父亲(假设是$u $)走到$v $的概率,再令$f _u $表示从$u $走到父亲的概率,类似Example1,我们有:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-f _u &amp; = \cfrac { 1  } { \deg _u  } ( 1 + \sum _{ u \rightarrow v  }
-f _v f _u ) \\
-g _v &amp; = \cfrac { 1  } { \deg _u  } ( 1 + g _v g _u + \sum _{ u
-\rightarrow w , w \ne v  } f _w g _v )
-\end{aligned}
-\]</span></p>
-<p>最后把两部分答案合起来就好.</p>
-<h4><span id="计数与期望的转换">计数与期望的转换</span></h4>
-<h5><span id="examplecodechef-secplayer">Example(CodeChef Secplayer)</span></h5>
-<p>冷静一下,如果我们直接计数的话会发现巨大难做,因为项太多了,直接乘起来也太麻烦了.</p>
-<p>这启发我们:当我们注意到一个计数题的各种情况相乘很麻烦的时候,我们不妨只考虑一种情况并计算期望,然后拿期望和总数反推计数.注意到权值最小的人最危险,他不能和其他任何一个人匹配到,不然就死了.那不难求得此时他作为次大值存活的概率为$
-{ { 2 } } $.</p>
-<p>把所有人权值从大到小排序,设$f <em>i <span class="math inline">\(表示只考虑前\)</span>i <span class="math inline">\(个人的时候的期望,不难发现:\)</span>f </em>{ i } =
-{ { 2 } } v <em>i + ( 1 - { { 2 } } ) f </em>{ i - 1 } $.</p>
-<h4><span id="一些小技巧">一些小技巧</span></h4>
-<h5><span id="example1cf865c">Example1(CF865C)</span></h5>
-<p>首先写出转移式子,但是存在后效性.如果我们设$f <em>{ i , j } <span class="math inline">\(表示过了\)</span>i <span class="math inline">\(关,花费为\)</span>j <span class="math inline">\(的期望,不难发现所有的\)</span>f <span class="math inline">\(都需要与\)</span>f </em>{ 0 , 0 } <span class="math inline">\(取\)</span>$,这咋办?</p>
-<p>我们考虑二分这个$f <em>{ 0 , 0 } <span class="math inline">\(,做的时候直接取\)</span><span class="math inline">\(,这样最后还会求出一个\)</span>f </em>{ 0 , 0 }
-$,比较一下大小然后继续做二分.</p>
+f _u & = \cfrac { 1  } { \deg _u  } ( 1 + \sum _{ u \rightarrow v  } f _v f _u ) \\
+g _v & = \cfrac { 1  } { \deg _u  } ( 1 + g _v g _u + \sum _{ u \rightarrow w , w \ne v  } f _w g _v ) 
+\end{aligned}</script><p>最后把两部分答案合起来就好.</p>
+<h4><span id="计数与期望的转换">计数与期望的转换</span></h4><h5><span id="examplecodechef-secplayer">Example(CodeChef Secplayer)</span></h5><p>冷静一下,如果我们直接计数的话会发现巨大难做,因为项太多了,直接乘起来也太麻烦了.</p>
+<p>这启发我们:当我们注意到一个计数题的各种情况相乘很麻烦的时候,我们不妨只考虑一种情况并计算期望,然后拿期望和总数反推计数.注意到权值最小的人最危险,他不能和其他任何一个人匹配到,不然就死了.那不难求得此时他作为次大值存活的概率为$\frac { 1  } { \binom { n  } { 2  }  } $.</p>
+<p>把所有人权值从大到小排序,设$f _i $表示只考虑前$i $个人的时候的期望,不难发现:$f _{ i  } = \frac { 1  } { \binom { i  } { 2  }  } v _i + ( 1 - \frac { 1  } { \binom { i  } { 2  }  } ) f _{ i - 1  } $.</p>
+<h4><span id="一些小技巧">一些小技巧</span></h4><h5><span id="example1cf865c">Example1(CF865C)</span></h5><p>首先写出转移式子,但是存在后效性.如果我们设$f _{ i , j  } $表示过了$i $关,花费为$j $的期望,不难发现所有的$f $都需要与$f _{ 0 , 0  } $取$\min $,这咋办?</p>
+<p>我们考虑二分这个$f _{ 0 , 0  } $,做的时候直接取$\min $,这样最后还会求出一个$f _{ 0 , 0  } $,比较一下大小然后继续做二分.</p>
 <p>等一下,为撒子这样是收敛的呢?</p>
 <p>首先,根据这个题,期望肯定是存在的.</p>
-<p>我们注意到我们一开始二分的$f _{ 0 , 0 } <span class="math inline">\(越大,最后的答案就越大,但是增长的一定会变慢.换句话说,最后的答案关于我们二分的值的关系应该是一个上凸的函数(增长的时候会被取\)</span>$的另一项限制住,但原本应该是没被限制的),于是这个时候得到的答案如果比二分的答案更小,那我们就应该调小一点.</p>
+<p>我们注意到我们一开始二分的$f _{ 0 , 0  } $越大,最后的答案就越大,但是增长的一定会变慢.换句话说,最后的答案关于我们二分的值的关系应该是一个上凸的函数(增长的时候会被取$\min $的另一项限制住,但原本应该是没被限制的),于是这个时候得到的答案如果比二分的答案更小,那我们就应该调小一点.</p>
 <p>换句话说,当我们二分答案的时候,应该判断函数凸性.wqs二分也是这个道理:二分答案并判断答案是否满足条件.</p>
-<h5><span id="example2猎人杀">Example2(猎人杀)</span></h5>
-<p>先做一步转化:如果做期望的时候,会有一些操作变得不能做,那我们改为:先随便选,如果选到不合法的操作就跳过,概率和期望都不会变.</p>
+<h5><span id="example2猎人杀">Example2(猎人杀)</span></h5><p>先做一步转化:如果做期望的时候,会有一些操作变得不能做,那我们改为:先随便选,如果选到不合法的操作就跳过,概率和期望都不会变.</p>
 <p>offline</p>
-<h5><span id="example3agc019f">Example3(AGC019F)</span></h5>
-<p>人类智慧题…</p>
+<h5><span id="example3agc019f">Example3(AGC019F)</span></h5><p>人类智慧题…</p>
 <p>首先注意到策略显然是每次选剩下最多的答案.</p>
-<p>我们画一张$n m <span class="math inline">\(的图(假设\)</span>n m
-<span class="math inline">\(),其中格点\)</span>( a , b ) <span class="math inline">\(表示现在还剩\)</span>a <span class="math inline">\(个Yes,\)</span>b <span class="math inline">\(个No.我们再把我们的策略用图上的有向边表示.我们先考虑转化为计数问题,那答案显然就是所有从\)</span>(
-n , m ) <span class="math inline">\(走到\)</span>( 0 , 0 )
-$的路径与我们图上有向边的交的大小总和.</p>
+<p>我们画一张$n \times m $的图(假设$n \geq m $),其中格点$( a , b ) $表示现在还剩$a $个Yes,$b $个No.我们再把我们的策略用图上的有向边表示.我们先考虑转化为计数问题,那答案显然就是所有从$( n , m ) $走到$( 0 , 0 ) $的路径与我们图上有向边的交的大小总和.</p>
 <p>然后咧?</p>
-<p>我们注意到这张图长得太规律了,换句话说,如果我们把图的左半部分沿着直线$y
-= x $翻折(路径也跟着翻折),注意到对着这张图做仍然是一样的!</p>
-<p>所以呢?由于从$( n , m ) <span class="math inline">\(走到\)</span>( 0
-, 0 ) <span class="math inline">\(一定会经过\)</span>n <span class="math inline">\(条有向边,所以期望贡献一定要加上一个\)</span>n
-<span class="math inline">\(.而如果我走到了直线\)</span>y = x <span class="math inline">\(上,那接下来的贡献是\)</span> { 2 }
-$.我们只需要枚举一下走到了多少次即可.</p>
-<h2><span id="数据随机下的性质">数据随机下的性质</span></h2>
-<h3><span id="树">树</span></h3>
-<ol type="1">
-<li><p>随机树树高为$ $.</p></li>
-<li><p>点的度数期望为$n $.</p></li>
+<p>我们注意到这张图长得太规律了,换句话说,如果我们把图的左半部分沿着直线$y = x $翻折(路径也跟着翻折),注意到对着这张图做仍然是一样的!</p>
+<p>所以呢?由于从$( n , m ) $走到$( 0 , 0 ) $一定会经过$n $条有向边,所以期望贡献一定要加上一个$n $.而如果我走到了直线$y = x $上,那接下来的贡献是$\frac { 1  } { 2  } $.我们只需要枚举一下走到了多少次即可.</p>
+<h2><span id="数据随机下的性质">数据随机下的性质</span></h2><h3><span id="树">树</span></h3><ol>
+<li><p>随机树树高为$\sqrt { n  } $.</p>
+</li>
+<li><p>点的度数期望为$\log n $.</p>
+</li>
 </ol>
-<h3><span id="数">数</span></h3>
-<ol type="1">
-<li>数字的期望因数个数为$V $.</li>
+<h3><span id="数">数</span></h3><ol>
+<li>数字的期望因数个数为$\log V $.</li>
 </ol>
-<h3><span id="序列">序列</span></h3>
-<ol type="1">
-<li>随机序列的LIS长度期望为$O ( ) $.</li>
+<h3><span id="序列">序列</span></h3><ol>
+<li>随机序列的LIS长度期望为$O ( \sqrt { n  } ) $.</li>
 </ol>
-<h2><span id="随机化算法的分类">随机化算法的分类</span></h2>
-<h3><span id="数值概率算法">数值概率算法</span></h3>
-<p>即通过随机选取元素从而求得在数值上的近似解.较之于传统算法,其运行速度更快,而且随着运行时间的增加,近似解的精度也会提高.在不可能或不必要求出问题的精确解时,可以使用其得到相当满意的近似解,如随机撒点法(近似求难以计算的图形面积).</p>
-<h3><span id="monte-carlo算法">Monte Carlo算法</span></h3>
-<p>总是能在确定的运行时间内出解,但是得到的解有一定概率是错的.通常出错的概率比较小,因此可以通过反复运行算法来得到可以接受的正确率.</p>
-<h5><span id="求解最优化问题的montecarlo算法">求解最优化问题的Monte
-Carlo算法</span></h5>
-<p>事实上,大部分最优化问题都可以转化为判定性问题:也就是判定一个解是否是最优解,因此我们接下来基本都是讨论的求解判定性问题的Monte
-Carlo算法.</p>
-<h5><span id="求解判定性问题的montecarlo算法">求解判定性问题的Monte
-Carlo算法</span></h5>
-<ol type="1">
-<li><p>假倾向的Monte
-Carlo算法:当这类算法的返回值为假的时候,结果一定正确,但返回值为真的时候则有一定概率错误.</p></li>
-<li><p>真倾向的Monte
-Carlo算法:当这类算法的返回值为真的时候,结果一定正确,但返回值为假的时候则有一定概率错误.</p></li>
-<li><p>产生双侧错误的Monte
-Carlo算法:无论返回值为什么都有概率出错.基本不会使用.</p></li>
+<h2><span id="随机化算法的分类">随机化算法的分类</span></h2><h3><span id="数值概率算法">数值概率算法</span></h3><p>即通过随机选取元素从而求得在数值上的近似解.较之于传统算法,其运行速度更快,而且随着运行时间的增加,近似解的精度也会提高.在不可能或不必要求出问题的精确解时,可以使用其得到相当满意的近似解,如随机撒点法(近似求难以计算的图形面积).</p>
+<h3><span id="monte-carlo算法">Monte Carlo算法</span></h3><p>总是能在确定的运行时间内出解,但是得到的解有一定概率是错的.通常出错的概率比较小,因此可以通过反复运行算法来得到可以接受的正确率.</p>
+<h5><span id="求解最优化问题的monte-carlo算法">求解最优化问题的Monte Carlo算法</span></h5><p>事实上,大部分最优化问题都可以转化为判定性问题:也就是判定一个解是否是最优解,因此我们接下来基本都是讨论的求解判定性问题的Monte Carlo算法.</p>
+<h5><span id="求解判定性问题的monte-carlo算法">求解判定性问题的Monte Carlo算法</span></h5><ol>
+<li><p>假倾向的Monte Carlo算法:当这类算法的返回值为假的时候,结果一定正确,但返回值为真的时候则有一定概率错误.</p>
+</li>
+<li><p>真倾向的Monte Carlo算法:当这类算法的返回值为真的时候,结果一定正确,但返回值为假的时候则有一定概率错误.</p>
+</li>
+<li><p>产生双侧错误的Monte Carlo算法:无论返回值为什么都有概率出错.基本不会使用.</p>
+</li>
 </ol>
 <p>以下讨论的Monte Carlo算法均为产生单侧错误的Monte Carlo算法.</p>
-<h5><span id="正确率与复杂度">正确率与复杂度</span></h5>
-<p>显然,如果我们有一个单词正确率为$p <span class="math inline">\(,时间复杂度为\)</span>O ( f ( n ) ) <span class="math inline">\(的算法,我们运行其\)</span>k $次,则正确率为$1 - ( 1
-- p ) ^k <span class="math inline">\(,时间复杂度为\)</span>O ( kf ( n )
-) $.</p>
-<h5><span id="算法设计思路1">算法设计思路1</span></h5>
-<p>我们来总结一下通常的Monte Carlo算法的设计思路:</p>
-<h6><span id="设计一个能解决问题的确定性算法">设计一个能解决问题的确定性算法</span></h6>
-<ol type="1">
-<li><p>这个算法需要枚举一些元素.</p></li>
-<li><p>设这个算法的复杂度为$O ( f ( n ) g ( n ) ) <span class="math inline">\(,其中\)</span>f ( n ) <span class="math inline">\(为枚举部分的复杂度,\)</span>g ( n ) <span class="math inline">\(为单词枚举中计算所需的复杂度.大部分情况下应保证\)</span>g
-( n ) $不会很大.</p></li>
+<h5><span id="正确率与复杂度">正确率与复杂度</span></h5><p>显然,如果我们有一个单词正确率为$p $,时间复杂度为$O ( f ( n ) ) $的算法,我们运行其$k $次,则正确率为$1 - ( 1 - p ) ^k $,时间复杂度为$O ( kf ( n ) ) $.</p>
+<h5><span id="算法设计思路1">算法设计思路1</span></h5><p>我们来总结一下通常的Monte Carlo算法的设计思路:</p>
+<h6><span id="设计一个能解决问题的确定性算法">设计一个能解决问题的确定性算法</span></h6><ol>
+<li><p>这个算法需要枚举一些元素.</p>
+</li>
+<li><p>设这个算法的复杂度为$O ( f ( n ) g ( n ) ) $,其中$f ( n ) $为枚举部分的复杂度,$g ( n ) $为单词枚举中计算所需的复杂度.大部分情况下应保证$g ( n ) $不会很大.</p>
+</li>
 </ol>
-<h6><span id="向算法引入随机化优化复杂度">向算法引入随机化优化复杂度</span></h6>
-<ol type="1">
-<li><p>随机化寻找元素来降低复杂度.</p></li>
-<li><p>计算随机化情况下的正确率以及复杂度.</p></li>
+<h6><span id="向算法引入随机化优化复杂度">向算法引入随机化优化复杂度</span></h6><ol>
+<li><p>随机化寻找元素来降低复杂度.</p>
+</li>
+<li><p>计算随机化情况下的正确率以及复杂度.</p>
+</li>
 </ol>
-<h5><span id="算法设计思路2">算法设计思路2</span></h5>
-<h6><span id="设计一个能解决问题的确定性算法">设计一个能解决问题的确定性算法</span></h6>
-<ol type="1">
-<li><p>这个算法需要用到一个或多个传入的元素.</p></li>
-<li><p>这个元素的值不应该依赖于输入数据.</p></li>
-<li><p>我们可以通过check这个元素来得到与答案有关的信息.</p></li>
+<h5><span id="算法设计思路2">算法设计思路2</span></h5><h6><span id="设计一个能解决问题的确定性算法">设计一个能解决问题的确定性算法</span></h6><ol>
+<li><p>这个算法需要用到一个或多个传入的元素.</p>
+</li>
+<li><p>这个元素的值不应该依赖于输入数据.</p>
+</li>
+<li><p>我们可以通过check这个元素来得到与答案有关的信息.</p>
+</li>
 </ol>
-<h6><span id="向算法引入随机化优化复杂度">向算法引入随机化优化复杂度</span></h6>
-<ol type="1">
-<li><p>随机这个元素.</p></li>
-<li><p>计算随机化情况下的正确率以及复杂度</p></li>
+<h6><span id="向算法引入随机化优化复杂度">向算法引入随机化优化复杂度</span></h6><ol>
+<li><p>随机这个元素.</p>
+</li>
+<li><p>计算随机化情况下的正确率以及复杂度</p>
+</li>
 </ol>
-<h5><span id="example">Example</span></h5>
-<h6><span id="example-1millar-rabin算法">Example 1(Millar-Rabin算法)</span></h6>
-<p>略</p>
-<h6><span id="example2codechef-mstone">Example2(CodeChef MSTONE)</span></h6>
-<p>平面上有$n $个互不重合的点,已知存在不超过$7 <span class="math inline">\(条直线可以覆盖全部的点,问在平面上作一条直线,最多能覆盖多少个点.\)</span>n
-$.</p>
-<p>考虑一个朴素的暴力:枚举两个点,确定一条直线,然后判断多少个点在这条直线上.但是这样复杂度是$O
-( n ^3 ) $的.</p>
-<p>考虑加入随机化.我们不妨每次随机两个点,注意到存在七条直线覆盖全部的点,那覆盖点最多的直线覆盖的点数一定不少于$
-{ 7 } <span class="math inline">\(个点.换句话说,我们随机一个点,这个点在这条直线上的概率是\)</span>
-{ 7 } <span class="math inline">\(,因此随机两个点确定这条直线的概率为\)</span> { 49
-} $.随机$1000 $次,错误概率为$1 - ( { 49 } ) ^{ 1000 } $,是很小的.</p>
-<h6><span id="example3cf364d-ghd">Example3(CF364D Ghd)</span></h6>
-<p>给定一个长度为$n <span class="math inline">\(的序列,要求找出一个长度大于等于\)</span> { 2 }
-<span class="math inline">\(的子序列,使这个子序列中所有数的\)</span><span class="math inline">\(最大,求最大的\)</span><span class="math inline">\(.\)</span>n ^6 <span class="math inline">\(,\)</span>a _i ^{ 12 } $.</p>
-<p>注意到我们随机一个数,这个数在最终答案中的概率是$ { 2 } <span class="math inline">\(.我们不妨直接随机这个数,然后枚举它的因子,判断每个因子在序列中的出现次数即可.但是这样单次复杂度\)</span>O
-( n ) $,好像不太能过.</p>
-<p>冷静一下,我们不妨将这$ <span class="math inline">\(个质因子全都存下来,然后将\)</span>n <span class="math inline">\(个数也全都存下来,做狄利克雷后缀和即可.不过直接做可能还需要离散化/map,我们考虑先把所有数与我们随机到的那个数取一个\)</span>$,这样所有数就都是这个数的因子,可以使用大小因子分别编号来实现.</p>
-<h6><span id="example4poi2014couriers">Example4([POI2014]Couriers)</span></h6>
-<p>给定长度为$n <span class="math inline">\(的序列\)</span>a <span class="math inline">\(,有\)</span>m <span class="math inline">\(次询问,每次给定一个区间\)</span>[ l , r ] <span class="math inline">\(,问\)</span>a [ l , r ] <span class="math inline">\(中是否存在出现次数严格大于其它所有数出现次数之和的数,如果存在请输出.\)</span>(
-n , m , 1 a _i n ) $.</p>
+<h5><span id="example">Example</span></h5><h6><span id="example-1millar-rabin算法">Example 1(Millar-Rabin算法)</span></h6><p>略</p>
+<h6><span id="example2codechef-mstone">Example2(CodeChef MSTONE)</span></h6><p>平面上有$n $个互不重合的点,已知存在不超过$7 $条直线可以覆盖全部的点,问在平面上作一条直线,最多能覆盖多少个点.$n \leq 10000 $.</p>
+<p>考虑一个朴素的暴力:枚举两个点,确定一条直线,然后判断多少个点在这条直线上.但是这样复杂度是$O ( n ^3 ) $的.</p>
+<p>考虑加入随机化.我们不妨每次随机两个点,注意到存在七条直线覆盖全部的点,那覆盖点最多的直线覆盖的点数一定不少于$\lceil \frac { n  } { 7  } \rceil $个点.换句话说,我们随机一个点,这个点在这条直线上的概率是$\frac { 1  } { 7  } $,因此随机两个点确定这条直线的概率为$\frac { 1  } { 49  } $.随机$1000 $次,错误概率为$1 - ( \frac { 48  } { 49  } ) ^{ 1000  } $,是很小的.</p>
+<h6><span id="example3cf364d-ghd">Example3(CF364D Ghd)</span></h6><p>给定一个长度为$n $的序列,要求找出一个长度大于等于$\frac { n  } { 2  } $的子序列,使这个子序列中所有数的$\gcd $最大,求最大的$\gcd $.$n \leq 10 ^6 $,$a _i \leq 10 ^{ 12  } $.</p>
+<p>注意到我们随机一个数,这个数在最终答案中的概率是$\frac { 1  } { 2  } $.我们不妨直接随机这个数,然后枚举它的因子,判断每个因子在序列中的出现次数即可.但是这样单次复杂度$O ( n \sqrt { a  } ) $,好像不太能过.</p>
+<p>冷静一下,我们不妨将这$\sqrt { a  } $个质因子全都存下来,然后将$n $个数也全都存下来,做狄利克雷后缀和即可.不过直接做可能还需要离散化/map,我们考虑先把所有数与我们随机到的那个数取一个$\gcd $,这样所有数就都是这个数的因子,可以使用大小因子分别编号来实现.</p>
+<h6><span id="example4poi2014couriers">Example4([POI2014]Couriers)</span></h6><p>给定长度为$n $的序列$a $,有$m $次询问,每次给定一个区间$[ l , r ] $,问$a [ l , r ] $中是否存在出现次数严格大于其它所有数出现次数之和的数,如果存在请输出.$( n , m \leq 500000 , 1 \leq a _i \leq n ) $.</p>
 <p>先存下来每个位置的数是第几次出现,我们就可以利用二分快速找到一个区间内某个数出现次数.接下来只需要随机化找这个区间内某个数并判断是否满足条件即可.</p>
-<h5><span id="example5noi2013-向量内积">Example5([NOI2013] 向量内积)</span></h5>
-<p>先考虑$k = 2 $的情况:</p>
-<p>首先,我们自然可以枚举一个向量$A <span class="math inline">\(并判断它与其它向量的内积,这样复杂度为\)</span>O (
-n ^2 d ) $.</p>
-冷静一下,这个过程其实就是一个矩阵乘法的过程:我们设$A =
-<span class="math display">\[\begin{bmatrix}\vec { a _1  } , \vec { a
-_2  } , . . . , \vec { a _n  } \end{bmatrix}\]</span>
-<p><span class="math inline">\(,那我们要验证的无非是\)</span>B = AA ^T
-<span class="math inline">\(中是否存在一个不在主对角线上的元素\)</span>B
-_{ i , j } <span class="math inline">\(在\)</span> $意义下为$0 $.</p>
-<p>这咋做啊?我们冷静一下,构造一个矩阵$C <span class="math inline">\(,其中\)</span>C <span class="math inline">\(的主对角线元素与\)</span>B $相同,而其他元素全是$1
-<span class="math inline">\(.接下来我们要做的无非是找到\)</span>B <span class="math inline">\(和\)</span>C $不同的地方.</p>
-<p>这咋办呢?我们考虑这么一点:如果$B = C <span class="math inline">\(,那么对于任意一个\)</span>X _{ m n } <span class="math inline">\(都应该满足\)</span>XB = XC <span class="math inline">\(,取\)</span>m = 1 <span class="math inline">\(,我们的问题就转化为:是否能找到一个\)</span>X <span class="math inline">\(,使得\)</span>XB XC <span class="math inline">\(?这显然可以随机化.计算前者的复杂度为\)</span>O (
-nd ) <span class="math inline">\(,后者由于\)</span>C <span class="math inline">\(很特殊,可以在\)</span>O ( n )
-$的时间内求出.这样我们就保证了算法复杂度上的合理性.</p>
-<p>接下来,我们要证明其正确率上的合理性.这个算法显然是单侧错误的Monte
-Carlo算法.问题在于正确率:</p>
-<p>令$D = B - C <span class="math inline">\(,若返回相等但实际上不相等,则\)</span>D
-$中至少存在一个不为$0 <span class="math inline">\(的数字,假设\)</span>D
-<em>{ i , j } <span class="math inline">\(.我们令\)</span>E = X D <span class="math inline">\(,那么只有当\)</span>E <span class="math inline">\(是零向量时才会错误.而\)</span>E <em>j = </em>{ k }
-X <em>k D </em>{ k , j } <span class="math inline">\(,不难解得:\)</span>E <em>i = - { D </em>{ i , j }
-} </em>{ k i } X <em>k D </em>{ k , j } <span class="math inline">\(,也就是说如果\)</span>X <span class="math inline">\(的其它位置都确定了,那么\)</span>E <span class="math inline">\(只有一种取值会返回错误.由于\)</span>k <span class="math inline">\(一共就俩取值,所以正确率至少\)</span> { 2 } $.</p>
-<p>至于找到答案:我们找到一个不为$0 <span class="math inline">\(的\)</span>E _i <span class="math inline">\(,那么一定存在一组解包含了第\)</span>i <span class="math inline">\(个向量,只需枚举另一个向量检验就行,复杂度\)</span>O
-( nd ) $.</p>
-<p>$k = 3 <span class="math inline">\(的话,我们注意到\)</span>
-$意义下,$1 $和$2 $的平方都是$1 <span class="math inline">\(.考虑\)</span><em>{ j } B </em>{ i , j } ^2 X
-<em>j = </em>{ j } B _{ i , j } X <em>j B </em>{ h , i } ^T
-$,大概做做.</p>
-<h3><span id="las-vegas算法sherwood算法">Las Vegas算法(Sherwood算法)</span></h3>
-<p>总是能返回正确的结果,但是其运行时间不确定.对于一些平均时间复杂度优秀,但是最坏情况下复杂度较高的确定性算法,通过引入随机函数,尝试减小最坏情况的可能性,以在期望意义下达到优秀的时间复杂度.</p>
-<h5><span id="算法设计思路">算法设计思路</span></h5>
-<h6><span id="设计一个能解决问题的确定性算法">设计一个能解决问题的确定性算法</span></h6>
-<ol type="1">
-<li><p>这个算法需要枚举全排列.</p></li>
-<li><p>通常,问题问的是要么只是可行解而不是最优解,要么最优方案特别多,总之要保证有用的排列个数不会太少</p></li>
+<h5><span id="example5noi2013-向量内积">Example5([NOI2013] 向量内积)</span></h5><p>先考虑$k = 2 $的情况:</p>
+<p>首先,我们自然可以枚举一个向量$A $并判断它与其它向量的内积,这样复杂度为$O ( n ^2 d ) $.</p>
+<p>冷静一下,这个过程其实就是一个矩阵乘法的过程:我们设$A = \begin{bmatrix}\vec { a _1  } , \vec { a _2  } , . . . , \vec { a _n  } \end{bmatrix} $,那我们要验证的无非是$B = AA ^T $中是否存在一个不在主对角线上的元素$B _{ i , j  } $在$\mod 2 $意义下为$0 $.</p>
+<p>这咋做啊?我们冷静一下,构造一个矩阵$C $,其中$C $的主对角线元素与$B $相同,而其他元素全是$1 $.接下来我们要做的无非是找到$B $和$C $不同的地方.</p>
+<p>这咋办呢?我们考虑这么一点:如果$B = C $,那么对于任意一个$X _{ m \times n  } $都应该满足$XB = XC $,取$m = 1 $,我们的问题就转化为:是否能找到一个$X $,使得$XB \ne XC $?这显然可以随机化.计算前者的复杂度为$O ( nd ) $,后者由于$C $很特殊,可以在$O ( n ) $的时间内求出.这样我们就保证了算法复杂度上的合理性.</p>
+<p>接下来,我们要证明其正确率上的合理性.这个算法显然是单侧错误的Monte Carlo算法.问题在于正确率:</p>
+<p>令$D = B - C $,若返回相等但实际上不相等,则$D $中至少存在一个不为$0 $的数字,假设$D _{ i , j  } \ne 0 $.我们令$E = X \times D $,那么只有当$E $是零向量时才会错误.而$E _j = \sum _{ k  } X _k D _{ k , j  } $,不难解得:$E _i = - \frac { 1  } { D _{ i , j  }  } \sum _{ k \ne i  } X _k D _{ k , j  } $,也就是说如果$X $的其它位置都确定了,那么$E $只有一种取值会返回错误.由于$k $一共就俩取值,所以正确率至少$\frac { 1  } { 2  } $.</p>
+<p>至于找到答案:我们找到一个不为$0 $的$E _i $,那么一定存在一组解包含了第$i $个向量,只需枚举另一个向量检验就行,复杂度$O ( nd ) $.</p>
+<p>$k = 3 $的话,我们注意到$\mod 3 $意义下,$1 $和$2 $的平方都是$1 $.考虑$\sum _{ j  } B _{ i , j  } ^2 X _j = \sum _{ j  } B _{ i , j  } X _j B _{ h , i  } ^T $,大概做做.</p>
+<h3><span id="las-vegas算法sherwood算法">Las Vegas算法(Sherwood算法)</span></h3><p>总是能返回正确的结果,但是其运行时间不确定.对于一些平均时间复杂度优秀,但是最坏情况下复杂度较高的确定性算法,通过引入随机函数,尝试减小最坏情况的可能性,以在期望意义下达到优秀的时间复杂度.</p>
+<h5><span id="算法设计思路">算法设计思路</span></h5><h6><span id="设计一个能解决问题的确定性算法">设计一个能解决问题的确定性算法</span></h6><ol>
+<li><p>这个算法需要枚举全排列.</p>
+</li>
+<li><p>通常,问题问的是要么只是可行解而不是最优解,要么最优方案特别多,总之要保证有用的排列个数不会太少</p>
+</li>
 </ol>
-<h6><span id="向算法引入随机化优化复杂度">向算法引入随机化优化复杂度</span></h6>
-<ol type="1">
-<li><p>随机化寻找排列来降低复杂度.</p></li>
-<li><p>通常证明复杂度和正确率巨大麻烦,这里建议直接实践证明.</p></li>
+<h6><span id="向算法引入随机化优化复杂度">向算法引入随机化优化复杂度</span></h6><ol>
+<li><p>随机化寻找排列来降低复杂度.</p>
+</li>
+<li><p>通常证明复杂度和正确率巨大麻烦,这里建议直接实践证明.</p>
+</li>
 </ol>
-<h5><span id="example">Example</span></h5>
-<h6><span id="快速排序算法">快速排序算法</span></h6>
-<p>我们试图计算它的期望时间复杂度:</p>
-<p>不妨设$T ( n ) <span class="math inline">\(表示对长度为\)</span>n
-$的序列运行快速排序算法所需的期望时间,我们有:</p>
-<p><span class="math display">\[
+<h5><span id="example">Example</span></h5><h6><span id="快速排序算法">快速排序算法</span></h6><p>我们试图计算它的期望时间复杂度:</p>
+<p>不妨设$T ( n ) $表示对长度为$n $的序列运行快速排序算法所需的期望时间,我们有:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-T ( 0 ) &amp; = 0 \\
-T ( n ) &amp; = n + \frac { 1  } { n  } \sum _{ i = 0  } ^{ n - 1  } ( T
-_i + T _{ n - i - 1  } )
-\end{aligned}
-\]</span></p>
-<p>做放缩(可能有些地方需要$+ 1 <span class="math inline">\(或者\)</span>- 1
-$或者加取整,但是问题不大,反正是期望):</p>
-<p><span class="math display">\[
+T ( 0 ) & = 0 \\
+T ( n ) & = n + \frac { 1  } { n  } \sum _{ i = 0  } ^{ n - 1  } ( T _i + T _{ n - i - 1  } ) 
+\end{aligned}</script><p>做放缩(可能有些地方需要$+ 1 $或者$- 1 $或者加取整,但是问题不大,反正是期望):</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-T ( n ) &amp; = n + \frac { 1  } { n  } \sum _{ i = 0  } ^{ n - 1  } ( T
-_i + T _{ n - i - 1  } ) \\
-&amp; = n + \frac { 2  } { n  } \sum _{ i = \frac { n  } { 2  }  } ^{ n
-- 1  } ( T _i + T _{ n - i - 1  } ) \\
-&amp; = n + \frac { 2  } { n  } \sum _{ i = \frac { n  } { 2  }  } ^{
-\frac { 3 n  } { 4  }  } ( T ( i ) + T ( n - i - 1 ) ) + \frac { 2  } {
-n  } \sum _{ i = \frac { 3 n  } { 4  }  } ^{ n  } ( T ( i ) + T ( n - i
-- 1 ) )
-\end{aligned}
-\]</span></p>
-<p>由于$T ( n ) n <span class="math inline">\(,所以对于\)</span> { 2 } i
-j <span class="math inline">\(,我们显然有:\)</span>T ( i ) + T ( n - i )
-T ( j ) + T ( n - j ) $.</p>
+T ( n ) & = n + \frac { 1  } { n  } \sum _{ i = 0  } ^{ n - 1  } ( T _i + T _{ n - i - 1  } ) \\
+& = n + \frac { 2  } { n  } \sum _{ i = \frac { n  } { 2  }  } ^{ n - 1  } ( T _i + T _{ n - i - 1  } ) \\
+& = n + \frac { 2  } { n  } \sum _{ i = \frac { n  } { 2  }  } ^{ \frac { 3 n  } { 4  }  } ( T ( i ) + T ( n - i - 1 ) ) + \frac { 2  } { n  } \sum _{ i = \frac { 3 n  } { 4  }  } ^{ n  } ( T ( i ) + T ( n - i - 1 ) ) 
+\end{aligned}</script><p>由于$T ( n ) \geq n $,所以对于$\frac { n  } { 2  } \leq i \leq j $,我们显然有:$T ( i ) + T ( n - i ) \leq T ( j ) + T ( n - j ) $.</p>
 <p>因此:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-T ( n ) &amp; \leq n + \frac { 2  } { n  } \sum _{ i = \frac { n  } {
-2  }  } ^{ \frac { 3 n  } { 4  }  } ( T ( \frac { 3 n  } { 4  } ) + T (
-\frac { n  } { 4  } ) ) + \frac { 2  } { n  } \sum _{ i = \frac { 3 n  }
-{ 4  }  } ^{ n  } ( T ( n - 1 ) + T ( 0 ) ) \\
-&amp; \leq n + \frac { 1  } { 2  } ( T ( \frac { 3 n  } { 4  } ) + T (
-\frac { n  } { 4  } ) + T ( n - 1 ) )
-\end{aligned}
-\]</span></p>
-<p>我们要证明$c <span class="math inline">\(,\)</span>T ( n ) cn n
-$,考虑使用数学归纳法,则:</p>
-<p><span class="math display">\[
+T ( n ) & \leq n + \frac { 2  } { n  } \sum _{ i = \frac { n  } { 2  }  } ^{ \frac { 3 n  } { 4  }  } ( T ( \frac { 3 n  } { 4  } ) + T ( \frac { n  } { 4  } ) ) + \frac { 2  } { n  } \sum _{ i = \frac { 3 n  } { 4  }  } ^{ n  } ( T ( n - 1 ) + T ( 0 ) ) \\
+& \leq n + \frac { 1  } { 2  } ( T ( \frac { 3 n  } { 4  } ) + T ( \frac { n  } { 4  } ) + T ( n - 1 ) ) 
+\end{aligned}</script><p>我们要证明$\exists c $,$T ( n ) \leq cn \log n $,考虑使用数学归纳法,则:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-T ( n ) &amp; \leq n + \frac { 1  } { 2  } ( \frac { 3 cn  } { 4  } \log
-( \frac { 3 n  } { 4  } ) + \frac { cn  } { 4  } \log ( \frac { n  } {
-4  } ) + c ( n - 1 ) \log ( n - 1 ) ) \\
-&amp; \leq n + c ( \frac { 3 n  } { 8  } \log n - \frac { 3 n  } { 8  }
-\log \frac { 4  } { 3  } + \frac { n  } { 8  } \log n - \frac { n  } {
-4  } + \frac { n  } { 2  } \log n ) \\
-&amp; = cn \log n + n ( 1 - \frac { 3 c  } { 8  } \log ( \frac { 4  } {
-3  } ) - \frac { c  } { 4  } )
-\end{aligned}
-\]</span></p>
-<p>于是显然存在,假设成立.</p>
-<h6><span id="一类由montecarlo算法改造而成的算法">一类由Monte
-Carlo算法改造而成的算法</span></h6>
-<p>对于一类一定有解的构造性问题,假设我们有一个正确率为$p <span class="math inline">\(,时间复杂度为\)</span>O ( f ( n ) )
-$的产生单侧错误的Monte Carlo算法,我们时图将其改造为Las
-Vegas算法,我们现在想知道它的期望复杂度.</p>
+T ( n ) & \leq n + \frac { 1  } { 2  } ( \frac { 3 cn  } { 4  } \log ( \frac { 3 n  } { 4  } ) + \frac { cn  } { 4  } \log ( \frac { n  } { 4  } ) + c ( n - 1 ) \log ( n - 1 ) ) \\
+& \leq n + c ( \frac { 3 n  } { 8  } \log n - \frac { 3 n  } { 8  } \log \frac { 4  } { 3  } + \frac { n  } { 8  } \log n - \frac { n  } { 4  } + \frac { n  } { 2  } \log n ) \\
+& = cn \log n + n ( 1 - \frac { 3 c  } { 8  } \log ( \frac { 4  } { 3  } ) - \frac { c  } { 4  } ) 
+\end{aligned}</script><p>于是显然存在,假设成立.</p>
+<h6><span id="一类由monte-carlo算法改造而成的算法">一类由Monte Carlo算法改造而成的算法</span></h6><p>对于一类一定有解的构造性问题,假设我们有一个正确率为$p $,时间复杂度为$O ( f ( n ) ) $的产生单侧错误的Monte Carlo算法,我们时图将其改造为Las Vegas算法,我们现在想知道它的期望复杂度.</p>
 <p>设其期望运行$k $次,则:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-k &amp; = \sum _{ i = 1  } ^{ \infty  } p ( 1 - p ) ^{ i - 1  } i \\
-( 1 - p ) k &amp; = \sum _{ i = 1  } ^{ \infty  } p ( 1 - p ) ^i i \\
-pk &amp; = \sum _{ i = 2  } ^{ \infty  } p ( 1 - p ) ^{ i - 1  } &amp; =
-p \sum _{ i = 0  } ^{ \infty  } ( 1 - p ) ^i \\
-k &amp; = \frac { 1  } { p  }
-\end{aligned}
-\]</span></p>
-<p>则期望复杂度为$O ( { p } ) $.</p>
-<h6><span id="example3cf329c-graphreconstruction">Example3(CF329C Graph
-Reconstruction)</span></h6>
-<h6><span id="example4petrozavodsksummer-2015-moscow-ipt-contest-bgame-with-a-fairy">Example4([Petrozavodsk
-Summer-2015. Moscow IPT Contest B]Game With A Fairy)</span></h6>
-<p>首先注意到一个问题:操作能得到的信息太少了,应该是没有什么确定性算法.因此考虑随机化,那就肯定要先将整个序列random_shuffle一下.</p>
+k & = \sum _{ i = 1  } ^{ \infty  } p ( 1 - p ) ^{ i - 1  } i \\
+( 1 - p ) k & = \sum _{ i = 1  } ^{ \infty  } p ( 1 - p ) ^i i \\
+pk & = \sum _{ i = 2  } ^{ \infty  } p ( 1 - p ) ^{ i - 1  } & = p \sum _{ i = 0  } ^{ \infty  } ( 1 - p ) ^i \\
+k & = \frac { 1  } { p  } 
+\end{aligned}</script><p>则期望复杂度为$O ( \frac { f ( n )  } { p  } ) $.</p>
+<h6><span id="example3cf329c-graph-reconstruction">Example3(CF329C Graph Reconstruction)</span></h6><h6><span id="example4petrozavodsk-summer-2015-moscow-ipt-contest-bgame-with-a-fairy">Example4([Petrozavodsk Summer-2015. Moscow IPT Contest B]Game With A Fairy)</span></h6><p>首先注意到一个问题:操作能得到的信息太少了,应该是没有什么确定性算法.因此考虑随机化,那就肯定要先将整个序列random_shuffle一下.</p>
 <p>然后呢?我们考虑之后随机选取新序列的一个前缀询问,只要有大致的正确性/复杂性估计应该就是很正确的.</p>
-<p>这里有一种方式:考虑这个前缀中第一个有宝藏的位置$x _1 <span class="math inline">\(和第二个位置\)</span>x _2 <span class="math inline">\(,显然只要问到\)</span>[ x _1 , x _2 )
-$是正确的.</p>
-<p>考虑因为是随机,所以$x _1 x _2 <span class="math inline">\(的概率应当是不低的(事实上约为\)</span> { 2 } <span class="math inline">\(),而此时的\)</span>[ x _1 , x _2 )
-$中必有一个位置是二的整数幂,因此我们查询一个等比数列:$1 , 2 , 4 , . . .
-$.每次random_shuffle后就查一次,就可以得到一个正确性较高的Las
-Vegas算法.</p>
-<h3><span id="爬山与模拟退火">爬山与模拟退火</span></h3>
-<h4><span id="爬山">爬山</span></h4>
-<p>也就是随机一个起始的解,然后走向与其相邻的较大的解.</p>
+<p>这里有一种方式:考虑这个前缀中第一个有宝藏的位置$x _1 $和第二个位置$x _2 $,显然只要问到$[ x _1 , x _2 ) $是正确的.</p>
+<p>考虑因为是随机,所以$x _1 \times 2 \leq x _2 $的概率应当是不低的(事实上约为$\frac { 1  } { 2  } $),而此时的$[ x _1 , x _2 ) $中必有一个位置是二的整数幂,因此我们查询一个等比数列:$1 , 2 , 4 , . . . $.每次random_shuffle后就查一次,就可以得到一个正确性较高的Las Vegas算法.</p>
+<h3><span id="爬山与模拟退火">爬山与模拟退火</span></h3><h4><span id="爬山">爬山</span></h4><p>也就是随机一个起始的解,然后走向与其相邻的较大的解.</p>
 <p>但是这样会卡在一个局部最优解上而得不到全局最优解.</p>
 <p>于是我们就有了模拟退火算法.</p>
-<h4><span id="模拟退火">模拟退火</span></h4>
-<p>简而言之,模拟退火就是以一定的概率跳到随机的不优秀的点,这样就避免卡在了局部最优解上.不妨设我们想找到最大解,如果要最小解那就稍微改改.</p>
+<h4><span id="模拟退火">模拟退火</span></h4><p>简而言之,模拟退火就是以一定的概率跳到随机的不优秀的点,这样就避免卡在了局部最优解上.不妨设我们想找到最大解,如果要最小解那就稍微改改.</p>
 <p>下面给出这个概率的公式:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 P = \begin{cases}
-1 &amp; E _{ t + 1  } &gt; E _t \\
-e ^{ \frac { E _{ t + 1  } - E _t  } { T  }  } &amp; E _{ t + 1  } \leq
-E _t
-\end{cases}
-\]</span></p>
-<p>具体流程是,先设定一个初始温度$T _0 <span class="math inline">\(,降温速度\)</span>k ( 0 , 1 ) <span class="math inline">\(,以及终止温度\)</span>T _k <span class="math inline">\(,每次操作后让\)</span>T = kT
-$,直到其小于终止温度.</p>
+1 & E _{ t + 1  } > E _t \\
+e ^{ \frac { E _{ t + 1  } - E _t  } { T  }  } & E _{ t + 1  } \leq E _t 
+\end{cases}</script><p>具体流程是,先设定一个初始温度$T _0 $,降温速度$k \in ( 0 , 1 ) $,以及终止温度$T _k $,每次操作后让$T = kT $,直到其小于终止温度.</p>
 
     </div>
 
