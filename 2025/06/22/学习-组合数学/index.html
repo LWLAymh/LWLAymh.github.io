@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/%E5%A4%B4%E5%83%8F1.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/%E5%A4%B4%E5%83%8F1.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/%E5%A4%B4%E5%83%8F1.jpg">
+  <link rel="mask-icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lwlaymh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="二项式系数上升幂和下降幂定义下降幂$x ^{ \underline { k  }  } &#x3D; \prod _{ i &#x3D; 0  } ^{ k - 1  } ( x - i ) &#x3D; \frac { x !  } { ( x - k ) !  } $. 定义上升幂$x ^{ \overline { k  }  } \prod _{ i &#x3D; 0  } ^{ k - 1  } ( x + i ) &#x3D; \fr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="组合数学">
+<meta property="og:url" content="http://lwlaymh.github.io/2025/06/22/%E5%AD%A6%E4%B9%A0-%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/index.html">
+<meta property="og:site_name" content="LWLAymh的备忘录">
+<meta property="og:description" content="二项式系数上升幂和下降幂定义下降幂$x ^{ \underline { k  }  } &#x3D; \prod _{ i &#x3D; 0  } ^{ k - 1  } ( x - i ) &#x3D; \frac { x !  } { ( x - k ) !  } $. 定义上升幂$x ^{ \overline { k  }  } \prod _{ i &#x3D; 0  } ^{ k - 1  } ( x + i ) &#x3D; \fr">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-22T08:57:48.662Z">
+<meta property="article:modified_time" content="2025-06-22T08:57:48.662Z">
+<meta property="article:author" content="LWLAymh">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://lwlaymh.github.io/2025/06/22/%E5%AD%A6%E4%B9%A0-%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://lwlaymh.github.io/2025/06/22/%E5%AD%A6%E4%B9%A0-%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/","path":"2025/06/22/学习-组合数学/","title":"组合数学"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>组合数学 | LWLAymh的备忘录</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+  <script src="/js/third-party/addtoany.js" defer></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+<link rel="dns-prefetch" href="my-repository-jade-beta-79.vercel.app">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">LWLAymh的备忘录</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">混乱节拍拼凑出血肉喧嚷</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">二项式系数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.1.</span> <span class="nav-text">上升幂和下降幂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.2.</span> <span class="nav-text">二项式系数的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.3.</span> <span class="nav-text">基本的二项式恒等式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.4.</span> <span class="nav-text">扩展的二项式恒等式(整数范围内)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.5.</span> <span class="nav-text">拓展的二项式恒等式(实数范围内)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.6.</span> <span class="nav-text">卡特兰数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.6.0.1.</span> <span class="nav-text">Example([HNOI2009]有趣的数列)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.6.0.2.</span> <span class="nav-text">Example2([23省选10连测day7]b)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.7.</span> <span class="nav-text">二项式系数的处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.7.1.</span> <span class="nav-text">通过恒等式变形求解</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.7.1.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.7.1.2.</span> <span class="nav-text">Example2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.7.1.3.</span> <span class="nav-text">Example3</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.7.1.4.</span> <span class="nav-text">Example4</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.7.1.5.</span> <span class="nav-text">Example5</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.7.2.</span> <span class="nav-text">转化为递归式&#x2F;和式求解</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.7.2.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.7.2.2.</span> <span class="nav-text">Example2</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.7.3.</span> <span class="nav-text">利用微积分求解</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.7.3.1.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.7.4.</span> <span class="nav-text">转化为二维平面</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.7.4.1.</span> <span class="nav-text">Example1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.8.</span> <span class="nav-text">Lucas定理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.0.1.</span> <span class="nav-text">Example1([CF1770F]Koxia and Sequence)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.9.</span> <span class="nav-text">扩展Lucas定理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">斯特林数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.1.</span> <span class="nav-text">第一类斯特林数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.2.</span> <span class="nav-text">第二类斯特林数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.3.</span> <span class="nav-text">斯特林数的扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.4.</span> <span class="nav-text">基本斯特林恒等式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.5.</span> <span class="nav-text">补充斯特林恒等式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">欧拉数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.1.</span> <span class="nav-text">欧拉数与二项式系数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">伯努利数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">斐波那契数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">5.1.</span> <span class="nav-text">斐波那契数的扩展定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">5.2.</span> <span class="nav-text">斐波那契数与数论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">5.3.</span> <span class="nav-text">斐波那契数系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">5.4.</span> <span class="nav-text">斐波那契数的封闭形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">5.5.</span> <span class="nav-text">连项式</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="LWLAymh"
+      src="/images/%E5%A4%B4%E5%83%8F1.jpg">
+  <p class="site-author-name" itemprop="name">LWLAymh</p>
+  <div class="site-description" itemprop="description">不过是白日梦里一瞬息</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/LWLAymh" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LWLAymh" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lwlaymh@outlook.com" title="E-Mail → mailto:lwlaymh@outlook.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/LWLAymh" title="WeChat → LWLAymh" rel="noopener me"><i class="fab fa-skype fa-fw"></i>WeChat</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://minyuchengmin.github.io/" title="https:&#x2F;&#x2F;minyuchengmin.github.io" rel="noopener" target="_blank">ycm的blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://shanlunjiajian.github.io/" title="http:&#x2F;&#x2F;shanlunjiajian.github.io" rel="noopener" target="_blank">qyc的blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.cnblogs.com/do-while-true" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;do-while-true" rel="noopener" target="_blank">dwt的blog</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lwlaymh.github.io/2025/06/22/%E5%AD%A6%E4%B9%A0-%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F1.jpg">
+      <meta itemprop="name" content="LWLAymh">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LWLAymh的备忘录">
+      <meta itemprop="description" content="不过是白日梦里一瞬息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="组合数学 | LWLAymh的备忘录">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          组合数学
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-06-22 16:57:48" itemprop="dateCreated datePublished" datetime="2025-06-22T16:57:48+08:00">2025-06-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">具体数学</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2025/06/22/%E5%AD%A6%E4%B9%A0-%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2025/06/22/%E5%AD%A6%E4%B9%A0-%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><span id="more"></span>
+<h2><span id="二项式系数">二项式系数</span></h2><h3><span id="上升幂和下降幂">上升幂和下降幂</span></h3><p>定义下降幂$x ^{ \underline { k  }  } = \prod _{ i = 0  } ^{ k - 1  } ( x - i ) = \frac { x !  } { ( x - k ) !  } $.</p>
+<p>定义上升幂$x ^{ \overline { k  }  } \prod _{ i = 0  } ^{ k - 1  } ( x + i ) = \frac { ( x + k - 1 ) !  } { ( x - 1 ) !  } $.</p>
+<p>上升幂和下降幂的定义是可以引申到复数域的.</p>
+<p>例如我们有加倍公式:$r ^{ \underline { k  }  } ( r - 0 . 5 ) ^{ \underline { k  }  } = \cfrac { ( 2 r ) ^{ \underline { 2 k  }  }  } { 2 ^{ 2 k  }  } , k \in \mathbb { N  } $.</p>
+<p>他们之间存在转换:$x ^{ \underline { n  }  } = ( - 1 ) ^n ( - x ) ^{ \overline { n  }  } $.</p>
+<p>同时存在大小关系:$x ^{ \underline { n  }  } \leq x ^n \leq x ^{ \overline { n  }  } $,其中$0 \leq n &lt; x $.</p>
+<h3><span id="二项式系数的定义">二项式系数的定义</span></h3><p>考虑令$\binom { n  } { m  } $表示从一个大小为$n $的子集中选出大小为$m $的子集的方案数.第一次有$n $个选择,第二次有$n - 1 $个选择……第m次有$n - m + 1 $个选择.而由于可能可以选择重复的,但一个排列被重复选择的次数显然是$m ! $,因此显然有$\binom { n  } { m  } = \cfrac { n ^{ \underline { m  }  }  } { m !  } $.</p>
+<p>如果我们把它的定义拓展到复数域,我们有:</p>
+<p>$\binom { r  } { k  } = \begin{cases}\cfrac { r ^{ \underline { k  }  }  } { k !  } &amp; k \geq 0 \ 0 &amp; k &lt; 0 \end{cases} , r \in \mathbb { C  } , k \in \mathbb { Z  } $.</p>
+<p>值得一提的是,如果我们这么定义,本质上其实是把$\binom { r  } { k  } $看作了一个关于$r $的$k $次多项式.</p>
+<p>另外根据定义,$r \in \mathbb { Z  } \land r &lt; k $时,该公式给出$0 $.</p>
+<p>值得一提的是,为了使二项式系数在面对$0 $的时候更加简洁,通常直接定义$0 ! = 1 , 0 ^0 = 1 $.</p>
+<p>另外不难发现$\binom { 2 n  } { n  } $是所有$\binom { 2 n  } { k  } $中最大的.事实上我们有Wallis公式:$\lim _{ n \rightarrow \infty  } \frac { ( \frac { 2 ^{ 2 n  }  } { \binom { 2 n  } { n  }  } ) ^2  } { 2 n + 1  } = \frac { \pi  } { 2  } $.</p>
+<h3><span id="基本的二项式恒等式">基本的二项式恒等式</span></h3><ol>
+<li>阶乘展开式:$\binom { n  } { k  } = \cfrac { n !  } { k ! ( n - k ) !  } , n , k \in \mathbb { N  } , n \geq k \ $.</li>
+</ol>
+<p>证明根据定义是显然的.</p>
+<ol>
+<li>对称恒等式:$\binom { n  } { k  } = \binom { n  } { n - k  } , n \in \mathbb { N  } , k \in \mathbb { Z  } \ $.</li>
+</ol>
+<p>根据$( 1 ) $,$0 \leq k \leq n $时是显然的.而其他情况两边都会给出$0 $,因此也是成立的.</p>
+<ol>
+<li>吸收恒等式:$\binom { r  } { k  } = \cfrac { r  } { k  } \binom { r - 1  } { k - 1  } , k \in \mathbb { Z  } \land k \ne 0 \ $.</li>
+</ol>
+<p>证明根据定义是显然的.</p>
+<ol>
+<li>吸收恒等式的变式:$k \binom { r  } { k  } = r \binom { r - 1  } { k - 1  } , k \in \mathbb { Z  } \ $.</li>
+</ol>
+<p>根据$( 3 ) $,只需要验证$k = 0 $的情况即可,也是显然的.</p>
+<ol>
+<li>相伴恒等式:$( r - k ) \binom { r  } { k  } = r \binom { r - 1  } { k  } , k \in \mathbb { Z  } \ $.</li>
+</ol>
+<p>证明如下:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+( r - k ) \binom { r  } { k  } & = ( r - k ) \binom { r  } { r - k  } \\
+& = r \binom { r - 1  } { r - k - 1  } \\
+& = r \binom { r - 1  } { k  } 
+\end{aligned}</script><p>问题在于:我们在上述描述中并未提到$r $的范围,但是推导过程要求$r \in \mathbb { N  } $.不过,我们已经说明了二项式系数是关于$r $的$k $次多项式,因此只需要有$k + 1 $个$r $满足这个公式即可.而根据推导过程显然有无限个$r $满足,因此这个公式对$r \in \mathbb { C  } $也是成立的.</p>
+<p>不过事实上,直接用吸收恒等式就可以证明:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+k \binom { r  } { k  } & = r \binom { r - 1  } { k - 1  } \\
+( r - k ) \binom { r  } { r - k  } & = r \binom { r - 1  } { r - k - 1  } \\
+( r - k ) \binom { r  } { k  } & = r \binom { r - 1  } { k  } 
+\end{aligned}</script><ol>
+<li>加法公式:$\binom { r  } { k  } = \binom { r - 1  } { k  } + \binom { r - 1  } { k - 1  } , k \in \mathbb { Z  } \ $.</li>
+</ol>
+<p>证明可以使用定义,也可以先用$r \in \mathbb { N  } $的情况给出组合意义,再使用多项式推理法证明.</p>
+<ol>
+<li>$\binom { r  } { m  } \binom { m  } { k  } = \binom { r  } { k  } \binom { r - k  } { m - k  } , n , k \in \mathbb { Z  } \ $.</li>
+</ol>
+<p>证明可以使用组合意义和多项式推理法.</p>
+<ol>
+<li>平行求和法:$\sum _{ k \leq n  } \binom { r + k  } { k  } = \binom { r + n + 1  } { n  } , n \in \mathbb { N  } \ $.</li>
+</ol>
+<p>我们不妨考虑不断使用加法公式:</p>
+<p>$\binom { r + n + 1  } { n  } = \binom { r + n  } { n  } + \binom { r + n  } { n - 1  } = \binom { r + n  } { n  } + \binom { r + n - 1  } { n - 1  } + \binom { r + n - 1  } { n - 2  } = . . . \ $,最终下标会减成负数,这样后面的项就全都是$0 $了.</p>
+<p>也可以考虑组合意义:如果$r \in \mathbb { N  } $,那么我们考虑从右到左第一个没有被选上的数,假设它是$r + k + 1 $,那么在它右边的数全部选择了,一共是$n - k $个数,而还需要在左边的$r + k $中选择$k $个数.</p>
+<ol>
+<li>上指标求和法:$\sum _{ 0 \leq k \leq n  } \binom { k  } { m  } = \binom { n + 1  } { m + 1  } , n , m \in \mathbb { N  } \ $.</li>
+</ol>
+<p>可以组合意义解释:我们不妨假设选的最大数是$k + 1 $,接下来就还需要在$[ 1 , k ] $中选择$m $个.</p>
+<p>如果我们将这个公式两边同时乘以$m ! $,我们可以得到公式:$\sum _{ 0 \leq k \leq n  } k ^{ \underline { m  }  } = \cfrac { ( n + 1 ) ^{ \underline { m + 1  }  }  } { m + 1  } , n , m \in \mathbb { N  } \ $,这也就是有限微积分的公式中的一个.</p>
+<ol>
+<li>二项式定理:$( x + y ) ^r = \sum _{ k  } \binom { r  } { k  } x ^k y ^{ r - k  } , r \in \mathbb { N  } \ $.</li>
+</ol>
+<p>可以使用组合意义证明.</p>
+<p>二项式定理有一些有用的特殊情况:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum _{ 0 \leq k \leq n  } \binom { n  } { k  } & = 2 ^n , n \in \mathbb { N  } \\
+
+\end{aligned}</script><p>在二项式定理中令$x = y = 1 $即可证明.</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum _{ 0 \leq k \leq n  } ( - 1 ) ^k \binom { n  } { k  } & = 0 ^n & = [ n & = 0 ] , n \in \mathbb { N  } \\
+
+\end{aligned}</script><p>在二项式定理中令$x = - 1 , y = 1 $即可证明,值得一提的是,当$n = 0 $的时候这个式子给出$1 $,并在其他情况下给出$0 $,这个式子是二项式反演的基础.</p>
+<ol>
+<li>三项式定理:$( x + y + z ) ^n = \sum _{ 0 \leq a , b , c \leq n  } [ a + b + c = n ] \cfrac { n !  } { a ! b ! c !  } x ^a y ^b z ^c , n \in \mathbb { N  } \ $.</li>
+</ol>
+<p>证明与二项式定理类似.值得一提的是,$\cfrac { n !  } { a ! b ! c !  } = \binom { n  } { b + c  } \binom { b + c  } { c  } $.</p>
+<ol>
+<li>多项式定理:$( \sum _{ i = 1  } ^m x _i ) ^n = \sum _{ \forall i \in [ 1 , m ] , 0 \leq a _i \leq n  } [ \sum _{ i = 1  } ^m a _i = n ] \cfrac { n !  } { \prod _{ i = 1  } ^m a _i !  } \prod _{ i = 1  } ^m x _i ^{ a _i  } , n \in \mathbb { N  } \ $.</li>
+</ol>
+<p>证明与二项式定理类似.</p>
+<ol>
+<li>范德蒙德卷积:$\sum _{ k  } \binom { r  } { m + k  } \binom { s  } { n - k  } = \binom { r + s  } { n + m  } , n , m \in \mathbb { Z  } \ $.</li>
+</ol>
+<p>证明可以使用组合意义和多项式推理法.</p>
+<p>另外,这个式子可以直接使用生成函数证明.</p>
+<ol>
+<li>范德蒙德卷积的变式:$\sum _{ k  } \binom { l  } { m + k  } \binom { s  } { n + k  } = \binom { l + s  } { l - m + n  } , l \in \mathbb { N  } , n , m \in \mathbb { Z  } \ $.</li>
+</ol>
+<p>有$\binom { l  } { m + k  } = \binom { l  } { l - m - k  } $,然后运用范德蒙德卷积即可得到答案.</p>
+<ol>
+<li>上指标反转公式:$\binom { r  } { k  } = ( - 1 ) ^k \binom { k - r - 1  } { k  } \ $.</li>
+</ol>
+<p>根据定义显然.</p>
+<h3><span id="扩展的二项式恒等式整数范围内">扩展的二项式恒等式(整数范围内)</span></h3><ol>
+<li>$\sum _{ k \leq m  } \binom { r  } { k  } ( - 1 ) ^k = ( - 1 ) ^m \binom { r - 1  } { m  } , m \in \mathbb { Z  } \ $.</li>
+</ol>
+<p>证明如下:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum _{ k \leq m  } \binom { r  } { k  } ( - 1 ) ^k & = \sum _{ k \leq m  } \binom { k - r - 1  } { k  } \\
+& = \binom { - r + m  } { m  } & = ( - 1 ) ^m \binom { r - 1  } { m  } 
+\end{aligned}</script><ol>
+<li>$\sum _{ - q \leq k \leq l  } \binom { l - k  } { m  } \binom { q + k  } { n  } = \binom { l + q + 1  } { m + n + 1  } , n , m \in \mathbb { N  } , l + q \geq 0 \ $.</li>
+</ol>
+<p>可以组合意义与多项式推理法证明.</p>
+<ol>
+<li>$\sum _{ k  } \binom { a + b  } { a + k  } \binom { a + b  } { b + k  } ( - 1 ) ^k = \binom { a + b  } { a  } , a , b \in \mathbb { N  } \ $.</li>
+</ol>
+<p>可以数学归纳证明.</p>
+<ol>
+<li>$\sum _{ k = 0  } ^m \cfrac { \binom { m  } { k  }  } { \binom { n  } { k  }  } = \cfrac { n + 1  } { n + 1 - m  } , n , m \in \mathbb { N  } , n \geq m \ $.</li>
+</ol>
+<p>我们有$\binom { n  } { m  } \binom { m  } { k  } = \binom { n  } { k  } \binom { n - k  } { m - k  } \ $,两边同时除以$\binom { n  } { m  } \binom { n - k  } { m - k  } \ $,于是我们得到了$\cfrac { \binom { m  } { k  }  } { \binom { n  } { k  }  } = \cfrac { \binom { n - k  } { m - k  }  } { \binom { n  } { m  }  } \ $.</p>
+<p>有:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum _{ k = 0  } ^m \cfrac { \binom { m  } { k  }  } { \binom { n  } { k  }  } & = \sum _{ k = 0  } ^m \cfrac { \binom { n - k  } { m - k  }  } { \binom { n  } { m  }  } \\
+& = \cfrac { 1  } { \binom { n  } { m  }  } \sum _{ k = 0  } ^m \binom { n - k  } { m - k  } \\
+& = \cfrac { 1  } { \binom { n  } { m  }  } \sum _{ k = 0  } ^m \binom { n - m + k  } { k  } \\
+& = \cfrac { \binom { n + 1  } { m  }  } { \binom { n  } { m  }  } \\
+& = \cfrac { n + 1  } { n + 1 - m  } 
+\end{aligned}</script><ol>
+<li>$( - 1 ) ^m \binom { - n - 1  } { m  } = ( - 1 ) ^n \binom { - m - 1  } { n  } , n , m \in \mathbb { N  } \ $.</li>
+</ol>
+<p>根据上指标反转公式,这个公式两边都等于$\binom { n + m  } { m  } \ $.</p>
+<ol>
+<li>$\sum _{ k \leq m  } \binom { r  } { k  } ( \cfrac { r  } { 2  } - k ) = \cfrac { m + 1  } { 2  } \binom { r  } { m + 1  } , m \in \mathbb { Z  } \ $.</li>
+</ol>
+<p>可以使用归纳法证明这个公式.</p>
+<ol>
+<li>$\sum _{ k \leq m  } \binom { m + r  } { k  } x ^k y ^{ m - k  } = \sum _{ k \leq m  } \binom { - r  } { k  } ( - x ) ^k ( x + y ) ^{ m - k  } , m \in \mathbb { Z  } \ $.</li>
+</ol>
+<p>不妨令左边的值为$S _m $,我们有:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+S _m & = \sum _{ k \leq m  } \binom { m + r  } { k  } x ^k y ^{ m - k  } & = \sum _{ k \leq m  } \binom { m + r - 1  } { k  } x ^k y ^{ m - k  } + \sum _{ k \leq m  } \binom { m + r - 1  } { k - 1  } x ^k y ^{ m - k  } \\
+& = y \sum _{ k < m  } \binom { m - 1 + r  } { k  } x ^k y ^{ m - 1 - k  } + \binom { m + r - 1  } { m  } x ^m + x \sum _{ k \leq m  } \binom { m + r - 1  } { k - 1  } x ^{ k - 1  } y ^{ m - k  } \\
+& = ( x + y ) S _{ m - 1  } + \binom { m + r - 1  } { m  } x ^m \\
+& = ( x + y ) S _{ m - 1  } + \binom { r  } { m  } ( - x ) ^m 
+\end{aligned}</script><p>左右两边满足相同递归式,通过数学归纳法不难证明二者相等.</p>
+<ol>
+<li>$\sum _{ k \leq m  } \binom { m + k  } { k  } 2 ^{ - k  } = 2 ^m , m \in \mathbb { N  } \ $.</li>
+</ol>
+<p>考虑$( 7 ) $,将$x = y = 1 , r = m + 1 $带入,得到:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum _{ k \leq m  } \binom { 2 m + 1  } { k  } & = \sum _{ k \leq m  } \binom { m + k  } { k  } 2 ^{ m - k  } \\
+2 ^{ 2 m  } & = \sum _{ k \leq m  } \binom { m + k  } { k  } 2 ^{ m - k  } \\
+2 ^m & = \sum _{ k \leq m  } \binom { m + k  } { k  } 2 ^{ - k  } 
+\end{aligned}</script><ol>
+<li>$\sum _{ k  } \binom { l  } { m + k  } \binom { s + k  } { n  } ( - 1 ) ^k = ( - 1 ) ^{ l + m  } \binom { s - m  } { n - l  } , l \in \mathbb { N  } , n , m \in \mathbb { Z  } \ $.</li>
+</ol>
+<p>可以数学归纳证明.</p>
+<ol>
+<li>$\sum _{ k \leq l  } \binom { l - k  } { m  } \binom { s  } { k - n  } ( - 1 ) ^k = ( - 1 ) ^{ l + m  } \binom { s - m - 1  } { l - n - m  } , l , n , m \in \mathbb { N  } \ $.</li>
+</ol>
+<p>可以数学归纳证明.</p>
+<h3><span id="拓展的二项式恒等式实数范围内">拓展的二项式恒等式(实数范围内)</span></h3><ol>
+<li>$\binom { r  } { k  } \binom { r - \cfrac { 1  } { 2  }  } { k  } = \cfrac { \binom { 2 r  } { 2 k  } \binom { 2 k  } { k  }  } { 2 ^{ 2 k  }  } , k \in \mathbb { Z  } \ $.</li>
+</ol>
+<p>将加倍公式两边同时除以$k ! ^2 $即可得到这个公式.</p>
+<ol>
+<li>$\binom { n - \cfrac { 1  } { 2  }  } { n  } = \cfrac { \binom { 2 n  } { n  }  } { 2 ^{ 2 n  }  } , n \in \mathbb { Z  } \ $.</li>
+</ol>
+<p>将$( 1 ) $中令$r = k = n $即可得到这个公式.</p>
+<ol>
+<li>$\binom { - \cfrac { 1  } { 2  }  } { n  } = ( \cfrac { - 1  } { 4  } ) ^n \binom { 2 n  } { n  } , n \in \mathbb { Z  } \ $.</li>
+</ol>
+<p>即$( 2 ) $的变形.</p>
+<ol>
+<li>$\sum _{ k  } \binom { n  } { 2 k  } \binom { 2 k  } { k  } 2 ^{ - 2 k  } = \binom { n - \cfrac { 1  } { 2  }  } { \lfloor \cfrac { n  } { 2  } \rfloor  } , n \in \mathbb { N  } \ $</li>
+</ol>
+<p>首先根据$( 1 ) $,左边$= \sum _{ k  } \binom { \cfrac { n  } { 2  }  } { k  } \binom { \cfrac { n - 1  } { 2  }  } { k  } \ $,而考虑到$\cfrac { n  } { 2  } $和$\cfrac { n - 1  } { 2  } $必有一个是自然数,因此可以直接用范德蒙德卷积的变形.</p>
+<ol>
+<li>$\sum _{ k  } \binom { - \cfrac { 1  } { 2  }  } { k  } \binom { - \cfrac { 1  } { 2  }  } { n - k  } = ( - 1 ) ^n , n \in \mathbb { N  } \ $.</li>
+</ol>
+<p>直接使用范德蒙德卷积即可证明.</p>
+<ol>
+<li>$\sum _{ k  } \binom { 2 k  } { k  } \binom { 2 n - 2 k  } { n - k  } = 4 ^n , n \in \mathbb { N  } \ $.</li>
+</ol>
+<p>由$( 5 ) $和$( 3 ) $不难推出.</p>
+<ol>
+<li>$\sum _{ k  } \binom { n  } { k  } \cfrac { ( - 1 ) ^k  } { x + k  } = x ^{ - 1  } \binom { x + n  } { n  } ^{ - 1  } , x \notin \{ 0 , - 1 , . . . , - n \} \ $.</li>
+</ol>
+<p>令$f ( x ) = ( x - 1 ) ^{ \underline { - 1  }  } $,直接做高阶差分即可得到这个式子.</p>
+<ol>
+<li>$\sum _{ k = 0  } ^n \binom { r  } { k  } \binom { r  } { n - k  } ( - 1 ) ^k = [ n  is  \mathrm { even  } ] ( - 1 ) ^{ \cfrac { n  } { 2  }  } \binom { r  } { \cfrac { n  } { 2  }  } \ $.</li>
+</ol>
+<p>首先不难发现,$( 1 - z ) ^r = \sum _{ k \geq 0  } ( - 1 ) ^k \binom { r  } { k  } \ $.</p>
+<p>考虑$( 1 - z ) ^r ( 1 + z ) ^r = ( 1 - z ^2 ) ^r $.</p>
+<p>我们有$[ z ^n ] ( 1 - z ) ^r ( 1 + z ) ^r = [ z ^n ] ( 1 - z ^2 ) ^r $,不难发现即上式.</p>
+<h3><span id="卡特兰数">卡特兰数</span></h3><p>卡特兰数$f _n $表示:长度为$2 n $的合法括号序列个数.</p>
+<p>卡特兰数的前几项为$1 , 1 , 2 , 5 , 14 , 42 , 132 \cdots $.</p>
+<p>接下来,我们通过这个定义来证明以下其他定义方式.</p>
+<p>递归定义:$f _n = \sum _{ i = 0  } ^{ n - 1  } f _i f _{ n - 1 - i  } $.</p>
+<p>不妨考虑枚举一个括号序列的第一个断点,则该括号序列应形如$( A ) B $.</p>
+<p>考虑将其删成$A $和$B $,则$A $一定合法,因为若$A $不合法,那么这里一定不是第一个断点.</p>
+<p>通项公式:$f _n = \frac { 1  } { n + 1  } C _{ 2 n  } ^n = C _{ 2 n  } ^n - C _{ 2 n  } ^{ n - 1  } $.</p>
+<p>考虑平面直角坐标系,我们将’(‘认为是向右上走一单位长度,将’)’认为是向右下走一单位长度.</p>
+<p>那么卡特兰数就相当于从$( 0 , 0 ) $走到$( 2 n , 0 ) $不经过第四象限的方案数.</p>
+<p>考虑反射容斥,如果只是走到$( 2 n , 0 ) $的方案数是$C _{ 2 n  } ^n $.</p>
+<p>而如果到达第四象限,说明在这条这线上存在一个点$( x , - 1 ) $.</p>
+<p>考虑将$x $以后的折线以直线$y = - 1 $为对称轴反转,那么终点到了$( 2 n , - 2 ) $.</p>
+<p>不难发现,任意从$( 0 , 0 ) $走到$( 2 n , - 2 ) $的方案一定唯一对应了一种从$( 0 , 0 ) $走到$( 2 n , 0 ) $的不合法方案.因为从$( 0 , 0 ) $走到$( 2 n , - 2 ) $一定会经过直线$y = - 1 $,将后半部分对称后就是其对应方案.而从$( 0 , 0 ) $走到$( 2 n , - 2 ) $的方案数为$C _{ 2 n  } ^{ n - 1  } $.</p>
+<p>因而$f _n = C _{ 2 n  } ^n - C _{ 2 n  } ^{ n - 1  } \ $.</p>
+<p>而$C _{ 2 n  } ^n - C _{ 2 n  } ^{ n - 1  } = \frac { ( 2 n ) !  } { n ! n !  } - \frac { ( 2 n ) !  } { ( n - 1 ) ! ( n + 1 ) !  } = \frac { ( 2 n ) !  } { n ! ( n + 1 ) !  } = \frac { C _{ 2 n  } ^n  } { n + 1  } \ $.</p>
+<p>递推定义:$f _n = \frac { 4 n - 2  } { n + 1  } f _{ n - 1  } \ $.</p>
+<p>使用一下上一步的通项公式:</p>
+<p>f_n=\frac{(2n)!}{n!(n+1)!}\\</p>
+<p>f_{n-1}=\frac{(2n-2)!}{(n-1)!(n)!}</p>
+<p>\end{cases}\\</p>
+<p>不难发现$f _n = \frac { ( 2 n - 1 ) ( 2 n )  } { n ( n + 1 )  } f _{ n - 1  } \ $.整理,得到$f _n = \frac { 4 n - 2  } { n + 1  } f _{ n - 1  } \ $.</p>
+<p>换个记号,设$C _n $为卡特兰数的第$n $项,卡特兰数有一个著名的结论是$k $次卷积:</p>
+<script type="math/tex; mode=display">
+C ^{ ( k )  } _n = \sum _{ \sum _{ j = 1  } ^k a _j = n  } \prod C _{ a _i  } = \frac { k  } { n + k  } \binom { 2 n + k - 1  } { n  }</script><p>我们可以这么理解它:它指的是一个长度为$n + k - 1 $的括号序列,前$k - 1 $个必须是左括号的方案数.为啥呢?因为这样这个括号序列必须写成$( ( ( A ) B ) C ) D $之类的形式,等价于卷积.</p>
+<p>那么证明就很简单了,类似反射容斥,有:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+C ^{ ( k )  } _n & = \binom { 2 n + k - 1  } { n  } - \binom { 2 n + k - 1  } { n - 1  } \\
+& = \frac { k  } { n + k  } \binom { 2 n + k - 1  } { n  } 
+\end{aligned}</script><h5><span id="examplehnoi2009有趣的数列">Example([HNOI2009]有趣的数列)</span></h5><p>首先,如果没有第三条限制,那显然奇数位置和偶数位置互不影响,直接随便选,答案就是$\binom { 2 n  } { n  } $.</p>
+<p>而有了限制呢,我们还是想随便选然后顺序排起来,但是这次不能排列的时候使奇数位置大于偶数位置,可以发现这就是括号序列需要满足的条件,于是答案就是卡特兰数.</p>
+<p>至于处理,这题因为模数不是质数,需要做质因数分解来维护除法.</p>
+<h5><span id="example223省选10连测day7b">Example2([23省选10连测day7]b)</span></h5><p>给定$x , n $,对$y \in [ 1 , n ] $,固定$p _x = y $做笛卡尔树的<strong>形态</strong>计数.$n \leq 5 \times 10 ^5 $.</p>
+<p>由于是对树的形态计数,其实根本就不在乎每个点具体的取值,只要这个取值有解就行.事实上,容易发现$a _x = y $只要满足:</p>
+<ol>
+<li><p>$x $节点的祖先数量不超过$y - 1 $个(深度小于等于$y $).</p>
+</li>
+<li><p>$x $节点的子树大小不超过$n - y + 1 $.</p>
+</li>
+</ol>
+<p>发现合法不太好记,经典补集转化,然后两个不合法情况无关,分别算.</p>
+<p>我们考虑直接算出$f _p $表示$x $的深度为$p $的答案,$g _p $表示$x $的子树大小为$p $的答案,然后就可以完成这个题.</p>
+<p>这两部分怎么算呢?</p>
+<p>先看深度:$x $的祖先有两种:一种在序列中在$x $的左边,一种在$x $的右边.我们设前者为$0 = l _0 &lt; l _1 &lt; l _2 &lt; \cdots l _p &lt; l _{ p + 1  } = x $,设后者为$n + 1 = r _0 &gt; r _1 &gt; r _2 &gt; \cdots &gt; r _{ q  } &gt; r _{ q + 1  } = x $.这么分类有什么用呢?我们考虑$( l _{ i - 1  } , l _{ i  } ) $这一段数能放在哪里,它只能是$l _{ i  } $的左儿子,独立于整棵树,因此这一段的答案就是$C _{ l _i - l _{ i - 1  } - 1  } $.</p>
+<p>记:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+L _p & = \sum _{ l  } \prod _{ i = 1  } ^{ p + 1  } C _{ l _i - l _{ i - 1  } - 1  } \\
+R _q & = \sum _{ r  } \prod _{ i = 1  } ^{ q + 1  } C _{ r _{ i - 1  } - r _i - 1  } \\
+
+\end{aligned}</script><p>注意到这等价于卡特兰数的$k $次卷积,有:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+L _p & = C _{ x - p - 1  } ^{ ( p + 1 )  } \\
+R _q & = C ^{ ( q + 1 )  } _{ n - x - q  } \\
+
+\end{aligned}</script><p>此时的答案自然是$f _{ p + q + 1  } = L _p R _q \binom { p + q  } { q  } $,做卷积.</p>
+<p>儿子怎么算呢?二叉搜索树有一个经典性质:确定根后每个点插在哪里是固定的.也就是说我们把$x $的子树从原树中删去,然后插入$x $一定会插回原位置,这是一个双射.而子树内随便做,设左子树大小为$p $,右子树大小为$q $,我们有$g _{ p + q + 1  } = C _p C _q C _{ n - ( p + q + 1 )  } = C _{ n - 1  } ^{ ( 3 )  } $,同样是简单的卷积.</p>
+<h3><span id="二项式系数的处理">二项式系数的处理</span></h3><h4><span id="通过恒等式变形求解">通过恒等式变形求解</span></h4><h5><span id="example1">Example1</span></h5><p>求$\sum _{ k = 0  } ^n k \binom { m - k - 1  } { m - n - 1  } , n , m \in \mathbb { N  } \land m &gt; n \ $.</p>
+<p>这个式子乘了个系数$k $导致很难处理,一个自然的想法是使用吸收恒等式将$k $消去,然后对后面的式子使用上指标求和.</p>
+<p>于是:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum _{ k = 0  } ^n k \binom { m - k - 1  } { m - n - 1  } & = \sum _{ k = 0  } ^n m \binom { m - k - 1  } { m - n - 1  } - \sum _{ k = 0  } ^n ( m - k ) \binom { m - k - 1  } { m - n - 1  } \\
+& = m \sum _{ k = 0  } ^{ m - 1  } \binom { m - k - 1  } { m - n - 1  } - ( m - n ) \sum _{ k = 0  } ^m \binom { m - k  } { m - n  } 
+\end{aligned}</script><p>不妨令$S _m = \sum _{ k = 0  } ^m \binom { m - k  } { m - n  } \ $,不难发现我们有:</p>
+<script type="math/tex; mode=display">
+S _m = \sum _{ k = 0  } ^m \binom { k  } { m - n  } = \binom { m + 1  } { m - n + 1  }</script><p>于是原式$= mS _{ m - 1  } - ( m - n ) S _m = \cfrac { n  } { m - n + 1  } \binom { m  } { m - n  } \ $.</p>
+<p>不过事实上,我们有另一种方式来处理这个等式,我们直接将$k = \binom { k  } { 1  } $带入:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum _{ k = 0  } ^n k \binom { m - k - 1  } { m - n - 1  } & = \sum _{ k = 0  } ^n \binom { k  } { 1  } \binom { m - k - 1  } { m - n - 1  } \\
+& = \binom { m  } { m - n + 1  } \\
+& = \cfrac { n  } { m - n + 1  } \binom { m  } { m - n  } 
+\end{aligned}</script><h5><span id="example2">Example2</span></h5><p>求$\sum _{ k  } k \binom { n  } { k  } \binom { s  } { k  } , n \in \mathbb { N  } \ $.</p>
+<p>第一反应仍然是使用吸收恒等式,但是注意到$n $和$s $的范围不一样,由于吸收恒等式的范围很松,因此应选择一个范围更松的数吸收,这样才能保证另一个数范围的特殊性,于是有:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum _{ k  } k \binom { n  } { k  } \binom { s  } { k  } & = s \sum _{ k  } \binom { n  } { k  } \binom { s - 1  } { k - 1  } \\
+& = s \binom { n + s - 1  } { n - 1  } 
+\end{aligned}</script><h5><span id="example3">Example3</span></h5><p>求$\sum _{ 0 \leq k  } \binom { n + k  } { 2 k  } \binom { 2 k  } { k  } \cfrac { ( - 1 ) ^k  } { k + 1  } , n \in \mathbb { N  } \ $.</p>
+<p>我们有:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum _{ 0 \leq k  } \binom { n + k  } { 2 k  } \binom { 2 k  } { k  } \cfrac { ( - 1 ) ^k  } { k + 1  } & = \sum _{ 0 \leq k  } \binom { n + k  } { k  } \binom { n  } { k  } \cfrac { ( - 1 ) ^k  } { k + 1  } , n \in \mathbb { N  } \\
+& = \cfrac { 1  } { n + 1  } \sum _{ 0 \leq k  } \binom { n + k  } { k  } \binom { n + 1  } { k + 1  } { ( - 1 ) ^k  } \\
+& = \cfrac { 1  } { n + 1  } \sum _{ 0 \leq k  } \binom { - n - 1  } { k  } \binom { n + 1  } { k + 1  } \\
+& = \cfrac { 1  } { n + 1  } \binom { 0  } { n  } \\
+& = [ n & = 0 ] 
+\end{aligned}</script><h5><span id="example4">Example4</span></h5><p>求$\sum _{ k \geq 0  } \binom { n + k  } { m + 2 k  } \binom { 2 k  } { k  } \cfrac { ( - 1 ) ^k  } { k + 1  } , n , m \in \mathbb { N _+  } \ $.</p>
+<p>考虑恒等式扩展的二项式恒等式(整数范围内)的$( 1 ) $,我们有:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum _{ k \geq 0  } \binom { n + k  } { m + 2 k  } \binom { 2 k  } { k  } \cfrac { ( - 1 ) ^k  } { k + 1  } & = \sum _{ k \geq 0  } \sum _{ 0 \leq j \leq n + k - 1  } \binom { n + k - 1 - j  } { 2 k  } \binom { j  } { m - 1  } \binom { 2 k  } { k  } \cfrac { ( - 1 ) ^k  } { k + 1  } \\
+& = \sum _{ 0 \leq j \leq n - 1  } \binom { j  } { m - 1  } \sum _{ j + 1 - n \leq k , 0 \leq k  } \binom { n + k - 1 - j  } { 2 k  } \binom { 2 k  } { k  } \cfrac { ( - 1 ) ^k  } { k + 1  } 
+\end{aligned}</script><p>注意到如果$j + 1 - n \geq 0 $,则$\binom { n + k - 1 - j  } { 2 k  } \ $应为$0 $.所以有:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum _{ 0 \leq j \leq n - 1  } \binom { j  } { m - 1  } \sum _{ j + 1 - n \leq k , 0 \leq k  } \binom { n + k - 1 - j  } { 2 k  } \binom { 2 k  } { k  } \cfrac { ( - 1 ) ^k  } { k + 1  } \\
+& = \sum _{ 0 \leq j < n  } \binom { j  } { m - 1  } [ n - 1 - j & = 0 ] & = \binom { n - 1  } { m - 1  } 
+\end{aligned}</script><h5><span id="example5">Example5</span></h5><p>求$\sum _{ k = 0  } ^n ( C _n ^k ) ^2 $.</p>
+<script type="math/tex; mode=display">
+\sum _{ k = 0  } ^n ( C _n ^k ) ^2 = \sum _{ k = 0  } ^n C _{ n  } ^k \times C _{ n  } ^{ n - k  } = C _n ^{ 2 n  }</script><h4><span id="转化为递归式和式求解">转化为递归式/和式求解</span></h4><h5><span id="example1">Example1</span></h5><p>求$Q _n = \sum _{ k \leq 2 ^n  } \binom { 2 ^n - k  } { k  } ( - 1 ) ^k , n \in \mathbb { N  } \ $.</p>
+<p>如果要转化为递归式的话,我们所掌握的只有加法恒等式,但加法恒等式只给出了杨辉三角中相邻两行的关系.但由于$Q _n $的式子中实际上只与$2 ^n $有关,我们不妨令$R _n = \sum _{ k \leq n  } \binom { n - k  } { k  } ( - 1 ) ^k \ $,显然有$Q _n = R _{ 2 ^n  } $.</p>
+<p>而我们有:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+R _n & = \sum _{ k \leq n  } \binom { n - 1 - k  } { k  } ( - 1 ) ^k + \sum _{ k \leq n  } \binom { n - 1 - k  } { k - 1  } ( - 1 ) ^k \\
+& = \sum _{ k \leq n  } \binom { n - 1 - k  } { k  } ( - 1 ) ^k + \sum _{ k \leq n - 1  } \binom { n - k - 2  } { k  } ( - 1 ) ^{ k + 1  } \\
+& = \sum _{ k \leq n - 1  } \binom { n - 1 - k  } { k  } ( - 1 ) ^k + \binom { - 1  } { n  } ( - 1 ) ^n - ( \sum _{ k \leq n - 2  } \binom { n - 2 - k  } { k  } ( - 1 ) ^k + \binom { - 1  } { n - 1  } ( - 1 ) ^{ n - 1  } ) \\
+& = \sum _{ k \leq n - 1  } \binom { n - 1 - k  } { k  } ( - 1 ) ^k - \sum _{ k \leq n - 1  } \binom { n - 2 - k  } { k  } ( - 1 ) ^k \\
+& = R _{ n - 1  } - R _{ n - 2  } \\
+& = R _{ n - 2  } - R _{ n - 3  } - R _{ n - 2  } \\
+& = - R _{ n - 3  } \\
+& = R _{ n - 6  } 
+\end{aligned}</script><p>也即$R _n $具有周期性,不难计算前几项答案,最后有$Q _n \begin{cases}1 &amp; n = 0 \ 0 &amp; n  is  \mathrm { odd  } \ - 1 &amp; n &gt; 0 \land n  is  \mathrm { even  } \end{cases} $.</p>
+<h5><span id="example2">Example2</span></h5><p>求$( \sum ^{ + \infty  } _{ i = 0  } C ^{ ik + r  } _{ nk  } ) \mod p $.</p>
+<p>考虑设$f ( n , r ) = \sum ^{ + \infty  } _{ i = 0  } C ^{ ik + r  } _{ nk  } \ $,则有:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f ( n , r ) & = \sum ^{ + \infty  } _{ i = 0  } C ^{ ik + r  } _{ nk  } \\
+& = \sum _{ i = 0  } ^{ + \infty  } \sum _{ j = 0  } ^k C _{ nk - k  } ^{ ik + r - j  } \times C _k ^j \\
+& = \sum ^k _{ j = 0  } C _k ^j \sum _{ i = 0  } ^{ + \infty  } C _{ nk - k  } ^{ ik + r - j  } \\
+& = \sum _{ j = 0  } ^k C _k ^j f ( n - 1 , r - j ) \\
+
+\end{aligned}</script><p>整理上式,得到:$f ( n , r ) = \sum _{ j = 0  } ^k C _k ^j f ( n - 1 , r - j ) \ $.</p>
+<p>于是我们得到了关于$f $的转移方程,可以矩阵加速.</p>
+<h4><span id="利用微积分求解">利用微积分求解</span></h4><h5><span id="example">Example</span></h5><p>求$\sum _{ k = 1  } ^n k ^2 C _n ^k $.</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+( ( 1 + x ) ^n ) & = ( \sum _{ k = 0  } ^n C _n ^k x ^{ k  } ) \\
+( ( 1 + x ) ^n ) ' & = ( \sum _{ k = 0  } ^n C _n ^k x ^{ k  } ) ' \\
+n ( 1 + x ) ^{ n - 1  } & = \sum _{ k = 0  } ^n kC _n ^k x ^{ k - 1  } \\
+nx ( 1 + x ) ^{ n - 1  } & = \sum _{ k = 0  } ^n kC _n ^k x ^{ k  } \\
+( nx ( 1 + x ) ^{ n - 1  } ) ' & = ( \sum _{ k = 0  } ^n kC _n ^k x ^{ k  } ) ' \\
+n ( ( 1 + x ) ^{ n - 1  } + ( n - 1 ) x ( 1 + x ) ^{ n - 2  } ) & = \sum _{ k = 0  } ^n k ^2 C _n ^k x ^{ k - 1  } \\
+
+\end{aligned}</script><p>取$x = 1 $,则原式$= n ( n + 1 ) 2 ^{ n - 2  } $.</p>
+<h4><span id="转化为二维平面">转化为二维平面</span></h4><h5><span id="example1">Example1</span></h5><p>多次询问给定$k , r $,$\sum k \leq 2 n , r &lt; 2 n - k $,求$\sum _{ i = 0  } ^{ r  } \frac { 1  } { 2 ^i  } \binom { i  } { n - k  } $,.</p>
+<p>我们把模型抽象成:在二维平面上,从$( 0 , 0 ) $随机游走到$( n - k + 1 , r - n + k ) $正下方(包含这个点)的概率,容易发现此时向右走了$n - k $步,总共走了$\leq r $步,然后再向右走一步保证第一次走到了$( n - k + 1 , r - n + k ) $下方.</p>
+<p>因为是概率,所以当我们已经确定这个事会发生的时候可以多走几步,不难发现这里的概率等价于走到$x + y = r + 1 $这条直线时横坐标$\geq n - k + 1 $的概率.枚举一下总共向上走了几步,就得到$\frac { 1  } { 2 ^{ r  }  } \sum _{ j = 0  } ^{ r - n + k  } \binom { r + 1  } { j  } $,注意这里是$\frac { 1  } { 2 ^r  } $,因为从一开始钦定了一步,因此映射过来需要多乘个$\frac { 1  } { 2  } $,反映射就要乘个$2 $.但是这个式子还是做不了,因为$r $并不满足$\sum r \leq 2 n $.我们需要另辟蹊径.</p>
+<p>做一下补集转化转化成走到上方的概率,这个概率就等价于$1 - \frac { 1  } { 2 ^{ r  }  } \sum _{ i = 0  } ^{ n - k  } \binom { r + 1  } { i  } $.我们考虑暴力预处理出$f _r = \sum _{ i = 0  } ^{ n  } \binom { r  } { i  } $,每次删掉一个后缀的组合数就行.现在的问题在于$f $怎么做.</p>
+<p>直接拆组合数,我们有:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f _r & = \sum _{ i = 0  } ^n \binom { r  } { i  } \\
+& = \sum _{ i = 0  } ^n \binom { r - 1  } { i - 1  } + \sum _{ i = 0  } ^n \binom { r - 1  } { i  } \\
+& = 2 \sum _{ i = 0  } ^n \binom { r - 1  } { i  } - \binom { r - 1  } { n  } \\
+& = 2 f _{ r - 1  } - \binom { r - 1  } { n  } 
+\end{aligned}</script><h3><span id="lucas定理">Lucas定理</span></h3><p>若$p $是质数,则$C _n ^m \mod p = C _{ n \mod p  } ^{ m \mod p  } \times C _{ \lfloor \frac { n  } { p  } \rfloor  } ^{ \lfloor \frac { m  } { p  } \rfloor  } \mod p \ $.</p>
+<p>或者说,将$n $和$m $在$p $进制下分解,再逐位求组合数并相乘.</p>
+<p>证明:</p>
+<p>首先,若$i \ne 0 $且$i \ne p $,$C _{ p  } ^i \equiv \frac { p  } { i  } C _{ p - 1  } ^{ i - 1  } \equiv 0 ( \mod p ) \ $.</p>
+<p>而根据二项式定理,$( 1 + x ) ^p \equiv \sum _{ i = 0  } ^p C _{ p  } ^i x ^i = 1 + x ^p ( \mod p ) \ $.</p>
+<p>令$n = k _1 p + b _1 $,$m = k _2 p + b _2 $,则$( 1 + x ) ^n = ( 1 + x ) ^{ k _1 p  } ( 1 + x ) ^{ b _1  } \ $.</p>
+<p>而$( 1 + x ) ^{ k _1 p  } \equiv ( 1 + x ^p ) ^{ k _1  } ( \mod p ) \ $,有$( 1 + x ) ^n \equiv ( 1 + x ^p ) ^{ k _1  } ( 1 + x ) ^{ b _1  } \ $.</p>
+<p>根据二项式定理,$C _n ^m \bmod p $即$x ^m $项的系数.</p>
+<p>我们可以得出,$C _n ^m x ^m \equiv C _{ k _1  } ^{ k _2  } x ^{ k _2 p  } C _{ b 1  } ^{ b _2  } x ^{ b _2  } \pmod { p  } \ $,那么有$C _a ^b \equiv C _{ k _1  } ^{ k _2  } C _{ b _1  } ^{ b _2  } \pmod { p  } \ $.</p>
+<p>另外,Lucas定理有一个很重要的推论是:</p>
+<script type="math/tex; mode=display">
+\binom { n  } { m  } \equiv [ m \subseteq n ] \pmod { 2  }</script><h5><span id="example1cf1770fkoxia-and-sequence">Example1([CF1770F]Koxia and Sequence)</span></h5><p>首先观察样例并思考,可以发现当$n $为偶数时,显然翻转整个序列就可以一一对应(除非翻转后与本身相同,但这种情况下异或值也是$0 $),所以异或值为$0 $.不然,我们可以翻转$a [ 2 . . . n ] $,得出答案应该是所有$a _1 $的异或和.</p>
+<p>问题在于接下来怎么做,我们考虑把按位或的那个东西容斥掉.现在问题转化为:对于所有$y ‘ \subseteq y $,求出满足$a _i \subseteq y ‘ , \sum a _i = x $时,$a _1 $异或和.接下来怎么做呢?我们考虑拆位,若$2 ^k \subseteq y ‘ $,假设$a _1 $的第$k $位是$1 $,然后讨论此时它对答案是否会产生贡献.</p>
+<p>我们不难发现,第$k $位贡献是:</p>
+<script type="math/tex; mode=display">
+[ 2 ^k \subseteq y ' ] \bigoplus _{ \sum a = x  } [ 2 ^k \subseteq a _1 ] \prod _{ i = 1  } ^n [ a _i \subseteq y ' ]</script><p>这个东西看上去没办法做,但我们突然想到个事:Lucas定理的推论:$[ x \subseteq y ] \equiv \binom { y  } { x  } \pmod { 2  } $.</p>
+<p>所以原式化简为:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\binom { y '  } { 2 ^k  } \sum _{ \sum a = x  } \binom { a _1  } { 2 ^k  } \prod _{ i = 1  } ^n \binom { y '  } { a _i  } \pmod { 2  } \\
+& = \binom { y '  } { 2 ^k  } \sum _{ a _1  } \binom { y ' - 2 ^k  } { a _1 - 2 ^k  } \sum _{ \sum a = x - a _1  } \prod _{ i = 2  } ^n \binom { y '  } { a _i  } \pmod { 2  } \\
+
+\end{aligned}</script><p>然后呢?不难发现后面那一串是范德蒙德卷积的形式,就可以写成:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\binom { y '  } { 2 ^k  } \sum _{ a _1  } \binom { y ' - 2 ^k  } { a _1 - 2 ^k  } \binom { ( n - 1 ) y '  } { x - a _1  } \pmod { 2  } \\
+& = \binom { y '  } { 2 ^k  } \binom { ny ' - 2 ^k  } { x - 2 ^k  } \pmod { 2  } \\
+& = [ 2 ^k \subseteq y ' ] [ ( x - 2 ^k ) \subseteq ( ny ' - 2 ^k ) ] 
+\end{aligned}</script><h3><span id="扩展lucas定理">扩展Lucas定理</span></h3><p>令$p = \prod p _i ^{ e _i  } $,那我们只要对于每个$i $求出$C _n ^m \mod p _i ^{ e _i  } $,然后使用中国剩余定理合并即可.</p>
+<p>那现在问题转化为要求$C _n ^m \mod p ^k $,其中$p \in prime $.</p>
+<p>原式$= \frac { n !  } { m ! ( n - m ) !  } \mod p ^k = \frac { \frac { n !  } { p ^x  }  } { \frac { m !  } { p ^y  } \frac { ( n - m ) !  } { p ^z  }  } p ^{ x - y - z  } \mod p ^k \ $.</p>
+<p>现在问题转化为求$\frac { n !  } { p ^x  } \mod p ^k 以 及 p ^x \ $.</p>
+<p>注意到:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+n ! & = \prod _{ i = 1  } i \\
+& = ( \prod _{ i = wp , w \in \mathbb { Z  }  } i ) ( \prod _{ i \ne wp , w \in \mathbb { Z  }  } i ) \\
+& = p ^{ \lfloor n p \rfloor  } ( \lfloor n p \rfloor ! ) ( \prod _{ i \ne wp , w \in \mathbb { Z  }  } i ) \\
+& \equiv p ^{ \lfloor \frac { n  } { p  } \rfloor  } ( \lfloor \frac { n  } { p  } \rfloor ! ) ( \prod _{ i = 1 , i \ne wp , w \in \mathbb { Z  }  } ^{ p ^k  } i ) ^{ \lfloor \frac { n  } { p ^k  } \rfloor  } ( \prod ^{ n \ \bmod { p ^k  }  } _{ i = p ^k \lfloor \frac { n  } { p ^k  } \rfloor , i \ne wp , w \in \mathbb { Z  }  } i ) ( \mod p ^k ) 
+\end{aligned}</script><p>递归求解即可.</p>
+<p>ps:</p>
+<p>这样摆式子可能非常难以理解,我们考虑将$[ 1 , n ] $的所有数全部排成一个宽为$p ^k $的矩阵.</p>
+<p>那右边第一项就是把那些$p $的倍数的列拿出来,第二项是那些填满的行,第三项是最后没填满的一行.</p>
+<h2><span id="斯特林数">斯特林数</span></h2><h3><span id="第一类斯特林数">第一类斯特林数</span></h3><p>$n \brack k \ $:长度为$n $的排列划分成$k $个轮换的方案数.</p>
+<p>考虑现在已经将$n - 1 $个数分成了若干轮换,现在新加入第$n $个数.这个数要么和其他的数一起组成轮换,要么自己形成自环.</p>
+<p>而由于它可以插入前面轮换的任意位置,显然$\left [ \begin{array}{ c  } n \ k \end{array} \right ] = ( n - 1 ) \left [ \begin{array}{ c  } n - 1 \ k \end{array} \right ] + \left [ \begin{array}{ c  } n - 1 \ k - 1 \end{array} \right ] \ $.</p>
+<p>特别地,我们定义$\left [ \begin{array}{ c  } 0 \ k \end{array} \right ] = [ k = 0 ] \ $.</p>
+<p>由于所有的排列都由若干置换组成,因此我们有:$\sum _{ k = 0  } ^n \left [ \begin{array}{ c  } n \ k \end{array} \right ] = n ! $.</p>
+<h3><span id="第二类斯特林数">第二类斯特林数</span></h3><p>$\left \{ \begin{array}{ c  } n \ k \end{array} \right \} $:将$n $个本质不同的物品划分成k个非空集合的方案数.</p>
+<p>考虑现在已经放好$n - 1 $个物品,正要放入第$n $个物品.那么这个物品要么单独放在一起,要么和其他物品放在一起.显然$\left \{ \begin{array}{ c  } n \ k \end{array} \right \} = k \left \{ \begin{array}{ c  } n - 1 \ k \end{array} \right \} + \left \{ \begin{array}{ c  } n - 1 \ k - 1 \end{array} \right \} \ $.</p>
+<p>特别地,我们定义$\left \{ \begin{array}{ c  } 0 \ k \end{array} \right \} = [ k = 0 ] \ $.</p>
+<h3><span id="斯特林数的扩展">斯特林数的扩展</span></h3><p>如果我们让斯特林数的定义式扩展到整数域,我们可以发现一个性质:${ n \brack m  } = { - m \brace - n  } \ $.</p>
+<h3><span id="基本斯特林恒等式">基本斯特林恒等式</span></h3><ol>
+<li>$x ^n = \sum _{ k = 0  } ^n \left \{ \begin{array}{ c  } n \ k \end{array} \right \} x ^{ \underline { k  }  } = \sum _{ k = 0  } ^n \left \{ \begin{array}{ c  } n \ k \end{array} \right \} ( - 1 ) ^{ n - k  } x ^{ \overline { k  }  } \ $.</li>
+</ol>
+<p>证明:先考虑前半段,不妨使用数学归纳.若$x ^{ n - 1  } = \sum _{ k = 0  } ^{ n - 1  } \left \{ \begin{array}{ c  } n - 1 \ k \end{array} \right \} x ^{ \underline { k  }  } \ $,我们要证</p>
+<p>\\</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+x \sum _{ k = 0  } ^{ n - 1  } \left \{ \begin{array}
+{ c  } n - 1 \\
+k 
+\end{array} \right \} x ^{ \underline { k  }  } & = \sum _{ k = 0  } ^{ n  } \left \{ \begin{array}
+{ c  } n \\
+k 
+\end{array} \right \} x ^{ \underline { k  }  } \\
+
+\end{aligned}</script><p>考虑$( x - k ) x ^{ \underline { k  }  } = x ^{ \underline { k + 1  }  } $,所以$x \cdot x ^{ \underline { k  }  } = x ^{ \underline { k + 1  }  } + kx ^{ \underline { k  }  } \ $.那么左边即:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum _{ k = 0  } ^{ n - 1  } \left \{ \begin{array}
+{ c  } n - 1 \\
+k 
+\end{array} \right \} x ^{ \underline { k + 1  }  } + \sum _{ k = 0  } ^{ n - 1  } \left \{ \begin{array}
+{ c  } n - 1 \\
+k 
+\end{array} \right \} kx ^{ \underline { k  }  } \\
+& = \sum _{ k = 1  } ^{ n  } \left \{ \begin{array}
+{ c  } n - 1 \\
+k - 1 
+\end{array} \right \} x ^{ \underline { k  }  } + \sum _{ k = 1  } ^{ n  } \left \{ \begin{array}
+{ c  } n - 1 \\
+k 
+\end{array} \right \} kx ^{ \underline { k  }  } \\
+& = \sum _{ k = 0  } ^n \left \{ \begin{array}
+{ c  } n \\
+k 
+\end{array} \right \} x ^{ \underline { k  }  } \\
+\\
+
+\end{aligned}</script><p>至于后半段,由于$x ^{ \underline { n  }  } = ( - 1 ) ^n ( - x ) ^{ \overline { n  }  } \ $,所以$x ^n = \sum _{ k = 0  } ^n \left \{ \begin{array}{ c  } n \ k \end{array} \right \} ( - 1 ) ^k ( - x ) ^{ \overline { k  }  } \ $.</p>
+<p>不妨用$x $来代替$- x $,我们有:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+( - x ) ^n & = \sum _{ k = 0  } ^n \left \{ \begin{array}
+{ c  } n \\
+k 
+\end{array} \right \} ( - 1 ) ^k ( x ) ^{ \overline { k  }  } \\
+x ^n & = \sum _{ k = 0  } ^n \left \{ \begin{array}
+{ c  } n \\
+k 
+\end{array} \right \} ( - 1 ) ^{ n - k  } x ^{ \overline { k  }  } 
+\end{aligned}</script><ol>
+<li><p>$x ^{ \overline { n  }  } = \sum _{ k = 0  } ^n \left [ \begin{array}{ c  } n \ k \end{array} \right ] x ^k \ $.</p>
+</li>
+<li><p>$x ^{ \underline { n  }  } = \sum _{ k = 0  } ^n \left [ \begin{array}{ c  } n \ k \end{array} \right ] ( - 1 ) ^{ n - k  } x ^k \ $.</p>
+</li>
+</ol>
+<p>证明:</p>
+<p>先考虑前者,由于$( x + n - 1 ) x ^k = x ^{ k + 1  } + ( n - 1 ) x ^k \ $,所以类似于(1)前半段的推导即可得到,后者同样可以使用下降幂和上升幂的转化来得到.</p>
+<ol>
+<li>反转公式:$\sum _{ k = 0  } ^n \left [ \begin{array}{ c  } n \ k \end{array} \right ] \left \{ \begin{array}{ c  } k \ m \end{array} \right \} ( - 1 ) ^{ n - k  } = \sum _{ k = 0  } ^n \left \{ \begin{array}{ c  } n \ k \end{array} \right \} \left [ \begin{array}{ c  } k \ m \end{array} \right ] ( - 1 ) ^{ n - k  } = [ m = n ] \ $.</li>
+</ol>
+<p>证明:</p>
+<p>考虑先证明后半部分,将(3)带入(1),得到$x ^n = \sum _{ k = 0  } ^n \left \{ \begin{array}{ c  } n \ k \end{array} \right \} x ^{ \underline { k  }  } = \sum _{ k = 0  } ^n \sum _{ m = 0  } ^k \left \{ \begin{array}{ c  } n \ k \end{array} \right \} \left [ \begin{array}{ c  } k \ m \end{array} \right ] ( - 1 ) ^{ n - k  } x ^m \ $.</p>
+<p>由于这对任意$x $都成立,因此右边除了$x ^n $以外的项系数均为$0 $,而$x ^n $的系数为$1 $.前半部分是同理的.这个公式是斯特林反演的基础.</p>
+<ol>
+<li><p>$\left \{ \begin{array}{ c  } n + 1 \ m + 1 \end{array} \right \} = \sum _{ k = m  } ^n \left ( \begin{array}{ c  } n \ k \end{array} \right ) \left \{ \begin{array}{ c  } k \ m \end{array} \right \} \ $.</p>
+</li>
+<li><p>$\left [ \begin{array}{ c  } n + 1 \ m + 1 \end{array} \right ] = \sum _{ k = m  } ^n \left ( \begin{array}{ c  } n \ k \end{array} \right ) \left [ \begin{array}{ c  } k \ m \end{array} \right ] \ $.</p>
+</li>
+</ol>
+<p>证明:对于前者,考虑组合意义,将$n + 1 $个分为$m + 1 $组,也就是先找一部分分成$m $组,再把剩下的分到一组.对于后者,也可以同样考虑组合意义.</p>
+<h3><span id="补充斯特林恒等式">补充斯特林恒等式</span></h3><ol>
+<li><p>$\left \{ \begin{array}{ c  } n \ m \end{array} \right \} = \sum _{ k = m  } ^n \left ( \begin{array}{ c  } n \ k \end{array} \right ) \left \{ \begin{array}{ c  } k + 1 \ m + 1 \end{array} \right \} ( - 1 ) ^{ n - k  } \ $.</p>
+</li>
+<li><p>$\left [ \begin{array}{ c  } n \ m \end{array} \right ] = \sum _{ k = m  } ^n \left ( \begin{array}{ c  } n \ k \end{array} \right ) \left [ \begin{array}{ c  } k + 1 \ m + 1 \end{array} \right ] ( - 1 ) ^{ n - k  } \ $.</p>
+</li>
+</ol>
+<p>证明:由(5)(6),根据二项式反演可知.</p>
+<ol>
+<li>$m ! \left \{ \begin{array}{ c  } n \ m \end{array} \right \} = \sum _{ k = 0  } ^m C _m ^k k ^n ( - 1 ) ^{ m - k  } \ $.</li>
+</ol>
+<p>证明:首先有$m ^n = \sum _{ k = 0  } ^m m ^{ \underline { k  }  } \left \{ \begin{array}{ c  } m \ k \end{array} \right \} = \sum _{ k = 0  } ^m k ! C _m ^k \left \{ \begin{array}{ c  } m \ k \end{array} \right \} \ $,对这个式子进行二项式反演即可.</p>
+<ol>
+<li>$\left \{ \begin{array}{ c  } n + 1 \ m + 1 \end{array} \right \} = \sum _{ k = 0  } ^n \left \{ \begin{array}{ c  } k \ m \end{array} \right \} ( m + 1 ) ^{ n - k  } \ $.</li>
+</ol>
+<p>证明:</p>
+<p>考虑组合意义,相当于先把前$k $个分为$m $组,把第$k + 1 $个数放到第$m + 1 $组.然后剩下$( n + 1 ) - ( k + 1 ) = n - k $个随便放.相当于我们按照每组所放的数的最小值区分每组.由于这么做,第$m + 1 $组(最小值最大的那组)在$k $不同的时候最小值是不同的,因此一定不重不漏.</p>
+<ol>
+<li>$\left [ \begin{array}{ c  } n + 1 \ m + 1 \end{array} \right ] = \sum _{ k = 0  } ^n \left [ \begin{array}{ c  } k \ m \end{array} \right ] C _{ n  } ^k ( n - k ) ! = n ! \sum _{ k = 0  } ^n \frac { \left [ \begin{array}{ c  } k \ m \end{array} \right ]  } { k !  } \ $.</li>
+</ol>
+<p>证明:</p>
+<p>先考虑前半部分,首先如果$n &gt; 0 $,我们有$\left [ \begin{array}{ c  } n \ 1 \end{array} \right ] = ( n - 1 ) ! \ $.这个式子很显然,我们现在有一个长度为$n - 1 $的环,想要往里插入第$n $个数有$n - 1 $种选择,所以我们有:$\left [ \begin{array}{ c  } n \ 1 \end{array} \right ] = \left [ \begin{array}{ c  } n - 1 \ 1 \end{array} \right ] ( n - 1 ) \ $,数学归纳一下即可.</p>
+<p>那么前半部分的组合意义就是:考虑将$n + 1 $个数划分成$m + 1 $个环,我们先将其中$k $个数划分成$m $个环,剩下$n + 1 - k $个数划分成另一个环.但是这样算显然会算重,所以我们只需要勒令第$n + 1 $个数在最后一个环里即可.该证明就显然了.</p>
+<p>而由于$C _n ^k ( n - k ) ! = C _n ^{ n - k  } ( n - k ) ! = n ^{ \underline { n - k  }  } = \frac { n !  } { k !  } \ $.因此后半部分也得证.</p>
+<ol>
+<li><p>$\left \{ \begin{array}{ c  } n + m + 1 \ m \end{array} \right \} = \sum _{ k = 0  } ^m k \left \{ \begin{array}{ c  } n + k \ k \end{array} \right \} \ $.</p>
+</li>
+<li><p>$\left [ \begin{array}{ c  } n + m + 1 \ m \end{array} \right ] \sum _{ k = 0  } ^m ( n + k ) \left [ \begin{array}{ c  } n + k \ k \end{array} \right ] \ $.</p>
+</li>
+</ol>
+<p>证明:</p>
+<p>先考虑前者,我们将$n + k $个位置分到$k $个集合之后.还剩下$( n + m + 1 ) - ( n + k ) = ( m - k + 1 ) $个数,剩下$( m - k ) $个集合.</p>
+<p>拿出来$( n + k + 1 ) $这个数,剩下的数刚好够每个集合放一个.最后枚举一下把$( n + k + 1 ) $放在哪里即可.由于每个划分一定存在一段(可能是$0 $)单独自己集合的后缀.所以这个递推成立.后者也可以同样证明.</p>
+<ol>
+<li>$C _n ^m ( n - 1 ) ^{ \underline { n - m  }  } = \sum _{ k = m  } ^n \left [ \begin{array}{ c  } n \ k \end{array} \right ] \left \{ \begin{array}{ c  } k \ m \end{array} \right \} \ $.</li>
+</ol>
+<p>证明:</p>
+<p>考虑$( n - 1 ) ^{ \underline { n - m  }  } = \frac { ( n - 1 ) !  } { ( m - 1 ) !  } \ $,不妨设$f ( n , m ) = \sum _{ k = m  } ^n \left [ \begin{array}{ c  } n \ k \end{array} \right ] \left \{ \begin{array}{ c  } k \ m \end{array} \right \} \ $,相当于将$n $个数分成非空$m $组,然后组内的数要形成若干轮换的方案数.那么知道$f ( n , m ) = f ( n - 1 , m - 1 ) + ( n - 1 + m ) f ( n - 1 , m ) \ $.</p>
+<p>设$g ( n , m ) = C _n ^m \frac { ( n - 1 ) !  } { ( m - 1 ) !  } = \frac { n ! ( n - 1 ) !  } { m ! ( n - m ) ! ( m - 1 ) !  } \ $,那么知道:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g ( n - 1 , m - 1 ) & = \frac { ( n - 1 ) ! ( n - 2 ) !  } { ( m - 1 ) ! ( n - m ) ! ( m - 2 ) !  } \\
+g ( n - 1 , m ) & = \frac { ( n - 1 ) ! ( n - 2 ) !  } { m ! ( n - 1 - m ) ! ( m - 2 ) !  } \\
+
+\end{aligned}</script><p>显然$g ( n , m ) = g ( n - 1 , m - 1 ) + ( n - 1 + m ) g ( n - 1 , m ) \ $,数学归纳即可.</p>
+<ol>
+<li><p>$C _n ^m = \frac { n !  } { m ! ( n - m ) !  } = \sum _{ k = m  } ^n \left \{ \begin{array}{ c  } n + 1 \ k + 1 \end{array} \right \} \left [ \begin{array}{ c  } k \ m \end{array} \right ] ( - 1 ) ^{ m - k  } \ $.</p>
+</li>
+<li><p>$n ^{ \underline { n - m  }  } = \frac { n !  } { m !  } = \sum _{ k = m  } ^n \left [ \begin{array}{ c  } n + 1 \ k + 1 \end{array} \right ] \left \{ \begin{array}{ c  } k \ m \end{array} \right \} ( - 1 ) ^{ m - k  } ， 其 中 m \leq n \ $.</p>
+</li>
+</ol>
+<p>证明:考虑(5)(6),对其做一遍斯特林反演即可.</p>
+<ol>
+<li><p>$\left \{ \begin{array}{ c  } n \ l + m \end{array} \right \} C _{ l + m  } ^l = \sum _{ k = l  } ^n \left \{ \begin{array}{ c  } k \ l \end{array} \right \} \left \{ \begin{array}{ c  } n - k \ m \end{array} \right \} C _n ^k \ $.</p>
+</li>
+<li><p>$\left [ \begin{array}{ c  } n \ l + m \end{array} \right ] C _{ l + m  } ^l = \sum _{ k = l  } ^n \left [ \begin{array}{ c  } k \ l \end{array} \right ] \left [ \begin{array}{ c  } n - k \ m \end{array} \right ] C _n ^k \ $.</p>
+</li>
+</ol>
+<p>证明:先考虑前者,左边即先将$n $个数分为$l + m $个集合,然后再挑出$l $个集合.那不妨枚举这$l $个集合中是哪些数,然后再进行分配.后者同理.</p>
+<h2><span id="欧拉数">欧拉数</span></h2><p>记$\left \langle \begin{array}\ n \ k \end{array} \right \rangle $表示$\{ 1 , 2 , . . . , n \} $的排列$a $中满足这条性质的排列个数:存在且只存在$k $个升高,换句话说,存在且只存在$k $个$i $,满足$1 \leq i &lt; n $,$a _i &lt; a _{ i + 1  } $.不难发现$\left \langle \begin{array}\ n \ k \end{array} \right \rangle = \left \langle \begin{array}\ n \ n - k - 1 \end{array} \right \rangle $.</p>
+<p>考虑在一个$\{ 1 , 2 , . . . , n - 1 \} $的排列中插入$n $,设插入的位置是原本$a _i $的后面,那么要么原本$a _i &lt; a _{ i + 1  } $,要么反之.前者不会改变排列的升高的数量,后者则会增加$1 $.另外还有一种情况是插入到了序列最前面.于是我们自然得到:$\left \langle \begin{array}\ n \ k \end{array} \right \rangle = ( k + 1 ) \left \langle \begin{array}\ n - 1 \ k \end{array} \right \rangle + ( n - k ) \left \langle \begin{array}\ n - 1 \ k - 1 \end{array} \right \rangle $.</p>
+<p>特别地,我们令$\left \langle \begin{array}\ 0 \ k \end{array} \right \rangle = [ k = 0 ] $,若$k &lt; 0 $,则$\left \langle \begin{array}\ n \ k \end{array} \right \rangle = 0 $.</p>
+<h3><span id="欧拉数与二项式系数">欧拉数与二项式系数</span></h3><p>我们有Worpitzky恒等式:</p>
+<script type="math/tex; mode=display">
+x ^n = \sum _{ k \geq 0  } \binom { x + k  } { n  } \left \langle \begin{array}
+\\
+n \\
+k 
+\end{array} \right \rangle , n \in \mathbb { N  }</script><p>还有另一个恒等式:</p>
+<script type="math/tex; mode=display">
+\left \langle \begin{array}
+\\
+n \\
+m 
+\end{array} \right \rangle = \sum _{ k = 0  } ^m \binom { n + 1  } { k  } ( m + 1 - k ) ^n ( - 1 ) ^k</script><p>剩下的不会了.</p>
+<h2><span id="伯努利数">伯努利数</span></h2><p>定义$B _j $为第$j $个伯努利数,且满足$\sum _{ j = 0  } ^m \binom { m + 1  } { j  } B _j = [ m = 0 ] , m \geq 0 \ $.</p>
+<p>定义$S _m ( n ) = \sum _{ i = 0  } ^{ n - 1  } i ^m $.</p>
+<p>伯努利数满足公式:$S _m ( n ) = \cfrac { 1  } { m + 1  } \sum _{ k = 0  } ^m \binom { m + 1  } { k  } B _k n ^{ m + 1 - k  } \ $.</p>
+<p>证明如下:</p>
+<p>对$S _{ m + 1  } ( n ) $使用扰动法,我们有:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+S _{ m + 1  } ( n ) + n ^{ m + 1  } & = \sum _{ k = 0  } ^{ n - 1  } ( k + 1 ) ^{ m + 1  } \\
+& = \sum _{ k = 0  } ^{ n - 1  } \sum _{ j = 0  } ^{ m + 1  } \binom { m + 1  } { j  } k ^j \\
+& = \sum _{ j = 0  } ^{ m + 1  } \binom { m + 1  } { j  } S _j ( n ) \\
+& = \sum _{ j = 0  } ^{ m  } \binom { m + 1  } { j  } S _j ( n ) + S _{ m + 1  } ( n ) \\
+n ^{ m + 1  } & = \sum _{ j = 0  } ^m \binom { m + 1  } { j  } S _j ( n ) \\
+
+\end{aligned}</script><p>接下来使用数学归纳,假设$0 \leq j &lt; m $时该公式成立,并假设有$S _m ( n ) = \cfrac { 1  } { m + 1  } \sum _{ k = 0  } ^m \binom { m + 1  } { k  } B _k n ^{ m + 1 - k  } + \Delta \ $,我们只需要证明$\Delta = 0 $.</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+n ^{ m + 1  } & = \sum _{ j = 0  } ^m \binom { m + 1  } { j  } \cfrac { 1  } { j + 1  } \sum _{ k = 0  } ^j \binom { j + 1  } { k  } B _k n ^{ j + 1 - k  } + ( m + 1 ) \Delta \\
+& = \sum _{ 0 \leq k \leq j \leq m  } \binom { j + 1  } { k  } \binom { m + 1  } { j  } \cfrac { 1  } { j + 1  } B _k n ^{ j + 1 - k  } + ( m + 1 ) \Delta \\
+& = \sum _{ 0 \leq k \leq j \leq m  } \binom { j + 1  } { j - k  } \binom { m + 1  } { j  } \cfrac { 1  } { j + 1  } B _{ j - k  } n ^{ k + 1  } + ( m + 1 ) \Delta \\
+& = \sum _{ 0 \leq k \leq j \leq m  } \binom { j + 1  } { k + 1  } \binom { m + 1  } { j  } \cfrac { 1  } { j + 1  } B _{ j - k  } n ^{ k + 1  } + ( m + 1 ) \Delta \\
+& = \sum _{ 0 \leq k \leq m  } \cfrac { n ^{ k + 1  }  } { k + 1  } \sum _{ j = k  } ^m B _{ j - k  } \binom { m + 1  } { j  } \binom { j  } { k  } + ( m + 1 ) \Delta \\
+& = \sum _{ 0 \leq k \leq m  } \cfrac { n ^{ k + 1  }  } { k + 1  } \binom { m + 1  } { k  } \sum _{ j = k  } ^m B _{ j - k  } \binom { m + 1 - k  } { j - k  } + ( m + 1 ) \Delta \\
+& = \sum _{ k = 0  } ^m \cfrac { n ^{ k + 1  }  } { k + 1  } \binom { m + 1  } { k  } \sum _{ j = 0  } ^{ m - k  } B _{ j  } \binom { m + 1 - k  } { j  } + ( m + 1 ) \Delta \\
+& = \sum _{ k = 0  } ^m \cfrac { n ^{ k + 1  }  } { k + 1  } \binom { m + 1  } { k  } [ m - k & = 0 ] + ( m + 1 ) \Delta \\
+& = n ^{ m + 1  } + ( m + 1 ) \Delta 
+\end{aligned}</script><p>显然$\Delta = 0 $,上式成立.</p>
+<h2><span id="斐波那契数">斐波那契数</span></h2><p>定义斐波那契数$F _n = \begin{cases}0 &amp; n = 0 \ 1 &amp; n = 1 \ F _{ n - 1  } + F _{ n - 2  } &amp; n &gt; 1 \end{cases} $.</p>
+<h3><span id="斐波那契数的扩展定义">斐波那契数的扩展定义</span></h3><p>首先根据数学归纳,不难证明卡西尼恒等式:</p>
+<script type="math/tex; mode=display">
+F _{ n + 1  } F _{ n - 1  } - F _n ^2 = ( - 1 ) ^n , n > 0</script><p>事实上,如果我们将斐波那契数的递推式改写作:$F _n = F _{ n + 2  } - F _{ n + 1  } $,我们可以在$n \in \mathbb { Z  } $的时候定义斐波那契数,同样也是满足上面的恒等式的,而且我们可以发现:</p>
+<script type="math/tex; mode=display">
+F _{ - n  } = ( - 1 ) ^{ n - 1  } F _n , n \in \mathbb { Z  }</script><h3><span id="斐波那契数与数论">斐波那契数与数论</span></h3><p>如果我们考虑不断使用斐波那契递推式展开,不难发现:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F _{ n + k  } & = F _k F _{ n + 1  } + F _{ k - 1  } F _n \\
+F _{ n + m + 1  } & = F _{ n + 1  } F _{ m + 1  } + F _n F _m 
+\end{aligned}</script><p>另外,如果我们在上面这个式子中取$k = wn , w \in \mathbb { N  } $并使用归纳法,我们又可以得到一个性质:$F _{ kn  } $是$F _n $的倍数,$k \in \mathbb { Z  } $.</p>
+<p>再观察这个式子,使用归纳法可以证明$\gcd ( F _{ n  } , F _{ n - 1  } ) = 1 $,进一步有:$\gcd ( F _{ n + m  } , F _m ) = \gcd ( F _n , F _m ) $.</p>
+<p>如果我们推广这个结论,就可以得到一个重要的性质:</p>
+<script type="math/tex; mode=display">
+\gcd ( F _m , F _n ) = F _{ \gcd ( n , m )  }</script><p>如果我们再一次推广这个结论,可以得到马蒂亚舍维奇引理:</p>
+<script type="math/tex; mode=display">
+F _n ^2 | F _m \Leftrightarrow nF _n | m , n > 2</script><p>这个引理的证明如下:</p>
+<p>由于$F _{ n + 1  } \equiv F _{ n - 1  } \pmod { F _n  } $.于是我们有:$F _{ 2 n  } = F _n F _{ n + 1  } + F _{ n - 1  } F _n $,也就是$F _{ 2 n  } \equiv 2 F _n F _{ n + 1  } \pmod { F _n ^2  } $.</p>
+<p>另外我们有:$F _{ 2 n + 1  } \equiv F _{ n + 1  } ^2 \pmod { F _n ^2  } $.</p>
+<p>同理,使用归纳法可以证明:$F _{ kn  } \equiv kF _n F _{ n + 1  } ^{ k - 1  } \pmod { F _n ^2  } , F _{ kn + 1  } \equiv F _{ n + 1  } ^k \pmod { F _n ^2  } $.</p>
+<p>而$F _{ n + 1  } \bot F _n $,于是$F _{ kn  } \equiv 0 \pmod { F _n ^2  } \Leftrightarrow k \equiv 0 \pmod { F _n  } , n &gt; 2 $.</p>
+<h3><span id="斐波那契数系">斐波那契数系</span></h3><p>我们如果定义$j \gg k \Leftrightarrow j \geq k + 2 $,那么有齐肯多夫定理:</p>
+<p>每个正整数都有唯一的表示方式满足:$n = \sum _{ i = 1  } ^r F _{ k _i  } , \forall 1 \leq i &lt; r , k _i \gg k _{ i + 1  } \gg 0 $.</p>
+<p>首先证明存在性:我们考虑数学归纳,对于一个数n,如果$\exists k $满足$F _k = n $,则显然成立,不然,应$\exists k $满足$F _k &lt; n &lt; F _{ k + 1  } $,而$n - F _k $的表示已经存在了.另外,由于$n - F _k &lt; F _{ k + 1  } - F _k = F _{ k - 1  } $,因此必定不可能出现选了$F _k $又选了$F _{ k - 1  } $的情况,存在性得证.</p>
+<p>至于唯一性,如果我们不选择$F _k $而是选择$F _{ k - 1  } $,那么显然接下来无论怎么选,它们的加和都不可能大于等于$F _k $,因此一定是唯一的.</p>
+<p>这样的话,我们可以将一个自然数$n $以斐波那契数的形式表示出来.</p>
+<h3><span id="斐波那契数的封闭形式">斐波那契数的封闭形式</span></h3><p>使用生成函数,令$F ( z ) = \sum _{ k \geq 0  } F _k z ^k $.那么不难发现$F ( z ) - zF ( z ) - z ^2 F ( z ) = z $,也就是$F ( z ) = \cfrac { z  } { 1 - z - z ^2  } $.</p>
+<p>考虑这个形式一定可以分解为$F ( z ) = \cfrac { a  } { 1 - \alpha z  } + \cfrac { b  } { 1 - \beta z  } $的形式,而这两种形式对应的生成函数都很显然.</p>
+<p>进行因式分解,如果令$\phi = \cfrac { 1 + \sqrt { 5  }  } { 2  } , \hat \phi = \cfrac { 1 - \sqrt { 5  }  } { 2  } $,那么可以得到$F _n = \cfrac { 1  } { \sqrt { 5  }  } ( \phi ^n - \hat \phi ^n ) $.</p>
+<p>另外,由于$\hat \phi ^n $的影响很小,于是又有$F _n = \lfloor \cfrac { \phi ^n  } { \sqrt { 5  }  } + 0 . 5 \rfloor $.</p>
+<h3><span id="连项式">连项式</span></h3><p>连项式多项式$K _n ( x _1 , x _2 , . . . , x _n ) $定义为:$K _n ( x _1 , x _2 , . . . , x _n ) = \begin{cases}1 &amp; n = 0 \ x _1 &amp; n = 1 \ x _n K _{ n - 1  } ( x _1 , x _2 , . . . x _{ n - 1  } ) + K _{ n - 2  } ( x _1 , x _2 , . . . , x _{ n - 2  } ) &amp; n \geq 2 \end{cases} $.</p>
+<p>通过定义不难发现:$K _n ( 1 , 1 , . . . , 1 ) = F _{ n + 1  } $.</p>
+<p>继续观察式子,会发现它递归的过程相当于枚举是否消掉相邻的一对数$( x _{ n - 1  } , x _n ) $.我们考虑用这样一种形式的字符串来表示最后某一项的情况:’.’为还没有消除掉的项,长度为$1 $;’-‘为已经消除了的两项,长度为$2 $.那么$K _n ( x _1 , x _2 , . . . , x _n ) $就可以表示为一个长度为$n $的字符串,其中若有$k $个’-‘,有$n - 2 k $个’.’,则有$\binom { n - k  } { k  } $种不同的排列方式.</p>
+<p>于是我们有:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+K _n ( z , z , . . . , z ) & = \sum _{ k = 0  } ^n \binom { n - k  } { k  } z ^{ n - 2 k  } \\
+
+\end{aligned}</script><p>另外,这也导出:$F _{ n + 1  } = \sum _{ k = 0  } ^n \binom { n - k  } { k  } \ $.</p>
+<p>考虑上面的构造过程,不难发现$K _n ( x _1 , x _2 , . . . , x _n ) = K _n ( x _n , x _{ n - 1  } , . . . , x _1 ) $.</p>
+<p>于是递归式可以写成:$K _n ( x _1 , x _2 , . . . , x _n ) = x _1 K _{ n - 1  } ( x _2 , x _3 , . . . x _{ n  } ) + K _{ n - 2  } ( x _3 , x _4 , . . . , x _{ n  } ) $.</p>
+<p>进一步地,不断展开后得到:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+K _{ m + n  } ( x _1 , . . . , x _m , x _{ m + 1  } , . . . , x _{ n + m  } ) & = \\
+K _m ( x _1 , . . . , x _m ) K _n ( x _{ m + 1  } , . . . , x _{ n + m  } ) + K _{ m - 1  } ( x _1 , . . . , x _{ m - 1  } ) K _{ n - 1  } ( x _{ m + 2  } , . . . , x _{ n + m  } ) 
+\end{aligned}</script><p>另外,根据连项式的定义,不难导出$K _n ( x _1 , . . . , x _n + y ) = K _n ( x _1 , . . . , x _n ) + K _{ n - 1  } ( x _1 , . . . , x _{ n - 1  } ) y $.</p>
+<p>由这个公式可以推出:$\cfrac { K _{ n + 1  } ( a _0 , . . . , a _n )  } { K _n ( a _1 , . . . , a _n )  } = \cfrac { K _n ( a _0 , . . . , a _{ n - 1  } + \cfrac { 1  } { a _n  } )  } { K _{ n - 1  } ( a _1 , . . . , a _{ n - 1  } + \cfrac { 1  } { a _n  } )  } $.</p>
+<p>不断做这个迭代,于是我们可以得到连项式与连分数之间的关系:</p>
+<script type="math/tex; mode=display">
+\cfrac { K _{ n + 1  } ( a _0 , . . . , a _n )  } { K _n ( a _1 , . . . , a _n )  } = a _0 + \cfrac { 1  } { a _1 + \cfrac { 1  } { a _2 + \cfrac { 1  } { a _3 + . . .  }  }  }</script><p>另外,这个与数论中的Stern-Brocot树有很大关系,暂略.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"># 数学</a>
+          </div>
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+      <a class="a2a_button_telegram"></a>
+      <a class="a2a_button_wechat"></a>
+      <a class="a2a_button_qzone"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/06/22/%E5%AD%A6%E4%B9%A0-%E7%AE%80%E5%8D%95%E4%B9%90%E7%90%86/" rel="prev" title="简单乐理">
+                  <i class="fa fa-angle-left"></i> 简单乐理
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/06/22/%E5%AD%A6%E4%B9%A0-%E8%8C%83%E7%95%B4%E8%AE%BA%E5%88%9D%E6%AD%A5/" rel="next" title="范畴论初步">
+                  范畴论初步 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">LWLAymh</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"my-repository-jade-beta-79.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"有什么想法?","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2025/06/22/%E5%AD%A6%E4%B9%A0-%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+  <!-- 音乐播放器 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
+  <div id="aplayer" class="aplayer" data-id="7637648380" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true" data-order="random" data-theme="#F58EA8"></div>
+  <script src="https://unpkg.com/meting@1.2/dist/Meting.min.js"></script>
+  <!-- 音乐播放器 end -->
+</body>
+</html>

@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/%E5%A4%B4%E5%83%8F1.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/%E5%A4%B4%E5%83%8F1.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/%E5%A4%B4%E5%83%8F1.jpg">
+  <link rel="mask-icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lwlaymh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="反演假设有两个函数$f $和$g $满足:$f ( n ) &#x3D; \sum _{ k  } a _{ n , k  } g ( k ) $,已知f求g的过程称为反演. 一般情况下,求反演只能高斯消元,但是有一些形式的反演有巧妙解法. 子集反演一般形式:  \begin{aligned} f ( S ) &amp; &#x3D; \sum _{ T \subseteq S  } g ( T ) \Leftrighta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="反演与容斥">
+<meta property="og:url" content="http://lwlaymh.github.io/2025/06/22/%E5%AD%A6%E4%B9%A0-%E5%8F%8D%E6%BC%94%E4%B8%8E%E5%AE%B9%E6%96%A5/index.html">
+<meta property="og:site_name" content="LWLAymh的备忘录">
+<meta property="og:description" content="反演假设有两个函数$f $和$g $满足:$f ( n ) &#x3D; \sum _{ k  } a _{ n , k  } g ( k ) $,已知f求g的过程称为反演. 一般情况下,求反演只能高斯消元,但是有一些形式的反演有巧妙解法. 子集反演一般形式:  \begin{aligned} f ( S ) &amp; &#x3D; \sum _{ T \subseteq S  } g ( T ) \Leftrighta">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-22T08:57:48.207Z">
+<meta property="article:modified_time" content="2025-06-22T08:57:48.207Z">
+<meta property="article:author" content="LWLAymh">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://lwlaymh.github.io/2025/06/22/%E5%AD%A6%E4%B9%A0-%E5%8F%8D%E6%BC%94%E4%B8%8E%E5%AE%B9%E6%96%A5/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://lwlaymh.github.io/2025/06/22/%E5%AD%A6%E4%B9%A0-%E5%8F%8D%E6%BC%94%E4%B8%8E%E5%AE%B9%E6%96%A5/","path":"2025/06/22/学习-反演与容斥/","title":"反演与容斥"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>反演与容斥 | LWLAymh的备忘录</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+  <script src="/js/third-party/addtoany.js" defer></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+<link rel="dns-prefetch" href="my-repository-jade-beta-79.vercel.app">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">LWLAymh的备忘录</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">混乱节拍拼凑出血肉喧嚷</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">反演</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.1.</span> <span class="nav-text">子集反演</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">Example1(2019zrpzt七连day1D)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">Example2(有标号DAG计数)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.2.</span> <span class="nav-text">二项式反演</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">Example1(错排问题)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">Example2(CF1750G)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">Example3(CF1228E)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.3.</span> <span class="nav-text">斯特林反演</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.4.</span> <span class="nav-text">莫比乌斯反演</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.4.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.4.2.</span> <span class="nav-text">Example2</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">增加枚举量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">交换枚举顺序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.4.2.3.</span> <span class="nav-text">分离无关变量</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.4.3.</span> <span class="nav-text">Example3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.4.4.</span> <span class="nav-text">Example4</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.4.4.1.</span> <span class="nav-text">换元</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.4.5.</span> <span class="nav-text">Example5([UR #5]怎样跑得更快)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.4.6.</span> <span class="nav-text">Example6([CF1566H]Xor-quiz)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.5.</span> <span class="nav-text">多重子集反演</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.6.</span> <span class="nav-text">单位根反演(离散傅里叶变换)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.7.</span> <span class="nav-text">一般情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">容斥</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.0.1.</span> <span class="nav-text">一般形式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.1.1.</span> <span class="nav-text">Example1(不定方程非负整数解计数)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.1.2.</span> <span class="nav-text">Example2(错排问题)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.1.3.</span> <span class="nav-text">Example3(bzoj3622已经没有什么好害怕的了)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.1.4.</span> <span class="nav-text">Example4(HAOI2008硬币购物)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.1.5.</span> <span class="nav-text">Example5</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.1.6.</span> <span class="nav-text">Example6</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.1.7.</span> <span class="nav-text">Example7(AGC058D)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.1.8.</span> <span class="nav-text">Example8(AGC035F)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.1.9.</span> <span class="nav-text">Example9</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.1.10.</span> <span class="nav-text">Example10([AGC036F] Square Constraints)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.1.11.</span> <span class="nav-text">Example11([23省选第一轮集训day4]C带劲的旅行)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.1.12.</span> <span class="nav-text">Example12</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.0.2.</span> <span class="nav-text">Min-Max容斥</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.2.1.</span> <span class="nav-text">Example1([23省选10连测 day6]A)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.0.3.</span> <span class="nav-text">反射容斥</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="LWLAymh"
+      src="/images/%E5%A4%B4%E5%83%8F1.jpg">
+  <p class="site-author-name" itemprop="name">LWLAymh</p>
+  <div class="site-description" itemprop="description">不过是白日梦里一瞬息</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/LWLAymh" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LWLAymh" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lwlaymh@outlook.com" title="E-Mail → mailto:lwlaymh@outlook.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/LWLAymh" title="WeChat → LWLAymh" rel="noopener me"><i class="fab fa-skype fa-fw"></i>WeChat</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://minyuchengmin.github.io/" title="https:&#x2F;&#x2F;minyuchengmin.github.io" rel="noopener" target="_blank">ycm的blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://shanlunjiajian.github.io/" title="http:&#x2F;&#x2F;shanlunjiajian.github.io" rel="noopener" target="_blank">qyc的blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.cnblogs.com/do-while-true" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;do-while-true" rel="noopener" target="_blank">dwt的blog</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lwlaymh.github.io/2025/06/22/%E5%AD%A6%E4%B9%A0-%E5%8F%8D%E6%BC%94%E4%B8%8E%E5%AE%B9%E6%96%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F1.jpg">
+      <meta itemprop="name" content="LWLAymh">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LWLAymh的备忘录">
+      <meta itemprop="description" content="不过是白日梦里一瞬息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="反演与容斥 | LWLAymh的备忘录">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          反演与容斥
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-06-22 16:57:48" itemprop="dateCreated datePublished" datetime="2025-06-22T16:57:48+08:00">2025-06-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">具体数学</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2025/06/22/%E5%AD%A6%E4%B9%A0-%E5%8F%8D%E6%BC%94%E4%B8%8E%E5%AE%B9%E6%96%A5/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2025/06/22/%E5%AD%A6%E4%B9%A0-%E5%8F%8D%E6%BC%94%E4%B8%8E%E5%AE%B9%E6%96%A5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><span id="more"></span>
+<h2><span id="反演">反演</span></h2><p>假设有两个函数$f $和$g $满足:$f ( n ) = \sum _{ k  } a _{ n , k  } g ( k ) $,已知f求g的过程称为反演.</p>
+<p>一般情况下,求反演只能高斯消元,但是有一些形式的反演有巧妙解法.</p>
+<h3><span id="子集反演">子集反演</span></h3><p>一般形式:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f ( S ) & = \sum _{ T \subseteq S  } g ( T ) \Leftrightarrow g ( S ) & = \sum _{ T \subseteq S  } ( - 1 ) ^{ | S | - | T |  } f ( T ) \\
+f ( S ) & = \sum _{ S \subseteq T \subseteq U  } g ( T ) \Leftrightarrow g ( S ) & = \sum _{ S \subseteq T \subseteq U  } ( - 1 ) ^{ | T | - | S |  } f ( T ) 
+\end{aligned}</script><p>证明:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g ( S ) & = \sum _{ T \subseteq S  } ( - 1 ) ^{ | S | - | T |  } f ( T ) \\
+& = ( - 1 ) ^{ | S |  } \sum _{ T \subseteq S  } ( - 1 ) ^{ | T |  } \sum _{ P \subseteq T  } g ( P ) \\
+& = ( - 1 ) ^{ | S |  } \sum _{ P \subseteq S  } g ( P ) \sum _{ T \subseteq S / P  } ( - 1 ) ^{ | T | + | P |  } \\
+& = ( - 1 ) ^{ | S |  } \sum _{ P \subseteq S  } g ( P ) ( - 1 ) ^{ | P |  } \sum _{ T \subseteq S / P  } ( - 1 ) ^{ | T |  } \\
+& = ( - 1 ) ^{ | S |  } \sum _{ P \subseteq S  } g ( P ) [ S & = P ] ( - 1 ) ^{ | P |  } \\
+& = g ( S ) 
+\end{aligned}</script><p>不难发现,这个子集反演也就相当于在做高维前后缀和.</p>
+<h5><span id="example12019zrpzt七连day1d">Example1(2019zrpzt七连day1D)</span></h5><p>根据子集反演,设$cnt _S $为集合为$S $的数量,然后设$f _S = \sum _{ S ‘ \subseteq S  } cnt _{ S ‘  } $,有:$ans = \sum _{ S  } 2 ^{ f _S  } ( - 1 ) ^{ n - | S |  } $.</p>
+<p>做一遍高维前缀和就好,复杂度$O ( n 2 ^n ) $,应该也可以用分治FMT无脑做到$O ( n ^2 2 ^n ) $.</p>
+<h5><span id="example2有标号dag计数">Example2(有标号DAG计数)</span></h5><p>设$f _{ i , j  } $表示$i $个点,其中有$j $个点的入度数为$0 $的方案数.(等一下,为撒子想到要记度数为$0 $的点咧?因为你要一层一层转移,而在DAG中一层一层的就是零度点.而且说到底,你注意到有编号这个事实其实是很烦的,因为考虑如果一个一个点放上去,就有可能出现放的地方是等价的.而这么一层一层是绝对不会出现等价点的问题的.再说的仔细一点,如果我们把位置空着,然后选出一些放上来,是会出现等价点的问题的.但如果我们先选出来,然后再把边连上就不会.于是我们必须要枚举一些点然后再连到上面去)</p>
+<p>这样我们每次枚举删去这$j $个点后,还剩下$k $个零度点.于是自然有:</p>
+<script type="math/tex; mode=display">
+f _{ i , j  } = \binom { i  } { j  } \sum _{ k = 1  } ^{ i - j  } ( 2 ^j - 1 ) ^k 2 ^{ j ( i - j - k )  } f _{ i - j , k  }</script><p>等一下咧,这复杂度$O ( n ^3 ) $了,这咋办啊?</p>
+<p>好像转移优化不太了,因为$k $很难省去(在指数上).但我们注意到我们定义的时候说:$0 $度点的数量恰好为$k $,这个条件好像太强了<del>果然OI就是发现限制太强了就弱一点,发现太弱了就强一点</del>,所以我们想办法把它放弱一点.</p>
+<p>一个经典的方法是:我们把定义改为至少$k $个零度点.但是这样转移好像还是不太行:零度点的情况太多了.那我们不妨考虑容斥,因为推导容斥的过程中,永远不害怕情况太多:我们直接考虑所有情况的集合.<del>当然能不能推到最后是另一回事</del>.</p>
+<p>我们设$f ( n , S ) $表示$n $个点,其中只有$S $中的点的入度为$0 $;类似定义$g ( n , S ) $表示$n $个点,至少$S $中的点的入度为$0 $.显然我们所求也就是$g ( n , \emptyset ) $,注意到:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g ( n , S ) & = 2 ^{ | S | ( n - | S | )  } g ( n - | S | , \emptyset ) \\
+g ( n , S ) & = \sum _{ S \subseteq T  } f ( n , T ) 
+\end{aligned}</script><p>对第二个式子用子集反演,有:</p>
+<script type="math/tex; mode=display">
+f ( n , S ) = \sum _{ S \subseteq T  } ( - 1 ) ^{ | T | - | S |  } g ( n , T )</script><p>接下来使用反复带入大法:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g ( n , \emptyset ) & = \sum _{ \emptyset \ne T  } f ( n , T ) \\
+& = \sum _{ T \subseteq S  } ( - 1 ) ^{ | S | - | T |  } g ( n , S ) \\
+& = \sum _{ T \subseteq S  } ( - 1 ) ^{ | S | - | T |  } 2 ^{ | S | ( n - | S | )  } g ( n - | S | , \emptyset ) \\
+& = \sum _{ m = 1  } ^n \sum _{ | T | = m  } \sum _{ T \subseteq S  } ( - 1 ) ^{ | S | - | T |  } 2 ^{ | S | ( n - | S | )  } g ( n - | S | , \emptyset ) \\
+& = \sum _{ m = 1  } ^n \binom { n  } { m  } \sum _{ k = m  } ^n \binom { n - m  } { k - m  } ( - 1 ) ^{ k - m  } 2 ^{ k ( n - k )  } g ( n - k , \emptyset ) \\
+
+\end{aligned}</script><p>可以发现:我们在推式子的过程中,将和集合本身有关的性质转化为了只和集合大小有关的式子,于是就简化了大量运算.</p>
+<p>接下来我们继续化简:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum _{ m = 1  } ^n \binom { n  } { m  } \sum _{ k = m  } ^n \binom { n - m  } { k - m  } ( - 1 ) ^{ k - m  } 2 ^{ k ( n - k )  } g ( n - k , \emptyset ) \\
+& = \sum _{ k = 1  } ^n \sum _{ m = 1  } ^k \binom { n  } { m  } \binom { n - m  } { k - m  } ( - 1 ) ^{ k - m  } 2 ^{ k ( n - k )  } g ( n - k , \emptyset ) \\
+& = \sum _{ k = 1  } ^n \binom { n  } { k  } 2 ^{ k ( n - k )  } g ( n - k , \emptyset ) \sum _{ m = 1  } ^k \binom { k  } { m  } ( - 1 ) ^{ k - m  } \\
+& = \sum _{ k = 1  } ^n \binom { n  } { k  } 2 ^{ k ( n - k )  } g ( n - k , \emptyset ) ( ( 1 - 1 ) ^k - ( - 1 ) ^k ) \\
+& = \sum _{ k = 1  } ^n \binom { n  } { k  } 2 ^{ k ( n - k )  } g ( n - k , \emptyset ) ( - 1 ) ^{ k - 1  } \\
+
+\end{aligned}</script><p>注意到复杂度已经降到$O ( n ^2 ) $了.</p>
+<p>上面是从集合的角度一步步分析得到的.但如果你直接从容斥的角度考虑,忽略掉那个$( - 1 ) ^{ k - 1  } $,把它当成一个可以数学归纳出来的容斥系数,那么这个式子会得到一个很简单的理解方式:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f _n & = \sum _{ k = 1  } ^n \binom { n  } { k  } ( - 1 ) ^{ k - 1  } 2 ^{ k ( n - k )  } f _{ n - k  } \\
+
+\end{aligned}</script><p>也就是直接设,然后钦定其有至少$j $个,然后配容斥系数.</p>
+<h3><span id="二项式反演">二项式反演</span></h3><p>一般形式:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f ( n ) & = \sum _{ k = 0  } ^n C _n ^k g ( k ) \Leftrightarrow g ( n ) & = \sum _{ k = 0  } ^n ( - 1 ) ^{ n - k  } C _n ^k f ( k ) \\
+f ( n ) & = \sum _{ k = 0  } ^n ( - 1 ) ^k \binom { n  } { k  } g ( k ) \Leftrightarrow g ( n ) & = \sum _{ k = 0  } ^n ( - 1 ) ^k \binom { n  } { k  } f ( k ) \\
+f ( n ) & = \sum _{ k = n  } ^N C _k ^n g ( k ) \Leftrightarrow g ( n ) & = \sum _{ k = n  } ^N ( - 1 ) ^{ k - n  } C _k ^n f ( k ) \\
+f ( n ) & = \sum _{ k = n  } ^N ( - 1 ) ^k \binom { k  } { n  } g ( k ) \Leftrightarrow g ( n ) & = \sum _{ k = n  } ^N ( - 1 ) ^k \binom { k  } { n  } f ( k ) \\
+
+\end{aligned}</script><p>显然以$( - 1 ) ^n g ( n ) $代替$g ( n ) $即可从第一个式子推导第二个式子,下面证明第一个式子:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g ( n ) & = \sum _{ k = 0  } ^n ( - 1 ) ^{ n - k  } C _n ^k f ( k ) \\
+& = \sum _{ m = 0  } ^n \sum _{ k = 0  } ^{ n - m  } ( - 1 ) ^k C _{ n - m  } ^k C _n ^m g ( m ) \\
+& = \sum _{ k = 0  } ^n ( - 1 ) ^k C _n ^k \sum _{ m = 0  } ^{ n - k  } C _{ n - k  } ^m g ( m ) \\
+& = \sum _{ k = 0  } ^n ( - 1 ) ^k C _n ^k f ( n - k ) \\
+& = \sum _{ k = 0  } ^n ( - 1 ) ^{ n - k  } C _n ^k f ( k ) \\
+
+\end{aligned}</script><h5><span id="example1错排问题">Example1(错排问题)</span></h5><p>$n $个有编号的人站成一排,求他们都没有站到自己编号对应位置的方案数.</p>
+<p>设$f ( n ) $为$n $个人随便站的方案数,$g ( n ) $为$n $个人都站错的方案数.</p>
+<p>如果知道$g $的表达式,我们可以通过枚举有多少人站错位置来得到$f $,即:$f ( n ) = \sum _{ k = 0  } ^n C _n ^k g ( k ) $.</p>
+<p>显然就是一个二项式反演,$g ( n ) = \sum _{ k = 0  } ^n ( - 1 ) ^{ n - k  } C _n ^k f ( k ) = \sum _{ k = 0  } ^n ( - 1 ) ^{ n - k  } C _n ^k k ! $.</p>
+<p>值得一提的是,我们再观察一下最后得到的错排公式并进行一定的化简,可以得到:$g ( n ) = n ! \sum _{ 0 \leq k \leq n  } \cfrac { ( - 1 ) ^k  } { k !  } \ $.</p>
+<p>不难发现$n ! $的后面形如$e ^{ - 1  } $的泰勒展开,我们考虑直接将泰勒展开的公式带入,可以得到:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g ( n ) & = \cfrac { n !  } { e  } - n ! \sum _{ k > n  } \cfrac { ( - 1 ) ^k  } { k !  } \\
+& = \cfrac { n !  } { e  } - \cfrac { ( - 1 ) ^{ n + 1  }  } { n + 1  } \sum _{ 0 \leq k  } ( - 1 ) ^k \cfrac { ( n + 1 ) !  } { ( k + n + 1 ) !  } 
+\end{aligned}</script><p>用一些我不会的方法分析误差,会发现后面的项所能带来的误差很小,于是有$g ( n ) = \lfloor \cfrac { n !  } { e  } + \cfrac { 1  } { 2  } \rfloor + [ n = 0 ] $.</p>
+<p>另外,观察$g $关于$f $的表达式,不难求出$g $的递推式:$g ( n ) = ng ( n - 1 ) + ( - 1 ) ^n $.</p>
+<p>下面证明$g _n = ( n - 1 ) ( g _{ n - 1  } + g _{ n - 2  } ) $,事实上,右边等于:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+( n - 1 ) ( g _{ n - 1  } + g _{ n - 2  } ) \\
+& = ( - 1 ) ^{ n - 1  } ( n - 1 ) + ( n - 1 ) \sum _{ k = 0  } ^{ n - 2  } ( ( n - 1 ) ! \frac { ( - 1 ) ^k  } { k !  } + ( n - 2 ) ! \frac { ( - 1 ) ^k  } { k !  } ) \\
+& = n ! \sum _{ k = 0  } ^{ n - 2  } \frac { ( - 1 ) ^k  } { k !  } - ( n - 1 ) ( - 1 ) ^n \\
+
+\end{aligned}</script><h5><span id="example2cf1750g">Example2(CF1750G)</span></h5><p>如果没有字典序限制就是经典的二项式反演:考虑能被分为$k $段,说明有$n - k $个位置和前一个位置是大一的关系.我们钦定这些位置即可.</p>
+<p>而有字典序限制也很经典,枚举LCP,枚举下一个位置,这个时候值域被分为若干个区间,假设剩了$x $个数字,$y $个区间,那么钦定$j $对的方案是$\binom { x - y  } { j  } ( x - j ) ! $.然后要乘上前面已经有了的,也就是乘上形如$( 1 + z ) ^k $.这样复杂度$O ( n ^4 ) $.</p>
+<p>这种问题通常LCP后的下一个位置都可以规避,这里你发现不同的取值只会让后面的$x , y , k $有$O ( 1 ) $种不同的取值,因此不用枚举.这样就是$O ( n ^3 ) $.但是那个多项式乘法也可以规避,考虑最后的答案形如$\sum ( 1 + z ) ^k P _k ( x ) $,我们考虑写成$P _{ n - 1  } ( z ) + = ( 1 + z ) P _n ( z ) $,然后不断这么做,就只需要$O ( n ^2 ) $.</p>
+<h5><span id="example3cf1228e">Example3(CF1228E)</span></h5><p>不妨设至多有$i $行$j $列最小值为$1 $的答案是$f _{ i , j  } $,恰好有$i $行$j $列最小值为$1 $的答案是$g _{ i , j  } $,注意到:</p>
+<script type="math/tex; mode=display">
+f _{ n , m  } = \sum _{ i = 0  } ^n \binom { n  } { i  } \sum _{ j = 0  } ^m \binom { m  } { j  } g _{ i , j  }</script><p>令$h _{ n , m  } = \sum _{ j = 0  } ^m \binom { m  } { j  } g _{ n , j  } \ $,则$f _{ n , m  } = \sum _{ i = 0  } ^n \binom { n  } { i  } h _{ i , m  } \ $,而$f _{ n , m  } = k ^{ nm  } ( k - 1 ) ^{ NM - nm  } $.做两次二项式反演得到$g $.</p>
+<p>写到这里发现一个问题(其实是我发现问题后把上面原本写错的给改了),为啥$f _{ n , m  } \ne \binom { N  } { n  } \binom { M  } { m  } k ^{ nm  } ( k - 1 ) ^{ NM - nm  } $呢?我们写成子集反演形式看看:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f _{ S , T  } & = \sum _{ s \subseteq S  } \sum _{ t \subseteq T  } g _{ s , t  } \\
+f _{ S , T  } & = \sum _{ s \subseteq S  } h _{ s , T  } \\
+h _{ S , T  } & = \sum _{ t \subseteq T  } g _{ S , t  } \\
+
+\end{aligned}</script><p>做子集反演:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f _{ S , T  } & = k ^{ | S | \times | T |  } ( k - 1 ) ^{ NM - | S | | T |  } \\
+h _{ s , T  } & = \sum _{ S \subseteq s  } ( - 1 ) ^{ | s | - | S |  } f _{ S , T  } \\
+g _{ s , t  } & = \sum _{ T \subseteq t  } ( - 1 ) ^{ | t | - | T |  } h _{ s , T  } 
+\end{aligned}</script><p>把集合改成集合大小就可以发现问题所在:</p>
+<p>换句话说,$g _{ n , m  } $本身就包含了所有$| S | = n , | T | = m $的情况的和,并且在组合数$\binom { m  } { j  } $那里就找到了唯一确定的$f _{ s , t  } $,因此$f _{ n , m  } $是唯一确定的.这意味着这里$f $的$n , m $并非集合之和,而是已经确定的集合的大小.</p>
+<p>啥?这和我平常接触的二项式反演不一样啊?不说别的,第四题(BZOJ2839)的式子是这样的:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f _i & = 2 ^{ 2 ^{ n - i  }  } \binom { n  } { i  } \\
+f _k & = \sum _{ i = k  } ^n \binom { i  } { k  } g _i \\
+g _k & = \sum _{ i = k  } ^n ( - 1 ) ^{ i - k  } \binom { i  } { k  } f _i 
+\end{aligned}</script><p>冷静一下,二项式反演的公式肯定没错,那也就一定是下面这几句出现了问题:</p>
+<script type="math/tex; mode=display">
+f _{ n , m  } = \sum _{ i = 0  } ^n \binom { n  } { i  } \sum _{ j = 0  } ^m \binom { m  } { j  } g _{ i , j  }</script><p>这个问题其实非常显然,我们的$g _{ i , j  } $定义为所有$| S | = i , | T | = j $的答案之和.$f $也是这么定义的,那这个式子就是错的,应该写成:</p>
+<script type="math/tex; mode=display">
+f _{ n , m  } = \sum _{ i = 0  } ^n \binom { N - i  } { n - i  } \sum _{ j = 0  } ^m \binom { M - j  } { m - j  } g _{ i , j  }</script><p>这样才是在不确定的那些行列中选择组合数,而不是在确定的那些行列中选.</p>
+<p>但这样又有一个问题,就是这个题的特殊性,这个题要求$g _{ N , M  } $,那此时$g $怎么定义不应该是一样的吗?</p>
+<p>当然不一样,二项式反演讲究统一性,所有的定义必须遵循一个统一的原则,不然如果什么样子的函数都能反演,那一般的反演就不是一个需要解方程才能完成的东西了.</p>
+<p>回到第四题,再看一遍这个式子:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f _k & = \sum _{ i = k  } ^n \binom { i  } { k  } g _i \\
+
+\end{aligned}</script><p>这个定义式就非常良性,$g $是已知的集合,$f $是未知的集合.我们乘上组合数就可以得到对于$f $来说已知的集合.因此这个就非常正确.</p>
+<p>回到这个题上,为什么我们最后把$f $的定义改成$f _{ n , m  } = k ^{ nm  } ( k - 1 ) ^{ NM - nm  } $就对了呢?</p>
+<p>再看看这个式子:</p>
+<script type="math/tex; mode=display">
+f _{ n , m  } = \sum _{ i = 0  } ^n \binom { n  } { i  } \sum _{ j = 0  } ^m \binom { m  } { j  } g _{ i , j  }</script><p>这个式子的右边在干这样一件事:那就是在已知$n $行$m $列的集合的前提下,从中选出$i $行$j $列并求$g $.那么你从哪知道的$n $行$m $列呢?你得组合数啊!</p>
+<p>所以,实际上的$f $是这样的:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f _{ n , m  } & = \binom { N  } { n  } \binom { M  } { m  } \sum _{ i = 0  } ^n \binom { n  } { i  } \sum _{ j = 0  } ^m \binom { m  } { j  } g _{ i , j  } \\
+f _{ n , m  } & = \binom { N  } { n  } \binom { M  } { m  } k ^{ nm  } ( k - 1 ) ^{ NM - nm  } 
+\end{aligned}</script><p>好麻烦啊,能不能避免这种需要进一步思考集合意义的问题呢?</p>
+<p>考虑二项式反演的第二个形式:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f ( n ) & = \sum _{ k = n  } ^N C _n ^k g ( k ) \Leftrightarrow g ( n ) & = \sum _{ k = n  } ^N ( - 1 ) ^{ k - n  } C _n ^k f ( k ) \\
+
+\end{aligned}</script><p>不难发现这个式子无论怎么写,前后都一定是从已知集合中选东西.绝对不会出现上面的问题.</p>
+<p>因此,我们重新写一下这个题的相关式子,考虑直接正难则反,设$f ‘ _{ i , j  } $为至少有$i $行$j $列不满足条件的方案数,自然有$f ‘ _{ i , j  } = f _{ N - i , M - j  } $.你发现此时一定有:</p>
+<script type="math/tex; mode=display">
+f ' _{ n , m  } = \sum _{ i = n  } ^N \binom { i  } { n  } \sum _{ j = m  } ^M \binom { j  } { m  } g ' _{ i , j  }</script><p>最后答案就是$g ‘ _{ 0 , 0  } $.</p>
+<h3><span id="斯特林反演">斯特林反演</span></h3><p>一般形式:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f ( n ) & = \sum _{ k = 0  } ^n \left \{ \begin{array}
+{ c  } n \\
+k 
+\end{array} \right \} g ( k ) \Leftrightarrow g ( n ) & = \sum _{ k = 0  } ^n \left [ \begin{array}
+{ c  } n \\
+k 
+\end{array} \right ] ( - 1 ) ^{ n - k  } f ( k ) \\
+f ( n ) & = \sum _{ k = 0  } ^n \left [ \begin{array}
+{ c  } n \\
+k 
+\end{array} \right ] g ( k ) \Leftrightarrow g ( n ) & = \sum _{ k = 0  } ^n \left \{ \begin{array}
+{ c  } n \\
+k 
+\end{array} \right \} ( - 1 ) ^{ n - k  } f ( k ) \\
+f ( m ) & = \sum _{ n = m  } ^M ( - 1 ) ^{ m - n  } \left [ \begin{array}
+{ c  } n \\
+m 
+\end{array} \right ] g ( n ) \Leftrightarrow g ( m ) & = \sum _{ k = 0  } ^M \left \{ \begin{array}
+{ c  } k \\
+m 
+\end{array} \right \} f ( k ) \\
+f ( m ) & = \sum _{ n = m  } ^M ( - 1 ) ^{ m - n  } \left \{ \begin{array}
+{ c  } n \\
+m 
+\end{array} \right \} g ( n ) \Leftrightarrow g ( m ) & = \sum _{ k = 0  } ^M \left [ \begin{array}
+{ c  } k \\
+m 
+\end{array} \right ] f ( k ) \\
+
+\end{aligned}</script><p>考虑第一类斯特林数和第二类斯特林数的对称性,只需证明第一个和第三个式子即可.</p>
+<p>反转公式:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum _{ k = 0  } ^n \left [ \begin{array}
+{ c  } n \\
+k 
+\end{array} \right ] \left \{ \begin{array}
+{ c  } k \\
+m 
+\end{array} \right \} ( - 1 ) ^{ n - k  } & = \sum _{ k = 0  } ^n \left \{ \begin{array}
+{ c  } n \\
+k 
+\end{array} \right \} \left [ \begin{array}
+{ c  } k \\
+m 
+\end{array} \right ] ( - 1 ) ^{ n - k  } & = [ m & = n ] \\
+
+\end{aligned}</script><p>第一个式子的证明:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g ( n ) & = \sum _{ m = 0  } ^n [ m & = n ] g ( m ) \\
+& = \sum _{ m = 0  } ^n \sum _{ k = 0  } ^n \left [ \begin{array}
+{ c  } n \\
+k 
+\end{array} \right ] \left \{ \begin{array}
+{ c  } k \\
+m 
+\end{array} \right \} ( - 1 ) ^{ n - k  } g ( m ) \\
+& = \sum _{ k = 0  } ^n \left [ \begin{array}
+{ c  } n \\
+k 
+\end{array} \right ] ( - 1 ) ^{ n - k  } \sum _{ m = 0  } ^k \left \{ \begin{array}
+{ c  } k \\
+m 
+\end{array} \right \} g ( m ) & = \sum _{ k = 0  } ^n \left [ \begin{array}
+{ c  } n \\
+k 
+\end{array} \right ] ( - 1 ) ^{ n - k  } f ( k ) \\
+
+\end{aligned}</script><p>第三个式子的证明:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g ( m ) & = \sum _{ n = m  } ^M [ n & = m ] g ( n ) \\
+& = \sum _{ n = m  } ^M \sum _{ k = 0  } ^M \left [ \begin{array}
+{ c  } n \\
+k 
+\end{array} \right ] \left \{ \begin{array}
+{ c  } k \\
+m 
+\end{array} \right \} ( - 1 ) ^{ n - k  } g ( n ) \\
+& = \sum _{ k = 0  } ^M \left \{ \begin{array}
+{ c  } k \\
+m 
+\end{array} \right \} f ( k ) \\
+
+\end{aligned}</script><h3><span id="莫比乌斯反演">莫比乌斯反演</span></h3><p>一般形式:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f ( n ) & = \sum _{ d | n  } g ( d ) \Leftrightarrow g ( n ) & = \sum _{ d | n  } \mu ( \frac { n  } { d  } ) f ( d ) \\
+f ( n ) & = \sum _{ n | d  } g ( d ) \Leftrightarrow g ( n ) & = \sum _{ n | d  } \mu ( \frac { d  } { n  } ) f ( d ) \\
+f ( x ) & = \sum _{ 1 \leq d  } g ( d ) \Leftrightarrow g ( x ) & = \sum _{ 1 \leq d  } f ( \cfrac { x  } { d  } ) \mu ( d ) 
+\end{aligned}</script><p>第一个式子的证明:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g ( n ) & = \sum _{ m | n  } [ \frac { n  } { m  } & = 1 ] g ( m ) \\
+& = \sum _{ m | n  } \sum _{ d | \frac { n  } { m  }  } \mu ( d ) g ( m ) \\
+
+\end{aligned}</script><p>注意到$[ d | \frac { n  } { m  } ] = [ md | n ] = [ m | \frac { n  } { d  } ] \ $.</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g ( n ) & = \sum _{ d | n  } \mu ( d ) \sum _{ m | \frac { n  } { d  }  } g ( m ) \\
+& = \sum _{ d | n  } \mu ( d ) f ( \frac { n  } { d  } ) \\
+& = \sum _{ d | n  } \mu ( \frac { n  } { d  } ) f ( d ) \\
+
+\end{aligned}</script><p>第二个式子的证明:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g ( n ) & = \sum _{ n | d  } [ \frac { d  } { n  } & = 1 ] g ( d ) \\
+& = \sum _{ n | d  } \sum _{ c | \frac { d  } { n  }  } \mu ( c ) g ( d ) \\
+& = \sum _{ c | d  } \sum _{ nc | d  } \mu ( c ) g ( d ) \\
+& = \sum _{ c  } \mu ( c ) f ( nc ) \\
+& = \sum _{ n | d  } \mu ( \frac { d  } { n  } ) f ( d ) \\
+
+\end{aligned}</script><p>第三个式子的证明:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum _{ 1 \leq d  } g ( \cfrac { x  } { d  } ) \mu ( d ) & = \sum _{ d \geq 1  } \mu ( d ) \sum _{ k \geq 1  } f ( \cfrac { x  } { kd  } ) \\
+& = \sum _{ m \geq 1  } f ( \cfrac { x  } { m  } ) \sum _{ d , k \geq 1  } [ m & = dk ] \mu ( d ) \\
+& = \sum _{ m \geq 1  } f ( \cfrac { x  } { m  } ) \sum _{ d | m  } \mu ( d ) \\
+& = f ( x ) 
+\end{aligned}</script><h4><span id="example1">Example1</span></h4><p>求长度为$n $且仅包含小写英文字母且循环节长度恰为$n $的字符串个数.</p>
+<p>不妨设$f ( n ) $表示长度为$n $的字符串个数,$g ( n ) $表示长度为$n $且循环节长度恰为$n $的字符串个数.</p>
+<p>有$f ( n ) = \sum _{ d | n  } g ( d ) $,根据莫比乌斯反演,$g ( n ) = \sum _{ d | n  } \mu ( \cfrac { n  } { d  } ) f ( d ) $.</p>
+<h4><span id="example2">Example2</span></h4><p>求$\sum _{ i = 1  } ^{ n  } \sum _{ j = 1  } ^m gcd ( i , j ) \ $.</p>
+<p>我们通过这个题来讲一下推导技巧.</p>
+<h5><span id="增加枚举量">增加枚举量</span></h5><script type="math/tex; mode=display">
+\begin{aligned}
+\sum _{ i = 1  } ^{ n  } \sum _{ j = 1  } ^m gcd ( i , j ) & = \sum _{ i = 1  } ^n \sum _{ j = 1  } ^m id [ gcd ( i , j ) ] \\
+& = \sum _{ i = 1  } ^n \sum _{ j = 1  } ^m \sum _{ d | gcd ( i , j )  } \varphi ( d ) \\
+
+\end{aligned}</script><h5><span id="交换枚举顺序">交换枚举顺序</span></h5><script type="math/tex; mode=display">
+\begin{aligned}
+\sum _{ i = 1  } ^n \sum _{ j = 1  } ^m \sum _{ d | gcd ( i , j )  } \varphi ( d ) & = \sum _{ d = 1  } ^{ \min ( n , m )  } \sum ^{ \lfloor \frac { n  } { d  } \rfloor  } _{ i = 1  } \sum ^{ \lfloor \frac { m  } { d  } \rfloor  } _{ j = 1  } \varphi ( d ) \\
+
+\end{aligned}</script><h5><span id="分离无关变量">分离无关变量</span></h5><script type="math/tex; mode=display">
+\begin{aligned}
+\sum _{ d = 1  } ^{ \min ( n , m )  } \sum ^{ \lfloor \frac { n  } { d  } \rfloor  } _{ i = 1  } \sum ^{ \lfloor \frac { m  } { d  } \rfloor  } _{ j = 1  } \varphi ( d ) & = \sum ^{ \min ( n , m )  } _{ d = 1  } \varphi ( d ) \times \lfloor \cfrac { n  } { d  } \rfloor \times \lfloor \cfrac { m  } { d  } \rfloor \\
+
+\end{aligned}</script><p>考虑使用数论分块,只需处理出$\varphi ( d ) $的前缀和即可在$O ( \sqrt { n  } + \sqrt { m  } ) $的复杂度解决此问题.</p>
+<h4><span id="example3">Example3</span></h4><p>求$\sum _{ i = 1  } ^{ n  } \sum _{ j = 1  } ^m [ gcd ( i , j ) = 1 ] \ $.</p>
+<p>和上一道题几乎没区别,唯一不同的是需要处理的函数从$id $变为了$\epsilon $.</p>
+<h4><span id="example4">Example4</span></h4><p>求$\sum _{ i = 1  } ^{ n  } \sum _{ j = 1  } ^m [ gcd ( i , j ) \in prime ] \ $.</p>
+<p>考虑增加枚举量,则:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum _{ i = 1  } ^{ n  } \sum _{ j = 1  } ^m [ gcd ( i , j ) \in prime ] & = \sum _{ i = 1  } ^{ n  } \sum _{ j = 1  } ^m \sum _{ p \in prime  } [ gcd ( i , j ) & = p ] \\
+& = \sum _{ p \in prime  } \sum ^{ \lfloor \frac { n  } { d  } \rfloor  } _{ i = 1  } \sum ^{ \lfloor \frac { m  } { d  } \rfloor  } _{ j = 1  } [ gcd ( pi , pj ) & = p ] \\
+& = \sum _{ p \in prime  } \sum ^{ \lfloor \frac { n  } { p  } \rfloor  } _{ i = 1  } \sum ^{ \lfloor \frac { m  } { p  } \rfloor  } _{ j = 1  } [ gcd ( i , j ) & = 1 ] \\
+& = \sum _{ p \in prime  } \sum _{ d = 1  } ^{ \min ( \lfloor \frac { m  } { p  } \rfloor , \lfloor \frac { n  } { p  } \rfloor )  } \mu ( d ) \lfloor \cfrac { n  } { pd  } \rfloor \lfloor \cfrac { m  } { pd  } \rfloor \\
+
+\end{aligned}</script><p>于是转化为上一道题,但复杂度仍不可接受.</p>
+<h5><span id="换元">换元</span></h5><p>考虑设$x = pd $,则变为$\sum _{ x = 1  } ^{ \min ( n , m )  } \sum _{ p \in prime \land p | x  } \mu ( \frac { x  } { p  } ) \lfloor \frac { n  } { x  } \rfloor \lfloor \frac { m  } { x  } \rfloor \ $.</p>
+<h4><span id="example5ur-5怎样跑得更快">Example5([UR #5]怎样跑得更快)</span></h4><p>首先先考虑去掉$lcm $使得式子中只有$i , j , \gcd ( i , j ) $.</p>
+<p>显然可以构造函数$f ( x ) = x ^{ c - d  } , g ( x ) = x ^d , h ( x ) = x ^d \ $,然后将题目转化为$\sum _{ j = 1  } ^n f ( gcd ( i , j ) ) g ( i ) h ( j ) x _j \equiv b _i ( \mod p ) \ $.</p>
+<p>$\gcd ( i , j ) $很难处理,于是考虑用莫比乌斯反演消掉.</p>
+<p>可以求出$f _r ( n ) $使得$f ( n ) = \sum _{ d | n  } f _r ( d ) \ $,也即$f _r ( n ) = \sum _{ d | n  } \mu ( \cfrac { n  } { d  } ) f ( d ) $.</p>
+<p>则原式即:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum _{ j = 1  } ^n \sum _{ d  } [ d | i ] [ d | j ] f _r ( d ) g ( i ) h ( j ) x _j & \equiv b _i ( \mod p ) \\
+\sum _{ d | i  } f _r ( d ) \sum _{ j = 1  } ^n [ d | j ] h ( j ) x _j & \equiv \frac { b _i  } { g ( i )  } ( \mod p ) \\
+
+\end{aligned}</script><p>令$z _d = \sum _{ j = 1  } ^n [ d | j ] h ( j ) x _j \ $,有$\sum _{ d | i  } f _r ( d ) z _d \equiv \frac { b _i  } { g ( i )  } ( \mod p ) \ $.</p>
+<p>这个也是一个莫比乌斯反演的形式,我们可以求出左边,进而求出$z _d $.</p>
+<p>而$z _d = \sum _{ j = 1  } ^n [ d | j ] h ( j ) x _j = \sum _{ d | j  } ^n h ( j ) x _j $,可以再次使用莫比乌斯反演求出$h ( j ) x _j $,进而求$x _j $.</p>
+<p>无解条件显然是$g _i = 0 \land x _i \ne 0 $.</p>
+<p>简而言之,这个题的步骤就是:</p>
+<ol>
+<li><p>通过增加枚举量消掉$lcm $以及$\gcd $这些难以处理的项.</p>
+</li>
+<li><p>将$i $与$j $尽量分到式子两边.</p>
+</li>
+<li><p>先通过莫比乌斯反演求出一些值,再通过这些值反推.</p>
+</li>
+</ol>
+<h4><span id="example6cf1566hxor-quiz">Example6([CF1566H]Xor-quiz)</span></h4><p>首先注意到一个重要的事实:我们只需要询问所有$\mu ( x ) \ne 0 $的$x $,就可以得到全部信息,而这些$x $的数量是完全足够我们全部询问一遍的.</p>
+<p>注意到一个事实是,异或是模意义下的按位加减法,这意味着我们可以对异或做莫比乌斯反演.事实上,我们有:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f ( n ) & = \bigoplus _{ i \in A  } i [ \gcd ( i , n ) & = 1 ] \\
+& = \bigoplus _{ i \in A  } ^c i \sum _{ d | i , d | n  } \mu ( d ) \\
+
+\end{aligned}</script><p>注意到$\sum _{ d | i  } \mu ( d ) = \bigoplus _{ d | i  } | \mu ( d ) | $,于是:</p>
+<script type="math/tex; mode=display">
+f ( n ) = \bigoplus _{ d | n  } | \mu ( d ) | \bigoplus _{ d | i , i \in A  } i</script><p>接下来只要我们形式上写作$n $,我们就默认$\mu ( n ) \ne 0 $,又令$g ( n ) = \bigoplus _{ n | i , i \in A  } i $,此时自然有$f ( n ) = \bigoplus _{ d | n  } g ( d ) \ $.这是一个经典的莫反形式,我们再反演回去就可以得到$g ( n ) = \bigoplus _{ d | n  } \mu ( \frac { n  } { d  } ) f ( d ) = \bigoplus _{ d | n  } f ( d ) $,也就是说我们可以求得所有的$g ( n ) $,也就是这个集合中所有是$n $的倍数的异或值.</p>
+<p>注意一个事实:如果我们设$w ( m ) = \prod _{ p \in prime , p | m  } p $,那么我们就可以按照$w $的不同将所有数划分为若干个集合,每个集合在每次查询的时候要么都不被异或要么都被异或.这也告诉我们:我们只能求出每个集合中被选进$A $的这些数的异或值,而不能分开得知它们.接下来考虑如何知道这个,不妨设$S ( n ) = \{ x | w ( x ) = n \} $,又设$h ( n ) = \bigoplus _{ i \in A , i \in S ( n )  } i $.考虑用$g ( n ) $表示$h ( n ) $,我们有:</p>
+<script type="math/tex; mode=display">
+g ( n ) = \bigoplus _{ n | d  } | \mu ( \frac { d  } { n  } ) | h ( d )</script><p>反演,有$h ( n ) = \bigoplus _{ n | d  } g ( d ) \ $.于是我们可以求得所有的$h ( n ) $了.</p>
+<p>现在的问题在于:对于数$n , \mu ( n ) \ne 0 $,我们要在$S ( n ) $中选出若干个数,使得它们的异或和为$h ( n ) $,并且选出的数字总共有$| A | $个.</p>
+<p>然后是根据数据随机,拿每个集合的线性基随机一下自由元,然后对着构造.多随机几次,最后做背包.</p>
+<h3><span id="多重子集反演">多重子集反演</span></h3><p>设$S $为可重集合.</p>
+<p>一般形式:定义$\mu ( S ) $,若$S $包含重复元素则为$0 $,否则为$( - 1 ) ^{ | S |  } $.</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f ( S ) & = \sum _{ T \subseteq S  } g ( T ) \Leftrightarrow g ( S ) & = \sum _{ T \subseteq S  } \mu ( S - T ) f ( T ) \\
+
+\end{aligned}</script><p>证明:</p>
+<p>根据莫比乌斯反演,这个是显然的.</p>
+<h3><span id="单位根反演离散傅里叶变换">单位根反演(离散傅里叶变换)</span></h3><p>一般形式($\omega _n = e ^{ \frac { 2 \pi i  } { n  }  } $):</p>
+<script type="math/tex; mode=display">
+f _m = \sum _{ k = 0  } ^{ n - 1  } \omega _n ^{ mk  } g _k \Leftrightarrow g _m = \frac { 1  } { n  } \sum _{ k = 0  } ^{ n - 1  } \omega _n ^{ - mk  } f _k</script><p>可以发现这个式子其实就是FFT时所做的DFT与IDFT.</p>
+<h3><span id="一般情况">一般情况</span></h3><p>考虑莫比乌斯反演的过程,我们实际上使用的是$[ m | n ] \sum _{ d | \frac { n  } { m  }  } \mu ( d ) = [ n = m ] \ $.</p>
+<p>令$c = md $,左边$= \sum _{ c | n  } [ m | c ] \mu ( \frac { c  } { m  } ) = \sum ( [ c | n ] ) ( [ m | c ] \mu ( \frac { c  } { m  } ) ) \ $.</p>
+<p>令$A _{ c , n  } = [ c | n ] $,$B _{ m , c  } = [ m | c ] \mu ( \frac { c  } { m  } ) \ $,那我们有$BA = I $.</p>
+<p>刚才的过程相当于:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+Ax & = b \\
+x & = Ix \\
+x & = ( BA ) x \\
+x & = B ( Ax ) \\
+x & = Bb \\
+
+\end{aligned}</script><p>无论是二项式反演还是莫比乌斯反演,他们都满足$f ( n ) $所依赖的$g ( k ) $有$k \leq n \ $.</p>
+<p>根据上面的情况,我们发现$A $是一个下三角矩阵,$B $是$A ^{ - 1  } $.</p>
+<p>现在来推导满足$k \leq n $的一般情况反演:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f ( n ) & = \sum _{ k = 1  } ^n a _{ n , k  } g ( k ) \\
+
+\end{aligned}</script><p>不妨设算子$\mu ( n , m ) $,满足$\sum _{ k = 1  } ^n a _{ n , k  } \mu ( k , m ) = \sum _{ k = 1  } ^n \mu ( n , k ) a _{ k , m  } = [ n = m ] \ $.</p>
+<p>即$AB = BA = I \ $.</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+g ( n ) & = \sum _{ m = 1  } ^n [ n & = m ] g ( m ) \\
+& = \sum _{ m = 1  } ^n \sum _{ k = 1  } ^n \mu ( n , k ) a _{ k , m  } g ( m ) \\
+& = \sum _{ k = 1  } ^n \mu ( n , k ) f ( k ) \\
+
+\end{aligned}</script><p>由上我们发现,反演解决了一些在下标上的二元运算卷积:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+c _r & = \sum _{ p , q  } [ f ( p , q ) & = r ] a _p b _q \\
+
+\end{aligned}</script><p>而我们需要把$f $分成两个独立的部分,通常正变换一下,处理一下,逆变换回来.</p>
+<h2><span id="容斥">容斥</span></h2><h4><span id="一般形式">一般形式</span></h4><p>即:将求并集中元素个数转化成了求交集中元素个数.</p>
+<p>我们有:$\mid \bigcup _{ i = 1  } ^n S _i \mid = \sum _{ T \subseteq \{ 1 , . . . , n \}  } ( - 1 ) ^{ | T - 1 |  } \mid \bigcap _{ p \in T  } S _p \mid $.</p>
+<p>证明:我们考虑对于每个元素,看它对最终答案的贡献.假设它所属$m $个集合$T _1 , . . . , T _m $,而除了这些集合以外的集合,</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+cnt & = \sum _{ i = 1  } ^m ( - 1 ) ^{ i - 1  } \binom { m  } { i  } \\
+& = \binom { m  } { 0  } - \sum _{ i = 0  } ^m ( - 1 ) ^i \binom { m  } { i  } \\
+& = 1 - [ m & = 0 ] 
+\end{aligned}</script><p>显然,当这个元素被包含的时候,贡献为$1 $,反之贡献为$0 $.</p>
+<p>如果我们定义一类在集合上的函数$F ( S ) = \sum _{ p \in S  } F ( p ) $,那么自然也有:</p>
+<script type="math/tex; mode=display">
+F ( \bigcup _{ i = 1  } ^n S _i ) = \sum _{ T \subseteq \{ 1 , . . . , n \}  } ( - 1 ) ^{ | T | - 1  } F ( \bigcap _{ p \in T  } S _p )</script><p>另外,我们上面的做法是:当交集好求时求并集.我们还可以使用一步补集转化:</p>
+<script type="math/tex; mode=display">
+\mid \bigcap _{ i = 1  } ^n S _i \mid = | U | - \mid \bigcup _{ i = 1  } ^n \overline { S _i  } \mid</script><p>这样我们同样可以在并集好求的时候求交集.</p>
+<p>会发现容斥和二项式反演是很像的.但是不一样的是,容斥是从集合的角度考虑,更注重单个元素的贡献;二项式反演是从函数的角度考虑,更关注函数之间的转化.</p>
+<h5><span id="example1不定方程非负整数解计数">Example1(不定方程非负整数解计数)</span></h5><p>考虑不定方程$\sum _{ i = 1  } ^n x _i = m $,和$n $个限制条件$x _i \leq b _i $,其中$m $和$b _i $都是非负整数,求该方程的非负整数解的数目.</p>
+<p>首先,我们需要找出全集$U $,以及刻画$U $中元素的$P _i $(条件):</p>
+<ol>
+<li><p>$U $是满足$\sum _{ i = 1  } ^n x _i = m $的所有非负整数解;</p>
+</li>
+<li><p>对于每个变量$i $,都对应一个$P _i = [ x _i \leq b _i ] $.</p>
+</li>
+</ol>
+<p>设所有满足$P _i $的解构成集合$S _i $,那么我们需要求解的值就是$\mid \bigcap _{ i = 1  } ^n S _i \mid $.而$\mid U \mid $显然是$\binom { m + n - 1  } { n - 1  } $.我们有:$\mid \bigcap _{ i = 1  } ^n S _i \mid = | U | - \mid \bigcup _{ i = 1  } ^n \overline { S _i  } \mid $.考虑对$\mid \bigcup _{ i = 1  } ^n \overline { S _i  } \mid $使用容斥原理,注意到$\overline { S _i  } $的意义是满足$x _{ i  } \geq b _{ i  } + 1 $的解的数目.换句话说也就是部分变量有下界限制,那直接左右两边同时减去下界即可.于是枚举子集即可实现.</p>
+<p>欸,等一下,咋想到的补集转化,又是咋想到要用容斥的捏?</p>
+<p>我们冷静一下,首先补集转化和容斥都是一个思想:正难则反.我们要求满足条件的个数,就先想一下能不能求不满足条件的个数,然后拿总的个数减去.然后注意到不满足条件的意义是:有至少一个不满足,这样就很可以容斥了.</p>
+<h5><span id="example2错排问题">Example2(错排问题)</span></h5><p>我们考虑从容斥的角度再次认识一下错排.</p>
+<p>首先,我们需要找出全集$U $,以及刻画$U $中元素的$P _i $(条件):</p>
+<ol>
+<li><p>$U $是长度为$n $的所有排列;</p>
+</li>
+<li><p>对于每个变量$i $,都对应一个$P _i = [ p _i \ne i ] $.</p>
+</li>
+</ol>
+<p>注意到所求仍然是$\mid \bigcap _{ i = 1  } ^n S _i \mid $.于是我们仍然试图$| \bigcap _{ k = 1  } ^m \overline { S _{ a _k  }  } | $.考虑其意义,也即:有$m $个位置被确定了,而其它位置没有限制,于是$| \bigcap _{ k = 1  } ^m \overline { S _{ a _k  }  } | = \binom { n  } { m  } ( n - m ) ! $.根据容斥,自然有:$d _n = n ! - \sum _{ m = 1  } ^n ( - 1 ) ^{ m - 1  } \binom { n  } { m  } ( n - m ) ! = n ! \sum _{ m = 0  } ^n \cfrac { ( - 1 ) ^m  } { m !  } $.</p>
+<h5><span id="example3bzoj3622已经没有什么好害怕的了">Example3(bzoj3622已经没有什么好害怕的了)</span></h5><p>首先可以用dp+双指针得到$f _i $表示勒令$i $对满足条件的方案数.把$k $的定义改为恰好$k $对满足条件的显然是同强度的.</p>
+<p>我们接下来仍然考虑容斥,首先,我们需要找出全集$U $,以及刻画$U $中元素的$P _i $(条件).</p>
+<p>等一下,这个好像不好刻画?</p>
+<p>我们先回归一下容斥的本质:考虑每个元素的贡献.注意到恰好$a $对的方案会被恰好$b $对的方案计算$\binom { b  } { a  } $次.我们再考虑一种方式理解容斥:我们一步一步把正确的答案消出来:简单来说,我第一步让所有恰好为$k $的方案贡献为$1 $,其它的可能也有贡献,但我们忽略他们.第二步让所有恰好为$k + 1 $的方案贡献为$0 $,第三步以此类推.于是这个题,我们考虑也这么做:这样第一步令$ans = f _k $,第二步除去其中被多算的$k + 1 $,这一步令$ans - = \binom { k + 1  } { k  } f _{ k + 1  } $.这个时候,我们再考虑$k + 2 $的贡献:它将在$f _k $时贡献$\binom { k + 2  } { k  } $次,在$f _{ k + 1  } $时贡献$- \binom { k + 2  } { k + 1  } \binom { k + 1  } { k  } = - \binom { k + 2  } { k  } \binom { 2  } { 1  } $次,那它现在的贡献还有:$- \binom { k + 2  } { k  } $次.以此类推,可以得到$ans = \sum _{ i = k  } ^n f _i ( - 1 ) ^{ i - k  } \binom { i  } { k  } $.</p>
+<p>等一下,这也太麻烦了,就不能从集合的角度分析嘛?</p>
+<p>冷静一下,如果我们要做容斥,我们必须考虑每个元素<strong>单独</strong>的贡献,但是在这个题中,每个元素并没有单独的贡献,而是整个集合需要满足性质才能贡献.也就是说,我们无法分析每个$P _i $.而考虑集合就需要将集合分类,从而使用二项式反演.</p>
+<p>换句话说,这个定义在集合上的函数并不满足可加性.</p>
+<p>换句话说,我们要用容斥,就一定要刻画$P _i $,因为只有这个时候,我们才能通过分析满不满足$P _i $的解集的交并来实现.</p>
+<p>再换句话说,大部分的所谓的容斥其实都和集合<strong>没啥关系</strong>,我们做容斥就是需要逐个考虑贡献,把它们贡献全都杀成$1 / 0 $就行.</p>
+<h5><span id="example4haoi2008硬币购物">Example4(HAOI2008硬币购物)</span></h5><p>如果直接对于每次询问暴力做,复杂度显然是$O ( 4 ns ) $,无法接受.于是考虑预处理来降低单词询问复杂度.</p>
+<p>注意到硬币数量很少,并且每个硬币的贡献可以独立计算.我们完全可以刻画$P _i = [ use _i \leq d _i ] $,从而可以用容斥做.复杂度$O ( 4 m + n 2 ^4 ) $.</p>
+<h5><span id="example5">Example5</span></h5><p>Alice和Bob在玩游戏,他们有一个$n $个点的无向完全图,设所有的边组成了集合$E $,他们想取遍$E $的所有非空子集,对某个集合$S $有一个估价$f ( S ) $:考虑$n $个点与$S $中的边组成的图,我们用$m $种颜色对所有点染色,其中同一个连通块的点必须染成一种颜色,那么$f ( S ) $等于这个图的染色方案数.同时,Alice喜欢奇数,所以当$| S | $为奇数时,Alice的分值加上$f ( S ) $,否则Alice的分值减去$f ( S ) $,求最后的分值.$( n , m \leq 10 ^6 ) $.</p>
+<p>一开始抄题的时候没有写染色而是直接写”设$k $为连通块个数,则$f ( S ) = m ^k $.”然后发现做不了,因为$| S | $相同的$f ( S ) $不尽相同,而且可能情况还蛮多的.冷静一下,注意到连通块这个性质太强了:如果我们把它放到指数上,那应该会做得很痛苦.所以我们考虑每有一个连通块就乘上一个$m $,这个看上去就简单一些.</p>
+<p>但是这样好像还是不太好做,毕竟现在我们面对的还是一个难以转化为计数问题的图论问题,只是把问题的单位元素从图变成了连通块.那我们能不能再进一步:把单位元素换成单点呢?</p>
+<p>考虑由于连通块要染一种颜色,那$x \leftrightarrow y \Rightarrow col _x = col _y $.注意到这是一个单位元素更小的限制条件!并且我们发现我们将与$- 1 $有关的单位元素(从一开始就是点)和与$f $有关的单位元素统一起来了.这也提示我们做计数的时候,尤其是做容斥的计数的时候,最好先将单位元统一,这样后面才可能更容易做.</p>
+<p>接下来就可以写式子了,令$F ( C ) $表示在$C $情况下的染色方案,$T _{ ( i , j )  } $表示满足边$( i , j ) $限制的解集:</p>
+<script type="math/tex; mode=display">
+ans = \sum _{ \emptyset \ne S \subseteq E  } ( - 1 ) ^{ | S | - 1  } F ( \bigcap _{ ( i , j ) \in S  } T _{ ( i , j )  } )</script><p>冷静一下!这个东西和容斥长得那叫一个一模一样啊.我们看看能不能逆向分析出$ans $的意义:显然是$F ( \bigcup _{ i = 1  } ^{ m  } P _i ) $.也就是完全图中至少有两个点颜色相同的染色数.根据补集转化,我们只需求出两两点不相同的染色数即可.所以最后的答案就是$m ^n - m ^{ \underline { n  }  } $.</p>
+<h5><span id="example6">Example6</span></h5><p>求$\varphi ( n ) $.</p>
+<p>考虑这么一个事实:假设$n = \prod p _i ^{ q _i  } $,注意到令$P _i = [ \gcd ( i , n ) = 1 ] $,我们所求也就是$\mid \bigcap _{ i = 1  } ^n S _i \mid $.于是可以用上面的方法做.另外,这里的做法引出莫比乌斯反演.</p>
+<h5><span id="example7agc058d">Example7(AGC058D)</span></h5><p>直接容斥好像不太可做,我们把容斥中的条件改为有多少个极长的形如$ABCABCAB . . . $这样的串.</p>
+<p>乍一看这个极长的条件好像巨难满足,但实际上我们冷静一下,我们只需要满足这个串长度大于等于$3 $并且开头不能往前延申就可以了,后面其实是没啥必要管的.</p>
+<p>拿组合数算一算.</p>
+<h5><span id="example8agc035f">Example8(AGC035F)</span></h5><p>显然问题只在于重复计算的问题.我们先将所有状态做一个双射:对于一个网格,唯一可能被重复计算的只可能是一个拐角的$1 $,我们让这种情况下的行尽可能长.</p>
+<p>然后捏?注意到这样的话一个拐角的角一定是行了,是列就一定不合法,我们考虑把不合法的列杀了.</p>
+<p>于是做一下容斥,答案是$\sum _{ i = 0  } ^{ \min ( n , m )  } ( - 1 ) ^i \binom { n  } { i  } \binom { m  } { i  } i ! ( m + 1 ) ^{ n - i  } ( n + 1 ) ^{ m - i  } $.</p>
+<h5><span id="example9">Example9</span></h5><p>给定若干个限制条件$( x , y ) $,表示$a _x = y $和$a _y = x $必须满足至少一个,求排列方案数.</p>
+<p>首先$i \rightarrow p _i $把排列转化成图,这样上面的限制条件也就是有一些无向的链和环,最后定向.一开始以为随便做做,思考一下注意到如果有长度为$2 $的链,它自己成环的话是不用$\times 2 $的.</p>
+<p>这咋办.一个办法是:我们考虑容斥,先随便放进去,最后再钦定若干个自己成环.诶等一下为啥这个容斥是对的?因为系数是$\times 2 $,所以一个有$1 $个单独成环的状态会被随便放的情况恰好多算一次.类似可以做容斥.</p>
+<p>当然,也可以考虑先把其它的合并,最后做长度为$2 $的链,但是!一开始一定要钦定有序,最后再用组合数统一算答案.因为一开始带着顺序做很难做.</p>
+<h5><span id="example10agc036f-square-constraints">Example10([AGC036F] Square Constraints)</span></h5><p>由题意得:$n ^2 - i ^2 \leq P _i ^2 \leq ( 2 n ) ^2 - i ^2 $.</p>
+<p>当一个东西有上界又有下界的时候可以想到容斥.问题转化为只有上界.假设最后所有的上界为$l _i $,那么只有上界的答案应该是什么呢?将$l $从小到大排序,答案就是$\prod _{ i = 0  } ^{ 2 n - 1  } ( l _i - i ) $.(注意到必须满足$l _{ 2 n - 1  } = 2 n - 1 $.)</p>
+<p>但是这个东西和容斥怎么结合起来呢?我们将限制放到二维平面上,注意到上下界的限制其实是两个$\frac { 1  } { 4  } $的圆弧.而通过圆弧的性质不难看出:最终的$l $分为三部分:在下半部分圆弧上的,在上半部分圆弧后面的,在上半部分圆弧前面的.而如果想知道$l $按照顺序排序,我们只需要对前两部分做归并,然后将最后一部分直接放到后面即可.于是我们考虑按照$l $的大小为顺序进行一个类似归并的东西,每次判断当前下半部分圆弧是否要往上加点即可.这样我们可以处理前两部分对答案的贡献,但问题在于第三部分对答案的贡献怎么做,我们需要找到第三部分上的点在排序后的位置.我们预先枚举容斥集合的大小即可,这样就可以快速算出这个东西,于是复杂度$O ( n ^3 ) $.</p>
+<h5><span id="example1123省选第一轮集训day4c带劲的旅行">Example11([23省选第一轮集训day4]C带劲的旅行)</span></h5><p>(下面将$n $和$m $反着写)</p>
+<p>设$p = \frac { 2 k  } { n  } , q = n - p $.</p>
+<p>首先注意到期望$= P [ len \geq 1 ] + P [ len \geq 2 ] + \cdots $.</p>
+<p>考虑如何计算$P [ len \geq x ] $,如果我们设$a _i $表示以$i $作为开头的极长的带劲的长度大于等于$x $的序列的集合,那么最后无非是要求所有$a $的并.考虑用容斥做到求所有$a $的交.不过要注意讨论一下是不是第一个点.</p>
+<h5><span id="example12">Example12</span></h5><p>给定$n , k $和$n $个点各自的颜色,对有编号无根树计数,要求相同颜色组成的连通块大小不超过$k $.$n \leq 300 $.</p>
+<p>著名结论:$n $个点$m $个连通块任意连边成树的方案数是$n ^{ m - 2  } \prod s $,其中$s $是每个连通块的大小.但是,如果我们强行对每种颜色分成若干连通块,我们要防止它们之间有边.这就是我一开始没做出来的原因:要容斥的根本不是树的大小不能超过$k $,由于树的形态多变,这个是不能维护的!正确的做法是找到若干个相同颜色的大小小于等于$k $的连通块,要求它们两两无边.甚至根本就不是它们可以连边但是大小不能超过$k $,我们要容斥的东西一定要好算,简单.</p>
+<p>然后就做完了,每次暴力合并若干个颜色相同的块,容斥系数$( - 1 ) ^{ 块 数 - 1  } $.</p>
+<p>容斥是一个层层递进的东西,我们每一步都是基于上一步的限制:它本身就是一个求解集的东西.</p>
+<h4><span id="min-max容斥">Min-Max容斥</span></h4><p>对于:</p>
+<script type="math/tex; mode=display">
+\mid \bigcup _{ i = 1  } ^n S _i \mid = \sum _{ T \subseteq \{ 1 , . . . , n \}  } ( - 1 ) ^{ | T - 1 |  } \mid \bigcap _{ p \in T  } S _p \mid</script><p>考虑一个特例:$S _i = \{ 1 , 2 , \cdots , a _i \} $,那么上面的式子导出min-max容斥(我们设$S = \{ a _1 , a _2 , \cdots , a _n \} $)(第二个式子可以把前缀改成后缀):</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\max ( S ) & = \sum _{ T \subseteq S , T \ne \emptyset  } ( - 1 ) ^{ | T | - 1  } \min ( T ) \\
+\min ( S ) & = \sum _{ T \subseteq S , T \ne \emptyset  } ( - 1 ) ^{ | T | - 1  } \max ( T ) 
+\end{aligned}</script><p>由于是集合,这个式子在期望意义下同样成立:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+E ( \max \{ S \} ) & = \sum _{ T \subseteq S , T \ne \emptyset  } ( - 1 ) ^{ | T | - 1  } E ( \min \{ S \} ) \\
+E ( \min \{ S \} ) & = \sum _{ T \subseteq S , T \ne \emptyset  } ( - 1 ) ^{ | T | - 1  } E ( \max \{ S \} ) 
+\end{aligned}</script><p>进一步,这个式子可不止能求min-max的转化,它可以求出集合中第k大的数字:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+kth \max \{ S \} & = \sum _{ T \subseteq S , T \ne \emptyset  } ( - 1 ) ^{ | T | - k  } \binom { | T | - 1  } { k - 1  } \min \{ T \} \\
+kth \min \{ S \} & = \sum _{ T \subseteq S , T \ne \emptyset  } ( - 1 ) ^{ | T | - k  } \binom { | T | - 1  } { k - 1  } \max \{ T \} \\
+E ( kth \max \{ S \} ) & = \sum _{ T \subseteq S , T \ne \emptyset  } ( - 1 ) ^{ | T | - k  } \binom { | T | - 1  } { k - 1  } E ( \min \{ T \} ) \\
+E ( kth \min \{ S \} ) & = \sum _{ T \subseteq S , T \ne \emptyset  } ( - 1 ) ^{ | T | - k  } \binom { | T | - 1  } { k - 1  } E ( \max \{ T \} ) 
+\end{aligned}</script><p>原理是消掉前$k - 1 $大的数字,让他们的贡献为$0 $,剩下的配一下容斥系数.</p>
+<h5><span id="example123省选10连测-day6a">Example1([23省选10连测 day6]A)</span></h5><p>不妨设$tim _i $为$[ i , i + 1 ] $第一次被覆盖的时间,答案就是:</p>
+<script type="math/tex; mode=display">
+E ( \max _{ i = 1  } ^{ n - 1  } \{ tim _i \} ) = \sum _{ T \subseteq \{ 1 , 2 , \cdots , n - 1 \} , T \ne \emptyset  } ( - 1 ) ^{ | T | - 1  } E ( \min _{ j \in T  } \{ tim _j \} )</script><p>设$f ( S ) $为有多少个区间能覆盖至少一个$[ i , i + 1 ] , i \in S $,考虑$E = p _{ [ t \geq 0 ]  } + p _{ [ t \geq 1 ]  } + p _{ [ t \geq 2 ]  } + \cdots $,于是$E ( \min _{ j \in S  } \{ tim _j \} ) = \frac { m  } { f ( S )  } $.</p>
+<p>于是:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+ans & = \sum _{ T \subseteq \{ 1 , 2 , \cdots , n - 1 \} , T \ne \emptyset  } ( - 1 ) ^{ | T | - 1  } f ( T ) \\
+& = \sum _{ k = 0  } ^m \frac { m  } { k  } \sum _{ T \subseteq \{ 1 , 2 , \cdots , n - 1 \} , T \ne \emptyset , f ( T ) = k  } ( - 1 ) ^{ | T | - 1  } 
+\end{aligned}</script><p>注意到$f ( S ) $可能不那么好求,我们求$g ( S ) = m - f ( S ) $,也就是不包含任何一个$[ i , i + 1 ] , i \in S $的区间个数,我们有:</p>
+<script type="math/tex; mode=display">
+ans = \sum _{ k = 0  } ^m \frac { m  } { m - k  } \sum _{ T \subseteq \{ 1 , 2 , \cdots , n - 1 \} , T \ne \emptyset , g ( T ) = k  } ( - 1 ) ^{ | T | - 1  }</script><p>这里已经不难写出$O ( n ^3 ) $的dp了.</p>
+<p>那么怎么优化呢?设$dp _{ i , j  } $表示只考虑$[ 1 , i ] $时($[ i - 1 , i ] $必选),$\sum _{ g ( T ) = j  } ( - 1 ) ^{ | T | - 1  } $的答案,不难发现每次加入一个区间$[ l , r ] $就会让$dp _{ i , j  } , i &lt; = l $对$dp _{ r , j + 1  } $的贡献乘一个$1 $.</p>
+<p>如何处理这个事情?我们用类似多项式的东西,前者相当于平移多项式系数,后者相当于标量乘法,然后拿线段树维护和,复杂度$O ( nm \log n ) $.</p>
+<h4><span id="反射容斥">反射容斥</span></h4><p>一般形式:给定二维平面上两个点$S $和$T $,其中$T $在$S $的右方,给定两条线$y = a $和$y = b $,每次可以向右上或者右下走一步,求不碰线的从$S $到$T $的方案数.</p>
+<p>我们不妨设$A $表示一定碰了一次上界的方案数,$B $表示一定碰了一次下界的方案数,$AB $表示一定碰了一次上界后碰了一次下界的方案数……</p>
+<p>最后的答案就是随便走$- A - B + AB + BA - ABA - BAB . . . $.</p>
+<p>考虑设步数为$n $,那显然长度最多为$\cfrac { n  } { a - b  } $.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"># 数学</a>
+          </div>
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+      <a class="a2a_button_telegram"></a>
+      <a class="a2a_button_wechat"></a>
+      <a class="a2a_button_qzone"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/06/22/%E5%AD%A6%E4%B9%A0-%E5%8D%9A%E5%BC%88%E8%AE%BA/" rel="prev" title="博弈论">
+                  <i class="fa fa-angle-left"></i> 博弈论
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/06/22/%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E8%AE%BA/" rel="next" title="图论">
+                  图论 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">LWLAymh</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"my-repository-jade-beta-79.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"有什么想法?","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2025/06/22/%E5%AD%A6%E4%B9%A0-%E5%8F%8D%E6%BC%94%E4%B8%8E%E5%AE%B9%E6%96%A5/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+  <!-- 音乐播放器 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
+  <div id="aplayer" class="aplayer" data-id="7637648380" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true" data-order="random" data-theme="#F58EA8"></div>
+  <script src="https://unpkg.com/meting@1.2/dist/Meting.min.js"></script>
+  <!-- 音乐播放器 end -->
+</body>
+</html>
