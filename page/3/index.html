@@ -407,30 +407,53 @@
     
     <div class="post-body" itemprop="articleBody">
           <span id="more"></span>
-<p>2024的烟台一模数学压轴题是一道新定义题,是说证明<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%91%86%E7%BA%BF/5893005">摆线</a>上一点$M ( x _0 , y _0 ) $的切线的倾斜角为$\theta $,求证$\frac { 1 + \cos 2 \theta  } { y _0  } = 1 $.在这个题下选用的参数方程是$x = t - \sin t , y = 1 - \cos t $.</p>
+<p>2024的烟台一模数学压轴题是一道新定义题,是说证明<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%91%86%E7%BA%BF/5893005">摆线</a>上一点$M
+( x _0 , y _0 ) <span class="math inline">\(的切线的倾斜角为\)</span><span class="math inline">\(,求证\)</span> { y _0 } = 1 <span class="math inline">\(.在这个题下选用的参数方程是\)</span>x = t - t , y
+= 1 - t $.</p>
 <p>这个怎么做呢?我的文化课同学们纷纷使用强大的隐函数求导技巧把它杀穿了啊.可惜我不会隐函数求导,我只会链式法则.但是我考场只记得链式法则怎么用了而完全忘记了这个东西为啥是对的,所以就有了这篇复健博客.</p>
-<p>首先来复习一下微分$\text { d  } y $的定义啊,下面这段抄自我原本的高数笔记:</p>
-<p>考察$\Delta y = f ( x _0 + \Delta x ) - f ( x _0 ) $,不妨假设$f ( x ) $在$x _0 $处导数存在,自然有$\lim _{ \Delta x \rightarrow 0  } \frac { \Delta y  } { \Delta x  } = f ‘ ( x _0 ) \ $.考察$\eta ( \Delta x ) = \frac { \Delta y  } { \Delta x  } - f ‘ ( x _0 ) $,显然$\Delta x \rightarrow 0 $时$\eta ( \Delta x ) $是一个无穷小量.</p>
+<p>首先来复习一下微分$ y $的定义啊,下面这段抄自我原本的高数笔记:</p>
+<p>考察$y = f ( x _0 + x ) - f ( x _0 ) <span class="math inline">\(,不妨假设\)</span>f ( x ) <span class="math inline">\(在\)</span>x <em>0 <span class="math inline">\(处导数存在,自然有\)</span></em>{ x } { x } = f ’ (
+x _0 ) \ <span class="math inline">\(.考察\)</span>( x ) = { x } - f ’ (
+x _0 ) <span class="math inline">\(,显然\)</span>x <span class="math inline">\(时\)</span>( x ) $是一个无穷小量.</p>
 <p>那么,我们自然有:</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-\Delta y & = f ' ( x _0 ) \Delta x + \eta ( \Delta x ) \Delta x \\
-& = f ' ( x _0 ) \Delta x + o ( \Delta x ) , \Delta x \rightarrow 0 
-\end{aligned}</script><p>同时,如果我们有这个式子,可以两边同时除以$\Delta x $以证明可导.</p>
+\Delta y &amp; = f &#39; ( x _0 ) \Delta x + \eta ( \Delta x ) \Delta x
+\\
+&amp; = f &#39; ( x _0 ) \Delta x + o ( \Delta x ) , \Delta x
+\rightarrow 0
+\end{aligned}
+\]</span></p>
+<p>同时,如果我们有这个式子,可以两边同时除以$x $以证明可导.</p>
 <p>这就将一阶导数转化成了无穷小量的形式,我们借此给出微分的定义:</p>
-<p>设$y = f ( x ) $在$x _0 $处有定义,假设有一个常数$A $使得$f ( x _0 + \Delta x ) - f ( x _0 ) = A \Delta x + o ( \Delta x ) , \Delta x \rightarrow 0 $,称$f ( x ) $在$x _0 $处<strong>可微</strong>,并把$\text { d  } f = \text { d  } y = A \Delta x $称为$f ( x ) $在$x _0 $处的<strong>微分</strong>,由于后半部分是一个更高阶的无穷小量,我们说微分是函数改变量的线性主要部分.这个时候结合导数极限的定义,就可以得到$\text { d  } y = f ‘ ( x ) \text { d  } x $,$f ‘ ( x ) = \frac { \text { d  } y  } { \text { d  } x  } \ $.这就是我们将导数称作<strong>微商</strong>的原因.</p>
-<p>一阶微分具有<strong>形式不变性</strong>.换言之就是,我们在求导的时候是需要选定一个自变量的,当选定的自变量是$y $的时候,根据上面自然会有$z = g ( y ) , \text { d  } z = g ‘ ( y ) \text { d  } y $.</p>
-<p>但是当选定的自变量不是$y $的时候,上面的形式是同样成立的.我们下面证明这个结论,令$y = f ( x ) $:</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-[ g ( f ( x ) ) ] ' & = g ' ( f ( x ) ) f ' ( x ) \\
-\text { d  } z & = g ' ( f ( x ) ) f ' ( x ) \text { d  } x \\
-\text { d  } z & = g ' ( y ) \text { d  } y \\
+<p>设$y = f ( x ) <span class="math inline">\(在\)</span>x _0 <span class="math inline">\(处有定义,假设有一个常数\)</span>A <span class="math inline">\(使得\)</span>f ( x _0 + x ) - f ( x _0 ) = A x + o
+( x ) , x <span class="math inline">\(,称\)</span>f ( x ) <span class="math inline">\(在\)</span>x _0 <span class="math inline">\(处**可微**,并把\)</span> f = y = A x <span class="math inline">\(称为\)</span>f ( x ) <span class="math inline">\(在\)</span>x _0 <span class="math inline">\(处的**微分**,由于后半部分是一个更高阶的无穷小量,我们说微分是函数改变量的线性主要部分.这个时候结合导数极限的定义,就可以得到\)</span>
+y = f ’ ( x ) x <span class="math inline">\(,\)</span>f ’ ( x ) = { x }
+\ $.这就是我们将导数称作<strong>微商</strong>的原因.</p>
+<p>一阶微分具有<strong>形式不变性</strong>.换言之就是,我们在求导的时候是需要选定一个自变量的,当选定的自变量是$y
+<span class="math inline">\(的时候,根据上面自然会有\)</span>z = g ( y )
+, z = g ’ ( y ) y $.</p>
+<p>但是当选定的自变量不是$y <span class="math inline">\(的时候,上面的形式是同样成立的.我们下面证明这个结论,令\)</span>y
+= f ( x ) $:</p>
+$$
+<span class="math display">\[\begin{aligned}
+[ g ( f ( x ) ) ] &#39; &amp; = g &#39; ( f ( x ) ) f &#39; ( x ) \\
+\text { d  } z &amp; = g &#39; ( f ( x ) ) f &#39; ( x ) \text { d  } x
+\\
+\text { d  } z &amp; = g &#39; ( y ) \text { d  } y \\
 
-\end{aligned}</script><p>必须提出高阶微分不存在形式不变性,换句话说,$z = g ( y ) $的二阶微分的形式不等价于$z = g ( y = f ( x ) ) $的二阶微分,你不能乱换元.</p>
+\end{aligned}\]</span>
+<p>$$</p>
+<p>必须提出高阶微分不存在形式不变性,换句话说,$z = g ( y ) <span class="math inline">\(的二阶微分的形式不等价于\)</span>z = g ( y = f ( x
+) ) $的二阶微分,你不能乱换元.</p>
 <p>根据上面的操作,我们很自然引出了链式法则,也就是:</p>
-<script type="math/tex; mode=display">
-\frac { \text { d  } y  } { \text { d  } x  } = \frac { \text { d  } y  } { \text { d  } t  } \frac { \text { d  } t  } { \text { d  } x  } = \frac { \text { d  } y  } { \text { d  } t  } \frac { 1  } { \frac { \text { d  } x  } { \text { d  } t  }  }</script><p>这样上面的题就可以迎刃而解了.</p>
+<p><span class="math display">\[
+\frac { \text { d  } y  } { \text { d  } x  } = \frac { \text { d  }
+y  } { \text { d  } t  } \frac { \text { d  } t  } { \text { d  } x  } =
+\frac { \text { d  } y  } { \text { d  } t  } \frac { 1  } { \frac {
+\text { d  } x  } { \text { d  } t  }  }
+\]</span></p>
+<p>这样上面的题就可以迎刃而解了.</p>
 
       
     </div>
@@ -523,30 +546,43 @@
     
     <div class="post-body" itemprop="articleBody">
           <span id="more"></span>
-<p>在YT2S 2021级生2课上有一个著名的open problem,也就是在计算自由交配的时候能否拆开考虑,下面我来尝试写一点自己的理解.</p>
+<p>在YT2S 2021级生2课上有一个著名的open
+problem,也就是在计算自由交配的时候能否拆开考虑,下面我来尝试写一点自己的理解.</p>
 <p>首先来看两个问题(前置条件均为孟德尔第二次杂交实验):</p>
-<ol>
-<li><p>将F2中双显性植株自由交配,求后代表现型及比例.</p>
-</li>
-<li><p>将F2中单显性植株(包括两种单显性植株)自由交配,求后代表现型及比例.</p>
-</li>
+<ol type="1">
+<li><p>将F2中双显性植株自由交配,求后代表现型及比例.</p></li>
+<li><p>将F2中单显性植株(包括两种单显性植株)自由交配,求后代表现型及比例.</p></li>
 </ol>
-<p>为了方便笔者书写,不妨设这两对基因是$A / a $和$B / b $.</p>
-<p>先来看第一个问题,双显性植株中应该有:$\frac { 1  } { 9  } AABB , \frac { 2  } { 9  } AABb , \frac { 2  } { 9  } AaBB , \frac { 4  } { 9  } AaBb $.先让第一组基因自由交配,也就是只看$A / a $,我们有$\frac { 1  } { 3  } AA $和$\frac { 2  } { 3  } Aa $,产生$\frac { 2  } { 3  } A $和$\frac { 1  } { 3  } a $配子,得到$AA : Aa : aa = 4 : 4 : 1 $,也就是$A _ : aa = 8 : 1 $.对另一对也这么考虑,最终得到$A _ B _ : A _ bb : aaB _ : aabb = 64 : 8 : 8 : 1 $.</p>
+<p>为了方便笔者书写,不妨设这两对基因是$A / a <span class="math inline">\(和\)</span>B / b $.</p>
+<p>先来看第一个问题,双显性植株中应该有:$ { 9 } AABB , { 9 } AABb , { 9 }
+AaBB , { 9 } AaBb <span class="math inline">\(.先让第一组基因自由交配,也就是只看\)</span>A / a
+<span class="math inline">\(,我们有\)</span> { 3 } AA <span class="math inline">\(和\)</span> { 3 } Aa <span class="math inline">\(,产生\)</span> { 3 } A <span class="math inline">\(和\)</span> { 3 } a <span class="math inline">\(配子,得到\)</span>AA : Aa : aa = 4 : 4 : 1 <span class="math inline">\(,也就是\)</span>A _ : aa = 8 : 1 <span class="math inline">\(.对另一对也这么考虑,最终得到\)</span>A _ B _ : A _
+bb : aaB _ : aabb = 64 : 8 : 8 : 1 $.</p>
 <p>非常合理且简洁对吧,但如果你同样拆开考虑第二个问题,会发现这么做是错误的.</p>
-<p>我们生物老师LL老师给出的解释是,单显性植株的个体是$A _ bb $和$aaB _ $,它们的基因型并没有组合的非常彻底,也就是并没有出现$aabb $和$A _ B _ $个体,导致不能乱拆开.</p>
+<p>我们生物老师LL老师给出的解释是,单显性植株的个体是$A _ bb <span class="math inline">\(和\)</span>aaB _ <span class="math inline">\(,它们的基因型并没有组合的非常彻底,也就是并没有出现\)</span>aabb
+<span class="math inline">\(和\)</span>A _ B _ $个体,导致不能乱拆开.</p>
 <p>而直觉上感觉这个东西和独立性有关对吧,我们来简单证明一下:</p>
-<p>约定$X $是$AA , Aa $或$aa $,$Y $则是$BB , Bb , bb $,那么:$P ( XY ) = P ( Y | X ) P ( X ) $.如果可以拆开,那么$P ( XY ) = P ( X ) P ( Y ) $,于是有:$P ( Y | X ) = P ( Y ) $,也就是这两种基因型互相独立就行,老师说的对啊!</p>
+<p>约定$X <span class="math inline">\(是\)</span>AA , Aa <span class="math inline">\(或\)</span>aa <span class="math inline">\(,\)</span>Y <span class="math inline">\(则是\)</span>BB , Bb , bb <span class="math inline">\(,那么:\)</span>P ( XY ) = P ( Y | X ) P ( X )
+<span class="math inline">\(.如果可以拆开,那么\)</span>P ( XY ) = P ( X
+) P ( Y ) <span class="math inline">\(,于是有:\)</span>P ( Y | X ) = P (
+Y ) $,也就是这两种基因型互相独立就行,老师说的对啊!</p>
 <p>如果只是这样就水了一篇博客非常无聊对吧,能不能证明一点更好玩的结论呢?</p>
-<p>考虑设产生四种配子$AB , Ab , aB , ab $的概率分别是$x , y , z , w $,其中$x + y + z + w = 1 $.</p>
-<p>使用生成函数技巧,配子法给出的答案应该是:$( x  AB + y  Ab + z  aB + w  ab ) ^2 $,而拆分再乘起来的答案应该是$( ( x + y ) A + ( z + w ) a ) ^2 ( ( x + z ) B + ( y + w ) b ) ^2 $,其中$A , B , a , b $均为形式幂.</p>
+<p>考虑设产生四种配子$AB , Ab , aB , ab <span class="math inline">\(的概率分别是\)</span>x , y , z , w <span class="math inline">\(,其中\)</span>x + y + z + w = 1 $.</p>
+<p>使用生成函数技巧,配子法给出的答案应该是:$( x  AB + y  Ab + z  aB + w
+ ab ) ^2 <span class="math inline">\(,而拆分再乘起来的答案应该是\)</span>( ( x + y ) A
++ ( z + w ) a ) ^2 ( ( x + z ) B + ( y + w ) b ) ^2 <span class="math inline">\(,其中\)</span>A , B , a , b $均为形式幂.</p>
 <p>如果两边相等,有:</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-( x \ AB + y \ Ab + z \ aB + w \ ab ) ^2 & = ( ( x + y ) A + ( z + w ) a ) ^2 ( ( x + z ) B + ( y + w ) b ) ^2 \\
-( x + y + z + w ) ( x \ AB + y \ Ab + z \ aB + w \ ab ) & = ( ( x + y ) A + ( z + w ) a ) ( ( x + z ) B + ( y + w ) b ) \\
+$$
+<span class="math display">\[\begin{aligned}
+( x \ AB + y \ Ab + z \ aB + w \ ab ) ^2 &amp; = ( ( x + y ) A + ( z + w
+) a ) ^2 ( ( x + z ) B + ( y + w ) b ) ^2 \\
+( x + y + z + w ) ( x \ AB + y \ Ab + z \ aB + w \ ab ) &amp; = ( ( x +
+y ) A + ( z + w ) a ) ( ( x + z ) B + ( y + w ) b ) \\
 
-\end{aligned}</script><p>两边展开,就可以知道它的充分必要条件是$P ( ab ) = P ( a ) P ( b ) $,也就是产生$a $和$b $的配子概率是独立的.</p>
+\end{aligned}\]</span>
+<p>$$</p>
+<p>两边展开,就可以知道它的充分必要条件是$P ( ab ) = P ( a ) P ( b )
+<span class="math inline">\(,也就是产生\)</span>a <span class="math inline">\(和\)</span>b $的配子概率是独立的.</p>
 
       
     </div>
@@ -639,47 +675,85 @@
     
     <div class="post-body" itemprop="articleBody">
           <span id="more"></span>
-<p>事情是这样的,很久很久很久以前,我做了一个圆锥曲线压轴题,大概就是椭圆$x $轴上蝴蝶定理硬算题给我整傻眼了.今天我闲的没事乱想突然意识到椭圆可以仿射变换到圆来解决,那么圆肯定有很优美的做法了吧!</p>
+<p>事情是这样的,很久很久很久以前,我做了一个圆锥曲线压轴题,大概就是椭圆$x
+$轴上蝴蝶定理硬算题给我整傻眼了.今天我闲的没事乱想突然意识到椭圆可以仿射变换到圆来解决,那么圆肯定有很优美的做法了吧!</p>
 <p>然而我瞪了半天也没看出来,没办法最后拿联消判韦把圆的结论搓出来了.</p>
 <p>这个时候我又想看看其它的圆锥曲线,发现双曲线好像有点不太会,因为我不是很懂双曲线的内部是啥,然后我发现抛物线的蝴蝶定理更加优美.</p>
 <p>所以我就把这一坨东西出了思考题,下面是整理.</p>
-<h3><span id="约定">约定</span></h3><p>下文称$A , B , C $三点满足蝴蝶定理,当且仅当A,B,C三点都在圆锥曲线内部,并且过A的直线与圆锥曲线交于$P , Q $两点,$PB , QB $分别与圆锥曲线交于$P ‘ , Q ‘ $两点,而且$P ‘ Q ‘ $恒过$C $点.</p>
-<h3><span id="抛物线">抛物线</span></h3><h4><span id="定理1">定理1</span></h4><p>对于任何一条抛物线$y ^2 = 2 px $以及与其内部一点$A ( a , 0 ) $,过$A $点与抛物线相交的两个点的横坐标之积等于$a ^2 $.</p>
+<h3><span id="约定">约定</span></h3>
+<p>下文称$A , B , C <span class="math inline">\(三点满足蝴蝶定理,当且仅当A,B,C三点都在圆锥曲线内部,并且过A的直线与圆锥曲线交于\)</span>P
+, Q <span class="math inline">\(两点,\)</span>PB , QB <span class="math inline">\(分别与圆锥曲线交于\)</span>P ’ , Q ’ <span class="math inline">\(两点,而且\)</span>P ’ Q ’ <span class="math inline">\(恒过\)</span>C $点.</p>
+<h3><span id="抛物线">抛物线</span></h3>
+<h4><span id="定理1">定理1</span></h4>
+<p>对于任何一条抛物线$y ^2 = 2 px <span class="math inline">\(以及与其内部一点\)</span>A ( a , 0 ) <span class="math inline">\(,过\)</span>A <span class="math inline">\(点与抛物线相交的两个点的横坐标之积等于\)</span>a
+^2 $.</p>
 <p>证明:联立即可.</p>
-<h4><span id="定理2">定理2</span></h4><p>对于任何一条抛物线$y ^2 = 2 px $以及其内部的三点$A ( a , 0 ) , B ( b , 0 ) , C ( c , 0 ) $,三点满足蝴蝶定理当且仅当$b ^2 = ac $.</p>
+<h4><span id="定理2">定理2</span></h4>
+<p>对于任何一条抛物线$y ^2 = 2 px <span class="math inline">\(以及其内部的三点\)</span>A ( a , 0 ) , B ( b , 0 )
+, C ( c , 0 ) <span class="math inline">\(,三点满足蝴蝶定理当且仅当\)</span>b ^2 = ac $.</p>
 <p>证明:由定理1,我们有:</p>
-<p>x_Qx_{Q’}=b^2\\x_{P’}x_{Q’}=c^2\end{cases}</p>
+<p>x_Qx_{Q’}=b<sup>2\x_{P’}x_{Q’}=c</sup>2\end{cases}</p>
 <p>简单解一下就可以.</p>
-<h4><span id="定理3">定理3</span></h4><p>对于任何一条抛物线$y ^2 = 2 px $以及其内部的两点$A ( x _a , y _a ) , B ( x _b , y _b ) $,要么存在一个点$C $使得$A , B , C $三点满足蝴蝶定理,要么$P ‘ Q ‘ $的斜率恒定.</p>
+<h4><span id="定理3">定理3</span></h4>
+<p>对于任何一条抛物线$y ^2 = 2 px <span class="math inline">\(以及其内部的两点\)</span>A ( x _a , y _a ) , B ( x
+_b , y _b ) <span class="math inline">\(,要么存在一个点\)</span>C <span class="math inline">\(使得\)</span>A , B , C <span class="math inline">\(三点满足蝴蝶定理,要么\)</span>P ’ Q ’
+$的斜率恒定.</p>
 <p>证明:</p>
-<h5><span id="引理">引理</span></h5><p>如果一条动直线$Ax + By + C = 0 $中,$A , B , C $满足一次方程$pA + qB + C = 0 $,那么这条直线肯定过定点$( p , q ) $.</p>
-<p>而如果可以找到一个参数$t $,使得可以做到将$A , B , C $分别表示为$f ( t ) , g ( t ) , h ( t ) $的形式,其中$f , g , h $都是关于$t $的一次函数或常函数,那么这条直线要么过定点,要么斜率恒定.</p>
-<p>对于$P ‘ Q ‘ $这条直线,这个$t $相当好找,可以是$k _{ PQ  } $,可以是$y _P y _Q $,可以是$y _P + y _Q $,然后带入简单检验一下即可.</p>
-<h3><span id="圆">圆</span></h3><h4><span id="定理坎迪定理">定理(坎迪定理)</span></h4><h5><span id="特例">特例</span></h5><p>对于任何一个圆$x ^2 + y ^2 = r ^2 $以及其内部三点$A ( a , 0 ) , B ( b , 0 ) , C ( c , 0 ) $,若三点满足蝴蝶定理,当且仅当$( a + c ) ( b ^2 + r ^2 ) = 2 b ( ac + r ^2 ) $.</p>
-<h5><span id="通解">通解</span></h5><p>对于任何一个圆,我们有下图(图源自百度百科)</p>
-<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/ah1ipl9o.png" alt></p>
-<p>那么$\frac { 1  } { GP  } - \frac { 1  } { HP  } = \frac { 1  } { AP  } - \frac { 1  } { BP  } $.</p>
+<h5><span id="引理">引理</span></h5>
+<p>如果一条动直线$Ax + By + C = 0 <span class="math inline">\(中,\)</span>A , B , C <span class="math inline">\(满足一次方程\)</span>pA + qB + C = 0 <span class="math inline">\(,那么这条直线肯定过定点\)</span>( p , q ) $.</p>
+<p>而如果可以找到一个参数$t <span class="math inline">\(,使得可以做到将\)</span>A , B , C <span class="math inline">\(分别表示为\)</span>f ( t ) , g ( t ) , h ( t )
+<span class="math inline">\(的形式,其中\)</span>f , g , h <span class="math inline">\(都是关于\)</span>t
+$的一次函数或常函数,那么这条直线要么过定点,要么斜率恒定.</p>
+<p>对于$P ’ Q ’ <span class="math inline">\(这条直线,这个\)</span>t
+<span class="math inline">\(相当好找,可以是\)</span>k _{ PQ } <span class="math inline">\(,可以是\)</span>y _P y _Q <span class="math inline">\(,可以是\)</span>y _P + y _Q
+$,然后带入简单检验一下即可.</p>
+<h3><span id="圆">圆</span></h3>
+<h4><span id="定理坎迪定理">定理(坎迪定理)</span></h4>
+<h5><span id="特例">特例</span></h5>
+<p>对于任何一个圆$x ^2 + y ^2 = r ^2 <span class="math inline">\(以及其内部三点\)</span>A ( a , 0 ) , B ( b , 0 ) ,
+C ( c , 0 ) <span class="math inline">\(,若三点满足蝴蝶定理,当且仅当\)</span>( a + c ) ( b
+^2 + r ^2 ) = 2 b ( ac + r ^2 ) $.</p>
+<h5><span id="通解">通解</span></h5>
+<p>对于任何一个圆,我们有下图(图源自百度百科)</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/ah1ipl9o.png"></p>
+<p>那么$ { GP } - { HP } = { AP } - { BP } $.</p>
 <p><del>该定理的几何/代数证明好像都略麻烦,笔者决定开摆</del></p>
-<p>@Querainy 牛逼,下面给出他提供的曲线系<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/uakioi/qu-xian-xi">证明</a>:</p>
+<p><span class="citation" data-cites="Querainy">@Querainy</span>
+牛逼,下面给出他提供的曲线系<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/uakioi/qu-xian-xi">证明</a>:</p>
 <p>我们尝试把这个做法拓展到坎迪定理上.</p>
-<p>照葫芦画瓢,设圆心为$( x _0 , y _0 ) $,得到$( CE , DF ) : ( 1 + \lambda k _1 k _2 ) x ^2 - 2 x _0 x + x _0 ^2 + y _0 ^2 - r ^2 = 0 $.</p>
-<p>此时,$| AB | = \sqrt { r ^2 - y _0 ^2  } $,$| AP | = | AB | - x _0 , | BP | = | AB | + x _0 $,$\frac { 1  } { AP  } - \frac { 1  } { BP  } = \frac { 2 x _0  } { r ^2 - y _0 ^2 - x _0 ^2  } $.</p>
-<p>而$\frac { 1  } { GP  } - \frac { 1  } { HP  } = - \frac { y _1 + y _2  } { y _1 y _2  } = \frac { 2 x _0  } { r ^2 - y _0 ^2 - x _0 ^2  } $.</p>
+<p>照葫芦画瓢,设圆心为$( x _0 , y _0 ) <span class="math inline">\(,得到\)</span>( CE , DF ) : ( 1 + k _1 k _2 ) x ^2
+- 2 x _0 x + x _0 ^2 + y _0 ^2 - r ^2 = 0 $.</p>
+<p>此时,$| AB | = <span class="math inline">\(,\)</span>| AP | = | AB |
+- x _0 , | BP | = | AB | + x _0 <span class="math inline">\(,\)</span> {
+AP } - { BP } = { r ^2 - y _0 ^2 - x _0 ^2 } $.</p>
+<p>而$ { GP } - { HP } = - { y _1 y _2 } = { r ^2 - y _0 ^2 - x _0 ^2 }
+$.</p>
 <p>笔者后来思考了一下为什么这个是二次曲线系啊.</p>
-<p>我们考虑求过四个定点的二次曲线系,不妨假设这些二次曲线均为$Ax ^2 + By ^2 + Cxy + Dx + Ey + F = 0 $\\</p>
-<p>带入四个定点坐标,就可以得到关于$( A , B , C , D , E , F ) $的四个方程.不妨先假设这四个方程线性无关.那么就有两个自由元,那么方程的任何一个解,就可以表示为两组线性无关的特解的线性组合.</p>
+<p>我们考虑求过四个定点的二次曲线系,不妨假设这些二次曲线均为$Ax ^2 + By
+^2 + Cxy + Dx + Ey + F = 0 $\</p>
+<p>带入四个定点坐标,就可以得到关于$( A , B , C , D , E , F )
+$的四个方程.不妨先假设这四个方程线性无关.那么就有两个自由元,那么方程的任何一个解,就可以表示为两组线性无关的特解的线性组合.</p>
 <p>注意到两个二次曲线线性相关,当且仅当它们是同一条曲线,这就证明了二次曲线系的正确性!</p>
 <p>那么怎么证明这四个方程线性无关呢,不太会啊,这次真摆了.</p>
-<h3><span id="椭圆">椭圆</span></h3><h4><span id="定理1">定理1</span></h4><p>对于任何一个椭圆$\frac { x ^2  } { r ^2  } + \frac { y ^2  } { d ^2  } = 1 ( r &gt; d ) $以及其内部三点$A ( a , 0 ) , B ( b , 0 ) , C ( c , 0 ) $,若三点满足蝴蝶定理,当且仅当$( a + c ) ( b ^2 + r ^2 ) = 2 b ( ac + r ^2 ) $.</p>
+<h3><span id="椭圆">椭圆</span></h3>
+<h4><span id="定理1">定理1</span></h4>
+<p>对于任何一个椭圆$ { r ^2 } + { d ^2 } = 1 ( r &gt; d ) <span class="math inline">\(以及其内部三点\)</span>A ( a , 0 ) , B ( b , 0 ) ,
+C ( c , 0 ) <span class="math inline">\(,若三点满足蝴蝶定理,当且仅当\)</span>( a + c ) ( b
+^2 + r ^2 ) = 2 b ( ac + r ^2 ) $.</p>
 <p>证明:</p>
-<p>注意到圆的坎迪定理的特例,然后发现我们如果将椭圆的纵轴拉长使其成为一个圆,换言之就是对椭圆进行仿射变换,那么$A , B , C $三点坐标不变并且仍然满足蝴蝶定理.</p>
-<h3><span id="其它">其它</span></h3><p>众所周知,极点极线有一个经典内切四边形结论,其实也就是所谓的完全四边形啊.</p>
+<p>注意到圆的坎迪定理的特例,然后发现我们如果将椭圆的纵轴拉长使其成为一个圆,换言之就是对椭圆进行仿射变换,那么$A
+, B , C $三点坐标不变并且仍然满足蝴蝶定理.</p>
+<h3><span id="其它">其它</span></h3>
+<p>众所周知,极点极线有一个经典内切四边形结论,其实也就是所谓的完全四边形啊.</p>
 <p>给张图,</p>
-<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/9uzi7mgg.png" alt></p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/9uzi7mgg.png"></p>
 <p>其中$G , D , H , A $成调和点列.</p>
-<p>我们冷静一下,注意到$( AF , AE ) $就是一个二次曲线,而且$F , C , B , E $是二次曲线上四个点,所以这个还可以用曲线系方程来证明这四个点成调和点列,非常有实力.</p>
+<p>我们冷静一下,注意到$( AF , AE ) <span class="math inline">\(就是一个二次曲线,而且\)</span>F , C , B , E
+$是二次曲线上四个点,所以这个还可以用曲线系方程来证明这四个点成调和点列,非常有实力.</p>
 <p>当然,为了应对文化课,我们有更加简单的证明完全四边形调和点列的做法:</p>
-<p>不妨设$d = \frac { BC  } { EF  } $,令$\vec { e  } = \vec { AE  } , \vec { f  } = \vec { AF  } $,则$\vec { AD  } = \lambda _1 \vec { e  } + \mu _1 d \vec { f  } = \lambda _2 d \vec { e  } + \mu _2 \vec { f  } $,对比系数得到两个方程,再加上$\mu _1 + \lambda _1 = 1 , \mu _2 + \lambda _2 = 1 $,立刻解出结论.</p>
+<p>不妨设$d = { EF } <span class="math inline">\(,令\)</span> = , =
+<span class="math inline">\(,则\)</span> = _1 + _1 d = _2 d + _2 <span class="math inline">\(,对比系数得到两个方程,再加上\)</span>_1 + _1 = 1 ,
+_2 + _2 = 1 $,立刻解出结论.</p>
 
       
     </div>
@@ -773,62 +847,116 @@
     <div class="post-body" itemprop="articleBody">
           <span id="more"></span>
 <p>高中物理的时候有这么一个题,然后今天刚好信物讲到了,顺手来总结一下.</p>
-<p>先来个简单版本:我从一个点打炮弹,目标与我的距离为$x $,且目标比我高$h $,问以什么样的角度打出炮弹能使得击中目标并且初速度最小.</p>
-<p>我们当然会第一反应认为这是一个很简单的问题,考虑$t = \frac { x  } { v _0 \cos \theta  } $,因为我们很容易写出方程:</p>
-<script type="math/tex; mode=display">
+<p>先来个简单版本:我从一个点打炮弹,目标与我的距离为$x <span class="math inline">\(,且目标比我高\)</span>h
+$,问以什么样的角度打出炮弹能使得击中目标并且初速度最小.</p>
+<p>我们当然会第一反应认为这是一个很简单的问题,考虑$t = { v _0 }
+$,因为我们很容易写出方程:</p>
+<p><span class="math display">\[
 \begin{aligned}
-x \frac { \sin \theta  } { \cos \theta  } - \frac { gx ^2  } { 2 v _0 ^2 \cos ^2 \theta  } & = h \\
-\frac { 1  } { v _0 ^2  } & = \frac { 1  } { gx ^2  } ( x \sin ( 2 \theta ) - h \cos ( 2 \theta ) - h ) \\
-\frac { 1  } { v _0 ^2  } & = \frac { 1  } { gx ^2  } ( \sqrt { x ^2 + h ^2  } \sin ( 2 \theta - \varphi ) - h ) , \varphi & = \arctan ( \frac { h  } { x  } ) 
-\end{aligned}</script><p>只需要对后面那个东西用辅助角公式就可以了对吧,非常简单啊!</p>
+x \frac { \sin \theta  } { \cos \theta  } - \frac { gx ^2  } { 2 v _0 ^2
+\cos ^2 \theta  } &amp; = h \\
+\frac { 1  } { v _0 ^2  } &amp; = \frac { 1  } { gx ^2  } ( x \sin ( 2
+\theta ) - h \cos ( 2 \theta ) - h ) \\
+\frac { 1  } { v _0 ^2  } &amp; = \frac { 1  } { gx ^2  } ( \sqrt { x ^2
++ h ^2  } \sin ( 2 \theta - \varphi ) - h ) , \varphi &amp; = \arctan (
+\frac { h  } { x  } )
+\end{aligned}
+\]</span></p>
+<p>只需要对后面那个东西用辅助角公式就可以了对吧,非常简单啊!</p>
 <p>然而,我们稍微改下题面:</p>
-<p>我从一个高度为$h $的点打炮弹,初速度确定为$v _0 $,问以什么样的角度打炮弹能打得最远.</p>
+<p>我从一个高度为$h <span class="math inline">\(的点打炮弹,初速度确定为\)</span>v _0
+$,问以什么样的角度打炮弹能打得最远.</p>
 <p>这有啥区别啊,只需要改个正负号就行了是吧,让我们看看:</p>
-<script type="math/tex; mode=display">
-\frac { 1  } { v _0 ^2  } = \frac { 1  } { gx ^2  } ( x \sin ( 2 \theta ) + h \cos ( 2 \theta ) + h )</script><p>这下发现问题了,这个$x $根本拿不出来啊.</p>
-<p>重新按部就班,发现只能用求根公式得到$x $的表达式,更进一步地,我们有:</p>
-<script type="math/tex; mode=display">
-x = \frac { v _0 \cos \theta ( v _0 \sin \theta + \sqrt { v _0 ^2 \sin ^2 \theta + 2 gh  } )  } { g  }</script><p>怎么办呢?yth老师给出了一个想法是使用柯西不等式,注意到:</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
+\frac { 1  } { v _0 ^2  } = \frac { 1  } { gx ^2  } ( x \sin ( 2 \theta
+) + h \cos ( 2 \theta ) + h )
+\]</span></p>
+<p>这下发现问题了,这个$x $根本拿不出来啊.</p>
+<p>重新按部就班,发现只能用求根公式得到$x
+$的表达式,更进一步地,我们有:</p>
+<p><span class="math display">\[
+x = \frac { v _0 \cos \theta ( v _0 \sin \theta + \sqrt { v _0 ^2 \sin
+^2 \theta + 2 gh  } )  } { g  }
+\]</span></p>
+<p>怎么办呢?yth老师给出了一个想法是使用柯西不等式,注意到:</p>
+<p><span class="math display">\[
 \begin{aligned}
-x & = \frac { v _0 \cos \theta ( v _0 \sin \theta + \sqrt { v _0 ^2 \sin ^2 \theta + 2 gh  } )  } { g  } \\
-& = \frac { v _0 \sin \theta v _0 \cos \theta + v _0 \cos \theta \sqrt { v _0 ^2 \sin ^2 \theta + 2 gh  }  } { g  } \\
-& \leq \frac { 1  } { g  } ( v _0 \sqrt { v _0 ^2 + 2 gh  } ) 
-\end{aligned}</script><p>当且仅当$v _0 ^2 \cos ^2 \theta = v _0 \sin \theta \sqrt { v _0 ^2 \sin ^2 \theta + 2 gh  } , \frac { 1  } { \tan ^2 \theta  } = \frac { 2 gh  } { v _0 ^2  } + 1 $的时候取等.</p>
-<p>还有一种策略是考虑对隐函数求导然后令$\frac { \text { d  } x  } { \text { d  } \theta  } = 0 $,这样得到情况会和我们一开始的初始问题得到的答案相等,也就是当$\tan ( 2 \theta ) = - \frac { x  } { h  } $的时候$x $会取极限.这也很好理解,因为我们如果当前的速度没有用到极限打到最远,总能调整使得得到一个更小的速度打到当前的距离,因此距离还有提高的空间.</p>
+x &amp; = \frac { v _0 \cos \theta ( v _0 \sin \theta + \sqrt { v _0 ^2
+\sin ^2 \theta + 2 gh  } )  } { g  } \\
+&amp; = \frac { v _0 \sin \theta v _0 \cos \theta + v _0 \cos \theta
+\sqrt { v _0 ^2 \sin ^2 \theta + 2 gh  }  } { g  } \\
+&amp; \leq \frac { 1  } { g  } ( v _0 \sqrt { v _0 ^2 + 2 gh  } )
+\end{aligned}
+\]</span></p>
+<p>当且仅当$v _0 ^2 ^2 = v _0 , { ^2 } = { v _0 ^2 } + 1
+$的时候取等.</p>
+<p>还有一种策略是考虑对隐函数求导然后令$ { } = 0 <span class="math inline">\(,这样得到情况会和我们一开始的初始问题得到的答案相等,也就是当\)</span>(
+2 ) = - { h } <span class="math inline">\(的时候\)</span>x
+$会取极限.这也很好理解,因为我们如果当前的速度没有用到极限打到最远,总能调整使得得到一个更小的速度打到当前的距离,因此距离还有提高的空间.</p>
 <p>有没有更聪明一点的办法呢?</p>
 <p>我们注意到初速度是定值,根据机械能守恒定律,末速度的大小一定是个定值,我们考虑:</p>
-<script type="math/tex; mode=display">
-\vec { v  } = \vec { v  } _0 + \Delta \vec { v  }</script><p>通过机械能守恒定律可以算出$| \vec { v  } | = \sqrt { v _0 ^2 + 2 gh  } $.</p>
-<p>注意到$\vec { v  } $和$\vec { v  } _0 $的水平方向分速度是相同的.然后有一个天才的想法是,考虑上述那个向量式的三角形法则,设那个三角形的面积为$S $,注意到$\Delta \vec { v  } = gt $,而$x = v _0 \cos \theta t = \frac { 2 S  } { g  } \leq \frac { v _0 \sqrt { v _0 ^2 + 2 gh  }  } { g  } $,也就是面积最大的时候应该是$\vec { v  } _0 $和$\vec { v  } $夹角为$\frac { \pi  } { 2  } $的时候.</p>
+<p><span class="math display">\[
+\vec { v  } = \vec { v  } _0 + \Delta \vec { v  }
+\]</span></p>
+<p>通过机械能守恒定律可以算出$| | = $.</p>
+<p>注意到$ <span class="math inline">\(和\)</span> _0 <span class="math inline">\(的水平方向分速度是相同的.然后有一个天才的想法是,考虑上述那个向量式的三角形法则,设那个三角形的面积为\)</span>S
+<span class="math inline">\(,注意到\)</span> = gt <span class="math inline">\(,而\)</span>x = v _0 t = { g } { g } <span class="math inline">\(,也就是面积最大的时候应该是\)</span> _0 <span class="math inline">\(和\)</span> <span class="math inline">\(夹角为\)</span> { 2 } $的时候.</p>
 <p>直接从形式上来看:</p>
-<script type="math/tex; mode=display">
-\frac { v _0 \sin \theta v _0 \cos \theta + v _0 \cos \theta \sqrt { v _0 ^2 \sin ^2 \theta + 2 gh  }  } { g  }</script><p>我们知道正交分解的时候从结果上来说可以作分方向的动能定理,因此初速度是$( v _0 \cos \theta , v _0 \sin \theta ) $,末速度是$( v _0 \cos \theta , - \sqrt { v _0 ^2 \sin ^2 \theta + 2 gh  } ) ) $,因此$x = \frac { \vec { v  } \times \vec { v  } _0  } { g  } $.</p>
+<p><span class="math display">\[
+\frac { v _0 \sin \theta v _0 \cos \theta + v _0 \cos \theta \sqrt { v
+_0 ^2 \sin ^2 \theta + 2 gh  }  } { g  }
+\]</span></p>
+<p>我们知道正交分解的时候从结果上来说可以作分方向的动能定理,因此初速度是$(
+v _0 , v _0 ) <span class="math inline">\(,末速度是\)</span>( v _0 , - )
+) <span class="math inline">\(,因此\)</span>x = { g } $.</p>
 <p>这个想法过于震惊了,以至于我在之后多次回忆起这个题,想去找到初速度与末速度叉积的物理意义.但直到如今我也没有完全理解这个做法.</p>
 <p>写到这发现没活整了,顺便在这写一下另一个斜抛题:</p>
-<p>抛射质量为$m $的小球,抛射倾角为$\theta $,初速度大小为$v _0 $,所受空气阻力$\vec { F  } $与速度$\vec { v  } $的关系为$\vec { F  } = - k \vec { v  } $,其中$k $为固定系数,求小球在空气中运行的轨迹曲线.</p>
-<p>考虑$\frac { \text { d  } \vec { v  }  } { \text { d  } t  } = \vec { a  } = \frac { \vec { F  } + \vec { G  }  } { m  } = \frac { 1  } { m  } ( - k \vec { v  } + m \vec { g  } ) $.</p>
+<p>抛射质量为$m <span class="math inline">\(的小球,抛射倾角为\)</span><span class="math inline">\(,初速度大小为\)</span>v _0 <span class="math inline">\(,所受空气阻力\)</span> <span class="math inline">\(与速度\)</span> <span class="math inline">\(的关系为\)</span> = - k <span class="math inline">\(,其中\)</span>k
+$为固定系数,求小球在空气中运行的轨迹曲线.</p>
+<p>考虑$ { t } = = { m } = { m } ( - k + m ) $.</p>
 <p>于是:</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-\text { d  } \vec { v  } & = \frac { 1  } { m  } ( - k \vec { v  } + m \vec { g  } ) \text { d  } t \\
-\int _{ \vec { v  } _0  } ^{ \vec { v  }  } \text { d  } \vec { v  } & = \int _{ 0  } ^t \frac { 1  } { m  } ( - k \vec { v  } + m \vec { g  } ) \text { d  } t \\
-\vec { v  } & = \frac { - k \vec { x  }  } { m  } + \vec { g  } t + \vec { v  } _0 \\
+\text { d  } \vec { v  } &amp; = \frac { 1  } { m  } ( - k \vec { v  } +
+m \vec { g  } ) \text { d  } t \\
+\int _{ \vec { v  } _0  } ^{ \vec { v  }  } \text { d  } \vec { v  }
+&amp; = \int _{ 0  } ^t \frac { 1  } { m  } ( - k \vec { v  } + m \vec {
+g  } ) \text { d  } t \\
+\vec { v  } &amp; = \frac { - k \vec { x  }  } { m  } + \vec { g  } t +
+\vec { v  } _0 \\
 \begin{cases}
-\frac { \text { d  } x  } { \text { d  } t  } = \frac { - kx  } { m  } + v _0 \cos \theta \\
-\frac { \text { d  } y  } { \text { d  } t  } = \frac { - ky  } { m  } + v _0 \sin \theta + gt 
-\end{cases} 
-\end{aligned}</script><p>对于第一个式子,令$w = \frac { - kx  } { m  } + v _0 \cos \theta $我们有:</p>
-<script type="math/tex; mode=display">
+\frac { \text { d  } x  } { \text { d  } t  } = \frac { - kx  } { m  } +
+v _0 \cos \theta \\
+\frac { \text { d  } y  } { \text { d  } t  } = \frac { - ky  } { m  } +
+v _0 \sin \theta + gt
+\end{cases}
+\end{aligned}
+\]</span></p>
+<p>对于第一个式子,令$w = { m } + v _0 $我们有:</p>
+<p><span class="math display">\[
 \begin{aligned}
-\frac { - m  } { k  } \frac { \text { d  } w  } { \text { d  } t  } & = w \\
-\frac { - m  } { k  } \int _{ v _0 \cos \theta  } ^{ w  } \frac { \text { d  } w  } { w  } & = \int _{ 0  } ^t \text { d  } t \\
-\ln ( \frac { \frac { - kx  } { m  } + v _0 \cos \theta  } { v _0 \cos \theta  } ) & = \frac { - k  } { m  } t \\
-\frac { - kx  } { mv _0 \cos \theta  } + 1 & = e ^{ \frac { - k  } { m  } t  } \\
-x & = \frac { mv _0 \cos \theta  } { k  } ( 1 - e ^{ - \frac { k  } { m  } t  } ) 
-\end{aligned}</script><p>同理解出$y = \frac { m  } { k  } ( ( v _0 \sin \theta + \frac { mg  } { k  } ) ( 1 - e ^{ - \frac { k  } { m  } t  } ) - gt ) $.</p>
-<p>综上参数方程是:$\begin{cases}x = \frac { mv _0 \cos \theta  } { k  } ( 1 - e ^{ - \frac { k  } { m  } t  } ) \ y = \frac { m  } { k  } ( ( v _0 \sin \theta + \frac { mg  } { k  } ) ( 1 - e ^{ - \frac { k  } { m  } t  } ) - gt ) \end{cases} $.</p>
-<p>轨迹方程是:$y = ( v _0 \sin \theta + \frac { mg  } { k  } ) \frac { x  } { v _0 \cos \theta  } + \frac { mg  } { k  } \ln ( 1 - \frac { kx  } { mv _0 \cos \theta  } ) $.</p>
+\frac { - m  } { k  } \frac { \text { d  } w  } { \text { d  } t  }
+&amp; = w \\
+\frac { - m  } { k  } \int _{ v _0 \cos \theta  } ^{ w  } \frac { \text
+{ d  } w  } { w  } &amp; = \int _{ 0  } ^t \text { d  } t \\
+\ln ( \frac { \frac { - kx  } { m  } + v _0 \cos \theta  } { v _0 \cos
+\theta  } ) &amp; = \frac { - k  } { m  } t \\
+\frac { - kx  } { mv _0 \cos \theta  } + 1 &amp; = e ^{ \frac { - k  } {
+m  } t  } \\
+x &amp; = \frac { mv _0 \cos \theta  } { k  } ( 1 - e ^{ - \frac { k  }
+{ m  } t  } )
+\end{aligned}
+\]</span></p>
+<p>同理解出$y = { k } ( ( v _0 + { k } ) ( 1 - e ^{ - { m } t } ) - gt )
+$.</p>
+综上参数方程是:$
+<span class="math display">\[\begin{cases}x = \frac { mv _0 \cos
+\theta  } { k  } ( 1 - e ^{ - \frac { k  } { m  } t  } ) \\ y = \frac {
+m  } { k  } ( ( v _0 \sin \theta + \frac { mg  } { k  } ) ( 1 - e ^{ -
+\frac { k  } { m  } t  } ) - gt ) \end{cases}\]</span>
+<p>$.</p>
+<p>轨迹方程是:$y = ( v _0 + { k } ) { v _0 } + { k } ( 1 - { mv _0 } )
+$.</p>
 
       
     </div>
@@ -924,68 +1052,131 @@ x & = \frac { mv _0 \cos \theta  } { k  } ( 1 - e ^{ - \frac { k  } { m  } t  } 
 <p>为啥这篇文章总是传不上去???</p>
 <p>为啥这篇文章总是传不上去???</p>
 <p>事情是这样的,几天前,我们班被出了这么一道物理思考题(为表述方便略有简化).</p>
-<p>有一辆以$v _0 $行驶的质量超级大的火车,上面站了一个质量为$m $的人随火车一起运动.突然，这个人相对于火车以$\Delta v $的速度向前平跳(也就是说此时他相对于地面的速度为$v _0 + \Delta v $),求这个人做这个起跳需要多少能量.</p>
-<p>注意这里火车质量很大,所以火车在此人跳跃过程中始终以$v _0 $速度前进.</p>
-<p>我看到这个题觉得很简单啊,肯定是$\frac { m  } { 2  } ( ( v _0 + \Delta v ) ^2 - v _0 ^2 ) $.然后发现答案竟然是$\frac { m  } { 2  } ( \Delta v ) ^2 $.</p>
+<p>有一辆以$v _0 <span class="math inline">\(行驶的质量超级大的火车,上面站了一个质量为\)</span>m
+<span class="math inline">\(的人随火车一起运动.突然，这个人相对于火车以\)</span>v
+<span class="math inline">\(的速度向前平跳(也就是说此时他相对于地面的速度为\)</span>v
+_0 + v $),求这个人做这个起跳需要多少能量.</p>
+<p>注意这里火车质量很大,所以火车在此人跳跃过程中始终以$v _0
+$速度前进.</p>
+<p>我看到这个题觉得很简单啊,肯定是$ { 2 } ( ( v _0 + v ) ^2 - v _0 ^2 )
+<span class="math inline">\(.然后发现答案竟然是\)</span> { 2 } ( v ) ^2
+$.</p>
 <p>下面是我们物理课代表给出的解释:</p>
-<p>虽然人的动能变化确实是$\frac { m  } { 2  } ( ( v _0 + \Delta v ) ^2 - v _0 ^2 ) $,但是在他起跳的过程中,火车对他是有一个力的.而且,因为火车在运动,所以虽然起跳的时候人相对于火车没有运动,但这个力的作用点相对于地面竟然是运动着的!</p>
-<p>因此,不妨设这个力为$F $,注意这里的$F $不一定是常数,而是一个关于时间$t $的函数,我们自然有:$W = \int _{ t _0  } ^{ t _1  } Fx \text { d  } t $,注意到作用点的速度恒为$v _0 $,因此$W = v _0 \int _{ t _0  } ^{ t _1  } F \text { d  } t = v _0 \Delta p = v _0 \Delta vm $,把这个加上后恰好得出答案.</p>
+<p>虽然人的动能变化确实是$ { 2 } ( ( v _0 + v ) ^2 - v _0 ^2 )
+$,但是在他起跳的过程中,火车对他是有一个力的.而且,因为火车在运动,所以虽然起跳的时候人相对于火车没有运动,但这个力的作用点相对于地面竟然是运动着的!</p>
+<p>因此,不妨设这个力为$F <span class="math inline">\(,注意这里的\)</span>F <span class="math inline">\(不一定是常数,而是一个关于时间\)</span>t <span class="math inline">\(的函数,我们自然有:\)</span>W = _{ t _0 } ^{ t _1 }
+Fx t <span class="math inline">\(,注意到作用点的速度恒为\)</span>v _0
+<span class="math inline">\(,因此\)</span>W = v <em>0 </em>{ t _0 } ^{ t
+_1 } F t = v _0 p = v _0 vm $,把这个加上后恰好得出答案.</p>
 <p>这时我意识到这个事情其实就等价于任何惯性参考系参考下能量都是守恒的.所以我们直接以火车为参考系,立即得出答案.</p>
 <p>但是为啥呢?而且我总觉得上面那个力的分析非常诡异,因为我总感觉起跳是瞬间的,这个力理论上不应该做功啊.</p>
 <p>通过在网上海量搜索后,我大概找到了这么两种理解方式啊.</p>
-<p>第一种是,我们冷静一下.如果没有外力干扰,那么火车其实<strong>并不能匀速前进</strong>.设火车质量为$M $,当人的速度为$v _0 + \Delta v $的时候,根据动量守恒,火车的速度应该为$v _0 - \frac { m  } { M  } \Delta v $.</p>
-<p>注意这个时候不能以火车为参考系了,因为火车不再是惯性参考系了,所以我们加入一个以$v _0 $匀速前进的青蛙作为新的参考系.不难发现在青蛙参考系和在地面参考系下,火车和人的系统的动能增量是相等的,都是$\frac { 1  } { 2  } ( m ( \Delta v ) ^2 + M ( \frac { m  } { M  } \Delta v ) ^2 ) $.</p>
-<p>然后,因为火车质量非常非常非常大,我们注意到$\lim _{ M \rightarrow + \infty  } \frac { m  } { M  } \Delta v = 0 $,完活.</p>
+<p>第一种是,我们冷静一下.如果没有外力干扰,那么火车其实<strong>并不能匀速前进</strong>.设火车质量为$M
+<span class="math inline">\(,当人的速度为\)</span>v _0 + v <span class="math inline">\(的时候,根据动量守恒,火车的速度应该为\)</span>v _0
+- { M } v $.</p>
+<p>注意这个时候不能以火车为参考系了,因为火车不再是惯性参考系了,所以我们加入一个以$v
+_0 <span class="math inline">\(匀速前进的青蛙作为新的参考系.不难发现在青蛙参考系和在地面参考系下,火车和人的系统的动能增量是相等的,都是\)</span>
+{ 2 } ( m ( v ) ^2 + M ( { M } v ) ^2 ) $.</p>
+<p>然后,因为火车质量非常非常非常大,我们注意到$_{ M + } { M } v = 0
+$,完活.</p>
 <p>但是这个过程别说还是进行了近似估计了,就是和现实也不符啊.你火车肯定要有动力来源使得其能进行匀速直线运动.但是这个理解方式的优越性在于,它试图将火车和人视作一个系统来观察,这个角度下我们完全不要去管二者分别的动能了,而是直接分析系统动能.</p>
 <p>所以我反思了一下为什么我觉得一开始的那个做法很奇怪,我注意到对人做功的力同时一定对火车作负功,那么也就是一定还有一个对火车作正功的外力,这个力同时也是整个系统的外力.</p>
 <p>对这个施加在火车上的外力进行完全一样的分析,就可以得到相同的答案.</p>
 <p>或者更一般地,我们来证明惯性参考系下的所需要的能量恒定:</p>
 <p>我们已知:</p>
-<script type="math/tex; mode=display">
-\int _{ t _0  } ^{ t _1  } Fv \ \text { d  } t = \frac { m  } { 2  } ( v _1 ^2 - v _0 ^2 ) + \Delta E</script><p>要证:</p>
-<script type="math/tex; mode=display">
-\int _{ t _0  } ^{ t _1  } F ( v - v _w ) \ \text { d  } t = \frac { m  } { 2  } ( ( v _1 - v _w ) ^2 - ( v _0 - v _w ) ^2 ) + \Delta E</script><p>而注意到:</p>
-<script type="math/tex; mode=display">
-\int _{ t _0  } ^{ t _1  } F ( v - v _w ) \ \text { d  } t = \int _{ t _0  } ^{ t _1  } F ( v ) \ \text { d  } t - \int _{ t _0  } ^{ t _1  } Fv _w \ \text { d  } t = \frac { m  } { 2  } ( v _1 ^2 - v _0 ^2 ) - v _w m ( v _1 - v _0 ) + \Delta E</script><p>这就证明了该结论!</p>
+<p><span class="math display">\[
+\int _{ t _0  } ^{ t _1  } Fv \ \text { d  } t = \frac { m  } { 2  } ( v
+_1 ^2 - v _0 ^2 ) + \Delta E
+\]</span></p>
+<p>要证:</p>
+<p><span class="math display">\[
+\int _{ t _0  } ^{ t _1  } F ( v - v _w ) \ \text { d  } t = \frac {
+m  } { 2  } ( ( v _1 - v _w ) ^2 - ( v _0 - v _w ) ^2 ) + \Delta E
+\]</span></p>
+<p>而注意到:</p>
+<p><span class="math display">\[
+\int _{ t _0  } ^{ t _1  } F ( v - v _w ) \ \text { d  } t = \int _{ t
+_0  } ^{ t _1  } F ( v ) \ \text { d  } t - \int _{ t _0  } ^{ t _1  }
+Fv _w \ \text { d  } t = \frac { m  } { 2  } ( v _1 ^2 - v _0 ^2 ) - v
+_w m ( v _1 - v _0 ) + \Delta E
+\]</span></p>
+<p>这就证明了该结论!</p>
 <p><del>不过这个做法虽然相当理性但是一点都不直观啊,为什么两个平方竟然可以在这里线性加减,我其实还是没找到更加易于理解的方式啊,如果有大佬知道可以联系我一下qwq</del></p>
-<p>哦哦我突然瞎想出了一个相当简洁的方式啊,就是我们不难注意到只要满足动量守恒以及做功的方程$W = Fx $,我们很自然可以推导出动能差的表达式,而这两个基础的表达式都是线性的,因此动能差也一定与选取哪个惯性参考系无关!</p>
+<p>哦哦我突然瞎想出了一个相当简洁的方式啊,就是我们不难注意到只要满足动量守恒以及做功的方程$W
+= Fx
+$,我们很自然可以推导出动能差的表达式,而这两个基础的表达式都是线性的,因此动能差也一定与选取哪个惯性参考系无关!</p>
 <p>换句话说,这个动能差的表达式中的平方是我们积分积出来的,但是积分是可以加减的!</p>
 <hr>
-<p>在大半夜和Querainy 和Minuses 深入交流之后,我发现上面的过程还是太感性理解了,我们来添加一些细节.</p>
-<p>首先,Minuses 提供了在宏观下动量定理和牛二等价的证明(他原本的形式用的全是向量,但是我比较懒,所以换成一维情况了):</p>
-<script type="math/tex; mode=display">
-F \ \text { d  } t = m \ \text { d  } v</script><script type="math/tex; mode=display">
-F = \frac { \text { d  } v  } { \text { d  } t  } m = am</script><p>然后,他又提供了只要有牛顿第二定律和$W = Fx $的定义,我们就可以推导惯性参考系下动能定理的证明:</p>
-<script type="math/tex; mode=display">
-F = m \frac { \text { d  } v  } { \text { d  } t  }</script><script type="math/tex; mode=display">
-F \text { d  } x = m \frac { \text { d  } v  } { \text { d  } t  } \text { d  } x = mv \ \text { d  } v</script><script type="math/tex; mode=display">
-W = \int _{ t _0  } ^{ t _1  } F \text { d  } x = m \int _{ t _0  } ^{ t _1  } v \text { d  } v = \frac { 1  } { 2  } m ( v _1 ^2 - v _0 ^2 )</script><p>Minuses 无敌,可让天下一先.</p>
+<p>在大半夜和Querainy 和Minuses
+深入交流之后,我发现上面的过程还是太感性理解了,我们来添加一些细节.</p>
+<p>首先,Minuses
+提供了在宏观下动量定理和牛二等价的证明(他原本的形式用的全是向量,但是我比较懒,所以换成一维情况了):</p>
+<p><span class="math display">\[
+F \ \text { d  } t = m \ \text { d  } v
+\]</span></p>
+<p><span class="math display">\[
+F = \frac { \text { d  } v  } { \text { d  } t  } m = am
+\]</span></p>
+<p>然后,他又提供了只要有牛顿第二定律和$W = Fx
+$的定义,我们就可以推导惯性参考系下动能定理的证明:</p>
+<p><span class="math display">\[
+F = m \frac { \text { d  } v  } { \text { d  } t  }
+\]</span></p>
+<p><span class="math display">\[
+F \text { d  } x = m \frac { \text { d  } v  } { \text { d  } t  } \text
+{ d  } x = mv \ \text { d  } v
+\]</span></p>
+<p><span class="math display">\[
+W = \int _{ t _0  } ^{ t _1  } F \text { d  } x = m \int _{ t _0  } ^{ t
+_1  } v \text { d  } v = \frac { 1  } { 2  } m ( v _1 ^2 - v _0 ^2 )
+\]</span></p>
+<p>Minuses 无敌,可让天下一先.</p>
 <hr>
-<p>Querainy提出我之前的说法是错误的,因为在不同参考系下牛顿第二定律的确不会有影响,但是$W = Fx $是受到了影响的.例如在上面的例子中,如果以火车为参考系,那么火车与人之间的力对人是没有做功的.但是以地面为参考系,那么这个力因为作用点在变所以是做功了的.</p>
+<p>Querainy提出我之前的说法是错误的,因为在不同参考系下牛顿第二定律的确不会有影响,但是$W
+= Fx
+$是受到了影响的.例如在上面的例子中,如果以火车为参考系,那么火车与人之间的力对人是没有做功的.但是以地面为参考系,那么这个力因为作用点在变所以是做功了的.</p>
 <p>然而这个做功的改变在上面的积分形式中就可以发现,由于速度的改变导致平方项不能完美消除,因此这个做功的改变会抵消切换参考系(伽利略变换)带来的<strong>动能形式的改变</strong>.</p>
-<p>这个自我修正bug看上去相当诡异,但是一想到动能定理本身就是从$W = Fx $和牛顿第二定律推导出来的,因此有自洽性也非常合理.</p>
+<p>这个自我修正bug看上去相当诡异,但是一想到动能定理本身就是从$W = Fx
+$和牛顿第二定律推导出来的,因此有自洽性也非常合理.</p>
 <p>追根溯源看上面整个问题,我们会发现,如果我们换参考系然后看动能,动能的变化量的确是不一样的.</p>
 <p>但是问题在于,我们在意的不是动能的变化量,而是我引起这个变化需要外加多少能量.如果我引起这个变化所需要外加的能量不变,那么就仍然满足能量守恒定律.</p>
 <p>如果我们换参考系,动能的变化量改变,但是同时原本不做功的力也会随之进行做功.事实上由于力的作用点最多只在一个惯性参考系下才是静止的,因此换参考系几乎一定会引起力的做功.</p>
 <hr>
 <p>所以我们其实还可以再举一个类似的例子:</p>
-<p>考虑一个劲度系数为$k $的弹簧连在地上,上面放了一个重物$M $,我们来观察一下这个东西.</p>
-<p>不妨取<strong>重物放上弹簧后的平衡位置</strong>为重力势能和弹性势能的零点,设弹簧原长位置相对于此位置距离为$x _0 $,此时当然有$kx _0 = Mg $那考虑系统的弹性势能:</p>
-<script type="math/tex; mode=display">
-E _{ p 1  } = \frac { k  } { 2  } ( x - x _0 ) ^2 - \frac { k  } { 2  } ( x _0 ) ^2 = \frac { k  } { 2  } x ^2 - kx _0 x</script><p>重力势能:</p>
-<script type="math/tex; mode=display">
-E _{ p 2  } = Mgx</script><p>那么总势能当然是:</p>
-<script type="math/tex; mode=display">
-E _p = \frac { 1  } { 2  } kx ^2 - kx _0 x + Mgx = \frac { 1  } { 2  } kx ^2</script><hr>
-<p>时隔不知道多长时间,现在我们来证明柯尼希定理:质点系在参考系$A $中的总动能等于质点系在质心系中的动能与质心在参考系$A $中的动能之和.</p>
-<p>不妨设质心系下质点系的总动能为$E _{ kS  } $,参考系$A $下的总动能为$E _{ kA  } $,质心相对于$A $参考系的速度为$\vec { v  } _C $,我们当然有:</p>
-<script type="math/tex; mode=display">
+<p>考虑一个劲度系数为$k <span class="math inline">\(的弹簧连在地上,上面放了一个重物\)</span>M
+$,我们来观察一下这个东西.</p>
+<p>不妨取<strong>重物放上弹簧后的平衡位置</strong>为重力势能和弹性势能的零点,设弹簧原长位置相对于此位置距离为$x
+_0 <span class="math inline">\(,此时当然有\)</span>kx _0 = Mg
+$那考虑系统的弹性势能:</p>
+<p><span class="math display">\[
+E _{ p 1  } = \frac { k  } { 2  } ( x - x _0 ) ^2 - \frac { k  } { 2  }
+( x _0 ) ^2 = \frac { k  } { 2  } x ^2 - kx _0 x
+\]</span></p>
+<p>重力势能:</p>
+<p><span class="math display">\[
+E _{ p 2  } = Mgx
+\]</span></p>
+<p>那么总势能当然是:</p>
+<p><span class="math display">\[
+E _p = \frac { 1  } { 2  } kx ^2 - kx _0 x + Mgx = \frac { 1  } { 2  }
+kx ^2
+\]</span></p>
+<hr>
+<p>时隔不知道多长时间,现在我们来证明柯尼希定理:质点系在参考系$A <span class="math inline">\(中的总动能等于质点系在质心系中的动能与质心在参考系\)</span>A
+$中的动能之和.</p>
+<p>不妨设质心系下质点系的总动能为$E <em>{ kS } <span class="math inline">\(,参考系\)</span>A <span class="math inline">\(下的总动能为\)</span>E </em>{ kA } <span class="math inline">\(,质心相对于\)</span>A <span class="math inline">\(参考系的速度为\)</span> _C $,我们当然有:</p>
+<p><span class="math display">\[
 \begin{aligned}
-E _{ kS  } & = \frac { k  } { 2  } \sum m _i ( \vec { v  } _i - \vec { v  } _C ) ^2 \\
-& = E _{ kA  } + \frac { k  } { 2  } ( M \sum ( \vec { v  } _C ) ^2 - 2 \sum m _i \vec { v  } _i \vec { v  } _C ) \\
-& = E _{ kA  } + \frac { k  } { 2  } ( M \sum ( \vec { v  } _C ) ^2 - 2 ( \vec { v  } _C ) ^2 \sum m _i ) \\
-& = E _{ kA  } - \frac { k  } { 2  } M ( \vec { v  } _C ) ^2 
-\end{aligned}</script><p>那这就给出了一个更强的结论,而且这里的质心参考系甚至不需要是惯性系.</p>
+E _{ kS  } &amp; = \frac { k  } { 2  } \sum m _i ( \vec { v  } _i - \vec
+{ v  } _C ) ^2 \\
+&amp; = E _{ kA  } + \frac { k  } { 2  } ( M \sum ( \vec { v  } _C ) ^2
+- 2 \sum m _i \vec { v  } _i \vec { v  } _C ) \\
+&amp; = E _{ kA  } + \frac { k  } { 2  } ( M \sum ( \vec { v  } _C ) ^2
+- 2 ( \vec { v  } _C ) ^2 \sum m _i ) \\
+&amp; = E _{ kA  } - \frac { k  } { 2  } M ( \vec { v  } _C ) ^2
+\end{aligned}
+\]</span></p>
+<p>那这就给出了一个更强的结论,而且这里的质心参考系甚至不需要是惯性系.</p>
 
       
     </div>
@@ -1080,51 +1271,67 @@ E _{ kS  } & = \frac { k  } { 2  } \sum m _i ( \vec { v  } _i - \vec { v  } _C )
           <span id="more"></span>
 <p>今晚学弟问了我这么一个问题:</p>
 <p>对于一个圆锥摆,设其绳上拉力为$T $,我们有:</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-T \sin \theta & = m \omega ^2 \sin \theta L \\
-T & = m \omega ^2 L 
-\end{aligned}</script><p>那么问题来了:当小球自然下垂的时候,$T = mg $,但是$\omega = 0 $,左边不等于右边???</p>
+T \sin \theta &amp; = m \omega ^2 \sin \theta L \\
+T &amp; = m \omega ^2 L
+\end{aligned}
+\]</span></p>
+<p>那么问题来了:当小球自然下垂的时候,$T = mg <span class="math inline">\(,但是\)</span>= 0 $,左边不等于右边???</p>
 <p>怎么处理这个问题呢?</p>
 <hr>
 <p>下面是我个人的想法啊,不一定正确.</p>
-<p>冷静一下,$\omega = \frac { v  } { r  } $,我们的确能确认自然下垂的时候$v = 0 $,但由于$r $也是$0 $,我们没道理判定$\omega = 0 $.</p>
+<p>冷静一下,$= { r } <span class="math inline">\(,我们的确能确认自然下垂的时候\)</span>v = 0 <span class="math inline">\(,但由于\)</span>r $也是$0 <span class="math inline">\(,我们没道理判定\)</span>= 0 $.</p>
 <p>那么我们把角速度换成线速度就有:</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-T \sin \theta & = m \frac { v ^2  } { \sin \theta L  } \\
-T \sin ^2 \theta & = \frac { mv ^2  } { L  } 
-\end{aligned}</script><p>这样极限情况下两边就相等了(均为$0 $).</p>
+T \sin \theta &amp; = m \frac { v ^2  } { \sin \theta L  } \\
+T \sin ^2 \theta &amp; = \frac { mv ^2  } { L  }
+\end{aligned}
+\]</span></p>
+<p>这样极限情况下两边就相等了(均为$0 $).</p>
 <hr>
 <p>或者说我们还可以这么干:</p>
-<p>考虑$T = \frac { mg  } { \cos \theta  } $,所以$\omega ^2 = \frac { g  } { L \cos \theta  } $,注意到其实$\omega $是随着小球下落而单调递减的,但是不可能减到$0 $.</p>
+<p>考虑$T = { } <span class="math inline">\(,所以\)</span>^2 = { L }
+<span class="math inline">\(,注意到其实\)</span>$是随着小球下落而单调递减的,但是不可能减到$0
+$.</p>
 <hr>
-<p>另一个想法是:考虑先放一个实体圆锥(可提供支持力),让球在圆锥上转圈,然后逐渐加速到支持力$N = 0 $,此时小球会飘起来.我们观察一下这个式子是啥:</p>
-<p>考虑引入离心力,只需要让离心力,重力,支持力和拉力四力平衡即可,设绳子与竖直方向的夹角为$\theta $,作正交分解后立刻有:</p>
-<script type="math/tex; mode=display">
+<p>另一个想法是:考虑先放一个实体圆锥(可提供支持力),让球在圆锥上转圈,然后逐渐加速到支持力$N
+= 0 $,此时小球会飘起来.我们观察一下这个式子是啥:</p>
+<p>考虑引入离心力,只需要让离心力,重力,支持力和拉力四力平衡即可,设绳子与竖直方向的夹角为$$,作正交分解后立刻有:</p>
+<p><span class="math display">\[
 \begin{cases}
 N \cos \theta = T \sin \theta - m \omega ^2 L \sin \theta \\
-N \sin \theta = mg - T \cos \theta 
-\end{cases}</script><p>替换掉其中的$N $,得到:</p>
-<script type="math/tex; mode=display">
+N \sin \theta = mg - T \cos \theta
+\end{cases}
+\]</span></p>
+<p>替换掉其中的$N $,得到:</p>
+<p><span class="math display">\[
 \begin{aligned}
-mg \cos \theta - T \cos ^2 \theta & = T \sin ^2 \theta - m \omega ^2 L \sin ^2 \theta \\
-T & = mg \cos \theta + m \omega ^2 L \sin ^2 \theta 
-\end{aligned}</script><p>考虑$T $和$\omega ^2 $的函数关系,小球从在圆锥摆上的状态到飘起来的状态应该是连续的两段直线,注意到当$\theta \rightarrow 0 $的时候,它俩的关系是$T = mg $的平行于$\omega ^2 $轴的直线,这段直线会一直延伸到$\omega $的最低点,也就是$\omega = \sqrt { \frac { g  } { L  }  } $的点然后再转上去.</p>
+mg \cos \theta - T \cos ^2 \theta &amp; = T \sin ^2 \theta - m \omega ^2
+L \sin ^2 \theta \\
+T &amp; = mg \cos \theta + m \omega ^2 L \sin ^2 \theta
+\end{aligned}
+\]</span></p>
+<p>考虑$T <span class="math inline">\(和\)</span>^2 <span class="math inline">\(的函数关系,小球从在圆锥摆上的状态到飘起来的状态应该是连续的两段直线,注意到当\)</span>
+<span class="math inline">\(的时候,它俩的关系是\)</span>T = mg <span class="math inline">\(的平行于\)</span>^2 <span class="math inline">\(轴的直线,这段直线会一直延伸到\)</span><span class="math inline">\(的最低点,也就是\)</span>= $的点然后再转上去.</p>
 <hr>
 <p>如果这个文章就这么结束还是有点无聊,不如让我们来看个类似的问题:</p>
-<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/k0eufkm2.png" alt></p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/k0eufkm2.png"></p>
 <p>先来看第一问:</p>
-<p>设水平向左为正方向,设小球相对于滑块的水平速度为$v _1 $,滑块速度为$v _2 $.</p>
+<p>设水平向左为正方向,设小球相对于滑块的水平速度为$v _1 <span class="math inline">\(,滑块速度为\)</span>v _2 $.</p>
 <p>水平方向动量守恒,当然有$m ( v _1 - v _2 ) = Mv _2 $.</p>
-<p>此时小球的总速度应该为$v = \sqrt { ( v _1 - v _2 ) ^2 + ( \frac { v _1 \sin \theta  } { \cos \theta  } ) ^2  } = v _2 \sqrt { ( \frac { M  } { m  } ) ^2 + \frac { ( M + m ) ^2 \sin ^2 \theta  } { m ^2 \cos ^2 \theta  }  } $.</p>
-<p>小球和滑块的总机械能守恒,当然有:$\frac { 1  } { 2  } mv ^2 + \frac { 1  } { 2  } Mv _2 ^2 = mgR \cos \theta $.</p>
-<p>两式联立,解得:$v _2 = \sqrt { \frac { 2 m ^2 gR \cos \theta  } { ( Mm + M ^2 ) + ( M + m ) ^2 \tan ^2 \theta  }  } = \sqrt { \frac { 2 m ^2 gR \cos ^3 \theta  } { ( m + M ) ( M + m \sin ^2 \theta )  }  } $.</p>
+<p>此时小球的总速度应该为$v = = v _2 $.</p>
+<p>小球和滑块的总机械能守恒,当然有:$ { 2 } mv ^2 + { 2 } Mv _2 ^2 = mgR
+$.</p>
+<p>两式联立,解得:$v _2 = = $.</p>
 <p>看上去只是麻烦而已,也没那么难嘛.</p>
 <p>再来看第二问:</p>
-<p>考虑$a _n = \frac { ( \frac { v _1  } { \cos \theta  } ) ^2  } { R  } = \frac { v _2 ^2 ( M + m ) ^2  } { m ^2 R \cos ^2 \theta  } = \frac { 2 g ( M + m ) \cos \theta  } { M + m \sin ^2 \theta  } $,</p>
-<p>而滑块的水平加速度大小应该是$a ‘ = - \frac { N \sin \theta  } { M  } $,那么惯性力$F ‘ = - a ‘ m = \frac { mN \sin \theta  } { M  } $.</p>
-<p>而$a _n m = N - mg \cos \theta + F ‘ \sin \theta $,$\frac { M + m \sin ^2 \theta  } { M  } N = ma _n + mg \cos \theta = \frac { 2 gm ( M + m ) \cos \theta  } { M + m \sin ^2 \theta  } + mg \cos \theta = mg \cos \theta ( \frac { 3 M + 2 m + m \sin ^2 \theta  } { M + m \sin ^2 \theta  } ) $,整理得到$N = Mm \cos \theta ( \frac { 3 M + 3 m - m \cos ^2 \theta  } { ( M + m \sin ^2 \theta ) ^2  } ) $.方向沿半径方向朝向圆心.</p>
+<p>考虑$a _n = { R } = { m ^2 R ^2 } = { M + m ^2 } $,</p>
+<p>而滑块的水平加速度大小应该是$a ’ = - { M } <span class="math inline">\(,那么惯性力\)</span>F ’ = - a ’ m = { M } $.</p>
+<p>而$a _n m = N - mg + F ’ <span class="math inline">\(,\)</span> { M }
+N = ma _n + mg = { M + m ^2 } + mg = mg ( { M + m ^2 } ) <span class="math inline">\(,整理得到\)</span>N = Mm ( { ( M + m ^2 ) ^2 } )
+$.方向沿半径方向朝向圆心.</p>
 <p>这里就要用惯性力了.</p>
 
       
@@ -1219,42 +1426,62 @@ T & = mg \cos \theta + m \omega ^2 L \sin ^2 \theta
     <div class="post-body" itemprop="articleBody">
           <span id="more"></span>
 <p>众所周知,高中物理有一道很经典的分解速度的题:</p>
-<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/1t04v0mr.png" alt></p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/1t04v0mr.png"></p>
 <p>物理老师在上课讲这个题的时候,将速度分解为两个正交的速度,这两个速度的矢量和就是原速度.</p>
 <p>乍一看好像非常合理,然而随即大家可能就会见到这个题:</p>
-<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/c3ajz7jb.png" alt></p>
-<p>其中中间的物体下落的速度为$v $,这个时候沿绳子分解速度的时候,两个分速度应该均是$v \cos \theta $,而这个时候两个速度的矢量和并不是原速度啊!</p>
-<p>老师讲到这里的时候,往往会说这是因为:”速度的分解和力的分解并不一样.”但你可能会疑问:同样是矢量的分解,为什么会不一样呢?</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/c3ajz7jb.png"></p>
+<p>其中中间的物体下落的速度为$v <span class="math inline">\(,这个时候沿绳子分解速度的时候,两个分速度应该均是\)</span>v
+$,而这个时候两个速度的矢量和并不是原速度啊!</p>
+<p>老师讲到这里的时候,往往会说这是因为:“速度的分解和力的分解并不一样.”但你可能会疑问:同样是矢量的分解,为什么会不一样呢?</p>
 <p>先提前给出我的思考:在这个滑轮组模型中,我们做的操作并不是将原速度分解为了这两个速度,这两个速度也并非由原速度一下分解出来的,而分别只是原速度分解出的速度的一部分.</p>
 <hr>
 <p>先看这个最经典的模型:</p>
-<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/1t04v0mr.png" alt></p>
-<p>不妨设高度差为$h $,此时绳子长度为$L $,物体距离墙的距离为$x $.</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/1t04v0mr.png"></p>
+<p>不妨设高度差为$h <span class="math inline">\(,此时绳子长度为\)</span>L <span class="math inline">\(,物体距离墙的距离为\)</span>x $.</p>
 <p>有勾股定理:</p>
-<p>$L ^2 = h ^2 + x ^2 $,注意到此时$h $是一个常量.</p>
+<p>$L ^2 = h ^2 + x ^2 <span class="math inline">\(,注意到此时\)</span>h
+$是一个常量.</p>
 <p>两边对$t $求导,自然有:</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-2 Lv _L & = 2 xv _x \\
-v _L & = \frac { x  } { L  } v _x & = v _x \cos \theta 
-\end{aligned}</script><p>此时的另一个分速度自然是$v _h = v _x \sin \theta $.在物理课上,物理老师会这么解释这种分解:</p>
-<p>$v _L $这个速度提供了绳子缩短的速度,而$v _h $提供了绳子转动的速度.</p>
-<p>那么这个$v _h $听上去应该是此时绳子与物体接触点的转动的线速度对吧.也就是说角速度应该是$\omega = \frac { v _h  } { L  } = \frac { h  } { L ^2  } v _x $,令绳子与转轴夹角为$\alpha , \sin \alpha = \frac { x  } { L  } $而我们有:</p>
-<script type="math/tex; mode=display">
+2 Lv _L &amp; = 2 xv _x \\
+v _L &amp; = \frac { x  } { L  } v _x &amp; = v _x \cos \theta
+\end{aligned}
+\]</span></p>
+<p>此时的另一个分速度自然是$v _h = v _x
+$.在物理课上,物理老师会这么解释这种分解:</p>
+<p>$v _L <span class="math inline">\(这个速度提供了绳子缩短的速度,而\)</span>v _h
+$提供了绳子转动的速度.</p>
+<p>那么这个$v _h <span class="math inline">\(听上去应该是此时绳子与物体接触点的转动的线速度对吧.也就是说角速度应该是\)</span>=
+{ L } = { L ^2 } v _x <span class="math inline">\(,令绳子与转轴夹角为\)</span>, = { L }
+$而我们有:</p>
+<p><span class="math display">\[
 \begin{aligned}
-\omega & = \frac { \text { d  } \alpha  } { \text { d  } t  } \\
-& = \frac { \text { d  } \alpha  } { \text { d  } \sin \alpha  } \frac { \text { d  } \sin \alpha  } { \text { d  } t  } \\
-& = \frac { 1  } { \frac { \text { d  } \sin \alpha  } { \text { d  } \alpha  }  } \frac { \text { d  } \sin \alpha  } { \text { d  } t  } \\
-& = \frac { 1  } { \cos \alpha  } \frac { v _x L - v _L x  } { L ^2  } \\
-& = \frac { h  } { L ^2  } v _x 
-\end{aligned}</script><p>这就证明了$v _h $的确是线速度,这也与我们直观感受相当匹配.</p>
+\omega &amp; = \frac { \text { d  } \alpha  } { \text { d  } t  } \\
+&amp; = \frac { \text { d  } \alpha  } { \text { d  } \sin \alpha  }
+\frac { \text { d  } \sin \alpha  } { \text { d  } t  } \\
+&amp; = \frac { 1  } { \frac { \text { d  } \sin \alpha  } { \text {
+d  } \alpha  }  } \frac { \text { d  } \sin \alpha  } { \text { d  }
+t  } \\
+&amp; = \frac { 1  } { \cos \alpha  } \frac { v _x L - v _L x  } { L
+^2  } \\
+&amp; = \frac { h  } { L ^2  } v _x
+\end{aligned}
+\]</span></p>
+<p>这就证明了$v _h $的确是线速度,这也与我们直观感受相当匹配.</p>
 <hr>
 <p>解释完上面这个分解的正确性,我们又要开始考虑了:那么为什么力和速度的分解不一样呢?</p>
-<p>有一个很形象的比喻,那就是如果两个人同时以速度$v $的速度拉一个物体,这个物体的速度是$v $;但如果两个人同时以力$F $拉一个物体,这个物体的受力是$2 F $.</p>
-<p>这是为什么呢?动量定理实际上将力在时间上的积累与动量等价起来了对吧,由于速度并非是动量,因此自然像力那样叠加.这么思考也许是正确的:两个受力均为$F $的物体的合力是$2 F $,两个速度均为$v $的物体合速度为$v $,两个动量均为$p $的速度相同的物体合动量为$2 p $.</p>
+<p>有一个很形象的比喻,那就是如果两个人同时以速度$v <span class="math inline">\(的速度拉一个物体,这个物体的速度是\)</span>v <span class="math inline">\(;但如果两个人同时以力\)</span>F
+$拉一个物体,这个物体的受力是$2 F $.</p>
+<p>这是为什么呢?动量定理实际上将力在时间上的积累与动量等价起来了对吧,由于速度并非是动量,因此自然像力那样叠加.这么思考也许是正确的:两个受力均为$F
+$的物体的合力是$2 F <span class="math inline">\(,两个速度均为\)</span>v
+<span class="math inline">\(的物体合速度为\)</span>v <span class="math inline">\(,两个动量均为\)</span>p
+$的速度相同的物体合动量为$2 p $.</p>
 <p>或者换而言之,力的作用之间是有牛顿第三定律作保证的,这就可以让力在物体间存在一种类似传递的效果.但是速度并没有这种效果,速度并非是外界对物体做出的改变,而是物体的性质本身.</p>
-<p>从这个角度,我们回到滑轮的那个题,我们就可以明白为什么要这么分解了:原因很简单,这两个沿绳的速度并不是一次分解分解出来的,而是让原本的速度先沿其中一个绳分解为两个速度,一个是沿绳的速度$v \cos \theta $,另一个是提供绳转动的线速度$v \sin \theta $.</p>
-<p>而速度是不能叠加的,因此右边也做这个操作,这就使得沿绳的分速度均为$v \cos \theta $.</p>
+<p>从这个角度,我们回到滑轮的那个题,我们就可以明白为什么要这么分解了:原因很简单,这两个沿绳的速度并不是一次分解分解出来的,而是让原本的速度先沿其中一个绳分解为两个速度,一个是沿绳的速度$v
+<span class="math inline">\(,另一个是提供绳转动的线速度\)</span>v $.</p>
+<p>而速度是不能叠加的,因此右边也做这个操作,这就使得沿绳的分速度均为$v
+$.</p>
 <hr>
 <p>回看开头的那个滑轮题,这题其实还有个很好玩的地方:那就是C的动能最大点可不是C的受力平衡点:原因很简单,C的受力平衡点由于滑轮作用仍然存在角速度上的加速度.</p>
 
@@ -1351,19 +1578,32 @@ v _L & = \frac { x  } { L  } v _x & = v _x \cos \theta
           <span id="more"></span>
 <p>大家高中都学过开普勒三定律对吧!下面我们来证明它们是对的.</p>
 <p>由于难度不太一样,我们微调一下顺序.</p>
-<h3><span id="开普勒第二定律">开普勒第二定律</span></h3><p>根据角动量守恒,当然有$\vec { r  } \times \vec { p  } = C $为定值.又根据机械能守恒,其在某一个点的机械能应该为$- \frac { GmM  } { r  } + \frac { p ^2  } { 2 m  } $.</p>
-<p>先考虑证明开普勒第二定律,取一段极小时间$\text { d  } t $,考虑掠过的面积应该是$\text { d  } S = \frac { 1  } { 2  } \vec { r  } \times ( \vec { r  } + \text { d  } \vec { r  } ) = \frac { 1  } { 2  } \vec { r  } \times \text { d  } \vec { r  } $,于是掠面速度$V = \frac { \text { d  } S  } { \text { d  } t  } = \frac { 1  } { 2 m  } \vec { r  } \times \vec { p  } $是一个常数.</p>
-<h3><span id="开普勒第三定律">开普勒第三定律</span></h3><p>那么$T = \frac { S  } { V  } = \frac { 2 m \times ab \pi  } { \vec { r  } \times \vec { p  }  } = mab \frac { 2 \pi  } { C  } $.</p>
-<p>那么$\frac { T ^2  } { a ^3  } = \frac { 4 \pi ^2 m ^2 b ^2  } { aC ^2  } $.</p>
+<h3><span id="开普勒第二定律">开普勒第二定律</span></h3>
+<p>根据角动量守恒,当然有$ = C <span class="math inline">\(为定值.又根据机械能守恒,其在某一个点的机械能应该为\)</span>-
+{ r } + { 2 m } $.</p>
+<p>先考虑证明开普勒第二定律,取一段极小时间$ t <span class="math inline">\(,考虑掠过的面积应该是\)</span> S = { 2 } ( + ) = {
+2 } <span class="math inline">\(,于是掠面速度\)</span>V = { t } = { 2 m
+} $是一个常数.</p>
+<h3><span id="开普勒第三定律">开普勒第三定律</span></h3>
+<p>那么$T = { V } = { } = mab { C } $.</p>
+<p>那么$ { a ^3 } = { aC ^2 } $.</p>
 <p>根据机械能守恒,当然应该有在近日点和远日点机械能相等,那自然有:</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-- \frac { GmM  } { a + c  } + \frac { C ^2  } { 2 m ( a + c ) ^2  } & = - \frac { GmM  } { a - c  } + \frac { C ^2  } { 2 m ( a - c ) ^2  } \\
-m ^2 & = C ^2 \frac { a  } { b ^2 GM  } 
-\end{aligned}</script><p>带入得到$\frac { T ^2  } { a ^3  } = \frac { 4 \pi ^2  } { GM  } $是一个定值.</p>
-<h3><span id="开普勒第一定律">开普勒第一定律</span></h3><p>我们知道圆锥曲线的极坐标方程是:</p>
-<script type="math/tex; mode=display">
-r ( \theta ) = \frac { ep  } { 1 - e \cos \theta  }</script><p>其中$e $是离心率,$p $是准焦距(焦点到准线的距离).</p>
+- \frac { GmM  } { a + c  } + \frac { C ^2  } { 2 m ( a + c ) ^2  }
+&amp; = - \frac { GmM  } { a - c  } + \frac { C ^2  } { 2 m ( a - c )
+^2  } \\
+m ^2 &amp; = C ^2 \frac { a  } { b ^2 GM  }
+\end{aligned}
+\]</span></p>
+<p>带入得到$ { a ^3 } = { GM } $是一个定值.</p>
+<h3><span id="开普勒第一定律">开普勒第一定律</span></h3>
+<p>我们知道圆锥曲线的极坐标方程是:</p>
+<p><span class="math display">\[
+r ( \theta ) = \frac { ep  } { 1 - e \cos \theta  }
+\]</span></p>
+<p>其中$e <span class="math inline">\(是离心率,\)</span>p
+$是准焦距(焦点到准线的距离).</p>
 <p>后面不会了,开摆!</p>
 
       
@@ -1462,58 +1702,102 @@ r ( \theta ) = \frac { ep  } { 1 - e \cos \theta  }</script><p>其中$e $是离�
 <p><del>而且其实理论上,这篇博客的名字应该叫《被qyc创飞了(1)》</del></p>
 <p>前天,qyc给我发了一个<a target="_blank" rel="noopener" href="https://www.luogu.com/article/5gal95wp">博客</a>,里面提供了一种非常厉害的估计数列的方法.我一看就觉得超级厉害啊,因为这个题我之前也做过然后被爆杀了,而竟然可以拿科技秒掉.</p>
 <p>大概讲一下qyc的神仙操作:</p>
-<p>$a _1 = 1 , a _{ n + 1  } - a _n = - \frac { 1  } { 3  } a _n ^2 $</p>
-<p>考虑构造一个函数$f ( n ) $使得$f ( n ) \approx a _n $,那我们就可以将$a _{ n + 1  } - a _n \approx f _n $.</p>
-<p>这个第一眼看上去就很有道理,而事实上也确实很有道理,原因是根据拉格朗日中值定理,$\exists x _0 \in [ n , n + 1 ] , f ‘ ( x _0 ) = f ( n + 1 ) - f ( n ) $,而对于增长率变化不大的函数,直接认为$f ‘ ( x _0 ) = f ‘ ( n ) $是有理可循的!</p>
-<p>@Minuses在知乎上找到了这个东西的<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/342641401">系统理论</a>.<del>但是我没有看</del>.</p>
-<p>然后,原式子就变成了一个微分方程了,带入$f ( 1 ) = 1 $解得$f ( n ) = \frac { 3  } { n + 2  } $.这个精度已经足够选出来原本的放缩题的答案了.</p>
+<p>$a <em>1 = 1 , a </em>{ n + 1 } - a _n = - { 3 } a _n ^2 $</p>
+<p>考虑构造一个函数$f ( n ) <span class="math inline">\(使得\)</span>f (
+n ) a <em>n <span class="math inline">\(,那我们就可以将\)</span>a </em>{
+n + 1 } - a _n f _n $.</p>
+<p>这个第一眼看上去就很有道理,而事实上也确实很有道理,原因是根据拉格朗日中值定理,$x
+_0 , f ’ ( x _0 ) = f ( n + 1 ) - f ( n ) <span class="math inline">\(,而对于增长率变化不大的函数,直接认为\)</span>f ’ (
+x _0 ) = f ’ ( n ) $是有理可循的!</p>
+<p><span class="citation" data-cites="Minuses在知乎上找到了这个东西的">@Minuses在知乎上找到了这个东西的</span><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/342641401">系统理论</a>.<del>但是我没有看</del>.</p>
+<p>然后,原式子就变成了一个微分方程了,带入$f ( 1 ) = 1 <span class="math inline">\(解得\)</span>f ( n ) = { n + 2 }
+$.这个精度已经足够选出来原本的放缩题的答案了.</p>
 <p>但是我不满意!具体数学上教过我们可以用数列估计误差项,那现在我们来考虑一下它的误差项吧!</p>
-<p>令$a _n = \frac { 3  } { n + 2  } - b _n $,带入化简,得到$\{ b _n \} $的递推式:</p>
-<script type="math/tex; mode=display">
+<p>令$a _n = { n + 2 } - b _n <span class="math inline">\(,带入化简,得到\)</span>{ b _n } $的递推式:</p>
+<p><span class="math display">\[
 \begin{aligned}
-\frac { 3  } { n + 3  } - b _{ n + 1  } & = ( \frac { 3  } { n + 2  } - b _n ) ( 1 - \frac { 1  } { n + 2  } + \frac { b _n  } { 3  } ) \\
-b _{ n + 1  } - \frac { 3  } { n + 3  } & = ( b _n - \frac { 3  } { n + 2  } ) ( \frac { n + 1  } { n + 2  } + \frac { b _n  } { 3  } ) \\
-b _1 & = 0 , b _{ n + 1  } & = \frac { b _n ^2  } { 3  } + \frac { n  } { n + 2  } b _n + \frac { 3  } { ( n + 2 ) ^2 ( n + 3 )  } 
-\end{aligned}</script><p>算到这里,我们可以很轻易使用数学归纳法算出$b _n \leq \frac { 1  } { 4 n  } $,这个精度已经挺不错的了,但是也让人觉得很不满意,因为这个误差项怎么和估计项是同阶的啊.</p>
-<p>然后我开始估计了一下这个$b _n $的阶,因为我其实没学过什么高超的高数技巧,所以我使用了OI的一些技巧来估计,不妨假设$b _n ^2 &lt; &lt; b _n $:</p>
-<p>$b _{ n + 1  } = O ( 1 ) b _n + O ( \frac { 1  } { n ^3  } ) $.</p>
-<p>那么$b _n $应该是$O ( \frac { 1  } { n ^2  } ) $级别的对吧!然后我就开始算,算了一晚上也没放出来一个式子,相当自闭.</p>
-<p>晚上回家咨询了一下汪神wzm,得知了这个$b _n $是$O ( \frac { \ln n  } { n ^2  } ) $级别的,这下白算一晚上了.</p>
+\frac { 3  } { n + 3  } - b _{ n + 1  } &amp; = ( \frac { 3  } { n +
+2  } - b _n ) ( 1 - \frac { 1  } { n + 2  } + \frac { b _n  } { 3  } )
+\\
+b _{ n + 1  } - \frac { 3  } { n + 3  } &amp; = ( b _n - \frac { 3  } {
+n + 2  } ) ( \frac { n + 1  } { n + 2  } + \frac { b _n  } { 3  } ) \\
+b _1 &amp; = 0 , b _{ n + 1  } &amp; = \frac { b _n ^2  } { 3  } + \frac
+{ n  } { n + 2  } b _n + \frac { 3  } { ( n + 2 ) ^2 ( n + 3 )  }
+\end{aligned}
+\]</span></p>
+<p>算到这里,我们可以很轻易使用数学归纳法算出$b _n { 4 n }
+$,这个精度已经挺不错的了,但是也让人觉得很不满意,因为这个误差项怎么和估计项是同阶的啊.</p>
+<p>然后我开始估计了一下这个$b _n <span class="math inline">\(的阶,因为我其实没学过什么高超的高数技巧,所以我使用了OI的一些技巧来估计,不妨假设\)</span>b
+_n ^2 &lt; &lt; b _n $:</p>
+<p>$b _{ n + 1 } = O ( 1 ) b _n + O ( { n ^3 } ) $.</p>
+<p>那么$b _n <span class="math inline">\(应该是\)</span>O ( { n ^2 } )
+$级别的对吧!然后我就开始算,算了一晚上也没放出来一个式子,相当自闭.</p>
+<p>晚上回家咨询了一下汪神wzm,得知了这个$b _n <span class="math inline">\(是\)</span>O ( { n ^2 } )
+$级别的,这下白算一晚上了.</p>
 <p>如何理解这个级别?考虑别乱动$b _n $的系数,我们有:</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{aligned}
-b _{ n + 1  } & = \frac { n  } { n + 2  } b _n + \frac { 1  } { n ( n + 1 ) ( n + 2 )  } \\
-( n + 1 ) ( n + 2 ) b _{ n + 1  } & = n ( n + 1 ) b _n + \frac { 1  } { n  } \\
-g ( n ) & = n ( n + 1 ) b _n , g ' ( n ) & = \frac { 1  } { n  } , g ( n ) & = \ln n \\
-b _n & = \frac { \ln n  } { n ^2  } 
-\end{aligned}</script><p>这警戒我们以后乱估计的时候千万别把$O ( n ^{ \epsilon  } ) $和$O ( 1 ) $搞混了,警钟长鸣.</p>
-<p>这个时候大概估计一下会发现$b _n \leq \frac { 3 \ln n  } { n ( n + 1 )  } $.</p>
+b _{ n + 1  } &amp; = \frac { n  } { n + 2  } b _n + \frac { 1  } { n (
+n + 1 ) ( n + 2 )  } \\
+( n + 1 ) ( n + 2 ) b _{ n + 1  } &amp; = n ( n + 1 ) b _n + \frac {
+1  } { n  } \\
+g ( n ) &amp; = n ( n + 1 ) b _n , g &#39; ( n ) &amp; = \frac { 1  } {
+n  } , g ( n ) &amp; = \ln n \\
+b _n &amp; = \frac { \ln n  } { n ^2  }
+\end{aligned}
+\]</span></p>
+<p>这警戒我们以后乱估计的时候千万别把$O ( n ^{ } ) <span class="math inline">\(和\)</span>O ( 1 ) $搞混了,警钟长鸣.</p>
+<p>这个时候大概估计一下会发现$b _n { n ( n + 1 ) } $.</p>
 <p>但是如果你尝试带入数学归纳,会发现完全做不动.怎么办呢?</p>
 <p>在这个问题被搞出来后两个周,我妈的一位同事给出了纯文化课的牛逼做法,下面来介绍一下这个做法并且终结此题:</p>
 <p>首先换元,上面等价于下面这个数列放缩:</p>
-<script type="math/tex; mode=display">
-a _1 = \frac { 1  } { 3  } , a _{ n + 1  } = - a _n ( a _n - 1 )</script><p>观察形式,注意到$a _n ( a _n - 1 ) $这个东西很像一个类似裂项的东西,因此两边取倒数,自然有:</p>
-<script type="math/tex; mode=display">
-\frac { 1  } { a _{ n + 1  }  } - \frac { 1  } { a _n  } = \frac { 1  } { 1 - a _n  }</script><p>考虑$0 &lt; a _n \leq \frac { 1  } { 3  } $,于是我们有下面这个不等式:</p>
-<script type="math/tex; mode=display">
-1 < \frac { 1  } { a _{ n + 1  }  } - \frac { 1  } { a _n  } \leq \frac { 3  } { 2  }</script><p>两边求和有:</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
+a _1 = \frac { 1  } { 3  } , a _{ n + 1  } = - a _n ( a _n - 1 )
+\]</span></p>
+<p>观察形式,注意到$a _n ( a _n - 1 )
+$这个东西很像一个类似裂项的东西,因此两边取倒数,自然有:</p>
+<p><span class="math display">\[
+\frac { 1  } { a _{ n + 1  }  } - \frac { 1  } { a _n  } = \frac { 1  }
+{ 1 - a _n  }
+\]</span></p>
+<p>考虑$0 &lt; a _n { 3 } $,于是我们有下面这个不等式:</p>
+<p><span class="math display">\[
+1 &lt; \frac { 1  } { a _{ n + 1  }  } - \frac { 1  } { a _n  } \leq
+\frac { 3  } { 2  }
+\]</span></p>
+<p>两边求和有:</p>
+<p><span class="math display">\[
 \begin{aligned}
-n & \leq \frac { 1  } { a _{ n + 1  }  } - 3 & \leq \frac { 3  } { 2  } n \\
-\frac { 2  } { 3 ( n + 1 )  } & \leq a _n & \leq \frac { 1  } { n + 2  } 
-\end{aligned}</script><p>仔细观察下面这个式子:</p>
-<script type="math/tex; mode=display">
-\frac { 1  } { a _{ n + 1  }  } - \frac { 1  } { a _n  } = \frac { 1  } { 1 - a _n  }</script><p>我们上面的操作实质上是使用这个式子将$0 &lt; a _n \leq \frac { 1  } { 3  } $这个放缩给缩紧了,所以我们再用一次这个式子再紧一遍.</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\frac { 1  } { a _{ n + 1  }  } - \frac { 1  } { a _n  } & \leq \frac { 1  } { 1 - \frac { 1  } { n + 2  }  } & = \frac { n + 2  } { n + 1  } & = 1 + \frac { 1  } { n + 1  } \\
+n &amp; \leq \frac { 1  } { a _{ n + 1  }  } - 3 &amp; \leq \frac { 3  }
+{ 2  } n \\
+\frac { 2  } { 3 ( n + 1 )  } &amp; \leq a _n &amp; \leq \frac { 1  } {
+n + 2  }
+\end{aligned}
+\]</span></p>
+<p>仔细观察下面这个式子:</p>
+<p><span class="math display">\[
+\frac { 1  } { a _{ n + 1  }  } - \frac { 1  } { a _n  } = \frac { 1  }
+{ 1 - a _n  }
+\]</span></p>
+<p>我们上面的操作实质上是使用这个式子将$0 &lt; a _n { 3 }
+$这个放缩给缩紧了,所以我们再用一次这个式子再紧一遍.</p>
+$$
+<span class="math display">\[\begin{aligned}
+\frac { 1  } { a _{ n + 1  }  } - \frac { 1  } { a _n  } &amp; \leq
+\frac { 1  } { 1 - \frac { 1  } { n + 2  }  } &amp; = \frac { n + 2  } {
+n + 1  } &amp; = 1 + \frac { 1  } { n + 1  } \\
 
-\end{aligned}</script><p>两边求和自然有:</p>
-<script type="math/tex; mode=display">
+\end{aligned}\]</span>
+<p>$$</p>
+<p>两边求和自然有:</p>
+<p><span class="math display">\[
 \begin{aligned}
-\frac { 1  } { a _{ n + 1  }  } - 3 & \leq n + \sum _{ k = 2  } ^{ n + 1  } \frac { 1  } { k  } & \leq n + \ln ( n + 1 ) \\
-a _n & \geq \frac { 1  } { n + 2 + \ln n  } 
-\end{aligned}</script><p>这个界甚至比我们给出的界还要紧.而且似乎继续迭代可以得到更紧的解!相当牛逼!</p>
+\frac { 1  } { a _{ n + 1  }  } - 3 &amp; \leq n + \sum _{ k = 2  } ^{ n
++ 1  } \frac { 1  } { k  } &amp; \leq n + \ln ( n + 1 ) \\
+a _n &amp; \geq \frac { 1  } { n + 2 + \ln n  }
+\end{aligned}
+\]</span></p>
+<p>这个界甚至比我们给出的界还要紧.而且似乎继续迭代可以得到更紧的解!相当牛逼!</p>
 
       
     </div>
