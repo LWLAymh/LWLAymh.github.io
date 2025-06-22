@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lwlaymh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="约定 \(K_n\)为\(n\)个点的完全图 树的性质 Example1([HDU6035]Colorful Tree) 考虑每种颜色的贡献,一种颜色的贡献显然是删去所有这个颜色的边后,剩下的联通块之间的路径. Example2([2022qbxt国庆Day1]tree) 首先考虑分开处理每个点,在做每个点的时候假设它的所有子节点全部已经满足条件了,最终我们再通过计算组合数的方式">
+    <meta name="description" content="约定$K_n$为$n$个点的完全图 树的性质Example1([HDU6035]Colorful Tree)考虑每种颜色的贡献,一种颜色的贡献显然是删去所有这个颜色的边后,剩下的联通块之间的路径. Example2([2022qbxt国庆Day1]tree)首先考虑分开处理每个点,在做每个点的时候假设它的所有子节点全部已经满足条件了,最终我们再通过计算组合数的方式计算即可. 那么最后,我们需要对">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图论">
 <meta property="og:url" content="http://lwlaymh.github.io/2025/06/22/%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E8%AE%BA/index.html">
 <meta property="og:site_name" content="LWLAymh的备忘录">
-<meta property="og:description" content="约定 \(K_n\)为\(n\)个点的完全图 树的性质 Example1([HDU6035]Colorful Tree) 考虑每种颜色的贡献,一种颜色的贡献显然是删去所有这个颜色的边后,剩下的联通块之间的路径. Example2([2022qbxt国庆Day1]tree) 首先考虑分开处理每个点,在做每个点的时候假设它的所有子节点全部已经满足条件了,最终我们再通过计算组合数的方式">
+<meta property="og:description" content="约定$K_n$为$n$个点的完全图 树的性质Example1([HDU6035]Colorful Tree)考虑每种颜色的贡献,一种颜色的贡献显然是删去所有这个颜色的边后,剩下的联通块之间的路径. Example2([2022qbxt国庆Day1]tree)首先考虑分开处理每个点,在做每个点的时候假设它的所有子节点全部已经满足条件了,最终我们再通过计算组合数的方式计算即可. 那么最后,我们需要对">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-06-22T15:00:01.230Z">
-<meta property="article:modified_time" content="2025-06-22T15:00:01.230Z">
+<meta property="article:published_time" content="2025-06-22T15:04:13.371Z">
+<meta property="article:modified_time" content="2025-06-22T15:04:13.371Z">
 <meta property="article:author" content="LWLAymh">
 <meta property="article:tag" content="OI">
 <meta name="twitter:card" content="summary">
@@ -165,22 +165,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">约定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">树的性质</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.1.</span> <span class="nav-text">Example1([HDU6035]Colorful
-Tree)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.2.</span> <span class="nav-text">Example2([2022qbxt国庆Day1]tree)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.3.</span> <span class="nav-text">Example3(CF1628E
-Groceries in Meteor Town)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.4.</span> <span class="nav-text">Example4(loj3692)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.1.</span> <span class="nav-text">树的直径</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.1.1.</span> <span class="nav-text">Example1([SDOI2013]直径)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.</span> <span class="nav-text">树的重心</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.2.1.</span> <span class="nav-text">Example1([CSP-S2019]树的重心)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.3.</span> <span class="nav-text">树的结构的维护</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.3.1.</span> <span class="nav-text">Example1</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.4.</span> <span class="nav-text">dfs树的性质</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.4.1.</span> <span class="nav-text">Example1([CF1361E]James and
-the Chase)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.4.2.</span> <span class="nav-text">Example2(Loj 6276)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">圆方树的性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">任意图的性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">dsu on tree</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">5.0.1.</span> <span class="nav-text">Example(QOJ5020)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">最小生成树</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">6.0.1.</span> <span class="nav-text">Example1(CF1550F Jumping
-Around)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">Kruskal重构树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">8.</span> <span class="nav-text">最短路</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">8.0.1.</span> <span class="nav-text">Example1(CF1753D The Beach)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">8.0.2.</span> <span class="nav-text">Example2([CF843D]Dynamic
-Shortest Path)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">8.0.3.</span> <span class="nav-text">Example3
-同余最短路([luoguP2371]墨墨的等式)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">9.</span> <span class="nav-text">差分约束</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">9.0.1.</span> <span class="nav-text">Example1([AGC056C] 01
-Balanced)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">10.</span> <span class="nav-text">2-SAT</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">10.0.1.</span> <span class="nav-text">Example1(CF1697F)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">10.0.2.</span> <span class="nav-text">Example2(2021集训队互测 序列)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">11.</span> <span class="nav-text">对偶图</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">11.0.1.</span> <span class="nav-text">Example1([CSP-S 2021]
-交通规划)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">12.</span> <span class="nav-text">广义串并联图&#x2F;三度化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">12.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">12.2.</span> <span class="nav-text">删一度点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">12.3.</span> <span class="nav-text">缩二度点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">12.4.</span> <span class="nav-text">叠合重边</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">12.5.</span> <span class="nav-text">正确性证明</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">12.5.1.</span> <span class="nav-text">引理1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">12.5.2.</span> <span class="nav-text">引理2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">12.5.3.</span> <span class="nav-text">引理3</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">12.6.</span> <span class="nav-text">Example1(22zr提高十连测day6摆件)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">12.7.</span> <span class="nav-text">Example2([JOI Open 2022]
-放学路)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">13.</span> <span class="nav-text">点分治</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">13.0.1.</span> <span class="nav-text">Example1(CFgym101002K)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">13.1.</span> <span class="nav-text">点分树的性质</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">13.1.1.</span> <span class="nav-text">Example1(codechef [BTREE])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">13.1.2.</span> <span class="nav-text">Example2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">14.</span> <span class="nav-text">边分治</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">14.1.</span> <span class="nav-text">边分树的性质</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">15.</span> <span class="nav-text">二分图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">15.1.</span> <span class="nav-text">定理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">15.1.1.</span> <span class="nav-text">最大流-最小割定理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">15.1.2.</span> <span class="nav-text">Hall定理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">15.1.3.</span> <span class="nav-text">Vizing定理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">15.2.</span> <span class="nav-text">二分图最大权匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">15.3.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">15.3.1.</span> <span class="nav-text">Example1([
-XVII Open Cup named after E.V. Pankratiev. Grand Prix of
-Japan(openstrain contest 1489) B]Point Pairs)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">16.</span> <span class="nav-text">网络流常见模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.1.</span> <span class="nav-text">最大流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.2.</span> <span class="nav-text">最小费用最大流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.3.</span> <span class="nav-text">最小割</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">16.3.1.</span> <span class="nav-text">Example1(luoguP4313 文理分科)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">16.3.2.</span> <span class="nav-text">Example2([HNOI2013]切糕)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">16.3.3.</span> <span class="nav-text">Example3(uoj704)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.4.</span> <span class="nav-text">二分图匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.5.</span> <span class="nav-text">二分图最小点覆盖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.6.</span> <span class="nav-text">二分图最大独立集</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">16.6.1.</span> <span class="nav-text">Example1(CF1404E)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.7.</span> <span class="nav-text">最大权闭合子图</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">16.7.1.</span> <span class="nav-text">Example1(luoguP4177)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.8.</span> <span class="nav-text">最小路径覆盖(覆盖点)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">16.8.1.</span> <span class="nav-text">Example1([网络流24题]魔术球问题)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.9.</span> <span class="nav-text">最长反链</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">16.9.1.</span> <span class="nav-text">Example1([CF1630F]Making It
-Bipartite)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.10.</span> <span class="nav-text">平面图最小割</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.11.</span> <span class="nav-text">最小费用任意流</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">16.11.1.</span> <span class="nav-text">Example1(luoguP4694
-[PA2013]Raper)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.12.</span> <span class="nav-text">负费用最小流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.13.</span> <span class="nav-text">有负环的费用流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.14.</span> <span class="nav-text">模拟费用流</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">16.14.1.</span> <span class="nav-text">Example1(luoguP4694
-[PA2013]Raper)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.15.</span> <span class="nav-text">散题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">16.15.1.</span> <span class="nav-text">Example1([CQOI2014]危桥)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">17.</span> <span class="nav-text">图的计数问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">17.1.</span> <span class="nav-text">Prufer序列</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">17.1.1.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">17.2.</span> <span class="nav-text">Prufer序列的矩阵树定理理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">17.3.</span> <span class="nav-text">LGV引理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">17.3.1.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">17.4.</span> <span class="nav-text">矩阵树定理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">17.4.1.</span> <span class="nav-text">无向图情况</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">17.4.1.1.</span> <span class="nav-text">Example([省选联考 2020 A
-卷]作业题)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">17.4.1.2.</span> <span class="nav-text">Example([北京省选集训2019]生成树计数)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">17.4.2.</span> <span class="nav-text">有向图情况</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">17.5.</span> <span class="nav-text">BEST定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">17.6.</span> <span class="nav-text">格路计数问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">17.6.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">17.6.2.</span> <span class="nav-text">定理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">17.7.</span> <span class="nav-text">散模型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">17.7.1.</span> <span class="nav-text">多叉堆计数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">17.7.1.1.</span> <span class="nav-text">Example1([AGC060C] Large Heap)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">17.7.1.2.</span> <span class="nav-text">Example2([HEOI2013]SAO)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">17.7.2.</span> <span class="nav-text">三元环计数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">17.7.3.</span> <span class="nav-text">四元环计数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">17.7.4.</span> <span class="nav-text">有标号DAG计数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">17.7.4.1.</span> <span class="nav-text">Example1(qoj5749)</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">约定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">树的性质</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.1.</span> <span class="nav-text">Example1([HDU6035]Colorful Tree)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.2.</span> <span class="nav-text">Example2([2022qbxt国庆Day1]tree)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.3.</span> <span class="nav-text">Example3(CF1628E Groceries in Meteor Town)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.0.4.</span> <span class="nav-text">Example4(loj3692)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.1.</span> <span class="nav-text">树的直径</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.1.1.</span> <span class="nav-text">Example1([SDOI2013]直径)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.</span> <span class="nav-text">树的重心</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.2.1.</span> <span class="nav-text">Example1([CSP-S2019]树的重心)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.3.</span> <span class="nav-text">树的结构的维护</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.3.1.</span> <span class="nav-text">Example1</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.4.</span> <span class="nav-text">dfs树的性质</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.4.1.</span> <span class="nav-text">Example1([CF1361E]James and the Chase)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">2.4.2.</span> <span class="nav-text">Example2(Loj 6276)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">圆方树的性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">任意图的性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">dsu on tree</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">5.0.1.</span> <span class="nav-text">Example(QOJ5020)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">最小生成树</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">6.0.1.</span> <span class="nav-text">Example1(CF1550F Jumping Around)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">Kruskal重构树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">8.</span> <span class="nav-text">最短路</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">8.0.1.</span> <span class="nav-text">Example1(CF1753D The Beach)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">8.0.2.</span> <span class="nav-text">Example2([CF843D]Dynamic Shortest Path)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">8.0.3.</span> <span class="nav-text">Example3 同余最短路([luoguP2371]墨墨的等式)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">9.</span> <span class="nav-text">差分约束</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">9.0.1.</span> <span class="nav-text">Example1([AGC056C] 01 Balanced)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">10.</span> <span class="nav-text">2-SAT</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">10.0.1.</span> <span class="nav-text">Example1(CF1697F)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">10.0.2.</span> <span class="nav-text">Example2(2021集训队互测 序列)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">11.</span> <span class="nav-text">对偶图</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">11.0.1.</span> <span class="nav-text">Example1([CSP-S 2021] 交通规划)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">12.</span> <span class="nav-text">广义串并联图&#x2F;三度化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">12.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">12.2.</span> <span class="nav-text">删一度点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">12.3.</span> <span class="nav-text">缩二度点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">12.4.</span> <span class="nav-text">叠合重边</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">12.5.</span> <span class="nav-text">正确性证明</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">12.5.1.</span> <span class="nav-text">引理1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">12.5.2.</span> <span class="nav-text">引理2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">12.5.3.</span> <span class="nav-text">引理3</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">12.6.</span> <span class="nav-text">Example1(22zr提高十连测day6摆件)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">12.7.</span> <span class="nav-text">Example2([JOI Open 2022] 放学路)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">13.</span> <span class="nav-text">点分治</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">13.0.1.</span> <span class="nav-text">Example1(CFgym101002K)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">13.1.</span> <span class="nav-text">点分树的性质</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">13.1.1.</span> <span class="nav-text">Example1(codechef [BTREE])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">13.1.2.</span> <span class="nav-text">Example2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">14.</span> <span class="nav-text">边分治</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">14.1.</span> <span class="nav-text">边分树的性质</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">15.</span> <span class="nav-text">二分图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">15.1.</span> <span class="nav-text">定理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">15.1.1.</span> <span class="nav-text">最大流-最小割定理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">15.1.2.</span> <span class="nav-text">Hall定理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">15.1.3.</span> <span class="nav-text">Vizing定理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">15.2.</span> <span class="nav-text">二分图最大权匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">15.3.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">15.3.1.</span> <span class="nav-text">Example1([ XVII Open Cup named after E.V. Pankratiev. Grand Prix of Japan(openstrain contest 1489) B]Point Pairs)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">16.</span> <span class="nav-text">网络流常见模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.1.</span> <span class="nav-text">最大流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.2.</span> <span class="nav-text">最小费用最大流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.3.</span> <span class="nav-text">最小割</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">16.3.1.</span> <span class="nav-text">Example1(luoguP4313 文理分科)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">16.3.2.</span> <span class="nav-text">Example2([HNOI2013]切糕)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">16.3.3.</span> <span class="nav-text">Example3(uoj704)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.4.</span> <span class="nav-text">二分图匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.5.</span> <span class="nav-text">二分图最小点覆盖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.6.</span> <span class="nav-text">二分图最大独立集</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">16.6.1.</span> <span class="nav-text">Example1(CF1404E)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.7.</span> <span class="nav-text">最大权闭合子图</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">16.7.1.</span> <span class="nav-text">Example1(luoguP4177)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.8.</span> <span class="nav-text">最小路径覆盖(覆盖点)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">16.8.1.</span> <span class="nav-text">Example1([网络流24题]魔术球问题)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.9.</span> <span class="nav-text">最长反链</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">16.9.1.</span> <span class="nav-text">Example1([CF1630F]Making It Bipartite)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.10.</span> <span class="nav-text">平面图最小割</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.11.</span> <span class="nav-text">最小费用任意流</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">16.11.1.</span> <span class="nav-text">Example1(luoguP4694 [PA2013]Raper)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.12.</span> <span class="nav-text">负费用最小流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.13.</span> <span class="nav-text">有负环的费用流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.14.</span> <span class="nav-text">模拟费用流</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">16.14.1.</span> <span class="nav-text">Example1(luoguP4694 [PA2013]Raper)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">16.15.</span> <span class="nav-text">散题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">16.15.1.</span> <span class="nav-text">Example1([CQOI2014]危桥)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">17.</span> <span class="nav-text">图的计数问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">17.1.</span> <span class="nav-text">Prufer序列</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">17.1.1.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">17.2.</span> <span class="nav-text">Prufer序列的矩阵树定理理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">17.3.</span> <span class="nav-text">LGV引理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">17.3.1.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">17.4.</span> <span class="nav-text">矩阵树定理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">17.4.1.</span> <span class="nav-text">无向图情况</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">17.4.1.1.</span> <span class="nav-text">Example([省选联考 2020 A 卷]作业题)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">17.4.1.2.</span> <span class="nav-text">Example([北京省选集训2019]生成树计数)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">17.4.2.</span> <span class="nav-text">有向图情况</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">17.5.</span> <span class="nav-text">BEST定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">17.6.</span> <span class="nav-text">格路计数问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">17.6.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">17.6.2.</span> <span class="nav-text">定理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">17.7.</span> <span class="nav-text">散模型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">17.7.1.</span> <span class="nav-text">多叉堆计数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">17.7.1.1.</span> <span class="nav-text">Example1([AGC060C] Large Heap)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">17.7.1.2.</span> <span class="nav-text">Example2([HEOI2013]SAO)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">17.7.2.</span> <span class="nav-text">三元环计数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">17.7.3.</span> <span class="nav-text">四元环计数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">17.7.4.</span> <span class="nav-text">有标号DAG计数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">17.7.4.1.</span> <span class="nav-text">Example1(qoj5749)</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -291,7 +276,7 @@ Bipartite)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="n
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2025-06-22 23:00:01" itemprop="dateCreated datePublished" datetime="2025-06-22T23:00:01+08:00">2025-06-22</time>
+      <time title="创建时间：2025-06-22 23:04:13" itemprop="dateCreated datePublished" datetime="2025-06-22T23:04:13+08:00">2025-06-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -327,397 +312,247 @@ Bipartite)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="n
     
     
     <div class="post-body" itemprop="articleBody"><span id="more"></span>
-<h3><span id="约定">约定</span></h3>
-<p><span class="math inline">\(K_n\)</span>为<span class="math inline">\(n\)</span>个点的完全图</p>
-<h3><span id="树的性质">树的性质</span></h3>
-<h5><span id="example1hdu6035colorfultree">Example1([HDU6035]Colorful
-Tree)</span></h5>
-<p>考虑每种颜色的贡献,一种颜色的贡献显然是删去所有这个颜色的边后,剩下的联通块之间的路径.</p>
-<h5><span id="example22022qbxt国庆day1tree">Example2([2022qbxt国庆Day1]tree)</span></h5>
-<p>首先考虑分开处理每个点,在做每个点的时候假设它的所有子节点全部已经满足条件了,最终我们再通过计算组合数的方式计算即可.</p>
-<p>那么最后,我们需要对于每个点进行处理,假设我们已知这个子树的集合是<span class="math inline">\(S\)</span>,那么我们需要用容斥计算如果当前子树集合是<span class="math inline">\(S\)</span>的子集的情况,不难发现容斥式子:</p>
-<p><span class="math display">\[
-ans = \sum_{ k = \max \{ f_v | x \rightarrow v \} }^{ f_x } ( - 1 )^{
-f_x - k } k \binom{ f_x }{ k } \sum_{ x \rightarrow v } \binom{ k }{ f_v
-}
-\]</span></p>
-<p>其实也就是个二项式反演的形式.</p>
-<p>这题还需要一些技巧优化,我们首先发现由于<span class="math inline">\(f_v\)</span>有可能有重复的,我们可以提前把重复的<span class="math inline">\(f_v\)</span>压缩到一起再用快速幂求,于是后面的部分最多不过<span class="math inline">\(\sqrt{ n
-}\)</span>级别.而前面是一个类似于树上启发式合并的东西,于是复杂度<span class="math inline">\(O ( n \sqrt{ n } \log n )\)</span>.</p>
-<h5><span id="example3cf1628egroceries-in-meteor-town">Example3(CF1628E
-Groceries in Meteor Town)</span></h5>
-<p>因为要求路径最大值,所以先建Kruskal重构树.然后问题转化为求一个点和一群白点的LCA是谁.</p>
-<p>树上多点LCA有个经典性质:也就相当于其中<span class="math inline">\(dfn\)</span>序最大的和最小的两个点的LCA.</p>
+<h3><span id="约定">约定</span></h3><p>$K_n$为$n$个点的完全图</p>
+<h3><span id="树的性质">树的性质</span></h3><h5><span id="example1hdu6035colorful-tree">Example1([HDU6035]Colorful Tree)</span></h5><p>考虑每种颜色的贡献,一种颜色的贡献显然是删去所有这个颜色的边后,剩下的联通块之间的路径.</p>
+<h5><span id="example22022qbxt国庆day1tree">Example2([2022qbxt国庆Day1]tree)</span></h5><p>首先考虑分开处理每个点,在做每个点的时候假设它的所有子节点全部已经满足条件了,最终我们再通过计算组合数的方式计算即可.</p>
+<p>那么最后,我们需要对于每个点进行处理,假设我们已知这个子树的集合是$S$,那么我们需要用容斥计算如果当前子树集合是$S$的子集的情况,不难发现容斥式子:</p>
+<script type="math/tex; mode=display">
+ans = \sum_{ k = \max \{ f_v | x \rightarrow v \} }^{ f_x } ( - 1 )^{ f_x - k } k \binom{ f_x }{ k } \sum_{ x \rightarrow v } \binom{ k }{ f_v }</script><p>其实也就是个二项式反演的形式.</p>
+<p>这题还需要一些技巧优化,我们首先发现由于$f_v$有可能有重复的,我们可以提前把重复的$f_v$压缩到一起再用快速幂求,于是后面的部分最多不过$\sqrt{ n }$级别.而前面是一个类似于树上启发式合并的东西,于是复杂度$O ( n \sqrt{ n } \log n )$.</p>
+<h5><span id="example3cf1628e-groceries-in-meteor-town">Example3(CF1628E Groceries in Meteor Town)</span></h5><p>因为要求路径最大值,所以先建Kruskal重构树.然后问题转化为求一个点和一群白点的LCA是谁.</p>
+<p>树上多点LCA有个经典性质:也就相当于其中$dfn$序最大的和最小的两个点的LCA.</p>
 <p>至于区间覆盖可以用线段树.</p>
-<h5><span id="example4loj3692">Example4(loj3692)</span></h5>
-<p>注意到<span class="math inline">\(D\)</span>很小.</p>
-<p>我们考虑处理邻域乘,设<span class="math inline">\(f_{ x , i
-}\)</span>表示<span class="math inline">\(x\)</span>的<span class="math inline">\(i\)</span>级儿子需要乘上的答案.每次修改时,先将<span class="math inline">\(f_{ x , D }\)</span>和<span class="math inline">\(f_{ x , D - 1 }\)</span>乘上<span class="math inline">\(W\)</span>,然后令<span class="math inline">\(x =
-fa_x\)</span>,<span class="math inline">\(D = D -
-2\)</span>,继续此操作直到<span class="math inline">\(D\)</span>为<span class="math inline">\(0\)</span>.</p>
-<p>然后询问的时候直接暴力跳<span class="math inline">\(D\)</span>层父亲找答案,不难发现这样做是对的.</p>
+<h5><span id="example4loj3692">Example4(loj3692)</span></h5><p>注意到$D$很小.</p>
+<p>我们考虑处理邻域乘,设$f_{ x , i }$表示$x$的$i$级儿子需要乘上的答案.每次修改时,先将$f_{ x , D }$和$f_{ x , D - 1 }$乘上$W$,然后令$x = fa_x$,$D = D - 2$,继续此操作直到$D$为$0$.</p>
+<p>然后询问的时候直接暴力跳$D$层父亲找答案,不难发现这样做是对的.</p>
 <p>同样的思路可以脱离点分治处理很多邻域问题.</p>
-<h4><span id="树的直径">树的直径</span></h4>
-<ol type="1">
-<li><p>定义:树中最长的一条简单路径.</p></li>
-<li><p>树的直径可能有多个.</p></li>
-<li><p>直径的两个端点一定是两个叶子节点.</p></li>
-<li><p>如果树有多条直径,树的不同的直径的中点/中边一定是相同的.</p></li>
-<li><p>到一个点距离最远的点一定是直径的一个端点.</p></li>
-<li><p>对于两棵树,如果第一棵树直径两端点为<span class="math inline">\((
-u , v )\)</span>,第二棵树直径两端点为<span class="math inline">\(( x , y
-)\)</span>,用一条边将两棵树连接,那么新树的直径一定是<span class="math inline">\(u , v , x , y\)</span>中的两个点.</p></li>
+<h4><span id="树的直径">树的直径</span></h4><ol>
+<li><p>定义:树中最长的一条简单路径.</p>
+</li>
+<li><p>树的直径可能有多个.</p>
+</li>
+<li><p>直径的两个端点一定是两个叶子节点.</p>
+</li>
+<li><p>如果树有多条直径,树的不同的直径的中点/中边一定是相同的.</p>
+</li>
+<li><p>到一个点距离最远的点一定是直径的一个端点.</p>
+</li>
+<li><p>对于两棵树,如果第一棵树直径两端点为$( u , v )$,第二棵树直径两端点为$( x , y )$,用一条边将两棵树连接,那么新树的直径一定是$u , v , x , y$中的两个点.</p>
+</li>
 </ol>
 <p>上述的证明大都是考虑反证法:如果不成立,则一定存在一条更长的直径.</p>
-<h5><span id="example1sdoi2013直径">Example1([SDOI2013]直径)</span></h5>
-<p>有一个做法是:考虑找到直径的中点/中边,找到它到两边的最远距离的点,显然两边的点分别的以中点/中边的两个端点为根的LCA中间的部分就是一定会被包含的边.</p>
-<h4><span id="树的重心">树的重心</span></h4>
-<ol type="1">
-<li><p>定义:树的重心是删去后所有剩余子树大小最大值最小的点.</p></li>
-<li><p>树的重心是删去后所有剩余子树大小全部小于等于<span class="math inline">\(\lfloor \cfrac{ n }{ 2 }
-\rfloor\)</span>的点.</p></li>
-<li><p>树的重心只有可能有一个或两个.</p></li>
-<li><p>如果树有两个重心,那么这两个重心相邻.</p></li>
-<li><p>树的重心是所有点到其距离之和最小的点.</p></li>
-<li><p>把一个树添加或删除一个叶子,那么它的重心最多只移动一条边的距离.</p></li>
-<li><p>把两个树通过一条边相连得到一个新的树,那么新的树的重心在连接原来两个树的重心的路径上.</p></li>
+<h5><span id="example1sdoi2013直径">Example1([SDOI2013]直径)</span></h5><p>有一个做法是:考虑找到直径的中点/中边,找到它到两边的最远距离的点,显然两边的点分别的以中点/中边的两个端点为根的LCA中间的部分就是一定会被包含的边.</p>
+<h4><span id="树的重心">树的重心</span></h4><ol>
+<li><p>定义:树的重心是删去后所有剩余子树大小最大值最小的点.</p>
+</li>
+<li><p>树的重心是删去后所有剩余子树大小全部小于等于$\lfloor \cfrac{ n }{ 2 } \rfloor$的点.</p>
+</li>
+<li><p>树的重心只有可能有一个或两个.</p>
+</li>
+<li><p>如果树有两个重心,那么这两个重心相邻.</p>
+</li>
+<li><p>树的重心是所有点到其距离之和最小的点.</p>
+</li>
+<li><p>把一个树添加或删除一个叶子,那么它的重心最多只移动一条边的距离.</p>
+</li>
+<li><p>把两个树通过一条边相连得到一个新的树,那么新的树的重心在连接原来两个树的重心的路径上.</p>
+</li>
 </ol>
 <p>(2)的证明如下:</p>
-<p>如果重心是<span class="math inline">\(u\)</span>,且删去<span class="math inline">\(u\)</span>后剩余最大子树大小大于<span class="math inline">\(\lfloor \cfrac{ n }{ 2 }
-\rfloor\)</span>,设这棵子树中与<span class="math inline">\(u\)</span>相邻的点为<span class="math inline">\(v\)</span>,则我们删去<span class="math inline">\(v\)</span>后,最大子树大小一定会减少,不满足假设,所以(2)得证.</p>
-<p>另外,如果一个点删去后所有剩余子树大小全部小于等于<span class="math inline">\(\lfloor \cfrac{ n }{ 2 }
-\rfloor\)</span>,那它也一定是重心.因为不存在除了重心以外的满足条件的点:考虑调整法,与重心相邻的点一定都不满足条件,因为它们的子树大小全都小于等于<span class="math inline">\(\lfloor \cfrac{ n }{ 2 }
-\rfloor\)</span>,移动后最大子树一定不小于<span class="math inline">\(n -
-\lfloor \cfrac{ n }{ 2 } \rfloor\)</span>.</p>
+<p>如果重心是$u$,且删去$u$后剩余最大子树大小大于$\lfloor \cfrac{ n }{ 2 } \rfloor$,设这棵子树中与$u$相邻的点为$v$,则我们删去$v$后,最大子树大小一定会减少,不满足假设,所以(2)得证.</p>
+<p>另外,如果一个点删去后所有剩余子树大小全部小于等于$\lfloor \cfrac{ n }{ 2 } \rfloor$,那它也一定是重心.因为不存在除了重心以外的满足条件的点:考虑调整法,与重心相邻的点一定都不满足条件,因为它们的子树大小全都小于等于$\lfloor \cfrac{ n }{ 2 } \rfloor$,移动后最大子树一定不小于$n - \lfloor \cfrac{ n }{ 2 } \rfloor$.</p>
 <p>(3)(4)的证明如下:</p>
 <p>首先证明:如果有两个点都是重心,那它们一定相邻.</p>
-<p>考虑如果二者不相邻,那删去它们后剩下的最大子树大小一定相等,设这两个点分别为<span class="math inline">\(x , y\)</span>,那删去<span class="math inline">\(x\)</span>后,剩下的最大子树一定包含了<span class="math inline">\(y\)</span>,而这个子树的大小一定小于等于<span class="math inline">\(\lfloor \cfrac{ n }{ 2 }
-\rfloor\)</span>.那删去<span class="math inline">\(y\)</span>后,剩下的最大子树大小必定大于<span class="math inline">\(\lfloor \cfrac{ n }{ 2 }
-\rfloor\)</span>,一定不合法.</p>
+<p>考虑如果二者不相邻,那删去它们后剩下的最大子树大小一定相等,设这两个点分别为$x , y$,那删去$x$后,剩下的最大子树一定包含了$y$,而这个子树的大小一定小于等于$\lfloor \cfrac{ n }{ 2 } \rfloor$.那删去$y$后,剩下的最大子树大小必定大于$\lfloor \cfrac{ n }{ 2 } \rfloor$,一定不合法.</p>
 <p>而树上不可能有超过两个点两两相邻,于是最多只有两个重心,且它们一定相邻.</p>
 <p>(5)的证明如下:</p>
-<p>考虑如果<span class="math inline">\(u\)</span>是树的重心,我们看能不能将<span class="math inline">\(u\)</span>调整到另一个点使得所有点到其距离之和更小.</p>
-<p>由于调整是一步一步做的,显然只需要判断所有和<span class="math inline">\(u\)</span>相邻的点是否符合条件即可.设这个点为<span class="math inline">\(x\)</span>,那我们把<span class="math inline">\(u\)</span>改为<span class="math inline">\(x\)</span>,会使答案减小<span class="math inline">\(siz_x\)</span>,增加<span class="math inline">\(n -
-siz_x\)</span>,由于<span class="math inline">\(siz_x \leq \lfloor
-\cfrac{ n }{ 2 } \rfloor\)</span>,所以这么做一定不优.</p>
+<p>考虑如果$u$是树的重心,我们看能不能将$u$调整到另一个点使得所有点到其距离之和更小.</p>
+<p>由于调整是一步一步做的,显然只需要判断所有和$u$相邻的点是否符合条件即可.设这个点为$x$,那我们把$u$改为$x$,会使答案减小$siz_x$,增加$n - siz_x$,由于$siz_x \leq \lfloor \cfrac{ n }{ 2 } \rfloor$,所以这么做一定不优.</p>
 <p>(6)的证明如下:</p>
-<p>首先,如果加入一个叶子节点后,各个子树大小仍然都<span class="math inline">\(&lt; \lfloor \cfrac{ n }{ 2 }
-\rfloor\)</span>,那显然不必调整.</p>
+<p>首先,如果加入一个叶子节点后,各个子树大小仍然都$&lt; \lfloor \cfrac{ n }{ 2 } \rfloor$,那显然不必调整.</p>
 <p>不然,显然是往叶子节点移动一格或者加入一个相邻的重心.</p>
 <p>(7)的证明如下:</p>
-<p>不妨设两棵树大小分别为<span class="math inline">\(siz_a \leq
-siz_b\)</span>,然后令相连的两个点是这两棵树的根.</p>
-<p>对于<span class="math inline">\(b\)</span>中的重心,肯定是会往根跳,并且不可能跳出<span class="math inline">\(b\)</span>原本的树.</p>
-<h5><span id="example1csp-s2019树的重心">Example1([CSP-S2019]树的重心)</span></h5>
-<p>首先取重心<span class="math inline">\(rt\)</span>为根,如果有两个就随便取一个.</p>
-<p>接下来我们考虑对于每个点<span class="math inline">\(x\)</span>,它在什么情况下会成为重心.首先,删掉的边不可能在<span class="math inline">\(x\)</span>的子树内,不然一定不可能取到<span class="math inline">\(x\)</span>的.然后,我们假设删掉的子树大小为<span class="math inline">\(S\)</span>,<span class="math inline">\(x\)</span>的子树内最大的一个子树大小为<span class="math inline">\(g_x\)</span>,那么根据重心的性质有:</p>
-$$
-<span class="math display">\[\begin{aligned}
-2 ( n - S - siz_x ) &amp; \leq n - S \\
-2 g_x &amp; \leq n - S \\
+<p>不妨设两棵树大小分别为$siz_a \leq siz_b$,然后令相连的两个点是这两棵树的根.</p>
+<p>对于$b$中的重心,肯定是会往根跳,并且不可能跳出$b$原本的树.</p>
+<h5><span id="example1csp-s2019树的重心">Example1([CSP-S2019]树的重心)</span></h5><p>首先取重心$rt$为根,如果有两个就随便取一个.</p>
+<p>接下来我们考虑对于每个点$x$,它在什么情况下会成为重心.首先,删掉的边不可能在$x$的子树内,不然一定不可能取到$x$的.然后,我们假设删掉的子树大小为$S$,$x$的子树内最大的一个子树大小为$g_x$,那么根据重心的性质有:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+2 ( n - S - siz_x ) & \leq n - S \\
+2 g_x & \leq n - S \\
 
-\end{aligned}\]</span>
-<p>$$</p>
-<p>整理得到:</p>
-<p><span class="math display">\[
-2 g_x \leq n - S \leq 2 siz_x
-\]</span></p>
-<p>考虑这个怎么计算:如果没有删边必须在<span class="math inline">\(x\)</span>子树外的限制,那显然可以直接遍历一遍存下<span class="math inline">\(n -
-S\)</span>,然后统一使用值域树状数组做.而我们接下来考虑删去<span class="math inline">\(x\)</span>子树内的贡献,类似colorful
-tree的做法,每次dfs到一个点,记录下来当前树状数组的答案,然后dfs子树,回溯时拿新答案减去旧答案就是子树内的答案.</p>
-<p>接下来我们需要考虑<span class="math inline">\(x =
-rt\)</span>怎么做.</p>
-<p>考虑<span class="math inline">\(x\)</span>的子树中最大的那个和次大的那个,如果我们删去的节点不在最大的子树中,那只需要保证最大的子树大小满足条件;不然,只需保证次大的子树大小满足条件,也是好维护的.</p>
-<h4><span id="树的结构的维护">树的结构的维护</span></h4>
-<h5><span id="example1">Example1</span></h5>
-<p>给定一棵树,树上点有点权<span class="math inline">\(val\)</span>.现在有一个值<span class="math inline">\(sum\)</span>,初始为<span class="math inline">\(0\)</span>.从<span class="math inline">\(1\)</span>号点出发,每第一次到一个点<span class="math inline">\(u\)</span>,就会使<span class="math inline">\(sum +
-= val_u\)</span>.求在时刻保证<span class="math inline">\(sum \geq
-0\)</span>的前提下,<span class="math inline">\(sum\)</span>最终的最大值.</p>
-<p>首先注意到为了保证<span class="math inline">\(sum \geq
-0\)</span>这个性质,一个节点应该有两个值:<span class="math inline">\(lim\)</span>表示能走到这个点所需要的最小的<span class="math inline">\(sum\)</span>,<span class="math inline">\(val\)</span>表示到了这个点后能获得的价值.显然如果<span class="math inline">\(val \leq 0\)</span>则无意义.</p>
-<p>如果我们能一开始处理出根的所有儿子的<span class="math inline">\(lim\)</span>和<span class="math inline">\(val\)</span>,我们就可以使用先走<span class="math inline">\(lim\)</span>小的点,并不断累计<span class="math inline">\(sum\)</span>的方式做.</p>
-<p>所以考虑不断向上合并信息.不难发现此时一个点要处理出多对<span class="math inline">\(( lim , val
-)\)</span>.考虑用一个左偏树维护这个东西.</p>
+\end{aligned}</script><p>整理得到:</p>
+<script type="math/tex; mode=display">
+2 g_x \leq n - S \leq 2 siz_x</script><p>考虑这个怎么计算:如果没有删边必须在$x$子树外的限制,那显然可以直接遍历一遍存下$n - S$,然后统一使用值域树状数组做.而我们接下来考虑删去$x$子树内的贡献,类似colorful tree的做法,每次dfs到一个点,记录下来当前树状数组的答案,然后dfs子树,回溯时拿新答案减去旧答案就是子树内的答案.</p>
+<p>接下来我们需要考虑$x = rt$怎么做.</p>
+<p>考虑$x$的子树中最大的那个和次大的那个,如果我们删去的节点不在最大的子树中,那只需要保证最大的子树大小满足条件;不然,只需保证次大的子树大小满足条件,也是好维护的.</p>
+<h4><span id="树的结构的维护">树的结构的维护</span></h4><h5><span id="example1">Example1</span></h5><p>给定一棵树,树上点有点权$val$.现在有一个值$sum$,初始为$0$.从$1$号点出发,每第一次到一个点$u$,就会使$sum + = val_u$.求在时刻保证$sum \geq 0$的前提下,$sum$最终的最大值.</p>
+<p>首先注意到为了保证$sum \geq 0$这个性质,一个节点应该有两个值:$lim$表示能走到这个点所需要的最小的$sum$,$val$表示到了这个点后能获得的价值.显然如果$val \leq 0$则无意义.</p>
+<p>如果我们能一开始处理出根的所有儿子的$lim$和$val$,我们就可以使用先走$lim$小的点,并不断累计$sum$的方式做.</p>
+<p>所以考虑不断向上合并信息.不难发现此时一个点要处理出多对$( lim , val )$.考虑用一个左偏树维护这个东西.</p>
 <p>但是,我们还需要保证不能跳着选点.也就是说我们要保证选中一个点,这个点的父亲必须选,怎么办呢?</p>
-<p>一个方式是,我们把排序方法从只看<span class="math inline">\(lim\)</span>变成先判是否存在祖先后代关系,再判断<span class="math inline">\(lim\)</span>.</p>
-<p>另一个方式是,我们每次直接把当前子树根节点扔到堆顶.但是需要满足堆的性质.不难发现如果这个点<span class="math inline">\(val &lt; 0\)</span>,我们可以将它与下面的<span class="math inline">\(lim\)</span>最的节点合并直到这个点<span class="math inline">\(val \geq 0\)</span>.而如果这个点的<span class="math inline">\(lim\)</span>太大,我们同样可以合并.注意到这样我们采取了一种很聪明的方式维护了树的形态.</p>
-<h4><span id="dfs树的性质">dfs树的性质</span></h4>
-<h5><span id="example1cf1361ejames-andthe-chase">Example1([CF1361E]James and
-the Chase)</span></h5>
-<p>如何判断一个点是否是好的呢?首先,如果要求是任意路径,那一个点是好的当且仅当它是一个叶向有根树的根.</p>
+<p>一个方式是,我们把排序方法从只看$lim$变成先判是否存在祖先后代关系,再判断$lim$.</p>
+<p>另一个方式是,我们每次直接把当前子树根节点扔到堆顶.但是需要满足堆的性质.不难发现如果这个点$val &lt; 0$,我们可以将它与下面的$lim$最的节点合并直到这个点$val \geq 0$.而如果这个点的$lim$太大,我们同样可以合并.注意到这样我们采取了一种很聪明的方式维护了树的形态.</p>
+<h4><span id="dfs树的性质">dfs树的性质</span></h4><h5><span id="example1cf1361ejames-and-the-chase">Example1([CF1361E]James and the Chase)</span></h5><p>如何判断一个点是否是好的呢?首先,如果要求是任意路径,那一个点是好的当且仅当它是一个叶向有根树的根.</p>
 <p>现在要求是简单路径,那也就是说如果走了重复点是可以忽略的,这也就是说这个叶向有根树可以有反走边,而显然不能有横插边.不难发现这是充要条件.</p>
-<p>另一个问题是:如何快速判断一个点是否满足上述条件呢?首先我们求出以一个好的点为根的dfs树(随机选取一定数量的点,如果一个都不是好点直接输出<span class="math inline">\(- 1\)</span>),然后我们发现:一个点<span class="math inline">\(u\)</span>是好的必要条件是它的子树内只有一条反走边,证明显然.假设<span class="math inline">\(u\)</span>通过这条反走边走到了点<span class="math inline">\(v\)</span>,那么<span class="math inline">\(u\)</span>是好的点当且仅当<span class="math inline">\(v\)</span>也是好的点.</p>
-<p>这是为啥呢?首先,因为我们是以一个好点为根跑的dfs树,所以<span class="math inline">\(u\)</span>走到子树内的点必定只有一种方式.那子树外的点呢?走到<span class="math inline">\(v\)</span>后,显然就要从它走到其它点,而它到<span class="math inline">\(u\)</span>的子树内显然只有一种方案,那如果<span class="math inline">\(v\)</span>到其它点也只有一种方案,那么根据<span class="math inline">\(u \rightarrow v\)</span>这条路径,<span class="math inline">\(u\)</span>显然也是好点.</p>
-<h5><span id="example2loj-6276">Example2(Loj 6276)</span></h5>
-<p>找到所有颜色相同的点对<span class="math inline">\(( x , y
-)\)</span>,经过它们的路径都不合法,显然经过它们的路径可以用dfs序刻画成矩阵,最后要求矩阵面积并.</p>
-<h3><span id="圆方树的性质">圆方树的性质</span></h3>
-<ol type="1">
-<li><p>对于任意的非空无向图<span class="math inline">\(G\)</span>,一定存在一个<span class="math inline">\(G\)</span>的点双连通分量<span class="math inline">\(B\)</span>,使得<span class="math inline">\(B\)</span>中只有不超过<span class="math inline">\(1\)</span>个节点是<span class="math inline">\(G\)</span>的割点.其中,若<span class="math inline">\(B\)</span>中没有<span class="math inline">\(G\)</span>的割点,则有<span class="math inline">\(B
-= G\)</span>.</p></li>
-<li><p>若一个点双连通分量不为<span class="math inline">\(K_2\)</span>,则该点双连通分量中至少有一个简单环.</p></li>
-<li><p>在仙人掌上的每个点双连通分量要么是<span class="math inline">\(K_2\)</span>,要么是一个简单环.</p></li>
-<li><p>对于一个不是<span class="math inline">\(K_2\)</span>的点双连通分量中的任意一个点<span class="math inline">\(u\)</span>,一定存在一个简单环<span class="math inline">\(C\)</span>使得<span class="math inline">\(u\)</span>在<span class="math inline">\(C\)</span>上.</p></li>
-<li><p>对于一个不是<span class="math inline">\(K_2\)</span>的点双连通分量中的任意两个点<span class="math inline">\(u , v\)</span>,一定存在一个简单环<span class="math inline">\(C\)</span>使得<span class="math inline">\(u ,
-v\)</span>在<span class="math inline">\(C\)</span>上.</p></li>
-<li><p>对于一个不是<span class="math inline">\(K_2\)</span>的点双,任给一点<span class="math inline">\(x\)</span>和一边<span class="math inline">\(e\)</span>,一定存在经过<span class="math inline">\(x , e\)</span>的简单环.</p></li>
-<li><p>对于一个不是<span class="math inline">\(K_2\)</span>的点双,任给两点<span class="math inline">\(s , t\)</span>和一边<span class="math inline">\(e\)</span>,一定存在一条<span class="math inline">\(s - e - t\)</span>的简单路径.</p></li>
+<p>另一个问题是:如何快速判断一个点是否满足上述条件呢?首先我们求出以一个好的点为根的dfs树(随机选取一定数量的点,如果一个都不是好点直接输出$- 1$),然后我们发现:一个点$u$是好的必要条件是它的子树内只有一条反走边,证明显然.假设$u$通过这条反走边走到了点$v$,那么$u$是好的点当且仅当$v$也是好的点.</p>
+<p>这是为啥呢?首先,因为我们是以一个好点为根跑的dfs树,所以$u$走到子树内的点必定只有一种方式.那子树外的点呢?走到$v$后,显然就要从它走到其它点,而它到$u$的子树内显然只有一种方案,那如果$v$到其它点也只有一种方案,那么根据$u \rightarrow v$这条路径,$u$显然也是好点.</p>
+<h5><span id="example2loj-6276">Example2(Loj 6276)</span></h5><p>找到所有颜色相同的点对$( x , y )$,经过它们的路径都不合法,显然经过它们的路径可以用dfs序刻画成矩阵,最后要求矩阵面积并.</p>
+<h3><span id="圆方树的性质">圆方树的性质</span></h3><ol>
+<li><p>对于任意的非空无向图$G$,一定存在一个$G$的点双连通分量$B$,使得$B$中只有不超过$1$个节点是$G$的割点.其中,若$B$中没有$G$的割点,则有$B = G$.</p>
+</li>
+<li><p>若一个点双连通分量不为$K_2$,则该点双连通分量中至少有一个简单环.</p>
+</li>
+<li><p>在仙人掌上的每个点双连通分量要么是$K_2$,要么是一个简单环.</p>
+</li>
+<li><p>对于一个不是$K_2$的点双连通分量中的任意一个点$u$,一定存在一个简单环$C$使得$u$在$C$上.</p>
+</li>
+<li><p>对于一个不是$K_2$的点双连通分量中的任意两个点$u , v$,一定存在一个简单环$C$使得$u , v$在$C$上.</p>
+</li>
+<li><p>对于一个不是$K_2$的点双,任给一点$x$和一边$e$,一定存在经过$x , e$的简单环.</p>
+</li>
+<li><p>对于一个不是$K_2$的点双,任给两点$s , t$和一边$e$,一定存在一条$s - e - t$的简单路径.</p>
+</li>
 </ol>
-<p>(6)的证明非常变魔术,你考虑把<span class="math inline">\(e : u
-\leftrightarrow v\)</span>这条边给改成<span class="math inline">\(u
-\leftrightarrow w \leftrightarrow v\)</span>,然后<span class="math inline">\(w\)</span>和<span class="math inline">\(x\)</span>在一个简单环上,意味着<span class="math inline">\(u , w , v , x\)</span>在一个简单环上.</p>
-<p>(7)考虑(6)就行,先找到<span class="math inline">\(s\)</span>和<span class="math inline">\(e\)</span>所在的简单环,然后从这个环上连到<span class="math inline">\(t\)</span>.</p>
-<h3><span id="任意图的性质">任意图的性质</span></h3>
-<ol type="1">
-<li>若一张无向连通图<span class="math inline">\(G\)</span>中存在<span class="math inline">\(3\)</span>个不同的一度点<span class="math inline">\(x , y , z\)</span>,则一定存在一个点<span class="math inline">\(u \notin \{ x , y , z \}\)</span>使得存在<span class="math inline">\(3\)</span>条两两没有公共边的简单路径满足其中一个端点均为<span class="math inline">\(u\)</span> 且另一个端点分别为<span class="math inline">\(x , y ,
-z\)</span>.(证明考虑求生成树后讨论LCA)</li>
+<p>(6)的证明非常变魔术,你考虑把$e : u \leftrightarrow v$这条边给改成$u \leftrightarrow w \leftrightarrow v$,然后$w$和$x$在一个简单环上,意味着$u , w , v , x$在一个简单环上.</p>
+<p>(7)考虑(6)就行,先找到$s$和$e$所在的简单环,然后从这个环上连到$t$.</p>
+<h3><span id="任意图的性质">任意图的性质</span></h3><ol>
+<li>若一张无向连通图$G$中存在$3$个不同的一度点$x , y , z$,则一定存在一个点$u \notin \{ x , y , z \}$使得存在$3$条两两没有公共边的简单路径满足其中一个端点均为$u$ 且另一个端点分别为$x , y , z$.(证明考虑求生成树后讨论LCA)</li>
 </ol>
-<h3><span id="dsu-on-tree">dsu on tree</span></h3>
-<h5><span id="exampleqoj5020">Example(QOJ5020)</span></h5>
-<p>我们考虑树链剖分,这样将问题转化为三部分:</p>
-<ol type="1">
-<li><p>对于某个点而言,到它距离<span class="math inline">\(\leq
-d\)</span>的点数量.这个问题可以使用点分治解决.</p></li>
-<li><p>对于某条重链的上半部分而言,它连接的所有轻子树中,到它距离<span class="math inline">\(\leq d\)</span>的点数量.这个问题直接dsu on
-tree.</p></li>
-<li><p>对于某个点而言,在它子树内到它距离<span class="math inline">\(\leq
-d\)</span>的点数量.这个问题也可以直接dsu on tree.</p></li>
+<h3><span id="dsu-on-tree">dsu on tree</span></h3><h5><span id="exampleqoj5020">Example(QOJ5020)</span></h5><p>我们考虑树链剖分,这样将问题转化为三部分:</p>
+<ol>
+<li><p>对于某个点而言,到它距离$\leq d$的点数量.这个问题可以使用点分治解决.</p>
+</li>
+<li><p>对于某条重链的上半部分而言,它连接的所有轻子树中,到它距离$\leq d$的点数量.这个问题直接dsu on tree.</p>
+</li>
+<li><p>对于某个点而言,在它子树内到它距离$\leq d$的点数量.这个问题也可以直接dsu on tree.</p>
+</li>
 </ol>
-<p>为什么转化为三个部分就能求解呢?我们考虑一条链<span class="math inline">\(u \rightarrow w \rightarrow v\)</span>,其中<span class="math inline">\(w\)</span>是这条链上深度最浅的点.那么首先我们统计在<span class="math inline">\(w\)</span>子树外的,这一个部分可以由(1)和(3)做差求出来.然后我们要求的就是在<span class="math inline">\(w\)</span>子树内,到这条链的距离<span class="math inline">\(\leq
-d\)</span>的点的数量.这个怎么求呢?我们考虑差分,求一下<span class="math inline">\(1 \rightarrow u\)</span>和<span class="math inline">\(1 \rightarrow
-w\)</span>的答案然后做差.这样我们对这条到根的路径重链剖分,只需要处理重链的上半部分以及两条重链的连接处.不难发现两条重链的连接处会被多算一次,拿(3)减一下就好.以及这条路径所叉出去的重儿子也需要用(3).</p>
+<p>为什么转化为三个部分就能求解呢?我们考虑一条链$u \rightarrow w \rightarrow v$,其中$w$是这条链上深度最浅的点.那么首先我们统计在$w$子树外的,这一个部分可以由(1)和(3)做差求出来.然后我们要求的就是在$w$子树内,到这条链的距离$\leq d$的点的数量.这个怎么求呢?我们考虑差分,求一下$1 \rightarrow u$和$1 \rightarrow w$的答案然后做差.这样我们对这条到根的路径重链剖分,只需要处理重链的上半部分以及两条重链的连接处.不难发现两条重链的连接处会被多算一次,拿(3)减一下就好.以及这条路径所叉出去的重儿子也需要用(3).</p>
 <p>现在的问题在于怎么求(2)和(3),先考虑(2),我们对于每一条重链从顶端走到低端不断地加入轻儿子,然后维护BIT就行.(3)是类似的,只不过是需要从底端走到顶端.</p>
-<p>注意如果把重儿子和轻儿子分开处理,那么可能会在一些奇怪的地方算重,解决方法是特判<span class="math inline">\(w\)</span>处的答案,然后拆成两条互相之间完全没有影响的链,当然这也有可能会发生跳重链的时候轻儿子算重的情况,同样需要判断一下.</p>
-<h3><span id="最小生成树">最小生成树</span></h3>
-<h5><span id="example1cf1550f-jumpingaround">Example1(CF1550F Jumping
-Around)</span></h5>
-<p>首先考虑离线.注意到每次肯定跳到一个自己能跳到的点,而这个点应该是所需灵活度最小的点.</p>
+<p>注意如果把重儿子和轻儿子分开处理,那么可能会在一些奇怪的地方算重,解决方法是特判$w$处的答案,然后拆成两条互相之间完全没有影响的链,当然这也有可能会发生跳重链的时候轻儿子算重的情况,同样需要判断一下.</p>
+<h3><span id="最小生成树">最小生成树</span></h3><h5><span id="example1cf1550f-jumping-around">Example1(CF1550F Jumping Around)</span></h5><p>首先考虑离线.注意到每次肯定跳到一个自己能跳到的点,而这个点应该是所需灵活度最小的点.</p>
 <p>考虑boruvka算法,建立最小生成树并判断.</p>
-<h3><span id="kruskal重构树">Kruskal重构树</span></h3>
-<p>最小生成树时,每一次加边的时候把那个边变成虚点,两个点连到这条边上.任意两个点的LCA就是它们路径上的最小边权.</p>
-<h3><span id="最短路">最短路</span></h3>
-<h5><span id="example1cf1753d-the-beach">Example1(CF1753D The Beach)</span></h5>
-<p>首先,自然的想法是把格子图黑白染色.</p>
+<h3><span id="kruskal重构树">Kruskal重构树</span></h3><p>最小生成树时,每一次加边的时候把那个边变成虚点,两个点连到这条边上.任意两个点的LCA就是它们路径上的最小边权.</p>
+<h3><span id="最短路">最短路</span></h3><h5><span id="example1cf1753d-the-beach">Example1(CF1753D The Beach)</span></h5><p>首先,自然的想法是把格子图黑白染色.</p>
 <p>然后,我们注意到一个床是不可能被移动两次及以上的.因为如果是横着动两次,那不动自然就有一对空位置了;如果是转两次,考虑转的目的一定是为了空出某个位置或某两个位置(不可能为了空出三个位置,显然这么做很闲),一次操作足矣;如果是动一次转一次也是一样的,要么转的很闲要么原本就存在这么一对空位置.</p>
 <p>我们再进行一步转化,考虑把动床改为动格子.换句话说,每个格子可以通过一定的代价移动到和它相邻的床的与它不相邻的那个位置上.注意到移动格子的过程只会把黑格子移动到黑格子,白格子移动到白格子.</p>
 <p>于是建立超级源点跑两边最短路,枚举最后床放在哪里即可.不过这里有一点是一个床有没有可能被黑白最短路同时跑了一遍,是有可能的,但这么跑一定不优秀,不可能是最小答案.</p>
-<h5><span id="example2cf843ddynamicshortest-path">Example2([CF843D]Dynamic
-Shortest Path)</span></h5>
-<p>注意到<span class="math inline">\(O ( nq
-)\)</span>能过.而且每次修改只是对于若干条边<span class="math inline">\(+
-1\)</span>,自然想到每次修改完后跑01bfs.</p>
+<h5><span id="example2cf843ddynamic-shortest-path">Example2([CF843D]Dynamic Shortest Path)</span></h5><p>注意到$O ( nq )$能过.而且每次修改只是对于若干条边$+ 1$,自然想到每次修改完后跑01bfs.</p>
 <p>但是怎么跑呢?注意到维护每个点最短路的增量,并且在路径的增量上跑01bfs,自然可求.</p>
-<h5><span id="example3同余最短路luogup2371墨墨的等式">Example3
-同余最短路([luoguP2371]墨墨的等式)</span></h5>
-<p>因为<span class="math inline">\(a_i\)</span>无序,假设<span class="math inline">\(a_1\)</span>最小,那么所有的数字都可以按<span class="math inline">\(\mod a_1\)</span>的结果分成<span class="math inline">\(a_1\)</span>类.我们按照余数设置<span class="math inline">\(a_1\)</span>个点,编号为<span class="math inline">\(0\)</span>至<span class="math inline">\(a_1 -
-1\)</span>.</p>
-<p>设<span class="math inline">\(dis_i\)</span>为所有能组成的数中且<span class="math inline">\(\mod a_1\)</span>余数为<span class="math inline">\(i\)</span>的最小数.那么,所有能表示出来的<span class="math inline">\(\bmod a_1\)</span>余数为<span class="math inline">\(i\)</span>的数都可以写作<span class="math inline">\(dis_i + k \times a_1 , k \in \mathbb{ N
-}\)</span>的形式,求得<span class="math inline">\(dis_i\)</span>后可以很轻易算出.</p>
-<p>那么怎么求<span class="math inline">\(dis_i\)</span>呢?我们考虑:对于任意一个数<span class="math inline">\(k\)</span>,它可以怎么得到.注意到如果<span class="math inline">\(k - a_j\)</span>(其中<span class="math inline">\(i
-\ne j\)</span>)可行,那么<span class="math inline">\(k\)</span>一定可行.自然有:<span class="math inline">\(dis_i = \min \{ dis_j + a_k | 0 \leq j &lt; a_i ,
-k \ne i \}\)</span>.</p>
+<h5><span id="example3-同余最短路luogup2371墨墨的等式">Example3 同余最短路([luoguP2371]墨墨的等式)</span></h5><p>因为$a_i$无序,假设$a_1$最小,那么所有的数字都可以按$\mod a_1$的结果分成$a_1$类.我们按照余数设置$a_1$个点,编号为$0$至$a_1 - 1$.</p>
+<p>设$dis_i$为所有能组成的数中且$\mod a_1$余数为$i$的最小数.那么,所有能表示出来的$\bmod a_1$余数为$i$的数都可以写作$dis_i + k \times a_1 , k \in \mathbb{ N }$的形式,求得$dis_i$后可以很轻易算出.</p>
+<p>那么怎么求$dis_i$呢?我们考虑:对于任意一个数$k$,它可以怎么得到.注意到如果$k - a_j$(其中$i \ne j$)可行,那么$k$一定可行.自然有:$dis_i = \min \{ dis_j + a_k | 0 \leq j &lt; a_i , k \ne i \}$.</p>
 <p>这显然是一个最短路问题.</p>
-<h3><span id="差分约束">差分约束</span></h3>
-<h5><span id="example1agc056c-01balanced">Example1([AGC056C] 01
-Balanced)</span></h5>
-<p>将<span class="math inline">\(1\)</span>看成<span class="math inline">\(- 1\)</span>,<span class="math inline">\(0\)</span>看成<span class="math inline">\(+
-1\)</span>,不难发现字典序最小也就是让前缀和序列字典序最小,并且有<span class="math inline">\(sum_{ r_i } = sum_{ l_i - 1 }\)</span>以及<span class="math inline">\(- 1 \leq sum_{ i } - sum_{ i - 1 } \leq
-1\)</span>,然后做<span class="math inline">\(01\)</span>bfs跑最短路,显然最短路可以保证每个<span class="math inline">\(sum\)</span>都尽可能小.</p>
-<p>然后另一个问题在于这玩意为啥不会让<span class="math inline">\(sum_i =
-sum_{ i - 1 }\)</span>,这个建图后观察一下就知道不会发生这种情况.</p>
-<h3><span id="2-sat">2-SAT</span></h3>
-<h5><span id="example1cf1697f">Example1(CF1697F)</span></h5>
-<p>对每个点建立<span class="math inline">\(k\)</span>对点表示<span class="math inline">\(a_i \geq x\)</span>和<span class="math inline">\(a_i &lt; x\)</span>,就能做了.</p>
-<h5><span id="example22021集训队互测-序列">Example2(2021集训队互测 序列)</span></h5>
-<p>注意到如果<span class="math inline">\(a_i &lt; x\)</span>,那么<span class="math inline">\(a_j \geq x \land a_k \geq
-x\)</span>,这样就可以刻画所有的条件.</p>
+<h3><span id="差分约束">差分约束</span></h3><h5><span id="example1agc056c-01-balanced">Example1([AGC056C] 01 Balanced)</span></h5><p>将$1$看成$- 1$,$0$看成$+ 1$,不难发现字典序最小也就是让前缀和序列字典序最小,并且有$sum_{ r_i } = sum_{ l_i - 1 }$以及$- 1 \leq sum_{ i } - sum_{ i - 1 } \leq 1$,然后做$01$bfs跑最短路,显然最短路可以保证每个$sum$都尽可能小.</p>
+<p>然后另一个问题在于这玩意为啥不会让$sum_i = sum_{ i - 1 }$,这个建图后观察一下就知道不会发生这种情况.</p>
+<h3><span id="2-sat">2-SAT</span></h3><h5><span id="example1cf1697f">Example1(CF1697F)</span></h5><p>对每个点建立$k$对点表示$a_i \geq x$和$a_i &lt; x$,就能做了.</p>
+<h5><span id="example22021集训队互测-序列">Example2(2021集训队互测 序列)</span></h5><p>注意到如果$a_i &lt; x$,那么$a_j \geq x \land a_k \geq x$,这样就可以刻画所有的条件.</p>
 <p>而且一定可以刻画所有的条件.</p>
-<h3><span id="对偶图">对偶图</span></h3>
-<h5><span id="example1csp-s-2021交通规划">Example1([CSP-S 2021]
-交通规划)</span></h5>
-<p>先考虑如果附加点的颜色全都相同,那肯定输出<span class="math inline">\(0\)</span>即可.</p>
-<p>考虑附加点的数量为<span class="math inline">\(2\)</span>的时候,那显然最优情况需要将整个图分成各自联通的两部分,一部分染成黑色,一部分染成白色.可以发现这就是一个对偶图.</p>
+<h3><span id="对偶图">对偶图</span></h3><h5><span id="example1csp-s-2021-交通规划">Example1([CSP-S 2021] 交通规划)</span></h5><p>先考虑如果附加点的颜色全都相同,那肯定输出$0$即可.</p>
+<p>考虑附加点的数量为$2$的时候,那显然最优情况需要将整个图分成各自联通的两部分,一部分染成黑色,一部分染成白色.可以发现这就是一个对偶图.</p>
 <p>而如果附加点的数量很多怎么做呢?稍微思考一下</p>
-<h3><span id="广义串并联图三度化">广义串并联图/三度化</span></h3>
-<h4><span id="定义">定义</span></h4>
-<p>定义:不存在<span class="math inline">\(4\)</span>个点使得任意两点之间存在一条简单路径,且这六条路径不在<span class="math inline">\(4\)</span>个点之外的地方相交.</p>
-<h4><span id="删一度点">删一度点</span></h4>
-<p>经典问题引入:树上带权最大独立集.</p>
+<h3><span id="广义串并联图三度化">广义串并联图/三度化</span></h3><h4><span id="定义">定义</span></h4><p>定义:不存在$4$个点使得任意两点之间存在一条简单路径,且这六条路径不在$4$个点之外的地方相交.</p>
+<h4><span id="删一度点">删一度点</span></h4><p>经典问题引入:树上带权最大独立集.</p>
 <p>首先dp是可以实现的,我们考虑是否存在贪心算法.</p>
 <p>首先,如果不带权,我们显然可以每次选取一度点或零度点,并删去所有相连的点.这样做显然是最优的.</p>
 <p>但怎么做带权的方法呢?我们注意到可以先删掉所有负点权的点,然后可以加入剩下的所有零度点.</p>
-<p>那么对于一度点呢?对于一个一度点<span class="math inline">\(u\)</span>和它的相邻点<span class="math inline">\(v\)</span>,我们不能盲目选<span class="math inline">\(u\)</span>的原因是可能选取<span class="math inline">\(v\)</span>会更优秀.考虑做一个带悔贪心,我们先把<span class="math inline">\(u\)</span>选上,然后把<span class="math inline">\(v\)</span>的权值设为<span class="math inline">\(val_v - val_u\)</span>,相当于我们仍然可以选<span class="math inline">\(v\)</span>,但是要花费<span class="math inline">\(val_u\)</span>的代价把<span class="math inline">\(u\)</span>删去.</p>
+<p>那么对于一度点呢?对于一个一度点$u$和它的相邻点$v$,我们不能盲目选$u$的原因是可能选取$v$会更优秀.考虑做一个带悔贪心,我们先把$u$选上,然后把$v$的权值设为$val_v - val_u$,相当于我们仍然可以选$v$,但是要花费$val_u$的代价把$u$删去.</p>
 <p>我们把类似这样的操作称为<strong>删一度点</strong>.</p>
-<h4><span id="缩二度点">缩二度点</span></h4>
-<p>问题引入:给定一个仙人掌,每个点可以染色为<span class="math inline">\(0\)</span>或<span class="math inline">\(1\)</span>,<span class="math inline">\(u\)</span>节点染成<span class="math inline">\(0\)</span>会有<span class="math inline">\(b_u\)</span>的贡献,不然有<span class="math inline">\(w_u\)</span>的贡献.若一条边<span class="math inline">\(e\)</span>相邻的两点颜色相同则有<span class="math inline">\(s_e\)</span>的贡献,不然有<span class="math inline">\(d_e\)</span>的贡献,求最大答案.</p>
+<h4><span id="缩二度点">缩二度点</span></h4><p>问题引入:给定一个仙人掌,每个点可以染色为$0$或$1$,$u$节点染成$0$会有$b_u$的贡献,不然有$w_u$的贡献.若一条边$e$相邻的两点颜色相同则有$s_e$的贡献,不然有$d_e$的贡献,求最大答案.</p>
 <p>首先如果有一度点和零度点,我们仍然可以使用删一度点的操作.</p>
-<p>如果没有,考虑仙人掌上的一个点双一定是一个简单环.而且一定存在一个点双<span class="math inline">\(B\)</span>满足<span class="math inline">\(B\)</span>只包含一个割点.</p>
-<p>那么对于这个点双上的一个非割点<span class="math inline">\(x\)</span>以及和它相邻的两个点<span class="math inline">\(u\)</span>和<span class="math inline">\(v\)</span>,我们考虑<span class="math inline">\(x\)</span>的染色有可能改变<span class="math inline">\(u\)</span>和<span class="math inline">\(v\)</span>的答案,那么怎么办呢?</p>
-<p>冷静思考一下,我们想办法把<span class="math inline">\(x\)</span>给删掉.简单来说,我们把<span class="math inline">\(u\)</span>和<span class="math inline">\(v\)</span>之间连一条边权为<span class="math inline">\([ w_{ 0 , 0 } , w_{ 0 , 1 } , w_{ 1 , 0 } , w_{ 1
-, 1 } ]\)</span>的边,分别表示<span class="math inline">\(u\)</span>和<span class="math inline">\(v\)</span>的染色为以上四种情况时这条边(也就是原本的<span class="math inline">\(x\)</span>)的最大贡献是什么,这显然可以通过讨论<span class="math inline">\(x\)</span>的取值而求得.这样初始边权实际上就是<span class="math inline">\([ s , d , d , s
-]\)</span>,于是我们就可以删掉一个二度点并连起来与它相邻的两个点,我们把类似这样的操作称为<strong>缩二度点</strong>.</p>
-<h4><span id="叠合重边">叠合重边</span></h4>
-<p>注意到使用缩二度点的时候,会把一个三元环缩成两个点及链接它们的两条重边,但是我们可以直接把重边合起来,我们把类似这样的操作称为<strong>叠合重边</strong>.</p>
-<h4><span id="正确性证明">正确性证明</span></h4>
-<p>接下来我们证明:任何广义串并联图都可以通过以上三种操作缩为一个点.</p>
-<h5><span id="引理1">引理1</span></h5>
-<p>对于一个无向图<span class="math inline">\(G\)</span>,若进行若干次删一度点操作,缩<span class="math inline">\(2\)</span>度点操作以及叠合重边操作后得到的图不是广义串并联图,那么<span class="math inline">\(G\)</span>也不是广义串并联图.</p>
-<p>考虑用逆操作还原原图.删一度点的逆操作是加入一个点,叠合重边的逆操作是将一条边变成两条边,这两个操作显然不会使一个不是广义串并联图的图变成广义串并联图.接下来考虑缩二度点的逆操作:删掉一条边<span class="math inline">\(( u , v )\)</span>并加入一个点<span class="math inline">\(w\)</span>和两条边<span class="math inline">\(( u
-, w )\)</span>和<span class="math inline">\(( w , v )\)</span>.</p>
-<p>由于这个图不是广义串并联图,所以一定存在一组反例点<span class="math inline">\(\{ a , b , c , d
-\}\)</span>.如果我们删掉的边不在作为反例的六条边上,那显然不影响;如果在,由于新加入的两条边仍然可以作为路径,所以也不影响.</p>
+<p>如果没有,考虑仙人掌上的一个点双一定是一个简单环.而且一定存在一个点双$B$满足$B$只包含一个割点.</p>
+<p>那么对于这个点双上的一个非割点$x$以及和它相邻的两个点$u$和$v$,我们考虑$x$的染色有可能改变$u$和$v$的答案,那么怎么办呢?</p>
+<p>冷静思考一下,我们想办法把$x$给删掉.简单来说,我们把$u$和$v$之间连一条边权为$[ w_{ 0 , 0 } , w_{ 0 , 1 } , w_{ 1 , 0 } , w_{ 1 , 1 } ]$的边,分别表示$u$和$v$的染色为以上四种情况时这条边(也就是原本的$x$)的最大贡献是什么,这显然可以通过讨论$x$的取值而求得.这样初始边权实际上就是$[ s , d , d , s ]$,于是我们就可以删掉一个二度点并连起来与它相邻的两个点,我们把类似这样的操作称为<strong>缩二度点</strong>.</p>
+<h4><span id="叠合重边">叠合重边</span></h4><p>注意到使用缩二度点的时候,会把一个三元环缩成两个点及链接它们的两条重边,但是我们可以直接把重边合起来,我们把类似这样的操作称为<strong>叠合重边</strong>.</p>
+<h4><span id="正确性证明">正确性证明</span></h4><p>接下来我们证明:任何广义串并联图都可以通过以上三种操作缩为一个点.</p>
+<h5><span id="引理1">引理1</span></h5><p>对于一个无向图$G$,若进行若干次删一度点操作,缩$2$度点操作以及叠合重边操作后得到的图不是广义串并联图,那么$G$也不是广义串并联图.</p>
+<p>考虑用逆操作还原原图.删一度点的逆操作是加入一个点,叠合重边的逆操作是将一条边变成两条边,这两个操作显然不会使一个不是广义串并联图的图变成广义串并联图.接下来考虑缩二度点的逆操作:删掉一条边$( u , v )$并加入一个点$w$和两条边$( u , w )$和$( w , v )$.</p>
+<p>由于这个图不是广义串并联图,所以一定存在一组反例点$\{ a , b , c , d \}$.如果我们删掉的边不在作为反例的六条边上,那显然不影响;如果在,由于新加入的两条边仍然可以作为路径,所以也不影响.</p>
 <p>于是引理得证.</p>
-<h5><span id="引理2">引理2</span></h5>
-<p>任意一张所有点的度数都大于等于<span class="math inline">\(3\)</span>的简单无向连通图,一定不是广义串并联图.</p>
+<h5><span id="引理2">引理2</span></h5><p>任意一张所有点的度数都大于等于$3$的简单无向连通图,一定不是广义串并联图.</p>
 <p>这个引理的严格证明有些麻烦.我们冷静一下,一个四个点的完全图满足以上条件且不是广义串并联图.而其他的图感性理解一下应该可以通过缩路径的方式变成一个四个点的完全图.</p>
 <p>结合引理1,我们得知任意一个操作后不能变成单个节点的图的无向连通图不是广义串并联图.</p>
-<h5><span id="引理3">引理3</span></h5>
-<p>任意一个满足<span class="math inline">\(m \leq n +
-k\)</span>的图,通过删一度点,缩二度点,叠合重边操作后,<span class="math inline">\(m\)</span>和<span class="math inline">\(n\)</span>都会到达一个<span class="math inline">\(O ( k )\)</span>的量级.</p>
-<p>考虑缩完点后,所有点的度数<span class="math inline">\(\geq
-3\)</span>,于是有<span class="math inline">\(2 m \geq 3
-n\)</span>,而在操作过程中,<span class="math inline">\(m -
-n\)</span>的值显然是不增的,于是有<span class="math inline">\(m - n \leq
-k\)</span>,解一下方程得到<span class="math inline">\(n \leq 2 k , m \leq
-3 k\)</span>.</p>
-<h4><span id="example122zr提高十连测day6摆件">Example1(22zr提高十连测day6摆件)</span></h4>
-<p>首先考虑颜色之间没啥区别,所以对于一棵树来说,朴素的dp是可以的.</p>
-<p>简单来说,设<span class="math inline">\(dp_i\)</span>表示第<span class="math inline">\(i\)</span>棵子树的答案.合并的时候考虑设<span class="math inline">\(f_v = \cfrac{ 1 }{ k } dp_v sam_e + \cfrac{ k - 1
-}{ k } dp_v dif_e\)</span>,自然有<span class="math inline">\(dp_u =
-\prod_{ u \rightarrow v } f_v \\\)</span>.</p>
+<h5><span id="引理3">引理3</span></h5><p>任意一个满足$m \leq n + k$的图,通过删一度点,缩二度点,叠合重边操作后,$m$和$n$都会到达一个$O ( k )$的量级.</p>
+<p>考虑缩完点后,所有点的度数$\geq 3$,于是有$2 m \geq 3 n$,而在操作过程中,$m - n$的值显然是不增的,于是有$m - n \leq k$,解一下方程得到$n \leq 2 k , m \leq 3 k$.</p>
+<h4><span id="example122zr提高十连测day6摆件">Example1(22zr提高十连测day6摆件)</span></h4><p>首先考虑颜色之间没啥区别,所以对于一棵树来说,朴素的dp是可以的.</p>
+<p>简单来说,设$dp_i$表示第$i$棵子树的答案.合并的时候考虑设$f_v = \cfrac{ 1 }{ k } dp_v sam_e + \cfrac{ k - 1 }{ k } dp_v dif_e$,自然有$dp_u = \prod_{ u \rightarrow v } f_v \\$.</p>
 <p>接下来考虑先随便找一棵生成树,然后暴力枚举多余的反走边的深度较低的叶子节点的颜色,再进行dp即可.</p>
 <p>另外也可以缩点后做,不过对于这题没啥区别.</p>
-<h4><span id="example2joi-open-2022放学路">Example2([JOI Open 2022]
-放学路)</span></h4>
-<p>广义串并联图的一个很重要的思想是:我们通过一些手段改变这个图的形态为一个好做的形态,但是答案又和原图相同.</p>
+<h4><span id="example2joi-open-2022-放学路">Example2([JOI Open 2022] 放学路)</span></h4><p>广义串并联图的一个很重要的思想是:我们通过一些手段改变这个图的形态为一个好做的形态,但是答案又和原图相同.</p>
 <p>在这个思想的指导下,我们考虑这个题能否进行三度化.不过注意起点和终点简单特判一下,别把他们给删了.这样我们最后如果得到了一个只有起点和终点的图,那就一定是no.</p>
-<p>然后如果没有只得到起点和终点呢?对最短路图建DAG,考虑如果<span class="math inline">\(S\)</span>和<span class="math inline">\(T\)</span>在一个点双中,我们找到两个点<span class="math inline">\(u , v\)</span>,使得<span class="math inline">\(u
-\rightarrow v\)</span>,并且<span class="math inline">\(u\)</span>的出度至少是<span class="math inline">\(2\)</span>,<span class="math inline">\(v\)</span>的入度至少是<span class="math inline">\(2\)</span>,显然只要找到就做完了.现在的问题就在于为啥这条边一定存在.这个考虑找一个入度至少为<span class="math inline">\(2\)</span>的点<span class="math inline">\(v\)</span>,找到它的入点<span class="math inline">\(u\)</span>,如果<span class="math inline">\(u\)</span>的出度不是<span class="math inline">\(2\)</span>,那么<span class="math inline">\(u\)</span>也是一个入度至少为<span class="math inline">\(2\)</span>的点.这样往前推一定至少能推到一个点(因为不可能<span class="math inline">\(S\)</span>贡献了俩入度).</p>
-<p>如何保证<span class="math inline">\(S ,
-T\)</span>在一个点双中呢?其实只需要添加一条边<span class="math inline">\(( S , T , dis_{ S \rightarrow T }
-)\)</span>就行了.显然加了后不会对答案产生影响.然后不在<span class="math inline">\(S , T\)</span>这个边双内的点也没有用了.</p>
-<h3><span id="点分治">点分治</span></h3>
-<h5><span id="example1cfgym101002k">Example1(CFgym101002K)</span></h5>
-<p>点分治,假设当前分治重心是<span class="math inline">\(g\)</span>,将每个数缩成一个二元组<span class="math inline">\(( w_i , d_i )\)</span>,所求就是<span class="math inline">\(w_i w_j + d_i +
-d_j\)</span>最小,直接排序做斜率优化.</p>
-<h4><span id="点分树的性质">点分树的性质</span></h4>
-<ol type="1">
-<li><p>点分树的高度是<span class="math inline">\(O ( \log n
-)\)</span>级别.</p></li>
-<li><p>两个点在原树上的路径一定经过其在点分树上的LCA.</p></li>
+<p>然后如果没有只得到起点和终点呢?对最短路图建DAG,考虑如果$S$和$T$在一个点双中,我们找到两个点$u , v$,使得$u \rightarrow v$,并且$u$的出度至少是$2$,$v$的入度至少是$2$,显然只要找到就做完了.现在的问题就在于为啥这条边一定存在.这个考虑找一个入度至少为$2$的点$v$,找到它的入点$u$,如果$u$的出度不是$2$,那么$u$也是一个入度至少为$2$的点.这样往前推一定至少能推到一个点(因为不可能$S$贡献了俩入度).</p>
+<p>如何保证$S , T$在一个点双中呢?其实只需要添加一条边$( S , T , dis_{ S \rightarrow T } )$就行了.显然加了后不会对答案产生影响.然后不在$S , T$这个边双内的点也没有用了.</p>
+<h3><span id="点分治">点分治</span></h3><h5><span id="example1cfgym101002k">Example1(CFgym101002K)</span></h5><p>点分治,假设当前分治重心是$g$,将每个数缩成一个二元组$( w_i , d_i )$,所求就是$w_i w_j + d_i + d_j$最小,直接排序做斜率优化.</p>
+<h4><span id="点分树的性质">点分树的性质</span></h4><ol>
+<li><p>点分树的高度是$O ( \log n )$级别.</p>
+</li>
+<li><p>两个点在原树上的路径一定经过其在点分树上的LCA.</p>
+</li>
 </ol>
-<h5><span id="example1codechef-btree">Example1(codechef [BTREE])</span></h5>
-<p>这题用到了一个经典套路:一个树形连通图的点数减去边数为<span class="math inline">\(1\)</span>,把虚树建出来,能到达一个点的守卫必然是一个树形连通图(虚树中原本没有守卫的点可以加个不同覆盖范围的守卫).于是我们只需要求出每个守卫能覆盖多少点以及两个守卫之间的那条路径能覆盖多少个点,前者用点分树轻松维护,后者的话找一下这条边上的某个满足条件的点就行.</p>
-<h5><span id="example2">Example2</span></h5>
-<p>给定一棵树,现在在上面选定<span class="math inline">\(m\)</span>对不同的点,要求每对点的距离之和最大.</p>
-<p>考虑如果确定了<span class="math inline">\(2
-m\)</span>个点,我们如何匹配他们.对每条边算贡献,假设这条边两侧分别有<span class="math inline">\(a , b\)</span>个点,那么这条边最大的贡献就是<span class="math inline">\(\min \{ a , b
-\}\)</span>.不难发现这个上界可以取到,只需要取这<span class="math inline">\(2
-m\)</span>个点的带权重心,由于不存在绝对众数,所以直接两两匹配.枚举带权重心是啥,这样复杂度<span class="math inline">\(O ( n^2 )\)</span>.</p>
-<p>那么怎么优化呢?我们注意到如果以一个点<span class="math inline">\(x\)</span>作为根,而它有一个儿子<span class="math inline">\(y\)</span>,<span class="math inline">\(y\)</span>的子树中选了少于<span class="math inline">\(m\)</span>个点,那么我们以<span class="math inline">\(y\)</span>为根一定是不优秀的,不然一开始就不可能只选少于<span class="math inline">\(m\)</span>个点,再考虑带权重心这个东西,上点分树.</p>
-<p>具体来说,我们建立点分树,然后从点分树的根开始枚举带权重心,如果当前没有一棵子树选了<span class="math inline">\(m\)</span>个点,就停止,不然往选了<span class="math inline">\(m\)</span>个点的那棵子树走(如果有两个的话选第<span class="math inline">\(m\)</span>大更大的那个),这样就只会选取<span class="math inline">\(O ( \log n )\)</span>个带权重心.</p>
-<h3><span id="边分治">边分治</span></h3>
-<p>需要建立虚点转二叉树.</p>
-<h4><span id="边分树的性质">边分树的性质</span></h4>
-<ol type="1">
-<li><p>非叶子节点代表边,叶子节点代表点.</p></li>
-<li><p>边分树的高度是<span class="math inline">\(O ( \log n
-)\)</span>级别.</p></li>
-<li><p>边分树上每棵子树中的叶子节点一定联通.</p></li>
-<li><p>是一棵完全二叉树.</p></li>
-<li><p>两个点在原树上的路径一定经过其在边分树上的LCA所代表的边.</p></li>
+<h5><span id="example1codechef-btree">Example1(codechef [BTREE])</span></h5><p>这题用到了一个经典套路:一个树形连通图的点数减去边数为$1$,把虚树建出来,能到达一个点的守卫必然是一个树形连通图(虚树中原本没有守卫的点可以加个不同覆盖范围的守卫).于是我们只需要求出每个守卫能覆盖多少点以及两个守卫之间的那条路径能覆盖多少个点,前者用点分树轻松维护,后者的话找一下这条边上的某个满足条件的点就行.</p>
+<h5><span id="example2">Example2</span></h5><p>给定一棵树,现在在上面选定$m$对不同的点,要求每对点的距离之和最大.</p>
+<p>考虑如果确定了$2 m$个点,我们如何匹配他们.对每条边算贡献,假设这条边两侧分别有$a , b$个点,那么这条边最大的贡献就是$\min \{ a , b \}$.不难发现这个上界可以取到,只需要取这$2 m$个点的带权重心,由于不存在绝对众数,所以直接两两匹配.枚举带权重心是啥,这样复杂度$O ( n^2 )$.</p>
+<p>那么怎么优化呢?我们注意到如果以一个点$x$作为根,而它有一个儿子$y$,$y$的子树中选了少于$m$个点,那么我们以$y$为根一定是不优秀的,不然一开始就不可能只选少于$m$个点,再考虑带权重心这个东西,上点分树.</p>
+<p>具体来说,我们建立点分树,然后从点分树的根开始枚举带权重心,如果当前没有一棵子树选了$m$个点,就停止,不然往选了$m$个点的那棵子树走(如果有两个的话选第$m$大更大的那个),这样就只会选取$O ( \log n )$个带权重心.</p>
+<h3><span id="边分治">边分治</span></h3><p>需要建立虚点转二叉树.</p>
+<h4><span id="边分树的性质">边分树的性质</span></h4><ol>
+<li><p>非叶子节点代表边,叶子节点代表点.</p>
+</li>
+<li><p>边分树的高度是$O ( \log n )$级别.</p>
+</li>
+<li><p>边分树上每棵子树中的叶子节点一定联通.</p>
+</li>
+<li><p>是一棵完全二叉树.</p>
+</li>
+<li><p>两个点在原树上的路径一定经过其在边分树上的LCA所代表的边.</p>
+</li>
 </ol>
-<h3><span id="二分图">二分图</span></h3>
-<h4><span id="定理">定理</span></h4>
-<h5><span id="最大流-最小割定理">最大流-最小割定理</span></h5>
-<h5><span id="hall定理">Hall定理</span></h5>
-<p>对于二分图<span class="math inline">\(\langle V_1 , V_2 , E \rangle ,
-| V_1 | \leq | V_2 |\)</span>,那么该图存在完备匹配的充要条件是<span class="math inline">\(\forall Q \subseteq V_1 , | Q | \leq | N ( Q )
-|\)</span>,其中<span class="math inline">\(N ( Q
-)\)</span>指的是所有与<span class="math inline">\(Q\)</span>中点有边相连的点的集合.</p>
-<p>必要性很显然,接下来说明充分性.设<span class="math inline">\(T\)</span>为最小点覆盖,也就是最大匹配的数量,再设<span class="math inline">\(M\)</span>为最大匹配,此时自然有:</p>
-<p><span class="math display">\[
-| M | = | T | = | T_1 | + | T_2 | \geq | T_1 | + | N ( V_1 / T_1 ) |
-\geq | T_1 | + | V_1 / T_1 | = | V_1 |
-\]</span></p>
-<p>显然<span class="math inline">\(| M | \leq | V_1 |\)</span>,于是<span class="math inline">\(| M | = | V_1 |\)</span>.</p>
-<p>另外,Hall定理有一个推论:正则二分图一定存在完美匹配.什么叫正则二分图,就是所有的点的度数(不为<span class="math inline">\(0\)</span>)都相等的图.</p>
-<p><span class="math inline">\(2^d\)</span>-正则二分图求完美匹配的话,可以不断求欧拉回路并给边定向,每次把一个方向的边全都删掉,这样就转化成了<span class="math inline">\(2^{ d - 1 }\)</span>-正则二分图,不断递归到<span class="math inline">\(d = 0\)</span>.</p>
-<h5><span id="vizing定理">Vizing定理</span></h5>
-<p>设<span class="math inline">\(f ( G )\)</span>表示将<span class="math inline">\(G\)</span>边染色,使得有公共点的边的颜色不同,最少需要的颜色数量.</p>
-<p>设<span class="math inline">\(\delta ( G )\)</span>表示<span class="math inline">\(G\)</span>中的点的最大度数.</p>
-<p>对于一般图,我们有:<span class="math inline">\(\delta ( G ) \leq f ( G
-) \leq \delta ( G ) + 1\)</span>,对于二分图有<span class="math inline">\(\delta ( G ) = f ( G )\)</span>.</p>
-<p>考虑这个的证明:我们每次将一对点<span class="math inline">\(( x , y
-)\)</span>染色,考虑设它们当前没染色的最小的颜色是<span class="math inline">\(l_x , l_y ( l_x \leq l_y
-)\)</span>,如果相等就直接选,不然类似增广路更新.</p>
-<h4><span id="二分图最大权匹配">二分图最大权匹配</span></h4>
-<p>假定二分图两边两两有边(不是的话可以补上<span class="math inline">\(-
-\infty\)</span>的边),这样就一定存在完美匹配.</p>
-<p>我们给每个点一个顶标权值<span class="math inline">\(v\)</span>,对于任意一条边<span class="math inline">\(e : a \leftrightarrow b\)</span>,它的权值是<span class="math inline">\(w_e\)</span>,我们要求<span class="math inline">\(v\)</span>满足<span class="math inline">\(v_a +
-v_b \geq w_e\)</span>.</p>
-<p>如果我们规定了一组顶标后,取出所有满足<span class="math inline">\(v_a
-+ v_b =
-w_e\)</span>的边后的图(称作相等子图)存在完美匹配,那这组完美匹配就一定是最大权匹配.</p>
-<p>这是为啥呢?考虑此时的最大权其实也就是<span class="math inline">\(\sum
-v\)</span>,而由于<span class="math inline">\(v_a + v_b \geq
-w_e\)</span>,因此最大权匹配一定不会超过<span class="math inline">\(\sum
-v\)</span>.这就是一个可达的上界.</p>
-<p>那么我们该怎么得到一个相等子图呢?考虑先构造一组合法的顶标,让左部端点取边的最大值,右部端点取<span class="math inline">\(0\)</span>,然后开始增广.</p>
-<p>从左侧任意一个非匹配点出发,在相等子图上走增广路并增广.如果增广失败,我们将访问过的左部端点全部减去<span class="math inline">\(d\)</span>,右部端点全部加上<span class="math inline">\(d\)</span>,注意到此时匹配边一定不会变化,因为匹配边要么两个端点都没被访问过,要么都被访问过.而左端点被访问过,右端点没被访问过的边有可能加入相等子图,我们考虑取所有这种边的需要的差值的最小值并进行更新.但是直接这么做的复杂度有点高.</p>
-<p>使用bfs优化,可以发现只会扩大<span class="math inline">\(O ( n^2
-)\)</span>次子图,每次复杂度<span class="math inline">\(O ( n
-)\)</span>,增广的复杂度类似,于是总复杂度<span class="math inline">\(O (
-n^3 )\)</span>.</p>
-<h4><span id="example">Example</span></h4>
-<h5><span id="example1xvii-open-cup-named-after-ev-pankratiev-grand-prix-ofjapanopenstrain-contest-1489-bpoint-pairs">Example1([
-XVII Open Cup named after E.V. Pankratiev. Grand Prix of
-Japan(openstrain contest 1489) B]Point Pairs)</span></h5>
-<p>看到这种要求横坐标或纵坐标相同的题,有一个自然的想法是建立二分图,对于点<span class="math inline">\(( x , y )\)</span>,将二分图左边的<span class="math inline">\(x\)</span>和右边的<span class="math inline">\(y\)</span>连一条边.那么配对等价于要每次找两条相邻的边删掉.那么如何删掉呢?</p>
-<p>首先发现的是,二分图不同的连通块可以分开处理,我们接下来只讨论一个连通块的情况.如果这个连通块有奇数条边,显然一定不行.而又可以发现,如果这个连通块有一个点度数仅为<span class="math inline">\(1\)</span>,那这条边如何删是确定的,我们可以把它和另一条边删掉,不难发现怎么删最后得到的新图仍然联通.而如果不存在度数为<span class="math inline">\(1\)</span>的点呢?由于这是一个二分图,不存在奇环,所以我们可以找一个简单环删掉,之后显然也是一个连通块.我们到这里就可以发现问题了.运用数学归纳不难证明:只要一个连通块的边数是偶数就一定合法.</p>
+<h3><span id="二分图">二分图</span></h3><h4><span id="定理">定理</span></h4><h5><span id="最大流-最小割定理">最大流-最小割定理</span></h5><h5><span id="hall定理">Hall定理</span></h5><p>对于二分图$\langle V_1 , V_2 , E \rangle , | V_1 | \leq | V_2 |$,那么该图存在完备匹配的充要条件是$\forall Q \subseteq V_1 , | Q | \leq | N ( Q ) |$,其中$N ( Q )$指的是所有与$Q$中点有边相连的点的集合.</p>
+<p>必要性很显然,接下来说明充分性.设$T$为最小点覆盖,也就是最大匹配的数量,再设$M$为最大匹配,此时自然有:</p>
+<script type="math/tex; mode=display">
+| M | = | T | = | T_1 | + | T_2 | \geq | T_1 | + | N ( V_1 / T_1 ) | \geq | T_1 | + | V_1 / T_1 | = | V_1 |</script><p>显然$| M | \leq | V_1 |$,于是$| M | = | V_1 |$.</p>
+<p>另外,Hall定理有一个推论:正则二分图一定存在完美匹配.什么叫正则二分图,就是所有的点的度数(不为$0$)都相等的图.</p>
+<p>$2^d$-正则二分图求完美匹配的话,可以不断求欧拉回路并给边定向,每次把一个方向的边全都删掉,这样就转化成了$2^{ d - 1 }$-正则二分图,不断递归到$d = 0$.</p>
+<h5><span id="vizing定理">Vizing定理</span></h5><p>设$f ( G )$表示将$G$边染色,使得有公共点的边的颜色不同,最少需要的颜色数量.</p>
+<p>设$\delta ( G )$表示$G$中的点的最大度数.</p>
+<p>对于一般图,我们有:$\delta ( G ) \leq f ( G ) \leq \delta ( G ) + 1$,对于二分图有$\delta ( G ) = f ( G )$.</p>
+<p>考虑这个的证明:我们每次将一对点$( x , y )$染色,考虑设它们当前没染色的最小的颜色是$l_x , l_y ( l_x \leq l_y )$,如果相等就直接选,不然类似增广路更新.</p>
+<h4><span id="二分图最大权匹配">二分图最大权匹配</span></h4><p>假定二分图两边两两有边(不是的话可以补上$- \infty$的边),这样就一定存在完美匹配.</p>
+<p>我们给每个点一个顶标权值$v$,对于任意一条边$e : a \leftrightarrow b$,它的权值是$w_e$,我们要求$v$满足$v_a + v_b \geq w_e$.</p>
+<p>如果我们规定了一组顶标后,取出所有满足$v_a + v_b = w_e$的边后的图(称作相等子图)存在完美匹配,那这组完美匹配就一定是最大权匹配.</p>
+<p>这是为啥呢?考虑此时的最大权其实也就是$\sum v$,而由于$v_a + v_b \geq w_e$,因此最大权匹配一定不会超过$\sum v$.这就是一个可达的上界.</p>
+<p>那么我们该怎么得到一个相等子图呢?考虑先构造一组合法的顶标,让左部端点取边的最大值,右部端点取$0$,然后开始增广.</p>
+<p>从左侧任意一个非匹配点出发,在相等子图上走增广路并增广.如果增广失败,我们将访问过的左部端点全部减去$d$,右部端点全部加上$d$,注意到此时匹配边一定不会变化,因为匹配边要么两个端点都没被访问过,要么都被访问过.而左端点被访问过,右端点没被访问过的边有可能加入相等子图,我们考虑取所有这种边的需要的差值的最小值并进行更新.但是直接这么做的复杂度有点高.</p>
+<p>使用bfs优化,可以发现只会扩大$O ( n^2 )$次子图,每次复杂度$O ( n )$,增广的复杂度类似,于是总复杂度$O ( n^3 )$.</p>
+<h4><span id="example">Example</span></h4><h5><span id="example1-xvii-open-cup-named-after-ev-pankratiev-grand-prix-of-japanopenstrain-contest-1489-bpoint-pairs">Example1([ XVII Open Cup named after E.V. Pankratiev. Grand Prix of Japan(openstrain contest 1489) B]Point Pairs)</span></h5><p>看到这种要求横坐标或纵坐标相同的题,有一个自然的想法是建立二分图,对于点$( x , y )$,将二分图左边的$x$和右边的$y$连一条边.那么配对等价于要每次找两条相邻的边删掉.那么如何删掉呢?</p>
+<p>首先发现的是,二分图不同的连通块可以分开处理,我们接下来只讨论一个连通块的情况.如果这个连通块有奇数条边,显然一定不行.而又可以发现,如果这个连通块有一个点度数仅为$1$,那这条边如何删是确定的,我们可以把它和另一条边删掉,不难发现怎么删最后得到的新图仍然联通.而如果不存在度数为$1$的点呢?由于这是一个二分图,不存在奇环,所以我们可以找一个简单环删掉,之后显然也是一个连通块.我们到这里就可以发现问题了.运用数学归纳不难证明:只要一个连通块的边数是偶数就一定合法.</p>
 <p>然后我们可以使用可撤销的分治解决这个问题.</p>
-<h3><span id="网络流常见模型">网络流常见模型</span></h3>
-<h4><span id="最大流">最大流</span></h4>
-<h4><span id="最小费用最大流">最小费用最大流</span></h4>
-<h4><span id="最小割">最小割</span></h4>
-<p>最大流<span class="math inline">\(=\)</span>最小割,证明显然.</p>
-<p>最小割求方案。这个是简单的，我们删去所有流量<span class="math inline">\(0\)</span>的边后从<span class="math inline">\(S\)</span>开始bfs，找到所有<span class="math inline">\(S\)</span>能到达的点，显然这些点（注意如果这个点一开始就不能到达<span class="math inline">\(T\)</span>，那它是废物，不用管它，下面只讨论它能到达<span class="math inline">\(T\)</span>的情况）组成一个SCC（为啥呢？首先<span class="math inline">\(S\)</span>能到达它们，其次由于是最小割，因此这个点一定到达不了<span class="math inline">\(T\)</span>，而原本是可以到达<span class="math inline">\(T\)</span>的，假设这个点是<span class="math inline">\(x\)</span>，那么一定是原本存在一条<span class="math inline">\(S \rightarrow x \rightarrow
-T\)</span>的路径被割掉了，也就是现在一定存在一条<span class="math inline">\(x \rightarrow
-S\)</span>的路径）。最小割包含的边一定是这个集合和其它集合交界处的边。这是为啥呢？首先这些边一定组成了原图的一个割，其次，我们发现割不可能存在<span class="math inline">\(S\)</span>所在SCC中，而割掉完全不连接<span class="math inline">\(S\)</span>的边可以发现不如割其中一个点在<span class="math inline">\(S\)</span>所在SCC的边。</p>
-<h5><span id="example1luogup4313-文理分科">Example1(luoguP4313 文理分科)</span></h5>
-<p>先把所有的满意值全部吃下,然后考虑放弃哪些.</p>
-<p>对于每个人<span class="math inline">\(u\)</span>,将<span class="math inline">\(S\)</span>向他连一条流量为<span class="math inline">\(art\)</span>的边,它向<span class="math inline">\(T\)</span>连一条为<span class="math inline">\(science\)</span>的边,表示它自己要么放弃文科,要么放弃理科.</p>
-<p>然后再对每个点建立一个虚点<span class="math inline">\(u
-&#39;\)</span>,<span class="math inline">\(S\)</span>向<span class="math inline">\(u &#39;\)</span>连一条为<span class="math inline">\(sameart\)</span>的边,<span class="math inline">\(u
-&#39;\)</span>向相邻的实点连<span class="math inline">\(\infty\)</span>的边,表示要么放弃<span class="math inline">\(sameart\)</span>,要么那些点全都放弃理科.<span class="math inline">\(samescience\)</span>是同理的.</p>
+<h3><span id="网络流常见模型">网络流常见模型</span></h3><h4><span id="最大流">最大流</span></h4><h4><span id="最小费用最大流">最小费用最大流</span></h4><h4><span id="最小割">最小割</span></h4><p>最大流$=$最小割,证明显然.</p>
+<p>最小割求方案。这个是简单的，我们删去所有流量$0$的边后从$S$开始bfs，找到所有$S$能到达的点，显然这些点（注意如果这个点一开始就不能到达$T$，那它是废物，不用管它，下面只讨论它能到达$T$的情况）组成一个SCC（为啥呢？首先$S$能到达它们，其次由于是最小割，因此这个点一定到达不了$T$，而原本是可以到达$T$的，假设这个点是$x$，那么一定是原本存在一条$S \rightarrow x \rightarrow T$的路径被割掉了，也就是现在一定存在一条$x \rightarrow S$的路径）。最小割包含的边一定是这个集合和其它集合交界处的边。这是为啥呢？首先这些边一定组成了原图的一个割，其次，我们发现割不可能存在$S$所在SCC中，而割掉完全不连接$S$的边可以发现不如割其中一个点在$S$所在SCC的边。</p>
+<h5><span id="example1luogup4313-文理分科">Example1(luoguP4313 文理分科)</span></h5><p>先把所有的满意值全部吃下,然后考虑放弃哪些.</p>
+<p>对于每个人$u$,将$S$向他连一条流量为$art$的边,它向$T$连一条为$science$的边,表示它自己要么放弃文科,要么放弃理科.</p>
+<p>然后再对每个点建立一个虚点$u ‘$,$S$向$u ‘$连一条为$sameart$的边,$u ‘$向相邻的实点连$\infty$的边,表示要么放弃$sameart$,要么那些点全都放弃理科.$samescience$是同理的.</p>
 <p>从这也可以看出来,大部分最小割的题目其实就是将冲突的选项放到一条路径中,然后考虑放弃哪些,将这个限制用最小割表示出来.</p>
-<h5><span id="example2hnoi2013切糕">Example2([HNOI2013]切糕)</span></h5>
-<p>也是显然的最小割,唯一难处理的地方在于相差<span class="math inline">\(\leq D\)</span>.</p>
-<p>这个怎么做呢?建图后先每一竖轴都变成了一条链,我们在链之间加一些<span class="math inline">\(\infty\)</span>的边,使得如果断开的两个点之差大于<span class="math inline">\(D\)</span>,那就可以通过这条边破坏最小割结构.</p>
+<h5><span id="example2hnoi2013切糕">Example2([HNOI2013]切糕)</span></h5><p>也是显然的最小割,唯一难处理的地方在于相差$\leq D$.</p>
+<p>这个怎么做呢?建图后先每一竖轴都变成了一条链,我们在链之间加一些$\infty$的边,使得如果断开的两个点之差大于$D$,那就可以通过这条边破坏最小割结构.</p>
 <p>这题同样告诉我们:对于最小割题目中的限制条件,几乎都是需要考虑破坏最小割结构的(也有可能是用费用流限制).</p>
-<h5><span id="example3uoj704">Example3(uoj704)</span></h5>
-<p>二分图最小割计数.</p>
+<h5><span id="example3uoj704">Example3(uoj704)</span></h5><p>二分图最小割计数.</p>
 <p>先求出最小割,然后显然每个匹配的三条边一定会选择一条割掉.</p>
-<p>不妨设<span class="math inline">\(a_i = 0 / 1 / 2\)</span>表示第<span class="math inline">\(i\)</span>对匹配割掉了哪一条边.</p>
-<p>考虑每个非匹配边<span class="math inline">\(( u , v
-)\)</span>对点权的限制:</p>
-<ol type="1">
-<li><p><span class="math inline">\(u\)</span>在最大匹配<span class="math inline">\(i\)</span>中,<span class="math inline">\(v\)</span>不在.则<span class="math inline">\(a_i =
-0\)</span>.</p></li>
-<li><p><span class="math inline">\(v\)</span>在最大匹配<span class="math inline">\(i\)</span>中,<span class="math inline">\(u\)</span>不在,则<span class="math inline">\(a_i =
-2\)</span>.</p></li>
-<li><p><span class="math inline">\(u\)</span>在最大匹配<span class="math inline">\(i\)</span>中,<span class="math inline">\(v\)</span>在最大匹配<span class="math inline">\(j\)</span>中,则<span class="math inline">\(a_i =
-0\)</span>或<span class="math inline">\(a_j = 2\)</span>.</p></li>
+<p>不妨设$a_i = 0 / 1 / 2$表示第$i$对匹配割掉了哪一条边.</p>
+<p>考虑每个非匹配边$( u , v )$对点权的限制:</p>
+<ol>
+<li><p>$u$在最大匹配$i$中,$v$不在.则$a_i = 0$.</p>
+</li>
+<li><p>$v$在最大匹配$i$中,$u$不在,则$a_i = 2$.</p>
+</li>
+<li><p>$u$在最大匹配$i$中,$v$在最大匹配$j$中,则$a_i = 0$或$a_j = 2$.</p>
+</li>
 </ol>
-<p>前两种是好处理的,考虑第三种:显然所有都选<span class="math inline">\(2\)</span>或所有都选<span class="math inline">\(0\)</span>是一种方案,更进一步地,我们将<span class="math inline">\(i \rightarrow
-j\)</span>,那么在一个强连通分量中的点一定都是<span class="math inline">\(2\)</span>或都是<span class="math inline">\(0\)</span>.这样可以缩点,缩点后发现DAG上的每一条路径的染色都形如<span class="math inline">\(0 , 0 , 0 , \cdots , 0 , ( 1 ) , 2 , \cdots , 2 ,
-2 , 2\)</span>.</p>
-<p>不妨折半搜索,按照拓扑排序,确定前一半哪些是<span class="math inline">\(0\)</span>,剩下是<span class="math inline">\(1 /
-2\)</span>,那他们的后继必然全都是<span class="math inline">\(2\)</span>,这样后面的是<span class="math inline">\(2\)</span>的集合一定是这个后继集合的超集,高维后缀和.</p>
-<p>接下来只需要判断哪些位置可以选<span class="math inline">\(1\)</span>.相当于前驱全都是<span class="math inline">\(0\)</span>并且后继全都是<span class="math inline">\(2\)</span>.</p>
-<h4><span id="二分图匹配">二分图匹配</span></h4>
-<h4><span id="二分图最小点覆盖">二分图最小点覆盖</span></h4>
-<p>二分图最小点覆盖<span class="math inline">\(=\)</span>二分图最小割.</p>
+<p>前两种是好处理的,考虑第三种:显然所有都选$2$或所有都选$0$是一种方案,更进一步地,我们将$i \rightarrow j$,那么在一个强连通分量中的点一定都是$2$或都是$0$.这样可以缩点,缩点后发现DAG上的每一条路径的染色都形如$0 , 0 , 0 , \cdots , 0 , ( 1 ) , 2 , \cdots , 2 , 2 , 2$.</p>
+<p>不妨折半搜索,按照拓扑排序,确定前一半哪些是$0$,剩下是$1 / 2$,那他们的后继必然全都是$2$,这样后面的是$2$的集合一定是这个后继集合的超集,高维后缀和.</p>
+<p>接下来只需要判断哪些位置可以选$1$.相当于前驱全都是$0$并且后继全都是$2$.</p>
+<h4><span id="二分图匹配">二分图匹配</span></h4><h4><span id="二分图最小点覆盖">二分图最小点覆盖</span></h4><p>二分图最小点覆盖$=$二分图最小割.</p>
 <p>问题在于如何求解方案.</p>
 <p>我们从左侧的非匹配点开始dfs,走还有残留流量的路径.并将路径上所有的点全都打上标记.那么左侧所有的未标记点和右侧所有的标记点就是一组合法的方案.</p>
 <p>这是为啥呢?首先我们注意到,左侧的非匹配点一定会被标记,右侧的非匹配点一定不会被标记.</p>
@@ -728,443 +563,226 @@ j\)</span>,那么在一个强连通分量中的点一定都是<span class="math 
 <p>对于匹配边,不难发现它会被某个匹配点覆盖掉.</p>
 <p>于是得证.</p>
 <p>当然,上面的证明略显啰嗦.事实上我们这么考虑:</p>
-<p>首先,我们按照套路,求出<span class="math inline">\(S\)</span>所有能到达的点.根据二分图的性质,这个点的集合必然不包括<span class="math inline">\(T\)</span>.</p>
+<p>首先,我们按照套路,求出$S$所有能到达的点.根据二分图的性质,这个点的集合必然不包括$T$.</p>
 <p>然后我们取所有不在这个点集的左侧点和所有在这个点集的右侧点,这样所有的点被分为了四个部分,边也自然被分为了四个部分,讨论一下就知道这四个部分中有一个部分是不存在边的.于是得证.</p>
-<h4><span id="二分图最大独立集">二分图最大独立集</span></h4>
-<p>二分图最大独立集<span class="math inline">\(= n
--\)</span>二分图最小点覆盖.</p>
-<h5><span id="example1cf1404e">Example1(CF1404E)</span></h5>
-<p>在两个可选矩形的边界处建立一个点,如果它被选了,那么说明这个矩形和上面那个矩形被一起覆盖了.然后注意到每有一个点被选,自然就多覆盖了一个矩形,显然一个矩形不可能又跟纵向的一起被覆盖又跟横向的一起被覆盖,在他俩之间连边跑最大独立集即可.</p>
+<h4><span id="二分图最大独立集">二分图最大独立集</span></h4><p>二分图最大独立集$= n -$二分图最小点覆盖.</p>
+<h5><span id="example1cf1404e">Example1(CF1404E)</span></h5><p>在两个可选矩形的边界处建立一个点,如果它被选了,那么说明这个矩形和上面那个矩形被一起覆盖了.然后注意到每有一个点被选,自然就多覆盖了一个矩形,显然一个矩形不可能又跟纵向的一起被覆盖又跟横向的一起被覆盖,在他俩之间连边跑最大独立集即可.</p>
 <p>感觉还是类似于最小路径覆盖,将这种两个一起被覆盖就减少答案的东西转换成一整条流.</p>
-<h4><span id="最大权闭合子图">最大权闭合子图</span></h4>
-<p>原图的边流量设为<span class="math inline">\(+
-\infty\)</span>,然后对于每个点<span class="math inline">\(x\)</span>,如果<span class="math inline">\(val_x
-&gt; 0\)</span>,那么<span class="math inline">\(ans + =
-val_x\)</span>,然后将<span class="math inline">\(S \rightarrow
-x\)</span>,流量为<span class="math inline">\(val_x\)</span>;不然,<span class="math inline">\(x \rightarrow T\)</span>,流量为<span class="math inline">\(- val_x\)</span>,然后求出最小割<span class="math inline">\(w\)</span>,答案即为<span class="math inline">\(ans
-- w\)</span>.</p>
-<h5><span id="example1luogup4177">Example1(luoguP4177)</span></h5>
-<p>只需要把中间的<span class="math inline">\(\infty\)</span>边改为租用的代价即可.</p>
-<h4><span id="最小路径覆盖覆盖点">最小路径覆盖(覆盖点)</span></h4>
-<p>将每个点<span class="math inline">\(x\)</span>拆为两个点<span class="math inline">\(A_x\)</span>,<span class="math inline">\(B_x\)</span>,将<span class="math inline">\(S\)</span>向所有<span class="math inline">\(A\)</span>连边,<span class="math inline">\(B\)</span>向<span class="math inline">\(T\)</span>连边,如果图中存在一条路径<span class="math inline">\(x \rightarrow y\)</span>,则连边<span class="math inline">\(A_x \rightarrow B_y\)</span>,流量均为<span class="math inline">\(1\)</span>,然后求出最大流<span class="math inline">\(w\)</span>,答案即为<span class="math inline">\(n -
-w\)</span>.</p>
+<h4><span id="最大权闭合子图">最大权闭合子图</span></h4><p>原图的边流量设为$+ \infty$,然后对于每个点$x$,如果$val_x &gt; 0$,那么$ans + = val_x$,然后将$S \rightarrow x$,流量为$val_x$;不然,$x \rightarrow T$,流量为$- val_x$,然后求出最小割$w$,答案即为$ans - w$.</p>
+<h5><span id="example1luogup4177">Example1(luoguP4177)</span></h5><p>只需要把中间的$\infty$边改为租用的代价即可.</p>
+<h4><span id="最小路径覆盖覆盖点">最小路径覆盖(覆盖点)</span></h4><p>将每个点$x$拆为两个点$A_x$,$B_x$,将$S$向所有$A$连边,$B$向$T$连边,如果图中存在一条路径$x \rightarrow y$,则连边$A_x \rightarrow B_y$,流量均为$1$,然后求出最大流$w$,答案即为$n - w$.</p>
 <p>还有一个版本是可以重复走点,做一遍传递闭包就行.因为可重复相当于原图上的可跳点,这个版本又叫最小链覆盖.</p>
-<h5><span id="example1网络流24题魔术球问题">Example1([网络流24题]魔术球问题)</span></h5>
-<p>枚举球数,不断在残联网络上加边并在新图跑最小路径覆盖即可.</p>
-<h4><span id="最长反链">最长反链</span></h4>
-<p>反链是一个点的集合,满足这个集合中的点两两不可达.</p>
-<p>最长反链<span class="math inline">\(=\)</span>可重复走点的最小点覆盖(最小链覆盖).</p>
+<h5><span id="example1网络流24题魔术球问题">Example1([网络流24题]魔术球问题)</span></h5><p>枚举球数,不断在残联网络上加边并在新图跑最小路径覆盖即可.</p>
+<h4><span id="最长反链">最长反链</span></h4><p>反链是一个点的集合,满足这个集合中的点两两不可达.</p>
+<p>最长反链$=$可重复走点的最小点覆盖(最小链覆盖).</p>
 <p>为啥呢?因为发现做完传递闭包后等价于新图的最大独立集.当然图是有性质的,观察一下可重复走点的最小点覆盖就可以发现等价于传递闭包后在二分图上求最大独立集.</p>
-<h5><span id="example1cf1630fmaking-itbipartite">Example1([CF1630F]Making It
-Bipartite)</span></h5>
-<p>首先显然的一点是,对于任意一个数字<span class="math inline">\(x\)</span>,这个序列中不能同时出现<span class="math inline">\(px\)</span>和<span class="math inline">\(pqx\)</span>,其中<span class="math inline">\(p ,
-q\)</span>都是大于等于二的正整数.这是显然的.如果我们把图改为有向图,由<span class="math inline">\(x \rightarrow
-px\)</span>,那么整个图就只会有两种点:只有出边的点和只有入边的点.</p>
-<p>那么我们该怎么办呢?如果是只能出现<span class="math inline">\(x\)</span>就不能出现<span class="math inline">\(px\)</span>,那这就是一个经典的最长反链问题.但多了一层,我们可以考虑类似分层图的思想:建立和原图完全一样的图<span class="math inline">\(G &#39;\)</span>,并且将<span class="math inline">\(G\)</span>中的<span class="math inline">\(x\)</span>向<span class="math inline">\(G
-&#39;\)</span>中的<span class="math inline">\(x
-&#39;\)</span>连有向边,然后跑最长反链.不难发现这样做是正确的.</p>
-<h4><span id="平面图最小割">平面图最小割</span></h4>
-<p>平面图最小割<span class="math inline">\(=\)</span>对偶图最短路.</p>
-<h4><span id="最小费用任意流">最小费用任意流</span></h4>
-<p>一般费用流,但是当当前增广路代价为正的就停止增广.</p>
+<h5><span id="example1cf1630fmaking-it-bipartite">Example1([CF1630F]Making It Bipartite)</span></h5><p>首先显然的一点是,对于任意一个数字$x$,这个序列中不能同时出现$px$和$pqx$,其中$p , q$都是大于等于二的正整数.这是显然的.如果我们把图改为有向图,由$x \rightarrow px$,那么整个图就只会有两种点:只有出边的点和只有入边的点.</p>
+<p>那么我们该怎么办呢?如果是只能出现$x$就不能出现$px$,那这就是一个经典的最长反链问题.但多了一层,我们可以考虑类似分层图的思想:建立和原图完全一样的图$G ‘$,并且将$G$中的$x$向$G ‘$中的$x ‘$连有向边,然后跑最长反链.不难发现这样做是正确的.</p>
+<h4><span id="平面图最小割">平面图最小割</span></h4><p>平面图最小割$=$对偶图最短路.</p>
+<h4><span id="最小费用任意流">最小费用任意流</span></h4><p>一般费用流,但是当当前增广路代价为正的就停止增广.</p>
 <p>和最小费用最大流不一样,这玩意是可以增量的.</p>
 <p>只需要考虑所有新的从源到汇的增广路以及增加过程出现的负环即可.</p>
-<h5><span id="example1luogup4694pa2013raper">Example1(luoguP4694
-[PA2013]Raper)</span></h5>
-<p>费用流模型很好建立,问题在于这个东西好像跑费用流有点慢.</p>
+<h5><span id="example1luogup4694-pa2013raper">Example1(luoguP4694 [PA2013]Raper)</span></h5><p>费用流模型很好建立,问题在于这个东西好像跑费用流有点慢.</p>
 <p>那咋办呢?我们考虑到费用流是有凸性的.所以搭配一下wqs二分.</p>
 <p>然后分一下三种情况讨论:</p>
-<ol type="1">
-<li><p>直接<span class="math inline">\(S \rightarrow
-T\)</span>的负增广路,相当于选取最小的<span class="math inline">\(b\)</span>和当前的<span class="math inline">\(a\)</span>搭配.</p></li>
-<li><p>有一条<span class="math inline">\(S \rightarrow a \rightarrow b
-\rightarrow a \rightarrow S\)</span>的负环,相当于以当前的<span class="math inline">\(a\)</span>代替前面的某个较大的<span class="math inline">\(a\)</span>.</p></li>
-<li><p>有一条<span class="math inline">\(S \rightarrow a \rightarrow b
-\rightarrow T \rightarrow b \rightarrow a \rightarrow
-S\)</span>的负环,注意到这个环必然没意义,因为不可能存在一条<span class="math inline">\(T \rightarrow
-S\)</span>的负路径(不然反路径就是正的,而最小费用任意流不可能流正路径),所以这种情况不如直接选<span class="math inline">\(S \rightarrow T\)</span>的路径.</p></li>
+<ol>
+<li><p>直接$S \rightarrow T$的负增广路,相当于选取最小的$b$和当前的$a$搭配.</p>
+</li>
+<li><p>有一条$S \rightarrow a \rightarrow b \rightarrow a \rightarrow S$的负环,相当于以当前的$a$代替前面的某个较大的$a$.</p>
+</li>
+<li><p>有一条$S \rightarrow a \rightarrow b \rightarrow T \rightarrow b \rightarrow a \rightarrow S$的负环,注意到这个环必然没意义,因为不可能存在一条$T \rightarrow S$的负路径(不然反路径就是正的,而最小费用任意流不可能流正路径),所以这种情况不如直接选$S \rightarrow T$的路径.</p>
+</li>
 </ol>
 <p>讨论完拿堆模拟一下就行.</p>
 <p>这引出了著名的模拟费用流算法.</p>
-<h4><span id="负费用最小流">负费用最小流</span></h4>
-<p>一般费用流,但是当增广当前增广路时费用变成正的就停止增广.</p>
+<h4><span id="负费用最小流">负费用最小流</span></h4><p>一般费用流,但是当增广当前增广路时费用变成正的就停止增广.</p>
 <p>注意如果两条增广路代价相同选流量大的那条.</p>
-<h4><span id="有负环的费用流">有负环的费用流</span></h4>
-<p>首先注意到:如果初始图没有负环,那无论后面怎么流都不可能出来负环.因为这意味着要么是一开始流了个正环,要么是一开始有负路径不走走正路径,都不太可能.</p>
-<p>对于所有的负边<span class="math inline">\(u \rightarrow
-v\)</span>,我们建立两个新点<span class="math inline">\(S
-&#39;\)</span>和<span class="math inline">\(T
-&#39;\)</span>,我们先将这条负边反向权值取相反数并让答案加上<span class="math inline">\(f \times v\)</span>,之后令<span class="math inline">\(u \rightarrow T &#39; , S &#39; \rightarrow
-v\)</span>,跑<span class="math inline">\(S &#39; \rightarrow T
-&#39;\)</span>的费用流,这个时候再在残联网络上跑<span class="math inline">\(s \rightarrow t\)</span>的费用流就是答案.</p>
+<h4><span id="有负环的费用流">有负环的费用流</span></h4><p>首先注意到:如果初始图没有负环,那无论后面怎么流都不可能出来负环.因为这意味着要么是一开始流了个正环,要么是一开始有负路径不走走正路径,都不太可能.</p>
+<p>对于所有的负边$u \rightarrow v$,我们建立两个新点$S ‘$和$T ‘$,我们先将这条负边反向权值取相反数并让答案加上$f \times v$,之后令$u \rightarrow T ‘ , S ‘ \rightarrow v$,跑$S ‘ \rightarrow T ‘$的费用流,这个时候再在残联网络上跑$s \rightarrow t$的费用流就是答案.</p>
 <p>为啥会这样呢?</p>
-<p>首先先证明正确性,这个东西相当于一开始跑了一下<span class="math inline">\(T &#39; \rightarrow u \rightarrow v \rightarrow S
-&#39;\)</span>的图.然后我们在跑<span class="math inline">\(S &#39;
-\rightarrow T &#39;\)</span>的时候一定是可以把上面的那个东西所从<span class="math inline">\(T &#39; \rightarrow S
-&#39;\)</span>的所有流量全都退回去,因为这是一个可以构造的上界.也就相当于我们跑了一个环流.而在费用流里跑环流显然是不会影响答案的.</p>
-<p>好,那么为啥这么做就不会出现负环了呢?因为你不可能在跑<span class="math inline">\(S &#39; \rightarrow T
-&#39;\)</span>的时候跑个正环出来,自然不可能出现负环.</p>
-<p>另外有一点是,一个点可能向<span class="math inline">\(S
-&#39;\)</span>或<span class="math inline">\(T
-&#39;\)</span>连很多边,其实是可以拼掉的,因为这些边全都是零权边,而构造完后的图是非负权边.</p>
-<h4><span id="模拟费用流">模拟费用流</span></h4>
-<p>对于特殊的图,模拟EK费用流的增广过程并进行操作.</p>
+<p>首先先证明正确性,这个东西相当于一开始跑了一下$T ‘ \rightarrow u \rightarrow v \rightarrow S ‘$的图.然后我们在跑$S ‘ \rightarrow T ‘$的时候一定是可以把上面的那个东西所从$T ‘ \rightarrow S ‘$的所有流量全都退回去,因为这是一个可以构造的上界.也就相当于我们跑了一个环流.而在费用流里跑环流显然是不会影响答案的.</p>
+<p>好,那么为啥这么做就不会出现负环了呢?因为你不可能在跑$S ‘ \rightarrow T ‘$的时候跑个正环出来,自然不可能出现负环.</p>
+<p>另外有一点是,一个点可能向$S ‘$或$T ‘$连很多边,其实是可以拼掉的,因为这些边全都是零权边,而构造完后的图是非负权边.</p>
+<h4><span id="模拟费用流">模拟费用流</span></h4><p>对于特殊的图,模拟EK费用流的增广过程并进行操作.</p>
 <p>对着例题记吧.</p>
-<h5><span id="example1luogup4694pa2013raper">Example1(luoguP4694
-[PA2013]Raper)</span></h5>
-<h4><span id="散题">散题</span></h4>
-<h5><span id="example1cqoi2014危桥">Example1([CQOI2014]危桥)</span></h5>
-<p>有一个朴素的想法是:我们直接按题意建图,然后<span class="math inline">\(S \rightarrow a_1 , b_1\)</span>,<span class="math inline">\(T \rightarrow a_2 ,
-b_2\)</span>,跑最大流然后检查是否满流.</p>
-<p>问题在于,这样有可能会出现<span class="math inline">\(a_1 \rightarrow
-b_2\)</span>的流量,我们怎么避免这种情况呢?</p>
-<p>做法是,我们交换<span class="math inline">\(b_1 ,
-b_2\)</span>并重复上面的过程,如果还是满流,我们声明一定合法.</p>
-<p>为什么呢?我们注意到此时网络上的流量分为四种:<span class="math inline">\(a_1 \rightarrow a_2\)</span>,<span class="math inline">\(a_1 \rightarrow b_2\)</span>,<span class="math inline">\(b_1 \rightarrow a_2\)</span>,<span class="math inline">\(b_1 \rightarrow b_2\)</span>.不难发现<span class="math inline">\(a_1 \rightarrow b_2\)</span>和<span class="math inline">\(b_1 \rightarrow a_2\)</span>的流量是相等的.</p>
-<p>在第二次跑网络流时,我们不妨直接将<span class="math inline">\(a_1
-\rightarrow a_2\)</span>和<span class="math inline">\(b_2 \rightarrow
-b_1\)</span>的流量加入答案并将这两条路径反向.此时,如果<span class="math inline">\(a_1\)</span>还是要走到<span class="math inline">\(b_1\)</span>,你发现第一轮的时候已经找到了一条<span class="math inline">\(b_1 \rightarrow
-a_2\)</span>的路径,我们一定可以走这条来构造出只有<span class="math inline">\(a_1 \rightarrow a_2\)</span>的路径,另一边同理.</p>
-<h3><span id="图的计数问题">图的计数问题</span></h3>
-<h4><span id="prufer序列">Prufer序列</span></h4>
-<p>我们可以将一颗有编号<span class="math inline">\(n\)</span>个点(<span class="math inline">\(n \geq 2\)</span>)的无根树与一个长度为<span class="math inline">\(n -
-2\)</span>的Prufer序列建立双射.换句话说,一颗有编号<span class="math inline">\(n\)</span>个节点的无根树总共有<span class="math inline">\(n^{ n - 2 }\)</span>种(Cayley公式).</p>
-<p>首先证明一个树可以对应到一个序列:每次选择一个度数为<span class="math inline">\(1\)</span>的编号最小的点,把它连向的点加到序列中并把这个点删去,直到最后只剩下两个节点,这样我们就把一棵树对应到一个序列.不难发现每个点出现的次数是其度数<span class="math inline">\(- 1\)</span>.</p>
+<h5><span id="example1luogup4694-pa2013raper">Example1(luoguP4694 [PA2013]Raper)</span></h5><h4><span id="散题">散题</span></h4><h5><span id="example1cqoi2014危桥">Example1([CQOI2014]危桥)</span></h5><p>有一个朴素的想法是:我们直接按题意建图,然后$S \rightarrow a_1 , b_1$,$T \rightarrow a_2 , b_2$,跑最大流然后检查是否满流.</p>
+<p>问题在于,这样有可能会出现$a_1 \rightarrow b_2$的流量,我们怎么避免这种情况呢?</p>
+<p>做法是,我们交换$b_1 , b_2$并重复上面的过程,如果还是满流,我们声明一定合法.</p>
+<p>为什么呢?我们注意到此时网络上的流量分为四种:$a_1 \rightarrow a_2$,$a_1 \rightarrow b_2$,$b_1 \rightarrow a_2$,$b_1 \rightarrow b_2$.不难发现$a_1 \rightarrow b_2$和$b_1 \rightarrow a_2$的流量是相等的.</p>
+<p>在第二次跑网络流时,我们不妨直接将$a_1 \rightarrow a_2$和$b_2 \rightarrow b_1$的流量加入答案并将这两条路径反向.此时,如果$a_1$还是要走到$b_1$,你发现第一轮的时候已经找到了一条$b_1 \rightarrow a_2$的路径,我们一定可以走这条来构造出只有$a_1 \rightarrow a_2$的路径,另一边同理.</p>
+<h3><span id="图的计数问题">图的计数问题</span></h3><h4><span id="prufer序列">Prufer序列</span></h4><p>我们可以将一颗有编号$n$个点($n \geq 2$)的无根树与一个长度为$n - 2$的Prufer序列建立双射.换句话说,一颗有编号$n$个节点的无根树总共有$n^{ n - 2 }$种(Cayley公式).</p>
+<p>首先证明一个树可以对应到一个序列:每次选择一个度数为$1$的编号最小的点,把它连向的点加到序列中并把这个点删去,直到最后只剩下两个节点,这样我们就把一棵树对应到一个序列.不难发现每个点出现的次数是其度数$- 1$.</p>
 <p>然后证明一个序列可以还原成一棵树:</p>
 <p>我们可以通过序列得知每个点的度数,每次找到度数中最小的那个点并把它与序列中的第一个元素连边并删去序列中的第一个元素,不断这么做显然可以还原树.</p>
-<h5><span id="example">Example</span></h5>
-<p>一个<span class="math inline">\(n\)</span>个点的图有<span class="math inline">\(k\)</span>个连通块,现在加入<span class="math inline">\(k - 1\)</span>条边使得图连通,求方案数.</p>
-<p>令<span class="math inline">\(s_i\)</span>为第<span class="math inline">\(i\)</span>个连通块的点数,<span class="math inline">\(d_i\)</span>为第<span class="math inline">\(i\)</span>个连通块所新连上的边数,如果我们令<span class="math inline">\(\binom{ n }{ c_1 , c_2 , . . . , c_m } = \cfrac{ n
-! }{ c_1 ! c_2 ! . . . c_m ! } , \sum_{ i = 1 }^m c_i = n
-\\\)</span>,也即将<span class="math inline">\(n\)</span>个位置拆分成<span class="math inline">\(m\)</span>个集合,第<span class="math inline">\(i\)</span>个集合有<span class="math inline">\(c_i\)</span>个位置的方案数.</p>
-<p>那我们所需要做的也就是枚举每个连通块所新连出的边数<span class="math inline">\(d_i\)</span>,于是答案即<span class="math inline">\(\sum_d [ \sum d_i = 2 k - 2 ] \binom{ k - 2 }{ d_1
-- 1 , d_2 - 1 , . . . , d_k - 1 } \prod_{ i = 1 }^k s_i^{ d_i }
-\\\)</span>.</p>
-<p>注意到我们有多项式定理:<span class="math inline">\(( x_1 + x_2 + . .
-. + x_m )^n = \sum_{ c } [ \sum c_i = n ] \binom{ n }{ c_1 , c_2 , . . .
-, c_m } \prod_{ i = 1 }^m x_i^{ c_i } \\\)</span>.</p>
-<p>于是原式<span class="math inline">\(= n^{ k - 2 } \prod_{ i = 1 }^k
-s_i\)</span>.</p>
-<h4><span id="prufer序列的矩阵树定理理解">Prufer序列的矩阵树定理理解</span></h4>
-<p>事实上,Prufer序列其实是可以拿矩阵树定理代替的(但是更麻烦一点).</p>
+<h5><span id="example">Example</span></h5><p>一个$n$个点的图有$k$个连通块,现在加入$k - 1$条边使得图连通,求方案数.</p>
+<p>令$s_i$为第$i$个连通块的点数,$d_i$为第$i$个连通块所新连上的边数,如果我们令$\binom{ n }{ c_1 , c_2 , . . . , c_m } = \cfrac{ n ! }{ c_1 ! c_2 ! . . . c_m ! } , \sum_{ i = 1 }^m c_i = n \\$,也即将$n$个位置拆分成$m$个集合,第$i$个集合有$c_i$个位置的方案数.</p>
+<p>那我们所需要做的也就是枚举每个连通块所新连出的边数$d_i$,于是答案即$\sum_d [ \sum d_i = 2 k - 2 ] \binom{ k - 2 }{ d_1 - 1 , d_2 - 1 , . . . , d_k - 1 } \prod_{ i = 1 }^k s_i^{ d_i } \\$.</p>
+<p>注意到我们有多项式定理:$( x_1 + x_2 + . . . + x_m )^n = \sum_{ c } [ \sum c_i = n ] \binom{ n }{ c_1 , c_2 , . . . , c_m } \prod_{ i = 1 }^m x_i^{ c_i } \\$.</p>
+<p>于是原式$= n^{ k - 2 } \prod_{ i = 1 }^k s_i$.</p>
+<h4><span id="prufer序列的矩阵树定理理解">Prufer序列的矩阵树定理理解</span></h4><p>事实上,Prufer序列其实是可以拿矩阵树定理代替的(但是更麻烦一点).</p>
 <p>我们先考虑证明Cayley公式:构造矩阵:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{bmatrix}
-- n + 1 &amp; 1 &amp; \cdots &amp; 1 \\
-1 &amp; - n + 1 &amp; \cdots &amp; 1 \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-1 &amp; 1 &amp; \cdots &amp; - n + 1
-\end{bmatrix}
-\]</span></p>
-<p>其主余子式为:</p>
-<p><span class="math display">\[
+- n + 1 & 1 & \cdots & 1 \\
+1 & - n + 1 & \cdots & 1 \\
+\vdots & \vdots & \ddots & \vdots \\
+1 & 1 & \cdots & - n + 1
+\end{bmatrix}</script><p>其主余子式为:</p>
+<script type="math/tex; mode=display">
 \begin{bmatrix}
-- n + 1 &amp; 1 &amp; \cdots &amp; 1 \\
-1 &amp; - n + 1 &amp; \cdots &amp; 1 \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-1 &amp; 1 &amp; \cdots &amp; - n + 1
-\end{bmatrix}
-\]</span></p>
-<p>将所有行全部加到第一行:</p>
-<p><span class="math display">\[
+- n + 1 & 1 & \cdots & 1 \\
+1 & - n + 1 & \cdots & 1 \\
+\vdots & \vdots & \ddots & \vdots \\
+1 & 1 & \cdots & - n + 1
+\end{bmatrix}</script><p>将所有行全部加到第一行:</p>
+<script type="math/tex; mode=display">
 \begin{bmatrix}
-- 1 &amp; - 1 &amp; \cdots &amp; - 1 \\
-1 &amp; - n + 1 &amp; \cdots &amp; 1 \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-1 &amp; 1 &amp; \cdots &amp; - n + 1
-\end{bmatrix}
-\]</span></p>
-<p>全部加下来,然后就成了上三角矩阵,将对角线乘起来就是<span class="math inline">\(n^{ n - 2 }\)</span>.</p>
+- 1 & - 1 & \cdots & - 1 \\
+1 & - n + 1 & \cdots & 1 \\
+\vdots & \vdots & \ddots & \vdots \\
+1 & 1 & \cdots & - n + 1
+\end{bmatrix}</script><p>全部加下来,然后就成了上三角矩阵,将对角线乘起来就是$n^{ n - 2 }$.</p>
 <p>连通块的结论是类似的.</p>
-<h4><span id="lgv引理">LGV引理</span></h4>
-<p>设<span class="math inline">\(G\)</span>是一个有限的带权有向无环图,有点集<span class="math inline">\(V\)</span>的一个大小为<span class="math inline">\(n\)</span>的子集<span class="math inline">\(A = \{
-a_1 , a_2 , . . . , a_n \}\)</span>作为起点集合,一个大小为<span class="math inline">\(n\)</span>的子集<span class="math inline">\(B = \{
-b_1 , b_2 , . . . , b_n \}\)</span>作为终点集合.</p>
-<p>记边<span class="math inline">\(i\)</span>的权值为<span class="math inline">\(w_i\)</span>.对于有向路径<span class="math inline">\(p\)</span>,记路径上所有边的边权的乘积为<span class="math inline">\(W ( p )\)</span>.记<span class="math inline">\(e (
-u , v ) = \sum_{ p : u \rightarrow v } W ( p )\)</span>,即从<span class="math inline">\(u\)</span>到<span class="math inline">\(v\)</span>的所有路径的边权乘积之和.</p>
-<p>记<span class="math inline">\(P : A \rightarrow B = ( p_1 , p_2 , . .
-. , p_n )\)</span>,<span class="math inline">\(p_i\)</span>表示从<span class="math inline">\(a_i\)</span>到<span class="math inline">\(b_{
-\sigma ( i ) }\)</span>的一条路径,其中<span class="math inline">\(\sigma\)</span>是一个排列,记<span class="math inline">\(sign ( \sigma )\)</span>为<span class="math inline">\(-
-1\)</span>以这个排列的逆序对数量为幂的值.又记<span class="math inline">\(\sigma ( P )\)</span>为<span class="math inline">\(P\)</span>所对应终点的排列.若满足<span class="math inline">\(\forall 1 \leq i , j \leq n , i \ne
-j\)</span>,<span class="math inline">\(p_i\)</span>与<span class="math inline">\(p_j\)</span>没有公共点,则记作<span class="math inline">\(P^u\)</span>,否则记作<span class="math inline">\(P^c\)</span>,若不作区分记作<span class="math inline">\(P\)</span>.记<span class="math inline">\(W_{ all }
-( P ) = \prod_{ i = 1 }^n W ( p_i )
-\\\)</span>,也就是所有路径的乘积.</p>
-<p>设矩阵<span class="math inline">\(M\)</span>满足<span class="math inline">\(M_{ i , j } = e ( a_i , b_j )\)</span>,那么有:</p>
-<p><span class="math display">\[
-\det M = \sum_{ P^u : A \rightarrow B } sign ( \sigma ( P^u ) ) W_{ all
-} ( P^u )
-\]</span></p>
-<p>证明:</p>
+<h4><span id="lgv引理">LGV引理</span></h4><p>设$G$是一个有限的带权有向无环图,有点集$V$的一个大小为$n$的子集$A = \{ a_1 , a_2 , . . . , a_n \}$作为起点集合,一个大小为$n$的子集$B = \{ b_1 , b_2 , . . . , b_n \}$作为终点集合.</p>
+<p>记边$i$的权值为$w_i$.对于有向路径$p$,记路径上所有边的边权的乘积为$W ( p )$.记$e ( u , v ) = \sum_{ p : u \rightarrow v } W ( p )$,即从$u$到$v$的所有路径的边权乘积之和.</p>
+<p>记$P : A \rightarrow B = ( p_1 , p_2 , . . . , p_n )$,$p_i$表示从$a_i$到$b_{ \sigma ( i ) }$的一条路径,其中$\sigma$是一个排列,记$sign ( \sigma )$为$- 1$以这个排列的逆序对数量为幂的值.又记$\sigma ( P )$为$P$所对应终点的排列.若满足$\forall 1 \leq i , j \leq n , i \ne j$,$p_i$与$p_j$没有公共点,则记作$P^u$,否则记作$P^c$,若不作区分记作$P$.记$W_{ all } ( P ) = \prod_{ i = 1 }^n W ( p_i ) \\$,也就是所有路径的乘积.</p>
+<p>设矩阵$M$满足$M_{ i , j } = e ( a_i , b_j )$,那么有:</p>
+<script type="math/tex; mode=display">
+\det M = \sum_{ P^u : A \rightarrow B } sign ( \sigma ( P^u ) ) W_{ all } ( P^u )</script><p>证明:</p>
 <p>根据行列式的定义,我们有:</p>
-$$
-<span class="math display">\[\begin{aligned}
-\det M &amp; = \sum_{ \sigma } sign ( \sigma ) \prod_{ i = 1 }^n e ( a_i
-, b_{ \sigma ( i ) } ) \\
-&amp; = \sum_{ \sigma } sign ( \sigma ) \prod_{ i = 1 }^n \sum_{ p_i :
-a_i \rightarrow b_{ \sigma ( i ) } } w ( p_i ) \\
-
-\end{aligned}\]</span>
-<p>$$</p>
-<p>考虑后面那部分,<span class="math inline">\(\prod_{ i = 1 }^n \sum_{
-p_i : a_i \rightarrow b_{ \sigma ( i ) } } w ( p_i )
-\\\)</span>形如一个卷积的形式,所以这个式子等价于所有对应排列为<span class="math inline">\(\sigma\)</span>的<span class="math inline">\(P\)</span>的<span class="math inline">\(w ( P
-)\)</span>,所以有:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-\det M &amp; = \sum_{ \sigma } sign ( \sigma ) ( \sum_{ P : \{ a_1 , . .
-. , a_n \} \rightarrow \{ b_{ \sigma ( 1 ) } , . . . , b_{ \sigma ( n )
-} \} } w ( P ) ) \\
-&amp; = \sum_{ P : A \rightarrow B } sign ( \sigma ( P ) ) w ( P ) \\
-&amp; = \sum_{ P^u : A \rightarrow B } sign ( \sigma ( P^u ) ) w ( P^u )
-+ \sum_{ P^c : A \rightarrow B } sign ( \sigma ( P^c ) ) w ( P^c )
-\end{aligned}
-\]</span></p>
-<p>接下来只需证明<span class="math inline">\(\sum_{ P^c : A \rightarrow
-B } sign ( \sigma ( P^c ) ) w ( P^c ) = 0 \\\)</span>即可.</p>
-<p>设所有<span class="math inline">\(P^c\)</span>组成的集合为<span class="math inline">\(E\)</span>,考虑构造一个映射<span class="math inline">\(f : E \rightarrow E\)</span>满足如下条件:</p>
-<ol type="1">
-<li><p><span class="math inline">\(f ( P^c ) \ne P^c\)</span>.</p></li>
-<li><p><span class="math inline">\(f ( f ( P^c ) ) =
-P^c\)</span>.</p></li>
-<li><p><span class="math inline">\(w ( f ( P^c ) ) = w ( P^c
-)\)</span>.</p></li>
-<li><p><span class="math inline">\(sign ( f ( P^c ) ) = - sign ( P^c
-)\)</span>.</p></li>
+\det M & = \sum_{ \sigma } sign ( \sigma ) \prod_{ i = 1 }^n e ( a_i , b_{ \sigma ( i ) } ) \\
+& = \sum_{ \sigma } sign ( \sigma ) \prod_{ i = 1 }^n \sum_{ p_i : a_i \rightarrow b_{ \sigma ( i ) } } w ( p_i ) \\
+
+\end{aligned}</script><p>考虑后面那部分,$\prod_{ i = 1 }^n \sum_{ p_i : a_i \rightarrow b_{ \sigma ( i ) } } w ( p_i ) \\$形如一个卷积的形式,所以这个式子等价于所有对应排列为$\sigma$的$P$的$w ( P )$,所以有:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\det M & = \sum_{ \sigma } sign ( \sigma ) ( \sum_{ P : \{ a_1 , . . . , a_n \} \rightarrow \{ b_{ \sigma ( 1 ) } , . . . , b_{ \sigma ( n ) } \} } w ( P ) ) \\
+& = \sum_{ P : A \rightarrow B } sign ( \sigma ( P ) ) w ( P ) \\
+& = \sum_{ P^u : A \rightarrow B } sign ( \sigma ( P^u ) ) w ( P^u ) + \sum_{ P^c : A \rightarrow B } sign ( \sigma ( P^c ) ) w ( P^c )
+\end{aligned}</script><p>接下来只需证明$\sum_{ P^c : A \rightarrow B } sign ( \sigma ( P^c ) ) w ( P^c ) = 0 \\$即可.</p>
+<p>设所有$P^c$组成的集合为$E$,考虑构造一个映射$f : E \rightarrow E$满足如下条件:</p>
+<ol>
+<li><p>$f ( P^c ) \ne P^c$.</p>
+</li>
+<li><p>$f ( f ( P^c ) ) = P^c$.</p>
+</li>
+<li><p>$w ( f ( P^c ) ) = w ( P^c )$.</p>
+</li>
+<li><p>$sign ( f ( P^c ) ) = - sign ( P^c )$.</p>
+</li>
 </ol>
 <p>上面的结论即得证.</p>
-<p>我们不妨考虑<span class="math inline">\(P^c\)</span>中的第一对相交的路径<span class="math inline">\(p_i\)</span>和<span class="math inline">\(p_j\)</span>,并交换它们的终点.显然满足上述条件,于是结论得证.</p>
-<h5><span id="example">Example</span></h5>
-<p>现在有<span class="math inline">\(n\)</span>个点,第<span class="math inline">\(i\)</span>个点位于<span class="math inline">\((
-a_i , 1 )\)</span>,需要走到<span class="math inline">\(( b_i , n
-)\)</span>.一个在<span class="math inline">\(( x , y
-)\)</span>的点可以走向<span class="math inline">\(( x + 1 , y
-)\)</span>或<span class="math inline">\(( x , y + 1
-)\)</span>.求路径不相交的方案数.</p>
-<p>路径不相交,则终点排列只有可能是<span class="math inline">\(\{ 1 , 2 ,
-. . . , n \}\)</span>,直接使用LGV引理即可.</p>
-<h4><span id="矩阵树定理">矩阵树定理</span></h4>
-<h5><span id="无向图情况">无向图情况</span></h5>
-<p>定义无向图的度数矩阵<span class="math inline">\(D ( G
-)\)</span>为:<span class="math inline">\(D ( G )_{ i , j } =
-\begin{cases}0 &amp; i \ne j \\ \deg_{ i } &amp; i =
-j\end{cases}\)</span>.</p>
-<p>令<span class="math inline">\(w ( i , j )\)</span>为<span class="math inline">\(i\)</span>与<span class="math inline">\(j\)</span>之间直接相连的无向边个数,定义无向图的邻接矩阵<span class="math inline">\(A ( G )_{ i , j } = \begin{cases}0 &amp; i = j \\
-w ( i , j ) &amp; i \ne j\end{cases}\)</span></p>
-<p>定义无向图的基尔霍夫矩阵(又称拉普拉斯矩阵)<span class="math inline">\(L ( G ) = D ( G ) - A ( G )\)</span>.</p>
-<p>记<span class="math inline">\(t ( G )\)</span>为图<span class="math inline">\(G\)</span>的生成树个数,那么有:<span class="math inline">\(t ( G
-)\)</span>等于基尔霍夫矩阵任意一个主余子式.</p>
+<p>我们不妨考虑$P^c$中的第一对相交的路径$p_i$和$p_j$,并交换它们的终点.显然满足上述条件,于是结论得证.</p>
+<h5><span id="example">Example</span></h5><p>现在有$n$个点,第$i$个点位于$( a_i , 1 )$,需要走到$( b_i , n )$.一个在$( x , y )$的点可以走向$( x + 1 , y )$或$( x , y + 1 )$.求路径不相交的方案数.</p>
+<p>路径不相交,则终点排列只有可能是$\{ 1 , 2 , . . . , n \}$,直接使用LGV引理即可.</p>
+<h4><span id="矩阵树定理">矩阵树定理</span></h4><h5><span id="无向图情况">无向图情况</span></h5><p>定义无向图的度数矩阵$D ( G )$为:$D ( G )_{ i , j } = \begin{cases}0 &amp; i \ne j \ \deg_{ i } &amp; i = j\end{cases}$.</p>
+<p>令$w ( i , j )$为$i$与$j$之间直接相连的无向边个数,定义无向图的邻接矩阵$A ( G )_{ i , j } = \begin{cases}0 &amp; i = j \ w ( i , j ) &amp; i \ne j\end{cases}$</p>
+<p>定义无向图的基尔霍夫矩阵(又称拉普拉斯矩阵)$L ( G ) = D ( G ) - A ( G )$.</p>
+<p>记$t ( G )$为图$G$的生成树个数,那么有:$t ( G )$等于基尔霍夫矩阵任意一个主余子式.</p>
 <p>引理:无向图的基尔霍夫矩阵的任意一个代数余子式都相等.</p>
-<p>证明:考虑删去第<span class="math inline">\(i\)</span>行,设剩下的矩阵为<span class="math inline">\(A = [ \vec{ r }_1 , \vec{ r }_2 , . . . , \vec{ r
-}_n ]\)</span>,根据基尔霍夫矩阵的性质,不难发现<span class="math inline">\(\sum{ \vec{ r }_i } = \vec{ 0 }\)</span>.<span class="math inline">\(\forall 1 \leq j &lt; k \leq
-n\)</span>,如果我们删去第<span class="math inline">\(j\)</span>列,考虑将除了第<span class="math inline">\(k\)</span>列的其它列全部加到第<span class="math inline">\(k\)</span>列,于是得到矩阵<span class="math inline">\([ \vec{ r }_1 , . . . , \vec{ r }_{ j - 1 } ,
-\vec{ r }_{ j + 1 } , . . . , \vec{ r }_{ k - 1 } , - \vec{ r }_j ,
-\vec{ r }_{ k + 1 } , . . . , \vec{ r }_n
-]\)</span>.我们接下来一路将第<span class="math inline">\(k\)</span>列交换到第<span class="math inline">\(j
-+ 1\)</span>列之前并取反,我们就得到了删去第<span class="math inline">\(k\)</span>列的矩阵,于是有<span class="math inline">\(M_{ i , j } = ( - 1 )^{ 1 + ( k - 1 ) - ( j + 1 )
-+ 1 } M_{ i , k }\)</span>,也就是<span class="math inline">\(C_{ i , j }
-= C_{ i , k }\)</span>,同理可证明<span class="math inline">\(C_{ j , i }
-= C_{ k , i }\)</span>.</p>
-<p>接下来,用<span class="math inline">\(T\)</span>表示生成树的边的集合,设<span class="math inline">\(w ( T ) = \prod_{ e \in T } w ( e
-)\)</span>,我们只需证明<span class="math inline">\(C_{ 1 , 1 } = \sum w
-( T )\)</span>.</p>
-<p>定义<span class="math inline">\(\zeta ( e , u ) = v , e = \{ u , v
-\}\)</span>,考虑构造一个<span class="math inline">\(n \times
-m\)</span>的矩阵<span class="math inline">\(A\)</span>满足<span class="math inline">\(A_{ i , j } = \begin{cases}1 &amp; i \in e_j \land
-i &lt; \zeta ( e_j , i ) \\ - 1 &amp; i \in e_j \land i &gt; \zeta ( e_j
-, i ) \\ 0 &amp; other\end{cases} \\\)</span>.</p>
+<p>证明:考虑删去第$i$行,设剩下的矩阵为$A = [ \vec{ r }_1 , \vec{ r }_2 , . . . , \vec{ r }_n ]$,根据基尔霍夫矩阵的性质,不难发现$\sum{ \vec{ r }_i } = \vec{ 0 }$.$\forall 1 \leq j &lt; k \leq n$,如果我们删去第$j$列,考虑将除了第$k$列的其它列全部加到第$k$列,于是得到矩阵$[ \vec{ r }_1 , . . . , \vec{ r }_{ j - 1 } , \vec{ r }_{ j + 1 } , . . . , \vec{ r }_{ k - 1 } , - \vec{ r }_j , \vec{ r }_{ k + 1 } , . . . , \vec{ r }_n ]$.我们接下来一路将第$k$列交换到第$j + 1$列之前并取反,我们就得到了删去第$k$列的矩阵,于是有$M_{ i , j } = ( - 1 )^{ 1 + ( k - 1 ) - ( j + 1 ) + 1 } M_{ i , k }$,也就是$C_{ i , j } = C_{ i , k }$,同理可证明$C_{ j , i } = C_{ k , i }$.</p>
+<p>接下来,用$T$表示生成树的边的集合,设$w ( T ) = \prod_{ e \in T } w ( e )$,我们只需证明$C_{ 1 , 1 } = \sum w ( T )$.</p>
+<p>定义$\zeta ( e , u ) = v , e = \{ u , v \}$,考虑构造一个$n \times m$的矩阵$A$满足$A_{ i , j } = \begin{cases}1 &amp; i \in e_j \land i &lt; \zeta ( e_j , i ) \ - 1 &amp; i \in e_j \land i &gt; \zeta ( e_j , i ) \ 0 &amp; other\end{cases} \\$.</p>
 <p>注意到:</p>
-$$
-<span class="math display">\[\begin{aligned}
-AA^T ( i , j ) &amp; = \sum_{ k = 1 }^m A ( i , k ) A^T ( k , j ) \\
-&amp; = \sum_{ k = 1 }^m A ( i , k ) A ( j , k ) \\
-
-\end{aligned}\]</span>
-<p>$$</p>
-<p>当<span class="math inline">\(i = j\)</span>时,不难发现<span class="math inline">\(AA^T ( i , j ) = \sum_{ k = 1 }^m [ i \in e_k ] =
-\deg_i\)</span>.不然,注意到显然为<span class="math inline">\(- \sum_{ k
-= 1 }^m [ i \in e_k ] [ j \in e_k ]\)</span>.也就是说,<span class="math inline">\(AA^T = L\)</span>.</p>
-<p>定义<span class="math inline">\(A\)</span>删去第一行后得到的矩阵为<span class="math inline">\(B\)</span>,则<span class="math inline">\(BB^T =
-M_{ 1 , 1 }\)</span>.此时我们带入Cauchy-Binet公式,得到:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-M_{ 1 , 1 } &amp; = \sum_{ | S | = n - 1 , S \subseteq \{ 1 , 2 , . . .
-, m \} } \det ( B [ S ] B^T [ S ] ) \\
-&amp; = \sum_{ | S | = n - 1 , S \subseteq \{ 1 , 2 , . . . , m \} }
-\det ( B [ S ] )^2
-\end{aligned}
-\]</span></p>
-<p>接下来我们需要证明:如果<span class="math inline">\(S\)</span>集合构成了一棵生成树,那么<span class="math inline">\(\det B [ S ] = \pm 1\)</span>.反之,<span class="math inline">\(\det B [ S ] = 0\)</span>.</p>
-<p>如果集合没有构成一个生成树,则至少存在一个简单环.如果有某个点是孤立点那么答案肯定是<span class="math inline">\(0\)</span>,因此只需考虑每个点都与边连通的情况即可.</p>
-<p>考虑这种情况下,如果有两条边<span class="math inline">\(( u_1 , u_2
-)\)</span>和<span class="math inline">\(( u_2 , u_3
-)\)</span>被选上了,那么我们可以通过列变换将它们改为<span class="math inline">\(( u_1 , u_2 )\)</span>和<span class="math inline">\(( u_1 , u_3
-)\)</span>.这样不断进行下去,如果存在环,一定会出现重边选择的情况,这个时候行列式的值为<span class="math inline">\(0\)</span>.如果不存在环,那么我们可以通过这个操作得到一个菊花图.所以行列式为<span class="math inline">\(\pm 1\)</span>.</p>
+AA^T ( i , j ) & = \sum_{ k = 1 }^m A ( i , k ) A^T ( k , j ) \\
+& = \sum_{ k = 1 }^m A ( i , k ) A ( j , k ) \\
+
+\end{aligned}</script><p>当$i = j$时,不难发现$AA^T ( i , j ) = \sum_{ k = 1 }^m [ i \in e_k ] = \deg_i$.不然,注意到显然为$- \sum_{ k = 1 }^m [ i \in e_k ] [ j \in e_k ]$.也就是说,$AA^T = L$.</p>
+<p>定义$A$删去第一行后得到的矩阵为$B$,则$BB^T = M_{ 1 , 1 }$.此时我们带入Cauchy-Binet公式,得到:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+M_{ 1 , 1 } & = \sum_{ | S | = n - 1 , S \subseteq \{ 1 , 2 , . . . , m \} } \det ( B [ S ] B^T [ S ] ) \\
+& = \sum_{ | S | = n - 1 , S \subseteq \{ 1 , 2 , . . . , m \} } \det ( B [ S ] )^2
+\end{aligned}</script><p>接下来我们需要证明:如果$S$集合构成了一棵生成树,那么$\det B [ S ] = \pm 1$.反之,$\det B [ S ] = 0$.</p>
+<p>如果集合没有构成一个生成树,则至少存在一个简单环.如果有某个点是孤立点那么答案肯定是$0$,因此只需考虑每个点都与边连通的情况即可.</p>
+<p>考虑这种情况下,如果有两条边$( u_1 , u_2 )$和$( u_2 , u_3 )$被选上了,那么我们可以通过列变换将它们改为$( u_1 , u_2 )$和$( u_1 , u_3 )$.这样不断进行下去,如果存在环,一定会出现重边选择的情况,这个时候行列式的值为$0$.如果不存在环,那么我们可以通过这个操作得到一个菊花图.所以行列式为$\pm 1$.</p>
 <p>所以定理得证.</p>
-<h6><span id="example省选联考-2020-a卷作业题">Example([省选联考 2020 A
-卷]作业题)</span></h6>
-<p>给定一个图,设第<span class="math inline">\(i\)</span>条边的权值为<span class="math inline">\(w_i\)</span>,求所有生成树的<span class="math inline">\(\gcd ( w_1 , . . . , w_{ n - 1 } ) \sum_{ i = 1
-}^{ n - 1 } w_i\)</span>之和.</p>
-<p>首先前面的<span class="math inline">\(\gcd\)</span>可以使用<span class="math inline">\(\varphi * I =
-id\)</span>来处理.于是剩下的问题在于我们如何将一个生成树的边的和代替乘积作为贡献来求和.</p>
-<p>不妨进行扩域,令<span class="math inline">\(j^2 = 0 , j \ne
-0\)</span>,这样我们可以类比复数来将每个数写作<span class="math inline">\(a + bj\)</span>的模式.考虑将每条边的边权改为<span class="math inline">\(w_i j +
-1\)</span>并定义新域的四则运算,取最后得到的数<span class="math inline">\(a + bj\)</span>的<span class="math inline">\(b\)</span>作为答案即可.</p>
-<p>另外,注意到这样做复杂度<span class="math inline">\(wn^3\)</span>,很难通过.考虑每次只当边数大于等于<span class="math inline">\(n - 1\)</span>的时候再跑行列式.不妨设<span class="math inline">\(\sigma ( n )\)</span>为<span class="math inline">\(n\)</span>的因数个数,考虑如果因数很分散,那肯定复杂度很低,不然,我们有复杂度<span class="math inline">\(O ( n^3 \cfrac{ \sum_{ i = 1 }^m \sigma ( w_i ) }{
-n - 1 } )\)</span>,可以通过.</p>
-<h6><span id="example北京省选集训2019生成树计数">Example([北京省选集训2019]生成树计数)</span></h6>
-<p>给定一个图,设第<span class="math inline">\(i\)</span>条边的权值为<span class="math inline">\(w_i\)</span>,求所有生成树的<span class="math inline">\(( \sum_{ i = 1 }^{ n - 1 } w_i
-)^k\)</span>之和.</p>
-<p>考虑将第<span class="math inline">\(e\)</span>条边边权改为<span class="math inline">\(\sum_{ i = 0 }^k \cfrac{ w_e^i x^i }{ i !
-}\)</span>.根据多项式定理,显然最后取<span class="math inline">\([ x^k
-]\)</span>并乘以<span class="math inline">\(k !\)</span>即可.</p>
-<h5><span id="有向图情况">有向图情况</span></h5>
-<p>定义有向图的出度矩阵<span class="math inline">\(D^{ out } ( G ) =
-\begin{cases}0 &amp; i \ne j \\ \deg^{ out }_i &amp; i =
-j\end{cases}\)</span>,类似地可以定义入度矩阵<span class="math inline">\(D^{ in } ( G )\)</span>.</p>
-<p>令<span class="math inline">\(cnte ( i , j )\)</span>为从<span class="math inline">\(i\)</span>直接连向<span class="math inline">\(j\)</span>的有向边个数,定义有向图的邻接矩阵<span class="math inline">\(A ( G )_{ i , j } = \begin{cases}0 &amp; i = j \\
-cnte ( i , j ) &amp; i \ne j\end{cases}\)</span></p>
-<p>定义有向图的出度基尔霍夫矩阵<span class="math inline">\(L^{ out } ( G
-) = D^{ out } ( G ) - A ( G
-)\)</span>,同理可以定义其入度基尔霍夫矩阵<span class="math inline">\(L^{
-in } ( G )\)</span>.</p>
-<p>记<span class="math inline">\(t^{ root } ( r , G )\)</span>为图<span class="math inline">\(G\)</span>以<span class="math inline">\(r\)</span>为根的根向生成树(<span class="math inline">\(r\)</span>为根时,所有边都从儿子指向父亲)个数,同理可以定义叶向生成树个数<span class="math inline">\(t^{ leaf } ( r , G )\)</span>.</p>
-<p>设<span class="math inline">\(M^{ out }_{ r , r }\)</span>为<span class="math inline">\(L^{ out }\)</span>的主余子式,有<span class="math inline">\(t^{ root } ( r , G ) = M^{ out }_{ r , r
-}\)</span>.叶向同理.</p>
+<h6><span id="example省选联考-2020-a-卷作业题">Example([省选联考 2020 A 卷]作业题)</span></h6><p>给定一个图,设第$i$条边的权值为$w_i$,求所有生成树的$\gcd ( w_1 , . . . , w_{ n - 1 } ) \sum_{ i = 1 }^{ n - 1 } w_i$之和.</p>
+<p>首先前面的$\gcd$可以使用$\varphi * I = id$来处理.于是剩下的问题在于我们如何将一个生成树的边的和代替乘积作为贡献来求和.</p>
+<p>不妨进行扩域,令$j^2 = 0 , j \ne 0$,这样我们可以类比复数来将每个数写作$a + bj$的模式.考虑将每条边的边权改为$w_i j + 1$并定义新域的四则运算,取最后得到的数$a + bj$的$b$作为答案即可.</p>
+<p>另外,注意到这样做复杂度$wn^3$,很难通过.考虑每次只当边数大于等于$n - 1$的时候再跑行列式.不妨设$\sigma ( n )$为$n$的因数个数,考虑如果因数很分散,那肯定复杂度很低,不然,我们有复杂度$O ( n^3 \cfrac{ \sum_{ i = 1 }^m \sigma ( w_i ) }{ n - 1 } )$,可以通过.</p>
+<h6><span id="example北京省选集训2019生成树计数">Example([北京省选集训2019]生成树计数)</span></h6><p>给定一个图,设第$i$条边的权值为$w_i$,求所有生成树的$( \sum_{ i = 1 }^{ n - 1 } w_i )^k$之和.</p>
+<p>考虑将第$e$条边边权改为$\sum_{ i = 0 }^k \cfrac{ w_e^i x^i }{ i ! }$.根据多项式定理,显然最后取$[ x^k ]$并乘以$k !$即可.</p>
+<h5><span id="有向图情况">有向图情况</span></h5><p>定义有向图的出度矩阵$D^{ out } ( G ) = \begin{cases}0 &amp; i \ne j \ \deg^{ out }_i &amp; i = j\end{cases}$,类似地可以定义入度矩阵$D^{ in } ( G )$.</p>
+<p>令$cnte ( i , j )$为从$i$直接连向$j$的有向边个数,定义有向图的邻接矩阵$A ( G )_{ i , j } = \begin{cases}0 &amp; i = j \ cnte ( i , j ) &amp; i \ne j\end{cases}$</p>
+<p>定义有向图的出度基尔霍夫矩阵$L^{ out } ( G ) = D^{ out } ( G ) - A ( G )$,同理可以定义其入度基尔霍夫矩阵$L^{ in } ( G )$.</p>
+<p>记$t^{ root } ( r , G )$为图$G$以$r$为根的根向生成树($r$为根时,所有边都从儿子指向父亲)个数,同理可以定义叶向生成树个数$t^{ leaf } ( r , G )$.</p>
+<p>设$M^{ out }_{ r , r }$为$L^{ out }$的主余子式,有$t^{ root } ( r , G ) = M^{ out }_{ r , r }$.叶向同理.</p>
 <p>下面只简单提到根向生成树的证明,叶向同理.</p>
-<p>类似于无向图,我们考虑构造<span class="math inline">\(n \times
-m\)</span>矩阵<span class="math inline">\(A\)</span>和<span class="math inline">\(( n - 1 ) \times m\)</span>矩阵<span class="math inline">\(B\)</span>:</p>
-<p><span class="math display">\[
+<p>类似于无向图,我们考虑构造$n \times m$矩阵$A$和$( n - 1 ) \times m$矩阵$B$:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-A_{ i , j } &amp; = \begin{cases}
-1 &amp; e_j &#39; s \ head \ is \ i \\
-- 1 &amp; e_j &#39; s \ tail \ is \ i \\
-0 &amp; other
+A_{ i , j } & = \begin{cases}
+1 & e_j ' s \ head \ is \ i \\
+- 1 & e_j ' s \ tail \ is \ i \\
+0 & other
 \end{cases} \\
-B_{ i , j } &amp; = \begin{cases}
-1 &amp; e_j &#39; s \ head \ is \ i \\
-0 &amp; other
+B_{ i , j } & = \begin{cases}
+1 & e_j ' s \ head \ is \ i \\
+0 & other
 \end{cases}
-\end{aligned}
-\]</span></p>
-<p>剩下的部分与无向图类似.</p>
-<h4><span id="best定理">BEST定理</span></h4>
-<p>设<span class="math inline">\(ec ( G )\)</span>为有向图<span class="math inline">\(G\)</span>的欧拉回路个数,若其存在欧拉回路,则:</p>
-<p><span class="math display">\[
-ec ( G ) = t^{ root } ( G , x ) \prod_{ i = 1 }^n ( \deg_i - 1 ) !
-\]</span></p>
-<p>其中<span class="math inline">\(\deg_i = \deg^{ in }_i = \deg_i^{ out
-}\)</span>.</p>
-<p>考虑如果勒令以<span class="math inline">\(x\)</span>为起点,我们保留除了<span class="math inline">\(x\)</span>以外每个点的最后经过的出边,最后一定会形成一棵根向树.而其他点可以随便选(由于我们勒令了每个点存在一个出边,所以不可能走到死胡同),这样的答案是<span class="math inline">\(t^{ root } ( G , x ) \deg_x \prod_{ i = 1 }^n (
-\deg_i - 1 ) !\)</span>.</p>
-<p>但是如果没有规定起点,考虑循环重构,在我们选择不同的边当作初始边时,只需循环一下总体的顺序,就可以得到以另一条边为初始边的另一个图,所以答案要比规定起点的答案多除一个<span class="math inline">\(\deg_x\)</span>.</p>
-<h4><span id="格路计数问题">格路计数问题</span></h4>
-<h5><span id="定义">定义</span></h5>
-<ol type="1">
-<li><p>在平面直角坐标系中,横坐标和纵坐标都是整数的点称为格点,平面格路是指从一个格点到另一格点只走格点的路,格路的长度是指其所走的路的步数.</p></li>
-<li><p>对于一条从<span class="math inline">\(( 0 , 0 )\)</span>到<span class="math inline">\(( n , m )\)</span>的格路,若其只使用了上步<span class="math inline">\(U = ( 0 , 1 )\)</span>,右步<span class="math inline">\(L = ( 1 , 0 )\)</span>,则我们称其为<span class="math inline">\(( n , m )\)</span>自由路.</p></li>
-<li><p>记<span class="math inline">\(\mathcal{ F } ( n , m
-)\)</span>为<span class="math inline">\(( n , m
-)\)</span>自由路的集合,<span class="math inline">\(F ( n , m ) = \#
-\mathcal{ F } ( n , m )\)</span>为<span class="math inline">\(( n , m
-)\)</span>自由路数量,即<span class="math inline">\(\mathcal{ F } ( n , m
-)\)</span>的元素个数,显然<span class="math inline">\(F ( n , m ) =
-\binom{ n + m }{ n } \\\)</span>.</p></li>
-<li><p>对于一条从<span class="math inline">\(( 0 , 0 )\)</span>到<span class="math inline">\(( n , m
-)\)</span>的自由路,若其始终不经过对角线<span class="math inline">\(y =
-\cfrac{ m }{ n } x\)</span>下方,则我们称之为<span class="math inline">\(( n , m ) - Dyck\)</span>路.</p></li>
-<li><p>记<span class="math inline">\(\mathcal{ D } ( n , m
-)\)</span>为<span class="math inline">\(( n , m
-)\)</span>自由路的集合,<span class="math inline">\(D ( n , m ) = \#
-\mathcal{ D } ( n , m )\)</span>为<span class="math inline">\(( n , m
-)\)</span>自由路数量,即<span class="math inline">\(\mathcal{ D } ( n , m
-)\)</span>的元素个数.</p></li>
-<li><p>对于从<span class="math inline">\(( 0 , 0 )\)</span>到<span class="math inline">\(( n , m )\)</span>的<span class="math inline">\(2\)</span>条格路<span class="math inline">\(P ,
-Q\)</span>,其中<span class="math inline">\(P = u_1 u_2 . . . u_{ n + m }
-, Q = v_1 v_2 . . . v_{ n + m } ( u_i , v_i \in{ L , U } , i = 1 , 2 , .
-. . , n + m )\)</span>.若 <span class="math inline">\(\exists i , u_{ i
-+ 1 } . . . u_{ n + m } u_1 . . . u_i = v_1 v_2 . . . v_{ n + m
-}\)</span>,则我们称格路<span class="math inline">\(P ,
-Q\)</span>等价.将<span class="math inline">\(P\)</span>的等价格路全集记为<span class="math inline">\([ P ]\)</span>.</p></li>
-<li><p>对于任意格路<span class="math inline">\(P\)</span>,记<span class="math inline">\(P_k = u_{ k + 1 } . . . u_{ n + m } u_1 . . .
-u_k\)</span>,则<span class="math inline">\([ P ] = \{ P_k | k = 1 , 2 ,
-3 , · · · , n + m \}\)</span>.定义<span class="math inline">\(P\)</span>的周期为使得<span class="math inline">\(P = P_k\)</span>的最小数<span class="math inline">\(k\)</span>，用<span class="math inline">\(period (
-P )\)</span>表示,则显然有<span class="math inline">\(\# [ P ] = period (
-P )\)</span>.</p></li>
+\end{aligned}</script><p>剩下的部分与无向图类似.</p>
+<h4><span id="best定理">BEST定理</span></h4><p>设$ec ( G )$为有向图$G$的欧拉回路个数,若其存在欧拉回路,则:</p>
+<script type="math/tex; mode=display">
+ec ( G ) = t^{ root } ( G , x ) \prod_{ i = 1 }^n ( \deg_i - 1 ) !</script><p>其中$\deg_i = \deg^{ in }_i = \deg_i^{ out }$.</p>
+<p>考虑如果勒令以$x$为起点,我们保留除了$x$以外每个点的最后经过的出边,最后一定会形成一棵根向树.而其他点可以随便选(由于我们勒令了每个点存在一个出边,所以不可能走到死胡同),这样的答案是$t^{ root } ( G , x ) \deg_x \prod_{ i = 1 }^n ( \deg_i - 1 ) !$.</p>
+<p>但是如果没有规定起点,考虑循环重构,在我们选择不同的边当作初始边时,只需循环一下总体的顺序,就可以得到以另一条边为初始边的另一个图,所以答案要比规定起点的答案多除一个$\deg_x$.</p>
+<h4><span id="格路计数问题">格路计数问题</span></h4><h5><span id="定义">定义</span></h5><ol>
+<li><p>在平面直角坐标系中,横坐标和纵坐标都是整数的点称为格点,平面格路是指从一个格点到另一格点只走格点的路,格路的长度是指其所走的路的步数.</p>
+</li>
+<li><p>对于一条从$( 0 , 0 )$到$( n , m )$的格路,若其只使用了上步$U = ( 0 , 1 )$,右步$L = ( 1 , 0 )$,则我们称其为$( n , m )$自由路.</p>
+</li>
+<li><p>记$\mathcal{ F } ( n , m )$为$( n , m )$自由路的集合,$F ( n , m ) = # \mathcal{ F } ( n , m )$为$( n , m )$自由路数量,即$\mathcal{ F } ( n , m )$的元素个数,显然$F ( n , m ) = \binom{ n + m }{ n } \\$.</p>
+</li>
+<li><p>对于一条从$( 0 , 0 )$到$( n , m )$的自由路,若其始终不经过对角线$y = \cfrac{ m }{ n } x$下方,则我们称之为$( n , m ) - Dyck$路.</p>
+</li>
+<li><p>记$\mathcal{ D } ( n , m )$为$( n , m )$自由路的集合,$D ( n , m ) = # \mathcal{ D } ( n , m )$为$( n , m )$自由路数量,即$\mathcal{ D } ( n , m )$的元素个数.</p>
+</li>
+<li><p>对于从$( 0 , 0 )$到$( n , m )$的$2$条格路$P , Q$,其中$P = u_1 u_2 . . . u_{ n + m } , Q = v_1 v_2 . . . v_{ n + m } ( u_i , v_i \in{ L , U } , i = 1 , 2 , . . . , n + m )$.若 $\exists i , u_{ i + 1 } . . . u_{ n + m } u_1 . . . u_i = v_1 v_2 . . . v_{ n + m }$,则我们称格路$P , Q$等价.将$P$的等价格路全集记为$[ P ]$.</p>
+</li>
+<li><p>对于任意格路$P$,记$P_k = u_{ k + 1 } . . . u_{ n + m } u_1 . . . u_k$,则$[ P ] = \{ P_k | k = 1 , 2 , 3 , · · · , n + m \}$.定义$P$的周期为使得$P = P_k$的最小数$k$，用$period ( P )$表示,则显然有$# [ P ] = period ( P )$.</p>
+</li>
 </ol>
-<h5><span id="定理">定理</span></h5>
-<h4><span id="散模型">散模型</span></h4>
-<h5><span id="多叉堆计数">多叉堆计数</span></h5>
-<p>有一棵树,要求给每个点一个<span class="math inline">\([ 1 , n
-]\)</span>的权值且不同的点权值不同,满足父亲的权值小于儿子的权值,求方案数.</p>
-<p>不妨设以<span class="math inline">\(u\)</span>为根节点的子树方案数为<span class="math inline">\(f_u\)</span>,<span class="math inline">\(u\)</span>的儿子是<span class="math inline">\(v_1
-, . . . , v_k\)</span>,注意到<span class="math inline">\(f_u = \binom{
-siz_u - 1 }{ siz_{ v_1 } , siz_{ v_2 } , . . . , siz_{ v_k } } \prod f_{
-v_i } = ( siz_u - 1 ) ! \prod_{ u \rightarrow v } \frac{ f_{ v } }{
-siz_v ! } \\\)</span>.</p>
-<p>那么考虑根的答案<span class="math inline">\(f_1\)</span>,考虑不断将<span class="math inline">\(f_1\)</span>中含有的其它<span class="math inline">\(f_u\)</span>向下展开,自然的,除了<span class="math inline">\(1\)</span>号点外,每个点对答案都贡献了一个<span class="math inline">\(\frac{ 1 }{ siz }\)</span>,而根的贡献是<span class="math inline">\(( n - 1 ) !\)</span>.</p>
-<p>也就是说,<span class="math inline">\(ans = ( n - 1 ) ! \prod_{ u = 2
-}^n \frac{ 1 }{ siz_u } = n ! \prod_{ u = 1 }^n \frac{ 1 }{ siz_u }
-\\\)</span>.</p>
-<h6><span id="example1agc060c-large-heap">Example1([AGC060C] Large Heap)</span></h6>
-<p>如果没有限制,就是一个简单的多叉堆计数.</p>
-<p>而有了限制怎么做呢?我们考虑把<span class="math inline">\(u\)</span>到<span class="math inline">\(1\)</span>的路径和<span class="math inline">\(v\)</span>到<span class="math inline">\(1\)</span>的路径归并起来,会得到一条长链.我们只要确定了长链上的元素,通过组合数以及二叉堆计数,自然可以算出不在长链上的元素的答案.而对于长链上的元素,我们可以直接设计一个<span class="math inline">\(O ( n^2 )\)</span>的dp即可.</p>
-<h6><span id="example2heoi2013sao">Example2([HEOI2013]SAO)</span></h6>
-<p>显然给出的是一张树形图,然后每条边有一个限制表示这条边所连接的两个点哪个更大.现在给每个点一个<span class="math inline">\([ 1 , n
-]\)</span>的权值且不同的点权值不同求方案数.</p>
+<h5><span id="定理">定理</span></h5><h4><span id="散模型">散模型</span></h4><h5><span id="多叉堆计数">多叉堆计数</span></h5><p>有一棵树,要求给每个点一个$[ 1 , n ]$的权值且不同的点权值不同,满足父亲的权值小于儿子的权值,求方案数.</p>
+<p>不妨设以$u$为根节点的子树方案数为$f_u$,$u$的儿子是$v_1 , . . . , v_k$,注意到$f_u = \binom{ siz_u - 1 }{ siz_{ v_1 } , siz_{ v_2 } , . . . , siz_{ v_k } } \prod f_{ v_i } = ( siz_u - 1 ) ! \prod_{ u \rightarrow v } \frac{ f_{ v } }{ siz_v ! } \\$.</p>
+<p>那么考虑根的答案$f_1$,考虑不断将$f_1$中含有的其它$f_u$向下展开,自然的,除了$1$号点外,每个点对答案都贡献了一个$\frac{ 1 }{ siz }$,而根的贡献是$( n - 1 ) !$.</p>
+<p>也就是说,$ans = ( n - 1 ) ! \prod_{ u = 2 }^n \frac{ 1 }{ siz_u } = n ! \prod_{ u = 1 }^n \frac{ 1 }{ siz_u } \\$.</p>
+<h6><span id="example1agc060c-large-heap">Example1([AGC060C] Large Heap)</span></h6><p>如果没有限制,就是一个简单的多叉堆计数.</p>
+<p>而有了限制怎么做呢?我们考虑把$u$到$1$的路径和$v$到$1$的路径归并起来,会得到一条长链.我们只要确定了长链上的元素,通过组合数以及二叉堆计数,自然可以算出不在长链上的元素的答案.而对于长链上的元素,我们可以直接设计一个$O ( n^2 )$的dp即可.</p>
+<h6><span id="example2heoi2013sao">Example2([HEOI2013]SAO)</span></h6><p>显然给出的是一张树形图,然后每条边有一个限制表示这条边所连接的两个点哪个更大.现在给每个点一个$[ 1 , n ]$的权值且不同的点权值不同求方案数.</p>
 <p>我们随便找一个点然后当成有根树做,然后如果只有父亲小于儿子的边就是简单的多叉堆计数.不然,我们可以做一个简单容斥.这样问题就又转化回多叉堆计数,容斥部分写一个树形dp就好.</p>
-<p>补一下,这个树形dp没有那么简单.首先你注意到多叉堆计数是跟子树大小有关系的,所以你不能简单地设计<span class="math inline">\(f_{ i , j }\)</span>表示<span class="math inline">\(i\)</span>子树内选中了<span class="math inline">\(j\)</span>条边的代价,你必须加一维来处理子树大小,也就是设<span class="math inline">\(f_{ u , siz , cnt }\)</span>表示<span class="math inline">\(u\)</span>所在连通块大小为<span class="math inline">\(siz\)</span>,子树中总共选择了<span class="math inline">\(cnt\)</span>条边的代价.</p>
-<p>但是注意到这题的容斥系数是<span class="math inline">\(( - 1
-)^k\)</span>,其中<span class="math inline">\(k\)</span>是选择的儿子小于父亲的数量,然后其它的要求儿子大于父亲的边随便选.你发现你选中了一条边,无非是对答案乘以一个<span class="math inline">\(- 1\)</span>,这是没有必要记录的.因此直接以<span class="math inline">\(f_{ u , siz }\)</span>的状态转移就行.</p>
-<p>这个故事告诉我们别什么容斥都最后算,你能在做的过程中把<span class="math inline">\(- 1\)</span>乘上去就别惦记最后统一求和了.</p>
-<h5><span id="三元环计数">三元环计数</span></h5>
-<p>我们对原图建立一个新的有向图,在新图中,如果<span class="math inline">\(u \rightarrow v\)</span>,则在原图中<span class="math inline">\(\deg u &lt; \deg v\)</span>或<span class="math inline">\(\deg u = \deg v \land u &lt;
-v\)</span>.根据自然根号,每个点的出度不会超过<span class="math inline">\(O ( \sqrt{ n } )\)</span>.</p>
-<p>接下来枚举原图的一条边<span class="math inline">\(u \leftrightarrow
-v\)</span>,只要在新的图中找到<span class="math inline">\(w\)</span>满足<span class="math inline">\(u
-\rightarrow v , u \rightarrow w , v \rightarrow
-w\)</span>即可.打tag做一做,复杂度<span class="math inline">\(O ( n
-\sqrt{ n } )\)</span>.</p>
-<h5><span id="四元环计数">四元环计数</span></h5>
-<p>仍然类似三元环计数那样建立新图.</p>
-<p>考虑原图中的两条边<span class="math inline">\(u \leftrightarrow
-v\)</span>和<span class="math inline">\(u \leftrightarrow v
-&#39;\)</span>,我们考虑对四元环中度数最大的那个点<span class="math inline">\(w\)</span>计数,对于这个<span class="math inline">\(w\)</span>统计一个tag表示形如<span class="math inline">\(u \leftrightarrow v \rightarrow
-w\)</span>的数量,每次改变<span class="math inline">\(u\)</span>的时候清空一下全图tag.</p>
-<h5><span id="有标号dag计数">有标号DAG计数</span></h5>
-<p>即:</p>
-$$
-<span class="math display">\[\begin{aligned}
-f_n &amp; = \sum_{ k = 1 }^n \binom{ n }{ k } ( - 1 )^{ k - 1 } 2^{ k (
-n - k ) } f_{ n - k } \\
-
-\end{aligned}\]</span>
-<p>$$</p>
-<p>证明见反演与容斥-子集反演-Example2.</p>
-<h6><span id="example1qoj5749">Example1(qoj5749)</span></h6>
-<p>注意到一个环内部不能有任何边,那么其实也就是有标号DAG计数,只不过要乘上一个斯特林数.不妨设<span class="math inline">\(g_{ n , m }\)</span>为<span class="math inline">\(n\)</span>个点<span class="math inline">\(m\)</span>条边的答案,再设<span class="math inline">\(G_n\)</span>为其生成函数.事实上,我们自然有:</p>
-$$
-<span class="math display">\[\begin{aligned}
-G_n &amp; = \sum_{ k = 1 } \binom{ n }{ k } \sum_{ j = 1 }^k{ k \brack j
-} ( - 1 )^{ j - 1 } ( 1 + z )^{ k ( n - k ) } G_{ n - k } \\
-&amp; = \sum_{ k = 1 } \binom{ n }{ k } ( 1 + z )^{ k ( n - k ) } G_{ n
-- k } \sum_{ j = 1 }^k{ k \brack j } ( - 1 )^{ j - 1 } \\
-
-\end{aligned}\]</span>
-<p>$$</p>
-<p>逆用斯特林公式,如果<span class="math inline">\(n \geq 1\)</span>:</p>
-<p><span class="math display">\[
-\sum_{ i }{ n \brack i } ( - 1 )^{ i - 1 } = ( - 1 ) \times ( - 1 )^{
-\overline{ n } } = [ n = 1 ]
-\]</span></p>
-<p>注意到<span class="math inline">\(G_1 = 1\)</span>,于是:</p>
-<p><span class="math display">\[
+<p>补一下,这个树形dp没有那么简单.首先你注意到多叉堆计数是跟子树大小有关系的,所以你不能简单地设计$f_{ i , j }$表示$i$子树内选中了$j$条边的代价,你必须加一维来处理子树大小,也就是设$f_{ u , siz , cnt }$表示$u$所在连通块大小为$siz$,子树中总共选择了$cnt$条边的代价.</p>
+<p>但是注意到这题的容斥系数是$( - 1 )^k$,其中$k$是选择的儿子小于父亲的数量,然后其它的要求儿子大于父亲的边随便选.你发现你选中了一条边,无非是对答案乘以一个$- 1$,这是没有必要记录的.因此直接以$f_{ u , siz }$的状态转移就行.</p>
+<p>这个故事告诉我们别什么容斥都最后算,你能在做的过程中把$- 1$乘上去就别惦记最后统一求和了.</p>
+<h5><span id="三元环计数">三元环计数</span></h5><p>我们对原图建立一个新的有向图,在新图中,如果$u \rightarrow v$,则在原图中$\deg u &lt; \deg v$或$\deg u = \deg v \land u &lt; v$.根据自然根号,每个点的出度不会超过$O ( \sqrt{ n } )$.</p>
+<p>接下来枚举原图的一条边$u \leftrightarrow v$,只要在新的图中找到$w$满足$u \rightarrow v , u \rightarrow w , v \rightarrow w$即可.打tag做一做,复杂度$O ( n \sqrt{ n } )$.</p>
+<h5><span id="四元环计数">四元环计数</span></h5><p>仍然类似三元环计数那样建立新图.</p>
+<p>考虑原图中的两条边$u \leftrightarrow v$和$u \leftrightarrow v ‘$,我们考虑对四元环中度数最大的那个点$w$计数,对于这个$w$统计一个tag表示形如$u \leftrightarrow v \rightarrow w$的数量,每次改变$u$的时候清空一下全图tag.</p>
+<h5><span id="有标号dag计数">有标号DAG计数</span></h5><p>即:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-G_n &amp; = n ( 1 + z )^{ n - 1 } G_{ n - 1 } \\
-&amp; = n ! ( 1 + z )^{ \frac{ n ( n - 1 ) }{ 2 } } \\
-[ z^m ] G_n &amp; = n ! \binom{ \frac{ n ( n - 1 ) }{ 2 } }{ m }
-\end{aligned}
-\]</span></p>
+f_n & = \sum_{ k = 1 }^n \binom{ n }{ k } ( - 1 )^{ k - 1 } 2^{ k ( n - k ) } f_{ n - k } \\
 
+\end{aligned}</script><p>证明见反演与容斥-子集反演-Example2.</p>
+<h6><span id="example1qoj5749">Example1(qoj5749)</span></h6><p>注意到一个环内部不能有任何边,那么其实也就是有标号DAG计数,只不过要乘上一个斯特林数.不妨设$g_{ n , m }$为$n$个点$m$条边的答案,再设$G_n$为其生成函数.事实上,我们自然有:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+G_n & = \sum_{ k = 1 } \binom{ n }{ k } \sum_{ j = 1 }^k{ k \brack j } ( - 1 )^{ j - 1 } ( 1 + z )^{ k ( n - k ) } G_{ n - k } \\
+& = \sum_{ k = 1 } \binom{ n }{ k } ( 1 + z )^{ k ( n - k ) } G_{ n - k } \sum_{ j = 1 }^k{ k \brack j } ( - 1 )^{ j - 1 } \\
+
+\end{aligned}</script><p>逆用斯特林公式,如果$n \geq 1$:</p>
+<script type="math/tex; mode=display">
+\sum_{ i }{ n \brack i } ( - 1 )^{ i - 1 } = ( - 1 ) \times ( - 1 )^{ \overline{ n } } = [ n = 1 ]</script><p>注意到$G_1 = 1$,于是:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+G_n & = n ( 1 + z )^{ n - 1 } G_{ n - 1 } \\
+& = n ! ( 1 + z )^{ \frac{ n ( n - 1 ) }{ 2 } } \\
+[ z^m ] G_n & = n ! \binom{ \frac{ n ( n - 1 ) }{ 2 } }{ m }
+\end{aligned}</script>
     </div>
 
     
