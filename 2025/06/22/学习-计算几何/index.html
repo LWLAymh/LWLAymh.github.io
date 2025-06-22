@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="LWLAymh的备忘录">
 <meta property="og:description" content="二维计算几何 参考:https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;command-block&#x2F;ji-suan-ji-he-suan-fa-hui-zong. 这一部分比较常用,知识点也比较简单,会主要聚焦于写法. 基本函数 eps 1const double eps&#x3D;1e-10 浮点数计算存在误差,因此大部分时候不能直接进行大小是否相等的判断,我们需要通过规定精度来减">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-06-22T08:57:48.685Z">
-<meta property="article:modified_time" content="2025-06-22T08:57:48.685Z">
+<meta property="article:published_time" content="2025-06-22T15:00:01.500Z">
+<meta property="article:modified_time" content="2025-06-22T15:00:01.500Z">
 <meta property="article:author" content="LWLAymh">
 <meta property="article:tag" content="OI">
 <meta name="twitter:card" content="summary">
@@ -276,7 +276,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2025-06-22 16:57:48" itemprop="dateCreated datePublished" datetime="2025-06-22T16:57:48+08:00">2025-06-22</time>
+      <time title="创建时间：2025-06-22 23:00:01" itemprop="dateCreated datePublished" datetime="2025-06-22T23:00:01+08:00">2025-06-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -333,31 +333,39 @@
 <p>存储基本的点的信息.也可以看作一个二维向量.</p>
 <h4><span id="向量内积">向量内积</span></h4>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inline</span> <span class="type">double</span> <span class="keyword">operator</span> *(<span class="type">const</span> Point &amp;A,<span class="type">const</span> Point &amp;B)&#123;</span><br><span class="line"><span class="keyword">return</span> A.x*B.x+A.y*B.y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>也就是$ = | | | | = x _a x _b + y _a y _b <span class="math inline">\(.也就等于\)</span> <span class="math inline">\(在\)</span>b <span class="math inline">\(上的投影与\)</span> $的模长的乘积.</p>
+<p>也就是<span class="math inline">\(\vec{ a } \cdot \vec{ b } = | \vec{
+a } | | \vec{ b } | \cos \theta = x_a x_b + y_a
+y_b\)</span>.也就等于<span class="math inline">\(\vec{ a
+}\)</span>在<span class="math inline">\(b\)</span>上的投影与<span class="math inline">\(\vec{ b }\)</span>的模长的乘积.</p>
 <p>内积可以用来判断夹角:</p>
 <ol type="1">
-<li><p>如果$ = 0 <span class="math inline">\(,则说明\)</span>
-$.</p></li>
-<li><p>如果$ &gt; 0 <span class="math inline">\(,则说明\)</span> <span class="math inline">\(和\)</span> $正方向的夹角小于$90 $.</p></li>
-<li><p>如果$ &lt; 0 <span class="math inline">\(,则说明\)</span> <span class="math inline">\(和\)</span> $正方向的夹角大于$90 $.</p></li>
+<li><p>如果<span class="math inline">\(\vec{ a } \cdot \vec{ b } =
+0\)</span>,则说明<span class="math inline">\(\vec{ a } \bot \vec{ b
+}\)</span>.</p></li>
+<li><p>如果<span class="math inline">\(\vec{ a } \cdot \vec{ b } &gt;
+0\)</span>,则说明<span class="math inline">\(\vec{ a }\)</span>和<span class="math inline">\(\vec{ b }\)</span>正方向的夹角小于<span class="math inline">\(90 \degree\)</span>.</p></li>
+<li><p>如果<span class="math inline">\(\vec{ a } \cdot \vec{ b } &lt;
+0\)</span>,则说明<span class="math inline">\(\vec{ a }\)</span>和<span class="math inline">\(\vec{ b }\)</span>正方向的夹角大于<span class="math inline">\(90 \degree\)</span>.</p></li>
 </ol>
 <p>两个向量同时旋转相同角度,其内积结果不变.</p>
 <h4><span id="向量叉积">向量叉积</span></h4>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="keyword">operator</span> ^(<span class="type">const</span> Point &amp;A,<span class="type">const</span> Point &amp;B)&#123;</span><br><span class="line"><span class="keyword">return</span> A.x*B.y-B.x*A.y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>也就是$ = x _a y _b - y _a x _b <span class="math inline">\(.也就等于\)</span> ,
-$两个向量张成的平行四边形(有向)的面积.</p>
+<p>也就是<span class="math inline">\(\vec{ a } \times \vec{ b } = x_a
+y_b - y_a x_b\)</span>.也就等于<span class="math inline">\(\vec{ a } ,
+\vec{ b }\)</span>两个向量张成的平行四边形(有向)的面积.</p>
 <p>叉积可以用来判断方向:</p>
 <ol type="1">
-<li><p>如果$ = 0 $,说明二者共线.</p></li>
-<li><p>如果$ &lt; 0 <span class="math inline">\(,说明从\)</span> <span class="math inline">\(到\)</span> $的方向是顺时针.</p></li>
-<li><p>如果$ &gt; 0 <span class="math inline">\(,说明从\)</span> <span class="math inline">\(到\)</span> $的方向是逆时针.</p></li>
+<li><p>如果<span class="math inline">\(\vec{ a } \times \vec{ b } =
+0\)</span>,说明二者共线.</p></li>
+<li><p>如果<span class="math inline">\(\vec{ a } \times \vec{ b } &lt;
+0\)</span>,说明从<span class="math inline">\(\vec{ a }\)</span>到<span class="math inline">\(\vec{ b }\)</span>的方向是顺时针.</p></li>
+<li><p>如果<span class="math inline">\(\vec{ a } \times \vec{ b } &gt;
+0\)</span>,说明从<span class="math inline">\(\vec{ a }\)</span>到<span class="math inline">\(\vec{ b }\)</span>的方向是逆时针.</p></li>
 </ol>
 <h4><span id="向量旋转">向量旋转</span></h4>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//插入Point内部</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> Point <span class="title">rotate</span><span class="params">(<span class="type">double</span> theta)</span></span>&#123;</span><br><span class="line"><span class="type">double</span> st=std::<span class="built_in">sin</span>(theta),<span class="type">double</span> ct=std::<span class="built_in">cos</span>(theta);</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">Point</span>(x*ct-A.y*st,A.x*st+A.y*ct);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-也就是将这个竖向量乘左乘旋转矩阵$
-<span class="math display">\[\begin{bmatrix}\cos \theta &amp; - \sin
-\theta \\ \sin \theta &amp; \cos \theta \end{bmatrix}\]</span>
-<p>$.</p>
+<p>也就是将这个竖向量乘左乘旋转矩阵<span class="math inline">\(\begin{bmatrix}\cos \theta &amp; - \sin \theta \\
+\sin \theta &amp; \cos \theta\end{bmatrix}\)</span>.</p>
 <h4><span id="line">Line</span></h4>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Line</span>&#123;</span><br><span class="line">Point a,b;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">len</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">dist</span>(a,b);<span class="comment">//计算线段长度,直线和射线基本没用</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">onl0</span><span class="params">(<span class="type">const</span> Point &amp;A,<span class="type">const</span> Line &amp;L)</span></span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">sign</span>((A-L.a)^(A-L.b))==<span class="number">0</span>;</span><br><span class="line">&#125;<span class="comment">//判断点是否在直线上</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">onl2</span><span class="params">(<span class="type">const</span> Point &amp;A,<span class="type">const</span> Line &amp;L)</span></span>&#123;</span><br><span class="line"><span class="keyword">return</span> (<span class="built_in">sign</span>((A-L.a)^(A-L.b))==<span class="number">0</span>)&amp;&amp;</span><br><span class="line">(<span class="built_in">sign</span>(A.x-std::<span class="built_in">min</span>(L.a.x,L.b.x))&gt;=<span class="number">0</span>)&amp;&amp;</span><br><span class="line">(<span class="built_in">sign</span>(A.x-std::<span class="built_in">max</span>(L.a.x,L.b.x))&gt;=<span class="number">0</span>)&amp;&amp;</span><br><span class="line">(<span class="built_in">sign</span>(A.y-std::<span class="built_in">min</span>(L.a.y,L.b.y))&gt;=<span class="number">0</span>)&amp;&amp;</span><br><span class="line">(<span class="built_in">sign</span>(A.y-std::<span class="built_in">max</span>(L.a.y,L.b.y))&lt;=<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">&#125;<span class="comment">//判断点是否在线段上</span></span><br></pre></td></tr></table></figure>
 <p>用来维护直线/射线/线段的基本信息.</p>
@@ -368,30 +376,28 @@ $两个向量张成的平行四边形(有向)的面积.</p>
 <p>当然一般判断线段是否相交可以直接求直线交点,然后判断在不在线段上.</p>
 <h4><span id="求直线交点">求直线交点</span></h4>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Point <span class="title">inter</span><span class="params">(<span class="type">const</span> Line &amp;L1,<span class="type">const</span> Line &amp;L2)</span></span>&#123;</span><br><span class="line"><span class="type">double</span> ls=(L1.b-L1.a)^(L2.a-L1.a);</span><br><span class="line"><span class="type">double</span> rs=(L1.b-L1.a)^(L2.b-L1.a);</span><br><span class="line"><span class="keyword">return</span> L2.a+(L2.b-L2.a)*ls/(ls-rs);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>原理在于,画一下$x _{ L <em>1 } , x </em>{ L <em>2 } , y </em>{ L
-<em>1 } , y </em>{ L _2 } <span class="math inline">\(围成的四边形,计算面积后用等高不等底计算.注意\)</span>ls
-<span class="math inline">\(和\)</span>rs
-$所代表的面积一正一负(不一定谁是正),因此需要减一下.</p>
+<p>原理在于,画一下<span class="math inline">\(x_{ L_1 } , x_{ L_2 } ,
+y_{ L_1 } , y_{ L_2
+}\)</span>围成的四边形,计算面积后用等高不等底计算.注意<span class="math inline">\(ls\)</span>和<span class="math inline">\(rs\)</span>所代表的面积一正一负(不一定谁是正),因此需要减一下.</p>
 <h4><span id="点到线的最短距离">点到线的最短距离</span></h4>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">double</span> <span class="title">disl0</span><span class="params">(<span class="type">const</span> Point &amp;A,<span class="type">const</span> Line &amp;L)</span></span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">myabs</span>(((L.a-A)^(L.b-A))/<span class="built_in">dis</span>(L.a,L.b));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">double</span> <span class="title">disl2</span><span class="params">(<span class="type">const</span> Point &amp;A,<span class="type">const</span> Line &amp;L)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">sign</span>((A-L.a)*(L.b-L.a))&lt;<span class="number">0</span>)<span class="keyword">return</span> <span class="built_in">dist</span>(A,L.a);</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">sign</span>((A-L.b)*(L.a-L.b))&lt;<span class="number">0</span>)<span class="keyword">return</span> <span class="built_in">dist</span>(A,L.b);</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">disl0</span>(A,L);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>直线好做,直接算垂线段长度,用面积除以底长.</p>
 <p>线段用点积判一下夹角即可.</p>
 <h4><span id="凸多边形面积">凸多边形面积</span></h4>
-<p>利用叉乘,任取平面上一点$O <span class="math inline">\(,则\)</span>S =
-{ 2 } _{ i = 1 } ^n <span class="math inline">\(.证明的话考虑分\)</span>O <span class="math inline">\(在内部和\)</span>O <span class="math inline">\(在外部两种情况分类讨论.注意此时的\)</span>P
-$必须逆时针排列.</p>
-<p>另外有皮克定理:在一个平面直角坐标系内,以整点为顶点的简单多边形(任两边不交叉),它内部整点数为$a
-<span class="math inline">\(,它的边上(包括顶点)的整点数为\)</span>b
-<span class="math inline">\(,则它的面积\)</span>S = a + { 2 } - 1 $.</p>
+<p>利用叉乘,任取平面上一点<span class="math inline">\(O\)</span>,则<span class="math inline">\(S = \frac{ 1 }{ 2 } \sum_{ i = 1 }^n
+\overrightarrow{ OP_i } \times \overrightarrow{ OP_{ i + 1 }
+}\)</span>.证明的话考虑分<span class="math inline">\(O\)</span>在内部和<span class="math inline">\(O\)</span>在外部两种情况分类讨论.注意此时的<span class="math inline">\(P\)</span>必须逆时针排列.</p>
+<p>另外有皮克定理:在一个平面直角坐标系内,以整点为顶点的简单多边形(任两边不交叉),它内部整点数为<span class="math inline">\(a\)</span>,它的边上(包括顶点)的整点数为<span class="math inline">\(b\)</span>,则它的面积<span class="math inline">\(S
+= a + \frac{ b }{ 2 } - 1\)</span>.</p>
 <h3><span id="基本算法">基本算法</span></h3>
 <h4><span id="排序算法">排序算法</span></h4>
 <h5><span id="极角排序">极角排序</span></h5>
-<p>定义原点$O <span class="math inline">\(并建立坐标系,所有点按照和\)</span>O <span class="math inline">\(所连直线与\)</span>x $轴正方向的夹角排序.</p>
+<p>定义原点<span class="math inline">\(O\)</span>并建立坐标系,所有点按照和<span class="math inline">\(O\)</span>所连直线与<span class="math inline">\(x\)</span>轴正方向的夹角排序.</p>
 <p>极角排序通常使用叉乘来实现,因为叉乘可以快速计算两个向量的方向.但是注意到需要先判断象限,再判断叉乘.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(Point A,Point B)</span></span>&#123;<span class="comment">//判断A能否在B前面</span></span><br><span class="line">A=A-O,B=B-O;<span class="comment">//O=(0,0)的时候可以省略</span></span><br><span class="line"><span class="keyword">if</span>(A.<span class="built_in">qua</span>()!=B.<span class="built_in">qua</span>())&#123;</span><br><span class="line"><span class="keyword">return</span> A.<span class="built_in">qua</span>()&lt;B.<span class="built_in">qua</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">sign</span>(A^B)==<span class="number">0</span>)<span class="keyword">return</span> A.x&lt;B.x;</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">sign</span>(B^A)==<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5><span id="水平序排序">水平序排序</span></h5>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(Point A,Point B)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">sign</span>(A.x-B.x)==<span class="number">0</span>)<span class="keyword">return</span> <span class="built_in">sign</span>(A.y-B.y)==<span class="number">-1</span>;</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">sign</span>(A.x-B.x)==<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>也就是$x <span class="math inline">\(相同比\)</span>y <span class="math inline">\(,否则比\)</span>x $.</p>
+<p>也就是<span class="math inline">\(x\)</span>相同比<span class="math inline">\(y\)</span>,否则比<span class="math inline">\(x\)</span>.</p>
 <h4><span id="二维凸包">二维凸包</span></h4>
 <h5><span id="定义">定义</span></h5>
 <p>包住平面上某个点集的周长最小的简单多边形,一定是凸多边形.</p>
@@ -399,8 +405,7 @@ $必须逆时针排列.</p>
 <p>用水平序排序,然后从左往右扫一遍得到上凸壳,从右往左扫一遍得到下凸壳.</p>
 <p>用一下以下函数:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">bool</span> <span class="title">anticlock</span><span class="params">(<span class="type">const</span> Point &amp;A,<span class="type">const</span> Point &amp;B,<span class="type">const</span> Point &amp;C)</span></span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">sign</span>((A-B)^(B-C))==<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">bool</span> <span class="title">isline</span><span class="params">(<span class="type">const</span> Point &amp;A,<span class="type">const</span> Point &amp;B,<span class="type">const</span> Point &amp;C)</span></span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">sign</span>((A-B)^(B-C))==<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>前者判断是否$ABC <span class="math inline">\(三点是一个上凸的(注意\)</span>ABC
-$三点横坐标应该不降).后者判断三点共线.</p>
+<p>前者判断是否<span class="math inline">\(ABC\)</span>三点是一个上凸的(注意<span class="math inline">\(ABC\)</span>三点横坐标应该不降).后者判断三点共线.</p>
 <h4><span id="旋转卡壳">旋转卡壳</span></h4>
 <h5><span id="定义">定义</span></h5>
 <p>定义凸包上的对踵点对,也就是拿两条平行直线卡着凸包转,这两条直线会卡住凸包的两个点,这些点对组成的集合就是对踵点对集合.</p>
@@ -409,21 +414,20 @@ $三点横坐标应该不降).后者判断三点共线.</p>
 <h4><span id="闵可夫斯基和">闵可夫斯基和</span></h4>
 <p>一般只讨论凸包的闵可夫斯基和.</p>
 <h5><span id="定义">定义</span></h5>
-<p>两个区域$A , B <span class="math inline">\(的闵可夫斯基和定义为\)</span>{ a + b a A , b B }
-$.</p>
+<p>两个区域<span class="math inline">\(A ,
+B\)</span>的闵可夫斯基和定义为<span class="math inline">\(\{ a + b \mid
+a \in A , b \in B \}\)</span>.</p>
 <h5><span id="实现">实现</span></h5>
-<p>事实上,新的区域所形成的凸包,一定是原本$A , B
-$的凸包的边按照某种顺序连接起来得到的结果.</p>
-<p>我们考虑旋转一下$A , B <span class="math inline">\(,使得\)</span>B
-<span class="math inline">\(有一条边成为最右边的直上直下的一条边,然后考虑答案区域的最右边的边,这条边一定是\)</span>B
-<span class="math inline">\(这个边加上\)</span>A <span class="math inline">\(的最右边的点.这样这条边必定还在最终的凸包上.就算\)</span>A
-<span class="math inline">\(最右边的是一条边,你也会发现最终的凸包最右边也一定是由\)</span>A
-<span class="math inline">\(的这条边和\)</span>B $的这条边拼起来的.</p>
+<p>事实上,新的区域所形成的凸包,一定是原本<span class="math inline">\(A ,
+B\)</span>的凸包的边按照某种顺序连接起来得到的结果.</p>
+<p>我们考虑旋转一下<span class="math inline">\(A , B\)</span>,使得<span class="math inline">\(B\)</span>有一条边成为最右边的直上直下的一条边,然后考虑答案区域的最右边的边,这条边一定是<span class="math inline">\(B\)</span>这个边加上<span class="math inline">\(A\)</span>的最右边的点.这样这条边必定还在最终的凸包上.就算<span class="math inline">\(A\)</span>最右边的是一条边,你也会发现最终的凸包最右边也一定是由<span class="math inline">\(A\)</span>的这条边和<span class="math inline">\(B\)</span>的这条边拼起来的.</p>
 <p>显然,逆时针转一遍整个凸壳,将每条边改为向量(按照逆时针转的方向)然后极角排序,最后顺次链接就是答案.</p>
 <h4><span id="半平面交">半平面交</span></h4>
 <h5><span id="定义">定义</span></h5>
-<p>定义半平面为满足$ax + by + c &gt; 0 <span class="math inline">\(或\)</span>ax + by + c <span class="math inline">\(的点对\)</span>( x , y )
-$组成的集合,感性理解就是一条直线的一侧.</p>
+<p>定义半平面为满足<span class="math inline">\(ax + by + c &gt;
+0\)</span>或<span class="math inline">\(ax + by + c \geq
+0\)</span>的点对<span class="math inline">\(( x , y
+)\)</span>组成的集合,感性理解就是一条直线的一侧.</p>
 <h5><span id="实现">实现</span></h5>
 <p>首先直线不好描述左右侧,我们把直线改成向量,这样方便描述左右侧.并不妨假设所有的向量所表示的半平面在向量的左侧.如果两条向量方向相同,则取更靠左的那一条,也就是所在直线截距更大的那个,另一个直接删了就是了.当然你不想删可以把那个废物放前面,这样根据下面的操作过程中它会被弹掉.</p>
 <p>我们这么实现:按照上面的顺序一个一个插入,维护一个单调队列.如果前两条向量的交点不在当前这条向量的控制范围,不难发现上一条向量是废物,弹掉它.这样做到最后,队首和队尾可能都有一些废物向量,把它们判掉弹掉即可.</p>
@@ -431,44 +435,51 @@ $组成的集合,感性理解就是一条直线的一侧.</p>
 <p>这一部分知识点比较困难,而几乎用不到,因此只讲简单知识点,就当是高中立体几何知识补档!</p>
 <h3><span id="基本概念">基本概念</span></h3>
 <h4><span id="直线">直线</span></h4>
-<p>使用直线的方向向量$ = ( n , m , p ) <span class="math inline">\(和直线上一点\)</span>M _0 = ( x _0 , y _0 , z _0 )
-$.那么方程显然为:</p>
+<p>使用直线的方向向量<span class="math inline">\(\vec{ s } = ( n , m , p
+)\)</span>和直线上一点<span class="math inline">\(M_0 = ( x_0 , y_0 ,
+z_0 )\)</span>.那么方程显然为:</p>
 <p><span class="math display">\[
-\frac { x - x _0  } { n  } = \frac { y - y _0  } { m  } = \frac { z - z
-_0  } { p  }
+\frac{ x - x_0 }{ n } = \frac{ y - y_0 }{ m } = \frac{ z - z_0 }{ p }
 \]</span></p>
 <p>如果换元,我们还有参数方程:</p>
 <p><span class="math display">\[
 \begin{cases}
-x = x _0 + nt \\
-y = y _0 + mt \\
-z = z _0 + pt
+x = x_0 + nt \\
+y = y_0 + mt \\
+z = z_0 + pt
 \end{cases}
 \]</span></p>
 <h4><span id="平面">平面</span></h4>
-<p>使用平面上的一点$P _0 ( x _0 , y _0 , z _0 ) <span class="math inline">\(和该平面的法向量\)</span> <span class="math inline">\(来表示一个平面,不妨设\)</span> = ( A , B , C )
-$,则该平面的方程显然为:</p>
+<p>使用平面上的一点<span class="math inline">\(P_0 ( x_0 , y_0 , z_0
+)\)</span>和该平面的法向量<span class="math inline">\(\vec{ n
+}\)</span>来表示一个平面,不妨设<span class="math inline">\(\vec{ n } = (
+A , B , C )\)</span>,则该平面的方程显然为:</p>
 <p><span class="math display">\[
-A ( x - x _0 ) + B ( y - y _0 ) + C ( z - z _0 ) = 0
+A ( x - x_0 ) + B ( y - y_0 ) + C ( z - z_0 ) = 0
 \]</span></p>
-<p>如果我们令$D = - ( Ax _0 + By <em>0 + Cz </em>) $,那么平面方程为:</p>
+<p>如果我们令<span class="math inline">\(D = - ( Ax_0 + By_0 +
+Cz_)\)</span>,那么平面方程为:</p>
 <p><span class="math display">\[
 Ax + By + Cz + D = 0
 \]</span></p>
 <h4><span id="夹角">夹角</span></h4>
 <h5><span id="两直线夹角">两直线夹角.</span></h5>
 <p>直接求方向向量的夹角,然后取正值.</p>
-<p>对于方向向量分别是$ = ( n _1 , m _1 , p _1 ) , = ( n _2 , m _2 , p _2
-) <span class="math inline">\(,也就有\)</span>= ( { | _1 | | _2 | } ) \
-$.</p>
+<p>对于方向向量分别是<span class="math inline">\(\vec{ s_1 } = ( n_1 ,
+m_1 , p_1 ) , \vec{ s_2 } = ( n_2 , m_2 , p_2 )\)</span>,也就有<span class="math inline">\(\varphi = \arccos ( \frac{ | \vec{ s }_1 \cdot
+\vec{ s }_2 | }{ | \vec{ s }_1 | | \vec{ s }_2 | } ) \\\)</span>.</p>
 <h5><span id="直线与平面的夹角">直线与平面的夹角</span></h5>
-<p>同样使用向量,不妨设方向向量$ = ( n , m , p ) <span class="math inline">\(,法向量\)</span> = ( a , b , c ) <span class="math inline">\(,那么\)</span>= ( { | | | | } ) $.</p>
+<p>同样使用向量,不妨设方向向量<span class="math inline">\(\vec{ s } = (
+n , m , p )\)</span>,法向量<span class="math inline">\(\vec{ f } = ( a ,
+b , c )\)</span>,那么<span class="math inline">\(\varphi = \arcsin (
+\frac{ | \vec{ s } \cdot \vec{ f } | }{ | \vec{ s } | | \vec{ f } | }
+)\)</span>.</p>
 <p>另外,由上面这个式子,不难得到一些特殊情况下的判定标准:</p>
 <ol type="1">
-<li><p>若直线与平面平行,则$am + bn + cp = 0 $.</p></li>
-<li><p>若直线与平面垂直,则$ { m } = { n } = { p }
-$.注意这里分母可能除以$0 <span class="math inline">\(,我们实际上应该是三个形如\)</span>a = mt
-$的参数方程,这里简化了.</p></li>
+<li><p>若直线与平面平行,则<span class="math inline">\(am + bn + cp =
+0\)</span>.</p></li>
+<li><p>若直线与平面垂直,则<span class="math inline">\(\frac{ a }{ m } =
+\frac{ b }{ n } = \frac{ c }{ p }\)</span>.注意这里分母可能除以<span class="math inline">\(0\)</span>,我们实际上应该是三个形如<span class="math inline">\(a = mt\)</span>的参数方程,这里简化了.</p></li>
 </ol>
 <h4><span id="交点">交点</span></h4>
 <p>联立方程硬解.</p>

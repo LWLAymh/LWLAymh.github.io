@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lwlaymh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="汉诺塔问题 三个柱子,$n $个面积互不相等的有孔圆盘一开始按照面积从上往下以此增大的顺序套在其中一个柱子上. 现在每次可以将某根柱子顶端的圆盘移动到另一根柱子顶端,要求这根柱子原本没有圆盘或者柱子顶端圆盘面积大于该圆盘. 求最小移动次数,使得所有圆盘移动到另一根柱子上. 不妨令$T _n \(表示答案,显然\)T _0 &#x3D; 0 , T _1 &#x3D; 1 $. 而我们一定可以找到一种">
+    <meta name="description" content="汉诺塔问题 三个柱子,\(n\)个面积互不相等的有孔圆盘一开始按照面积从上往下以此增大的顺序套在其中一个柱子上. 现在每次可以将某根柱子顶端的圆盘移动到另一根柱子顶端,要求这根柱子原本没有圆盘或者柱子顶端圆盘面积大于该圆盘. 求最小移动次数,使得所有圆盘移动到另一根柱子上. 不妨令\(T_n\)表示答案,显然\(T_0 &#x3D; 0 , T_1 &#x3D; 1\). 而我们一定可以找到一种方案,使">
 <meta property="og:type" content="article">
 <meta property="og:title" content="递归式与和式">
 <meta property="og:url" content="http://lwlaymh.github.io/2025/06/22/%E5%AD%A6%E4%B9%A0-%E9%80%92%E5%BD%92%E5%BC%8F%E4%B8%8E%E5%92%8C%E5%BC%8F/index.html">
 <meta property="og:site_name" content="LWLAymh的备忘录">
-<meta property="og:description" content="汉诺塔问题 三个柱子,$n $个面积互不相等的有孔圆盘一开始按照面积从上往下以此增大的顺序套在其中一个柱子上. 现在每次可以将某根柱子顶端的圆盘移动到另一根柱子顶端,要求这根柱子原本没有圆盘或者柱子顶端圆盘面积大于该圆盘. 求最小移动次数,使得所有圆盘移动到另一根柱子上. 不妨令$T _n \(表示答案,显然\)T _0 &#x3D; 0 , T _1 &#x3D; 1 $. 而我们一定可以找到一种">
+<meta property="og:description" content="汉诺塔问题 三个柱子,\(n\)个面积互不相等的有孔圆盘一开始按照面积从上往下以此增大的顺序套在其中一个柱子上. 现在每次可以将某根柱子顶端的圆盘移动到另一根柱子顶端,要求这根柱子原本没有圆盘或者柱子顶端圆盘面积大于该圆盘. 求最小移动次数,使得所有圆盘移动到另一根柱子上. 不妨令\(T_n\)表示答案,显然\(T_0 &#x3D; 0 , T_1 &#x3D; 1\). 而我们一定可以找到一种方案,使">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-06-22T08:57:48.721Z">
-<meta property="article:modified_time" content="2025-06-22T08:57:48.721Z">
+<meta property="article:published_time" content="2025-06-22T15:00:01.526Z">
+<meta property="article:modified_time" content="2025-06-22T15:00:01.526Z">
 <meta property="article:author" content="LWLAymh">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary">
@@ -276,7 +276,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2025-06-22 16:57:48" itemprop="dateCreated datePublished" datetime="2025-06-22T16:57:48+08:00">2025-06-22</time>
+      <time title="创建时间：2025-06-22 23:00:01" itemprop="dateCreated datePublished" datetime="2025-06-22T23:00:01+08:00">2025-06-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -313,279 +313,302 @@
     
     <div class="post-body" itemprop="articleBody"><span id="more"></span>
 <h3><span id="汉诺塔问题">汉诺塔问题</span></h3>
-<p>三个柱子,$n
-$个面积互不相等的有孔圆盘一开始按照面积从上往下以此增大的顺序套在其中一个柱子上.</p>
+<p>三个柱子,<span class="math inline">\(n\)</span>个面积互不相等的有孔圆盘一开始按照面积从上往下以此增大的顺序套在其中一个柱子上.</p>
 <p>现在每次可以将某根柱子顶端的圆盘移动到另一根柱子顶端,要求这根柱子原本没有圆盘或者柱子顶端圆盘面积大于该圆盘.</p>
 <p>求最小移动次数,使得所有圆盘移动到另一根柱子上.</p>
-<p>不妨令$T _n <span class="math inline">\(表示答案,显然\)</span>T _0 =
-0 , T _1 = 1 $.</p>
-<p>而我们一定可以找到一种方案,使得前$n - 1 <span class="math inline">\(个圆盘先移动到其中一根柱子上,然后将最下面的圆盘移动到目标柱子,最后再把\)</span>n
-- 1 <span class="math inline">\(个圆盘移动到目标柱子.由于这是一个可行解而不一定是最优解,我们有:\)</span>T
-<em>n T </em>{ n - 1 } + 1 $.</p>
-<p>而如果我们要移动最大的圆盘,一定要保证前n-1个圆盘已经移走到一根柱子上.因此一定有:$2
-T _{ n - 1 } + 1 T _n <span class="math inline">\(.于是有\)</span>T
-<em>n = 2 T </em>{ n - 1 } + 1 $.</p>
+<p>不妨令<span class="math inline">\(T_n\)</span>表示答案,显然<span class="math inline">\(T_0 = 0 , T_1 = 1\)</span>.</p>
+<p>而我们一定可以找到一种方案,使得前<span class="math inline">\(n -
+1\)</span>个圆盘先移动到其中一根柱子上,然后将最下面的圆盘移动到目标柱子,最后再把<span class="math inline">\(n -
+1\)</span>个圆盘移动到目标柱子.由于这是一个可行解而不一定是最优解,我们有:<span class="math inline">\(T_n \leq 2 T_{ n - 1 } + 1\)</span>.</p>
+<p>而如果我们要移动最大的圆盘,一定要保证前n-1个圆盘已经移走到一根柱子上.因此一定有:<span class="math inline">\(2 T_{ n - 1 } + 1 \leq T_n\)</span>.于是有<span class="math inline">\(T_n = 2 T_{ n - 1 } + 1\)</span>.</p>
 <h4><span id="example1具体数学12">Example1(《具体数学》1.2)</span></h4>
 <p>汉诺塔问题,所有圆盘一开始均在最左边的塔A上,要将他们全都移动到最右边的塔C上,不允许在二塔之间直接移动,求最小操作次数.</p>
 <h4><span id="solution-1">Solution 1</span></h4>
-<p>考虑设$T <em>n <span class="math inline">\(为n个圆盘时的最小操作次数.假设已知\)</span>T
-</em>{ n - 1 } $,我们考虑如何移动.</p>
-<p>首先因为不能直接在AC之间移动,因此一定是先要把最大的圆盘移动到中间塔上,这一步要求先把所有圆盘移动到C上,然后需要再把这些圆盘移动回A上,因此,显然有:$T
-<em>{ n } = 3 T </em>{ n - 1 } + 2 , T _0 = 0 $.</p>
-<p>考虑如何求该式子的封闭形式,令$W _n = T _n + 1 <span class="math inline">\(,显然有\)</span>W <em>n = 3 W </em>{ n - 1 } , W
-_0 = 1 <span class="math inline">\(,显然\)</span>W _n = 3 ^n <span class="math inline">\(,有\)</span>T _n = 3 ^n - 1 $.</p>
-<p>注意到$T _n
-$刚好是三根柱子上所有合法排列的数量,并且这个过程中不可能出现某两个时刻的情况是相同的,因此1.3也可以证明.</p>
+<p>考虑设<span class="math inline">\(T_n\)</span>为n个圆盘时的最小操作次数.假设已知<span class="math inline">\(T_{ n - 1 }\)</span>,我们考虑如何移动.</p>
+<p>首先因为不能直接在AC之间移动,因此一定是先要把最大的圆盘移动到中间塔上,这一步要求先把所有圆盘移动到C上,然后需要再把这些圆盘移动回A上,因此,显然有:<span class="math inline">\(T_{ n } = 3 T_{ n - 1 } + 2 , T_0 =
+0\)</span>.</p>
+<p>考虑如何求该式子的封闭形式,令<span class="math inline">\(W_n = T_n +
+1\)</span>,显然有<span class="math inline">\(W_n = 3 W_{ n - 1 } , W_0 =
+1\)</span>,显然<span class="math inline">\(W_n = 3^n\)</span>,有<span class="math inline">\(T_n = 3^n - 1\)</span>.</p>
+<p>注意到<span class="math inline">\(T_n\)</span>刚好是三根柱子上所有合法排列的数量,并且这个过程中不可能出现某两个时刻的情况是相同的,因此1.3也可以证明.</p>
 <h4><span id="example2具体数学14">Example2(《具体数学》1.4)</span></h4>
-<p>汉诺塔问题,问是否存在一种符合规则的初始摆放方式,使得将其全部移动到其中一根柱子所用次数小于等于$2
-^n - 1 $.</p>
+<p>汉诺塔问题,问是否存在一种符合规则的初始摆放方式,使得将其全部移动到其中一根柱子所用次数小于等于<span class="math inline">\(2^n - 1\)</span>.</p>
 <h4><span id="solution-2">Solution 2</span></h4>
 <p>不存在.</p>
 <p>证明方式类似原初问题的证明,考虑最大的那个圆盘是否到达终点.如果到达则可以去掉它,用数学归纳证明不存在;如果还未到达,同样用数学归纳得到不等式.</p>
 <h4><span id="example3具体数学110">Example3(《具体数学》1.10)</span></h4>
 <p>汉诺塔问题,但是移动圆盘时只能从A移动到B,从B移动到C,从C移动到A.一开始所有圆盘都在A,求将它们全部移动到B的最小操作次数,以及将他们从B移动回A的最小操作次数.</p>
 <h4><span id="solution-3">Solution 3</span></h4>
-<p>令$Q _n <span class="math inline">\(为将n个圆盘从A移动到B的最小操作次数,令\)</span>R
-_n $为将n个圆盘从B移动回A的最小操作次数.</p>
-<p>先考虑边界情况,$Q _0 = 0 , R _0 = 0 $.</p>
-<p>我们考虑,由于柱子间在移动过程中是无区别的,因此$Q _n <span class="math inline">\(的实质是将n个圆盘移动到它的下一个柱子的最小操作次数,\)</span>R
-_n $的实质是将n个圆盘移动到它的上一个柱子的最小操作次数.</p>
+<p>令<span class="math inline">\(Q_n\)</span>为将n个圆盘从A移动到B的最小操作次数,令<span class="math inline">\(R_n\)</span>为将n个圆盘从B移动回A的最小操作次数.</p>
+<p>先考虑边界情况,<span class="math inline">\(Q_0 = 0 , R_0 =
+0\)</span>.</p>
+<p>我们考虑,由于柱子间在移动过程中是无区别的,因此<span class="math inline">\(Q_n\)</span>的实质是将n个圆盘移动到它的下一个柱子的最小操作次数,<span class="math inline">\(R_n\)</span>的实质是将n个圆盘移动到它的上一个柱子的最小操作次数.</p>
 <p>在将最大的圆盘移动到下一根柱子前,一定要先把上面的圆盘全部移动到上一根柱子上,最后再移动回来.</p>
-<p>显然有$Q <em>n = 2 R </em>{ n - 1 } + 1 , 1 n $.</p>
+<p>显然有<span class="math inline">\(Q_n = 2 R_{ n - 1 } + 1 , 1 \leq
+n\)</span>.</p>
 <p>在将最大的圆盘移动到上一根柱子前,一定要先把他移动到下一根柱子上,这个步骤要求我们把其他的圆盘移动到上一根柱子上.在这之后,我们又要把所有圆盘放到上一根柱子上来让最大圆盘到目标柱子,最后再移动回来.</p>
-<p>有$R <em>n = R </em>{ n - 1 } + 1 + Q <em>{ n - 1 } + 1 + R </em>{ n
-- 1 } = Q <em>n + Q </em>{ n - 1 } + 1 , 1 n $.</p>
+<p>有<span class="math inline">\(R_n = R_{ n - 1 } + 1 + Q_{ n - 1 } + 1
++ R_{ n - 1 } = Q_n + Q_{ n - 1 } + 1 , 1 \leq n\)</span>.</p>
 <h4><span id="example4具体数学111">Example4(《具体数学》1.11)</span></h4>
 <p>汉诺塔问题,但是每种大小的圆盘有两个,且其中一个可以摆放在另一个的上面.</p>
 <p>a.如果相同圆盘无区别,求最小操作次数.</p>
 <p>b.如果相同圆盘有区别,且最后需要还原原本二者的上下顺序,求最小操作次数.</p>
 <h4><span id="solution-4">Solution 4</span></h4>
-<p>a.仍然令$T _n <span class="math inline">\(为n对圆盘的最小操作次数,显然\)</span>T <em>n = 2 T
-</em>{ n - 1 } + 2 , T _0 = 0 <span class="math inline">\(,可解得\)</span>T _n = 2 ^{ n + 1 } - 2 $.</p>
-<p>b.令$Q <em>n <span class="math inline">\(为n对圆盘的最小操作次数,观察a问题,我们可以发现a问题转移之后,只有最下面的两个圆盘会交换顺序.而如果我们在b问题中只关注最下层两个圆盘的顺序,我们发现\)</span>Q
-<em>n = T </em>{ n - 1 } + 1 + T </em>{ n - 1 } + 1 + T <em>{ n - 1 } +
-1 + T </em>{ n - 1 } = 4 T _{ n - 1 } + 3 = 2 ^{ n + 2 } - 5 $.</p>
-<p>我们进行了四次a操作,那么次下面两个圆盘自然就顺序与原本相同了,因此这里的$Q
-_n $就是答案.</p>
+<p>a.仍然令<span class="math inline">\(T_n\)</span>为n对圆盘的最小操作次数,显然<span class="math inline">\(T_n = 2 T_{ n - 1 } + 2 , T_0 =
+0\)</span>,可解得<span class="math inline">\(T_n = 2^{ n + 1 } -
+2\)</span>.</p>
+<p>b.令<span class="math inline">\(Q_n\)</span>为n对圆盘的最小操作次数,观察a问题,我们可以发现a问题转移之后,只有最下面的两个圆盘会交换顺序.而如果我们在b问题中只关注最下层两个圆盘的顺序,我们发现<span class="math inline">\(Q_n = T_{ n - 1 } + 1 + T_{ n - 1 } + 1 + T_{ n -
+1 } + 1 + T_{ n - 1 } = 4 T_{ n - 1 } + 3 = 2^{ n + 2 } -
+5\)</span>.</p>
+<p>我们进行了四次a操作,那么次下面两个圆盘自然就顺序与原本相同了,因此这里的<span class="math inline">\(Q_n\)</span>就是答案.</p>
 <h4><span id="example5具体数学112">Example5(《具体数学》1.12)</span></h4>
-<p>类似Problem11,但第$i <span class="math inline">\(大的圆盘有\)</span>k
-_i $个.</p>
+<p>类似Problem11,但第<span class="math inline">\(i\)</span>大的圆盘有<span class="math inline">\(k_i\)</span>个.</p>
 <h4><span id="solution-5">Solution 5</span></h4>
-<p>无区别,只是$T <em>n = 2 T </em>{ n - 1 } + k _n , T _0 = 0 $.</p>
-<p>如果求封闭形式的话,显然有$T <em>n = </em>{ i = 1 } ^n 2 ^{ n - i } k
-_i $.</p>
+<p>无区别,只是<span class="math inline">\(T_n = 2 T_{ n - 1 } + k_n ,
+T_0 = 0\)</span>.</p>
+<p>如果求封闭形式的话,显然有<span class="math inline">\(T_n = \sum_{ i =
+1 }^n 2^{ n - i } k_i\)</span>.</p>
 <h3><span id="递归式的封闭形式">递归式的封闭形式</span></h3>
 <p>在上述问题中，我们已经有了以下式子：</p>
-<p>$T <em>n = 2 T </em>{ n - 1 } + 1 , n &gt; 0 , T _0 = 0 $.</p>
-<p>如果$n <span class="math inline">\(很大，那么一步一步去计算是很复杂的，现在我们想知道一种更为快速的求出\)</span>T
-_n $的方法.</p>
-<p>换句话说，我们想要把$T _n
-$表示为只与n有关的式子，我们称其为该递归式的封闭形式.</p>
+<p><span class="math inline">\(T_n = 2 T_{ n - 1 } + 1 , n &gt; 0 , T_0
+= 0\)</span>.</p>
+<p>如果<span class="math inline">\(n\)</span>很大，那么一步一步去计算是很复杂的，现在我们想知道一种更为快速的求出<span class="math inline">\(T_n\)</span>的方法.</p>
+<p>换句话说，我们想要把<span class="math inline">\(T_n\)</span>表示为只与n有关的式子，我们称其为该递归式的封闭形式.</p>
 <h4><span id="寻找循环节">寻找循环节</span></h4>
 <h5><span id="example具体数学18">Example(《具体数学》1.8)</span></h5>
-解递归式:$Q _n =
-<span class="math display">\[\begin{cases}\alpha &amp; n = 0 \\ \beta
-&amp; n = 1 \\ \frac { ( 1 + Q _{ n - 1  } )  } { Q _{ n - 2  }  } &amp;
-n &gt; 1 \end{cases}\]</span>
-<p><span class="math inline">\(,保证\)</span>n , Q _n &gt; 0 $.</p>
+<p>解递归式:<span class="math inline">\(Q_n = \begin{cases}\alpha &amp;
+n = 0 \\ \beta &amp; n = 1 \\ \frac{ ( 1 + Q_{ n - 1 } ) }{ Q_{ n - 2 }
+} &amp; n &gt; 1\end{cases}\)</span>,保证<span class="math inline">\(\forall n , Q_n &gt; 0\)</span>.</p>
 <h5><span id="solution">Solution</span></h5>
-<p>注意到$Q _2 = { } , Q _3 = { } , Q _4 = { } , Q _5 = , Q _6 = $.</p>
-<p>显然该递归式存在长度为$5 $的循环节.</p>
+<p>注意到<span class="math inline">\(Q_2 = \frac{ \beta + 1 }{ \alpha }
+, Q_3 = \frac{ \beta + \alpha + 1 }{ \beta \alpha } , Q_4 = \frac{ 1 +
+\alpha }{ \beta } , Q_5 = \alpha , Q_6 = \beta\)</span>.</p>
+<p>显然该递归式存在长度为<span class="math inline">\(5\)</span>的循环节.</p>
 <h4><span id="数学归纳法">数学归纳法</span></h4>
-<p>观察T序列的前几项，可以发现似乎有$T _n = 2 ^n - 1 $.</p>
+<p>观察T序列的前几项，可以发现似乎有<span class="math inline">\(T_n =
+2^n - 1\)</span>.</p>
 <p>现在我们来证明它：</p>
-<p>1.该公式对于$n = 0 $成立，显然可验证.</p>
-<p>2.若该公式对$n = k <span class="math inline">\(时成立，那该公式必然对\)</span>n = k + 1
-$成立.</p>
-<p>因为有$T _{ k + 1 } = 2 T _k + 1 = 2 ^k + 2 - 1 = 2 ^{ k + 1 } - 1
-$.</p>
+<p>1.该公式对于<span class="math inline">\(n =
+0\)</span>成立，显然可验证.</p>
+<p>2.若该公式对<span class="math inline">\(n =
+k\)</span>时成立，那该公式必然对<span class="math inline">\(n = k +
+1\)</span>成立.</p>
+<p>因为有<span class="math inline">\(T_{ k + 1 } = 2 T_k + 1 = 2 \times
+2^k + 2 - 1 = 2^{ k + 1 } - 1\)</span>.</p>
 <p>以上过程被称为数学归纳法.</p>
 <h5><span id="example具体数学19">Example(《具体数学》1.9)</span></h5>
-<p>求证:$_{ i = 1 } ^n x <em>i ( { n } ) ^n , i N </em>+ , 1 i n , 0 x
-_i $.</p>
+<p>求证:<span class="math inline">\(\prod_{ i = 1 }^n x_i \leq ( \frac{
+\sum_{ i = 1 }^n x_i }{ n } )^n , \forall i \in N_+ , 1 \leq i \leq n ,
+0 \leq x_i\)</span>.</p>
 <h5><span id="solution">Solution</span></h5>
 <p>使用反向归纳法.</p>
-<p>1.$n = 2 $时,即基本不等式,显然成立.</p>
-<p>2.若该式子对$n = k $时成立,则该式子对n=2k时也成立.</p>
-<p>不妨令$A _1 = , B _1 = , A _2 = ( { k } ) , B _2 = ( { k } ) <span class="math inline">\(,显然有\)</span>A _1 A _2 , B _1 B _2 $.</p>
-<p>同时有$( { 2 } ) $.</p>
-<p>3.若该式子对$n = k <span class="math inline">\(时成立,则该式子对\)</span>n = k - 1
-$的时候也成立.</p>
-<p>令$x _k = { k - 1 } <span class="math inline">\(,有\)</span>x <em>k
-</em>{ i = 1 } ^{ k - 1 } x _i ( x _k ) ^k $.</p>
-<p>则显然$n = k - 1 $时也成立.</p>
+<p>1.<span class="math inline">\(n =
+2\)</span>时,即基本不等式,显然成立.</p>
+<p>2.若该式子对<span class="math inline">\(n =
+k\)</span>时成立,则该式子对n=2k时也成立.</p>
+<p>不妨令<span class="math inline">\(A_1 = \sqrt[k]{ \prod_{ i = 1 }^k
+x_i } , B_1 = \sqrt[k]{ \prod_{ i = k + 1 }^{ 2 k } x_i } , A_2 = (
+\frac{ \sum_{ i = 1 }^k x_i }{ k } ) , B_2 = ( \frac{ \sum_{ i = k + 1
+}^{ 2 k } x_i }{ k } )\)</span>,显然有<span class="math inline">\(A_1
+\leq A_2 , B_1 \leq B_2\)</span>.</p>
+<p>同时有<span class="math inline">\(( \frac{ A_2 + B_2 }{ 2 } ) \geq
+\sqrt{ A_2 B_2 } \geq \sqrt{ A_1 B_1 }\)</span>.</p>
+<p>3.若该式子对<span class="math inline">\(n =
+k\)</span>时成立,则该式子对<span class="math inline">\(n = k -
+1\)</span>的时候也成立.</p>
+<p>令<span class="math inline">\(x_k = \frac{ \sum_{ i = 1 }^{ k - 1 }
+x_i }{ k - 1 }\)</span>,有<span class="math inline">\(x_k \prod_{ i = 1
+}^{ k - 1 } x_i \leq ( x_k )^k\)</span>.</p>
+<p>则显然<span class="math inline">\(n = k - 1\)</span>时也成立.</p>
 <p>由1和2,我们知道了对于n是二的整数次幂的情况,该公式成立,由3,我们又可以知道该公式对于任意一个存在比他大的二的整数次幂的数成立,因此该公式成立.</p>
 <h4><span id="换元">换元</span></h4>
-<p>考虑令$U _n = T _n + 1 <span class="math inline">\(,显然有:\)</span>T
-<em>n + 1 = 2 T </em>{ n - 1 } + 2 <span class="math inline">\(.即\)</span>U <em>n = 2 U </em>{ n - 1 } <span class="math inline">\(,显然\)</span>U _n = 2 ^n <span class="math inline">\(,则\)</span>T _n = 2 ^n - 1 $.</p>
-<p>这个做法可以做掉所有形如$a _{ n + 1 } = pa _n + q
-$的递归式.我们有:</p>
+<p>考虑令<span class="math inline">\(U_n = T_n + 1\)</span>,显然有:<span class="math inline">\(T_n + 1 = 2 T_{ n - 1 } + 2\)</span>.即<span class="math inline">\(U_n = 2 U_{ n - 1 }\)</span>,显然<span class="math inline">\(U_n = 2^n\)</span>,则<span class="math inline">\(T_n = 2^n - 1\)</span>.</p>
+<p>这个做法可以做掉所有形如<span class="math inline">\(a_{ n + 1 } =
+pa_n + q\)</span>的递归式.我们有:</p>
 <p><span class="math display">\[
-a _{ n + 1  } + \frac { q  } { p - 1  } = p ( a _n + \frac { q  } { p -
-1  } )
+a_{ n + 1 } + \frac{ q }{ p - 1 } = p ( a_n + \frac{ q }{ p - 1 } )
 \]</span></p>
 <p>换元做掉这个式子.</p>
 <h4><span id="转化和式">转化和式</span></h4>
-<p>考虑递归式$a _n T _n = b <em>n T </em>{ n - 1 } + c _n <span class="math inline">\(.如果我们能找到一个不为0的求和因子\)</span>s _n
-<span class="math inline">\(并满足\)</span>s <em>n b <em>n = s </em>{ n
-- 1 } a </em>{ n - 1 } <span class="math inline">\(.那么我们两面同时乘以\)</span>s _n <span class="math inline">\(,显然有：\)</span>s <em>n a <em>n T <em>n = s
-</em>{ n - 1 } a </em>{ n - 1 } T </em>{ n - 1 } + c _n s _n $.</p>
-<p>令$S _n = s _n a _n T _n <span class="math inline">\(.显然有\)</span>S _n = s _0 a _0 T <em>0 + </em>{
-i = 1 } ^n s _i c _i <span class="math inline">\(,则\)</span>T _n = { s
-_n a _n } $.</p>
-<p>而我们也会发现$s <em>n = { </em>{ i = 1 } ^n b _i } $.</p>
+<p>考虑递归式<span class="math inline">\(a_n T_n = b_n T_{ n - 1 } +
+c_n\)</span>.如果我们能找到一个不为0的求和因子<span class="math inline">\(s_n\)</span>并满足<span class="math inline">\(s_n
+b_n = s_{ n - 1 } a_{ n - 1 }\)</span>.那么我们两面同时乘以<span class="math inline">\(s_n\)</span>,显然有：<span class="math inline">\(s_n a_n T_n = s_{ n - 1 } a_{ n - 1 } T_{ n - 1 }
++ c_n s_n\)</span>.</p>
+<p>令<span class="math inline">\(S_n = s_n a_n T_n\)</span>.显然有<span class="math inline">\(S_n = s_0 a_0 T_0 + \sum_{ i = 1 }^n s_i
+c_i\)</span>,则<span class="math inline">\(T_n = \frac{ S_n }{ s_n a_n
+}\)</span>.</p>
+<p>而我们也会发现<span class="math inline">\(s_n = \frac{ \prod_{ i = 1
+}^{ n - 1 } a_i }{ \prod_{ i = 1 }^n b_i }\)</span>.</p>
 <h5><span id="example1快速排序时间复杂度">Example1(快速排序时间复杂度)</span></h5>
-<p>结论:排序$n $个数时,其期望复杂度满足:</p>
+<p>结论:排序<span class="math inline">\(n\)</span>个数时,其期望复杂度满足:</p>
 <p><span class="math display">\[
-C _n = \begin{cases}
+C_n = \begin{cases}
 0 &amp; n = 0 , 1 \\
-n + 1 + \frac { 2  } { n  } \sum _{ i = 0  } ^{ n - 1  } C _k &amp; n
-&gt; 1
+n + 1 + \frac{ 2 }{ n } \sum_{ i = 0 }^{ n - 1 } C_k &amp; n &gt; 1
 \end{cases}
 \]</span></p>
-<p>不妨考虑两边同时乘以$n $,有 $nC <em>n = n ^2 + n + 2 </em>{ i = 0 }
-^{ n - 1 } C _i , n &gt; 1 $ .</p>
-<p>显然也有$( n - 1 ) C <em>{ n - 1 } = ( n - 1 ) ^2 + n - 1 + 2 </em>{
-i = 0 } ^{ n - 2 } C _i , n &gt; 2 $.</p>
-<p>二式相消,有$nC <em>n - ( n - 1 ) C </em>{ n - 1 } = 2 n + 2 C _{ n -
-1 } , n &gt; 2 $.</p>
-<p>而同时有$C _2 = 3 <span class="math inline">\(.即:\)</span>nC <em>n =
-( n + 1 ) C </em>{ n - 1 } + 2 n , n &gt; 2 <span class="math inline">\(,可以使用转化和式的方法,两边乘以\)</span> { n ( n
-+ 1 ) } $解决.</p>
+<p>不妨考虑两边同时乘以<span class="math inline">\(n\)</span>,有 <span class="math inline">\(nC_n = n^2 + n + 2 \sum_{ i = 0 }^{ n - 1 } C_i ,
+n &gt; 1\)</span> .</p>
+<p>显然也有<span class="math inline">\(( n - 1 ) C_{ n - 1 } = ( n - 1
+)^2 + n - 1 + 2 \sum_{ i = 0 }^{ n - 2 } C_i , n &gt; 2\)</span>.</p>
+<p>二式相消,有<span class="math inline">\(nC_n - ( n - 1 ) C_{ n - 1 } =
+2 n + 2 C_{ n - 1 } , n &gt; 2\)</span>.</p>
+<p>而同时有<span class="math inline">\(C_2 = 3\)</span>.即:<span class="math inline">\(nC_n = ( n + 1 ) C_{ n - 1 } + 2 n , n &gt;
+2\)</span>,可以使用转化和式的方法,两边乘以<span class="math inline">\(\frac{ 1 }{ n ( n + 1 ) }\)</span>解决.</p>
 <h5><span id="example2">Example2</span></h5>
-<p>已知$a _1 = 1 <span class="math inline">\(,\)</span>a _n = + <span class="math inline">\(,求\)</span>a _n $.</p>
-<p>注意到$a _n = S <em>n - S </em>{ n - 1 } <span class="math inline">\(,则有\)</span> - = 1 <span class="math inline">\(,于是\)</span> = n <span class="math inline">\(,\)</span>S _n = n ^2 <span class="math inline">\(,\)</span>a _n = 2 n - 1 $.</p>
+<p>已知<span class="math inline">\(a_1 = 1\)</span>,<span class="math inline">\(a_n = \sqrt{ S_n } + \sqrt{ S_{ n - 1 }
+}\)</span>,求<span class="math inline">\(a_n\)</span>.</p>
+<p>注意到<span class="math inline">\(a_n = S_n - S_{ n - 1
+}\)</span>,则有<span class="math inline">\(\sqrt{ S_n } - \sqrt{ S_{ n -
+1 } } = 1\)</span>,于是<span class="math inline">\(\sqrt{ S_n } =
+n\)</span>,<span class="math inline">\(S_n = n^2\)</span>,<span class="math inline">\(a_n = 2 n - 1\)</span>.</p>
 <h4><span id="成套方法">成套方法</span></h4>
 <p>如果我们有</p>
 <p>&amp; n=1\</p>
 <p>2f(n 2)+&amp; n=2k,k\</p>
 <p>2f(2)+&amp;n=2k+1,k</p>
 <p>\end{cases}</p>
-<p>其中$n = 2 ^m + l $且$2 ^m n &lt; 2 ^{ m + 1 } $.</p>
-<p>该如何求出$f ( n ) $的封闭形式呢?</p>
-<p>由于所有的未知数都是以加法运算连接,显然有$f ( n ) = A ( n ) + B ( n )
-+ C ( n ) <span class="math inline">\(,而有\)</span>A 、 B 、 C <span class="math inline">\(互不影响且\)</span><span class="math inline">\(与\)</span>ABC $无关.</p>
-<p>那无论$<span class="math inline">\(和\)</span><span class="math inline">\(的取值如何,\)</span>A ( n ) <span class="math inline">\(都不会受到影响,我们考虑\)</span>= = 0 <span class="math inline">\(的特殊情况,此时显然有\)</span>A ( n ) = 2 ^m
-$.</p>
-<p>接下来,我们考虑取$$的特殊值,去得到ABC之间的关系.</p>
-<p>例如，当$f ( n ) = 1 <span class="math inline">\(时，由递推式可知\)</span>= 1 , = = - 1 <span class="math inline">\(,那么有\)</span>A ( n ) - B ( n ) - C ( n ) = f (
-n ) = 1 $.</p>
-<p>同理，$f ( n ) = n <span class="math inline">\(时，可知\)</span>= 1 ,
-= 0 , = 1 <span class="math inline">\(,此时有\)</span>A ( n ) + C ( n )
-= f ( n ) = n $.</p>
-<p>显然可以通过解方程求得$B ( n ) <span class="math inline">\(和\)</span>C ( n ) $.</p>
-<p>这个方法显然是通用方法,式子仅仅是例子,事实上,只要我们能证明$ABC <span class="math inline">\(互不影响且\)</span><span class="math inline">\(与\)</span>ABC $无关,我们就可以使用这个方法.</p>
+<p>其中<span class="math inline">\(n = 2^m + l\)</span>且<span class="math inline">\(2^m \leq n &lt; 2^{ m + 1 }\)</span>.</p>
+<p>该如何求出<span class="math inline">\(f ( n
+)\)</span>的封闭形式呢?</p>
+<p>由于所有的未知数都是以加法运算连接,显然有<span class="math inline">\(f ( n ) = A ( n ) \alpha + B ( n ) \beta + C ( n )
+\gamma\)</span>,而有<span class="math inline">\(A 、 B 、
+C\)</span>互不影响且<span class="math inline">\(\alpha \beta
+\gamma\)</span>与<span class="math inline">\(ABC\)</span>无关.</p>
+<p>那无论<span class="math inline">\(\beta\)</span>和<span class="math inline">\(\gamma\)</span>的取值如何,<span class="math inline">\(A ( n )\)</span>都不会受到影响,我们考虑<span class="math inline">\(\beta = \gamma =
+0\)</span>的特殊情况,此时显然有<span class="math inline">\(A ( n ) =
+2^m\)</span>.</p>
+<p>接下来,我们考虑取<span class="math inline">\(\alpha \beta
+\gamma\)</span>的特殊值,去得到ABC之间的关系.</p>
+<p>例如，当<span class="math inline">\(f ( n ) =
+1\)</span>时，由递推式可知<span class="math inline">\(\alpha = 1 , \beta
+= \gamma = - 1\)</span>,那么有<span class="math inline">\(A ( n ) - B (
+n ) - C ( n ) = f ( n ) = 1\)</span>.</p>
+<p>同理，<span class="math inline">\(f ( n ) = n\)</span>时，可知<span class="math inline">\(\alpha = 1 , \beta = 0 , \gamma =
+1\)</span>,此时有<span class="math inline">\(A ( n ) + C ( n ) = f ( n )
+= n\)</span>.</p>
+<p>显然可以通过解方程求得<span class="math inline">\(B ( n
+)\)</span>和<span class="math inline">\(C ( n )\)</span>.</p>
+<p>这个方法显然是通用方法,式子仅仅是例子,事实上,只要我们能证明<span class="math inline">\(ABC\)</span>互不影响且<span class="math inline">\(\alpha \beta \gamma\)</span>与<span class="math inline">\(ABC\)</span>无关,我们就可以使用这个方法.</p>
 <p>这个东西的原理是什么呢?显然是因为其中存在一个线性无关性对吧.</p>
 <h4><span id="线性递推">线性递推</span></h4>
-<p>一个常系数的$k $阶线性递推关系形如:</p>
+<p>一个常系数的<span class="math inline">\(k\)</span>阶线性递推关系形如:</p>
 <p><span class="math display">\[
 \begin{aligned}
-a _n &amp; = P _n + \sum _{ i = 1  } ^k c _i a _{ n - i  } , n &amp;
-\geq k \\
-a _0 &amp; = C _0 , a _1 &amp; = C _1 , . . . , a _{ k - 1  } &amp; = C
-_{ k - 1  }
+a_n &amp; = P_n + \sum_{ i = 1 }^k c_i a_{ n - i } , n &amp; \geq k \\
+a_0 &amp; = C_0 , a_1 &amp; = C_1 , . . . , a_{ k - 1 } &amp; = C_{ k -
+1 }
 \end{aligned}
 \]</span></p>
-<p>当$P = 0 $时,称作齐次线性递推.</p>
+<p>当<span class="math inline">\(P = 0\)</span>时,称作齐次线性递推.</p>
 <h5><span id="特征方程">特征方程</span></h5>
-<p>我们称方程$r ^k = _{ i = 1 } ^k c _i r ^{ k - i }
-$是该递推关系的特征方程,方程的解叫做该递推关系的特征根.</p>
+<p>我们称方程<span class="math inline">\(r^k = \sum_{ i = 1 }^k c_i r^{
+k - i
+}\)</span>是该递推关系的特征方程,方程的解叫做该递推关系的特征根.</p>
 <h5><span id="二阶线性齐次递推">二阶线性齐次递推</span></h5>
-<p>若其特征方程有两个不同的根$r _1 <span class="math inline">\(和\)</span>r _2 <span class="math inline">\(,那么存在两个常数\)</span>_1 <span class="math inline">\(和\)</span>_2 <span class="math inline">\(,满足\)</span>a _n = _1 r _1 ^n + _2 r _2 ^n
-$.</p>
-<p>若其特征方程有两个相同的根$r <span class="math inline">\(,那么存在两个常数\)</span>_1 <span class="math inline">\(和\)</span>_2 <span class="math inline">\(,满足\)</span>a _n = _1 r ^n + _2 nr ^n $.</p>
-<p>先考虑前者的证明,首先考虑对于$n = 0 <span class="math inline">\(或者\)</span>n = 1 <span class="math inline">\(的情况,我们考虑求出一组\)</span>_1 <span class="math inline">\(和\)</span>_2 $来满足:</p>
+<p>若其特征方程有两个不同的根<span class="math inline">\(r_1\)</span>和<span class="math inline">\(r_2\)</span>,那么存在两个常数<span class="math inline">\(\alpha_1\)</span>和<span class="math inline">\(\alpha_2\)</span>,满足<span class="math inline">\(a_n = \alpha_1 r_1^n + \alpha_2
+r_2^n\)</span>.</p>
+<p>若其特征方程有两个相同的根<span class="math inline">\(r\)</span>,那么存在两个常数<span class="math inline">\(\alpha_1\)</span>和<span class="math inline">\(\alpha_2\)</span>,满足<span class="math inline">\(a_n = \alpha_1 r^n + \alpha_2 nr^n\)</span>.</p>
+<p>先考虑前者的证明,首先考虑对于<span class="math inline">\(n =
+0\)</span>或者<span class="math inline">\(n =
+1\)</span>的情况,我们考虑求出一组<span class="math inline">\(\alpha_1\)</span>和<span class="math inline">\(\alpha_2\)</span>来满足:</p>
 <p><span class="math display">\[
 \begin{aligned}
-C _0 &amp; = \alpha _1 + \alpha _2 \\
-C _1 &amp; = \alpha _1 r _1 + \alpha _2 r _2
+C_0 &amp; = \alpha_1 + \alpha_2 \\
+C_1 &amp; = \alpha_1 r_1 + \alpha_2 r_2
 \end{aligned}
 \]</span></p>
-<p>若$r _1 r _2 $,可以解得:</p>
+<p>若<span class="math inline">\(r_1 \ne r_2\)</span>,可以解得:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\alpha _1 &amp; = \cfrac { C _1 - C _0 r _2  } { r _1 - r _2  } \\
-\alpha _2 &amp; = C _0 - \alpha _1
+\alpha_1 &amp; = \cfrac{ C_1 - C_0 r_2 }{ r_1 - r_2 } \\
+\alpha_2 &amp; = C_0 - \alpha_1
 \end{aligned}
 \]</span></p>
 <p>接下来考虑数学归纳:</p>
 <p><span class="math display">\[
 \begin{aligned}
-a _n &amp; = c _1 a _{ n - 1  } + c _2 a _{ n - 2  } \\
-&amp; = c _1 ( \alpha _1 r _1 ^{ n - 1  } + \alpha _2 r _2 ^{ n - 1  } )
-+ c _2 ( \alpha _1 r _1 ^{ n - 2  } + \alpha _2 r _2 ^{ n - 2  } ) \\
-&amp; = \alpha _1 ( c _1 r _1 ^{ n - 1  } + c _2 r _1 ^{ n - 2  } ) +
-\alpha _2 ( c _1 r _2 ^{ n - 1  } + c _2 r _2 ^{ n - 2  } ) \\
-&amp; = \alpha _1 r _1 ^n + \alpha _2 r _2 ^n
+a_n &amp; = c_1 a_{ n - 1 } + c_2 a_{ n - 2 } \\
+&amp; = c_1 ( \alpha_1 r_1^{ n - 1 } + \alpha_2 r_2^{ n - 1 } ) + c_2 (
+\alpha_1 r_1^{ n - 2 } + \alpha_2 r_2^{ n - 2 } ) \\
+&amp; = \alpha_1 ( c_1 r_1^{ n - 1 } + c_2 r_1^{ n - 2 } ) + \alpha_2 (
+c_1 r_2^{ n - 1 } + c_2 r_2^{ n - 2 } ) \\
+&amp; = \alpha_1 r_1^n + \alpha_2 r_2^n
 \end{aligned}
 \]</span></p>
-<p>接下来考虑后者,首先我们有$= c _1 ^2 + 4 c _2 = 0 $,考虑初始条件:</p>
+<p>接下来考虑后者,首先我们有<span class="math inline">\(\Delta = c_1^2 +
+4 c_2 = 0\)</span>,考虑初始条件:</p>
 $$
 <span class="math display">\[\begin{aligned}
-C _0 &amp; = \alpha _1 \\
-C _1 &amp; = \alpha _1 r + \alpha _2 r \\
+C_0 &amp; = \alpha_1 \\
+C_1 &amp; = \alpha_1 r + \alpha_2 r \\
 
 \end{aligned}\]</span>
 <p>$$</p>
 <p>接下来我们考虑数学归纳:</p>
 <p><span class="math display">\[
 \begin{aligned}
-a _n &amp; = c _1 a _{ n - 1  } + c _2 a _{ n - 2  } \\
-&amp; = c _1 ( \alpha _1 r ^{ n - 1  } + \alpha _2 nr ^{ n - 1  } -
-\alpha _2 r ^{ n - 1  } ) + c _2 ( \alpha _1 r ^{ n - 2  } + \alpha _2
-nr ^{ n - 2  } - 2 \alpha _2 r ^{ n - 2  } ) \\
-&amp; = a _n - c _1 \alpha _2 r ^{ n - 1  } - 2 c _2 \alpha _2 r ^{ n -
-2  }
+a_n &amp; = c_1 a_{ n - 1 } + c_2 a_{ n - 2 } \\
+&amp; = c_1 ( \alpha_1 r^{ n - 1 } + \alpha_2 nr^{ n - 1 } - \alpha_2
+r^{ n - 1 } ) + c_2 ( \alpha_1 r^{ n - 2 } + \alpha_2 nr^{ n - 2 } - 2
+\alpha_2 r^{ n - 2 } ) \\
+&amp; = a_n - c_1 \alpha_2 r^{ n - 1 } - 2 c_2 \alpha_2 r^{ n - 2 }
 \end{aligned}
 \]</span></p>
-<p>我们接下来只需证明$c _1 r + 2 c _2 = 0 <span class="math inline">\(即可.根据方程,不难发现\)</span>r = { 2 } <span class="math inline">\(,根据\)</span>= 0 $,自然得证.</p>
+<p>我们接下来只需证明<span class="math inline">\(c_1 r + 2 c_2 =
+0\)</span>即可.根据方程,不难发现<span class="math inline">\(r = \cfrac{
+c_1 }{ 2 }\)</span>,根据<span class="math inline">\(\Delta =
+0\)</span>,自然得证.</p>
 <h5><span id="更一般的情况">更一般的情况</span></h5>
-<p>直接在复数域上定义$f <em>k ( x ) = { n ^k x ^n } </em>{ n = 0 }
-^$,此时我们规定$0 ^0 = 1 <span class="math inline">\(.特别地,当\)</span>x = 0 <span class="math inline">\(的时候,定义\)</span>f <em>k ( x ) <span class="math inline">\(的第\)</span>k $项是$1 $,其余项是$0 <span class="math inline">\(.在此基础上定义线性映射\)</span>T : ( a <em>n )
-</em>{ n = 0 } ^( a </em>{ n + 1 } ) _{ n = 0 } ^<span class="math inline">\(,立刻见到:\)</span>( T - x ) ^{ k + 1 } f _k ( x )
-= 0 , ( T - x ) ^k f _k ( x ) <span class="math inline">\(.原因只需简单数学归纳.而此还可以引出\)</span>f _0
-( x ) , f _1 ( x ) , $线性无关.</p>
-<p>在此基础上观察线性递推$a <em>{ n + d } = c </em>{ d - 1 } a _{ n + d
-- 1 } + + c <em>0 a <em>n <span class="math inline">\(,不妨取\)</span>G
-( x ) = x ^d - c </em>{ d - 1 } x ^{ d - 1 } - - c <em>0 <span class="math inline">\(,立刻应当见到如果\)</span>a <span class="math inline">\(是\)</span>G <span class="math inline">\(的根并且重数为\)</span>e ( a ) <span class="math inline">\(,那么\)</span>f </em>{ 0 } ( x ) , , f </em>{ e (
-a ) - 1 } ( a ) <span class="math inline">\(都在\)</span>f ( T ) <span class="math inline">\(中.这恰好是该线性递推空间的维数个.我们需要说明它们线性无关,不妨反证,假设出现了形如\)</span>_j
-w _i f _i ( y ) = _j w _j f _j ( x ) <span class="math inline">\(的情况,此时对右边直接操作若干次\)</span>( T - x )
-$就可以把右边全部消成$0 <span class="math inline">\(,在对着左边消几次就可以使得左边只留下最高次项,这个时候发现最高次项是消不掉的,原因是将每一个位置看作关于\)</span>n
-<span class="math inline">\(的多项式右边的\)</span>( T - x ) <span class="math inline">\(是不会改变左边这边的每一个位置多项式的\)</span>$,这当然意味着不可能消干净.</p>
+<p>直接在复数域上定义<span class="math inline">\(f_k ( x ) = \{ n^k x^n
+\}_{ n = 0 }^\infty\)</span>,此时我们规定<span class="math inline">\(0^0
+= 1\)</span>.特别地,当<span class="math inline">\(x =
+0\)</span>的时候,定义<span class="math inline">\(f_k ( x
+)\)</span>的第<span class="math inline">\(k\)</span>项是<span class="math inline">\(1\)</span>,其余项是<span class="math inline">\(0\)</span>.在此基础上定义线性映射<span class="math inline">\(T : ( a_n )_{ n = 0 }^\infty \mapsto ( a_{ n + 1 }
+)_{ n = 0 }^\infty\)</span>,立刻见到:<span class="math inline">\(( T - x
+)^{ k + 1 } f_k ( x ) = 0 , ( T - x )^k f_k ( x ) \ne
+0\)</span>.原因只需简单数学归纳.而此还可以引出<span class="math inline">\(f_0 ( x ) , f_1 ( x ) ,
+\cdots\)</span>线性无关.</p>
+<p>在此基础上观察线性递推<span class="math inline">\(a_{ n + d } = c_{ d
+- 1 } a_{ n + d - 1 } + \cdots + c_0 a_n\)</span>,不妨取<span class="math inline">\(G ( x ) = x^d - c_{ d - 1 } x^{ d - 1 } - \cdots -
+c_0\)</span>,立刻应当见到如果<span class="math inline">\(a\)</span>是<span class="math inline">\(G\)</span>的根并且重数为<span class="math inline">\(e ( a )\)</span>,那么<span class="math inline">\(f_{ 0 } ( x ) , \cdots , f_{ e ( a ) - 1 } ( a
+)\)</span>都在<span class="math inline">\(\ker f ( T
+)\)</span>中.这恰好是该线性递推空间的维数个.我们需要说明它们线性无关,不妨反证,假设出现了形如<span class="math inline">\(\sum_j w_i f_i ( y ) = \sum_j w_j f_j ( x
+)\)</span>的情况,此时对右边直接操作若干次<span class="math inline">\(( T
+- x )\)</span>就可以把右边全部消成<span class="math inline">\(0\)</span>,在对着左边消几次就可以使得左边只留下最高次项,这个时候发现最高次项是消不掉的,原因是将每一个位置看作关于<span class="math inline">\(n\)</span>的多项式右边的<span class="math inline">\(( T - x
+)\)</span>是不会改变左边这边的每一个位置多项式的<span class="math inline">\(\deg\)</span>,这当然意味着不可能消干净.</p>
 <h6><span id="再再进一步">再再进一步</span></h6>
-<p>我们都知道矩阵加速:也就是$ <em>{ k + 1 } = A <span class="math inline">\(,\)</span> </em>{ n } = A ^n _0 <span class="math inline">\(.而我们又知道CH定理:\)</span>p ( A ) = 0 <span class="math inline">\(,我们用多项式取膜,有\)</span>A ^n = p ( A ) F ( A
-) + G ( A ) = G ( A ) $,这就是解.</p>
+<p>我们都知道矩阵加速:也就是<span class="math inline">\(\vec{ x }_{ k +
+1 } = A \vec{ x }\)</span>,<span class="math inline">\(\vec{ x }_{ n } =
+A^n \vec{ x }_0\)</span>.而我们又知道CH定理:<span class="math inline">\(p ( A ) = 0\)</span>,我们用多项式取膜,有<span class="math inline">\(A^n = p ( A ) F ( A ) + G ( A ) = G ( A
+)\)</span>,这就是解.</p>
 <h3><span id="约瑟夫问题">约瑟夫问题</span></h3>
-<p>考虑n个人围成一圈,从第一个人开始,每隔一个人就杀掉一个人.如10个人围成一圈时,杀人的顺序是$2
-, 4 , 6 , 8 , 10 , 3 , 7 , 1 , 9 $.问最后幸存下来的人编号.</p>
+<p>考虑n个人围成一圈,从第一个人开始,每隔一个人就杀掉一个人.如10个人围成一圈时,杀人的顺序是<span class="math inline">\(2 , 4 , 6 , 8 , 10 , 3 , 7 , 1 ,
+9\)</span>.问最后幸存下来的人编号.</p>
 <p>首先一定有J(1)=1.考虑第一遍杀掉n号或者n-1号之后,对整个圆圈进行重新编号.</p>
-<p>那么当人数是偶数时,我们有$J ( 2 n ) = 2 J ( n ) - 1 <span class="math inline">\(;当人数是奇数时,我们杀掉一号,然后有\)</span>J ( 2
-n + 1 ) = 2 J ( n ) + 1 $.</p>
+<p>那么当人数是偶数时,我们有<span class="math inline">\(J ( 2 n ) = 2 J
+( n ) - 1\)</span>;当人数是奇数时,我们杀掉一号,然后有<span class="math inline">\(J ( 2 n + 1 ) = 2 J ( n ) + 1\)</span>.</p>
 <p>整理得到:</p>
 <p><span class="math display">\[
 J ( n ) = \begin{cases}
 1 &amp; n = 1 \\
-2 J ( \frac { n  } { 2  } ) - 1 &amp; n = 2 k , k \in \mathbb { N _+  }
-\\
-2 J ( \frac { n - 1  } { 2  } ) + 1 &amp; n = 2 k + 1 , k \in \mathbb {
-N _+  }
+2 J ( \frac{ n }{ 2 } ) - 1 &amp; n = 2 k , k \in \mathbb{ N_+ } \\
+2 J ( \frac{ n - 1 }{ 2 } ) + 1 &amp; n = 2 k + 1 , k \in \mathbb{ N_+ }
 \end{cases}
 \]</span></p>
-<p>仍然可以使用数学归纳，如果令$n = 2 ^m + l 且 2 ^m n &lt; 2 ^{ m + 1 }
-$.</p>
-<p>有$J ( n ) = 2 l + 1 $.</p>
-<p>要是注意力没有那么集中怎么办呢?考虑到这个东西显然和取膜有着不可分割的关系,我们不妨从$0
-$开始编号:</p>
+<p>仍然可以使用数学归纳，如果令<span class="math inline">\(n = 2^m + l
+且 2^m \leq n &lt; 2^{ m + 1 }\)</span>.</p>
+<p>有<span class="math inline">\(J ( n ) = 2 l + 1\)</span>.</p>
+<p>要是注意力没有那么集中怎么办呢?考虑到这个东西显然和取膜有着不可分割的关系,我们不妨从<span class="math inline">\(0\)</span>开始编号:</p>
 <p><span class="math display">\[
 J ( n ) = \begin{cases}
 0 &amp; n = 1 \\
-2 J ( \frac { n  } { 2  } ) &amp; n = 2 k , k \in \mathbb { N _+  } \\
-2 J ( \frac { n - 1  } { 2  } ) + 2 &amp; n = 2 k + 1 , k \in \mathbb {
-N _+  }
+2 J ( \frac{ n }{ 2 } ) &amp; n = 2 k , k \in \mathbb{ N_+ } \\
+2 J ( \frac{ n - 1 }{ 2 } ) + 2 &amp; n = 2 k + 1 , k \in \mathbb{ N_+ }
 \end{cases}
 \]</span></p>
-<p>这下相信$J ( n ) <span class="math inline">\(是多少就很显然了,将\)</span>n
-$写成二进制的形式,这个就相当于把首位$1 $抹去然后在末尾加个$0 $.</p>
+<p>这下相信<span class="math inline">\(J ( n
+)\)</span>是多少就很显然了,将<span class="math inline">\(n\)</span>写成二进制的形式,这个就相当于把首位<span class="math inline">\(1\)</span>抹去然后在末尾加个<span class="math inline">\(0\)</span>.</p>
 <h4><span id="example具体数学115">Example(《具体数学》1.15)</span></h4>
 <p>求约瑟夫问题中最后一名被杀死的人的编号.</p>
 <h4><span id="solution">Solution</span></h4>
@@ -594,51 +617,47 @@ $写成二进制的形式,这个就相当于把首位$1 $抹去然后在末尾�
 J ( n ) = \begin{cases}
 2 &amp; n = 2 \\
 1 &amp; n = 3 \\
-2 J ( \frac { n  } { 2  } ) - 1 &amp; n = 2 k + 2 , k \in \mathbb { N
-_+  } \\
-2 J ( \frac { n - 1  } { 2  } ) + 1 &amp; n = 2 k + 3 , k \in \mathbb {
-N _+  }
+2 J ( \frac{ n }{ 2 } ) - 1 &amp; n = 2 k + 2 , k \in \mathbb{ N_+ } \\
+2 J ( \frac{ n - 1 }{ 2 } ) + 1 &amp; n = 2 k + 3 , k \in \mathbb{ N_+ }
 \end{cases}
 \]</span></p>
-<p>从$0 $开始编号,自然有:</p>
+<p>从<span class="math inline">\(0\)</span>开始编号,自然有:</p>
 <p><span class="math display">\[
 J ( n ) = \begin{cases}
 1 &amp; n = 2 \\
 0 &amp; n = 3 \\
-2 J ( \frac { n  } { 2  } ) &amp; n = 2 k + 2 , k \in \mathbb { N _+  }
-\\
-2 J ( \frac { n - 1  } { 2  } ) + 2 &amp; n = 2 k + 3 , k \in \mathbb {
-N _+  }
+2 J ( \frac{ n }{ 2 } ) &amp; n = 2 k + 2 , k \in \mathbb{ N_+ } \\
+2 J ( \frac{ n - 1 }{ 2 } ) + 2 &amp; n = 2 k + 3 , k \in \mathbb{ N_+ }
 \end{cases}
 \]</span></p>
-<p>显然$J ( n ) $也可以用二进制表达其形式.</p>
+<p>显然<span class="math inline">\(J ( n
+)\)</span>也可以用二进制表达其形式.</p>
 <h2><span id="和式">和式</span></h2>
 <h3><span id="和式的基本运算">和式的基本运算</span></h3>
 <p>分配律:</p>
 <p><span class="math display">\[
-\sum _{ i \in S  } ca _i = c \sum _{ i \in S  } a _i
+\sum_{ i \in S } ca_i = c \sum_{ i \in S } a_i
 \]</span></p>
 <p>一般分配律:</p>
 <p><span class="math display">\[
-\sum _{ i  } \sum _{ j  } a _{ i  } b _j = ( \sum _{ i  } a _i ) ( \sum
-_j b _j )
+\sum_{ i } \sum_{ j } a_{ i } b_j = ( \sum_{ i } a_i ) ( \sum_j b_j )
 \]</span></p>
 <p>结合律:</p>
 <p><span class="math display">\[
-\sum _{ i \in S  } ( a _i + b _i ) = \sum _{ i \in S  } a _i + \sum _{ i
-\in S  } b _i
+\sum_{ i \in S } ( a_i + b_i ) = \sum_{ i \in S } a_i + \sum_{ i \in S }
+b_i
 \]</span></p>
 <p>交换律:</p>
 <p><span class="math display">\[
-\sum _{ i \in S  } a _i = \sum _{ p ( i ) \in S  } a _{ p ( i )  }
+\sum_{ i \in S } a_i = \sum_{ p ( i ) \in S } a_{ p ( i ) }
 \]</span></p>
 <p>交换求和顺序:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\sum _{ i  } \sum _{ j  } a _{ i , j  } [ P ( i , j ) ] &amp; = \sum _{
-j  } \sum _{ i  } a _{ i , j  } [ P ( i , j ) ] \\
-\sum _{ i = 1  } ^n \sum _{ j = i  } ^n a _{ i , j  } &amp; = \sum _{ j
-= 1  } ^n \sum _{ i = 1  } ^j a _{ i , j  }
+\sum_{ i } \sum_{ j } a_{ i , j } [ P ( i , j ) ] &amp; = \sum_{ j }
+\sum_{ i } a_{ i , j } [ P ( i , j ) ] \\
+\sum_{ i = 1 }^n \sum_{ j = i }^n a_{ i , j } &amp; = \sum_{ j = 1 }^n
+\sum_{ i = 1 }^j a_{ i , j }
 \end{aligned}
 \]</span></p>
 <h3><span id="和式的封闭形式">和式的封闭形式</span></h3>
@@ -647,30 +666,31 @@ j  } \sum _{ i  } a _{ i , j  } [ P ( i , j ) ] \\
 <p>我们有:</p>
 <p><span class="math display">\[
 \begin{aligned}
-S _n &amp; = \sum _{ i = 0  } ^n ( ai + b ) &amp; = \sum _{ i = 0  } ^n
-( a ( n - i ) + b ) \\
-2 S _n &amp; = \sum _{ i = 0  } ^n ( an + 2 b ) &amp; = an ( n + 1 ) + 2
-b ( n + 1 ) \\
-S _n &amp; = ( n + 1 ) ( \frac { an  } { 2  } + b )
+S_n &amp; = \sum_{ i = 0 }^n ( ai + b ) &amp; = \sum_{ i = 0 }^n ( a ( n
+- i ) + b ) \\
+2 S_n &amp; = \sum_{ i = 0 }^n ( an + 2 b ) &amp; = an ( n + 1 ) + 2 b (
+n + 1 ) \\
+S_n &amp; = ( n + 1 ) ( \frac{ an }{ 2 } + b )
 \end{aligned}
 \]</span></p>
 <h5><span id="example2切比雪夫单调不等式">Example2(切比雪夫单调不等式)</span></h5>
-<p>令$S = _{ 1 i &lt; j n } ( a _j - a _i ) ( b _j - b <em>i ) = </em>{
-1 j &lt; i n } ( a _j - a _i ) ( b _j - b _i ) $.</p>
-<p>考虑恒等式$[ 1 j &lt; i n ] + [ 1 i &lt; j n ] = [ 1 j , i n ] - [ 1
-i = j n ] $.</p>
+<p>令<span class="math inline">\(S = \sum_{ 1 \leq i &lt; j \leq n } (
+a_j - a_i ) ( b_j - b_i ) = \sum_{ 1 \leq j &lt; i \leq n } ( a_j - a_i
+) ( b_j - b_i )\)</span>.</p>
+<p>考虑恒等式<span class="math inline">\([ 1 \leq j &lt; i \leq n ] + [
+1 \leq i &lt; j \leq n ] = [ 1 \leq j , i \leq n ] - [ 1 \leq i = j \leq
+n ]\)</span>.</p>
 <p>那么我们有:</p>
 <p><span class="math display">\[
 \begin{aligned}
-2 S &amp; = \sum _{ 1 \leq i , j \leq n  } ( a _j - a _i ) ( b _j - b _i
-) - \sum _{ 1 \leq i = j \leq n  } ( a _j - a _i ) ( b _j - b _i ) \\
-&amp; = \sum _{ 1 \leq i , j \leq n  } ( a _j - a _i ) ( b _j - b _i )
-\\
-&amp; = 2 n \sum _{ i = 1  } ^n a _i b _i - 2 ( \sum _{ i = 1  } ^n a _i
-) ( \sum _{ j = 1  } ^n b _j ) \\
-( \sum _{ i = 1  } ^n a _i ) ( \sum _{ j = 1  } ^n b _j ) &amp; = n \sum
-_{ i = 1  } ^n a _i b _i - \sum _{ 1 \leq i &lt; j \leq n  } ( a _j - a
-_i ) ( b _j - b _i )
+2 S &amp; = \sum_{ 1 \leq i , j \leq n } ( a_j - a_i ) ( b_j - b_i ) -
+\sum_{ 1 \leq i = j \leq n } ( a_j - a_i ) ( b_j - b_i ) \\
+&amp; = \sum_{ 1 \leq i , j \leq n } ( a_j - a_i ) ( b_j - b_i ) \\
+&amp; = 2 n \sum_{ i = 1 }^n a_i b_i - 2 ( \sum_{ i = 1 }^n a_i ) (
+\sum_{ j = 1 }^n b_j ) \\
+( \sum_{ i = 1 }^n a_i ) ( \sum_{ j = 1 }^n b_j ) &amp; = n \sum_{ i = 1
+}^n a_i b_i - \sum_{ 1 \leq i &lt; j \leq n } ( a_j - a_i ) ( b_j - b_i
+)
 \end{aligned}
 \]</span></p>
 <p>显然有以下式子:</p>
@@ -681,312 +701,318 @@ _i ) ( b _j - b _i )
 <p>证明:</p>
 $$
 <span class="math display">\[\begin{aligned}
-\sum _{ 1 \leq j &lt; k \leq n  } ( a _j b _k - a _k b _j ) ^2 &amp; = (
-\sum _{ i = 1  } ^n a _i ^2 ) ( \sum _{ i = 1  } ^n b _i ^2 ) - ( \sum
-_{ i = 1  } ^n a _i b _i ) ^2 \\
+\sum_{ 1 \leq j &lt; k \leq n } ( a_j b_k - a_k b_j )^2 &amp; = ( \sum_{
+i = 1 }^n a_i^2 ) ( \sum_{ i = 1 }^n b_i^2 ) - ( \sum_{ i = 1 }^n a_i
+b_i )^2 \\
 
 \end{aligned}\]</span>
 <p>$$</p>
 <p>有:</p>
 <p><span class="math display">\[
 \begin{aligned}
-S _n &amp; = \sum _{ 1 \leq j &lt; k \leq n  } ( a _j b _k - a _k b _j )
-^2 \\
-2 S _n &amp; = \sum _{ j = 1  } ^n \sum _{ k = 1  } ^n ( a _j b _k - a
-_k b _j ) ^2 \\
-&amp; = \sum _{ j = 1  } ^n \sum _{ k = 1  } ^n ( a _j ^2 b _k ^2 - 2 a
-_j a _k b _j b _k + a _k ^2 b _j ^2 ) \\
-&amp; = 2 ( \sum _{ i = 1  } ^n a _i ^2 ) ( \sum _{ i = 1  } ^n b _i ^2
-) - 2 ( \sum _{ i = 1  } ^n a _i b _i ) ^2
+S_n &amp; = \sum_{ 1 \leq j &lt; k \leq n } ( a_j b_k - a_k b_j )^2 \\
+2 S_n &amp; = \sum_{ j = 1 }^n \sum_{ k = 1 }^n ( a_j b_k - a_k b_j )^2
+\\
+&amp; = \sum_{ j = 1 }^n \sum_{ k = 1 }^n ( a_j^2 b_k^2 - 2 a_j a_k b_j
+b_k + a_k^2 b_j^2 ) \\
+&amp; = 2 ( \sum_{ i = 1 }^n a_i^2 ) ( \sum_{ i = 1 }^n b_i^2 ) - 2 (
+\sum_{ i = 1 }^n a_i b_i )^2
 \end{aligned}
 \]</span></p>
 <h4><span id="扰动法">扰动法</span></h4>
 <h5><span id="example1等比数列求和">Example1(等比数列求和)</span></h5>
 <p><span class="math display">\[
 \begin{aligned}
-S _n &amp; = \sum _{ i = 0  } ^n ax ^i \\
-&amp; = a + \sum _{ i = 1  } ^n ax ^i \\
-&amp; = a + x \sum _{ i = 0  } ^{ n - 1  } ax ^i \\
-&amp; = a + xS _{ n - 1  }
+S_n &amp; = \sum_{ i = 0 }^n ax^i \\
+&amp; = a + \sum_{ i = 1 }^n ax^i \\
+&amp; = a + x \sum_{ i = 0 }^{ n - 1 } ax^i \\
+&amp; = a + xS_{ n - 1 }
 \end{aligned}
 \]</span></p>
-<p>而$S _{ n - 1 } + ax ^n = S <em>n = a + xS </em>{ n - 1 } <span class="math inline">\(,有\)</span>S _n + ax ^{ n + 1 } = a + xS _n , S
-_n = a { x - 1 } <span class="math inline">\(，其中\)</span>x $.</p>
+<p>而<span class="math inline">\(S_{ n - 1 } + ax^n = S_n = a + xS_{ n -
+1 }\)</span>,有<span class="math inline">\(S_n + ax^{ n + 1 } = a + xS_n
+, S_n = a \frac{ x^{ n + 1 } - 1 }{ x - 1 }\)</span>，其中<span class="math inline">\(x \ne 1\)</span>.</p>
 <h5><span id="example2平方和公式">Example2(平方和公式)</span></h5>
 <p>如果直接对该公式使用扰动法:</p>
 <p><span class="math display">\[
 \begin{aligned}
-S _n &amp; = \sum _{ i = 0  } ^n i ^2 &amp; = \sum _{ i = 0  } ^{ n -
-1  } i ^2 + n ^2 \\
-&amp; = \sum _{ i = 1  } ^n ( i - 1 ) ^2 + n ^2 \\
-&amp; = S _n - 2 \sum _{ i = 1  } ^n i + n + n ^2
+S_n &amp; = \sum_{ i = 0 }^n i^2 &amp; = \sum_{ i = 0 }^{ n - 1 } i^2 +
+n^2 \\
+&amp; = \sum_{ i = 1 }^n ( i - 1 )^2 + n^2 \\
+&amp; = S_n - 2 \sum_{ i = 1 }^n i + n + n^2
 \end{aligned}
 \]</span></p>
-<p>我们无法得到$S <em>n <span class="math inline">\(的封闭形式,但我们发现我们得到了\)</span></em>{ i =
-1 } ^n i $的封闭形式.</p>
-<p>那以此类推,我们设$W <em>n = </em>{ i = 0 } i ^3 $.</p>
+<p>我们无法得到<span class="math inline">\(S_n\)</span>的封闭形式,但我们发现我们得到了<span class="math inline">\(\sum_{ i = 1 }^n i\)</span>的封闭形式.</p>
+<p>那以此类推,我们设<span class="math inline">\(W_n = \sum_{ i = 0 }
+i^3\)</span>.</p>
 <p><span class="math display">\[
 \begin{aligned}
-W _n &amp; = \sum _{ i = 0  } ^{ n - 1  } i ^3 + n ^3 \\
-&amp; = \sum _{ i = 1  } ^n ( i - 1 ) ^3 + n ^3 \\
-&amp; = \sum _{ i = 1  } ^n i ^3 - 3 \sum _{ i = 1  } ^n i ^2 + 3 \sum
-_{ i = 1  } ^n i - n + n ^3 \\
-&amp; = W _n - 3 S _n + 3 \frac { n + n ^2  } { 2  } - n + n ^3 \\
-S _n &amp; = \frac { n + n ^2  } { 2  } - \frac { n - n ^3  } { 3  } \\
-&amp; = \frac { n + 3 n ^2 + 2 n ^3  } { 6  } \\
-&amp; = \frac { n ( 1 + 3 n + 2 n ^2 )  } { 6  } \\
-&amp; = \frac { n ( 2 n + 1 ) ( n + 1 )  } { 6  }
+W_n &amp; = \sum_{ i = 0 }^{ n - 1 } i^3 + n^3 \\
+&amp; = \sum_{ i = 1 }^n ( i - 1 )^3 + n^3 \\
+&amp; = \sum_{ i = 1 }^n i^3 - 3 \sum_{ i = 1 }^n i^2 + 3 \sum_{ i = 1
+}^n i - n + n^3 \\
+&amp; = W_n - 3 S_n + 3 \frac{ n + n^2 }{ 2 } - n + n^3 \\
+S_n &amp; = \frac{ n + n^2 }{ 2 } - \frac{ n - n^3 }{ 3 } \\
+&amp; = \frac{ n + 3 n^2 + 2 n^3 }{ 6 } \\
+&amp; = \frac{ n ( 1 + 3 n + 2 n^2 ) }{ 6 } \\
+&amp; = \frac{ n ( 2 n + 1 ) ( n + 1 ) }{ 6 }
 \end{aligned}
 \]</span></p>
 <h5><span id="example3具体数学220">Example3(《具体数学》2.20)</span></h5>
-<p>令$H <em>n = </em>{ k = 1 } ^n { k } <span class="math inline">\(,求\)</span>_{ i = 0 } ^n H _i $.</p>
+<p>令<span class="math inline">\(H_n = \sum_{ k = 1 }^n \frac{ 1 }{ k
+}\)</span>,求<span class="math inline">\(\sum_{ i = 0 }^n
+H_i\)</span>.</p>
 <h5><span id="solution3">Solution3</span></h5>
-<p>不妨考虑$<em>{ i = 0 } ^n iH </em>{ i } $的值.</p>
+<p>不妨考虑<span class="math inline">\(\sum_{ i = 0 }^n iH_{ i
+}\)</span>的值.</p>
 $$
 <span class="math display">\[\begin{aligned}
-\sum _{ i = 0  } ^n iH _{ i  } &amp; = \sum _{ i = 1  } ^n [ ( i - 1 + 1
-) H _{ i - 1  } + 1 ] \\
-&amp; = n + \sum _{ i = 0  } ^{ n - 1  } H _i + \sum _{ i = 0  } ^{ n  }
-iH _i - nH _n \\
-\sum _{ i = 0  } ^{ n - 1  } H _i &amp; = n ( H _n - 1 ) \\
-\sum _{ i = 0  } ^n H _i &amp; = ( n + 1 ) ( H _{ n + 1  } - 1 ) \\
+\sum_{ i = 0 }^n iH_{ i } &amp; = \sum_{ i = 1 }^n [ ( i - 1 + 1 ) H_{ i
+- 1 } + 1 ] \\
+&amp; = n + \sum_{ i = 0 }^{ n - 1 } H_i + \sum_{ i = 0 }^{ n } iH_i -
+nH_n \\
+\sum_{ i = 0 }^{ n - 1 } H_i &amp; = n ( H_n - 1 ) \\
+\sum_{ i = 0 }^n H_i &amp; = ( n + 1 ) ( H_{ n + 1 } - 1 ) \\
 
 \end{aligned}\]</span>
 <p>$$</p>
 <h5><span id="example4具体数学221">Example4(《具体数学》2.21)</span></h5>
-<p>求$S <em>n = </em>{ i = 0 } ^n ( - 1 ) ^{ n - i } , T <em>n = </em>{
-i = 0 } ^n ( - 1 ) ^{ n - i } i , U <em>n = </em>{ i = 0 } ^n ( - 1 ) ^{
-n - i } i ^2 $.</p>
+<p>求<span class="math inline">\(S_n = \sum_{ i = 0 }^n ( - 1 )^{ n - i
+} , T_n = \sum_{ i = 0 }^n ( - 1 )^{ n - i } i , U_n = \sum_{ i = 0 }^n
+( - 1 )^{ n - i } i^2\)</span>.</p>
 <h5><span id="solution-4">Solution 4</span></h5>
 <p><span class="math display">\[
 \begin{aligned}
-S _n &amp; = \sum _{ i = 1  } ^{ n  } ( - 1 ) ^{ n - i  } + ( - 1 ) ^n
-\\
-- S _{ n - 1  } + 1 &amp; = ( - 1 ) ^n + \sum _{ i = 0  } ^{ n - 1  } (
-- 1 ) ^{ n - 1 - i  } \\
-- S _{ n - 1  } + 1 &amp; = ( - 1 ) ^n + S _{ n - 1  } \\
-S _{ n - 1  } &amp; = \frac { 1 - ( - 1 ) ^n  } { 2  } \\
-S _n &amp; = \frac { 1 + ( - 1 ) ^n  } { 2  }
+S_n &amp; = \sum_{ i = 1 }^{ n } ( - 1 )^{ n - i } + ( - 1 )^n \\
+- S_{ n - 1 } + 1 &amp; = ( - 1 )^n + \sum_{ i = 0 }^{ n - 1 } ( - 1 )^{
+n - 1 - i } \\
+- S_{ n - 1 } + 1 &amp; = ( - 1 )^n + S_{ n - 1 } \\
+S_{ n - 1 } &amp; = \frac{ 1 - ( - 1 )^n }{ 2 } \\
+S_n &amp; = \frac{ 1 + ( - 1 )^n }{ 2 }
 \end{aligned}
 \]</span></p>
 <p><span class="math display">\[
 \begin{aligned}
-T _{ n  } &amp; = \sum _{ i = 1  } ^n ( - 1 ) ^{ n - i  } i \\
-- T _{ n - 1  } + n &amp; = \sum _{ i = 1  } ^n ( - 1 ) ^{ n - i  } ( i
-- 1 ) + \sum _{ i = 1  } ^n ( - 1 ) ^{ n - i  } \\
-- T _{ n - 1  } + n &amp; = \sum _{ i = 0  } ^{ n - 1  } ( - 1 ) ^{ n -
-i - 1  } i + \sum _{ i = 0  } ^n ( - 1 ) ^{ n - i  } - ( - 1 ) ^n \\
-- T _{ n - 1  } + n &amp; = T _{ n - 1  } + S _n - ( - 1 ) ^n \\
-n - \frac { 1 - ( - 1 ) ^n  } { 2  } &amp; = 2 T _{ n - 1  } \\
-T _n &amp; = \frac { 1  } { 2  } ( n + 1 + \frac { - 1 - ( - 1 ) ^n  } {
-2  } ) &amp; = \frac { 1  } { 2  } ( n + \frac { 1 - ( - 1 ) ^n  } {
-2  } )
+T_{ n } &amp; = \sum_{ i = 1 }^n ( - 1 )^{ n - i } i \\
+- T_{ n - 1 } + n &amp; = \sum_{ i = 1 }^n ( - 1 )^{ n - i } ( i - 1 ) +
+\sum_{ i = 1 }^n ( - 1 )^{ n - i } \\
+- T_{ n - 1 } + n &amp; = \sum_{ i = 0 }^{ n - 1 } ( - 1 )^{ n - i - 1 }
+i + \sum_{ i = 0 }^n ( - 1 )^{ n - i } - ( - 1 )^n \\
+- T_{ n - 1 } + n &amp; = T_{ n - 1 } + S_n - ( - 1 )^n \\
+n - \frac{ 1 - ( - 1 )^n }{ 2 } &amp; = 2 T_{ n - 1 } \\
+T_n &amp; = \frac{ 1 }{ 2 } ( n + 1 + \frac{ - 1 - ( - 1 )^n }{ 2 } )
+&amp; = \frac{ 1 }{ 2 } ( n + \frac{ 1 - ( - 1 )^n }{ 2 } )
 \end{aligned}
 \]</span></p>
 <p><span class="math display">\[
 \begin{aligned}
-U _n &amp; = \sum _{ i = 1  } ^n ( - 1 ) ^{ n - i  } i ^2 \\
-- U _{ n - 1  } + n ^2 &amp; = \sum _{ i = 1  } ^n ( - 1 ) ^{ n - i  } (
-i - 1 + 1 ) ^2 \\
-- U _{ n - 1  } + n ^2 &amp; = \sum _{ i = 1  } ^n ( - 1 ) ^{ n - i  } (
-i - 1 ) ^2 + 2 \sum _{ i = 1  } ^n ( - 1 ) ^{ n - i  } ( i - 1 ) + \sum
-_{ i = 1  } ^n ( - 1 ) ^{ n - i  } \\
-- U _{ n - 1  } + n ^2 &amp; = \sum _{ i = 0  } ^{ n - 1  } ( - 1 ) ^{ n
-- i - 1  } i ^2 + 2 \sum _{ i = 0  } ^{ n - 1  } ( - 1 ) ^{ n - i - 1  }
-i + \sum _{ i = 0  } ^{ n - 1  } ( - 1 ) ^{ n - i - 1  } \\
-- U _{ n - 1  } + n ^2 &amp; = U _{ n - 1  } + 2 T _{ n - 1  } + S _{ n
-- 1  } \\
-2 U _{ n - 1  } &amp; = n ^2 - 2 T _{ n - 1  } - S _{ n - 1  } \\
-2 U _{ n - 1  } &amp; = n ^2 - ( n - \frac { 1 - ( - 1 ) ^n  } { 2  } )
-- \frac { 1 - ( - 1 ) ^n  } { 2  } \\
-2 U _{ n - 1  } &amp; = n ^2 - n \\
-U _n &amp; = \frac { n ( n + 1 )  } { 2  }
+U_n &amp; = \sum_{ i = 1 }^n ( - 1 )^{ n - i } i^2 \\
+- U_{ n - 1 } + n^2 &amp; = \sum_{ i = 1 }^n ( - 1 )^{ n - i } ( i - 1 +
+1 )^2 \\
+- U_{ n - 1 } + n^2 &amp; = \sum_{ i = 1 }^n ( - 1 )^{ n - i } ( i - 1
+)^2 + 2 \sum_{ i = 1 }^n ( - 1 )^{ n - i } ( i - 1 ) + \sum_{ i = 1 }^n
+( - 1 )^{ n - i } \\
+- U_{ n - 1 } + n^2 &amp; = \sum_{ i = 0 }^{ n - 1 } ( - 1 )^{ n - i - 1
+} i^2 + 2 \sum_{ i = 0 }^{ n - 1 } ( - 1 )^{ n - i - 1 } i + \sum_{ i =
+0 }^{ n - 1 } ( - 1 )^{ n - i - 1 } \\
+- U_{ n - 1 } + n^2 &amp; = U_{ n - 1 } + 2 T_{ n - 1 } + S_{ n - 1 } \\
+2 U_{ n - 1 } &amp; = n^2 - 2 T_{ n - 1 } - S_{ n - 1 } \\
+2 U_{ n - 1 } &amp; = n^2 - ( n - \frac{ 1 - ( - 1 )^n }{ 2 } ) - \frac{
+1 - ( - 1 )^n }{ 2 } \\
+2 U_{ n - 1 } &amp; = n^2 - n \\
+U_n &amp; = \frac{ n ( n + 1 ) }{ 2 }
 \end{aligned}
 \]</span></p>
 <h4><span id="转化为递归式">转化为递归式</span></h4>
-<p>考虑和式$S <em>n = </em>{ i = 0 } ^n f ( i ) = S _{ n - 1 } + f ( n )
-\ $，显然是递归式形式.</p>
+<p>考虑和式<span class="math inline">\(S_n = \sum_{ i = 0 }^n f ( i ) =
+S_{ n - 1 } + f ( n ) \\\)</span>，显然是递归式形式.</p>
 <p>因此递归式所可以使用的方法同样可以在和式中使用.</p>
 <h5><span id="example1具体数学213">Example1(《具体数学》2.13)</span></h5>
-<p>求$_{ i = 0 } ^n ( - 1 ) ^i i ^2 \ $.</p>
+<p>求<span class="math inline">\(\sum_{ i = 0 }^n ( - 1 )^i i^2
+\\\)</span>.</p>
 <h5><span id="solution1">Solution1</span></h5>
-<p>令$S ( n ) = _{ i = 0 } ^n ( - 1 ) ^i i ^2 = S ( n - 1 ) + ( - 1 ) ^n
-n ^2 $,考虑使用成套方法.</p>
-<p>不妨令$S ( n ) = S ( n - 1 ) + ( - 1 ) ^n ( + n + n ^2 ) = A ( n ) +
-B ( n ) + C ( n ) $.</p>
-<p>令$S ( n ) = ( - 1 ) ^n n , 可 以 解 得 = - 1 , = 2 , = 0 <span class="math inline">\(,有\)</span>( - 1 ) ^n n = - A ( n ) + 2 B ( n )
-$.</p>
-<p>令$S ( n ) = ( - 1 ) ^n n ^2 , 可 以 解 得 = 1 , = - 2 , = 2 <span class="math inline">\(,有\)</span>( - 1 ) ^n n ^2 = A ( n ) - 2 B ( n )
-+ 2 C ( n ) $.</p>
-<p>显然可解得$2 C ( n ) = ( - 1 ) ^n n ^2 + ( - 1 ) ^n n , C ( n ) = ( -
-1 ) ^n { 2 } $.</p>
-<p>而原式中,$S ( n ) = C ( n ) = ( - 1 ) ^n { 2 } $.</p>
+<p>令<span class="math inline">\(S ( n ) = \sum_{ i = 0 }^n ( - 1 )^i
+i^2 = S ( n - 1 ) + ( - 1 )^n n^2\)</span>,考虑使用成套方法.</p>
+<p>不妨令<span class="math inline">\(S ( n ) = S ( n - 1 ) + ( - 1 )^n (
+\alpha + \beta n + \gamma n^2 ) = \alpha A ( n ) + \beta B ( n ) +
+\gamma C ( n )\)</span>.</p>
+<p>令<span class="math inline">\(S ( n ) = ( - 1 )^n n , 可 以 解 得
+\alpha = - 1 , \beta = 2 , \gamma = 0\)</span>,有<span class="math inline">\(( - 1 )^n n = - A ( n ) + 2 B ( n )\)</span>.</p>
+<p>令<span class="math inline">\(S ( n ) = ( - 1 )^n n^2 , 可 以 解 得
+\alpha = 1 , \beta = - 2 , \gamma = 2\)</span>,有<span class="math inline">\(( - 1 )^n n^2 = A ( n ) - 2 B ( n ) + 2 C ( n
+)\)</span>.</p>
+<p>显然可解得<span class="math inline">\(2 C ( n ) = ( - 1 )^n n^2 + ( -
+1 )^n n , C ( n ) = ( - 1 )^n \frac{ n ( n + 1 ) }{ 2 }\)</span>.</p>
+<p>而原式中,<span class="math inline">\(S ( n ) = C ( n ) = ( - 1 )^n
+\frac{ n ( n + 1 ) }{ 2 }\)</span>.</p>
 <h5><span id="example2具体数学219">Example2(《具体数学》2.19)</span></h5>
-<p>有$2 T <em>n = nT </em>{ n - 1 } + 3 n ! , T _0 = 5 <span class="math inline">\(,求\)</span>T _n $.</p>
+<p>有<span class="math inline">\(2 T_n = nT_{ n - 1 } + 3 n ! , T_0 =
+5\)</span>,求<span class="math inline">\(T_n\)</span>.</p>
 <h5><span id="solution-2">Solution 2</span></h5>
-<p>令$s _n = { n ! } <span class="math inline">\(,两边同时乘以\)</span>s
-_n <span class="math inline">\(,有\)</span> { n ! } T <em>n = { ( n - 1
-) ! } T </em>{ n - 1 } + 3 ^{ n - 1 } \ $.</p>
-<p>令$S _n = { n ! } T _n $,有:</p>
+<p>令<span class="math inline">\(s_n = \frac{ 2^{ n - 1 } }{ n !
+}\)</span>,两边同时乘以<span class="math inline">\(s_n\)</span>,有<span class="math inline">\(\frac{ 2^n }{ n ! } T_n = \frac{ 2^{ n - 1 } }{ (
+n - 1 ) ! } T_{ n - 1 } + 3 \times 2^{ n - 1 } \\\)</span>.</p>
+<p>令<span class="math inline">\(S_n = \frac{ 2^n }{ n ! }
+T_n\)</span>,有:</p>
 <p><span class="math display">\[
 \begin{aligned}
-S _n &amp; = S _{ n - 1  } + 3 \times 2 ^{ n - 1  } \\
-&amp; = 5 + 3 \sum _{ i = 0  } ^{ n - 1  } 2 ^i \\
-&amp; = 5 + 3 \times 2 ^{ n + 1  } - 3 \\
-&amp; = 3 \times 2 ^{ n  } + 2 \\
-T _n &amp; = 3 n ! + \frac { n !  } { 2 ^{ n - 1  }  }
+S_n &amp; = S_{ n - 1 } + 3 \times 2^{ n - 1 } \\
+&amp; = 5 + 3 \sum_{ i = 0 }^{ n - 1 } 2^i \\
+&amp; = 5 + 3 \times 2^{ n + 1 } - 3 \\
+&amp; = 3 \times 2^{ n } + 2 \\
+T_n &amp; = 3 n ! + \frac{ n ! }{ 2^{ n - 1 } }
 \end{aligned}
 \]</span></p>
 <h4><span id="转化为积分形式">转化为积分形式</span></h4>
 <h5><span id="example1平方和公式">Example1(平方和公式)</span></h5>
 <p>考虑先求出一个近似解,然后再求误差.</p>
-<p>考虑函数$f ( x ) = x ^2 <span class="math inline">\(,显然\)</span>_0
-^n x ^2 dx = { 3 } S _n \ $.</p>
-<p>接下来,我们考虑求得二者之间的误差,设$E _n = S _n - { 3 } \
-$,对其使用扰动法:</p>
+<p>考虑函数<span class="math inline">\(f ( x ) = x^2\)</span>,显然<span class="math inline">\(\int_0^n x^2 dx = \frac{ n^3 }{ 3 } \sim S_n
+\\\)</span>.</p>
+<p>接下来,我们考虑求得二者之间的误差,设<span class="math inline">\(E_n =
+S_n - \frac{ n^3 }{ 3 } \\\)</span>,对其使用扰动法:</p>
 <p><span class="math display">\[
 \begin{aligned}
-E _n &amp; = S _n - \frac { n ^3  } { 3  } \\
-&amp; = S _{ n - 1  } + n ^2 - \frac { ( n - 1 + 1 ) ^3  } { 3  } \\
-&amp; = S _{ n - 1  } + n ^2 - \frac { ( n - 1 ) ^3  } { 3  } - ( n - 1
-) ^2 - ( n - 1 ) - \frac { 1  } { 3  } \\
-&amp; = E _{ n - 1  } + n ^2 - n ^2 + 2 n - 1 - n + 1 - \frac { 1  } {
-3  } \\
-&amp; = E _{ n - 1  } + n - \frac { 1  } { 3  }
+E_n &amp; = S_n - \frac{ n^3 }{ 3 } \\
+&amp; = S_{ n - 1 } + n^2 - \frac{ ( n - 1 + 1 )^3 }{ 3 } \\
+&amp; = S_{ n - 1 } + n^2 - \frac{ ( n - 1 )^3 }{ 3 } - ( n - 1 )^2 - (
+n - 1 ) - \frac{ 1 }{ 3 } \\
+&amp; = E_{ n - 1 } + n^2 - n^2 + 2 n - 1 - n + 1 - \frac{ 1 }{ 3 } \\
+&amp; = E_{ n - 1 } + n - \frac{ 1 }{ 3 }
 \end{aligned}
 \]</span></p>
 <p>这样就得到了递归式,可以求得封闭形式.</p>
 <p>还有一种方法是:</p>
 <p><span class="math display">\[
 \begin{aligned}
-E _n &amp; = S _n - \int _0 ^n x ^2 dx \\
-&amp; = \sum _{ k = 1  } ^n ( k ^2 - \int _{ k - 1  } ^k x ^2 dx ) \\
-&amp; = \sum _{ k = 1  } ^n ( k ^2 - \frac { k ^3 - ( k - 1 ) ^3  } {
-3  } ) \\
-&amp; = \sum _{ k = 1  } ^n ( k - \frac { 1  } { 3  } )
+E_n &amp; = S_n - \int_0^n x^2 dx \\
+&amp; = \sum_{ k = 1 }^n ( k^2 - \int_{ k - 1 }^k x^2 dx ) \\
+&amp; = \sum_{ k = 1 }^n ( k^2 - \frac{ k^3 - ( k - 1 )^3 }{ 3 } ) \\
+&amp; = \sum_{ k = 1 }^n ( k - \frac{ 1 }{ 3 } )
 \end{aligned}
 \]</span></p>
-<p>这是一个简单的和式.而$S _n = E _n + { 3 } \ $,显然也可以求得.</p>
+<p>这是一个简单的和式.而<span class="math inline">\(S_n = E_n + \frac{
+n^3 }{ 3 } \\\)</span>,显然也可以求得.</p>
 <h5><span id="example2某浙江高考题">Example2(某浙江高考题)</span></h5>
-<p>已知$a <em>1 = 1 , a </em>{ n + 1 } - a _n = - { 3 } a _n ^2 <span class="math inline">\(,估计\)</span>a _n $的值.</p>
-<p>考虑构造一个函数$f ( n ) <span class="math inline">\(使得\)</span>f (
-n ) a <em>n <span class="math inline">\(,那我们就可以将\)</span>a </em>{
-n + 1 } - a _n f _n $.</p>
-<p>这个第一眼看上去就很有道理,而事实上也确实很有道理,原因是根据拉格朗日中值定理,$x
-_0 , f ’ ( x _0 ) = f ( n + 1 ) - f ( n ) <span class="math inline">\(,而对于增长率变化不大的函数,直接认为\)</span>f ’ (
-x _0 ) = f ’ ( n ) $是有理可循的!</p>
-<p>然后,原式子就变成了一个微分方程了,带入$f ( 1 ) = 1 <span class="math inline">\(解得\)</span>f ( n ) = { n + 2 }
-$.这个精度已经足够选出来原本的放缩题的答案了.</p>
-<p>令$a _n = { n + 2 } - b _n <span class="math inline">\(,带入化简,得到\)</span>{ b _n } $的递推式:</p>
+<p>已知<span class="math inline">\(a_1 = 1 , a_{ n + 1 } - a_n = -
+\frac{ 1 }{ 3 } a_n^2\)</span>,估计<span class="math inline">\(a_n\)</span>的值.</p>
+<p>考虑构造一个函数<span class="math inline">\(f ( n )\)</span>使得<span class="math inline">\(f ( n ) \approx a_n\)</span>,那我们就可以将<span class="math inline">\(a_{ n + 1 } - a_n \approx f_n\)</span>.</p>
+<p>这个第一眼看上去就很有道理,而事实上也确实很有道理,原因是根据拉格朗日中值定理,<span class="math inline">\(\exists x_0 \in [ n , n + 1 ] , f &#39; ( x_0 ) =
+f ( n + 1 ) - f ( n )\)</span>,而对于增长率变化不大的函数,直接认为<span class="math inline">\(f &#39; ( x_0 ) = f &#39; ( n
+)\)</span>是有理可循的!</p>
+<p>然后,原式子就变成了一个微分方程了,带入<span class="math inline">\(f (
+1 ) = 1\)</span>解得<span class="math inline">\(f ( n ) = \frac{ 3 }{ n
++ 2 }\)</span>.这个精度已经足够选出来原本的放缩题的答案了.</p>
+<p>令<span class="math inline">\(a_n = \frac{ 3 }{ n + 2 } -
+b_n\)</span>,带入化简,得到<span class="math inline">\(\{ b_n
+\}\)</span>的递推式:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\frac { 3  } { n + 3  } - b _{ n + 1  } &amp; = ( \frac { 3  } { n +
-2  } - b _n ) ( 1 - \frac { 1  } { n + 2  } + \frac { b _n  } { 3  } )
-\\
-b _{ n + 1  } - \frac { 3  } { n + 3  } &amp; = ( b _n - \frac { 3  } {
-n + 2  } ) ( \frac { n + 1  } { n + 2  } + \frac { b _n  } { 3  } ) \\
-b _1 &amp; = 0 , b _{ n + 1  } &amp; = \frac { b _n ^2  } { 3  } + \frac
-{ n  } { n + 2  } b _n + \frac { 3  } { ( n + 2 ) ^2 ( n + 3 )  }
+\frac{ 3 }{ n + 3 } - b_{ n + 1 } &amp; = ( \frac{ 3 }{ n + 2 } - b_n )
+( 1 - \frac{ 1 }{ n + 2 } + \frac{ b_n }{ 3 } ) \\
+b_{ n + 1 } - \frac{ 3 }{ n + 3 } &amp; = ( b_n - \frac{ 3 }{ n + 2 } )
+( \frac{ n + 1 }{ n + 2 } + \frac{ b_n }{ 3 } ) \\
+b_1 &amp; = 0 , b_{ n + 1 } &amp; = \frac{ b_n^2 }{ 3 } + \frac{ n }{ n
++ 2 } b_n + \frac{ 3 }{ ( n + 2 )^2 ( n + 3 ) }
 \end{aligned}
 \]</span></p>
-<p>算到这里,我们可以很轻易使用数学归纳法算出$b _n { 4 n }
-$,这个精度已经挺不错的了,但是也让人觉得很不满意,因为这个误差项怎么和估计项是同阶的啊.</p>
-<p>然后我开始估计了一下这个$b _n <span class="math inline">\(的阶,因为我其实没学过什么高超的高数技巧,所以我使用了OI的一些技巧来估计,不妨假设\)</span>b
-_n ^2 &lt; &lt; b _n $:</p>
-<p>那么这个$b _n <span class="math inline">\(是\)</span>O ( { n ^2 } )
-$级别的.</p>
-<p>如何理解这个级别?考虑别乱动$b _n $的系数,我们有:</p>
+<p>算到这里,我们可以很轻易使用数学归纳法算出<span class="math inline">\(b_n \leq \frac{ 1 }{ 4 n
+}\)</span>,这个精度已经挺不错的了,但是也让人觉得很不满意,因为这个误差项怎么和估计项是同阶的啊.</p>
+<p>然后我开始估计了一下这个<span class="math inline">\(b_n\)</span>的阶,因为我其实没学过什么高超的高数技巧,所以我使用了OI的一些技巧来估计,不妨假设<span class="math inline">\(b_n^2 &lt; &lt; b_n\)</span>:</p>
+<p>那么这个<span class="math inline">\(b_n\)</span>是<span class="math inline">\(O ( \frac{ \ln n }{ n^2 } )\)</span>级别的.</p>
+<p>如何理解这个级别?考虑别乱动<span class="math inline">\(b_n\)</span>的系数,我们有:</p>
 <p><span class="math display">\[
 \begin{aligned}
-b _{ n + 1  } &amp; = \frac { n  } { n + 2  } b _n + \frac { 1  } { n (
-n + 1 ) ( n + 2 )  } \\
-( n + 1 ) ( n + 2 ) b _{ n + 1  } &amp; = n ( n + 1 ) b _n + \frac {
-1  } { n  } \\
-g ( n ) &amp; = n ( n + 1 ) b _n , g &#39; ( n ) &amp; = \frac { 1  } {
-n  } , g ( n ) &amp; = \ln n \\
-b _n &amp; = \frac { \ln n  } { n ^2  }
+b_{ n + 1 } &amp; = \frac{ n }{ n + 2 } b_n + \frac{ 1 }{ n ( n + 1 ) (
+n + 2 ) } \\
+( n + 1 ) ( n + 2 ) b_{ n + 1 } &amp; = n ( n + 1 ) b_n + \frac{ 1 }{ n
+} \\
+g ( n ) &amp; = n ( n + 1 ) b_n , g &#39; ( n ) &amp; = \frac{ 1 }{ n }
+, g ( n ) &amp; = \ln n \\
+b_n &amp; = \frac{ \ln n }{ n^2 }
 \end{aligned}
 \]</span></p>
-<p>这警戒我们以后乱估计的时候千万别把$O ( n ^{ } ) <span class="math inline">\(和\)</span>O ( 1 ) $搞混了,警钟长鸣.</p>
-<p>这个时候大概估计一下会发现$b _n { n ( n + 1 ) } $.</p>
+<p>这警戒我们以后乱估计的时候千万别把<span class="math inline">\(O ( n^{
+\epsilon } )\)</span>和<span class="math inline">\(O ( 1
+)\)</span>搞混了,警钟长鸣.</p>
+<p>这个时候大概估计一下会发现<span class="math inline">\(b_n \leq \frac{
+3 \ln n }{ n ( n + 1 ) }\)</span>.</p>
 <h4><span id="展开和收缩">展开和收缩</span></h4>
 <h5><span id="example1平方和公式">Example1(平方和公式)</span></h5>
 <p>我们有:</p>
 <p><span class="math display">\[
 \begin{aligned}
-S _n &amp; = \sum _{ k = 1  } ^n k ^2 \\
-&amp; = \sum _{ k = 1  } ^n \sum _{ i = 1  } ^k k \\
-&amp; = \sum _{ i = 1  } ^n \sum _{ k = i  } ^n k \\
-&amp; = \sum _{ i = 1  } ^n \frac { 1  } { 2  } ( i + n ) ( n - i + 1 )
+S_n &amp; = \sum_{ k = 1 }^n k^2 \\
+&amp; = \sum_{ k = 1 }^n \sum_{ i = 1 }^k k \\
+&amp; = \sum_{ i = 1 }^n \sum_{ k = i }^n k \\
+&amp; = \sum_{ i = 1 }^n \frac{ 1 }{ 2 } ( i + n ) ( n - i + 1 ) \\
+&amp; = \sum_{ i = 1 }^n \frac{ 1 }{ 2 } ( in - i^2 + i + n^2 - ni + n )
 \\
-&amp; = \sum _{ i = 1  } ^n \frac { 1  } { 2  } ( in - i ^2 + i + n ^2 -
-ni + n ) \\
-&amp; = \frac { 1  } { 2  } ( \sum _{ i = 1  } ^n i - \sum _{ i = 1  }
-^n i ^2 + n ^3 + n ^2 ) \\
-&amp; = \frac { 1  } { 4  } n ( n + 1 ) - \frac { 1  } { 2  } S _n +
-\frac { n ^3 + n ^2  } { 2  }
+&amp; = \frac{ 1 }{ 2 } ( \sum_{ i = 1 }^n i - \sum_{ i = 1 }^n i^2 +
+n^3 + n^2 ) \\
+&amp; = \frac{ 1 }{ 4 } n ( n + 1 ) - \frac{ 1 }{ 2 } S_n + \frac{ n^3 +
+n^2 }{ 2 }
 \end{aligned}
 \]</span></p>
-<p>整理得到$S _n $.</p>
+<p>整理得到<span class="math inline">\(S_n\)</span>.</p>
 <h5><span id="example2具体数学214">Example2(《具体数学》2.14)</span></h5>
-<p>求$_{ i = 1 } ^n i 2 ^i \ $.</p>
+<p>求<span class="math inline">\(\sum_{ i = 1 }^n i 2^i \\\)</span>.</p>
 <h5><span id="solution-2">Solution 2</span></h5>
 <p><span class="math display">\[
 \begin{aligned}
-\sum _{ i = 1  } ^n i 2 ^i &amp; = \sum _{ i = 1  } ^n \sum _{ j = 1  }
-^i 2 ^i \\
-&amp; = \sum _{ j = 1  } ^n \sum _{ i = j  } ^n 2 ^i \\
-&amp; = \sum _{ j = 1  } ^n ( 2 ^{ n + 1  } - 2 ^j ) \\
-&amp; = n 2 ^{ n + 1  } - ( 2 ^{ n + 1  } - 2 ) \\
-&amp; = ( n - 1 ) 2 ^{ n + 1  } + 2
+\sum_{ i = 1 }^n i 2^i &amp; = \sum_{ i = 1 }^n \sum_{ j = 1 }^i 2^i \\
+&amp; = \sum_{ j = 1 }^n \sum_{ i = j }^n 2^i \\
+&amp; = \sum_{ j = 1 }^n ( 2^{ n + 1 } - 2^j ) \\
+&amp; = n 2^{ n + 1 } - ( 2^{ n + 1 } - 2 ) \\
+&amp; = ( n - 1 ) 2^{ n + 1 } + 2
 \end{aligned}
 \]</span></p>
 <h5><span id="example3具体数学215">Example3(《具体数学》2.15)</span></h5>
-<p>求$_{ i = 1 } ^n i ^3 \ $.</p>
+<p>求<span class="math inline">\(\sum_{ i = 1 }^n i^3 \\\)</span>.</p>
 <h5><span id="solution-3">Solution 3</span></h5>
 <p><span class="math display">\[
 \begin{aligned}
-S ( n ) &amp; = \sum _{ i = 1  } ^n i ^3 \\
-&amp; = \sum _{ i = 1  } ^n \sum _{ j = 1  } ^i i ^2 \\
-&amp; = \sum _{ j = 1  } ^n \sum _{ i = j  } ^n i ^2 \\
-&amp; = \sum _{ j = 1  } ^n ( \frac { n ( n + 1 ) ( 2 n + 1 )  } { 6  }
-- \frac { ( j - 1 ) j ( 2 j - 1 )  } { 6  } ) \\
-&amp; = \frac { n ^2 ( n + 1 ) ( 2 n + 1 )  } { 6  } - \frac { 1  } {
-3  } S ( n ) + \frac { n ( n + 1 ) ( 2 n + 1 )  } { 12  } - \frac { n (
-n + 1 )  } { 12  } \\
-S ( n ) &amp; = \frac { n ^2 ( n + 1 ) ^2  } { 4  }
+S ( n ) &amp; = \sum_{ i = 1 }^n i^3 \\
+&amp; = \sum_{ i = 1 }^n \sum_{ j = 1 }^i i^2 \\
+&amp; = \sum_{ j = 1 }^n \sum_{ i = j }^n i^2 \\
+&amp; = \sum_{ j = 1 }^n ( \frac{ n ( n + 1 ) ( 2 n + 1 ) }{ 6 } -
+\frac{ ( j - 1 ) j ( 2 j - 1 ) }{ 6 } ) \\
+&amp; = \frac{ n^2 ( n + 1 ) ( 2 n + 1 ) }{ 6 } - \frac{ 1 }{ 3 } S ( n
+) + \frac{ n ( n + 1 ) ( 2 n + 1 ) }{ 12 } - \frac{ n ( n + 1 ) }{ 12 }
+\\
+S ( n ) &amp; = \frac{ n^2 ( n + 1 )^2 }{ 4 }
 \end{aligned}
 \]</span></p>
 <h5><span id="exampleex">ExampleEX</span></h5>
-<p>求$_{ i = 1 } ^n iq ^i ( q ) $.</p>
+<p>求<span class="math inline">\(\sum_{ i = 1 }^n iq^i ( q \ne 1
+)\)</span>.</p>
 <h5><span id="solutionex">SolutionEX</span></h5>
 $$
 <span class="math display">\[\begin{aligned}
-\sum _{ i = 1  } ^n iq ^i &amp; = \sum _{ j = 1  } ^n \sum _{ i = j  }
-^n q ^i \\
-&amp; = \sum _{ j = 1  } ^n \frac { q ^j - q ^{ n + 1  }  } { 1 - q  }
-\\
-&amp; = \frac { 1  } { q - 1  } \sum _{ j = 1  } ^n ( q ^{ n + 1  } - q
-^j ) \\
-&amp; = \frac { 1  } { q - 1  } ( nq ^{ n + 1  } - \frac { q ^{ n + 1  }
-- q  } { q - 1  } ) \\
+\sum_{ i = 1 }^n iq^i &amp; = \sum_{ j = 1 }^n \sum_{ i = j }^n q^i \\
+&amp; = \sum_{ j = 1 }^n \frac{ q^j - q^{ n + 1 } }{ 1 - q } \\
+&amp; = \frac{ 1 }{ q - 1 } \sum_{ j = 1 }^n ( q^{ n + 1 } - q^j ) \\
+&amp; = \frac{ 1 }{ q - 1 } ( nq^{ n + 1 } - \frac{ q^{ n + 1 } - q }{ q
+- 1 } ) \\
 
 \end{aligned}\]</span>
 <p>$$</p>
 <h5><span id="exampleex2">ExampleEX2</span></h5>
-<p>求$_{ i = 1 } ^n ( ai + b ) q ^{ i - 1 } ( q ) $.</p>
+<p>求<span class="math inline">\(\sum_{ i = 1 }^n ( ai + b ) q^{ i - 1 }
+( q \ne 1 )\)</span>.</p>
 <h5><span id="solutionex2">SolutionEX2</span></h5>
-<p>令$A = { q - 1 } , B = { q - 1 } <span class="math inline">\(,答案为\)</span>( An + B ) q ^n - B $.</p>
+<p>令<span class="math inline">\(A = \frac{ a }{ q - 1 } , B = \frac{ b
+- A }{ q - 1 }\)</span>,答案为<span class="math inline">\(( An + B ) q^n
+- B\)</span>.</p>
 <h4><span id="有限微积分">有限微积分</span></h4>
 <h5><span id="移位算子">移位算子</span></h5>
-<p>定义移位算子$E <span class="math inline">\(，使得\)</span>Ef ( x ) =
-f ( x + 1 ) $.</p>
+<p>定义移位算子<span class="math inline">\(E\)</span>，使得<span class="math inline">\(Ef ( x ) = f ( x + 1 )\)</span>.</p>
 <h5><span id="差分算子">差分算子</span></h5>
-<p>定义差分算子$f ( x ) = f ( x + 1 ) - f ( x )
-$，类似于无限微积分中的D算子.</p>
-<p>另外,不难发现有$= E - 1 $.</p>
+<p>定义差分算子<span class="math inline">\(\Delta f ( x ) = f ( x + 1 )
+- f ( x )\)</span>，类似于无限微积分中的D算子.</p>
+<p>另外,不难发现有<span class="math inline">\(\Delta = E -
+1\)</span>.</p>
 <h5><span id="逆差分算子">逆差分算子</span></h5>
-<p>定义逆差分算子$$,可以得到有限微积分的基本定理:</p>
+<p>定义逆差分算子<span class="math inline">\(\Sigma\)</span>,可以得到有限微积分的基本定理:</p>
 $$
 <span class="math display">\[\begin{aligned}
 g ( x ) &amp; = \Delta f ( x ) \Leftrightarrow \sum g ( x ) \delta x
@@ -994,140 +1020,149 @@ g ( x ) &amp; = \Delta f ( x ) \Leftrightarrow \sum g ( x ) \delta x
 
 \end{aligned}\]</span>
 <p>$$</p>
-<p>这里的$<span class="math inline">\(又被称为不定和式,是差分等于\)</span>g
-$的一个函数类.</p>
-<p>值得一提的是,这里的$C <span class="math inline">\(与无限微积分中的\)</span>C <span class="math inline">\(有一定区别,这里的\)</span>C <span class="math inline">\(可以是满足\)</span>p ( x ) = p ( x + 1 )
-$的任意一个函数而不非得是常数函数.</p>
+<p>这里的<span class="math inline">\(\Sigma\)</span>又被称为不定和式,是差分等于<span class="math inline">\(g\)</span>的一个函数类.</p>
+<p>值得一提的是,这里的<span class="math inline">\(C\)</span>与无限微积分中的<span class="math inline">\(C\)</span>有一定区别,这里的<span class="math inline">\(C\)</span>可以是满足<span class="math inline">\(p
+( x ) = p ( x + 1 )\)</span>的任意一个函数而不非得是常数函数.</p>
 <h5><span id="定和式">定和式</span></h5>
-<p>如果$g ( x ) = f ( x ) <span class="math inline">\(,那么有\)</span>_{
-a } ^b g ( x ) x = f ( x ) | ^{ b } _a = f ( b ) - f ( a ) \ $.</p>
-<p>值得一提的是,如果$a b <span class="math inline">\(,显然有\)</span><em>{ a } ^b g ( x ) x = </em>{ x
-= a } ^{ b - 1 } g ( x ) \ $.</p>
-<p>但如果$a &gt; b <span class="math inline">\(,那么\)</span>_{ a } ^b g
-( x ) x = - _b ^a g ( x ) x \ $.</p>
-<p>事实上,我们一定有:$_a ^b g ( x ) x + _b ^c g ( x ) x = _a ^c g ( x )
-x \ $.</p>
+<p>如果<span class="math inline">\(g ( x ) = \Delta f ( x
+)\)</span>,那么有<span class="math inline">\(\sum \nolimits_{ a }^b g (
+x ) \delta x = f ( x ) |^{ b }_a = f ( b ) - f ( a ) \\\)</span>.</p>
+<p>值得一提的是,如果<span class="math inline">\(a \leq
+b\)</span>,显然有<span class="math inline">\(\sum \nolimits_{ a }^b g (
+x ) \delta x = \sum_{ x = a }^{ b - 1 } g ( x ) \\\)</span>.</p>
+<p>但如果<span class="math inline">\(a &gt; b\)</span>,那么<span class="math inline">\(\sum \nolimits_{ a }^b g ( x ) \delta x = - \sum
+\nolimits_b^a g ( x ) \delta x \\\)</span>.</p>
+<p>事实上,我们一定有:<span class="math inline">\(\sum \nolimits_a^b g (
+x ) \delta x + \sum \nolimits_b^c g ( x ) \delta x = \sum \nolimits_a^c
+g ( x ) \delta x \\\)</span>.</p>
 <h5><span id="一些基本的公式">一些基本的公式</span></h5>
-<p>类比无限微积分中的$D ( x ^m ) = mx ^{ m - 1 } $，有:</p>
+<p>类比无限微积分中的<span class="math inline">\(D ( x^m ) = mx^{ m - 1
+}\)</span>，有:</p>
 $$
 <span class="math display">\[\begin{aligned}
-\Delta ( x ^{ \underline { m  }  } ) &amp; = mx ^{ \underline { m -
-1  }  } \\
-\sum mx ^{ \underline { m - 1  }  } \delta x &amp; = x ^{ \underline {
-m  }  } + C , m \ne 0 \\
+\Delta ( x^{ \underline{ m } } ) &amp; = mx^{ \underline{ m - 1 } } \\
+\sum mx^{ \underline{ m - 1 } } \delta x &amp; = x^{ \underline{ m } } +
+C , m \ne 0 \\
 \\
 
 \end{aligned}\]</span>
 <p>$$</p>
-<p>类比无限微积分中的$D ( x ) = { x } $,有:</p>
+<p>类比无限微积分中的<span class="math inline">\(D ( \ln x ) = \frac{ 1
+}{ x }\)</span>,有:</p>
 $$
 <span class="math display">\[\begin{aligned}
-\Delta ( H ( x ) ) &amp; = x ^{ \underline { - 1  }  } &amp; = \frac {
-1  } { x + 1  } \\
-\sum x ^{ \underline { - 1  }  } \delta x &amp; = H ( x ) + C \\
+\Delta ( H ( x ) ) &amp; = x^{ \underline{ - 1 } } &amp; = \frac{ 1 }{ x
++ 1 } \\
+\sum x^{ \underline{ - 1 } } \delta x &amp; = H ( x ) + C \\
 \\
 
 \end{aligned}\]</span>
 <p>$$</p>
-<p>类比无限微积分中的$D ( e ^x ) = e ^x $,有:</p>
+<p>类比无限微积分中的<span class="math inline">\(D ( e^x ) =
+e^x\)</span>,有:</p>
 $$
 <span class="math display">\[\begin{aligned}
-\Delta ( 2 ^x ) &amp; = 2 ^x , \sum 2 ^x \delta x &amp; = 2 ^x + C \\
-\Delta ( c ^x ) &amp; = ( c - 1 ) c ^x , \sum c ^x \delta x &amp; =
-\frac { c ^x  } { c - 1  } + C , c \ne 1 \\
-\Delta ( c ^{ \underline { x  }  } ) &amp; = \frac { c ^{ \underline { x
-+ 2  }  }  } { c - x  } , \sum \frac { c ^{ \underline { x + 2  }  }  }
-{ c - x  } \delta x &amp; = c ^{ \underline { x  }  } + C , c - x \ne 0
-\\
+\Delta ( 2^x ) &amp; = 2^x , \sum 2^x \delta x &amp; = 2^x + C \\
+\Delta ( c^x ) &amp; = ( c - 1 ) c^x , \sum c^x \delta x &amp; = \frac{
+c^x }{ c - 1 } + C , c \ne 1 \\
+\Delta ( c^{ \underline{ x } } ) &amp; = \frac{ c^{ \underline{ x + 2 }
+} }{ c - x } , \sum \frac{ c^{ \underline{ x + 2 } } }{ c - x } \delta x
+&amp; = c^{ \underline{ x } } + C , c - x \ne 0 \\
 
 \end{aligned}\]</span>
 <p>$$</p>
 <p>根据组合数公式,有:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\Delta ( \binom { x  } { k  } ) &amp; = \binom { x  } { k - 1  } \\
-\sum \binom { x  } { k - 1  } \delta x &amp; = \binom { x  } { k  } + C
+\Delta ( \binom{ x }{ k } ) &amp; = \binom{ x }{ k - 1 } \\
+\sum \binom{ x }{ k - 1 } \delta x &amp; = \binom{ x }{ k } + C
 \end{aligned}
 \]</span></p>
 <h6><span id="example平方和公式">Example(平方和公式)</span></h6>
-<p>我们有:$k ^2 = k ^{ } + k ^{ } \ $.</p>
+<p>我们有:<span class="math inline">\(k^2 = k^{ \underline{ 2 } } + k^{
+\underline{ 1 } } \\\)</span>.</p>
 <p>那么:</p>
 <p><span class="math display">\[
 \begin{aligned}
-S _{ n - 1  } &amp; = \sum _{ i = 0  } ^{ n - 1  } i ^2 \\
-&amp; = \sum _{ i = 0  } ^{ n - 1  } ( i ^{ \underline { 2  }  } + i ^{
-\underline { 1  }  } ) \\
-&amp; = \sum \nolimits _{ 0  } ^n x ^{ \underline { 2  }  } \delta x +
-\sum \nolimits _{ 0  } ^n x ^{ \underline { 1  }  } \delta x \\
-&amp; = \frac { n ^\underline { 3  }  } { 3  } + \frac { n ^{ \underline
-{ 2  }  }  } { 2  }
+S_{ n - 1 } &amp; = \sum_{ i = 0 }^{ n - 1 } i^2 \\
+&amp; = \sum_{ i = 0 }^{ n - 1 } ( i^{ \underline{ 2 } } + i^{
+\underline{ 1 } } ) \\
+&amp; = \sum \nolimits_{ 0 }^n x^{ \underline{ 2 } } \delta x + \sum
+\nolimits_{ 0 }^n x^{ \underline{ 1 } } \delta x \\
+&amp; = \frac{ n^\underline{ 3 } }{ 3 } + \frac{ n^{ \underline{ 2 } }
+}{ 2 }
 \end{aligned}
 \]</span></p>
 <p>整理即可得到封闭形式.</p>
 <p>值得一提的是:</p>
 <p>与前面的方法不同，这里没有使用三次的二项式公式，而是使用了二次的斯特林公式负责将一般幂转化为下降幂.</p>
 <h5><span id="高阶差分">高阶差分</span></h5>
-<p>考虑一阶差分是$f ( x ) = f ( x + 1 ) - f ( x ) <span class="math inline">\(,那么二阶差分就是\)</span>^2 f ( x ) = f ( x + 2 )
-- 2 f ( x + 1 ) + f ( x ) $.</p>
-<p>类似地,我们可以通过归纳法证明$^n f ( x ) = _{ k } { k } ( - 1 ) ^{ n
-- k } f ( x + k ) \ $.</p>
-<p>事实上有一种更简单的证明方法,由于$= E - 1 <span class="math inline">\(,于是\)</span>^n = ( E - 1 ) ^n = _{ k } { k } ( -
-1 ) ^{ n - k } E ^k \ <span class="math inline">\(,由于\)</span>E ^k f (
-x ) = f ( x + k ) $,即可证明原式.</p>
-<p>另外,不难发现如果$f ( x ) <span class="math inline">\(是一个关于\)</span>x <span class="math inline">\(的\)</span>d <span class="math inline">\(次多项式,那么\)</span>f ( x ) <span class="math inline">\(是一个\)</span>d - 1 <span class="math inline">\(次多项式.同理,\)</span>^d f ( x ) <span class="math inline">\(会是一个常数而\)</span>^{ d + 1 } f ( x ) $会是$0
-$,这个发现引出了牛顿级数.</p>
+<p>考虑一阶差分是<span class="math inline">\(\Delta f ( x ) = f ( x + 1
+) - f ( x )\)</span>,那么二阶差分就是<span class="math inline">\(\Delta^2 f ( x ) = f ( x + 2 ) - 2 f ( x + 1 ) + f
+( x )\)</span>.</p>
+<p>类似地,我们可以通过归纳法证明<span class="math inline">\(\Delta^n f (
+x ) = \sum_{ k } \binom{ n }{ k } ( - 1 )^{ n - k } f ( x + k )
+\\\)</span>.</p>
+<p>事实上有一种更简单的证明方法,由于<span class="math inline">\(\Delta =
+E - 1\)</span>,于是<span class="math inline">\(\Delta^n = ( E - 1 )^n =
+\sum_{ k } \binom{ n }{ k } ( - 1 )^{ n - k } E^k \\\)</span>,由于<span class="math inline">\(E^k f ( x ) = f ( x + k
+)\)</span>,即可证明原式.</p>
+<p>另外,不难发现如果<span class="math inline">\(f ( x
+)\)</span>是一个关于<span class="math inline">\(x\)</span>的<span class="math inline">\(d\)</span>次多项式,那么<span class="math inline">\(\Delta f ( x )\)</span>是一个<span class="math inline">\(d - 1\)</span>次多项式.同理,<span class="math inline">\(\Delta^d f ( x )\)</span>会是一个常数而<span class="math inline">\(\Delta^{ d + 1 } f ( x )\)</span>会是<span class="math inline">\(0\)</span>,这个发现引出了牛顿级数.</p>
 <h6><span id="exampleyloi2020灼">Example([yLOI2020]灼)</span></h6>
-<p>首先不难发现对于一个位置,有意义的只有相邻的两个虫洞,设这两个位置分别为$x
-_1 , x _2 $.</p>
-<p>不难写出期望转移式子:$f <em>i = { 2 } ( f </em>{ i - 1 } + f <em>{ i
-+ 1 } ) + 1 <span class="math inline">\(,并且\)</span>f </em>{ x <em>1 }
-= f </em>{ x _2 } = 0 $.</p>
+<p>首先不难发现对于一个位置,有意义的只有相邻的两个虫洞,设这两个位置分别为<span class="math inline">\(x_1 , x_2\)</span>.</p>
+<p>不难写出期望转移式子:<span class="math inline">\(f_i = \cfrac{ 1 }{ 2
+} ( f_{ i - 1 } + f_{ i + 1 } ) + 1\)</span>,并且<span class="math inline">\(f_{ x_1 } = f_{ x_2 } = 0\)</span>.</p>
 <p>接下来如何做呢?</p>
 <p>我们先对第一个式子进行变形:</p>
 <p><span class="math display">\[
 \begin{aligned}
-f _i &amp; = \cfrac { 1  } { 2  } ( f _{ i - 1  } + f _{ i + 1  } ) + 1
-\\
-2 f _i &amp; = f _{ i - 1  } + f _{ i + 1  } + 2 \\
-f _i - f _{ i - 1  } &amp; = f _{ i + 1  } - f _i + 2 \\
-\Delta f _{ i - 1  } &amp; = \Delta f _{ i  } + 2 \\
-\Delta f _i - \Delta f _{ i - 1  } &amp; = - 2 \\
-\Delta ^2 f _{ i - 1  } &amp; = - 2
+f_i &amp; = \cfrac{ 1 }{ 2 } ( f_{ i - 1 } + f_{ i + 1 } ) + 1 \\
+2 f_i &amp; = f_{ i - 1 } + f_{ i + 1 } + 2 \\
+f_i - f_{ i - 1 } &amp; = f_{ i + 1 } - f_i + 2 \\
+\Delta f_{ i - 1 } &amp; = \Delta f_{ i } + 2 \\
+\Delta f_i - \Delta f_{ i - 1 } &amp; = - 2 \\
+\Delta^2 f_{ i - 1 } &amp; = - 2
 \end{aligned}
 \]</span></p>
-<p>$f <span class="math inline">\(的二阶差分是常数,也就是说\)</span>f
-<span class="math inline">\(是二次多项式,不难求得其二次项系数为\)</span>- 1
-<span class="math inline">\(又知道两个零点,显然可以得到\)</span>f
-$的表达式.</p>
+<p><span class="math inline">\(f\)</span>的二阶差分是常数,也就是说<span class="math inline">\(f\)</span>是二次多项式,不难求得其二次项系数为<span class="math inline">\(- 1\)</span>又知道两个零点,显然可以得到<span class="math inline">\(f\)</span>的表达式.</p>
 <h5><span id="牛顿级数">牛顿级数</span></h5>
-<p>令$f ( x ) = _{ 0 i d } a <em>i x ^i \ <span class="math inline">\(.而由于有斯特林数可以进行幂和下降幂的转换,则我们可以将其改写为\)</span>f
-( x ) = </em>{ 0 i d } b _i x ^{ } \ $.</p>
-<p>我们设$c _i = i ! b <em>i <span class="math inline">\(,于是有:\)</span>f ( x ) = </em>{ 0 i d } c _i { i
-} \ $.</p>
-<p>也就是说,任何多项式都可以表示为二项式系数的倍数之和,我们称这样的展开式为$f
-( x ) $的牛顿级数.</p>
-于是不难发现有:$^n f ( x ) = _{ 0 i d } c _i { i - n } \ <span class="math inline">\(.如果我们令\)</span>x = 0 <span class="math inline">\(,则有:\)</span>^n f ( 0 ) =
-<span class="math display">\[\begin{cases}c _n &amp; n \leq d \\ 0 &amp;
-n &gt; d \end{cases}\]</span>
-<p><span class="math inline">\(.那么牛顿级数的另一种表示即:\)</span>f (
-x ) = _{ 0 i d } ^i f ( 0 ) { d } \ $.</p>
-<p>另外,如果我们展开一下$c _n = ^n f ( 0 ) $,我们可以得到公式:</p>
-<p>$<em>{ k } { k } ( - 1 ) ^k ( </em>{ 0 i n } c _i { i } ) = ( - 1 )
-^n c _n , n \ $.</p>
-<p>如果我们将多项式还原,由于$a _n = b _n $,有:</p>
-<p>$<em>{ k } { k } ( - 1 ) ^k ( </em>{ 0 i n } a _i k ^i ) = ( - 1 ) ^n
-n ! a _n , n \ $.</p>
-<p>另外,如果$x <span class="math inline">\(,那么我们有:\)</span>f ( x )
-= _{ 0 k } ^k f ( 0 ) { 0 } <span class="math inline">\(,根据多项式推理法,这个公式对\)</span>x
-$都成立.</p>
+<p>令<span class="math inline">\(f ( x ) = \sum_{ 0 \leq i \leq d } a_i
+x^i
+\\\)</span>.而由于有斯特林数可以进行幂和下降幂的转换,则我们可以将其改写为<span class="math inline">\(f ( x ) = \sum_{ 0 \leq i \leq d } b_i x^{
+\underline{ i } } \\\)</span>.</p>
+<p>我们设<span class="math inline">\(c_i = i ! b_i\)</span>,于是有:<span class="math inline">\(f ( x ) = \sum_{ 0 \leq i \leq d } c_i \binom{ x
+}{ i } \\\)</span>.</p>
+<p>也就是说,任何多项式都可以表示为二项式系数的倍数之和,我们称这样的展开式为<span class="math inline">\(f ( x )\)</span>的牛顿级数.</p>
+<p>于是不难发现有:<span class="math inline">\(\Delta^n f ( x ) = \sum_{
+0 \leq i \leq d } c_i \binom{ x }{ i - n } \\\)</span>.如果我们令<span class="math inline">\(x = 0\)</span>,则有:<span class="math inline">\(\Delta^n f ( 0 ) = \begin{cases}c_n &amp; n \leq d
+\\ 0 &amp; n &gt; d\end{cases}\)</span>.那么牛顿级数的另一种表示即:<span class="math inline">\(f ( x ) = \sum_{ 0 \leq i \leq d } \Delta^i f ( 0
+) \binom{ x }{ d } \\\)</span>.</p>
+<p>另外,如果我们展开一下<span class="math inline">\(c_n = \Delta^n f ( 0
+)\)</span>,我们可以得到公式:</p>
+<p><span class="math inline">\(\sum_{ k } \binom{ n }{ k } ( - 1 )^k (
+\sum_{ 0 \leq i \leq n } c_i \binom{ k }{ i } ) = ( - 1 )^n c_n , n \in
+\mathbb{ N } \\\)</span>.</p>
+<p>如果我们将多项式还原,由于<span class="math inline">\(a_n =
+b_n\)</span>,有:</p>
+<p><span class="math inline">\(\sum_{ k } \binom{ n }{ k } ( - 1 )^k (
+\sum_{ 0 \leq i \leq n } a_i k^i ) = ( - 1 )^n n ! a_n , n \in \mathbb{
+N } \\\)</span>.</p>
+<p>另外,如果<span class="math inline">\(x \in \mathbb{ N
+}\)</span>,那么我们有:<span class="math inline">\(f ( x ) = \sum_{ 0
+\leq k } \Delta^k f ( 0 ) \binom{ x }{ 0
+}\)</span>,根据多项式推理法,这个公式对<span class="math inline">\(\forall x \in \mathbb{ Z }\)</span>都成立.</p>
 <p>于是我们可以类似泰勒级数写出无限牛顿级数:</p>
 <p><span class="math display">\[
-g ( a + x ) = \sum _{ 0 \leq k  } \cfrac { \Delta ^k g ( a )  } { k !  }
-x ^{ \underline { k  }  }
+g ( a + x ) = \sum_{ 0 \leq k } \cfrac{ \Delta^k g ( a ) }{ k ! } x^{
+\underline{ k } }
 \]</span></p>
 <h6><span id="example">Example</span></h6>
-<p>求$_{ k } { k } { n } ( - 1 ) ^k , n \ $.</p>
-<p>如果我们令$f ( k ) = { n } = _{ 0 i n } a _i k ^i \ <span class="math inline">\(,不难发现\)</span>a _n = { n ! } <span class="math inline">\(,于是显然原式\)</span>= s ^n $.</p>
+<p>求<span class="math inline">\(\sum_{ k } \binom{ n }{ k } \binom{ r -
+sk }{ n } ( - 1 )^k , n \in \mathbb{ N } \\\)</span>.</p>
+<p>如果我们令<span class="math inline">\(f ( k ) = \binom{ r - sk }{ n }
+= \sum_{ 0 \leq i \leq n } a_i k^i \\\)</span>,不难发现<span class="math inline">\(a_n = \cfrac{ ( - 1 )^n s^n }{ n !
+}\)</span>,于是显然原式<span class="math inline">\(= s^n\)</span>.</p>
 <h5><span id="分部求和法则abel求和法">分部求和法则(Abel求和法)</span></h5>
 $$
 <span class="math display">\[\begin{aligned}
@@ -1140,76 +1175,88 @@ $$
 \end{aligned}\]</span>
 <p>$$</p>
 <p>两边取不定和，即可得到分部求和法则:</p>
-<p>$u v = uv - Ev u \ $.</p>
+<p><span class="math inline">\(\sum u \Delta v = uv - \sum Ev \Delta u
+\\\)</span>.</p>
 <p>分部求和用一般和式表达如下,下式又被称为Abel求和法:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\sum _{ i = l  } ^{ r - 1  } ( a _{ i + 1  } - a _i ) b _i &amp; = a _r
-b _r - a _l b _l - \sum _{ i = l  } ^{ r - 1  } a _{ i + 1  } ( b _{ i +
-1  } - b _i ) \\
-\sum _{ i = l  } ^{ r - 1  } ( \Delta a _i ) b _i &amp; = a _r b _r - a
-_l b _l - \sum _{ i = l  } ^{ r - 1  } a _{ i + 1  } ( \Delta b _i )
+\sum_{ i = l }^{ r - 1 } ( a_{ i + 1 } - a_i ) b_i &amp; = a_r b_r - a_l
+b_l - \sum_{ i = l }^{ r - 1 } a_{ i + 1 } ( b_{ i + 1 } - b_i ) \\
+\sum_{ i = l }^{ r - 1 } ( \Delta a_i ) b_i &amp; = a_r b_r - a_l b_l -
+\sum_{ i = l }^{ r - 1 } a_{ i + 1 } ( \Delta b_i )
 \end{aligned}
 \]</span></p>
-<p>对于$l = 0 , r = n , a _0 = b _0 = 0 $的特殊情况,应当有:</p>
+<p>对于<span class="math inline">\(l = 0 , r = n , a_0 = b_0 =
+0\)</span>的特殊情况,应当有:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\sum _{ i = 0  } ^{ n - 1  } ( \Delta a _i ) b _i &amp; = a _n b _n -
-\sum _{ i = 0  } ^{ n - 1  } a _{ i + 1  } ( \Delta b _i ) \\
-\sum _{ i = 1  } ^n a _i ( b _{ i + 1  } - b _i ) &amp; = a _n b _n -
-\sum _{ i = 0  } ^{ n - 1  } ( \Delta a _i ) b _i
+\sum_{ i = 0 }^{ n - 1 } ( \Delta a_i ) b_i &amp; = a_n b_n - \sum_{ i =
+0 }^{ n - 1 } a_{ i + 1 } ( \Delta b_i ) \\
+\sum_{ i = 1 }^n a_i ( b_{ i + 1 } - b_i ) &amp; = a_n b_n - \sum_{ i =
+0 }^{ n - 1 } ( \Delta a_i ) b_i
 \end{aligned}
 \]</span></p>
-<p>取两组数列$, <span class="math inline">\(,并令\)</span>_{ i = 1 } ^n
-_i = B _i $,立刻有:</p>
+<p>取两组数列<span class="math inline">\(\alpha ,
+\beta\)</span>,并令<span class="math inline">\(\sum_{ i = 1 }^n \beta_i
+= B_i\)</span>,立刻有:</p>
 <p><span class="math display">\[
-\sum _{ i = 1  } ^n \alpha _i \beta _i = \alpha _n B _n - \sum _{ i =
-1  } ^{ n - 1  } ( \alpha _{ i + 1  } - \alpha _i ) B _i
+\sum_{ i = 1 }^n \alpha_i \beta_i = \alpha_n B_n - \sum_{ i = 1 }^{ n -
+1 } ( \alpha_{ i + 1 } - \alpha_i ) B_i
 \]</span></p>
 <h6><span id="example1">Example1</span></h6>
-<p>求$_{ k = 0 } ^n k 2 ^k \ $.</p>
+<p>求<span class="math inline">\(\sum_{ k = 0 }^n k 2^k \\\)</span>.</p>
 <p>根据分部求和法则，我们有:</p>
-<p>$x 2 ^x x = x 2 ^x - ^{ x + 1 } x = x 2 ^x - 2 ^{ x + 1 } + C \
-$.</p>
+<p><span class="math inline">\(\sum x 2^x \delta x = x 2^x - \sum 2^{ x
++ 1 } \delta x = x 2^x - 2^{ x + 1 } + C \\\)</span>.</p>
 <p>改为定和式形式，显然有:</p>
-<p>$_{ k = 0 } ^n k 2 ^k = _0 ^{ n + 1 } x 2 ^x x = ( n + 1 ) 2 ^{ n + 1
-} - 2 ^{ n + 2 } + 2 = ( n - 1 ) 2 ^{ n + 1 } + 2 \ $.</p>
+<p><span class="math inline">\(\sum_{ k = 0 }^n k 2^k = \sum
+\nolimits_0^{ n + 1 } x 2^x \delta x = ( n + 1 ) 2^{ n + 1 } - 2^{ n + 2
+} + 2 = ( n - 1 ) 2^{ n + 1 } + 2 \\\)</span>.</p>
 <h6><span id="example2">Example2</span></h6>
-<p>求$_{ k = 0 } ^{ n - 1 } kH _k \ $.</p>
-<p>令$u ( x ) = H _x , v ( x ) = { 2 } x ^{ } \ $.</p>
+<p>求<span class="math inline">\(\sum_{ k = 0 }^{ n - 1 } kH_k
+\\\)</span>.</p>
+<p>令<span class="math inline">\(u ( x ) = H_x , v ( x ) = \frac{ 1 }{ 2
+} x^{ \underline{ 2 } } \\\)</span>.</p>
 <p>带入分部求和法则，显然有:</p>
-<p>$xH _x x = { 2 } H _x - { 4 } + C \ $.</p>
-<p>带入即可求出原式$= { 2 } ( H _n - { 2 } ) \ $.</p>
+<p><span class="math inline">\(\sum xH_x \delta x = \frac{ x^\underline{
+2 } }{ 2 } H_x - \frac{ x^\underline{ 2 } }{ 4 } + C \\\)</span>.</p>
+<p>带入即可求出原式<span class="math inline">\(= \frac{ n^\underline{ 2
+} }{ 2 } ( H_n - \frac{ 1 }{ 2 } ) \\\)</span>.</p>
 <h6><span id="example3具体数学223">Example3(《具体数学》2.23)</span></h6>
-<p>求$_{ i = 1 } ^n { i ( i + 1 ) } \ $.</p>
+<p>求<span class="math inline">\(\sum_{ i = 1 }^n \frac{ 2 i + 1 }{ i (
+i + 1 ) } \\\)</span>.</p>
 <h6><span id="solution-3">Solution 3</span></h6>
-<p>令$u = ( 2 n + 1 ) , v = - { i } <span class="math inline">\(,则\)</span>u = 2 , v = { i ( i + 1 ) } $.</p>
+<p>令<span class="math inline">\(u = ( 2 n + 1 ) , v = - \frac{ 1 }{ i
+}\)</span>,则<span class="math inline">\(\Delta u = 2 , \Delta v =
+\frac{ 1 }{ i ( i + 1 ) }\)</span>.</p>
 <p>根据分部求和法则,有:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\sum _{ i = 1  } ^n \frac { 2 i + 1  } { i ( i + 1 )  } &amp; = ( 2 n +
-3 ) \times ( - \frac { 1  } { n + 1  } ) + 3 - \sum _{ i = 1  } ^n ( -
-\frac { 2  } { i + 1  } ) \\
-&amp; = - \frac { 2 n + 3  } { n + 1  } + 2 H _n + \frac { n + 3  } { n
-+ 1  } &amp; = 2 H _n - \frac { n  } { n + 1  }
+\sum_{ i = 1 }^n \frac{ 2 i + 1 }{ i ( i + 1 ) } &amp; = ( 2 n + 3 )
+\times ( - \frac{ 1 }{ n + 1 } ) + 3 - \sum_{ i = 1 }^n ( - \frac{ 2 }{
+i + 1 } ) \\
+&amp; = - \frac{ 2 n + 3 }{ n + 1 } + 2 H_n + \frac{ n + 3 }{ n + 1 }
+&amp; = 2 H_n - \frac{ n }{ n + 1 }
 \end{aligned}
 \]</span></p>
 <h6><span id="problem-4具体数学224">Problem 4(《具体数学》2.24)</span></h6>
-<p>求$_{ i = 0 } ^{ n - 1 } { ( k + 1 ) ( k + 2 ) } \ $.</p>
+<p>求<span class="math inline">\(\sum_{ i = 0 }^{ n - 1 } \frac{ H_k }{
+( k + 1 ) ( k + 2 ) } \\\)</span>.</p>
 <h6><span id="solution-4">Solution 4</span></h6>
-<p>令$u = H _n , v = - { n + 1 } , u = { n + 1 } , v = { ( n + 1 ) ( n +
-2 ) } \ $.</p>
+<p>令<span class="math inline">\(u = H_n , v = - \frac{ 1 }{ n + 1 } ,
+\Delta u = \frac{ 1 }{ n + 1 } , \Delta v = \frac{ 1 }{ ( n + 1 ) ( n +
+2 ) } \\\)</span>.</p>
 <p>根据分部求和法则,有:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\sum _{ i = 0  } ^{ n - 1  } \frac { H _k  } { ( k + 1 ) ( k + 2 )  }
-&amp; = - \frac { H _n  } { n + 1  } - \sum _{ i = 0  } ^{ n - 1  } ( -
-\frac { 1  } { ( i + 2 ) ( i + 1 )  } ) \\
-&amp; = - \frac { H _n  } { n + 1  } + \sum _{ i = 0  } ^{ n - 1  } (
-\frac { 1  } { i + 1  } - \frac { 1  } { i + 2  } ) \\
-&amp; = - \frac { H _n  } { n + 1  } + H _n - ( H _n - 1 + \frac { 1  }
-{ n + 1  } ) \\
-&amp; = 1 - \frac { H _n + 1  } { n + 1  }
+\sum_{ i = 0 }^{ n - 1 } \frac{ H_k }{ ( k + 1 ) ( k + 2 ) } &amp; = -
+\frac{ H_n }{ n + 1 } - \sum_{ i = 0 }^{ n - 1 } ( - \frac{ 1 }{ ( i + 2
+) ( i + 1 ) } ) \\
+&amp; = - \frac{ H_n }{ n + 1 } + \sum_{ i = 0 }^{ n - 1 } ( \frac{ 1 }{
+i + 1 } - \frac{ 1 }{ i + 2 } ) \\
+&amp; = - \frac{ H_n }{ n + 1 } + H_n - ( H_n - 1 + \frac{ 1 }{ n + 1 }
+) \\
+&amp; = 1 - \frac{ H_n + 1 }{ n + 1 }
 \end{aligned}
 \]</span></p>
 

@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lwlaymh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="常用激活函数 Sigmoid函数 $f ( x ) &#x3D; { 1 + e ^{ - x } } : ( - , + ) ( 0 , 1 ) $. $f ’ ( x ) &#x3D; f ( x ) ( 1 - f ( x ) ) $. tanh函数 $f ( x ) &#x3D; { e ^x + e ^{ - x } } : ( - , + ) ( - 1 , 1 ) $. $f ’ ( x ) &#x3D;">
+    <meta name="description" content="常用激活函数 Sigmoid函数 \(f ( x ) &#x3D; \frac{ 1 }{ 1 + e^{ - x } } : ( - \infty , + \infty ) \to ( 0 , 1 )\). \(f &#39; ( x ) &#x3D; f ( x ) ( 1 - f ( x ) )\). tanh函数 \(f ( x ) &#x3D; \frac{ e^x - e^{ - x } }{ e">
 <meta property="og:type" content="article">
 <meta property="og:title" content="人工智能基础">
 <meta property="og:url" content="http://lwlaymh.github.io/2025/06/22/%E5%AD%A6%E4%B9%A0-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="LWLAymh的备忘录">
-<meta property="og:description" content="常用激活函数 Sigmoid函数 $f ( x ) &#x3D; { 1 + e ^{ - x } } : ( - , + ) ( 0 , 1 ) $. $f ’ ( x ) &#x3D; f ( x ) ( 1 - f ( x ) ) $. tanh函数 $f ( x ) &#x3D; { e ^x + e ^{ - x } } : ( - , + ) ( - 1 , 1 ) $. $f ’ ( x ) &#x3D;">
+<meta property="og:description" content="常用激活函数 Sigmoid函数 \(f ( x ) &#x3D; \frac{ 1 }{ 1 + e^{ - x } } : ( - \infty , + \infty ) \to ( 0 , 1 )\). \(f &#39; ( x ) &#x3D; f ( x ) ( 1 - f ( x ) )\). tanh函数 \(f ( x ) &#x3D; \frac{ e^x - e^{ - x } }{ e">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-06-22T08:57:48.121Z">
-<meta property="article:modified_time" content="2025-06-22T08:57:48.122Z">
+<meta property="article:published_time" content="2025-06-22T15:00:01.160Z">
+<meta property="article:modified_time" content="2025-06-22T15:00:01.161Z">
 <meta property="article:author" content="LWLAymh">
 <meta property="article:tag" content="AI">
 <meta name="twitter:card" content="summary">
@@ -276,7 +276,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2025-06-22 16:57:48" itemprop="dateCreated datePublished" datetime="2025-06-22T16:57:48+08:00">2025-06-22</time>
+      <time title="创建时间：2025-06-22 23:00:01" itemprop="dateCreated datePublished" datetime="2025-06-22T23:00:01+08:00">2025-06-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -314,27 +314,36 @@
     <div class="post-body" itemprop="articleBody"><span id="more"></span>
 <h3><span id="常用激活函数">常用激活函数</span></h3>
 <h4><span id="sigmoid函数">Sigmoid函数</span></h4>
-<p>$f ( x ) = { 1 + e ^{ - x } } : ( - , + ) ( 0 , 1 ) $.</p>
-<p>$f ’ ( x ) = f ( x ) ( 1 - f ( x ) ) $.</p>
+<p><span class="math inline">\(f ( x ) = \frac{ 1 }{ 1 + e^{ - x } } : (
+- \infty , + \infty ) \to ( 0 , 1 )\)</span>.</p>
+<p><span class="math inline">\(f &#39; ( x ) = f ( x ) ( 1 - f ( x )
+)\)</span>.</p>
 <h4><span id="tanh函数">tanh函数</span></h4>
-<p>$f ( x ) = { e ^x + e ^{ - x } } : ( - , + ) ( - 1 , 1 ) $.</p>
-<p>$f ’ ( x ) = 1 - f ^2 ( x ) $.</p>
+<p><span class="math inline">\(f ( x ) = \frac{ e^x - e^{ - x } }{ e^x +
+e^{ - x } } : ( - \infty , + \infty ) \to ( - 1 , 1 )\)</span>.</p>
+<p><span class="math inline">\(f &#39; ( x ) = 1 - f^2 ( x
+)\)</span>.</p>
 <h4><span id="relu函数">ReLU函数</span></h4>
-<p>$f ( x ) = ( 0 , x ) : ( - , + ) ( 0 , + ) $.</p>
+<p><span class="math inline">\(f ( x ) = \max ( 0 , x ) : ( - \infty , +
+\infty ) \to ( 0 , + \infty )\)</span>.</p>
 <h4><span id="leaky-relu函数">Leaky ReLU函数</span></h4>
-<p>$f ( x ) = ( x , x ) , 0 &lt; &lt; 1 : ( - , + ) ( - , + ) $.</p>
+<p><span class="math inline">\(f ( x ) = \max ( \alpha x , x ) , 0 &lt;
+\alpha &lt; 1 : ( - \infty , + \infty ) \to ( - \infty , + \infty
+)\)</span>.</p>
 <h4><span id="softmax函数">Softmax函数</span></h4>
-<p>$f ( x _i ) = { _j e ^{ x _j } } $.</p>
+<p><span class="math inline">\(f ( x_i ) = \frac{ e^{ x_i } }{ \sum_j
+e^{ x_j } }\)</span>.</p>
 <h3><span id="损失函数">损失函数</span></h3>
 <h4><span id="least-square">Least Square</span></h4>
-<p>即$_{ i = 1 } ^n ( f ( x _i ) - y _i ) ^2 = ( A - Y A - Y ) <span class="math inline">\(.用最小二乘法取\)</span>= ( A ^T A ) ^{ - 1 } A ^T
-Y $.</p>
+<p>即<span class="math inline">\(\arg \min \sum_{ i = 1 }^n ( f ( x_i )
+- y_i )^2 = \arg \min ( A \beta - Y \mid A \beta - Y
+)\)</span>.用最小二乘法取<span class="math inline">\(\hat \beta = ( A^T
+A )^{ - 1 } A^T Y\)</span>.</p>
 <h4><span id="cross-entropy">Cross Entropy</span></h4>
-<p>用错误的分布$q <span class="math inline">\(来表示真实分布\)</span>p
-$的样本,则平均编码长度应该是:</p>
+<p>用错误的分布<span class="math inline">\(q\)</span>来表示真实分布<span class="math inline">\(p\)</span>的样本,则平均编码长度应该是:</p>
 <p><span class="math display">\[
-H ( p , q ) = \sum _i p ( i ) \log ( \frac { 1  } { q ( i )  } ) = -
-\sum _i p ( i ) \log { q ( i )  }
+H ( p , q ) = \sum_i p ( i ) \log ( \frac{ 1 }{ q ( i ) } ) = - \sum_i p
+( i ) \log{ q ( i ) }
 \]</span></p>
 <p>此为交叉熵.</p>
 <p>特别地,当最终样本只有两个的时候,例如Logistical
@@ -342,70 +351,86 @@ Regression问题,可以写成:</p>
 <p><span class="math display">\[
 \begin{aligned}
 H &amp; = - ( y \log a + ( 1 - y ) \log ( 1 - a ) ) \\
-\frac { \partial H  } { \partial a  } &amp; = - ( \frac { y  } { a  } -
-\frac { 1 - y  } { 1 - a  } )
+\frac{ \partial H }{ \partial a } &amp; = - ( \frac{ y }{ a } - \frac{ 1
+- y }{ 1 - a } )
 \end{aligned}
 \]</span></p>
 <p>那如果有多个呢?考虑直接对归一化条件作偏导,先有:</p>
 <p><span class="math display">\[
 \begin{aligned}
-H ( p , q ) &amp; = - \sum _i p _i ( \log { q _i  } - \log ( \sum _j q
-_j ) ) \\
-\frac { \partial H ( p , q )  } { \partial q _k  } &amp; = - \frac { p
-_k  } { q _k  } + \frac { \sum p _k  } { \sum _j q _j  } \\
-&amp; = - \frac { p _k  } { q _k  } + 1
+H ( p , q ) &amp; = - \sum_i p_i ( \log{ q_i } - \log ( \sum_j q_j ) )
+\\
+\frac{ \partial H ( p , q ) }{ \partial q_k } &amp; = - \frac{ p_k }{
+q_k } + \frac{ \sum p_k }{ \sum_j q_j } \\
+&amp; = - \frac{ p_k }{ q_k } + 1
 \end{aligned}
 \]</span></p>
-<p>再乘以softmax那里的$q _k <span class="math inline">\(,得到\)</span>-
-p _k + q _k = - y _k + f ( x _k ) $.</p>
+<p>再乘以softmax那里的<span class="math inline">\(q_k\)</span>,得到<span class="math inline">\(- p_k + q_k = - y_k + f ( x_k )\)</span>.</p>
 <h3><span id="神经网络实现">神经网络实现</span></h3>
-<p>通过若干隐藏层,假设最后的输出层为第$L $层,则:</p>
+<p>通过若干隐藏层,假设最后的输出层为第<span class="math inline">\(L\)</span>层,则:</p>
 <ol type="1">
-<li><p>对于第$l <span class="math inline">\(层,取\)</span> _l = ( W
-<em>l ) ^t </em>{ l - 1 } + _l <span class="math inline">\(.这里对\)</span>W _l
-$作转置的目的是写代码的时候需要用行向量.</p></li>
-<li><p>对于第$l <span class="math inline">\(层,取\)</span> _l = f ( _l )
-<span class="math inline">\(,这里意味着将每一个分量对\)</span>f
-$操作.</p></li>
-<li><p>对于最终答案,取误差$ = { m } ( - _L - _L ) $.</p></li>
+<li><p>对于第<span class="math inline">\(l\)</span>层,取<span class="math inline">\(\vec{ z }_l = ( W_l )^t \vec{ a }_{ l - 1 } +
+\vec{ b }_l\)</span>.这里对<span class="math inline">\(W_l\)</span>作转置的目的是写代码的时候需要用行向量.</p></li>
+<li><p>对于第<span class="math inline">\(l\)</span>层,取<span class="math inline">\(\vec{ a }_l = f ( \vec{ z }_l
+)\)</span>,这里意味着将每一个分量对<span class="math inline">\(f\)</span>操作.</p></li>
+<li><p>对于最终答案,取误差<span class="math inline">\(\mathcal{ L } =
+\frac{ 1 }{ m } ( \vec{ y } - \vec{ a }_L \mid \vec{ y } - \vec{ a }_L
+)\)</span>.</p></li>
 </ol>
 <h4><span id="梯度下降法">梯度下降法</span></h4>
-<p>换言之就是让$w : = w - { w } <span class="math inline">\(,其中\)</span><span class="math inline">\(是一个选定的小常数,也可以采用类似模拟退火的方式动态决定.事实上可以把各个位置分开,写作\)</span>w
-_j : = w _j - { w _j } $.</p>
-<p>另外,虽然是这么写,应当见到去掉下标$k <span class="math inline">\(的记号仍然合理,无非是逐分量做此操作,因此下面如无特殊说明,运算均采用逐分量运算.例如可以定义\)</span>
-<span class="math inline">\(为两个向量逐分量相乘后得到的新向量,为表区分用\)</span><span class="math inline">\(表示正常的矩阵乘法.甚至采取\)</span>( - ) ^2 <span class="math inline">\(表示其自点积.坦白而言,笔者对此符号相当无奈,可也想不出什么更好的写法了.但总之这种写法总是强于部分参考资料上所将下标放上面的写作\)</span>a
-^L
-$的做法.笔者所能维持的精神数院人的唯一做法也只能是在下面加上向量符号,藉此泄愤.</p>
-<p>顺便一提,应当见到$<span class="math inline">\(和\)</span><span class="math inline">\(这两种运算比较随意,用线性映射来理解,你这个\)</span>W
-$任意作用在一个向量上就行.</p>
+<p>换言之就是让<span class="math inline">\(w : = w - \alpha \frac{
+\partial \mathcal{ L } }{ \partial w }\)</span>,其中<span class="math inline">\(\alpha\)</span>是一个选定的小常数,也可以采用类似模拟退火的方式动态决定.事实上可以把各个位置分开,写作<span class="math inline">\(w_j : = w_j - \alpha \frac{ \partial \mathcal{ L }
+}{ \partial w_j }\)</span>.</p>
+<p>另外,虽然是这么写,应当见到去掉下标<span class="math inline">\(k\)</span>的记号仍然合理,无非是逐分量做此操作,因此下面如无特殊说明,运算均采用逐分量运算.例如可以定义<span class="math inline">\(\vec{ a } \circ \vec{ b
+}\)</span>为两个向量逐分量相乘后得到的新向量,为表区分用<span class="math inline">\(\times\)</span>表示正常的矩阵乘法.甚至采取<span class="math inline">\(( \vec{ a } - \vec{ y }
+)^2\)</span>表示其自点积.坦白而言,笔者对此符号相当无奈,可也想不出什么更好的写法了.但总之这种写法总是强于部分参考资料上所将下标放上面的写作<span class="math inline">\(a^L\)</span>的做法.笔者所能维持的精神数院人的唯一做法也只能是在下面加上向量符号,藉此泄愤.</p>
+<p>顺便一提,应当见到<span class="math inline">\(\times\)</span>和<span class="math inline">\(\circ\)</span>这两种运算比较随意,用线性映射来理解,你这个<span class="math inline">\(W \times\)</span>任意作用在一个向量上就行.</p>
 <h4><span id="误差反向传播">误差反向传播</span></h4>
-<p>既然要用梯度下降法,就应该把每一层的偏导都求出来.然而$
-$是最后一层的结果,因此应该用链式法则一路求出前面的偏导.</p>
-<p>更具体地,不妨设误差函数选的是$( - ) ^2 $,激活函数选的是cross
-entropy有:</p>
+<p>既然要用梯度下降法,就应该把每一层的偏导都求出来.然而<span class="math inline">\(\mathcal{ L
+}\)</span>是最后一层的结果,因此应该用链式法则一路求出前面的偏导.</p>
+<p>更具体地,不妨设误差函数选的是<span class="math inline">\(( \vec{ a }
+- \vec{ y } )^2\)</span>,激活函数选的是cross entropy有:</p>
 <ol type="1">
-<li><p>$ { <em>{ L } } = ( </em>{ L } - )
-$.(如若选择不同的误差函数,这里作适当变化)</p></li>
-<li><p>$ { <em>{ l } } = f ’ ( </em>{ l } ) = <em>{ l } ( 1 - </em>{ l }
-) $.(如若选取不同的激活函数,这里作适当变化)</p></li>
-<li><p>$ { <em>{ l } } = { </em>{ l } } { <em>{ l } } = ( W </em>{ l + 1
-} ) ^t ( _l ( 1 - _l ) ) $.</p></li>
-<li><p>$ { W <em>{ l } } = ( </em>{ l - 1 } ) <span class="math inline">\(.结果理应是一个矩阵,其实就是这个列向量不断复制若干遍,或者写成\)</span>(
-_{ l - 1 } ) ^t M ( 1 ) <span class="math inline">\(,其中\)</span>M ( 1
-) $是全$1 $矩阵.</p></li>
-<li><p>$ { _{ l } } = 1 $.</p></li>
+<li><p><span class="math inline">\(\frac{ \partial{ \mathcal{ L } } }{
+\partial \vec{ a }_{ L } } = ( \vec{ a }_{ L } - \vec{ y }
+)\)</span>.(如若选择不同的误差函数,这里作适当变化)</p></li>
+<li><p><span class="math inline">\(\frac{ \partial \vec{ a }_{ l } }{
+\partial \vec{ z }_{ l } } = f &#39; ( \vec{ z }_{ l } ) = \vec{ a }_{ l
+} \circ ( 1 - \vec{ a }_{ l }
+)\)</span>.(如若选取不同的激活函数,这里作适当变化)</p></li>
+<li><p><span class="math inline">\(\frac{ \partial \vec{ z }_{ l + 1 }
+}{ \partial \vec{ z }_{ l } } = \frac{ \partial \vec{ z }_{ l + 1 } }{
+\partial \vec{ a }_{ l } } \frac{ \partial \vec{ a }_{ l } }{ \partial
+\vec{ z }_{ l } } = ( W_{ l + 1 } )^t \times ( \vec{ a }_l \circ ( 1 -
+\vec{ a }_l ) )\)</span>.</p></li>
+<li><p><span class="math inline">\(\frac{ \partial \vec{ z }_{ l } }{
+\partial W_{ l } } = ( \vec{ a }_{ l - 1 }
+)\)</span>.结果理应是一个矩阵,其实就是这个列向量不断复制若干遍,或者写成<span class="math inline">\(( \vec{ a }_{ l - 1 } )^t M ( 1
+)\)</span>,其中<span class="math inline">\(M ( 1 )\)</span>是全<span class="math inline">\(1\)</span>矩阵.</p></li>
+<li><p><span class="math inline">\(\frac{ \partial \vec{ z }_{ l } }{
+\partial \vec{ b }_{ l } } = 1\)</span>.</p></li>
 </ol>
 <p>我们应当见到:</p>
-<p>不妨设$_l = { _l } $.见到:</p>
+<p>不妨设<span class="math inline">\(\delta_l = \frac{ \partial{
+\mathcal{ L } } }{ \partial \vec{ z }_l }\)</span>.见到:</p>
 <ol type="1">
-<li><p>$_L = { <em>L } = { <em>L } { <em>L } = ( </em>{ L } - ) </em>{ L
-} ( 1 - </em>{ L } )
-$.前者会因为误差函数的选取而改变,后者会因为激活函数的选取而改变.</p></li>
-<li><p>$<em>l = { <em>l } = </em>{ l + 1 } { <em>l } = </em>{ l + 1 } (
-W </em>{ l + 1 } ) ^t ( <em>{ l } ( 1 - </em>{ l } ) ) $.</p></li>
-<li><p>$ { W <em>{ l } } = { </em>{ l } } { W _{ l } } = <em>l a </em>{
-l - 1 } ^t $.</p></li>
-<li><p>$ { _l } = _l $.</p></li>
+<li><p><span class="math inline">\(\delta_L = \frac{ \partial \mathcal{
+L } }{ \partial \vec{ z }_L } = \frac{ \partial \mathcal{ L } }{
+\partial \vec{ a }_L } \frac{ \partial \vec{ a }_L }{ \partial \vec{ z
+}_L } = ( \vec{ a }_{ L } - \vec{ y } ) \circ \vec{ a }_{ L } \circ ( 1
+- \vec{ a }_{ L }
+)\)</span>.前者会因为误差函数的选取而改变,后者会因为激活函数的选取而改变.</p></li>
+<li><p><span class="math inline">\(\delta_l = \frac{ \partial{ \mathcal{
+L } } }{ \partial \vec{ z }_l } = \delta_{ l + 1 } \frac{ \partial \vec{
+z }_{ l + 1 } }{ \partial \vec{ z }_l } = \delta_{ l + 1 } \circ ( W_{ l
++ 1 } )^t \times ( \vec{ a }_{ l } \circ ( 1 - \vec{ a }_{ l } )
+)\)</span>.</p></li>
+<li><p><span class="math inline">\(\frac{ \partial \mathcal{ L } }{
+\partial W_{ l } } = \frac{ \partial \mathcal{ L } }{ \partial \vec{ z
+}_{ l } } \frac{ \partial \vec{ z }_l }{ \partial W_{ l } } = \delta_l
+\times a_{ l - 1 }^t\)</span>.</p></li>
+<li><p><span class="math inline">\(\frac{ \partial \mathcal{ L } }{
+\partial \vec{ b }_l } = \delta_l\)</span>.</p></li>
 </ol>
 <p>如此以上更新即可.</p>
 <h3><span id="卷积神经网络cnn">卷积神经网络(CNN)</span></h3>
@@ -417,11 +442,10 @@ l - 1 } ^t $.</p></li>
 </ol>
 <p>对于2D卷积,其公式如下:</p>
 <p><span class="math display">\[
-S _{ r , c  } = ( X * W ) _{ r , c  } = \sum _i \sum _j X _{ r + i , c +
-j  } \times w _{ i , j  }
+S_{ r , c } = ( X * W )_{ r , c } = \sum_i \sum_j X_{ r + i , c + j }
+\times w_{ i , j }
 \]</span></p>
-<p>其中$W <span class="math inline">\(是卷积核,\)</span>X <span class="math inline">\(是输入图像,\)</span>S
-$是输出的结果.如果一个图像有多个通道(比如色彩层之类的),每个通道上都需要应用一个卷积核.</p>
+<p>其中<span class="math inline">\(W\)</span>是卷积核,<span class="math inline">\(X\)</span>是输入图像,<span class="math inline">\(S\)</span>是输出的结果.如果一个图像有多个通道(比如色彩层之类的),每个通道上都需要应用一个卷积核.</p>
 <p>下面引入一些名词:</p>
 <ol type="1">
 <li><p>input size:输入图像的尺寸.</p></li>
@@ -432,8 +456,7 @@ width.3D卷积还会有一个filter depth的变量.</p></li>
 <li><p>output size:卷积后输出的尺寸.有时也写作feature size.</p></li>
 <li><p>input channels:输入图像的通道数.</p></li>
 <li><p>n filters:卷积核的数量.</p></li>
-<li><p>dilation rate:膨胀率,用于空洞卷积.膨胀率为$d <span class="math inline">\(的时候,卷积核中间会插入\)</span>d - 1 $个$0
-$间隔.</p></li>
+<li><p>dilation rate:膨胀率,用于空洞卷积.膨胀率为<span class="math inline">\(d\)</span>的时候,卷积核中间会插入<span class="math inline">\(d - 1\)</span>个<span class="math inline">\(0\)</span>间隔.</p></li>
 </ol>
 <h4><span id="感受野计算">感受野计算</span></h4>
 <p>先看output
@@ -441,25 +464,26 @@ size的计算,容易见到,其各个维度方面计算是独立的.只要对于�
 <p>对于单个维度,这个维度的移动次数应该是:</p>
 $$
 <span class="math display">\[\begin{aligned}
-\text { output \_ size  } &amp; = \lceil \frac { \text { input \_
-size  } + 2 \times \text { padding  } - \text { filter \_ size  } + 1  }
-{ \text { stride  }  } \rceil \\
-&amp; = \lfloor \frac { \text { input \_ size  } + 2 \times \text {
-padding  } - \text { filter \_ size  }  } { \text { stride  }  } \rfloor
-+ 1 \\
+\text{ output \_ size } &amp; = \lceil \frac{ \text{ input \_ size } + 2
+\times \text{ padding } - \text{ filter \_ size } + 1 }{ \text{ stride }
+} \rceil \\
+&amp; = \lfloor \frac{ \text{ input \_ size } + 2 \times \text{ padding
+} - \text{ filter \_ size } }{ \text{ stride } } \rfloor + 1 \\
 
 \end{aligned}\]</span>
 <p>$$</p>
-<p>这个公式相当容易理解,原因是$ = 1 <span class="math inline">\(的时候,上面恰好是移动的次数,而\)</span>
-$变化的时候,当然要拿到一个上取整.</p>
-<p>至于所谓的空洞卷积,只需在上面的基础上改$ $就好.</p>
-<p>至于乘法操作,每得到一个$ <span class="math inline">\(当然都会需要\)</span> $次乘法操作.</p>
-<p>再看感受野的计算,不妨设$S <em>i <span class="math inline">\(为前\)</span>i <span class="math inline">\(次卷积的\)</span> <span class="math inline">\(的乘积,设\)</span>k </em>{ i + 1 } <span class="math inline">\(表示第\)</span>i + 1 <span class="math inline">\(层的\)</span> $,则:</p>
+<p>这个公式相当容易理解,原因是<span class="math inline">\(\text{ stride
+} = 1\)</span>的时候,上面恰好是移动的次数,而<span class="math inline">\(\text{ stride
+}\)</span>变化的时候,当然要拿到一个上取整.</p>
+<p>至于所谓的空洞卷积,只需在上面的基础上改<span class="math inline">\(\text{ filter \_ size }\)</span>就好.</p>
+<p>至于乘法操作,每得到一个<span class="math inline">\(\text{ output
+}\)</span>当然都会需要<span class="math inline">\(\text{ filter \_ size
+}\)</span>次乘法操作.</p>
+<p>再看感受野的计算,不妨设<span class="math inline">\(S_i\)</span>为前<span class="math inline">\(i\)</span>次卷积的<span class="math inline">\(\text{ stride }\)</span>的乘积,设<span class="math inline">\(k_{ i + 1 }\)</span>表示第<span class="math inline">\(i + 1\)</span>层的<span class="math inline">\(\text{ kernel \_ size }\)</span>,则:</p>
 <p><span class="math display">\[
-RF _{ i + 1  } = RF _i + ( k _{ i + 1  } - 1 ) \times S _i
+RF_{ i + 1 } = RF_i + ( k_{ i + 1 } - 1 ) \times S_i
 \]</span></p>
-<p>这个公式的含义大概是每次先看对应了多大的原数据上的范围,再把原本的边界$RF
-_i $给补上.</p>
+<p>这个公式的含义大概是每次先看对应了多大的原数据上的范围,再把原本的边界<span class="math inline">\(RF_i\)</span>给补上.</p>
 <h4><span id="池化pooling">池化(Pooling)</span></h4>
 <p>池化操作它没有一个可学习的参数,只是对输入数据进行固定的操作.简单来说就是降低输入的规模,以实现更好的鲁棒性以及提高效率.</p>
 <p>常见的池化操作包括:</p>
@@ -472,20 +496,21 @@ _i $给补上.</p>
 <h5><span id="alexnet">AlexNet</span></h5>
 <p>首次引入ReLU激活函数,Dropout
 技术,以及数据增强,提高了模型的训练效率和泛化能力.</p>
-<p>采用了$8 $层深的网络结构,证明了深度网络的潜力.</p>
+<p>采用了<span class="math inline">\(8\)</span>层深的网络结构,证明了深度网络的潜力.</p>
 <h5><span id="vgg">VGG</span></h5>
 <p>开始堆叠小尺寸的卷积核,获得与大卷积核相似的感受野的同时可以增加网络深度.</p>
 <h5><span id="resnet">ResNet</span></h5>
 <p>引入残差的概念,直接将输入数据累加(跳跃连接)到最后的输出中,这样网络学习的实际上是输入和输出之间的残差,从而提高了网络学习能力.</p>
 <h5><span id="squeezenet">SqueezeNet</span></h5>
-<p>SqueezeNet的基本构建单元是Fire模块.Fire模块由一个squeeze层和一个expand层组成.squeeze层使用$1
-$卷积核减少通道数,而expand层则使用$1 $和$3
-$卷积核增加通道数.这种设计有效地减少了参数数量和计算量.</p>
+<p>SqueezeNet的基本构建单元是Fire模块.Fire模块由一个squeeze层和一个expand层组成.squeeze层使用<span class="math inline">\(1 \times
+1\)</span>卷积核减少通道数,而expand层则使用<span class="math inline">\(1
+\times 1\)</span>和<span class="math inline">\(3 \times
+3\)</span>卷积核增加通道数.这种设计有效地减少了参数数量和计算量.</p>
 <h5><span id="mobilenet">MobileNet</span></h5>
 <ol type="1">
 <li><p>深度卷积:在这个操作中,每个输入通道独立地进行卷积,这意味着在进行卷积时,不同通道之间没有交互.这样可以减少计算量和参数数量.</p></li>
-<li><p>逐点卷积:逐点卷积使用$1
-$的卷积核,它作用在深度卷积的输出上,将不同通道的信息整合在一起.逐点卷积可以减少参数数量,同时保持较高的性能.</p></li>
+<li><p>逐点卷积:逐点卷积使用<span class="math inline">\(1 \times
+1\)</span>的卷积核,它作用在深度卷积的输出上,将不同通道的信息整合在一起.逐点卷积可以减少参数数量,同时保持较高的性能.</p></li>
 </ol>
 <h5><span id="shufflenet">ShuffleNet</span></h5>
 <ol type="1">
