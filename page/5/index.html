@@ -176,7 +176,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-count">57</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -233,6 +233,1933 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://lwlaymh.github.io/2025/06/22/%E5%AD%A6%E4%B9%A0-%E6%95%B0%E8%AE%BA%E7%9B%B8%E5%85%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F1.jpg">
+      <meta itemprop="name" content="LWLAymh">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LWLAymh的备忘录">
+      <meta itemprop="description" content="不过是白日梦里一瞬息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | LWLAymh的备忘录">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/06/22/%E5%AD%A6%E4%B9%A0-%E6%95%B0%E8%AE%BA%E7%9B%B8%E5%85%B3/" class="post-title-link" itemprop="url">数论相关</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-06-22 16:57:48" itemprop="dateCreated datePublished" datetime="2025-06-22T16:57:48+08:00">2025-06-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">具体数学</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2025/06/22/%E5%AD%A6%E4%B9%A0-%E6%95%B0%E8%AE%BA%E7%9B%B8%E5%85%B3/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2025/06/22/%E5%AD%A6%E4%B9%A0-%E6%95%B0%E8%AE%BA%E7%9B%B8%E5%85%B3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <span id="more"></span>
+<p>本文除特殊说明,所涉及数均为整数.</p>
+<h3><span id="整除性及相关">整除性及相关</span></h3>
+<p>如果$m &gt; 0 <span class="math inline">\(且\)</span> { m } <span class="math inline">\(是一个整数,我们就说\)</span>m <span class="math inline">\(整除\)</span>n <span class="math inline">\(,记作\)</span>m | n $.</p>
+<p>能同时整除两个数$n <span class="math inline">\(和\)</span>m <span class="math inline">\(的数称为\)</span>n <span class="math inline">\(和\)</span>m <span class="math inline">\(的公因子,所有公因子中最大的那个称为最大公因子,记作\)</span>(
+n , m ) <span class="math inline">\(.而最小的能同时被\)</span>n <span class="math inline">\(和\)</span>m <span class="math inline">\(整除的非零数被称为他们的最小公倍数,记作\)</span>lcm
+( n , m ) <span class="math inline">\(.不难发现\)</span>lcm ( n , m ) (
+n , m ) = nm $.</p>
+<h4><span id="欧几里得算法">欧几里得算法</span></h4>
+<p>欧几里得算法基于以下定理:</p>
+<p>$( 0 , n ) = n <span class="math inline">\(且\)</span>( n , m ) = ( n
+m , m ) , m &gt; 0 $.</p>
+<p>考虑证明,首先,$k <span class="math inline">\(,\)</span>n <span class="math inline">\(和\)</span>m <span class="math inline">\(的公因子一定是\)</span>n <span class="math inline">\(和\)</span>m + kn <span class="math inline">\(的公因子,这是显然的.因此,\)</span>n <span class="math inline">\(和\)</span>m <span class="math inline">\(的公因子一定是\)</span>m <span class="math inline">\(和\)</span>n - m { m } $的公因子,而反之亦然.</p>
+<p>另外有如下性质:</p>
+<ol type="1">
+<li><p>$( kn , km ) = k ( n , m ) <span class="math inline">\(以及\)</span>lcm ( kn , km ) = k  lcm ( n , m )
+$.</p></li>
+<li><p>若$a b <span class="math inline">\(,则\)</span>( a ^m - b ^m , a
+^n - b ^n ) = a ^{ ( n , m ) } - b ^{ ( n , m ) } $.</p></li>
+<li><p>如果$n ^a n ^b <span class="math inline">\(,则\)</span>n ^{ ( a ,
+b ) } $.</p></li>
+</ol>
+<p>(1)的证明较为显然,我们考虑(2)的证明.</p>
+<p>不妨假设$n m <span class="math inline">\(,当\)</span>n = m
+$时显然成立.</p>
+<p>当$n &lt; m $时:</p>
+<p>假设$a &gt; b <span class="math inline">\(,考虑\)</span>( a ^m - b ^m
+, a ^n - b ^n ) = ( a ^m - b ^m - k ( a ^n - b ^n ) , a ^n - b ^n )
+$.</p>
+<p>取$k = b ^{ m - n } $,则:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\gcd ( a ^m - b ^m , a ^n - b ^n ) &amp; = \gcd ( a ^m - b ^{ m - n  } a
+^n , a ^n - b ^n ) \\
+&amp; = \gcd ( a ^n ( a ^{ m - n  } - b ^{ m - n  } ) , a ^n - b ^n )
+\end{aligned}
+\]</span></p>
+<p>由于$a b <span class="math inline">\(,所以显然\)</span>a ^n - b ^n a
+^n $,于是:</p>
+<p><span class="math display">\[
+\gcd ( a ^m - b ^m , a ^n - b ^n ) = \gcd ( a ^{ m - n  } - b ^{ m -
+n  } , a ^n - b ^n )
+\]</span></p>
+<p>自然得证.</p>
+<p>接下来考虑(3)的证明:</p>
+<p>如果$a = b <span class="math inline">\(,显然得证.不然,不妨设\)</span>a &gt; b
+$注意到:</p>
+<p><span class="math display">\[
+\begin{aligned}
+n ^a &amp; \equiv 1 \pmod { m  } \\
+n ^a - n ^{ a - b  } n ^b &amp; \equiv 1 - n ^{ a - b  } \pmod { m  } \\
+n ^{ a - b  } &amp; \equiv 1 \pmod { m  }
+\end{aligned}
+\]</span></p>
+<p>自然得证.</p>
+<h4><span id="一些性质">一些性质</span></h4>
+<p>令$n , m $.</p>
+<ol type="1">
+<li><p>$k | n k | m k | ( n , m ) $.</p></li>
+<li><p>$<em>{ m | n } a <em>m = </em>{ m | n } a </em>{ { m } }
+$.</p></li>
+<li><p>$<em>{ m | n } </em>{ k | m } a <em>{ k , m } = </em>{ k | n }
+<em>{ l | ( { k } ) } a </em>{ k , kl } $.</p></li>
+</ol>
+<p>另外,$<span class="math inline">\(有一个很著名的性质:对于数字\)</span>n , m <span class="math inline">\(,找到最小的正整数\)</span>x <span class="math inline">\(满足\)</span>y <span class="math inline">\(,\)</span>xn = ym $.</p>
+<p>首先令$g = ( n , m ) <span class="math inline">\(,我们自然有\)</span>x { g } = y { g } <span class="math inline">\(,也就相当于\)</span>x { g } <span class="math inline">\(,由于\)</span>( { g } , { g } ) = 1 <span class="math inline">\(,所以左边的\)</span> { g } <span class="math inline">\(可以用逆元消掉,显然最小正整数解为\)</span>x = { g
+} $.</p>
+<h5><span id="example1cf1656hequal-lcmsubsets">Example1([CF1656H]Equal LCM
+Subsets)</span></h5>
+<p>注意到插入可能有点小困难,我们考虑从全集中删除:注意到如果对于一个数字的某一个质因子,如果它的指数大于了对方集合中相同质因子的最大指数,那这个数一定不可能存在,直接删掉.不难发现删完后就是合法的了.</p>
+<p>首先,数据范围不允许我们判断质因子,那么怎么做呢?</p>
+<p>显然合法的条件等价于$a <em>i | lcm ( b ) , i n <span class="math inline">\((当然这个还要反过来再写一遍,两个式子一起才是充要条件,这里为了方便只写一个),这个条件等价于\)</span></em>{
+j = 1 } ^n ( { ( b _j , a _i ) } ) = 1 $.后者是方便做的.</p>
+<p>然后上线段树处理一下,好像先random_shuffle一下再暴力删除也是对的.</p>
+<h4><span id="基于值域预处理的快速-gcd">基于值域预处理的快速 GCD</span></h4>
+<p>存在一种$O ( n ) <span class="math inline">\(预处理,\)</span>O ( 1 )
+<span class="math inline">\(求任意两个小于等于\)</span>n <span class="math inline">\(的数的\)</span>$的方法:</p>
+<p>引理:</p>
+<p>对于任意整数$n <span class="math inline">\(,存在一种划分方式\)</span>n = abc <span class="math inline">\(,\)</span>a <span class="math inline">\(,\)</span>b <span class="math inline">\(,\)</span>c <span class="math inline">\(三个数要么是质数,要么\)</span> $.</p>
+<p>证明:</p>
+<p>如果$n <span class="math inline">\(存在一个大于等于\)</span>
+$的质因子,显然成立.</p>
+<p>否则,使用数学归纳,我们考虑$n <span class="math inline">\(的最小质因子为\)</span>p <span class="math inline">\(,设\)</span> { p } = xyz <span class="math inline">\(,不妨设\)</span>x y z $.</p>
+<p>如果$x = 1 $,显然成立.</p>
+<p>不然有$p x y z <span class="math inline">\(,而\)</span>pxyz = n <span class="math inline">\(,那么\)</span>p ^4 n <span class="math inline">\(,\)</span>p n ^{ { 4 } } $.</p>
+<p>现在我们想要证明不存在$xp &gt; <span class="math inline">\(,\)</span>yp &gt; <span class="math inline">\(,\)</span>zp &gt; $.</p>
+<p>如果存在,我们有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+xyzp ^3 &amp; &gt; n ^{ \frac { 3  } { 2  }  } \\
+np ^2 &amp; &gt; n ^{ \frac { 3  } { 2  }  } \\
+p ^2 &amp; &gt; \sqrt { n  } \\
+p &amp; &gt; n ^{ \frac { 1  } { 4  }  }
+\end{aligned}
+\]</span></p>
+<p>与我们前面的结论不符合.</p>
+<p>因而该引理成立,并且给出了$O ( n ) <span class="math inline">\(预处理所有数\)</span>abc $的方法.</p>
+<p>接下来，设$m = <span class="math inline">\(,考虑使用\)</span>O ( n )
+<span class="math inline">\(的时间求出每个小于等于\)</span>m <span class="math inline">\(的数对的\)</span><span class="math inline">\(,如果我们要求\)</span>( x , y ) <span class="math inline">\(,设\)</span>x = abc <span class="math inline">\(,显然\)</span>( x , y ) = ( a , y ) ( b , { ( a ,
+y ) } ) ( c , { ( ab , y ) } ) $.</p>
+<p>如果$a <span class="math inline">\(是质数，只需要判断\)</span>a <span class="math inline">\(是否整除\)</span>y $.</p>
+<p>否则$( a , y ) = ( y a , a ) <span class="math inline">\(,因为\)</span>a $,因而可以直接查表.</p>
+<h4><span id="裴蜀定理">裴蜀定理</span></h4>
+<p>$a , b , m <span class="math inline">\(,则\)</span>x , y <span class="math inline">\(满足\)</span>ax + by = m <span class="math inline">\(,当且仅当\)</span>( a , b ) | m $.</p>
+<p>证明如下:</p>
+<p>若$a = 0 <span class="math inline">\(或\)</span>b = 0 $,显然成立.</p>
+<p>不然,设集合$A = { xa + yb | x , y } <span class="math inline">\(中的最小正元素\)</span>d _0 = x _0 a + y _0 b
+$,该集合中显然一定有正元素.</p>
+<p>考虑取该集合中另一个正整数$d _1 = x _1 a + y _1 b &gt; d _0 <span class="math inline">\(,注意到\)</span>d _1 - d _0 = ( x _1 - x _0 ) a +
+( y _1 - y _0 ) b A <span class="math inline">\(,所以\)</span>( d _1 , d
+_0 ) A <span class="math inline">\(,如果\)</span>d _0 d _1 $,那么$0 &lt;
+( d _1 , d _0 ) &lt; d _0 <span class="math inline">\(,与假设不符.所以这个集合里的所有数一定都是\)</span>d
+_0 $的倍数.</p>
+<p>事实上还有另一种证明方式:</p>
+<p>如果我们定义一个非空集合$I <span class="math inline">\(,满足其对加法和数乘(\)</span>a , x I , ax I <span class="math inline">\()均封闭,那么我们可以证明其中存在一个唯一的数字\)</span>g
+<span class="math inline">\(满足所有数都是\)</span>g $的倍数.</p>
+<p>如果$I = { 0 } <span class="math inline">\(,可以取\)</span>g = 0
+$.</p>
+<p>反之,显然其中有正有负(因为可以取$a = - 1 <span class="math inline">\(),我们设\)</span>I <em>+ = { k I | k } <span class="math inline">\(取\)</span>g = I </em>+ <span class="math inline">\(.\)</span>a I <span class="math inline">\(,不妨设\)</span>a = gq + r , r </p>
+<p>=$, 令 <span class="math inline">\(q=\lfloor\frac a
+b\rfloor\)</span>, 那 么 我 们 有 $</p>
+<p>=</p>
+<p>同样我们可以得到:</p>
+<p>x_1&amp;y_1\</p>
+<p>x_2&amp;y_2</p>
+<p>\end{matrix}]</p>
+<p>=</p>
+<p>$, 即 <span class="math inline">\(ax_1+by_1=\gcd(a,b)\)</span>,
+$(x_1,y_1)</p>
+<h5><span id="example1xviiopen-cup-named-after-ev-pankratiev-grand-prix-of-japanopenstraincontest-1489eeel-and-grid">Example1([XVII
+Open Cup named after E.V. Pankratiev. Grand Prix of Japan(openstrain
+contest 1489)E]Eel and Grid)</span></h5>
+<p>题意:$h w ( h , w ^6 ) <span class="math inline">\(的格子图,只能往下往右走,走到边界会循环,问从\)</span>(
+0 , 0 ) $开始走遍历走一个哈密顿回路的方案数.</p>
+<p>这题最重要的地方其实在于观察到,由于每个点只会被走到一次(除了$( 0 , 0
+)
+$,它会被走到两次,但只会由其它格子走来一次),因此如果抽象成图,每个格子只会有一个出边和一个入边.这意味着每个格子上面的和左边的格子必定只有一个指向它,进一步地,这意味着这两个格子的状态必然相同.</p>
+<p>由此我们发现,每条副对角线(取膜意义下)的状态必然相同,而取膜意义下的副对角线有多少条呢?不难注意到是$d
+= { ( h , w ) } = ( h , w ) <span class="math inline">\(条.也就是说,我们只需要确定这\)</span>d <span class="math inline">\(条对角线的值,就可以确定整个矩阵的答案.假设\)</span>R
+<span class="math inline">\(表示向右走,\)</span>D <span class="math inline">\(表示向下走,\)</span>a _i <span class="math inline">\(表示第\)</span>i <span class="math inline">\(条副对角线的状态,最后的操作序列自然是\)</span>a _0
+a <em>1 . . . a </em>{ d - 1 } a _0 a _1 . . . $.</p>
+<p>那么我们接下来要做的就是给这$d
+$条副对角线定向,并判断一个方案是否合法.注意到一个方案不合法当且仅当出现了多于$1
+<span class="math inline">\(个环.那这又意味着什么呢?意味着存在一个点,它可以通过少于\)</span>hw
+<span class="math inline">\(次走动走回自己.这显然是不被我们允许的.另一件不难发现的事是,第一个走回自己的点一定是\)</span>(
+0 , 0 ) <span class="math inline">\(.再不难发现的是,走回自己的时候一定是经过了若干个周期:\)</span>a
+_0 a <em>1 . . . a </em>{ d - 1 } a <em>0 . . . a </em>{ d - 1 } <span class="math inline">\(,因为每次向下或者向右走都会走到下一条副对角线,而且最后要回到自己.这就注意到每一个循环\)</span>a
+_0 a <em>1 . . . a </em>{ d - 1 }
+$内部具体什么情况是不在乎的,只在乎经历过这个过程之后会发生什么样的变化.</p>
+我们不妨假设序列${ a } <span class="math inline">\(中有\)</span>k <span class="math inline">\(个\)</span>R <span class="math inline">\(,\)</span>d - k <span class="math inline">\(个\)</span>D <span class="math inline">\(,那会产生这种情况当且仅当\)</span>x , x &lt; { d }
+<span class="math inline">\(,\)</span>
+<span class="math display">\[\begin{cases}h | x ( d - k ) \\ w | xk
+\end{cases}\]</span>
+<p><span class="math inline">\(.注意到这等价于寻找最小的\)</span>x <span class="math inline">\(,判断其是否小于\)</span> { d } <span class="math inline">\(,于是条件等价于自然有\)</span>x = lcm ( { ( d - k
+, h ) } , { ( w , k ) } ) <span class="math inline">\(,枚举\)</span>k
+$并判断即可.</p>
+<h3><span id="素数及相关">素数及相关</span></h3>
+<h4><span id="定义">定义</span></h4>
+<p>可以利用裴蜀定理证明素数的定义等价于$a , b , p | ab p | a p | b
+$.</p>
+<p>考虑先用最基础的定义得到这个命题,考虑$p | ab , p a $,则$1 = px + ay
+<span class="math inline">\(有解,则\)</span>b = pxb + ( ab ) y <span class="math inline">\(,右边都是\)</span>p <span class="math inline">\(的倍数,所以\)</span>p | b $.</p>
+<p>这个命题反推的话,考虑设$p = ab , a , b <span class="math inline">\(,则\)</span>p | ab <span class="math inline">\(且\)</span>p a , p b $,不符.</p>
+<h5><span id="example1具体数学422">Example1(《具体数学》4.22)</span></h5>
+<p>证明:在$n <span class="math inline">\(进制下,若\)</span>( 11 . . . 1
+) _n $的$1 $的个数不是质数则其一定不是质数..</p>
+<p>设$1 <span class="math inline">\(的个数为\)</span>m <span class="math inline">\(,则\)</span>( 11 . . . 1 ) <em>n = </em>{ i = 0 }
+^{ m - 1 } n ^i $.</p>
+<p>如果$m prime <span class="math inline">\(,不妨设则\)</span>m = cd , c
+d $.</p>
+<p>则</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum _{ i = 0  } ^{ m - 1  } n ^i &amp; = \sum _{ i = 0  } ^{ c - 1  } n
+^{ di  } \sum _{ j = 0  } ^{ d - 1  } n ^{ j  } \\
+&amp; = ( \sum _{ i = 0  } ^{ c - 1  } n ^{ di  } ) ( \sum _{ j = 0  }
+^{ d - 1  } n ^j )
+\end{aligned}
+\]</span></p>
+<p>显然不是质数.</p>
+<h4><span id="唯一分解定理算数基本定理">唯一分解定理(算数基本定理)</span></h4>
+<p>任何正整数都只有一种方式以素数非减的次序写成素数的乘积.</p>
+<p>证明:</p>
+<p>考虑数学归纳法,设小于$n $的数全部满足.</p>
+<p>则对于$n <span class="math inline">\(,如果它不满足条件,一定存在两种分解方式\)</span>n =
+_{ i = 1 } ^m p <em>i = </em>{ i = 1 } ^k q _i $.</p>
+<p>首先,如果$p _1 = q _1 $,根据归纳假设,显然不成立.</p>
+<p>不失一般性,设$p _1 &lt; q _1 <span class="math inline">\(.则\)</span>q _1 | p <em>1 </em>{ i = 2 } ^m p _i
+<span class="math inline">\(,显然\)</span>q _1 p _1 <span class="math inline">\(,所以\)</span>q <em>1 | </em>{ i = 2 } ^m p <em>i
+<span class="math inline">\(,设\)</span>s = </em>{ i = 2 } ^m p _i <span class="math inline">\(,但这是不可能的,因为\)</span>s &lt; n <span class="math inline">\(,根据归纳假设,它只有一种分解方式,这种方式中显然不可能存在\)</span>p
+_1 $.</p>
+<p>那么根据上述证明,我们可以将一个数表示为以下形式:$n = _p p ^{ n _p } ,
+n _p $.</p>
+<p>另外不难证明的一点是,假设$n _p = k <span class="math inline">\(,那么最小质因子一定不大于\)</span> $.</p>
+<h5><span id="example1cf986foppafuncan-style-remastered">Example1([CF986F]Oppa
+Funcan Style Remastered)</span></h5>
+<p>首先对$k <span class="math inline">\(做pollard-Rho算法.注意到我们可以默认\)</span>q _i
+$是质因子,这显然不会影响答案.</p>
+<p>然后,如果只有一个质因子,显然直接判断.</p>
+<p>如果有两个质因子,是经典的二元不定方程.</p>
+<p>如果有三个质因子,此时最小质因子的大小就不大于$
+$,做同余最短路即可.</p>
+<h4><span id="素数的个数">素数的个数</span></h4>
+<p>首先,欧几里得证明了素数有无穷多个:</p>
+<p>假设素数有有限个,分别为$p _1 , p _2 , . . . p <em>m <span class="math inline">\(,则\)</span></em>{ i = 1 } ^m p _i + 1
+$无法被其中任何素数整除,则假设不成立.</p>
+<p>在此基础上,我们可以定义欧几里得数:</p>
+<p>$e _1 = 2 , e <em>n = 1 + </em>{ i = 1 } ^{ n - 1 } e _i $.</p>
+<p>令$( n ) <span class="math inline">\(表示小于等于\)</span>n <span class="math inline">\(的素数个数,有\)</span>{ _{ n + } { n } } = 1
+$.</p>
+<p>有切比雪夫定理(又称贝特朗假设):若$n &gt; 1 , p prime , p ( n , 2 n )
+$.</p>
+<p>又有狄利克雷定理:若$( a , b ) = 1 , { an + b }
+$中包含了无穷个素数.</p>
+<p>(顺便一提,当$a = 4 <span class="math inline">\(或者\)</span>a = 6
+<span class="math inline">\(,\)</span>b = - 1
+$的时候是好证明的,由于素数要么形如$6 n - 1 $要么形如$6 n + 1
+$,或者要么形如$4 n - 1 $要么形如$4 n + 1
+$,只需要类似证明素数无限那样乘一乘)</p>
+<p>同时,我们还有以下结论:$_{ 1 p n p prime } { p } n $.</p>
+<p>证明如下:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum _{ 1 \leq p \leq n \land p \in prime  } \cfrac { 1  } { p  } &amp;
+= \sum ^n _{ k = 1  } \cfrac { \pi ( k ) - \pi ( k - 1 )  } { k  } &amp;
+= \sum ^n _{ k = 1  } \cfrac { \pi ( k )  } { k  } - \sum ^n _{ k = 1  }
+\cfrac { \pi ( k - 1 )  } { k  } \\
+&amp; = \sum ^n _{ k = 1  } \cfrac { \pi ( k )  } { k  } - \sum ^{ n -
+1  } _{ k = 0  } \cfrac { \pi ( k )  } { k + 1  } \\
+&amp; = \sum ^{ n - 1  } _{ k = 1  } \cfrac { \pi ( k )  } { k  } +
+\cfrac { \pi ( n )  } { n  } - \sum ^{ n - 1  } _{ k = 1  } \cfrac { \pi
+( k )  } { k + 1  } - \cfrac { \pi ( 0 )  } { 1  } \\
+&amp; = \sum ^{ n - 1  } _{ k = 1  } \cfrac { \pi ( k )  } { k ( k + 1
+)  } + \cfrac { \pi ( n )  } { n  } \\
+&amp; = \sum ^{ n - 1  } _{ k = 1  } { ( \cfrac { 1  } { k \log k  }
+)  } + O ( \frac { 1  } { \log n  } ) &amp; = O ( \log \log n ) + O (
+\frac { 1  } { \log n  } )
+\end{aligned}
+\]</span></p>
+<h5><span id="example1具体数学420">Example1(《具体数学》4.20)</span></h5>
+<p>证明:存在一个常数$b <span class="math inline">\(满足\)</span> ^b , ^{
+2 ^b } , ^{ 2 ^{ 2 ^b } } . , . . $都是质数.</p>
+<p>如此构造数列:设$p _1 = 2 <span class="math inline">\(,且\)</span>p
+<em>n $为满足$2 ^{ p </em>{ n - 1 } } &lt; p <em>n &lt; 2 ^{ p </em>{ n
+- 1 } + 1 } $的最小质数.</p>
+<p>通过构造不难发现:$p _{ n - 1 } = _2 p _n $.</p>
+<p>根据整值函数的性质,我们有$_2 x = _2 x <span class="math inline">\(.考虑反向数学归纳,考虑当\)</span>n + <span class="math inline">\(时构造满足题目条件,那么\)</span>p ^{ n - 1 } = _2
+^{ 2 ^{ 2 ^{ . . . ^{ b } } } } = ^{ 2 ^{ . . . ^{ b } } } <span class="math inline">\(,自然也满足条件.所以如果设\)</span>_2 ^{ ( n ) } x
+<span class="math inline">\(为不断对\)</span>x <span class="math inline">\(迭代求\)</span><em>2 <span class="math inline">\(做\)</span>n <span class="math inline">\(次后的答案,只需构造\)</span>b = </em>{ n + } _2 ^{
+( n ) } p _n $即可.</p>
+<h5><span id="example2">Example2</span></h5>
+<p>求证:</p>
+<p><span class="math display">\[
+\mu ( \gcd ( a , b ) ) = 0 \Leftrightarrow \forall n &gt; 0 , \mu ( an +
+b ) = 0
+\]</span></p>
+<p>左推右是简单的.接下来考虑右推左.</p>
+<p>考虑狄利克雷定理,数列${ { ( a , b ) } } <span class="math inline">\(.不妨反证,假设\)</span>( ( a , b ) ) <span class="math inline">\(,不妨设\)</span>p = { ( a , b ) } <span class="math inline">\(,\)</span>p ( a , b ) = ax + b <span class="math inline">\(,也就是\)</span>( p ( a , b ) ) = 0 <span class="math inline">\(,注意到\)</span>( ( a , b ) ) <span class="math inline">\(,此时必有\)</span>p | ( a , b ) <span class="math inline">\(,而\)</span>p <span class="math inline">\(无限,\)</span>( a , b )
+$的素因子有限,这就导出了矛盾.</p>
+<h4><span id="欧几里得数">欧几里得数</span></h4>
+<p>定义欧几里得数:$e _1 = 2 , e <em>n = 1 + </em>{ i = 1 } ^{ n - 1 } e
+<em>i <span class="math inline">\(.不难发现\)</span>e <em>n = e </em>{ n
+- 1 } ( e </em>{ n - 1 } - 1 ) $.</p>
+<h4><span id="费马数">费马数</span></h4>
+<p>定义费马数$f _n = 2 ^{ 2 ^n } + 1 <span class="math inline">\(.不难发现\)</span>f <em>n = ( f </em>{ n - 1 } - 1
+) ^2 + 1 $.</p>
+<p>另外,费马数还满足$f <em>n = </em>{ i = 0 } ^{ n - 1 } f <em>i + 2
+$,我们考虑这个式子的证明:显然后面那一个连乘会得到若干项$2 <span class="math inline">\(的次幂,并且这些项两两不同,根据几何级数,我们有\)</span></em>{
+i = 0 } ^{ n - 1 } f _i + 1 $=$2 ^{ 2 ^{ n } } $,于是显然得证.</p>
+<h5><span id="example1具体数学417">Example1(《具体数学》4.17)</span></h5>
+<p>求证:如果$m n <span class="math inline">\(,则\)</span>f _m f _n
+$.</p>
+<p>不妨假设$m &lt; n <span class="math inline">\(,有:\)</span>( f _m , f
+_n ) = ( f _m , 2 ) = 1 $.</p>
+<h5><span id="example2具体数学418">Example2(《具体数学》4.18)</span></h5>
+<p>求证:若$2 ^n + 1 <span class="math inline">\(是质数,则\)</span>n
+$是$2 $的整数幂.</p>
+<p>如果$n = qm <span class="math inline">\(且\)</span>q
+$是奇数,我们有:$2 ^n + 1 = ( 2 ^m + 1 ) ( 2 ^{ n - m } - 2 ^{ n - 2 m }
++ 2 ^{ n - 3 m } . . . - 2 ^m + 1 ) $.</p>
+<h4><span id="miller-rabin算法">Miller-Rabin算法</span></h4>
+<p>如果判断$n <span class="math inline">\(是否是质数,取\)</span>a &lt; n
+<span class="math inline">\(,设\)</span>n - 1 = d ^r $.</p>
+<p>则要么$a ^d ( n ) $.</p>
+<p>要么$i $,使得$0 i &lt; r <span class="math inline">\(,\)</span>a ^{ d
+^i } - 1 ( n ) $.</p>
+<p>若一个都不满足,则n一定不是质数,不然可能是质数.</p>
+<p>但是若取足够多的不同的$a <span class="math inline">\((如果选\)</span>m <span class="math inline">\(个),那么\)</span>n $是质数的可能性更大.</p>
+<p>此为Miller-Rabin算法,复杂度$O ( m log _2 n ) $.不保证正确性.</p>
+<p>其中a通常取质数,原因不详.（事实上，如果a取前八个小质数，在$2 ^{ 64 }
+$内是不会出错的）</p>
+<h4><span id="pollard-rho算法">Pollard-Rho算法</span></h4>
+<p>对$n <span class="math inline">\(做质因数分解,若能找到\)</span>a
+<span class="math inline">\(使得\)</span>a | n <span class="math inline">\(,则考虑对\)</span> { a } <span class="math inline">\(和\)</span>a $分别进行质因数分解.</p>
+<p>考虑随机$a <span class="math inline">\(,若\)</span>n <span class="math inline">\(有\)</span>m <span class="math inline">\(个因数,那么显然随机到\)</span>a <span class="math inline">\(使得\)</span>a | n <span class="math inline">\(的概率为\)</span> { n } $,显然不太优秀.</p>
+<p>考虑改变随机策略,我们考虑随机一个$a <span class="math inline">\(使得\)</span>( a , n ) <span class="math inline">\(,那么\)</span>( a , n ) <span class="math inline">\(就是\)</span>n $的一个因子.</p>
+<p>这种情况下,随机的概率是$ { n } $,仍然很不优秀.</p>
+<p>考虑使用生日悖论优化,随机$k <span class="math inline">\(个数\)</span>a <span class="math inline">\(.两两匹配得到\)</span>k ^2 <span class="math inline">\(个值,这些值全都不整除\)</span>n
+$的概率可以用生日悖论来计算.</p>
+<p>当$k = 10 $时,错误的概率会很小,但是复杂度仍然很高,无法接受.</p>
+<p>考虑构造$a _i = [ ( a _{ i - 1 } ) ^2 + b ] n $.</p>
+<p>考虑该数列的性质,当$b <span class="math inline">\(确定时,\)</span>a
+$一定有循环节.</p>
+<p>显然当$x | ( a <em>i - a <em>j ) <span class="math inline">\(,则\)</span>x | [ ( a _i - a _j ) ( a _i + a _j )
+- b + b ] <span class="math inline">\(,\)</span>x | ( a </em>{ i + 1 } -
+a </em>{ j + 1 } ) $.</p>
+<p>因此,我们可以利用floyd判环法(双指针法)找出循环节.</p>
+<p>并且在这个过程中,我们可以预处理出大量的$a _{ i + len } - a _i $.</p>
+<p>复杂度极其玄学,但是实际应用中不差.</p>
+<h4><span id="狄利克雷前缀和">狄利克雷前缀和</span></h4>
+<p>已知数列$a <span class="math inline">\(,求数列\)</span>b <span class="math inline">\(满足\)</span>b <em>n = </em>{ d | n } a _d $.</p>
+<p>我们将一个数的质因数分解看作它的向量表示.更直接地,如果$n = _{ i = 1 }
+^k p _i ^{ q _i } <span class="math inline">\(,其中\)</span>p _i <span class="math inline">\(是第\)</span>i <span class="math inline">\(大的质数.我们将其写作向量\)</span>( q _1 , q _2 ,
+. . . , q _k ) $的形式,并做高位前缀和.</p>
+<p>可以用$O ( n n ) $的时间复杂度解决问题.</p>
+<h3><span id="阶乘">阶乘</span></h3>
+<p>我们定义$n ! = _{ i = 1 } ^n i $,特别地,$0 ! = 1 $.</p>
+<p>考虑估计$n ! <span class="math inline">\(的大小,不难发现\)</span>( n
+! ) ^2 = _{ i = 1 } ^n i ( n + 1 - i ) $.</p>
+<p>而函数$y = i ( n + 1 - i ) , i <span class="math inline">\(显然在\)</span>i = 1 <span class="math inline">\(和\)</span>i = n <span class="math inline">\(时取最小值,而在\)</span>i = { 2 } $时取最大值.</p>
+<p>那么我们有$<em>{ i = 1 } ^n n ( n ! ) ^2 </em>{ i = 1 } ^n { 4 }
+$.</p>
+<p>于是$n ^{ { 2 } } n ! { 2 ^n } $.</p>
+<p>还有一种估计方式是考虑$_{ n } { ! } <span class="math inline">\(,由Stolz定理及其推论,我们知道若\)</span>a _n &gt;
+0 , { a <em>n } = a <span class="math inline">\(,那么\)</span></em>{ n }
+= a <span class="math inline">\(.而我们令\)</span>a _n = { n ! } <span class="math inline">\(,\)</span> { a <em>n } = ( 1 + { n } ) ^n <span class="math inline">\(,所以\)</span></em>{ n } { } = e <span class="math inline">\(,于是我们可以估计\)</span>n ! ( { e } ) ^n $.</p>
+<p>事实上有一种更准确的估计方法:$n ! ( { e } ) ^n $.</p>
+<p>考虑设$_p ( n ! ) <span class="math inline">\(为\)</span>n ! <span class="math inline">\(中质因子\)</span>p
+$的个数,我们分析一下这个函数:</p>
+<p>首先显然有:$<em>p ( n ! ) = </em>{ k } { p ^k } { p - 1 } $.</p>
+<p>我们考虑以$v _p ( n ) <span class="math inline">\(表示\)</span>n
+<span class="math inline">\(在\)</span>p <span class="math inline">\(进制下各位数字之和,不妨设第\)</span>k <span class="math inline">\(位数字为\)</span>w <span class="math inline">\(.那么这个数字对于最后的答案的贡献为\)</span>w ( p
+^{ k - 1 } + p ^{ k - 2 } + . . . + 1 ) = w { p - 1 } = { p - 1 } <span class="math inline">\(.求和得到\)</span>_p ( n ! ) = { p - 1 } $.</p>
+<h5><span id="example具体数学455">Example(《具体数学》4.55)</span></h5>
+<p>令$P <em>n = </em>{ i = 1 } ^n i ! <span class="math inline">\(,求证:\)</span>P <em>n ^4 ( n + 1 ) P </em>{ 2 n }
+$.</p>
+<p>考虑对于每个质因子,分开考虑它在前者和后者内出现的次数.</p>
+<p>我们不妨将$p <span class="math inline">\(和\)</span>p ^k
+$分开考虑,于是显然下面的式子是上面的式子成立的充分条件:</p>
+<p><span class="math display">\[
+\sum _{ m \geq 1  } \sum _{ i = 1  } ^{ 2 n  } \lfloor \cfrac { i  } { p
+^m  } \rfloor \geq 4 \sum _{ m \geq 1  } \sum _{ i = 1  } ^n \lfloor
+\cfrac { i  } { p ^m  } \rfloor + [ p ^m \mid ( n + 1 ) ]
+\]</span></p>
+<p>我们不妨对上面这个式子使用数学归纳,也就是说它的充分条件是:</p>
+<p><span class="math display">\[
+\lfloor \cfrac { 2 n - 1  } { p ^m  } \rfloor + \lfloor \cfrac { 2 n  }
+{ p ^m  } \rfloor \geq 4 \lfloor \cfrac { n  } { p ^m  } \rfloor + [ n
+\equiv - 1 \pmod { p ^m  } ] - [ n \equiv 0 \pmod { p ^m  } ]
+\]</span></p>
+<p>这个式子,当$1 n p ^m <span class="math inline">\(时显然成立.而当\)</span>n <span class="math inline">\(每增大\)</span>p ^m $的时候,左右两边同时增大$4
+$,于是也是成立的,由此可以数学归纳.</p>
+<h3><span id="互素">互素</span></h3>
+<p>如果两个数$n <span class="math inline">\(和\)</span>m <span class="math inline">\(满足\)</span>( n , m ) = 1 <span class="math inline">\(,我们称他们互素,记作\)</span>n m $.</p>
+<p>我们显然有这样两条性质:</p>
+<ol type="1">
+<li><p>$ { ( n , m ) } { ( n , m ) } $.</p></li>
+<li><p>$k n k m k nm $.</p></li>
+</ol>
+<h5><span id="example1具体数学442">Example1(《具体数学》4.42)</span></h5>
+<p>证明:如果两个分数$ { n } <span class="math inline">\(和\)</span> { n
+’ } <span class="math inline">\(满足\)</span>n m <span class="math inline">\(且\)</span>n ’ m ’ <span class="math inline">\(,则\)</span>( mn ’ + m ’ n ) ( nn ’ ) <span class="math inline">\(的充分必要条件是\)</span>n n ’ $.</p>
+<p>首先,如果$( n , n ’ ) $,显然不可能满足条件,必要性得证.</p>
+<p>考虑充分性,如果$n n ’ <span class="math inline">\(,则只需证明\)</span>n ( mn ’ + m ’ n ) n ’ ( mn ’
++ m ’ n ) $即可.</p>
+<p>而$( n , mn ’ + m ’ n ) = ( n , mn ’ ) = 1
+$,另一个式子同理,于是得证.</p>
+<h5><span id="example2">Example2</span></h5>
+<p>证明:$<em>{ 0 k &lt; m } f ( k ) = </em>{ d | m } _{ 0 k &lt; d } f (
+{ d } ) [ k d ] \ $.</p>
+<p>考虑:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum _{ 0 \leq k &lt; m  } f ( k ) &amp; = \sum _{ d | m  } \sum _{ 0
+\leq k &lt; m , d | k  } f ( k ) [ \gcd ( k , m ) &amp; = d ] \\
+&amp; = \sum _{ d | m  } \sum _{ 0 \leq k &lt; m , d | k  } f ( k ) [
+\frac { k  } { d  } \bot \frac { m  } { d  } ] \\
+&amp; = \sum _{ d | m  } \sum _{ 0 \leq k &lt; \frac { m  } { d  }  } f
+( kd ) [ k \bot \frac { m  } { d  } ] \\
+&amp; = \sum _{ d | m  } \sum _{ 0 \leq k &lt; d  } f ( \frac { km  } {
+d  } ) [ k \bot d ]
+\end{aligned}
+\]</span></p>
+<h5><span id="example3具体数学463">Example3(《具体数学》4.63)</span></h5>
+<p>证明:满足$a ^n + b ^n = c ^n ( n , n &gt; 2 ) <span class="math inline">\(的最小的(\)</span>n <span class="math inline">\(为第一关键字,\)</span>c <span class="math inline">\(为第二关键字)一组正整数解(即费马大定理最小的反例)一定满足以下性质:(另外,\)</span>n
+= 4 $的情况早被证明了无解)</p>
+<ol type="1">
+<li><p>$n prime $.</p></li>
+<li><p>$m , a + b =</p>
+<span class="math display">\[\begin{cases}m ^n &amp; n \nmid c \\ n ^{ n
+- 1  } m ^n &amp; n \mid c \end{cases}\]</span>
+<p>$.</p></li>
+</ol>
+<p>首先证明(1),如果$n <span class="math inline">\(是最小的满足条件的数但并不是质数,我们不妨设\)</span>n
+= xy , x &gt; 2 <span class="math inline">\(,则\)</span>( a ^y ) ^x + (
+b ^y ) ^x = ( c ^y ) ^x $,显然这是更小的一组反例,于是(1)得证.</p>
+<p>接下来考虑性质(2),注意到$a , b , c
+$必然两两互质,不然可以两边同时除以一个数构造出更小的解,又注意到:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\gcd ( a + b , \cfrac { a ^n + b ^n  } { a + b  } ) &amp; = \gcd ( a + b
+, ( a ^{ n - 1  } - a ^{ n - 2  } b + . . . + b ^{ n - 1  } ) ) \\
+\gcd ( a + b , \cfrac { c ^n  } { a + b  } ) &amp; = \gcd ( a + b , na
+^{ n - 1  } ) \\
+\gcd ( a + b , \cfrac { c ^n  } { a + b  } ) &amp; = \gcd ( a + b , n )
+\end{aligned}
+\]</span></p>
+<p>如果$( a + b , n ) = 1 <span class="math inline">\(,那么我们有\)</span>( a + b ) { a + b } <span class="math inline">\(.接下来考虑每一个质因子\)</span>p <span class="math inline">\(,如果\)</span>( a + b ) <span class="math inline">\(中有\)</span>x <span class="math inline">\(个\)</span>p <span class="math inline">\(,\)</span>c <span class="math inline">\(中有\)</span>y <span class="math inline">\(个\)</span>p <span class="math inline">\(,于是\)</span>c ^n <span class="math inline">\(中有\)</span>ny <span class="math inline">\(个\)</span>p <span class="math inline">\(,我们自然有:\)</span>x = ny <span class="math inline">\(,于是\)</span>m <span class="math inline">\(满足\)</span>a + b = m ^n $.</p>
+<p>如果$n ( a + b ) <span class="math inline">\(,我们就有:\)</span>( a +
+b , { a + b } ) = n <span class="math inline">\(,此时必有\)</span>n c
+<span class="math inline">\(,\)</span>n ^n c ^n <span class="math inline">\(,并且不难发现:\)</span>n ^k { a + b } n ^{ n - k }
+( a + b ) <span class="math inline">\(,由于上面提到的\)</span><span class="math inline">\(的原因,\)</span>{ k , n - k } = 1 <span class="math inline">\(,显然\)</span>k = 1 <span class="math inline">\(或者\)</span>k = n - 1 <span class="math inline">\(.下面只需要证明\)</span>k n - 1 $.</p>
+<p>冷静一下,如果$n | ( a + b ) , n ^2 ( a + b ) <span class="math inline">\(,令\)</span>m = a + b $,此时必有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+c ^n &amp; = a ^n + ( m - a ) ^n \\
+&amp; = a ^n + ( - a ) ^n + nm ( - a ) ^{ n - 1  } + \frac { n ( n - 1
+)  } { 2  } m ^2 ( - a ) ^{ n - 2  } + \cdots
+\end{aligned}
+\]</span></p>
+<p>注意到$n <span class="math inline">\(是奇数,\)</span>a ^n + ( - a )
+^n = 0 <span class="math inline">\(,而\)</span>n ^n | c ^n n ^3 | c ^n
+<span class="math inline">\(,又注意到\)</span>n ^3 | nm ^2 <span class="math inline">\(,我们把两边对\)</span>n ^3 $取模:</p>
+<p><span class="math display">\[
+0 \equiv nx ( - a ) ^{ n - 1  } \pmod { n ^3  }
+\]</span></p>
+<p>注意到若$n ^2 m $,则该式子必不成立.</p>
+<h4><span id="stern-brocot-树">Stern-Brocot 树</span></h4>
+<p>Stern-Brocot树是一种可以不重不漏列举有理数的方式,它的构造如下:</p>
+<p>一开始,序列中有两个分数:$ { 1 } <span class="math inline">\(和\)</span> { 0 } $,这里使用了$0
+$作分母,但我们暂且认为它是正确的,因为这样会出现很多方便的性质.</p>
+<p>接下来,不断地对这个序列进行以下操作:在两个相邻的分数$ { n } <span class="math inline">\(和\)</span> { n ’ } <span class="math inline">\(之间插入一个新分数\)</span> { n + n ’ } $.</p>
+<p>这么无限构造下去得到的序列满足两个性质:</p>
+<ol type="1">
+<li><p>所得到的分数全都是最简分数.</p></li>
+<li><p>所得到的分数不重不漏,换句话说,任意非负有理数都在这个序列中出现恰好一次.</p></li>
+</ol>
+<p>我们不妨认为$ { 0 } = +
+$,那么不难发现这么构造序列,所得到的序列一定是单调递增的.</p>
+<p>这是因为如果我们有$ { n } &lt; { n ’ } <span class="math inline">\(,那么我们一定有:\)</span> { n } &lt; { n + n ’ }
+&lt; { n ’ } <span class="math inline">\(,其中\)</span>n , n ’ , m , m ’
+$,这一点不难验证.</p>
+<p>而正因为如此,我们可以证明所得到的所有分数不重.</p>
+<p>然后,如果当前所得到的序列中有两个数$ { n } <span class="math inline">\(和\)</span> { n ’ } <span class="math inline">\(相邻,则\)</span>m ’ n - mn ’ = 1 <span class="math inline">\(,这一点不难通过数学归纳证明.而根据裴蜀定理,显然\)</span>m
+n <span class="math inline">\(且\)</span>m ’ n ’ $.</p>
+<p>我们最后需要证明任意非负有理数都可以通过这个序列构造出来,考虑类似二分的方法构造.换句话说,我们有两个序列中的分数$
+{ n } <span class="math inline">\(和\)</span> { n ’ } <span class="math inline">\(,要构造的有理数为\)</span> { b } <span class="math inline">\(且满足\)</span> { n } &lt; { b } &lt; { n ’ }
+$.</p>
+<p>我们考虑判断$ { n + n ’ } <span class="math inline">\(与\)</span> { b
+} $的大小关系,这样就可以类似二分的方法一直往下找下去.</p>
+<p>问题在于为什么我们最后一定可以找到这个数呢?如果我们一直找不到这个数,意味着无论我们怎么做,都有$
+{ n } &lt; { b } &lt; { n ’ } <span class="math inline">\(成立,而这也就意味着\)</span>an - bm bm ’ - an ’
+<span class="math inline">\(,处理一下不等式并合并,我们有\)</span>( m ’ +
+n ’ ) ( an - bm ) + ( n + m ) ( bm ’ - an ’ ) n + m + n ’ + m ’ $.</p>
+<p>化简这个式子得到$a + b m ’ + n ’ + m + n <span class="math inline">\(,而我们在操作过程中\)</span>m , n , m ’ , n ’
+<span class="math inline">\(显然会有两个数不变,另外两个数变大,因此迟早会大于\)</span>a
++ b $,也就意味着这个数迟早会被找到.</p>
+<p>之所以称其为”树”,则是因为我们如果每次都在任意两个数之间插入一个数,然后将进行若干次操作得到的序列放到二叉搜索树上,会得到一些很好的性质,譬如一个数是由它所有祖先中最大的小于它的数和最小的大于它的数生成的,以及关于根中心对称的两点互为倒数.</p>
+<p>另外,如果我们定义法里级数$ _n <span class="math inline">\(表示所有在\)</span>[ 0 , 1 ] <span class="math inline">\(范围内且分母小于等于\)</span>n <span class="math inline">\(的最简分数的集合.不难发现,\)</span> <em>n <span class="math inline">\(对应着整棵树的一棵子树的一部分.而\)</span> <em>n
+<span class="math inline">\(可以由\)</span> </em>{ n - 1 } <span class="math inline">\(得到,只需要判断\)</span> </em>{ n - 1 }
+$中每两个相邻数能否生成一个满足条件的数即可.</p>
+<p>我们回到它的树形态上,如果我们定义$ { 1 } <span class="math inline">\(为这棵二叉搜索树的根,那么每个有理数显然都可以表示为从根到它的一个\)</span>LR
+<span class="math inline">\(序列,表示从根向下搜索时每一步向左走还是向右走.特别地,我们定义根的序列为\)</span>I
+$.</p>
+<p>不难发现,通过这样的操作,我们将每一个非负有理数都对应到了一个$LR
+$序列.</p>
+<p>那么我们来考虑第一个问题:已知$LR $序列如何求这个数.</p>
+<p>我们可以设当前点是$x <span class="math inline">\(,且它由\)</span>y
+<span class="math inline">\(和\)</span>z <span class="math inline">\(生成,其中\)</span>y &lt; x &lt; z <span class="math inline">\(,那么不难发现它的右儿子由\)</span>x <span class="math inline">\(和\)</span>z <span class="math inline">\(生成,左儿子由\)</span>y <span class="math inline">\(和\)</span>x $生成.</p>
+<p>那么我们显然可以使用记录$y <span class="math inline">\(和\)</span>z
+<span class="math inline">\(的方式,反复迭代求得答案.注意\)</span>x <span class="math inline">\(是可以通过\)</span>y <span class="math inline">\(和\)</span>z $求得的,因此没有必要存储.</p>
+<p>而这一过程可以简化为矩阵运算:</p>
+我们令$y = { n } <span class="math inline">\(,\)</span>z = { n ’ } <span class="math inline">\(,\)</span>S =
+<span class="math display">\[\begin{bmatrix}n &amp; n &#39; \\ m &amp; m
+&#39; \end{bmatrix}\]</span>
+<p><span class="math inline">\(,\)</span>f ( S ) = { n + n ’ } $.</p>
+<p>那么不难发现它的每一次操作只需右乘一个变换矩阵即可.</p>
+其中:$L =
+<span class="math display">\[\begin{bmatrix}1 &amp; 1 \\ 0 &amp; 1
+\end{bmatrix}\]</span>
+, R =
+<span class="math display">\[\begin{bmatrix}1 &amp; 0 \\ 1 &amp; 1
+\end{bmatrix}\]</span>
+<p>$.</p>
+<p>使用数学归纳不难证明:</p>
+$L ^k =
+<span class="math display">\[\begin{bmatrix}1 &amp; k \\ 0 &amp; 1
+\end{bmatrix}\]</span>
+, R ^k =
+<span class="math display">\[\begin{bmatrix}1 &amp; 0 \\ k &amp; 1
+\end{bmatrix}\]</span>
+<p>$.</p>
+<p>至于已知数字求它的序列表示,首先可以直接在树上搜索.</p>
+<p>而如果要脱离树,我们仍然可以回到矩阵上,意识到$f ( RS ) = f ( S ) + 1
+$,再加上关于根中心对称两点互为倒数的性质,我们可以推导出以下法则:</p>
+<p>如果$m &gt; n <span class="math inline">\(,那么\)</span>f ( RS ) = {
+n } f ( S ) = { n } $.</p>
+<p>如果$m &lt; n <span class="math inline">\(,那么\)</span>f ( LS ) = {
+n } f ( S ) = { n - m } $.</p>
+<p>借助这一点,我们就可以求一个数的$LR $序列表示了.</p>
+<p>在某些情形下,这种表示可以解决二进制下某些分数无法精确表示的问题.</p>
+<h4><span id="升幂引理">升幂引理</span></h4>
+<h5><span id="形式一">形式一</span></h5>
+<p>对于素数$p <span class="math inline">\(,\)</span>p x , p y <span class="math inline">\(,对于满足\)</span>( n , p ) = 1 <span class="math inline">\(的\)</span>n $:</p>
+<ol type="1">
+<li><p>若$p | ( x - y ) <span class="math inline">\(,则\)</span>v _p ( x
+^n - y ^n ) = v _p ( x - y ) $.</p></li>
+<li><p>若$p | ( x + y ) <span class="math inline">\(,\)</span>n <span class="math inline">\(是奇数,则\)</span>v _p ( x ^n + y ^n ) = v _p ( x
++ y ) $.</p></li>
+</ol>
+<p>考虑(1)的证明,由于$p | ( x - y ) , x y <span class="math inline">\(,因此\)</span>_{ k = 0 } ^{ n - 1 } x ^k y ^{ n -
+1 - k } nx ^{ n - 1 } $.有次方差公式,显然.</p>
+<p>(2)类似.</p>
+<h5><span id="形式二">形式二</span></h5>
+<p>对于奇素数$p <span class="math inline">\(,\)</span>p x , p y $:</p>
+<ol type="1">
+<li><p>若$p | ( x - y ) <span class="math inline">\(,则\)</span>v _p ( x
+^n - y ^n ) = v _p ( x - y ) + v _p ( n ) $.</p></li>
+<li><p>若$p | ( x + y ) <span class="math inline">\(,\)</span>n <span class="math inline">\(是奇数,则\)</span>v _p ( x ^n + y ^n ) = v _p ( x
++ y ) + v _p ( n ) $.</p></li>
+</ol>
+<p>和形式一的证明完全类似.</p>
+<h3><span id="同余">同余</span></h3>
+<p>如果$a m = b m <span class="math inline">\(,我们称\)</span>a <span class="math inline">\(和\)</span>b <span class="math inline">\(关于模\)</span>m <span class="math inline">\(同余,记作\)</span>a b ( m ) $.</p>
+<p>根据同余的定义,若$a , b , c , d , k <span class="math inline">\(,\)</span>n , m $,我们有以下性质:</p>
+<ol type="1">
+<li><p>$a b a - b = km $.</p></li>
+<li><p>$a b c d a + c b + d $.</p></li>
+<li><p>$a b c d ac bd $.</p></li>
+<li><p>$a b a ^k b ^k $.</p></li>
+<li><p>$ad bd a b , m d $.</p></li>
+<li><p>$ad bd a b , d $.</p></li>
+<li><p>$ad bd a b $.</p></li>
+<li><p>$a b a b , d $.</p></li>
+<li><p>$a b a b a b $.</p></li>
+</ol>
+<p>我们考虑第五条的证明:由于$m d <span class="math inline">\(,则根据扩展欧几里得算法,可以求得一个数\)</span>d ’
+<span class="math inline">\(满足\)</span>dd ’ + mm ’ = 1 <span class="math inline">\(,也就是\)</span>dd ’ ( m ) <span class="math inline">\(,那么如果我们有\)</span>ad bd ( m ) <span class="math inline">\(,只需要两边同时乘以\)</span>d ’ <span class="math inline">\(就可以得到右边.值得一提的是,我们通常称\)</span>d ’
+<span class="math inline">\(是\)</span>d <span class="math inline">\(在模\)</span>m <span class="math inline">\(意义下的逆元,记作\)</span>inv ( d , m ) <span class="math inline">\(或\)</span>d ^{ - 1 } $.</p>
+<p>逆元有一种线性预处理的求法:</p>
+<p>考虑$1 i n <span class="math inline">\(,设\)</span>p = ki + r <span class="math inline">\(,则有\)</span>ki + r ( p ) <span class="math inline">\(,则有\)</span>kr ^{ - 1 } + i ^{ - 1 } ( p )
+$.</p>
+<p>于是有$i ^{ - 1 } - kr ^{ - 1 } ( p ) <span class="math inline">\(,即\)</span>i ^{ - 1 } - { i } r ^{ - 1 } ( p )
+$.</p>
+<p>现在,我们给出一个结论:数列$0 m , n m , 2 n m , . . . , ( m - 1 ) n m
+$在排序去重后恰好为数列$0 , d , 2 d , . . . , m - d <span class="math inline">\(,\)</span>d = ( n , m ) <span class="math inline">\(,而且其中每个数字在原数列中恰好出现了\)</span>d
+$次.</p>
+<p>恰好出现$d <span class="math inline">\(次是好证明的:考虑\)</span>jn
+kn ( m ) <span class="math inline">\(可以推导出\)</span>j k ( { d } ) ,
+d = ( n , m ) <span class="math inline">\(,则显然这些数是一个序列复制\)</span>d
+$次得到的.</p>
+<p>由上,我们要证明$kn m <span class="math inline">\(一定是\)</span>d
+<span class="math inline">\(的倍数.不难发现\)</span>kn m = dk { d } ( {
+d } d ) = d ( { d } { d } ) $.</p>
+<p>接下来,不妨假设$n m $,并在此条件下证明$0 m , n m , 2 n m , . . . , (
+m - 1 ) n m <span class="math inline">\(两两不同即可.而由于\)</span>n m
+<span class="math inline">\(,则\)</span>kn jn ( m ) <span class="math inline">\(的充分必要条件是\)</span>k j ( m )
+$,因此它们显然两两不同.</p>
+<h5><span id="example具体数学431">Example(《具体数学》4.31)</span></h5>
+<p>$n <span class="math inline">\(进制下,各位数字之和是\)</span>m <span class="math inline">\(的倍数,则这个数是\)</span>m
+$的倍数的充分必要条件是?</p>
+<p>令$a _i <span class="math inline">\(表示这个数字在\)</span>n <span class="math inline">\(进制下的第\)</span>i $位,则这条性质也就是:</p>
+<p><span class="math display">\[
+\sum _{ i = 0  } a _i n ^i \equiv 0 \pmod { m  } \Leftrightarrow \sum _{
+i = 0  } a _i \equiv 0 \pmod { m  }
+\]</span></p>
+<p>不难发现,当$n $时,满足该性质.</p>
+<h4><span id="威尔逊定理">威尔逊定理</span></h4>
+<p>-1(p)&amp;pprime\</p>
+<p>2(p)&amp;p=4\</p>
+<p>0(p)&amp;other</p>
+<p>\end{cases}</p>
+<p>证明:</p>
+<p>当$p <span class="math inline">\(为质数时，考虑对于\)</span>a <span class="math inline">\(和\)</span>b = a ^{ - 1 } ( p ) <span class="math inline">\(,若\)</span>a = b <span class="math inline">\(,此时可证明\)</span>a = 1 <span class="math inline">\(或\)</span>a = p - 1
+$(需要用到下面独立剩余知识).</p>
+<p>如果$a b <span class="math inline">\(那么一定可以在\)</span>[ 1 , p -
+1 ] $找到一对数,它们相乘为$1 <span class="math inline">\(.原因是若\)</span>a _1 a _2 <span class="math inline">\(,那么\)</span>a _1 ^{ - 1 } a _2 ^{ - 1 } $.</p>
+<p>若$p <span class="math inline">\(不是质数,则设\)</span>p = ab <span class="math inline">\(,当\)</span>a b <span class="math inline">\(时,由于\)</span>a , b p <span class="math inline">\(,因此\)</span>( p - 1 ) ! <span class="math inline">\(一定是\)</span>p $的倍数.</p>
+<p>若$a = b <span class="math inline">\(,除非\)</span>p = 4 <span class="math inline">\(,不然一定能在\)</span>[ 1 , p - 1 ] <span class="math inline">\(里找到\)</span>a $和$2 a <span class="math inline">\(,此时\)</span>( p - 1 ) ! <span class="math inline">\(也是\)</span>p $的倍数.</p>
+<p>另外,当$p $是奇质数的时候,威尔逊定理可以写成如下形式:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\prod _{ k = 1  } ^{ \frac { p - 1  } { 2  }  } k ( p - k ) &amp; \equiv
+- 1 \pmod { p  } \\
+\prod _{ k = 1  } ^{ \frac { p - 1  } { 2  }  } - k ^2 &amp; \equiv - 1
+\pmod { p  } \\
+( - 1 ) ^{ \frac { p - 1  } { 2  }  } ( ( \cfrac { p - 1  } { 2  } ) ! )
+^2 &amp; \equiv - 1 \pmod { p  }
+\end{aligned}
+\]</span></p>
+<p>另外,通过以上推导过程,不难发现威尔逊定理还可以写成:</p>
+<p><span class="math display">\[
+( p - 2 ) ! \equiv \begin{cases}
+1 ( \mod p ) &amp; p \in prime \\
+2 ( \mod p ) &amp; p = 4 \\
+0 ( \mod p ) &amp; other
+\end{cases}
+\]</span></p>
+<h5><span id="example1具体数学448">Example1(《具体数学》4.48)</span></h5>
+<p>求$_{ 1 n &lt; m , n m } n \ $.</p>
+<p>首先,类似威尔逊定理的推导,不难注意到这个式子也就等价于:</p>
+<p><span class="math display">\[
+\prod _{ 1 \leq n &lt; m , n ^2 \equiv 1 \pmod { m  }  } n \pmod { m  }
+\]</span></p>
+<p>首先考虑满足$n ^2 <span class="math inline">\(的\)</span>n
+$满足什么性质,根据我们在二次剩余的推导,先考虑$2 m <span class="math inline">\(的情况,此时我们将\)</span>m <span class="math inline">\(分解为了若干个形如\)</span>p ^k <span class="math inline">\(的质因数的乘积,对于每个\)</span>p ^k <span class="math inline">\(作为模数时,\)</span>n $有两个解:$1 <span class="math inline">\(和\)</span>p ^k - 1 $.</p>
+<p>当$m = p ^k <span class="math inline">\(的时候,显然答案就是\)</span>-
+1 $.</p>
+<p>不然,由于此时有很多解,我们考虑设答案为$ans <span class="math inline">\(并对于每个\)</span>p ^k <span class="math inline">\(求出\)</span>ans <span class="math inline">\(的答案,再使用中国剩余定理合并.不难发现只要\)</span>m
+<span class="math inline">\(有多个不同的质因子,那么中国剩余定理合并的时候,一定会有偶数个\)</span>n
+<span class="math inline">\((事实上,假设\)</span>m <span class="math inline">\(有\)</span>a $个质因子,那么有$2 ^{ a - 1 } <span class="math inline">\(个这样的\)</span>n <span class="math inline">\()满足\)</span>n - 1 <span class="math inline">\(,也有同样数目的\)</span>n <span class="math inline">\(满足\)</span>n <span class="math inline">\(.那么此时的\)</span>ans <span class="math inline">\(.多次合并后的\)</span>ans $显然还是$1 $.</p>
+<p>至于$2 m $的情况并没有麻烦很多,当$2 m m $,显然有没有这个$2
+$作为质因子都一样.当$4 m m $,这个质因子和其它质因子并没有多少区别.</p>
+<p>于是我们最后得到结论:</p>
+$$ _{ 1 n &lt; m , n m } n
+<span class="math display">\[\begin{cases}
+- 1 \pmod { m  } &amp; m = p ^k \lor m = 2 p ^k \lor m = 4 , p \in prime
+\land p \ne 2 \\
+1 \pmod { m  } &amp; other \\
+
+\end{cases}\]</span>
+<p>$$</p>
+<h5><span id="example2具体数学440">Example2(《具体数学》4.40)</span></h5>
+<p>如果我们设$n = _{ k } a _k p ^k <span class="math inline">\(,求证:\)</span> { p ^{ _p ( n ! ) } } = ( - 1 ) ^{
+<em>p ( n ! ) } </em>{ k } a _k ! $.</p>
+<p>证明考虑数学归纳:如果$n n + 1
+$的过程中没有发生进位,那么该公式显然成立.</p>
+<p>如果发生进位了,假设进到了第$k <span class="math inline">\(位,第\)</span>k <span class="math inline">\(位原本是\)</span>w <span class="math inline">\(,现在是\)</span>w + 1 <span class="math inline">\(,那么要证其对于\)</span>n + 1
+$成立,即证明下式成立:</p>
+<p><span class="math display">\[
+\cfrac { n ! ( n + 1 )  } { p ^{ \varepsilon _p ( n ! ) + k  }  } = ( -
+1 ) ^{ \varepsilon _p ( n ! ) + k  } ( w + 1 ) ! \prod _{ i \geq k +
+1  } a _i ! \pmod { p  }
+\]</span></p>
+<p>考虑$( p - 1 ) - 1 $,于是上式也即:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\cfrac { n ! ( n + 1 )  } { p ^{ \varepsilon _p ( n ! ) + k  }  } &amp;
+= ( - 1 ) ^{ \varepsilon _p ( n ! )  } ( w + 1 ) \prod _{ i \geq 0  } a
+_i ! \pmod { p  } \\
+\cfrac { n !  } { p ^{ \varepsilon _p ( n ! )  }  } \cfrac { n + 1  } {
+p ^k  } &amp; = ( - 1 ) ^{ \varepsilon _p ( n ! )  } ( w + 1 ) \prod _{
+i \geq 0  } a _i ! \pmod { p  } \\
+\cfrac { n !  } { p ^{ \varepsilon _p ( n ! )  }  } ( w + 1 ) &amp; = (
+- 1 ) ^{ \varepsilon _p ( n ! )  } ( w + 1 ) \prod _{ i \geq 0  } a _i !
+\pmod { p  }
+\end{aligned}
+\]</span></p>
+<p>于是化到$n <span class="math inline">\(的情况,于是\)</span>n + 1
+$时该式子成立.</p>
+<h5><span id="example3具体数学453">Example3(《具体数学》4.53)</span></h5>
+<p>求所有满足$n | { n + 1 } <span class="math inline">\(的整数\)</span>n
+$.</p>
+<p>首先这个形式看上去就是威尔逊定理的形式,所以第一步我们先暴力验证$n
+<span class="math inline">\(的答案,注意到此时当且仅当\)</span>n = 1
+<span class="math inline">\(时成立.接下来我们尝试找到\)</span>n
+$时的解.</p>
+<p>考虑当$n + 1 prime <span class="math inline">\(时,根据威尔逊定理,要求化为:\)</span>n { n + 1 }
+<span class="math inline">\(.注意到此时\)</span>n <span class="math inline">\(一定不是质数,又因为\)</span>n ( n + 1 ) <span class="math inline">\(,于是要求化为\)</span>n $,显然成立.</p>
+<p>当$n + 1 prime <span class="math inline">\(时,要求则化为\)</span>n {
+n + 1 } <span class="math inline">\(.当\)</span>n prime
+$时,显然不成立.反之显然成立.</p>
+<p>于是要么$n = 1 <span class="math inline">\(,要么\)</span>n n prime
+$.</p>
+<h4><span id="费马小定理">费马小定理</span></h4>
+<p>$n ^{ p - 1 } ( p ) , n p , p prime $.</p>
+<p>我们有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\prod _{ k = 1  } ^{ p - 1  } kn &amp; \equiv \prod _{ k = 1  } ^{ p -
+1  } ( kn \mod p ) ( \mod p ) \\
+n ^{ p - 1  } ( p - 1 ) ! &amp; \equiv ( p - 1 ) ! ( \mod p )
+\end{aligned}
+\]</span></p>
+<p>根据威尔逊定理,显然可以推得费马小定理.</p>
+<p>根据费马小定理,我们可以考虑证明一个结论:$n ^{ p ^k } n ^{ p ^{ k - 1
+} } ( p ^k ) $.</p>
+<p>由于$n ^{ p - 1 } ( p ) <span class="math inline">\(,那么我们有\)</span>n ^p n ( p ) <span class="math inline">\(,也即\)</span>q <span class="math inline">\(满足\)</span>n ^p = n + pq <span class="math inline">\(,不断两边取\)</span>p $次方即可得到上述结论.</p>
+<p>另外,费马小定理还可以如下证明:</p>
+<p>考虑证明$n ^p n <span class="math inline">\(,也就是要证明\)</span>(
+_{ i = 1 } ^n 1 ) ^p n $.</p>
+<p>注意到根据多项式定理,$( <em>{ i = 1 } ^n 1 ) ^p = </em>{ a = p } { a
+_1 ! . . . a _n ! } <span class="math inline">\(.而如果\)</span>{ a } p
+<span class="math inline">\(,则后面的式子在\)</span>p $意义下显然为$0
+<span class="math inline">\(,不然,考虑\)</span>{ a } = p <span class="math inline">\(的序列一共会出现\)</span>n
+$次且每次对答案的贡献都是$1 <span class="math inline">\(,自然有\)</span>n ^p n ( p ) $.</p>
+<h5><span id="example1具体数学441">Example1(《具体数学》4.41)</span></h5>
+<p>求证:如果质数$p <span class="math inline">\(满足\)</span>p <span class="math inline">\(,则不存在整数\)</span>n <span class="math inline">\(满足\)</span>p | ( n ^2 + 1 ) <span class="math inline">\(;如果其满足\)</span>p <span class="math inline">\(,则一定存在一个整数\)</span>n $满足条件.</p>
+<p>先考虑证明前半部分,如果存在这样一个整数$n <span class="math inline">\(,考虑\)</span>p | ( n ^2 + 1 ) <span class="math inline">\(也就等价于\)</span>n ^2 - 1 <span class="math inline">\(,则\)</span>n ^4 <span class="math inline">\(.显然\)</span>p n <span class="math inline">\(,根据费马小定理,我们有\)</span>n ^{ p - 1 } <span class="math inline">\(,也就有\)</span>n ^{ p + 1 } - 1 $.</p>
+<p>而由于$p $,所以$4 | ( p + 1 ) <span class="math inline">\(,所以\)</span>n ^{ p + 1 }
+$,不符,因此一定不存在.</p>
+<p>反之,考虑威尔逊定理的变形$<em>{ k = 1 } ^{ { 2 } } - k ^2 - 1 \ <span class="math inline">\(.由于\)</span>p - 1 <span class="math inline">\(,所以这个式子也就等价于\)</span></em>{ k = 1 } ^{
+{ 2 } } k ^2 - 1 <span class="math inline">\(,也就是\)</span>( ( { 2 } )
+! ) ^2 - 1 $,这就是一个解.</p>
+<h5><span id="example2具体数学446">Example2(《具体数学》4.46)</span></h5>
+<p>求证:如果$n &gt; 1 $,则$2 ^n $.</p>
+<p>如果$n $是质数,根据费马小定理,显然得证.</p>
+<p>不然,设$n = pq <span class="math inline">\(,且\)</span>p <span class="math inline">\(是\)</span>n $的最小质因子,若$2 ^{ n } $,则$2 ^n
+$.</p>
+<p>若$p = 2 $,显然不成立.不然,有$2 ^{ p - 1 } <span class="math inline">\(,由于\)</span>( p - 1 ) n $,则$2 ^{ ( p - 1 , n )
+} $,显然不成立.</p>
+<p>另外,上面的过程显然可以推广为:</p>
+<p>如果$n &gt; 1 <span class="math inline">\(,则对于任意质数\)</span>p
+<span class="math inline">\(,\)</span>p ^n $.</p>
+<h4><span id="中国剩余定理crt">中国剩余定理(crt)</span></h4>
+<p>对于方程组$x a _i ( m _i ) <span class="math inline">\(,其中\)</span>m _i <span class="math inline">\(两两互质,求\)</span>x $.</p>
+<p>令$m = ^k _{ i = 1 } m _i <span class="math inline">\(,设\)</span>M
+_i = { m _i } <span class="math inline">\(,\)</span>N _i <span class="math inline">\(是\)</span>M _i <span class="math inline">\(在\)</span>m _i $意义下逆元.</p>
+<p>则$x ^k _{ i = 1 } M _i N _i a _i ( m ) $.</p>
+<p>中国剩余定理的证明类似拉格朗日插值:</p>
+<p>由于$x <span class="math inline">\(在\)</span>m _i <span class="math inline">\(意义下,\)</span><span class="math inline">\(中枚举的所有不等于\)</span>i $的项都会成$0 <span class="math inline">\(，等于\)</span>i <span class="math inline">\(的项会成\)</span>a _i $.</p>
+<p>考虑每次合并两项，显然有:$a = a _1 + ( a _2 - a _1 ) m _1 inv ( m _1
+, m _2 ) <span class="math inline">\(,\)</span>m = m _1 m _2 $.</p>
+<p>中国剩余定理的本质是一个环同构$: / m _1 m _2 ( / m _1 ) ( / m _2 )
+<span class="math inline">\(,当\)</span>m _1 m _2 $.</p>
+<p>由于映射两边都是大小相同的有限环,所以只需证明它是单射就行.而容易发现$=
+{ [ 1 ] } $.</p>
+<p>下面的扩展中国剩余定理亦然同理,用一下裴蜀定理证明映射两边的有限环大小相等,再注意到$|
+| = 1 $.</p>
+<h4><span id="扩展中国剩余定理excrt">扩展中国剩余定理(excrt)</span></h4>
+<p>对于方程组$x a _i ( m _i ) <span class="math inline">\(,若\)</span>m
+_i $两两不互质.</p>
+<p>我们考虑每次合并两个方程:</p>
+<p>xa_1(m_1)\</p>
+<p>xa_2(m_2)</p>
+<p>\end{cases}</p>
+<p>那这个方程组等价于:</p>
+<p>x=k_1m_1+a_1\</p>
+<p>x=k_2m_2+a_2</p>
+<p>\end{cases}</p>
+<p>合并上下方程,有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+k _1 m _1 + a _1 &amp; = k _2 m _2 + a _2 \\
+a _2 - a _1 &amp; = k _1 m _1 - k _2 m _2
+\end{aligned}
+\]</span></p>
+<p>设$g = ( m _1 , m _2 ) <span class="math inline">\(,显然若\)</span>g
+( a _2 - a _1 ) $,方程无解.</p>
+<p>不然,有:</p>
+$$
+<span class="math display">\[\begin{aligned}
+\frac { a _2 - a _1  } { g  } &amp; = k _1 \frac { m _1  } { g  } - k _2
+\frac { m _2  } { g  } \\
+k _1 \frac { m _1  } { g  } &amp; = k _2 \frac { m _2  } { g  } + \frac
+{ a _2 - a _1  } { g  } \\
+k _1 \frac { m _1  } { g  } &amp; \equiv \frac { a _2 - a _1  } { g  } (
+\mod \frac { m _2  } { g  } ) \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>令$inv ( a , p ) <span class="math inline">\(表示\)</span>a <span class="math inline">\(在\)</span>p $意义下的逆元,有:</p>
+$$
+<span class="math display">\[\begin{aligned}
+k _1 &amp; \equiv inv ( \frac { m _1  } { g  } , \frac { m _2  } { g  }
+) \frac { a _2 - a _1  } { g  } ( \mod \frac { m _2  } { g  } ) \\
+k _1 &amp; = inv ( \frac { m _1  } { g  } , \frac { m _2  } { g  } )
+\frac { a _2 - a _1  } { g  } + k _3 \frac { m _2  } { g  } \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>带回第一个方程:</p>
+<p><span class="math display">\[
+\begin{aligned}
+x &amp; = m _1 ( inv ( \frac { m _1  } { g  } , \frac { m _2  } { g  } )
+\frac { a _2 - a _1  } { g  } + k _3 \frac { m _2  } { g  } ) + a _1 \\
+x &amp; \equiv m _1 inv ( \frac { m _1  } { g  } , \frac { m _2  } {
+g  } ) \frac { a _2 - a _1  } { g  } + a _1 ( \mod \frac { m _1 m _2  }
+{ g  } )
+\end{aligned}
+\]</span></p>
+<h5><span id="example1noi2018屠龙勇士">Example1([NOI2018]屠龙勇士)</span></h5>
+<p>考虑拿个set之类的维护,然后问题转化为求:</p>
+<p><span class="math display">\[
+\begin{cases}
+b _1 x \equiv a _1 ( \mod m _1 ) \\
+b _2 x \equiv a _2 ( \mod m _2 ) \\
+. . . \\
+b _n x \equiv a _n ( \mod m _n )
+\end{cases}
+\]</span></p>
+<p>的一个$x $的最小解.</p>
+<p>对于一个式子$b _i x a _i <span class="math inline">\(,设\)</span>g =
+( b _i , m _i ) <span class="math inline">\(,那么若\)</span>g a _i <span class="math inline">\(,显然无解;不然,我们有:\)</span> { g } x { g }
+<span class="math inline">\(,而\)</span> { g } { g } $,可以求逆元.</p>
+<h5><span id="example2cf571egeometricprogressions">Example2([CF571E]Geometric
+Progressions)</span></h5>
+<p>首先分解质因子,这样问题转化为判断等差数列中是否出现.我们随便挑一个数列,假设这个数列中第$x
+<span class="math inline">\(个数字是答案,显然最小化\)</span>x $即可.</p>
+<p>但是直接对所有质因子做excrt复杂度不可接受.我们考虑如果对于质因子$p
+<span class="math inline">\(,\)</span>i , j , i j <span class="math inline">\(有\)</span>p | b _j , p a _i , p b _i <span class="math inline">\(,显然无解.如果有\)</span>p | b _j , p | a _i , p b
+_i
+$,显然要么无解,要么有唯一解,而且可以快速求出唯一解是谁,直接验证就行.</p>
+<p>这样,我们就保证了所有需要做excrt的质因子必然全部出现,容易发现这样的质因子数量很少.</p>
+<h4><span id="二次剩余">二次剩余</span></h4>
+<p>求方程$x ^2 = k ( m ) $的解.</p>
+<p>我们先考虑一个特殊情况:$k = 1 <span class="math inline">\(,\)</span>m
+= p ^k , p prime $.</p>
+<p>那么也就相当于求方程$( x - 1 ) ( x + 1 ) ( p ^k ) $.</p>
+<p>如果$p &gt; 2 <span class="math inline">\(,那么显然\)</span>x - 1
+<span class="math inline">\(和\)</span>x + 1 <span class="math inline">\(只有一个能被\)</span>p ^k <span class="math inline">\(整除,所以有\)</span>x = $.</p>
+<p>如果$p = 2 <span class="math inline">\(,那么显然\)</span>x - 1 <span class="math inline">\(和\)</span>x + 1 $有一个能被$2 $整除但不能被$4
+$整除,另一个能被$2 ^{ k - 1 } <span class="math inline">\(整除,如果\)</span>k = 1 <span class="math inline">\(时,显然只有一个解.当\)</span>k = 2 <span class="math inline">\(时,同上.反之,有\)</span>x = <span class="math inline">\(或\)</span>x = 2 ^{ k - 1 } <span class="math inline">\(.考虑一个性质:\)</span>( 2 k + 1 ) ^2 ( ) $.</p>
+<p>那么如果:$k = 1 , m <span class="math inline">\(,也是一样的.先把\)</span>m <span class="math inline">\(作质因数分解,然后再用中国剩余定理合并,那么显然不同质数的解会累乘到总的解上,若\)</span>m
+<span class="math inline">\(有\)</span>r $个不同大于$2
+$的质因子,总的解的个数是$2 ^r <span class="math inline">\(.而如果考虑\)</span>p = 2 <span class="math inline">\(的情况,\)</span>m <span class="math inline">\(有\)</span>r $个不同的质因子,则解的个数为$2 ^{ r +
+[ 8 | m ] + [ 4 | m ] - [ 2 | m ] } $.</p>
+<p>下面开始讲正经的二次剩余.</p>
+<p>我们称$a <span class="math inline">\(是\)</span>p <span class="math inline">\(的二次剩余,当且仅当\)</span>b , b ^2 a <span class="math inline">\(并且\)</span>a <span class="math inline">\(,这里的\)</span>p <span class="math inline">\(是奇素数,如果\)</span>a <span class="math inline">\(不是\)</span>p <span class="math inline">\(的倍数且\)</span>b , b ^2 a
+$,则称为二次非剩余.我们引入勒让德符号来表示这个东西:</p>
+<p><span class="math display">\[
+\left ( \frac { a  } { p  } \right ) = \begin{cases}
+1 &amp; a 是 二 次 剩 余 \\
+0 &amp; a \equiv 0 \pmod { p  } \\
+- 1 &amp; a 为 二 次 非 剩 余
+\end{cases}
+\]</span></p>
+<p>那么这玩意怎么求呢?我们有欧拉判别准则:</p>
+<p><span class="math display">\[
+\left ( \frac { a  } { p  } \right ) \equiv a ^{ \frac { p - 1  } {
+2  }  } \pmod { p  }
+\]</span></p>
+<p>先证明个引理:若$g <span class="math inline">\(为\)</span>p <span class="math inline">\(意义下的原根,且\)</span>a g ^k <span class="math inline">\(,那么\)</span>x ^2 a <span class="math inline">\(有解的充要条件是\)</span>k $是偶数.</p>
+<p>充分性显然,而必要性,我们考虑费马小定理:$g ^{ p - 1 } <span class="math inline">\(,而\)</span>p - 1
+$是偶数,因此无论如何奇偶性都不会变.</p>
+<p>接下来证明欧拉判别准则:</p>
+<p><span class="math display">\[
+\begin{aligned}
+g ^{ p - 1  } &amp; \equiv 1 \pmod { p  } \\
+g ^{ p - 1  } - 1 &amp; \equiv 0 \pmod { p  } \\
+( g ^{ \frac { p - 1  } { 2  }  } + 1 ) ( g ^{ \frac { p - 1  } {
+2  }  } - 1 ) &amp; \equiv 0 \pmod { p  } \\
+g ^{ \frac { p - 1  } { 2  }  } &amp; \equiv - 1 \pmod { p  } \\
+a ^{ \frac { p - 1  } { 2  }  } &amp; = ( g ^k ) ^{ \frac { p - 1  } {
+2  }  } &amp; = ( g ^{ p - 1  } ) ^{ \frac { k  } { 2  }  }
+\end{aligned}
+\]</span></p>
+<p>于是得证.另外通过这个证明过程,我们可以发现$[ 1 , p - 1 ] <span class="math inline">\(中有正好一半的数是二次剩余,我们还能得知\)</span>x
+^2 a <span class="math inline">\(的解的数量是\)</span>( { p } ) + 1 \
+$.</p>
+<h5><span id="example1cf1091gnewyear-and-the-factorisation-collaboration">Example1([CF1091G]New
+Year and the Factorisation Collaboration)</span></h5>
+<p>考虑随机一个$x <span class="math inline">\(,令\)</span>x ’ = <span class="math inline">\(,如果\)</span>x ’ = x <span class="math inline">\(则放弃这次询问,不然自然有\)</span>( x ’ - x ) ( x
+’ + x ) $.</p>
+<p>$p | n , p prime <span class="math inline">\(,注意到一定满足\)</span>p | ( x ’ - x ) <span class="math inline">\(或\)</span>p | ( x ’ + x ) <span class="math inline">\(,我们可以多做几次,可以理解为这样将\)</span>n
+$随机分割了.</p>
+<h5><span id="example2qoj5021">Example2(qoj5021)</span></h5>
+<p>整个题就强调一个字:双射!</p>
+<p>先把模数质因数分解.</p>
+<p>从头开始看,这种多元组计数肯定要一点一点确定,我们考虑固定$( a , a ’ )
+<span class="math inline">\(求解\)</span>( b , b ’ ) <span class="math inline">\(,这个时候发现只要\)</span>( a , a ’ ) $不全为$0
+<span class="math inline">\(,那么就有\)</span>p <span class="math inline">\(组\)</span>( b , b ’ )
+$满足条件,这个可以通过移项求逆元发现.发现这个全为$0
+$的条件很烦,我们先把它处理掉.</p>
+<p>显然只有$r = 0 <span class="math inline">\(会出现这种情况,讨论一下\)</span>( a , a ’ )
+$全为$0 <span class="math inline">\(或\)</span>( b , b ’ ) $全为$0
+$的情况,简单分类讨论可以得到共有$2 p ^3 + p ^2 - 2 p $种方案.</p>
+<p>好了,困难的部分被我们解决了,不过这样我们需要多讨论一下$r $是否等于$0
+$,不过问题不大.</p>
+<p>先考虑$r = 0 $的情况:</p>
+注意到此时固定$( a , a ’ ) <span class="math inline">\(会有\)</span>p -
+1 $组(有一组全$0 <span class="math inline">\()\)</span>( b , b ’ ) <span class="math inline">\(满足条件,此时有方程\)</span>
+<span class="math display">\[\begin{cases}ac + a &#39; c &#39; \equiv 0
+\pmod { p  } \\ bc + b &#39; c &#39; \equiv 0 \pmod { p  }
+\end{cases}\]</span>
+<p><span class="math inline">\(.显然若\)</span>( b , b ’ ) k ( a , a ’ )
+<span class="math inline">\(,那么该方程有\)</span>p <span class="math inline">\(组解,不然只有一组解.而前者相当于\)</span>( a , a ’
+) <span class="math inline">\(满足\)</span>ka ^2 + ka ’ ^2 <span class="math inline">\(,我们设\)</span>C _k <span class="math inline">\(是方程\)</span>a ^2 + a ’ ^2 k
+$的解的数量,把上面的全部加起来,答案是:</p>
+<p><span class="math display">\[
+( C _0 - 1 ) ( p - 1 ) p + ( ( p ^2 - 1 ) ( p - 1 ) - ( C _0 - 1 ) ( p -
+1 ) )
+\]</span></p>
+<p>化简一下得到:$( C _0 - 1 ) ( p - 1 ) ^2 + p ^3 - p ^2 - p + 1 $.</p>
+<p>再考虑$r $的情况:</p>
+注意到此时不可能有全为$0 <span class="math inline">\(的二元组了.所以固定\)</span>( a , a ’ ) <span class="math inline">\(的话,\)</span>( b , b ’ ) <span class="math inline">\(共有\)</span>p <span class="math inline">\(组解,此时有方程\)</span>
+<span class="math display">\[\begin{cases}ac + a &#39; c &#39; \equiv r
+\pmod { p  } \\ bc + b &#39; c &#39; \equiv r \pmod { p  }
+\end{cases}\]</span>
+<p>$.</p>
+<p>若$( b , b ’ ) k ( a , a ’ ) <span class="math inline">\(,显然当\)</span>k = 1 <span class="math inline">\(时有\)</span>p <span class="math inline">\(组解,否则无解,此时\)</span>a ^2 + a ’ ^2 r $.</p>
+<p>不然有唯一解.</p>
+<p>而$( b , b ’ ) = k ( a , a ’ ) <span class="math inline">\(的方案有多少呢,显然是\)</span><em>{ k = 1 } ^{ p -
+1 } C </em>{ { k } } = _{ k = 1 } ^{ p - 1 } C _k = p ^2 - C _0 <span class="math inline">\(,这里用到了这篇题解的第一个双射,\)</span>[ 1 , p -
+1 ] / k $.</p>
+<p>于是这里的答案就是:</p>
+<p><span class="math display">\[
+C _r p + ( ( p ^2 - 1 ) p - ( p ^2 - C _0 ) )
+\]</span></p>
+<p>化简一下得到$p ^3 - p ^2 - p + C _0 + C _r p $.</p>
+<p>现在的问题是如何求$C _0 , C _r $.</p>
+<p>先来技术总结一下,这种多元组计数通常要确定一些数字,然后对另一些数字进行计数,如果确定的那些数字不能进行枚举,那就得进行一些别的操作来在不同的情况下判断数量.</p>
+<p>那么$C _r <span class="math inline">\(怎么求呢?考虑\)</span>x ^2 a
+<span class="math inline">\(的解数为\)</span>( { p } ) + 1 $,我们有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+C _r &amp; = \sum _{ i = 0  } ^{ p - 1  } ( \left ( \frac { i  } { p  }
+\right ) + 1 ) ( \left ( \frac { r - i  } { p  } \right ) + 1 ) \\
+&amp; = \sum _{ i = 0  } ^{ p - 1  } \left ( \frac { i ( r - i )  } {
+p  } \right ) + 2 \sum _{ i = 0  } ^{ p - 1  } \left ( \frac { i  } {
+p  } \right ) + p \\
+&amp; = \sum _{ i = 1  } ^{ p - 1  } \left ( \frac { \frac { r  } { i  }
+- 1  } { p  } \right ) + p
+\end{aligned}
+\]</span></p>
+<p><del>(这是干啥啊)</del></p>
+<p>我们来一步一步分析这个式子是怎么得到的:</p>
+<p>首先,第一步仍然是枚举其中一个,然后求另一个.然后将整个式子乘开,做一个双射$r
+- [ 0 , p - 1 ] <span class="math inline">\(就可以合并其中两项,而至于前两项则是根据欧拉判别准则直接将上指标乘起来合并.然后我们发现\)</span>_{
+i = 0 } ^{ p - 1 } ( { p } ) = 0 <span class="math inline">\(,因为\)</span>[ 0 , p - 1 ] $中一半是$1 <span class="math inline">\(一半是\)</span>- 1 <span class="math inline">\(,又可以发现\)</span>i = 0 $时显然为$0 <span class="math inline">\(,\)</span>x ^2 = i ( r - i ) ( { i } ) ^2 = { i }
+- 1 <span class="math inline">\(,做双射\)</span>[ 1 , p - 1 ] i ^{ - 1 }
+$.</p>
+<p>做到这一步,自然有$C _0 = ( p - 1 ) ( { p } ) + p $.</p>
+<p>而对于$r <span class="math inline">\(的时候,我们再做双射\)</span>r /
+[ 1 , p - 1 ] <span class="math inline">\(,于是\)</span>C <em>r = </em>{
+i = 0 } ^{ p - 2 } ( { p } ) + p = p - ( { p } ) $.</p>
+<p>只能说模质数意义下的加法乘法减法以及不含$0
+$的乘法都是群,而且所有运算都是双射,很牛逼,计数题直接起飞.</p>
+<p>不过这题需要特别判断一下$p = 2 $的情况,也容易,暴力就行.</p>
+<h5><span id="example3">Example3</span></h5>
+<p>求$2 ^a = 3 ^b + 1 $和$3 ^a = 2 ^b + 1 $的所有解.</p>
+<p>先看$2 ^a = 3 ^b + 1 <span class="math inline">\(,显然\)</span>( 2 ,
+1 ) <span class="math inline">\(是一组解.当\)</span>y $的时候,显然有$3
+^a + 1 $,而考虑$3 ^{ 2 k } $,这自然不可能.</p>
+<p>再看$3 ^a = 2 ^b + 1 <span class="math inline">\(.显然\)</span>( 1 ,
+1 ) <span class="math inline">\(和\)</span>( 2 , 3 ) <span class="math inline">\(是两组解.当\)</span>b $的时候$3 ^a <span class="math inline">\(,根据欧拉定理知道\)</span>a <span class="math inline">\(,令\)</span>a = 2 k <span class="math inline">\(.自然有\)</span>( 3 ^k - 1 ) ( 3 ^k + 1 ) = 2 ^b
+<span class="math inline">\(,这是形如\)</span>t ( t + 2 ) = 2 ^b <span class="math inline">\(的形式,只有\)</span>t = 2 $是一个解.</p>
+<h4><span id="bsgs">BSGS</span></h4>
+<p>求$a ^x b ( p ) <span class="math inline">\(的一组解,其中\)</span>p
+prime $且$1 p ^9 $.</p>
+<p>直接枚举显然是$O ( p ) $的,非常不合理,考虑如何优化.</p>
+<p>求出$s = <span class="math inline">\(,并求出所有\)</span>a ^i <span class="math inline">\(,其中\)</span>i $.</p>
+<p>若$x s - 1 $.则可以直接判断是否被求出来过.</p>
+<p>否则,则将$x = x ( s - 1 ) <span class="math inline">\(,一直操作直到\)</span>x s - 1 $.</p>
+<h4><span id="exbsgs">exBSGS</span></h4>
+<p>求$a ^x b ( p ) $的一组解,其中$1 p ^9 $.</p>
+<p>设$g = ( a , p ) <span class="math inline">\(,那么根据膜的性质,原方程即\)</span> { g } { g } (
+{ g } ) $.</p>
+<p>显然若$g b <span class="math inline">\(并且\)</span>b <span class="math inline">\(,方程定无解.(若\)</span>b = 1 <span class="math inline">\(,那么\)</span>x = 0 $就是一个解)</p>
+<p>那么现在的方程就是$a ^{ x - 1 } { g } { g } ( { g } ) $.</p>
+<p>继续进行这个过程,不断求$a <span class="math inline">\(和当前模数的\)</span><span class="math inline">\(.并将当前模数除以该\)</span>$,这样最后我们得到了方程:</p>
+<p>$a ^{ x - k } _{ i = 1 } ^k { g <em>i } { </em>{ i = 1 } ^k g <em>i }
+( { </em>{ i = 1 } ^k g _i } ) \ $</p>
+<p>不妨设$A = _{ i = 1 } ^k { g <em>i } , B = { </em>{ i = 1 } ^k g
+<em>i } , P = { </em>{ i = 1 } ^k g _i } \ $</p>
+<p>那么现在方程就是$a ^{ x - k } { A } $,可以使用BSGS求解.</p>
+<p>ps：$p = 1 $的时候要特判.</p>
+<h4><span id="原根和阶">原根和阶</span></h4>
+<p>阶:找到一个最小的$k <span class="math inline">\(使得\)</span>a ^k ( p
+) <span class="math inline">\(,则称\)</span>k <span class="math inline">\(是\)</span>a <span class="math inline">\(在膜\)</span>p $意义下的阶.</p>
+<p>原根:如果$a <span class="math inline">\(在膜\)</span>p <span class="math inline">\(意义下的阶是\)</span>( p ) <span class="math inline">\(且\)</span>a &lt; p <span class="math inline">\(,则称\)</span>a <span class="math inline">\(是\)</span>p $的一个原根.</p>
+<p>若$m <span class="math inline">\(有原根,则\)</span>m $一定是$2 $,$4
+<span class="math inline">\(或是\)</span>p ^a , 2 p ^a <span class="math inline">\(,其中\)</span>p prime $且$2 p $.</p>
+<p>由于对于大部分$m
+$来说,都存在一个很小的原根,所以在实际应用中只需要暴力找就可以了.</p>
+<p>根据阶的定义,我们如果要判断一个$a <span class="math inline">\(不是\)</span>p <span class="math inline">\(的原根,只需判断是否\)</span>i <span class="math inline">\(使得\)</span>a ^i ( p ) $.</p>
+<p>而由于$a ^{ ( p ) } ( p ) <span class="math inline">\(,因此一定有\)</span>i | ( p ) <span class="math inline">\(,因此只需判断\)</span>( p ) <span class="math inline">\(的所有因数,复杂度\)</span>O ( ) $.</p>
+<p>事实上,只需要判断对于$( p ) <span class="math inline">\(的所有质因子\)</span>w <span class="math inline">\(,是否有\)</span>a ^{ { w } } ( p ) <span class="math inline">\(即可,复杂度\)</span>O ( ( p ) ) $.</p>
+<h5><span id="example1">Example1</span></h5>
+<p>给定$k <span class="math inline">\(,\)</span>p <span class="math inline">\(,\)</span>a <span class="math inline">\(,求\)</span>x ^k a ( p ) <span class="math inline">\(的所有解,其中\)</span>p prime $,$1 k ^5 $.</p>
+<p>考虑求出$p <span class="math inline">\(的原根\)</span>g <span class="math inline">\(,得到\)</span>g ^r a ( p ) <span class="math inline">\(,同时由于\)</span>x g ^y ( p ) <span class="math inline">\(,因此原方程变为:\)</span>g ^{ yk } g ^r ( p )
+$.</p>
+<p>于是有:$yk r ( p - 1 ) $,即可求解.</p>
+<h5><span id="example2具体数学447">Example2(《具体数学》4.47)</span></h5>
+<p>证明:如果$n , n ^{ m - 1 } <span class="math inline">\(,且对于所有满足\)</span>p | ( m - 1 ) <span class="math inline">\(的\)</span>p <span class="math inline">\(都满足\)</span>n ^{ { p } } <span class="math inline">\(,那么\)</span>m $是素数.</p>
+<p>首先不难发现,$m  prime ( m ) = m - 1 $.</p>
+<p>考虑上面的过程中,不可能存在一个数$k $满足$0 k &lt; m - 1 , n ^k <span class="math inline">\(.因此\)</span> i , j &lt; m , i j , n ^i n ^j
+$.</p>
+<p>根据欧拉定理,$m - 1 = ( m ) $,因此得证.</p>
+<h3><span id="积性函数">积性函数</span></h3>
+<p>若函数$f ( x ) <span class="math inline">\(满足\)</span>n , m , n m
+<span class="math inline">\(,有\)</span>f ( 1 ) = 1 , f ( nm ) = f ( n )
+f ( m ) <span class="math inline">\(,则称其为积性函数.若\)</span>n , m
+<span class="math inline">\(,有\)</span>f ( 1 ) = 1 , f ( nm ) = f ( n )
+f ( m ) $,则称其为完全积性函数.</p>
+<p>若函数$g ( x ) <span class="math inline">\(是积性函数并且有\)</span>g
+( m ) = _{ d | m } f ( d ) <span class="math inline">\(,则\)</span>f ( x
+) $也是积性函数,证明如下:</p>
+<p>不妨考虑数学归纳,首先$g ( 1 ) = f ( 1 ) = 1 $.</p>
+<p>令$m = m _1 m _2 , m <em>1 m <em>2 <span class="math inline">\(,则\)</span>g ( m ) = </em>{ d | m } f ( d ) =
+</em>{ d _1 | m <em>1 } </em>{ d _2 | m _2 } f ( d _1 d _2 ) <span class="math inline">\(.由于归纳假设,此时只有\)</span>d _1 = m _1 d _2 =
+m _2 <span class="math inline">\(的时候,\)</span>f ( d _1 d _2 ) <span class="math inline">\(可能不等于\)</span>f ( d _1 ) f ( d _2 ) $.</p>
+<p>于是有</p>
+<p><span class="math display">\[
+\begin{aligned}
+g ( m ) &amp; = \sum _{ d _1 | m _1  } \sum _{ d _2 | m _2  } f ( d _1 )
+f ( d _2 ) - f ( m _1 ) f ( m _2 ) + f ( m _1 m _2 ) \\
+&amp; = g ( m _1 m _2 ) - f ( m _1 ) f ( m _2 ) + f ( m _1 m _2 )
+\end{aligned}
+\]</span></p>
+<p>于是$f ( m _1 ) f ( m _2 ) = f ( m _1 m _2 ) $.</p>
+<p>该命题的逆命题也是同样成立的.有一些常见的积性函数,比如:$id ( x ) = x
+<span class="math inline">\(,\)</span>I ( x ) = 1 <span class="math inline">\(,\)</span>( x ) = [ x = 1 ] $.</p>
+<h5><span id="example具体数学458">Example(《具体数学》4.58)</span></h5>
+<p>求:$f ( m ) = _{ d | m } d $是$2 $的整数次幂的充分必要条件.</p>
+<p>不难发现$f <span class="math inline">\(是一个积性函数,于是考虑\)</span>f ( p ^k ) = 1 + p
++ p ^2 + . . . + p ^k $.</p>
+<p>当$p = 2 $的时候,显然不满足条件.</p>
+<p>不然,只有$k <span class="math inline">\(是奇数的时候,\)</span>f ( p
+^k ) $才是一个偶数.</p>
+<p>而此时$f ( p ^k ) = ( 1 + p ) ( 1 + p ^2 + p ^4 + . . . + p ^{ k - 1
+} ) = ( 1 + p ) ( 1 + p ^2 ) ( 1 + p ^4 + . . . + p ^{ k - 3 } )
+$.其是$2 <span class="math inline">\(的整数次幂的一个必要条件是\)</span>p <span class="math inline">\(是一个梅森素数,而且不难发现只有当\)</span>k = 1
+$的时候才满足条件.</p>
+<p>于是充分必要条件是:$m $是若干个不同的梅森素数的乘积.</p>
+<h4><span id="狄利克雷卷积">狄利克雷卷积</span></h4>
+<p>$f * g = _{ d | n } { f ( d ) g ( { d } ) } $.</p>
+<p>不难证明狄利克雷卷积满足:</p>
+<ol type="1">
+<li><p>交换律:$f * g = g * f $.</p></li>
+<li><p>结合律:$f * ( g * h ) = ( f * g ) * h $.</p></li>
+<li><p>分配律:$f * ( g + h ) = f * g + f * h $.</p></li>
+<li><p>若$f , g <span class="math inline">\(是积性函数,则\)</span>f * g
+$也是积性函数.</p></li>
+</ol>
+<p>考虑第四条的证明:</p>
+<p><span class="math display">\[
+\begin{aligned}
+f * g ( nm ) &amp; = \sum _{ d | ( nm )  } f ( d ) g ( \cfrac { n  } {
+d  } ) \\
+&amp; = \sum _{ c | n  } \sum _{ d | m  } f ( cd ) g ( \cfrac { nm  } {
+cd  } ) \\
+&amp; = \sum _{ c | n  } \sum _{ d | m  } f ( c ) f ( d ) g ( \cfrac {
+n  } { c  } ) g ( \cfrac { m  } { d  } ) \\
+&amp; = ( f * g ( n ) ) \times ( f * g ( m ) )
+\end{aligned}
+\]</span></p>
+<ol start="5" type="1">
+<li>$f , f ( 1 ) <span class="math inline">\(,\)</span>f ^{ - 1 } <span class="math inline">\(,\)</span>f * f ^{ - 1 } = $.</li>
+</ol>
+<p>构造$g ( x ) <span class="math inline">\(满足\)</span>f ( 1 ) g ( x )
+= ( x ) - _{ d | x , d } f ( d ) g ( { d } ) $显然就是满足条件的.</p>
+<ol start="6" type="1">
+<li>积性函数的逆元也是积性函数.</li>
+</ol>
+<h4><span id="欧拉函数">欧拉函数</span></h4>
+<p>定义欧拉函数$( m ) $为所有满足$1 n m n m <span class="math inline">\(的\)</span>n $的个数.</p>
+<p>令$m = m _1 m _2 <span class="math inline">\(,其中\)</span>m _1 m _2
+<span class="math inline">\(.由于若\)</span>n m _1 , n m _2 <span class="math inline">\(,显然有\)</span>( n m _1 ) m _1 <span class="math inline">\(且\)</span>( n m _2 ) m _2 <span class="math inline">\(,则根据中国剩余定理,不难有\)</span>( m ) = ( m _1
+) ( m _2 ) <span class="math inline">\(,也即\)</span>( x )
+$是积性函数.</p>
+<p>若$n = ^{ k } _{ i = 1 } p _i ^{ a _i } $,则:</p>
+<p>$( n ) = ^k _{ i = 1 } ( p _i ^{ a <em>i } ) = ^k </em>{ i = 1 } { p
+_i ^{ a _i } - p _i ^{ a <em>i - 1 } } = ^k </em>{ i = 1 } { p ^{ a _i -
+1 } ( p _i - 1 ) } $.</p>
+<p>考虑改变枚举方式,因为$n = _{ p | n } p ^{ a <em>p } <span class="math inline">\(,则:\)</span>( n ) = </em>{ p | n } { p ^{ a <em>p
+- 1 } ( p - 1 ) } = </em>{ p | n } { ( p ^{ a <em>p } { p } ) } = n
+</em>{ p | n } { p } $.</p>
+<p>我们考虑一个事实:现在有$m <span class="math inline">\(个不同的分数\)</span> { m } , k <span class="math inline">\(,这些分数进行约分后,它们的分母即\)</span>m <span class="math inline">\(的若干因数,而它们的分子就是与这些因数互质的数,同时这些数的个数总共是\)</span>m
+<span class="math inline">\(个,我们可以得到:\)</span>_{ d | m } ( d ) =
+m $.</p>
+<p>上面这个结论还有另一种证明方法:</p>
+<p>由于$<span class="math inline">\(是积性函数,若\)</span>n <span class="math inline">\(,设\)</span>n = _{ i = 1 } ^k p _i ^{ q <em>i }
+<span class="math inline">\(,则\)</span>( n ) = </em>{ i = 1 } ^k ( p _i
+^{ q _i } ) $,则有:</p>
+$$
+<span class="math display">\[\begin{aligned}
+\sum _{ d | n  } \varphi ( d ) &amp; = \sum _{ w _1 = 0  } ^{ q _1  }
+\sum _{ w _2 = 0  } ^{ q _2  } . . . . . . \sum _{ w _k = 0  } ^{ q
+_k  } { \varphi ( p _1 ^{ w _1  } ) \varphi ( p _2 ^{ w _2  } ) . . . .
+. . \varphi ( p _k ^{ w _k  } )  } \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>而$( p ^q ) = p ^q - p ^{ q - 1 } <span class="math inline">\(,于是有\)</span>_{ i = 1 } ^{ q _i } { ( p _x ^i -
+p _x ^{ i - 1 } ) } = ( p _x ^{ q <em>x } - 1 ) <span class="math inline">\(,则有\)</span></em>{ i = 0 } ^{ q _x } ( p _x ^{ i
+} ) = p _x ^{ q _x } $.</p>
+<p>则原式等于$_{ i = 1 } ^k p _i ^{ q _i } = n $.</p>
+<h5><span id="和法里级数的关系">和法里级数的关系</span></h5>
+<p>我们考虑之前提到的法里级数$ <em>n <span class="math inline">\(,令\)</span>( x ) = </em>{ 1 k x } ( k ) <span class="math inline">\(,那么\)</span> _n <span class="math inline">\(的个数显然是\)</span>( x ) + 1 $.</p>
+<p>接下来我们思考如何计算$( x ) <span class="math inline">\(.事实上,我们有\)</span>_{ d = 1 } ^n ( { d } ) = {
+2 } ( n + 1 ) n $.这里的证明是:考虑满足$0 a &lt; b n <span class="math inline">\(的分数\)</span> { b } <span class="math inline">\(共有\)</span> { 2 } n ( n + 1 ) <span class="math inline">\(个,而如果我们枚举\)</span>d = ( a , b )
+$,那么显然右边也等于这些分数个数,于是得证.</p>
+<p>而事实上,如果我们用$n = x <span class="math inline">\(来带入上面的式子,可以得到\)</span>_{ d = 1 } ( { d
+} ) = { 2 } x + x $.</p>
+<p>根据第三种莫比乌斯反演的形式,我们有:$( x ) = { 2 } _{ 1 d } ( d ) { d
+} { d } + 1 $.</p>
+<h5><span id="麦克马洪和式">麦克马洪和式</span></h5>
+<p>考虑这个问题:我们现在有$m <span class="math inline">\(种颜色,要对一个长度为\)</span>n
+$的圆环进行染色,旋转后相同算一种方案,求方案数.</p>
+<p>我们先设答案为$N ( n , m ) <span class="math inline">\(,并将这些答案全部列举出来,然后将它们进行旋转,进行\)</span>n
+- 1 <span class="math inline">\(次.这样我们就得到了\)</span>nN ( n , m )
+$个圆环,但是这些圆环是有重复的.</p>
+<p>那么我们显然有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+nN ( n , m ) &amp; = \sum _{ a _0 a _1 . . . a _{ n - 1  }  } \sum _{ 0
+\leq k &lt; n  } [ a _0 a _1 . . . a _{ n - 1  } &amp; = a _k . . . a _{
+n - 1  } a _0 . . . a _{ k - 1  } ] \\
+&amp; = \sum _{ 0 \leq k &lt; n  } \sum _{ a _0 a _1 . . . a _{ n -
+1  }  } [ a _0 a _1 . . . a _{ n - 1  } &amp; = a _k . . . a _{ n - 1  }
+a _0 . . . a _{ k - 1  } ]
+\end{aligned}
+\]</span></p>
+<p>接下来我们只需要知道,当已知$k <span class="math inline">\(的时候,右边和式的贡献是多少.显然此时有\)</span>a
+<em>i = a </em>{ ( i + k ) n } <span class="math inline">\(,也就是\)</span>a <em>i = a </em>{ ( i + kl ) n }
+<span class="math inline">\(,此时答案为\)</span>m ^{ ( { n , k } ) }
+$.</p>
+<p>为啥答案为$m ^{ ( n , k ) } <span class="math inline">\(呢?我们考虑这一定会不断在\)</span>a <span class="math inline">\(中取数,那么会取多少数呢?显然会取\)</span>x - 1
+<span class="math inline">\(个数,其中\)</span>i + xk = i + yn <span class="math inline">\(,不难解得此时\)</span>x = { ( k , n ) } <span class="math inline">\(,因此一共有\)</span>( n , k ) $个轨道.</p>
+<p>也就是说:$nN ( n , m ) = <em>{ 0 k &lt; n } m ^{ ( n , k ) } , N ( n
+, m ) = { n } </em>{ 0 k &lt; n } m ^{ ( n , k ) } \ $.</p>
+<p>如果我们对这个式子进行化简:</p>
+<p><span class="math display">\[
+\begin{aligned}
+N ( n , m ) &amp; = \cfrac { 1  } { n  } \sum _{ d | n  } m ^d \sum _{ 0
+\leq k &lt; n  } [ d &amp; = \gcd ( n , k ) ] \\
+&amp; = \cfrac { 1  } { n  } \sum _{ d | n  } m ^d \sum _{ d | k , k
+&lt; n  } [ \cfrac { k  } { d  } \bot \cfrac { n  } { d  } ] \\
+&amp; = \cfrac { 1  } { n  } \sum _{ d | n  } m ^d \sum _{ 0 \leq k &lt;
+\frac { n  } { d  }  } [ k \bot \cfrac { n  } { d  } ] \\
+&amp; = \cfrac { 1  } { n  } \sum _{ d | n  } \varphi ( d ) m ^{ \frac {
+n  } { d  }  } .
+\end{aligned}
+\]</span></p>
+<p>这个式子被称为麦克马洪公式.</p>
+<p>另外,如果我们考虑$n | ( _{ d | n } ( d ) n ^{ { d } } ) <span class="math inline">\(这件事的证明,考虑如果\)</span>n = p ^k
+$,那么根据费马小定理,显然可证明.</p>
+<p>而由于$( x ) <span class="math inline">\(是积性函数,令\)</span>n = n
+_1 n _2 , n _1 n _2 $,有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum _{ d | n  } \varphi ( d ) n ^{ \frac { n  } { d  }  } &amp; = \sum
+_{ d _1 | n _1 , d _2 | n _2  } \varphi ( d _1 d _2 ) n ^{ \frac { n _1
+n _2  } { d _1 d _2  }  } \\
+&amp; = \sum _{ d _1 | n _1  } \varphi ( d _1 ) ( \sum _{ d _2 | n _2  }
+\varphi ( d _2 ) ( n ^{ \frac { n _1  } { d _1  }  } ) ^{ \frac { n
+_2  } { d _2  }  } )
+\end{aligned}
+\]</span></p>
+<p>我们可以通过数学归纳来证明.</p>
+<h5><span id="burnside定理">Burnside定理</span></h5>
+<p>现在让我们来进行一些抽象代数的计算.</p>
+<p>置换群:运算$( a _1 , a _2 , . . . , a _k ) <span class="math inline">\(表示将\)</span>a _1 <span class="math inline">\(放到\)</span>a _2 <span class="math inline">\(位置...把\)</span>a <em>i <span class="math inline">\(放到\)</span>a </em>{ i + 1 } <span class="math inline">\(的位置...把\)</span>a _k <span class="math inline">\(放到\)</span>a _1 <span class="math inline">\(的位置,而幺元\)</span>e = ( 1 ) ( 2 ) ( 3 ) . . .
+( n ) $.</p>
+<p>由麦克马洪和式的证明,我们不难推导出Polya定理:设要对$n <span class="math inline">\(个元素用\)</span>m <span class="math inline">\(种颜色染色,若通过某种旋转得到的染色方案算同一种,考虑旋转一定是一种置换,则本质不同的染色方案数\)</span>=
+{ | S | } <span class="math inline">\(,其中\)</span>( s ) <span class="math inline">\(表示\)</span>s $的轨道数,即有多少组置换.</p>
+<h6><span id="example1hnoi2009图的同构计数">Example1([HNOI2009]图的同构计数)</span></h6>
+<p>首先看到循环同构,第一反应就是Burnside定理.考虑将每条边的状态设为两种:选或不选,那么我们就对点的编号进行置换,然后找到不动边的数量.</p>
+<p>我们先考虑对于一个置换,该如何求得它的不动边的数量.考虑置换是一个排列,对它做置换环分解.</p>
+<p>现在问题在于置换环内和置换环间要分别求不动点的数量.</p>
+<p>先来考虑置换环内:由于是一个置换环,我们假设它的大小是$b <span class="math inline">\(,将这\)</span>b <span class="math inline">\(个点排成一个正\)</span>b <span class="math inline">\(边形(\)</span>b <span class="math inline">\(个点的完全图),考虑一个一条边转多少次才能转回来,如果不是\)</span>b
+<span class="math inline">\(是偶数并且这条边正好平分整个多边形的话,显然需要转\)</span>n
+<span class="math inline">\(次,简单判掉特殊情况,发现轨道数量\)</span> {
+2 } $.</p>
+<p>接下来考虑置换环外:对于两个置换环间,对于一条边,我们考虑不断做置换,做多少次才能使这条边回归原位置.注意到需要做$lcm
+( b _1 , b _2 ) <span class="math inline">\(次.而总共有\)</span>b _1 b
+_2 <span class="math inline">\(条边,于是轨道数量\)</span> { lcm ( b _1 ,
+b _2 ) } = ( b _1 , b _2 ) $.</p>
+<p>这样对于一个$k <span class="math inline">\(个环的置换,它的答案就是\)</span><em>{ i = 1 } ^k {
+2 } + </em>{ i = 1 } ^k _{ j = i + 1 } ^k ( b _i , b _j ) $.</p>
+<p>接下来发现本质不同的置换不多,搜出来每个置换环的大小,暴力判断.</p>
+<h5><span id="欧拉定理">欧拉定理</span></h5>
+<p>当$a m <span class="math inline">\(时,\)</span>a ^{ ( m ) } ( m )
+$.</p>
+<p>证明考虑取出$[ 1 , m ] <span class="math inline">\(中所有和\)</span>m
+<span class="math inline">\(互质的数,设它们为\)</span>b _1 , b <em>2 , ,
+b </em>{ ( m ) } $.我们有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\prod _{ k = 1  } ^{ \varphi ( m )  } ab _k &amp; \equiv \prod _{ k =
+1  } ^{ \varphi ( m )  } ( ab _k \bmod p ) ( \mod p ) \\
+a ^{ \varphi ( m )  } \prod _{ k = 1  } ^{ \varphi ( m )  } b _k &amp;
+\equiv \prod _{ k = 1  } ^{ \varphi ( m )  } b _k ( \mod p )
+\end{aligned}
+\]</span></p>
+<p>欧拉定理可以用来求逆元:$a ^{ ( p ) } ( p ) <span class="math inline">\(,则有\)</span>a ^{ - 1 } a ^{ ( p ) - 1 } ( p )
+$.</p>
+<h5><span id="扩展欧拉定理">扩展欧拉定理</span></h5>
+<p>$a ^b a ^c ( m ) $,其中</p>
+<span class="math display">\[\begin{cases}
+
+b\bmod \varphi(m) &amp;a\perp m\\
+
+b &amp;b&lt;\varphi(m)\\
+
+(b\bmod \varphi(m))+\varphi(m) &amp;other
+
+\end{cases}\]</span>
+<p>证明如下:</p>
+<p>设$m = ^k _{ i = 1 } p _i ^{ e _i } <span class="math inline">\(,则要证\)</span>a ^b a ^{ ( b ( m ) ) + ( m ) } (
+m ) <span class="math inline">\(,即证\)</span>i <span class="math inline">\(都有\)</span>a ^b a ^{ ( b ( m ) ) + ( m ) } ( p
+_i ^{ e _i } ) $.</p>
+<p>分情况讨论:</p>
+<p>若$p _i ^{ e _i } a <span class="math inline">\(,则为普通欧拉定理情况,即证明\)</span>( p _i ^{ e
+_i } ) <span class="math inline">\(是\)</span>b - c <span class="math inline">\(的因数.由于\)</span>( p _i ^{ e _i } ) <span class="math inline">\(是\)</span>( m ) <span class="math inline">\(的因数,而\)</span>( m ) <span class="math inline">\(是\)</span>b - c $的因数,显然得证.</p>
+<p>不然,发现$e _i ( p _i ^{ e _i } ) ( m ) b <span class="math inline">\(且\)</span>( m ) c <span class="math inline">\(,又发现\)</span>p _i ^{ e _i } | a ^{ e _i } <span class="math inline">\(,所以\)</span>p _i ^{ e _i } | a ^b <span class="math inline">\(,\)</span>p _i ^{ e _i } | a ^c $,左右两边均为$0
+$,得证.</p>
+<h6><span id="example1cf906d-power-tower">Example1(CF906D Power Tower)</span></h6>
+<p>考虑每次暴力做扩展欧拉定理,注意到每次会把$p <span class="math inline">\(变成\)</span>( p ) <span class="math inline">\(,如果\)</span>p <span class="math inline">\(是奇数,那它下一步会变为偶数,如果\)</span>p <span class="math inline">\(是偶数,则下一步至少减半,于是迭代次数是\)</span>n
+$级别的.</p>
+<h6><span id="example2六省联考-2017相逢是问候">Example2([六省联考 2017]
+相逢是问候)</span></h6>
+<p>同上.</p>
+<h6><span id="example3具体数学454">Example3(《具体数学》4.54)</span></h6>
+<p>求$1000 ! $.</p>
+<p>首先,根据前面的例题,不难发现$5 ^{ 249 } ^{ 994 } ( 1000 ! ) $.</p>
+<p>我们有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+1000 ! &amp; \equiv ans \pmod { 10 ^{ 250  }  } \\
+\cfrac { 1000 !  } { 10 ^{ 249  }  } &amp; \equiv \cfrac { ans  } { 10
+^{ 249  }  } \pmod { 10  }
+\end{aligned}
+\]</span></p>
+<p>由于模数现在变成了$10 $,考虑$1 = 7 $,于是我们有:</p>
+$$
+<span class="math display">\[\begin{aligned}
+\cfrac { ans  } { 10 ^{ 249  }  } &amp; \equiv 2 ^{ 745  } \times 7 ^{
+100  } \pmod { 10  } \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>而$( 10 ) = 4 $,根据扩展欧拉定理:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\cfrac { ans  } { 10 ^{ 249  }  } &amp; \equiv 2 ^{ 5  } \pmod { 10  }
+\\
+ans &amp; \equiv 2 \times 10 ^{ 249  } \pmod { 10 ^{ 250  }  }
+\end{aligned}
+\]</span></p>
+<h5><span id="example1具体数学457">Example1(《具体数学》4.57)</span></h5>
+<p>求证:$_{ 1 k n + m } ( k ) [ ( m k ) + ( n k ) k ] = nm \ $.</p>
+<p>先考虑将条件改为一个更好处理的式子,不难发现:</p>
+<p><span class="math display">\[
+[ m \bmod k + n \bmod k \geq k ] = \lfloor \cfrac { n + m  } { k  }
+\rfloor - \lfloor \cfrac { n  } { k  } \rfloor - \lfloor \cfrac { m  } {
+k  } \rfloor
+\]</span></p>
+<p>于是接下来我们要处理的式子形如$_{ 1 k n } ( k ) { k } \ $.</p>
+<p>对其增加枚举量:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum _{ 1 \leq k \leq n  } \varphi ( k ) \lfloor \cfrac { n  } { k  }
+\rfloor &amp; = \sum _{ 1 \leq k \leq n  } \varphi ( k ) \sum _{ d =
+1  } ^{ \lfloor \frac { n  } { k  } \rfloor  } 1 \\
+&amp; = \sum _{ k = 1  } ^n \sum _{ d | k  } \varphi ( d ) \\
+&amp; = \sum _{ k = 1  } ^n k &amp; = \cfrac { ( n + 1 ) n  } { 2  }
+\end{aligned}
+\]</span></p>
+<p>带入即可证明.</p>
+<h5><span id="example2">Example2</span></h5>
+<p>求$_{ 1 a , b p ( p - 1 ) } [ a ^b b ^a ( p ) ] , p prime $.</p>
+<p>考虑$p ( p - 1 ) $,使用中国剩余定理,我们有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum _{ 1 \leq a , b \leq p ( p - 1 )  } [ a ^b &amp; \equiv b ^a ( \mod
+p ) ] \\
+&amp; = \sum _{ 0 \leq a , b &lt; p  } \sum _{ 0 \leq c , d &lt; p -
+1  } [ a ^c &amp; \equiv b ^d ( \mod p ) ] \\
+&amp; = ( p - 1 ) ^2 + \sum _{ 1 \leq a , b &lt; p  } \sum _{ 0 \leq c ,
+d &lt; p - 1  } [ a ^c &amp; \equiv b ^d ( \mod p ) ]
+\end{aligned}
+\]</span></p>
+<p>后面那部分的答案是:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum _{ 1 \leq a , b &lt; p  } \sum _{ 0 \leq c , d &lt; p - 1  } [ a ^c
+&amp; \equiv b ^d ( \mod p ) ] \\
+&amp; = \sum _{ 1 \leq x &lt; p  } \sum _{ 0 \leq a , b &lt; p  } \sum
+_{ 1 \leq c , d &lt; p - 1  } [ a ^c &amp; \equiv x ( \mod p ) ] [ b ^d
+&amp; \equiv x ( \mod p ) ] \\
+&amp; = \sum _{ 1 \leq x &lt; p  } ( \sum _{ 1 \leq a &lt; p , 0 \leq c
+&lt; p - 1  } [ a ^c &amp; \equiv x ( \mod p ) ] ) ^2
+\end{aligned}
+\]</span></p>
+<p>令$g <span class="math inline">\(为\)</span>p <span class="math inline">\(的原根,令\)</span>a = g ^b <span class="math inline">\(,\)</span>x = g ^{ x ’ } $有:</p>
+$$
+<span class="math display">\[\begin{aligned}
+\sum _{ 1 \leq x &lt; p  } ( \sum _{ 1 \leq a &lt; p , 0 \leq c &lt; p -
+1  } [ a ^c &amp; \equiv x ( \mod p ) ] ) ^2 \\
+&amp; = \sum _{ 0 \leq x &#39; &lt; p - 1  } ( \sum _{ 0 \leq b &lt; p -
+1 , 0 \leq c &lt; p - 1  } [ bc &amp; \equiv x &#39; ( \mod p - 1 ) ] )
+^2 \\
+&amp; = \sum _{ 0 \leq x &lt; p - 1  } ( \sum _{ 0 \leq a , b &lt; p -
+1  } [ ab &amp; \equiv x ( \mod p - 1 ) ] ) ^2 \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>考虑前面那个式子,如果我们令$x = x _0 x _1 , x _0 x _1 <span class="math inline">\(,\)</span>p - 1 = p _0 p _1 , p _0 p _1 $,其中$0 x
+_0 &lt; p _0 , 0 x _1 &lt; p _1 <span class="math inline">\(,后面那个式子为\)</span>f ( p - 1 , x ) <span class="math inline">\(,由于中国剩余定理,有\)</span>f ( p - 1 , x ) = f (
+p _0 , x _0 ) f ( p _1 , x _1 ) $.</p>
+<p>于是令$p - 1 = _{ i = 1 } ^k p _i ^{ q _i } $上面的式子可以改为:</p>
+<p><span class="math display">\[
+\prod _{ i = 1  } ^k ( \sum _{ 0 \leq x _i &lt; p _i ^{ q _i  }  } (
+\sum _{ 0 \leq a , b &lt; p _i ^{ q _i  }  } [ ab \equiv x _i ( \mod p
+_i ^{ q _i  } ) ] ) ^2 )
+\]</span></p>
+<p>我们只考虑其中一项,形如:</p>
+<p><span class="math display">\[
+\sum _{ 0 \leq x &lt; p ^{ q  }  } ( \sum _{ 0 \leq a , b &lt; p ^q  } [
+ab \equiv x ( \mod p ^{ q  } ) ] ) ^2
+\]</span></p>
+<p>我们不妨用$ap ^{ } <span class="math inline">\(代替\)</span>a <span class="math inline">\(,\)</span>bp ^<span class="math inline">\(代替\)</span>b <span class="math inline">\(,\)</span>xp ^t <span class="math inline">\(代替\)</span>x <span class="math inline">\(,其中\)</span>a , b , x p $那么有:</p>
+<p><span class="math display">\[
+\sum _{ 0 \leq x &lt; p ^{ q - t  }  } ( \sum _{ 0 \leq a &lt; p ^{ q -
+\alpha  } , 0 \leq b &lt; p ^{ q - \beta  }  } [ abp ^{ \alpha +
+\beta  } \equiv xp ^t ( \mod p ^{ q  } ) ] ) ^2
+\]</span></p>
+<p>则我们要做的即对四元组$( a , b , , ) <span class="math inline">\(计数.由于\)</span>a , b , x p $,我们有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\alpha + \beta &amp; = t , \alpha , \beta \in \mathbb { N  } \\
+ab &amp; \equiv x \pmod { p ^{ q - t  }  } , 0 &amp; \leq a &amp; &lt; p
+^{ q - \alpha  } , 0 &amp; \leq b &amp; &lt; p ^{ q - \beta  }
+\end{aligned}
+\]</span></p>
+<p>第一个式子对四元组的贡献显然是$t + 1 <span class="math inline">\(,而第二个式子,由于\)</span>[ 1 , p ^{ q - t } ) )
+^2 + ( <em>{ 1 a , b p ^q } [ ab &amp; ] ) ^2 \ &amp; = </em>{ 1 x &lt;
+p ^{ q - t } } ( ( t + 1 ) p ^{ t - } p ^{ t - } _{ 1 a , b &lt; p ^{ q
+- t } } [ ab &amp; x ] ) ^2 + q ( p - 1 ) p ^{ q - 1 } + p ^q
+\end{aligned} $$</p>
+<p>后面,由于$a p <span class="math inline">\(,显然一个\)</span>a <span class="math inline">\(唯一对应一个\)</span>b $.于是我们得到了答案为:</p>
+<p><span class="math display">\[
+\sum _{ 1 \leq x &lt; p ^{ q - t  }  } ( ( t + 1 ) p ^{ t  } \varphi ( p
+^{ q - t  } ) ) ^2
+\]</span></p>
+<p>而后面的式子显然跟$x $无关,所以有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum _{ 0 &lt; x &lt; p ^{ q - t  }  } ( ( t + 1 ) p ^{ t  } \varphi ( p
+^{ q - t  } ) ) ^2 \\
+&amp; = \sum _{ 0 \leq t &lt; q  } ( \varphi ( p ^{ q - t  } ) ) ( ( t +
+1 ) p ^{ t  } \varphi ( p ^{ q - t  } ) ) ^2 \\
+&amp; = \sum _{ 0 \leq t &lt; q  } ( t + 1 ) ^2 p ^{ 2 t  } ( p - 1 ) ^3
+p ^{ 3 q - 3 t - 3  } \\
+&amp; = \sum _{ 0 \leq t &lt; q  } ( t + 1 ) ^2 ( p - 1 ) ^3 p ^{ 3 q -
+t - 3  }
+\end{aligned}
+\]</span></p>
+<p>其实到这一步,由于$t <span class="math inline">\(是\)</span>O ( n )
+$级别的,这题已经可以做了.</p>
+<h4><span id="莫比乌斯函数">莫比乌斯函数</span></h4>
+<p>莫比乌斯函数$( x ) <span class="math inline">\(是一个满足\)</span>_{
+d | n } ( n ) = 1
+$的函数,根据定义其显然是积性函数.根据定义可以求出它的封闭形式:</p>
+$( m ) =
+<span class="math display">\[\begin{cases}0 &amp; \exists m _i \geq 2 \\
+( - 1 ) ^k &amp; \forall m _i \leq 1 \end{cases}\]</span>
+<p>, m = _{ i = 1 } ^k p _i ^{ m _i } $.</p>
+<h5><span id="莫比乌斯反演">莫比乌斯反演</span></h5>
+<p>见”反演.md”.</p>
+<p>另外,值得一提的是,根据莫比乌斯反演,我们可以发现$id = $.</p>
+<p>有公式:$^2 ( x ) = <em>{ i ^2 | x } ( i ) <span class="math inline">\(.原因很简单,我们设\)</span>x ’ <span class="math inline">\(为\)</span>x <span class="math inline">\(中所有的质因子的幂先除二下取整再乘二后变成的答案,显然\)</span>^2
+( x ) = ^2 ( x ’ ) <span class="math inline">\(,我们有\)</span></em>{ i
+| } ( y ) = [ = 1 ] , _{ i ^2 | x ’ } ( y ) = [ x ’ = 1 ] $.</p>
+<h4><span id="min25筛">min25筛</span></h4>
+<p>如果我们考虑积性函数的值,理论上来说,设$S ( n , k ) <span class="math inline">\(表示最小质因子大于等于\)</span>p _k <span class="math inline">\(的所有\)</span>f <span class="math inline">\(的和加上\)</span>f ( 1 ) $,其实我们自然有:</p>
+<p><span class="math display">\[
+S ( n , k ) = \sum _{ e \geq 0  } f ( p _k ^e ) S ( \lfloor \frac { n  }
+{ p _k ^e  } \rfloor , k + 1 )
+\]</span></p>
+<p>问题在于这么做需要枚举$[ 1 , n ]
+$中的全部质数,这是根本无法接受的.</p>
+<p>我们考虑一些很大的质数,换言之,最小质因子大于$ <span class="math inline">\(的数在\)</span>[ 1 , n ]
+$中只有可能是质数本身.</p>
+<p>因此你会发现,这个过程只需要把质数单独拿出来做,复杂度就可以得到相当的飞跃.</p>
+<p>考虑:</p>
+<p><span class="math display">\[
+\sum _{ i = 1  } ^n f ( i ) = \sum _{ p \in prime  } f ( p ) + \sum _{ p
+\notin prime \land p \ne 1  } f ( p ) + f ( 1 )
+\]</span></p>
+<p>令$g ( N , i ) = _{ j = 1 } ^N [ j prime _j &gt; p _i ] F ( j ) \
+<span class="math inline">\(,其中\)</span> _j <span class="math inline">\(表示\)</span>j <span class="math inline">\(最小的质因数,\)</span>p _i <span class="math inline">\(表示第\)</span>i $个质数.</p>
+<p>注意到$g ( N , i ) <span class="math inline">\(实际上就是\)</span>N
+<span class="math inline">\(以内的数在第\)</span>i <span class="math inline">\(轮埃氏筛后剩余的数的\)</span>F $的和.</p>
+<p>$F ( i ) <span class="math inline">\(表示若干完全积性函数之和且当\)</span>p prime $
+时,$F ( p ) = f ( p ) <span class="math inline">\(,下文为了方便书写,直接认为\)</span>F
+$是完全积性函数.</p>
+<p>而$g ( N , ) <span class="math inline">\(实际上就是\)</span>N <span class="math inline">\(以内的质数的\)</span>F $之和,那么有:</p>
+$$
+<span class="math display">\[\begin{aligned}
+g ( n , 0 ) &amp; = \sum _{ i = 2  } ^n F ( i ) \\
+g ( i , j ) &amp; = g ( i , j - 1 ) - F ( p _j ) ( \ g ( \lfloor \frac {
+i  } { p _j  } \rfloor , j - 1 ) - \sum _{ 2 \leq p \leq p _{ j - 1  } ,
+p \in prime  } F ( p ) \ ) \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>ps1:</p>
+<p>第$j <span class="math inline">\(个质数会比第\)</span>j - 1 <span class="math inline">\(个多筛若干个数,即最小质因数是\)</span>p _j <span class="math inline">\(的数.这些数形如\)</span>{ p _j , 2 p _j , 3 p _j .
+. . } <span class="math inline">\(,同时除以\)</span>p _j <span class="math inline">\(得到\)</span>{ 1 , 2 , 3 . . . } $.</p>
+<p>我们要的就是其中最小质因数大于等于$p <em>j <span class="math inline">\(的数,也就是最小质因数大于\)</span>p </em>{ j - 1 }
+<span class="math inline">\(的数,因而就是\)</span>g ( { p _j } , j - 1 )
+$.</p>
+<p>但还有一些质数会被重复计算,我们把他删掉就可以了.</p>
+<p>考虑到$g <span class="math inline">\(后面的维度最多走到\)</span>
+<span class="math inline">\(,所以我们所枚举的最小质因子一定小于等于\)</span>
+<span class="math inline">\(,所以一定有\)</span>p _{ j - 1 } &lt; { p _j
+} $,所以直接删去一定不会多删.</p>
+<p>ps2:</p>
+<p>注意到以下事实:$ { c } = { bc } \ $.</p>
+<p>因而,如果我们有以下代码:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(f[n])<span class="keyword">return</span> f[n];</span><br><span class="line"><span class="keyword">else</span> f[n]=......;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line"><span class="built_in">solve</span>(n/i);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">...</span><br><span class="line"><span class="built_in">solve</span>(n);</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该代码复杂度为$O ( ) <span class="math inline">\(.原因在于,根据整数分块,\)</span> { i } <span class="math inline">\(有\)</span> $种取值.</p>
+<p>而如果递归下去,继续枚举$j <span class="math inline">\(,并往下递归到\)</span> { j } <span class="math inline">\(,那他就相当于枚举\)</span>k = ij <span class="math inline">\(,并递归到\)</span> { k } $,因而复杂度得到保证.</p>
+<p>由此可知,求$g <span class="math inline">\(的复杂度为\)</span>O ( ) =
+O ( n ^{ { 4 } } ) $.</p>
+<p>令$S ( n , m ) <span class="math inline">\(表示前\)</span>n <span class="math inline">\(个数中,最小质因数大于等于\)</span>p _m <span class="math inline">\(的数的\)</span>f $之和,可知:</p>
+$$
+<span class="math display">\[\begin{aligned}
+S ( n , m ) &amp; = g ( n , + \infty ) - \sum _{ k = 1  } ^{ m - 1  } f
+( p _k ) + \sum _{ k \geq m , e \geq 1 , p _k ^{ e + 1  } \leq n  } f (
+p _k ^e ) S ( \lfloor \frac { n  } { p _k ^e  } \rfloor , k + 1 ) + \sum
+_{ k \geq m , e = 2 , p _k ^e \leq n  } f ( p _k ^e ) \\
+&amp; = g ( n , + \infty ) - \sum _{ k = 1  } ^{ m - 1  } f ( p _k ) +
+\sum _{ k \geq m , e \geq 1 , p _k ^{ e + 1  } \leq n  } [ f ( p _k ^e )
+S ( \lfloor \frac { n  } { p _k ^e  } \rfloor , k + 1 ) + f ( p _k ^{ e
++ 1  } ) ] \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>ps1:</p>
+<p>前半段求出质数部分的和,后半段开始枚举最小质因子.</p>
+<p>由于$p _k <span class="math inline">\(是当前数的最小质因子,\)</span>e
+<span class="math inline">\(是他的幂.则这个数其他的质因子应该均大于\)</span>p
+<em>k <span class="math inline">\(,因而大于等于\)</span>p </em>{ k + 1 }
+$.</p>
+<p>注意到由于$S $中不包含$1 <span class="math inline">\(,所以应特殊处理只含有\)</span>p _k
+$一个质因子的情况.</p>
+<p>又注意到,如果$p _k ^e &lt; n &lt; p _k ^{ e + 1 } <span class="math inline">\(,那么此时\)</span> { p _k ^e } <span class="math inline">\(一定小于\)</span>p _k <span class="math inline">\(,则不可能拥有比\)</span>p _k $更大的质因子.</p>
+<p>该形式与上面一致,因而复杂度同样为$O ( n ^{ { 4 } } ) <span class="math inline">\(.我们最终要求的答案即\)</span>S ( n , 1 ) + f ( 1
+) $.</p>
+<p>一些后记:</p>
+<ol type="1">
+<li><p>事实上,复杂度的计算只是上限,实际上应该约为$O ( { _2 n } )
+$.</p></li>
+<li><p>如果使用map会导致复杂度较差,考虑如下事实:</p></li>
+</ol>
+<p>(1).$ x n <span class="math inline">\(,则要么\)</span>x <span class="math inline">\(,要么\)</span> { x } \ $.</p>
+<p>(2).$a <span class="math inline">\(形如\)</span> { x } <span class="math inline">\(,则\)</span> { a } <span class="math inline">\(应为\)</span>x _{ max } $,互不相同.</p>
+<p>因而可以分别特判,从而做到比map或离散化都优秀的复杂度.</p>
+<ol start="3" type="1">
+<li><p>我们在代码中所求出的$w
+$是倒序的,而我们转移的过程也是倒序的,因而枚举的时候可以直接正序枚举.</p></li>
+<li><p>考虑做的时候由于进行了滚动数组,因而继承操作可以直接使用,为了方便可以直接判掉可以直接继承的情况.</p></li>
+<li><p>求$S <span class="math inline">\(的过程可以使用递归,因为我们只关心一个\)</span>S
+$的量.</p></li>
+</ol>
+<h5><span id="example1uoj188sanrd">Example1([uoj188]Sanrd)</span></h5>
+<p>注意到这题显然可以写埃筛的暴力.考虑使用类似min15筛的方式,定义$f ( n )
+<span class="math inline">\(为\)</span>n <span class="math inline">\(的次大质因子(若\)</span>n = 1 n prime <span class="math inline">\(则\)</span>f ( n ) = 0 <span class="math inline">\(),\)</span>S ( n , k ) = _{ i = 1 } ^n [ _i p _k ]
+f ( i ) <span class="math inline">\(.不难发现我们要求的就是\)</span>S (
+n , 1 ) <span class="math inline">\(,而显然\)</span>S ( n , ) = 0 $.</p>
+<p>注意到:</p>
+<p><span class="math display">\[
+S ( n , m ) = \sum _{ i \geq m , e \geq 1 , p _i ^{ e + 1  } \leq n  } S
+( \lfloor \frac { n  } { p _i ^e  } \rfloor , i + 1 ) + p _i \sum _{ i =
+p _i + 1  } ^{ \lfloor \frac { n  } { p _i ^e  } \rfloor  } [ i \in
+prime ]
+\]</span></p>
+<p>区间素数个数可以拿min25筛的前半部分做.</p>
+<h4><span id="杜教筛">杜教筛</span></h4>
+<p>令$F ( n ) = _{ i = 1 } ^n f ( i ) \ <span class="math inline">\(,我们考虑构造两个函数\)</span>g <span class="math inline">\(和\)</span>s <span class="math inline">\(.使得\)</span>f * g = s $.</p>
+<p>令$G ( n ) = <em>{ i = 1 } ^n g ( i ) , S ( n ) = </em>{ i = 1 } ^n s
+( i ) \ <span class="math inline">\(.若\)</span>G ( i ) <span class="math inline">\(和\)</span>S ( i ) <span class="math inline">\(都很方便求,\)</span>g ( 1 ) = 1 <span class="math inline">\(,我们就可以求出\)</span>F ( n ) $.</p>
+$$
+<span class="math display">\[\begin{aligned}
+f * g &amp; = s \\
+\sum _{ j | i  } f ( j ) g ( \frac { i  } { j  } ) &amp; = s ( i ) \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>由于$g ( 1 ) = 1 <span class="math inline">\(,我们有\)</span>f ( i )
+= s ( i ) - _{ j | i , j i } f ( j ) g ( { j } ) \ $.</p>
+<p>那么:</p>
+$$
+<span class="math display">\[\begin{aligned}
+F ( n ) &amp; = \sum _{ i = 1  } ^n f ( i ) \\
+&amp; = \sum _{ i = 1  } ^n ( s ( i ) - \sum _{ j | i , j \ne i  } f ( j
+) g ( \frac { i  } { j  } ) ) \\
+&amp; = S ( n ) - \sum _{ j = 1  } ^n \sum _{ k = 2  } ^{ \lfloor \frac
+{ n  } { j  } \rfloor  } g ( k ) f ( j ) \\
+&amp; = S ( n ) - \sum _{ k = 2  } ^n g ( k ) \sum _{ j = 1  } ^{
+\lfloor \frac { n  } { k  } \rfloor  } f ( j ) \\
+&amp; = S ( n ) - \sum _{ k = 2  } ^n g ( k ) F ( \lfloor \frac { n  } {
+k  } \rfloor ) \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>复杂度证明和min25筛是一样的,不同点在于我们可以预处理$n ^{ { 3 } }
+<span class="math inline">\(以内的\)</span>F <span class="math inline">\(,这样复杂度可以降到\)</span>O ( n ^{ { 3 } } )
+$.</p>
+<h5><span id="example1">Example1</span></h5>
+<p>求$_{ i = 1 } ^N ( i ) \ $.</p>
+<p>由于$I = <span class="math inline">\(,于是考虑\)</span>g = I $.</p>
+<h5><span id="example2">Example2</span></h5>
+<p>求$_{ i = 1 } ^N ( i ) \ $.</p>
+<p>由于$I = id <span class="math inline">\(,于是考虑\)</span>g = I
+$.</p>
+<h5><span id="example3">Example3</span></h5>
+<p>求$_{ i = 1 } ^N { ( i ) i } \ $</p>
+<p>由于$^N <em>{ i = 1 } ( f * g ) ( i ) = </em>{ d | N } { f ( i ) g (
+{ d } ) } = _{ d | N } { ( d ) d g ( { d } ) } \ $</p>
+<p>由于中间过程中乘出来的$d <span class="math inline">\(很难处理,需要消掉它,于是考虑\)</span>g = id $.</p>
+<h5><span id="example4">Example4</span></h5>
+<p>$_{ i = 1 } ^N { ( i ) i ^2 } \ $.</p>
+<p>由Example3,于是考虑$g = id ^2 $.</p>
+<h4><span id="powerful-number筛">Powerful Number筛</span></h4>
+<p>定义Powerful Number为满足所有质因子的指数都$&gt; 1 <span class="math inline">\(的数,不难证明这样的数在\)</span>[ 1 , n ] <span class="math inline">\(中最多只有\)</span>O ( )
+$个(使用积分).同时对于质因子的幂分奇偶讨论:奇数分成一个$3 <span class="math inline">\(加上一个偶数,那么不难证明这个数一定有:\)</span>a
+^2 b ^3 $的形式.找到这些数字可以直接dfs搜指数.</p>
+<p>现在我们要求积性函数$f ( n ) <span class="math inline">\(的前缀和.假设\)</span>f = h * g <span class="math inline">\(,其中\)</span>h ( 1 ) = 1 , g ( p ) = f ( p ) , p
+prime <span class="math inline">\(且\)</span>g ( n )
+$的前缀和容易计算.</p>
+<p>接下来我们证明:$h ( n ) n  is  Powerful  Number $.</p>
+<p>$p prime <span class="math inline">\(,\)</span>f ( p ) = g ( 1 ) h (
+p ) + g ( p ) h ( 1 ) = h ( p ) + g ( p ) <span class="math inline">\(,于是\)</span>h ( p ) = 0 <span class="math inline">\(.根据积性函数的性质有\)</span>x , h ( x ) = 0
+$.</p>
+<p>注意到:</p>
+<p><span class="math display">\[
+\begin{aligned}
+F ( n ) &amp; = \sum _{ i = 1  } ^n f ( i ) \\
+&amp; = \sum _{ i = 1  } ^n \sum _{ j | i  } h ( j ) g ( \frac { i  } {
+j  } ) \\
+&amp; = \sum _{ j = 1  } ^n h ( j ) G ( \lfloor \frac { n  } { j  }
+\rfloor )
+\end{aligned}
+\]</span></p>
+<p>于是可以快速求,复杂度$O ( ) $.</p>
+<h5><span id="example1sp20174divcnt3">Example1([SP20174]DIVCNT3)</span></h5>
+<p>首先我们需要构造$g ( p ) = f ( p ) , p prime <span class="math inline">\(.注意到\)</span>f ( p ) = d ( p ^3 ) = 4 <span class="math inline">\(,我们构造\)</span>g ( p ) = ( d * d ) ( p ) <span class="math inline">\(.这样问题在于求\)</span>G ( n ) $.我们有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+G ( n ) &amp; = \sum _{ i = 1  } ^n ( d * d ) ( i ) \\
+&amp; = \sum _{ ij \leq n  } d ( i ) d ( j ) \\
+&amp; = \sum _{ i = 1  } ^n d ( i ) D ( \lfloor \frac { n  } { i  }
+\rfloor )
+\end{aligned}
+\]</span></p>
+<p>而$D ( n ) = _{ i = 1 } ^n { i } <span class="math inline">\(,自然可以做.复杂度算一算是\)</span>O ( n ^{ { 3 }
+} ) $.</p>
+<p>感觉Powerful Number筛的关键在于构造.</p>
+<h2><span id="整值函数">整值函数</span></h2>
+<h3><span id="定义">定义</span></h3>
+<p>若$x $,则:</p>
+<p>$x = $小于等于x的最大的整数.</p>
+<p>$x = $大于等于x的最小的整数.</p>
+<p>我们有时称$x <span class="math inline">\(为\)</span>x <span class="math inline">\(的整数部分,并定义\)</span>x - x <span class="math inline">\(为分数部分,有时记作\)</span>{ x } $.</p>
+<p>我们定义$x y = x - y { y } <span class="math inline">\(,\)</span>x
+ mumble  y = y { y } - x <span class="math inline">\(,其中\)</span>x , y
+$.</p>
+<p>当然,我们也可以使用上述定义将$mod <span class="math inline">\(和\)</span>mumble <span class="math inline">\(的定义扩展到实数域,不过\)</span>y = 0
+$的时候需要特殊处理.</p>
+<h3><span id="整值函数的基本性值">整值函数的基本性值</span></h3>
+<p>若$x , n $,则有:</p>
+<ol type="1">
+<li><p>$x = x x = x x $.</p></li>
+<li><p>$x - x = [ x ] $.</p></li>
+<li><p>$x - 1 &lt; x x x &lt; x + 1 $.</p></li>
+<li><p>$- x = - x , - x = - x $.</p></li>
+<li><p>$x = n n x &lt; n + 1 x - 1 &lt; n x $.</p></li>
+<li><p>$x = n n - 1 &lt; x n x n &lt; x + 1 $.</p></li>
+<li><p>$x &lt; n x &lt; n $.</p></li>
+<li><p>$x n x n $.</p></li>
+<li><p>$x &gt; n x &gt; n $.</p></li>
+<li><p>$x n x n $.</p></li>
+<li><p>$x + n = x + n $.</p></li>
+<li><p>$x + n = x + n $.</p></li>
+<li><p>$nx = n x n = 0 x - x &lt; { n } $.</p></li>
+<li><p>$nx = n x n = 0 x - x &lt; { n } $.</p></li>
+<li><p>$ { m } = { m } + 1 , m $.</p></li>
+<li><p>$m x - m ( x - x ) = mx $.</p></li>
+<li><p>$( x ny ) y = x y , n $.</p></li>
+<li><p>分配律:$c ( x y ) = ( cx ) ( cy ) $.</p></li>
+</ol>
+<h3><span id="整值函数的应用">整值函数的应用</span></h3>
+<h4><span id="一类函数与整值函数">一类函数与整值函数</span></h4>
+<p>设$f ( x ) $是一个有以下性质且在一个实数区间连续的单调递增函数:</p>
+<p>$f ( x ) x $.</p>
+<p>那么,只要$f ( x ) , f ( x ) , f ( x ) $都有定义,我们有:</p>
+<p>$f ( x ) = f ( x ) <span class="math inline">\(和\)</span>f ( x ) = f
+( x ) $.</p>
+<p>由于底和顶是类似的,我们考虑先对顶进行证明,这样也可以类似证明底:</p>
+<p>若$x = x $,显然得证;</p>
+<p>不然,有$x &lt; x <span class="math inline">\(,那么有\)</span>f ( x )
+&lt; f ( x ) <span class="math inline">\(,也就有\)</span>f ( x ) f ( x )
+$.</p>
+<p>考虑反证法,不妨令$f ( x ) &lt; f ( x ) <span class="math inline">\(.则一定存在一个整数\)</span>y <span class="math inline">\(使得\)</span>f ( x ) = y &lt; f ( x ) <span class="math inline">\(,此时必有\)</span>x y &lt; x <span class="math inline">\(.由于\)</span>f <span class="math inline">\(的性值,显然有\)</span>y <span class="math inline">\(是整数,但根据整值函数的性值,不可能存在这样一个整数\)</span>y
+<span class="math inline">\(满足\)</span>x y &lt; x $,因此得证.</p>
+<p>另外,我们考虑函数$f ( x ) = { n } <span class="math inline">\(,显然这是一个满足条件的函数,因此显然满足上述的条件.再考虑\)</span>m
+= 0 <span class="math inline">\(的特殊情况:\)</span> { m } = { nm }
+$.</p>
+<p>而单调递减函数可以取相反数转化为单调递增函数.</p>
+<h4><span id="迪利克雷抽屉原理">迪利克雷抽屉原理</span></h4>
+<p>$n <span class="math inline">\(个物体放进\)</span>m <span class="math inline">\(个盒子里,那么必定有一个盒子中放入了大于等于\)</span>
+{ m } <span class="math inline">\(个物品,有一个盒子放入了小于等于\)</span> { m }
+$个物体.</p>
+<h5><span id="example1">Example1</span></h5>
+<p>求证:每个由$n ^2 + 1 <span class="math inline">\(个不同实数构成的序列都包含一个长为\)</span>n + 1
+$的严格递增子序列或严格递减子序列.</p>
+<p>设$a _i <span class="math inline">\(为第\)</span>i <span class="math inline">\(个实数,\)</span>c _i <span class="math inline">\(为以这个数为开头的最长的递增子序列,\)</span>d _i
+<span class="math inline">\(表示以这个数为开头的最长的递减子序列.考虑反证法,如果不成立,那么\)</span>
+i n ^2 + 1 $,$1 c _i n d _i n <span class="math inline">\(.那么一共有\)</span>n ^2 $种不同的有序对.</p>
+<p>根据抽屉原理,一共有$n ^2 + 1 <span class="math inline">\(个有序对,所以一定有两个有序对相等.由于这些数字两两不同,所以一定可以把其中一个数字加到另一个数字的递增或递减子序列的后面,这样那个数字的\)</span>c
+_i <span class="math inline">\(或者\)</span>d _i <span class="math inline">\(就要\)</span>+ 1
+$,与我们的假设不符,因此该定理成立.</p>
+<h5><span id="example2">Example2</span></h5>
+<p>求证:若任意两个人间只有两种关系:朋友或敌人.那么对于六个人而言,一定有三个人两两都是朋友或者两两都是敌人.</p>
+<p>令$A $是这六个人中其中一个,根据抽屉原理,一定有大于等于$3 <span class="math inline">\(个人都是\)</span>A <span class="math inline">\(的敌人或者都是\)</span>A <span class="math inline">\(的朋友,不妨假设这三个人都是\)</span>A $的朋友.</p>
+<p>如果这三个人中有两个人是朋友,那么它们和A就一起构成了一组人.不然,他们三个人就构成了一组人.</p>
+<h4><span id="计算区间内整数个数">计算区间内整数个数</span></h4>
+<p>整值函数的另一个应用是计算区间内整数个数:</p>
+<p>考虑基本性值$7 , 8 , 9 , 10 $,不难发现:</p>
+<ol type="1">
+<li><p>$[ , ] <span class="math inline">\(包含\)</span>- + 1
+$个整数.</p></li>
+<li><p>$( , ) <span class="math inline">\(包含\)</span>- - 1
+$个整数.</p></li>
+<li><p>$( , ] <span class="math inline">\(包含\)</span>-
+$个整数.</p></li>
+<li><p>$[ , ) <span class="math inline">\(包含\)</span>-
+$个整数.</p></li>
+</ol>
+<h4><span id="谱">谱</span></h4>
+<p>我们定义一个实数$$的<strong>谱</strong>是以下集合:</p>
+<p>$Spec ( ) = { , , . . . } $.</p>
+<p>不难发现,只要$<span class="math inline">\(,则\)</span>Spec ( ) Spec (
+) $.</p>
+<h5><span id="example">Example</span></h5>
+<p>求证:$Spec ( ) Spec ( 2 + ) = <span class="math inline">\(且\)</span>Spec ( ) Spec ( 2 + ) =
+$,即这两个集合构成了正整数集的一个划分.</p>
+<p>我们考虑这样一个事实:对于任意正整数$n <span class="math inline">\(,如果我们能求出来\)</span>Spec ( ) <span class="math inline">\(中有\)</span>a <span class="math inline">\(个元素\)</span>n <span class="math inline">\(,\)</span>Spec ( 2 + ) <span class="math inline">\(中有\)</span>b <span class="math inline">\(个元素\)</span>n <span class="math inline">\(,并且\)</span>a + b = n $,则结论显然成立.</p>
+<p>不妨令函数$N ( , n ) <span class="math inline">\(表示\)</span>Spec (
+) <span class="math inline">\(中有多少个元素\)</span>n <span class="math inline">\(,其中\)</span>$是正数,我们有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+N ( \alpha , n ) &amp; = \sum _{ k \in \mathbb { N _+  }  } [ \lfloor k
+\alpha \rfloor &amp; \leq n ] \\
+&amp; = \sum _{ k \in \mathbb { N _+  }  } [ \lfloor k \alpha \rfloor
+&amp; &lt; n + 1 ] \\
+&amp; = \sum _{ k \in \mathbb { N _+  }  } [ k \alpha &amp; &lt; n + 1 ]
+\\
+&amp; = \sum _k [ 0 &amp; &lt; k &amp; &lt; ( n + 1 ) / \alpha ] \\
+&amp; = \lceil ( n + 1 ) / \alpha \rceil - 1
+\end{aligned}
+\]</span></p>
+<p>则我们要证明的就是:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\lceil \cfrac { n + 1  } { \sqrt { 2  }  } \rceil - 1 + \lceil \cfrac {
+n + 1  } { 2 + \sqrt { 2  }  } \rceil - 1 &amp; = n \\
+\lfloor \cfrac { n + 1  } { \sqrt { 2  }  } \rfloor + \lfloor \cfrac { n
++ 1  } { 2 + \sqrt { 2  }  } \rfloor &amp; = n \\
+\cfrac { n + 1  } { \sqrt { 2  }  } - \{ \cfrac { n + 1  } { \sqrt {
+2  }  } \} + \cfrac { n + 1  } { 2 + \sqrt { 2  }  } - \{ \cfrac { n +
+1  } { 2 + \sqrt { 2  }  } \} &amp; = n
+\end{aligned}
+\]</span></p>
+<p>而由于我们有恒等式:$ { } + { 2 + } = 1
+$,且两个相加为整数的数的分数部分相加显然为$1 $,原式得证.</p>
+<p>事实上,如果两个集合$Spec ( ) <span class="math inline">\(和\)</span>Spac ( ) <span class="math inline">\(构成正整数集一个划分,可以同上证明\)</span> { } + {
+} = 1 <span class="math inline">\(且\)</span><span class="math inline">\(和\)</span>$都是无理数.</p>
+<h4><span id="整值函数的递归式">整值函数的递归式</span></h4>
+<p>得到递归式的封闭形式的确很有用,它可以让我们在很快的时间内求出答案,但大部分时候是很麻烦的.</p>
+<p>而如果我们对时间的要求没有那么紧,我们不妨考虑一种较慢但更容易的方法:</p>
+<h5><span id="example">Example</span></h5>
+<p>约瑟夫问题,但是每隔两个人处死一个人,求最后存活者的编号.</p>
+<p>我们不妨这样考虑:我们每略过两个人,就将他们重新编号.</p>
+<p>例如,我们杀掉了三号,就将一号和二号重新编号为$n + 1 <span class="math inline">\(号和\)</span>n + 2 <span class="math inline">\(号,杀掉了六号,就将四号和五号重新编号为\)</span>n +
+3 <span class="math inline">\(号和\)</span>n + 4
+$号,这样,我们在做游戏的时候,场上人员的编号一定是连续的.</p>
+<p>我们把最后存活者改为最后死亡者,这样它的最后编号就是$3 n $.</p>
+<p>并且不难发现,第$k $个死亡的人的最后编号就是$3 k $.</p>
+<p>我们考虑已知新编号如何求旧编号,设新编号为$N $:</p>
+<p>如果$N n <span class="math inline">\(,则\)</span>N <span class="math inline">\(是初始编号,反之,我们考虑在编号\)</span>N
+$的时候被杀死的人的编号.</p>
+<p>假设现在进行完了$k + 1 <span class="math inline">\(轮,令\)</span>N =
+n + 2 k + w <span class="math inline">\(,其中\)</span>w { 1 , 2 } <span class="math inline">\(,则编号\)</span>N $的时候被杀死的即是$3 ( k + 1 )
+<span class="math inline">\(,那么\)</span>N $之前的编号就是$3 k + w = N
+- ( n - k ) = N - n + k $.</p>
+<p>而$k = { 2 } $,我们可以不断进行迭代.</p>
+<p>如果我们令$D = 3 n + 1 - N
+$,换句话说即改变编号的顺序,我们可以有以下的赋值操作:</p>
+<p>$3 n + 1 - D ’ = 3 n + 1 - D - n + { 2 } $.</p>
+<p>化简这个式子,我们有:$D ’ = D + n - { 2 } = D + { 2 } = { 2 } $.</p>
+<p>事实上,我们可以证明:如果我们每隔$q <span class="math inline">\(个人就杀掉一个人的话,那么\)</span>D ’ = { q }
+<span class="math inline">\(,一直迭代到\)</span>D ’ &gt; qn $时.</p>
+<p>而最后的答案就是$( q + 1 ) n + 1 - D $.</p>
+<h4><span id="整值函数的恒等式">整值函数的恒等式</span></h4>
+<p>考虑公式$ { m } $,不难发现它在$1 k n m <span class="math inline">\(时的值为\)</span> { m } <span class="math inline">\(,而在\)</span>n m &lt; k m <span class="math inline">\(的值为\)</span> { m } $.</p>
+<p>那么我们可以得到以下恒等式:</p>
+<p>$n = _{ k = 1 } ^m { m } $.</p>
+<p>类似地,有:</p>
+<p>$n = _{ k = 1 } ^m { m } $.</p>
+<p>用$mx <span class="math inline">\(替换上面的\)</span>n <span class="math inline">\(有\)</span>mx = _{ k = 1 } ^m x + { m } $.</p>
+<p>同样的,有$mx = _{ k = 1 } ^m x - { m } $.</p>
+<h4><span id="整值函数的和式">整值函数的和式</span></h4>
+<p>通常情况下,处理含整值函数的和式时,通过引入新变量进行代替以及通过转化为区间进行化简.</p>
+<p>如果遇到难以处理的情况,我们不妨考虑直接处理其中一段的和,使得剩下部分求和更为简单.</p>
+<p>处理整值函数的另一个方法是:考虑将整值函数内的东西移出,并且让里面的东西形如等差序列,这样我们就可以尝试使用恒等式来化简.</p>
+<h5><span id="example1">Example1</span></h5>
+<p>求$_{ k = 0 } ^{ n - 1 } $.</p>
+<p>我们有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum _{ k = 0  } ^{ n - 1  } \lfloor \sqrt { k  } \rfloor &amp; = \sum
+_{ 0 \leq k , m  } [ k &amp; &lt; n ] [ m &amp; = \lfloor \sqrt { k  }
+\rfloor ] m \\
+&amp; = \sum _{ 0 \leq k , m  } [ k &amp; &lt; n ] [ m ^2 &amp; \leq k
+&amp; &lt; ( m + 1 ) ^2 ] m \\
+&amp; = \sum _{ 0 \leq k , m  } m [ m ^2 &amp; \leq k &amp; &lt; n &amp;
+&lt; ( m + 1 ) ^2 ] + \sum _{ 0 \leq k , m  } m [ m ^2 &amp; \leq k
+&amp; &lt; ( m + 1 ) ^2 &amp; \leq n ]
+\end{aligned}
+\]</span></p>
+<p>考虑$n = a ^2 $的特殊情况,则前面那一项显然是$0 $,那么:</p>
+<p><span class="math display">\[
+\begin{aligned}
+ans &amp; = \sum _{ 0 \leq k , m  } m [ m ^2 &amp; \leq k &amp; &lt; ( m
++ 1 ) ^2 &amp; \leq n ] \\
+&amp; = \sum _{ 0 \leq m  } m ( 2 m + 1 ) [ m &amp; &lt; a ] \\
+&amp; = \sum _{ m = 0  } ^{ a - 1  } ( 2 m ^2 + m ) \\
+&amp; = \cfrac { ( a - 1 ) a ( 2 a - 1 )  } { 3  } + \cfrac { a ( a - 1
+)  } { 2  } \\
+&amp; = \cfrac { ( 4 a + 1 ) a ( a - 1 )  } { 6  }
+\end{aligned}
+\]</span></p>
+<p>而如果$n a ^2 <span class="math inline">\(,我们令\)</span>a = <span class="math inline">\(,而当\)</span>k \ &amp; = <em>{ 1 j &lt; a }
+</em>{ k } [ j ^2 &amp; k &amp; &lt; a ^2 ] \ &amp; = _{ 1 j &lt; a } a
+^2 - j ^2 &amp; = a ^3 - { 6 } \end{aligned} $$</p>
+<h5><span id="example2类欧几里得算法">Example2(类欧几里得算法)</span></h5>
+<p>求$_{ k = 0 } ^{ m - 1 } { m } , m , n $.</p>
+<p>由于$kn - ( kn m ) = m { m } $,我们有:</p>
+<p><span class="math display">\[
+\lfloor \cfrac { x + kn  } { m  } \rfloor = \lfloor \cfrac { x + ( kn
+\mod m )  } { m  } \rfloor + \cfrac { kn  } { m  } - \cfrac { kn \mod
+m  } { m  }
+\]</span></p>
+<p>这样,我们将整个式子的求和分为了三部分,第二项显然是等差数列求和,而如果我们令$g
+= ( n , m ) $,不难发现第三项的分子是一个等差数列$0 , g , 2 g , . . . m -
+g <span class="math inline">\(重复了\)</span>g
+$次,而且正因为这,第一项里面的数也就自然组成了等差数列,由于我们有恒等式,那么这一项也就自然可以计算了.</p>
+<p>分别求和后加起来,得到答案为$g { g } + { 2 } + { 2 } $.</p>
+<p>另外,对这个式子进行化简,我们可以得到:$g { g } + { 2 } + { 2 } <span class="math inline">\(,而这个式子关于\)</span>n <span class="math inline">\(和\)</span>m $是对称的.</p>
+<p>也就是说:$<em>{ k = 0 } ^{ m - 1 } { m } = </em>{ k = 0 } ^{ n - 1 }
+{ n } , m , n $.</p>
+<p>另外,如果要求$^n _{ i = 0 } { c } <span class="math inline">\(,我们也有一种\)</span>O ( n )
+$的做法(类欧几里得算法):</p>
+<p>若$c a <span class="math inline">\(,原式化为\)</span>^n _{ i = 0 } {
+( i { c } + { c } ) } $.</p>
+<p>若$c b <span class="math inline">\(,原式化为\)</span>^n _{ i = 0 } {
+{ c } + { c } } $.</p>
+<p>考虑$a , b &lt; c <span class="math inline">\(的情况,设\)</span>m = {
+c } $,原式化为</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum ^n _{ i = 0  } \sum ^m _{ j = 1  } [ j &amp; \leq \lfloor \cfrac {
+ai + b  } { c  } \rfloor ] \\
+&amp; = \sum ^n _{ i = 0  } \sum ^m _{ j = 1  } [ cj &amp; \leq ai + b ]
+\\
+&amp; = nm - \sum ^n _{ i = 0  } \sum ^m _{ j = 1  } [ ai &amp; \leq cj
+- b - 1 ] \\
+&amp; = nm - \sum ^m _{ i = 1  } \lfloor \cfrac { ci - b - 1  } { a  }
+\rfloor
+\end{aligned}
+\]</span></p>
+<h5><span id="example3">Example3</span></h5>
+<p>求$_{ n = 1 } ^{ 1000 } [ | n ] $.</p>
+<p><span class="math display">\[
+\begin{aligned}
+ans &amp; = \sum _{ n , k  } [ k &amp; = \lfloor \sqrt [3 ] { n  }
+\rfloor ] [ k | n ] [ 1 &amp; \leq n &amp; \leq 1000 ] \\
+&amp; = \sum _{ k , m , n  } [ k ^3 &amp; \leq n &amp; &lt; ( k + 1 ) ^3
+] [ n &amp; = km ] [ 1 &amp; \leq n &amp; \leq 1000 ] \\
+&amp; = 1 + \sum _{ k , m  } [ k ^3 &amp; \leq km &amp; &lt; ( k + 1 )
+^3 ] [ 1 &amp; \leq k &amp; &lt; 10 ] \\
+&amp; = 1 + \sum _{ k , m  } [ k ^2 &amp; \leq m &amp; &lt; \frac { ( k
++ 1 ) ^3  } { k  } ] [ 1 &amp; \leq k &amp; &lt; 10 ] \\
+&amp; = 1 + \sum _{ k = 1  } ^9 ( \lceil k ^2 + 3 k + 3 + \frac { 1  } {
+k  } \rceil - \lceil k ^2 \rceil ) \\
+&amp; = 1 + \sum _{ k = 1  } ^9 ( 3 k + 4 ) &amp; = 172
+\end{aligned}
+\]</span></p>
+<p>上述推理过程将$n = 1000 <span class="math inline">\(的情况特殊讨论了一下,不难发现,如果我们要求的式子是\)</span>_{
+n = 1 } ^{ N } [ | n ] <span class="math inline">\(,也仍然可以使用将\)</span>[ K ^3 , N ] , K = <span class="math inline">\(中的数特殊处理的方式做掉,因为这些数的三次根下取整一定是\)</span>K
+$,式子就不难化简了.</p>
+<h5><span id="example4uoj42sum">Example4([uoj42]Sum)</span></h5>
+<p>这题的重点在于将幂通过$- 1 $的性质拿下来.</p>
+<p>我们有$( - 1 ) ^a = 1 - 2 ( a ) = 1 - 2 ( a - 2 { 2 } ) $.</p>
+<p>于是我们有:</p>
+$$
+<span class="math display">\[\begin{aligned}
+\sum _{ d = 1  } ^n ( - 1 ) ^{ \lfloor d \sqrt { r  } \rfloor  } \\
+&amp; = n - 2 \sum _{ d = 1  } ^n \lfloor d \sqrt { r  } \rfloor + 4
+\sum _{ d = 1  } ^n \lfloor \frac { \lfloor d \sqrt { r  } \rfloor  } {
+2  } \rfloor \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>令$f ( x ) = { 2 } <span class="math inline">\(,根据整值函数的性质,不难发现\)</span> { 2 } = { 2
+} $.</p>
+<p>于是我们有:</p>
+$$
+<span class="math display">\[\begin{aligned}
+ans &amp; = n - 2 \sum _{ d = 1  } ^n \lfloor d \sqrt { r  } \rfloor + 4
+\sum _{ d = 1  } ^n \lfloor \frac { d \sqrt { r  }  } { 2  } \rfloor \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>记$t = <span class="math inline">\(,我们所要解决的问题是\)</span>_{ d
+= 1 } ^n d { Q } <span class="math inline">\(.如果\)</span> { Q }
+$,我们可以把整数部分取出来单独算.于是接下来我们只讨论$0 { Q } &lt; 1
+$的情况.相当于求一条斜率小于$1
+$的直线下方的整点个数.我们可以反转坐标系,这样就变成了斜率大于$1
+$的直线,继续做上面的操作.</p>
+<p>这个问题引出万能欧几里得算法.</p>
+<h5><span id="example5loj6440万能欧几里得算法">Example5([loj6440]万能欧几里得算法)</span></h5>
+<p>解决形如$_{ x = 1 } ^{ L } A ^x B ^{ { Q } } <span class="math inline">\(的问题,其中\)</span>A <span class="math inline">\(和\)</span>B <span class="math inline">\(都是\)</span>n n <span class="math inline">\(的矩阵.默认\)</span>P , Q , R $.</p>
+<p>我们将问题抽象为下面的模型:</p>
+<p>首先将坐标系中所有经过整数点的与坐标轴平行的直线全都标记出来.</p>
+<p>考虑将问题转化为:有一条$y = { Q } <span class="math inline">\(的直线,我们从\)</span>( 0 , { Q } ) <span class="math inline">\((不包含这个点)处开始沿直线向右走.每遇到一条横线,就进行\)</span>U
+_w <span class="math inline">\(操作;每遇到一条竖线,就进行\)</span>R _w
+<span class="math inline">\(操作.如果遇到了整数格点,就先进行\)</span>U
+_w <span class="math inline">\(操作,再进行\)</span>R _w $操作.</p>
+<p>例如上面那个例子就是:现在有一个矩阵二元组$( X , Y ) <span class="math inline">\(,初始为\)</span>( A , B ^{ { Q } } ) <span class="math inline">\(,\)</span>R _w <span class="math inline">\(操作是:\)</span>( X , Y ) ( AX , Y + X ) <span class="math inline">\(,\)</span>U _w <span class="math inline">\(操作是:\)</span>( X , Y ) ( XB , Y ) <span class="math inline">\(.一直走到\)</span>x = L <span class="math inline">\(的点为止,最后矩阵\)</span>Y <span class="math inline">\(就是答案.不过这个形式不好写成矩阵,我们可以记录\)</span>(
+A ^a , B ^b , Y ) $.这样最后就可以带入操作,不难发现这个操作是个环.</p>
+<p>操作要满足可合并性,也就是我可以将$U _w R _w $变成一个操作进行.</p>
+<p>接下来我们分情况讨论一下:</p>
+<p>当$P Q <span class="math inline">\(时,注意到\)</span>y = { Q } = { Q
+} x + { Q } <span class="math inline">\(,此时任意一个\)</span>R _w <span class="math inline">\(操作前必然有至少\)</span> { Q } <span class="math inline">\(个\)</span>U _w <span class="math inline">\(,我们令\)</span>R _w ’ = U _w ^{ { Q } } R _w
+<span class="math inline">\(,不难发现:\)</span>solve ( P , Q , R , L , U
+_w , R _w ) = solve ( P Q , Q , R , L , U _w , R _w ’ ) $.</p>
+<p>当$P &lt; Q P <span class="math inline">\(时,我们想要让\)</span>P
+<span class="math inline">\(与\)</span>Q <span class="math inline">\(互换,假设第\)</span>a <span class="math inline">\(个\)</span>R _w <span class="math inline">\(在第\)</span>b <span class="math inline">\(个\)</span>U _w <span class="math inline">\(之前,考虑这个\)</span>R _w <span class="math inline">\(前会有\)</span> { Q } - { Q } <span class="math inline">\(个\)</span>U _w <span class="math inline">\(,而对于后者,变换坐标系得到\)</span>x = { P } <span class="math inline">\(,由于遇到整点时,先\)</span>U _w <span class="math inline">\(再进行\)</span>R _w <span class="math inline">\(,也就是说,第\)</span>b <span class="math inline">\(个\)</span>U _w <span class="math inline">\(前会有\)</span> { P } <span class="math inline">\(个\)</span>R _w <span class="math inline">\((这个并没有忽略初始位置).我们考虑如何让这个数和上面的\)</span>
+{ Q } <span class="math inline">\(的差分写成一样的形式.注意到\)</span>b
+= 1 $需要特殊处理!</p>
+<p>显然操作序列一共有$cntU = { Q } - { Q } <span class="math inline">\(,将二者对应一下,这里的答案就是\)</span>solve ( Q ,
+P , ( Q - R - 1 ) P , cntU - 1 , R _w , U _w ) $.</p>
+<p>然后是开头部分,开头部分一共有$ { P } <span class="math inline">\(个\)</span>R _w <span class="math inline">\(和一个\)</span>U _w $.</p>
+<p>但是注意到末尾部分同样是不规整的,注意到末尾一共有$L - { P } <span class="math inline">\(个\)</span>R _w $,拼到末尾即可.</p>
+<p>最后$P = 0 <span class="math inline">\(的时候直接返回\)</span>R _w ^{
+L } $即可.</p>
+<p>假设合并的复杂度是$c <span class="math inline">\(,注意到每层的复杂度是\)</span>O ( c ( { P } ) ) =
+O ( c ( Q - P ) ) <span class="math inline">\(,但是每两层会抵消,因此复杂度\)</span>O ( C ( P + Q
+) ) $.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -9021,288 +10948,6 @@ _{ i + 1 , k  } + f _{ k + 1 , j  } + w _{ i + 1 , j  } \\
 $是更小的.</p>
 <p>于是我们可以使用二分,每次二分一个最小增加量$w <span class="math inline">\(,然后对于每一段二分出在这一段中再增加一个传送机的增加量小于等于\)</span>w
 $的最大的传送机数量,然后就可以做了.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://lwlaymh.github.io/2025/06/22/%E5%AD%A6%E4%B9%A0-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%9F%BA%E7%A1%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F1.jpg">
-      <meta itemprop="name" content="LWLAymh">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LWLAymh的备忘录">
-      <meta itemprop="description" content="不过是白日梦里一瞬息">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | LWLAymh的备忘录">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/06/22/%E5%AD%A6%E4%B9%A0-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">人工智能基础</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-06-22 16:57:48" itemprop="dateCreated datePublished" datetime="2025-06-22T16:57:48+08:00">2025-06-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">大学课程</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2025/06/22/%E5%AD%A6%E4%B9%A0-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%9F%BA%E7%A1%80/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2025/06/22/%E5%AD%A6%E4%B9%A0-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%9F%BA%E7%A1%80/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-<h3><span id="常用激活函数">常用激活函数</span></h3>
-<h4><span id="sigmoid函数">Sigmoid函数</span></h4>
-<p>$f ( x ) = { 1 + e ^{ - x } } : ( - , + ) ( 0 , 1 ) $.</p>
-<p>$f ’ ( x ) = f ( x ) ( 1 - f ( x ) ) $.</p>
-<h4><span id="tanh函数">tanh函数</span></h4>
-<p>$f ( x ) = { e ^x + e ^{ - x } } : ( - , + ) ( - 1 , 1 ) $.</p>
-<p>$f ’ ( x ) = 1 - f ^2 ( x ) $.</p>
-<h4><span id="relu函数">ReLU函数</span></h4>
-<p>$f ( x ) = ( 0 , x ) : ( - , + ) ( 0 , + ) $.</p>
-<h4><span id="leaky-relu函数">Leaky ReLU函数</span></h4>
-<p>$f ( x ) = ( x , x ) , 0 &lt; &lt; 1 : ( - , + ) ( - , + ) $.</p>
-<h4><span id="softmax函数">Softmax函数</span></h4>
-<p>$f ( x _i ) = { _j e ^{ x _j } } $.</p>
-<h3><span id="损失函数">损失函数</span></h3>
-<h4><span id="least-square">Least Square</span></h4>
-<p>即$_{ i = 1 } ^n ( f ( x _i ) - y _i ) ^2 = ( A - Y A - Y ) <span class="math inline">\(.用最小二乘法取\)</span>= ( A ^T A ) ^{ - 1 } A ^T
-Y $.</p>
-<h4><span id="cross-entropy">Cross Entropy</span></h4>
-<p>用错误的分布$q <span class="math inline">\(来表示真实分布\)</span>p
-$的样本,则平均编码长度应该是:</p>
-<p><span class="math display">\[
-H ( p , q ) = \sum _i p ( i ) \log ( \frac { 1  } { q ( i )  } ) = -
-\sum _i p ( i ) \log { q ( i )  }
-\]</span></p>
-<p>此为交叉熵.</p>
-<p>特别地,当最终样本只有两个的时候,例如Logistical
-Regression问题,可以写成:</p>
-<p><span class="math display">\[
-\begin{aligned}
-H &amp; = - ( y \log a + ( 1 - y ) \log ( 1 - a ) ) \\
-\frac { \partial H  } { \partial a  } &amp; = - ( \frac { y  } { a  } -
-\frac { 1 - y  } { 1 - a  } )
-\end{aligned}
-\]</span></p>
-<p>那如果有多个呢?考虑直接对归一化条件作偏导,先有:</p>
-<p><span class="math display">\[
-\begin{aligned}
-H ( p , q ) &amp; = - \sum _i p _i ( \log { q _i  } - \log ( \sum _j q
-_j ) ) \\
-\frac { \partial H ( p , q )  } { \partial q _k  } &amp; = - \frac { p
-_k  } { q _k  } + \frac { \sum p _k  } { \sum _j q _j  } \\
-&amp; = - \frac { p _k  } { q _k  } + 1
-\end{aligned}
-\]</span></p>
-<p>再乘以softmax那里的$q _k <span class="math inline">\(,得到\)</span>-
-p _k + q _k = - y _k + f ( x _k ) $.</p>
-<h3><span id="神经网络实现">神经网络实现</span></h3>
-<p>通过若干隐藏层,假设最后的输出层为第$L $层,则:</p>
-<ol type="1">
-<li><p>对于第$l <span class="math inline">\(层,取\)</span> _l = ( W
-<em>l ) ^t </em>{ l - 1 } + _l <span class="math inline">\(.这里对\)</span>W _l
-$作转置的目的是写代码的时候需要用行向量.</p></li>
-<li><p>对于第$l <span class="math inline">\(层,取\)</span> _l = f ( _l )
-<span class="math inline">\(,这里意味着将每一个分量对\)</span>f
-$操作.</p></li>
-<li><p>对于最终答案,取误差$ = { m } ( - _L - _L ) $.</p></li>
-</ol>
-<h4><span id="梯度下降法">梯度下降法</span></h4>
-<p>换言之就是让$w : = w - { w } <span class="math inline">\(,其中\)</span><span class="math inline">\(是一个选定的小常数,也可以采用类似模拟退火的方式动态决定.事实上可以把各个位置分开,写作\)</span>w
-_j : = w _j - { w _j } $.</p>
-<p>另外,虽然是这么写,应当见到去掉下标$k <span class="math inline">\(的记号仍然合理,无非是逐分量做此操作,因此下面如无特殊说明,运算均采用逐分量运算.例如可以定义\)</span>
-<span class="math inline">\(为两个向量逐分量相乘后得到的新向量,为表区分用\)</span><span class="math inline">\(表示正常的矩阵乘法.甚至采取\)</span>( - ) ^2 <span class="math inline">\(表示其自点积.坦白而言,笔者对此符号相当无奈,可也想不出什么更好的写法了.但总之这种写法总是强于部分参考资料上所将下标放上面的写作\)</span>a
-^L
-$的做法.笔者所能维持的精神数院人的唯一做法也只能是在下面加上向量符号,藉此泄愤.</p>
-<p>顺便一提,应当见到$<span class="math inline">\(和\)</span><span class="math inline">\(这两种运算比较随意,用线性映射来理解,你这个\)</span>W
-$任意作用在一个向量上就行.</p>
-<h4><span id="误差反向传播">误差反向传播</span></h4>
-<p>既然要用梯度下降法,就应该把每一层的偏导都求出来.然而$
-$是最后一层的结果,因此应该用链式法则一路求出前面的偏导.</p>
-<p>更具体地,不妨设误差函数选的是$( - ) ^2 $,激活函数选的是cross
-entropy有:</p>
-<ol type="1">
-<li><p>$ { <em>{ L } } = ( </em>{ L } - )
-$.(如若选择不同的误差函数,这里作适当变化)</p></li>
-<li><p>$ { <em>{ l } } = f ’ ( </em>{ l } ) = <em>{ l } ( 1 - </em>{ l }
-) $.(如若选取不同的激活函数,这里作适当变化)</p></li>
-<li><p>$ { <em>{ l } } = { </em>{ l } } { <em>{ l } } = ( W </em>{ l + 1
-} ) ^t ( _l ( 1 - _l ) ) $.</p></li>
-<li><p>$ { W <em>{ l } } = ( </em>{ l - 1 } ) <span class="math inline">\(.结果理应是一个矩阵,其实就是这个列向量不断复制若干遍,或者写成\)</span>(
-_{ l - 1 } ) ^t M ( 1 ) <span class="math inline">\(,其中\)</span>M ( 1
-) $是全$1 $矩阵.</p></li>
-<li><p>$ { _{ l } } = 1 $.</p></li>
-</ol>
-<p>我们应当见到:</p>
-<p>不妨设$_l = { _l } $.见到:</p>
-<ol type="1">
-<li><p>$_L = { <em>L } = { <em>L } { <em>L } = ( </em>{ L } - ) </em>{ L
-} ( 1 - </em>{ L } )
-$.前者会因为误差函数的选取而改变,后者会因为激活函数的选取而改变.</p></li>
-<li><p>$<em>l = { <em>l } = </em>{ l + 1 } { <em>l } = </em>{ l + 1 } (
-W </em>{ l + 1 } ) ^t ( <em>{ l } ( 1 - </em>{ l } ) ) $.</p></li>
-<li><p>$ { W <em>{ l } } = { </em>{ l } } { W _{ l } } = <em>l a </em>{
-l - 1 } ^t $.</p></li>
-<li><p>$ { _l } = _l $.</p></li>
-</ol>
-<p>如此以上更新即可.</p>
-<h3><span id="卷积神经网络cnn">卷积神经网络(CNN)</span></h3>
-<p>神经网络受矩阵乘法的限制,导致对于真实的尺寸巨大的图像难以快速识别,因此产生了卷积神经网络的概念,大概有以下特征:</p>
-<ol type="1">
-<li><p>空间上权值共享:不同位置使用同一个卷积核(滤波器)</p></li>
-<li><p>稀疏链接:每一层只链接前一层的感受野.</p></li>
-<li><p>等变表示:卷积神经网络有某种平移不变性.</p></li>
-</ol>
-<p>对于2D卷积,其公式如下:</p>
-<p><span class="math display">\[
-S _{ r , c  } = ( X * W ) _{ r , c  } = \sum _i \sum _j X _{ r + i , c +
-j  } \times w _{ i , j  }
-\]</span></p>
-<p>其中$W <span class="math inline">\(是卷积核,\)</span>X <span class="math inline">\(是输入图像,\)</span>S
-$是输出的结果.如果一个图像有多个通道(比如色彩层之类的),每个通道上都需要应用一个卷积核.</p>
-<p>下面引入一些名词:</p>
-<ol type="1">
-<li><p>input size:输入图像的尺寸.</p></li>
-<li><p>padding:填充的像素数.</p></li>
-<li><p>filter size:卷积核的尺寸.有时也写作两个变量:filter height和filter
-width.3D卷积还会有一个filter depth的变量.</p></li>
-<li><p>stride:步长.</p></li>
-<li><p>output size:卷积后输出的尺寸.有时也写作feature size.</p></li>
-<li><p>input channels:输入图像的通道数.</p></li>
-<li><p>n filters:卷积核的数量.</p></li>
-<li><p>dilation rate:膨胀率,用于空洞卷积.膨胀率为$d <span class="math inline">\(的时候,卷积核中间会插入\)</span>d - 1 $个$0
-$间隔.</p></li>
-</ol>
-<h4><span id="感受野计算">感受野计算</span></h4>
-<p>先看output
-size的计算,容易见到,其各个维度方面计算是独立的.只要对于单个维度算出卷积核在上面移动的次数,最后将不同维度相乘即可.</p>
-<p>对于单个维度,这个维度的移动次数应该是:</p>
-$$
-<span class="math display">\[\begin{aligned}
-\text { output \_ size  } &amp; = \lceil \frac { \text { input \_
-size  } + 2 \times \text { padding  } - \text { filter \_ size  } + 1  }
-{ \text { stride  }  } \rceil \\
-&amp; = \lfloor \frac { \text { input \_ size  } + 2 \times \text {
-padding  } - \text { filter \_ size  }  } { \text { stride  }  } \rfloor
-+ 1 \\
-
-\end{aligned}\]</span>
-<p>$$</p>
-<p>这个公式相当容易理解,原因是$ = 1 <span class="math inline">\(的时候,上面恰好是移动的次数,而\)</span>
-$变化的时候,当然要拿到一个上取整.</p>
-<p>至于所谓的空洞卷积,只需在上面的基础上改$ $就好.</p>
-<p>至于乘法操作,每得到一个$ <span class="math inline">\(当然都会需要\)</span> $次乘法操作.</p>
-<p>再看感受野的计算,不妨设$S <em>i <span class="math inline">\(为前\)</span>i <span class="math inline">\(次卷积的\)</span> <span class="math inline">\(的乘积,设\)</span>k </em>{ i + 1 } <span class="math inline">\(表示第\)</span>i + 1 <span class="math inline">\(层的\)</span> $,则:</p>
-<p><span class="math display">\[
-RF _{ i + 1  } = RF _i + ( k _{ i + 1  } - 1 ) \times S _i
-\]</span></p>
-<p>这个公式的含义大概是每次先看对应了多大的原数据上的范围,再把原本的边界$RF
-_i $给补上.</p>
-<h4><span id="池化pooling">池化(Pooling)</span></h4>
-<p>池化操作它没有一个可学习的参数,只是对输入数据进行固定的操作.简单来说就是降低输入的规模,以实现更好的鲁棒性以及提高效率.</p>
-<p>常见的池化操作包括:</p>
-<ol type="1">
-<li><p>MaxPooling:取区域内的最大值.</p></li>
-<li><p>MeanPooling:取区域内的平均值.</p></li>
-<li><p>PyramidPooling:多次进行尺度不同的池化.</p></li>
-</ol>
-<h4><span id="常见卷积架构">常见卷积架构</span></h4>
-<h5><span id="alexnet">AlexNet</span></h5>
-<p>首次引入ReLU激活函数,Dropout
-技术,以及数据增强,提高了模型的训练效率和泛化能力.</p>
-<p>采用了$8 $层深的网络结构,证明了深度网络的潜力.</p>
-<h5><span id="vgg">VGG</span></h5>
-<p>开始堆叠小尺寸的卷积核,获得与大卷积核相似的感受野的同时可以增加网络深度.</p>
-<h5><span id="resnet">ResNet</span></h5>
-<p>引入残差的概念,直接将输入数据累加(跳跃连接)到最后的输出中,这样网络学习的实际上是输入和输出之间的残差,从而提高了网络学习能力.</p>
-<h5><span id="squeezenet">SqueezeNet</span></h5>
-<p>SqueezeNet的基本构建单元是Fire模块.Fire模块由一个squeeze层和一个expand层组成.squeeze层使用$1
-$卷积核减少通道数,而expand层则使用$1 $和$3
-$卷积核增加通道数.这种设计有效地减少了参数数量和计算量.</p>
-<h5><span id="mobilenet">MobileNet</span></h5>
-<ol type="1">
-<li><p>深度卷积:在这个操作中,每个输入通道独立地进行卷积,这意味着在进行卷积时,不同通道之间没有交互.这样可以减少计算量和参数数量.</p></li>
-<li><p>逐点卷积:逐点卷积使用$1
-$的卷积核,它作用在深度卷积的输出上,将不同通道的信息整合在一起.逐点卷积可以减少参数数量,同时保持较高的性能.</p></li>
-</ol>
-<h5><span id="shufflenet">ShuffleNet</span></h5>
-<ol type="1">
-<li><p>组卷积(Group
-Convolution):将通道分成几个组,并使用不同的卷积神经网络层执行标准卷积.</p></li>
-<li><p>打乱层(Shuffle
-layer):通过对通道进行洗牌,将不同组的信息合并.</p></li>
-</ol>
-<h5><span id="反卷积">反卷积</span></h5>
-<p>也就是将较小的数据特征图扩大到较大的尺寸.有的时候也把这个操作说成上采样.</p>
-<ol type="1">
-<li><p>插值步骤(Interpolation
-Step):首先,在输入特征图的元素之间插入零,增加特征图的尺寸.</p></li>
-<li><p>卷积步骤(Convolution
-Step):接下来,对扩大后的特征图应用一个标准的卷积操作.此步骤相当于在扩大的特征图上滑动卷积核,计算卷积输出.</p></li>
-</ol>
 
       
     </div>
