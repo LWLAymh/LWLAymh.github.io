@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lwlaymh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="抽象代数 群 定义 基本概念和事实 Example1 Example2   子群 Example1 Example2 Example3 Example4 Example5 Example6 Example7 Example8   同态和同构 群的实例 全变换群,对称群与交错群 一般线性群 克莱因四元群 循环群   相反群 Example1   陪集 群作用 Cayley定理 Burnside引">
+    <meta name="description" content="抽象代数群定义如果一个非空集合$G $上定义了一个二元运算$\circ : G \times G \to G $(不引起混淆的前提下,通常省略不写,例如$a \circ b $记作$ab $),满足:  封闭性:$a \circ b \in G $.  结合律:$( a \circ b ) \circ c &#x3D; a \circ ( b \circ c ) $.   那么称作$G $是一个半群. 如">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高等代数">
 <meta property="og:url" content="http://lwlaymh.github.io/2025/06/22/%E5%AD%A6%E4%B9%A0-%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/index.html">
 <meta property="og:site_name" content="LWLAymh的备忘录">
-<meta property="og:description" content="抽象代数 群 定义 基本概念和事实 Example1 Example2   子群 Example1 Example2 Example3 Example4 Example5 Example6 Example7 Example8   同态和同构 群的实例 全变换群,对称群与交错群 一般线性群 克莱因四元群 循环群   相反群 Example1   陪集 群作用 Cayley定理 Burnside引">
+<meta property="og:description" content="抽象代数群定义如果一个非空集合$G $上定义了一个二元运算$\circ : G \times G \to G $(不引起混淆的前提下,通常省略不写,例如$a \circ b $记作$ab $),满足:  封闭性:$a \circ b \in G $.  结合律:$( a \circ b ) \circ c &#x3D; a \circ ( b \circ c ) $.   那么称作$G $是一个半群. 如">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-22T08:57:48.880Z">
-<meta property="article:modified_time" content="2025-06-22T08:57:48.880Z">
+<meta property="article:modified_time" content="2025-06-22T09:16:06.222Z">
 <meta property="article:author" content="LWLAymh">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary">
@@ -275,8 +275,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2025-06-22 16:57:48" itemprop="dateCreated datePublished" datetime="2025-06-22T16:57:48+08:00">2025-06-22</time>
+      <time title="创建时间：2025-06-22 16:57:48 / 修改时间：17:16:06" itemprop="dateCreated datePublished" datetime="2025-06-22T16:57:48+08:00">2025-06-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -311,344 +312,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><!-- toc -->
-<ul>
-<li><a href="#抽象代数">抽象代数</a><ul>
-<li><a href="#群">群</a><ul>
-<li><a href="#定义">定义</a></li>
-<li><a href="#基本概念和事实">基本概念和事实</a><ul>
-<li><a href="#example1">Example1</a></li>
-<li><a href="#example2">Example2</a></li>
-</ul>
-</li>
-<li><a href="#子群">子群</a><ul>
-<li><a href="#example1-1">Example1</a></li>
-<li><a href="#example2-1">Example2</a></li>
-<li><a href="#example3">Example3</a></li>
-<li><a href="#example4">Example4</a></li>
-<li><a href="#example5">Example5</a></li>
-<li><a href="#example6">Example6</a></li>
-<li><a href="#example7">Example7</a></li>
-<li><a href="#example8">Example8</a></li>
-</ul>
-</li>
-<li><a href="#同态和同构">同态和同构</a></li>
-<li><a href="#群的实例">群的实例</a><ul>
-<li><a href="#全变换群对称群与交错群">全变换群,对称群与交错群</a></li>
-<li><a href="#一般线性群">一般线性群</a></li>
-<li><a href="#克莱因四元群">克莱因四元群</a></li>
-<li><a href="#循环群">循环群</a></li>
-</ul>
-</li>
-<li><a href="#相反群">相反群</a><ul>
-<li><a href="#example1-2">Example1</a></li>
-</ul>
-</li>
-<li><a href="#陪集">陪集</a></li>
-<li><a href="#群作用">群作用</a><ul>
-<li><a href="#cayley定理">Cayley定理</a></li>
-<li><a href="#burnside引理">Burnside引理</a></li>
-<li><a href="#p-群">$p$-群</a><ul>
-<li><a href="#example1-3">Example1</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#正规子群">正规子群</a><ul>
-<li><a href="#正规子群的判定定理">正规子群的判定定理</a><ul>
-<li><a href="#example1-4">Example1</a></li>
-<li><a href="#example2-2">Example2</a></li>
-</ul>
-</li>
-<li><a href="#正规子群与同态">正规子群与同态</a></li>
-<li><a href="#同态基本定理">同态基本定理</a></li>
-<li><a href="#第一同构定理">第一同构定理</a></li>
-<li><a href="#第二同构定理">第二同构定理</a></li>
-<li><a href="#交换化">交换化</a><ul>
-<li><a href="#example1-5">Example1</a></li>
-<li><a href="#example2岩泽健吉iwasawa判准">Example2(岩泽健吉(Iwasawa)判准)</a></li>
-<li><a href="#example3-1">Example3</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#群的直和与直积">群的直和与直积</a><ul>
-<li><a href="#直和">直和</a></li>
-<li><a href="#半直积">半直积</a><ul>
-<li><a href="#example1-6">Example1</a></li>
-<li><a href="#example2二面体群">Example2(二面体群)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#环">环</a><ul>
-<li><a href="#子环">子环</a></li>
-<li><a href="#理想">理想</a></li>
-<li><a href="#同态和同构-1">同态和同构</a><ul>
-<li><a href="#同态基本定理-1">同态基本定理</a></li>
-<li><a href="#第一同构定理-1">第一同构定理</a></li>
-<li><a href="#第二同构定理-1">第二同构定理</a></li>
-</ul>
-</li>
-<li><a href="#整环">整环</a><ul>
-<li><a href="#特征">特征</a></li>
-<li><a href="#整除性">整除性</a></li>
-<li><a href="#唯一分解整环ufd">唯一分解整环(UFD)</a></li>
-<li><a href="#主理想整环pid">主理想整环(PID)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#多项式环">多项式环</a><ul>
-<li><a href="#一元多项式环">一元多项式环</a></li>
-<li><a href="#多元多项式环">多元多项式环</a></li>
-<li><a href="#不可约多项式">不可约多项式</a><ul>
-<li><a href="#本原多项式">本原多项式</a></li>
-<li><a href="#一个判定不可约的算法">一个判定不可约的算法</a></li>
-<li><a href="#不可约多项式上的扩域">不可约多项式上的扩域</a></li>
-</ul>
-</li>
-<li><a href="#对称多项式">对称多项式</a><ul>
-<li><a href="#牛顿公式">牛顿公式</a></li>
-</ul>
-</li>
-<li><a href="#结式">结式</a></li>
-<li><a href="#判别式">判别式</a></li>
-</ul>
-</li>
-<li><a href="#域">域</a><ul>
-<li><a href="#分式域">分式域</a></li>
-<li><a href="#子域">子域</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#线性代数">线性代数</a><ul>
-<li><a href="#矩阵引入">矩阵引入</a><ul>
-<li><a href="#矩阵运算">矩阵运算</a></li>
-<li><a href="#分块矩阵">分块矩阵</a></li>
-</ul>
-</li>
-<li><a href="#线性方程组">线性方程组</a><ul>
-<li><a href="#系数矩阵和增广矩阵">系数矩阵和增广矩阵</a></li>
-<li><a href="#矩阵的初等行变换">矩阵的初等行变换</a></li>
-<li><a href="#阶梯形矩阵">阶梯形矩阵</a><ul>
-<li><a href="#简化阶梯形矩阵的唯一性">简化阶梯形矩阵的唯一性</a></li>
-</ul>
-</li>
-<li><a href="#解线性方程组">解线性方程组</a><ul>
-<li><a href="#存在与唯一性定理">存在与唯一性定理</a></li>
-</ul>
-</li>
-<li><a href="#矩阵方程">矩阵方程</a></li>
-<li><a href="#齐次线性方程组">齐次线性方程组</a></li>
-</ul>
-</li>
-<li><a href="#线性空间">线性空间</a><ul>
-<li><a href="#相关运算">相关运算</a><ul>
-<li><a href="#直积">直积</a></li>
-<li><a href="#直和-1">直和</a></li>
-<li><a href="#叉乘">叉乘</a></li>
-</ul>
-</li>
-<li><a href="#线性无关与线性相关">线性无关与线性相关</a></li>
-<li><a href="#子空间">子空间</a><ul>
-<li><a href="#向量的线性组合">向量的线性组合</a></li>
-<li><a href="#线性映射">线性映射</a></li>
-<li><a href="#基和维数">基和维数</a></li>
-</ul>
-</li>
-<li><a href="#可逆矩阵">可逆矩阵</a><ul>
-<li><a href="#初等矩阵">初等矩阵</a></li>
-<li><a href="#求解逆矩阵">求解逆矩阵</a><ul>
-<li><a href="#example1lu分解">Example1(LU分解)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#核与像与秩">核与像与秩</a><ul>
-<li><a href="#sylvester秩不等式">Sylvester秩不等式</a></li>
-<li><a href="#frobenius秩不等式">Frobenius秩不等式</a></li>
-</ul>
-</li>
-<li><a href="#对偶空间">对偶空间</a></li>
-<li><a href="#直和分解与分块矩阵">直和分解与分块矩阵</a></li>
-<li><a href="#基的变换">基的变换</a><ul>
-<li><a href="#矩阵的共轭相似">矩阵的共轭(相似)</a></li>
-<li><a href="#矩阵的相抵">矩阵的相抵</a></li>
-</ul>
-</li>
-<li><a href="#商空间">商空间</a><ul>
-<li><a href="#同态基本定理-2">同态基本定理</a></li>
-<li><a href="#第一同构定理-2">第一同构定理</a></li>
-<li><a href="#第二同构定理-2">第二同构定理</a></li>
-<li><a href="#旗">旗</a></li>
-<li><a href="#不变子空间">不变子空间</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#行列式">行列式</a><ul>
-<li><a href="#置换排列">置换(排列)</a></li>
-<li><a href="#交错形式">交错形式</a></li>
-<li><a href="#定义-1">定义</a></li>
-<li><a href="#余子式与代数余子式">余子式与代数余子式</a></li>
-<li><a href="#行列式定向">行列式定向</a></li>
-<li><a href="#克拉默cramer法则">克拉默(Cramer)法则</a></li>
-<li><a href="#一些特殊行列式">一些特殊行列式</a><ul>
-<li><a href="#置换矩阵">置换矩阵</a></li>
-<li><a href="#上三角矩阵">上三角矩阵</a></li>
-<li><a href="#分块上三角矩阵">分块上三角矩阵</a></li>
-<li><a href="#范德蒙德vandermonde行列式">范德蒙德(Vandermonde)行列式</a></li>
-<li><a href="#一类分块矩阵">一类分块矩阵</a></li>
-</ul>
-</li>
-<li><a href="#特征多项式">特征多项式</a></li>
-<li><a href="#cayley-hamilton定理">Cayley-Hamilton定理</a></li>
-<li><a href="#矩阵的迹">矩阵的迹</a><ul>
-<li><a href="#example">Example</a></li>
-</ul>
-</li>
-<li><a href="#binet-cauchy定理">Binet-Cauchy定理</a></li>
-<li><a href="#特征值与特征向量">特征值与特征向量</a></li>
-<li><a href="#极小多项式">极小多项式</a></li>
-<li><a href="#同步对角化">同步对角化</a></li>
-<li><a href="#上三角化">上三角化</a></li>
-<li><a href="#广义特征子空间">广义特征子空间</a></li>
-<li><a href="#特殊矩阵的特征值">特殊矩阵的特征值</a><ul>
-<li><a href="#example-1">Example</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#双线性形式">双线性形式</a><ul>
-<li><a href="#线性映射-1">线性映射</a></li>
-<li><a href="#非退化形式">非退化形式</a></li>
-<li><a href="#伴随映射">伴随映射</a></li>
-<li><a href="#分类问题">分类问题</a></li>
-<li><a href="#二次型">二次型</a><ul>
-<li><a href="#实二次型">实二次型</a></li>
-<li><a href="#惯性sylvester定理">惯性(Sylvester)定理</a></li>
-</ul>
-</li>
-<li><a href="#辛空间">辛空间</a><ul>
-<li><a href="#达布定理">达布定理</a></li>
-</ul>
-</li>
-<li><a href="#回看对偶空间">回看对偶空间</a><ul>
-<li><a href="#双重对偶">双重对偶</a></li>
-<li><a href="#核余核与对偶映射">核,余核与对偶映射</a></li>
-<li><a href="#像自对偶">像自对偶</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#实内积空间">实内积空间</a><ul>
-<li><a href="#勾股定理">勾股定理</a></li>
-<li><a href="#柯西不等式">柯西不等式</a></li>
-<li><a href="#三角不等式">三角不等式</a></li>
-<li><a href="#距离相关">距离相关</a></li>
-<li><a href="#正交向量族">正交向量族</a></li>
-<li><a href="#gram-schmidt-正交化">Gram-Schmidt 正交化</a><ul>
-<li><a href="#example1ru分解">Example1(RU分解)</a></li>
-<li><a href="#example2legendre多项式">Example2(Legendre多项式)</a></li>
-</ul>
-</li>
-<li><a href="#正交算子">正交算子</a></li>
-<li><a href="#正交补空间">正交补空间</a></li>
-<li><a href="#投影矩阵">投影矩阵</a></li>
-<li><a href="#自伴算子">自伴算子</a><ul>
-<li><a href="#实sylvester-判准">(实)Sylvester 判准</a></li>
-<li><a href="#实正定矩阵的二次根">(实)正定矩阵的二次根</a><ul>
-<li><a href="#example1-7">Example1</a></li>
-<li><a href="#example2-3">Example2</a></li>
-</ul>
-</li>
-<li><a href="#极分解">极分解</a></li>
-<li><a href="#最小二乘法">最小二乘法</a></li>
-</ul>
-</li>
-<li><a href="#奇异值分解">奇异值分解</a></li>
-<li><a href="#moore-penrose-广义逆">Moore-Penrose 广义逆</a></li>
-<li><a href="#极大化极小原理courant-fischer定理">极大化极小原理(Courant-Fischer定理)</a></li>
-<li><a href="#perron-frobenius定理">Perron-Frobenius定理</a><ul>
-<li><a href="#collatz-wielandt公式">Collatz-Wielandt公式</a></li>
-<li><a href="#perron定理">Perron定理</a></li>
-</ul>
-</li>
-<li><a href="#实正交变换的标准型">实正交变换的标准型</a><ul>
-<li><a href="#欧拉角">欧拉角</a></li>
-<li><a href="#四元数">四元数</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#复内积空间">复内积空间</a><ul>
-<li><a href="#共轭空间">共轭空间</a></li>
-<li><a href="#复半双线性形式">(复)半双线性形式</a></li>
-<li><a href="#伴随映射-1">伴随映射</a></li>
-<li><a href="#hermite形式">Hermite形式</a><ul>
-<li><a href="#正规线性映射">正规线性映射</a></li>
-<li><a href="#二次型-1">二次型</a></li>
-</ul>
-</li>
-<li><a href="#复内积空间-1">复内积空间</a><ul>
-<li><a href="#酉变换">酉变换</a></li>
-<li><a href="#正规算子的酉对角化谱定理">正规算子的酉对角化(谱定理)</a></li>
-<li><a href="#相关实内积空间定理推广">相关实内积空间定理推广</a></li>
-<li><a href="#复矩阵范数实例">复矩阵范数实例</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#模">模</a><ul>
-<li><a href="#自由模">自由模</a><ul>
-<li><a href="#example1非自由模">Example1(非自由模)</a></li>
-</ul>
-</li>
-<li><a href="#线性映射和模结构">线性映射和模结构</a></li>
-<li><a href="#主理想环上的有限生成模">主理想环上的有限生成模</a><ul>
-<li><a href="#自由模与其子模">自由模与其子模</a></li>
-<li><a href="#smith标准型">Smith标准型</a></li>
-<li><a href="#结构定理">结构定理</a></li>
-<li><a href="#有限生成交换群的分类">有限生成交换群的分类</a></li>
-</ul>
-</li>
-<li><a href="#有理标准型">有理标准型</a><ul>
-<li><a href="#example1-8">Example1</a></li>
-</ul>
-</li>
-<li><a href="#jordan标准型">Jordan标准型</a><ul>
-<li><a href="#加性jordan-chevalley分解">加性Jordan-Chevalley分解</a></li>
-<li><a href="#乘性jordan-chevalley分解">乘性Jordan-Chevalley分解</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#张量积">张量积</a><ul>
-<li><a href="#张量积与直和">张量积与直和</a></li>
-<li><a href="#kronecker积">Kronecker积</a></li>
-<li><a href="#张量积与对偶空间">张量积与对偶空间</a></li>
-<li><a href="#张量代数">张量代数</a><ul>
-<li><a href="#另一种构造">另一种构造</a></li>
-<li><a href="#又看对偶空间">又看对偶空间</a><ul>
-<li><a href="#example1-9">Example1</a></li>
-<li><a href="#example2-4">Example2</a></li>
-</ul>
-</li>
-<li><a href="#简单应用">简单应用</a></li>
-</ul>
-</li>
-<li><a href="#域的变换">域的变换</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-<span id="more"></span>
+    <div class="post-body" itemprop="articleBody"><span id="more"></span>
 <h2><span id="抽象代数">抽象代数</span></h2><h3><span id="群">群</span></h3><h4><span id="定义">定义</span></h4><p>如果一个非空集合$G $上定义了一个二元运算$\circ : G \times G \to G $(不引起混淆的前提下,通常省略不写,例如$a \circ b $记作$ab $),满足:</p>
 <ol>
 <li><p>封闭性:$a \circ b \in G $.</p>
@@ -720,8 +384,8 @@
 <p>显然,任意群$G $,$G $和$\{ e \} $都是它的子群,我们称为<strong>平凡子群</strong>,如果$H \ne G $,称为<strong>真子群</strong>,记作$H &lt; G $.</p>
 <p>若干个群的交仍然是子群,但是若干个群的并不一定.我们可以证明一下若干个群的交仍然是子群:考虑$h \in A , h \in B , w \in A , w \in B $,那么$hw ^{ - 1  } \in A \cap B $.</p>
 <p>设集合$M \subseteq G $,则称$G $的所有包含$M $的子群的交为由$M $<strong>生成的子群</strong>,记作$\langle M \rangle $.这显然是包含$M $的最小的子群.</p>
-<p>如果$\lang M \rang = G $,则称$M $是$G $的一个<strong>生成系</strong>.可由有限多个元素生成的群叫做<strong>有限生成群</strong>,若$\exists M , | M | = 1 , \lang M \rang = G $,则称$G $是<strong>循环群</strong>.</p>
-<p>对于$a \in G $,我们称$o ( a ) = | \lang a \rang | $为$a $的<strong>阶</strong>,不难发现$o ( a ) $是满足$a ^n = e $的最小的正整数$n $.如果这样的$n $不存在,记$o ( a ) = \infty $.群中所有元素的阶的$lcm $称作群的<strong>方次数</strong>(如果不存在,则记为$\infty $),记作$\exp ( G ) $.</p>
+<p>如果$\langle M \rangle = G $,则称$M $是$G $的一个<strong>生成系</strong>.可由有限多个元素生成的群叫做<strong>有限生成群</strong>,若$\exists M , | M | = 1 , \langle M \rangle = G $,则称$G $是<strong>循环群</strong>.</p>
+<p>对于$a \in G $,我们称$o ( a ) = | \langle a \rangle | $为$a $的<strong>阶</strong>,不难发现$o ( a ) $是满足$a ^n = e $的最小的正整数$n $.如果这样的$n $不存在,记$o ( a ) = \infty $.群中所有元素的阶的$lcm $称作群的<strong>方次数</strong>(如果不存在,则记为$\infty $),记作$\exp ( G ) $.</p>
 <p>另一个不平凡的例子是群$G $的<strong>中心</strong>定义为$Z _G = \{ z \in G \mid \forall g \in G , zg = gz \} $,这显然也是一个子群.</p>
 <h5><span id="example1">Example1</span></h5><p>证明不存在恰有两个二阶元素的群.</p>
 <p>不妨设这两个二阶元素分别为$a \ne b , a , b \ne e $,则注意到$aba $也是一个二阶元素.</p>
@@ -2493,7 +2157,7 @@ C ( \cdots , \vec { v  } _i + v _i ' , \cdots ) & = C ( \cdots , \vec { v  } _i 
 \end{aligned}</script><p>特别地,当$W = F $的时候也叫做<strong>多重线性形式</strong>.</p>
 <p>容易见到交错形式无非是多重线性形式的某种特例.</p>
 <p>还可以看到多重线性映射的集合$\text { Mul  } ( V _1 , \cdots , V _n ; W ) $本身也是线性空间.</p>
-<p>更常用的是双线性映射,一般记作$\text { Bil  } ( V _1 , V _2 ; W ) $.矩阵乘法本身是双线性映射的一个典型例子,对偶空间本身也是双线性形式的一个典型例子.特别地,一般定义$V $和$\check { V  } $之间的<strong>典范配对</strong>为$\lang _ , _ \rang : \check { V  } \times V \to F $.其也可以看作点乘或者$( 1 \times n ) \times ( n \times 1 ) $的矩阵乘法.</p>
+<p>更常用的是双线性映射,一般记作$\text { Bil  } ( V _1 , V _2 ; W ) $.矩阵乘法本身是双线性映射的一个典型例子,对偶空间本身也是双线性形式的一个典型例子.特别地,一般定义$V $和$\check { V  } $之间的<strong>典范配对</strong>为$\langle _ , _ \rangle : \check { V  } \times V \to F $.其也可以看作点乘或者$( 1 \times n ) \times ( n \times 1 ) $的矩阵乘法.</p>
 <p>留意到柯里化过程,设$\dim V = n , \dim W = m $,容易见到:</p>
 <script type="math/tex; mode=display">
 \begin{gathered}
