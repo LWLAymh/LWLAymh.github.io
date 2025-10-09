@@ -176,7 +176,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -233,6 +233,1302 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://lwlaymh.github.io/2025/06/23/%E5%AD%A6%E4%B9%A0-%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F1.jpg">
+      <meta itemprop="name" content="LWLAymh">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LWLAymh的备忘录">
+      <meta itemprop="description" content="不过是白日梦里一瞬息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | LWLAymh的备忘录">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/06/23/%E5%AD%A6%E4%B9%A0-%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" class="post-title-link" itemprop="url">组合数学</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-06-23 00:00:25" itemprop="dateCreated datePublished" datetime="2025-06-23T00:00:25+08:00">2025-06-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">具体数学</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2025/06/23/%E5%AD%A6%E4%B9%A0-%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2025/06/23/%E5%AD%A6%E4%B9%A0-%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <span id="more"></span>
+<h2><span id="二项式系数">二项式系数</span></h2>
+<h3><span id="上升幂和下降幂">上升幂和下降幂</span></h3>
+<p>定义下降幂<span class="math inline">\(x^{ \underline{ k } } = \prod_{
+i = 0 }^{ k - 1 } ( x - i ) = \frac{ x ! }{ ( x - k ) ! }\)</span>.</p>
+<p>定义上升幂<span class="math inline">\(x^{ \overline{ k } } \prod_{ i
+= 0 }^{ k - 1 } ( x + i ) = \frac{ ( x + k - 1 ) ! }{ ( x - 1 ) !
+}\)</span>.</p>
+<p>上升幂和下降幂的定义是可以引申到复数域的.</p>
+<p>例如我们有加倍公式:<span class="math inline">\(r^{ \underline{ k } }
+( r - 0 . 5 )^{ \underline{ k } } = \cfrac{ ( 2 r )^{ \underline{ 2 k }
+} }{ 2^{ 2 k } } , k \in \mathbb{ N }\)</span>.</p>
+<p>他们之间存在转换:<span class="math inline">\(x^{ \underline{ n } } =
+( - 1 )^n ( - x )^{ \overline{ n } }\)</span>.</p>
+<p>同时存在大小关系:<span class="math inline">\(x^{ \underline{ n } }
+\leq x^n \leq x^{ \overline{ n } }\)</span>,其中<span class="math inline">\(0 \leq n &lt; x\)</span>.</p>
+<h3><span id="二项式系数的定义">二项式系数的定义</span></h3>
+<p>考虑令<span class="math inline">\(\binom{ n }{ m
+}\)</span>表示从一个大小为<span class="math inline">\(n\)</span>的子集中选出大小为<span class="math inline">\(m\)</span>的子集的方案数.第一次有<span class="math inline">\(n\)</span>个选择,第二次有<span class="math inline">\(n - 1\)</span>个选择……第m次有<span class="math inline">\(n - m +
+1\)</span>个选择.而由于可能可以选择重复的,但一个排列被重复选择的次数显然是<span class="math inline">\(m !\)</span>,因此显然有<span class="math inline">\(\binom{ n }{ m } = \cfrac{ n^{ \underline{ m } }
+}{ m ! }\)</span>.</p>
+<p>如果我们把它的定义拓展到复数域,我们有:</p>
+<p><span class="math inline">\(\binom{ r }{ k } = \begin{cases}\cfrac{
+r^{ \underline{ k } } }{ k ! } &amp; k \geq 0 \\ 0 &amp; k &lt;
+0\end{cases} , r \in \mathbb{ C } , k \in \mathbb{ Z }\)</span>.</p>
+<p>值得一提的是,如果我们这么定义,本质上其实是把<span class="math inline">\(\binom{ r }{ k }\)</span>看作了一个关于<span class="math inline">\(r\)</span>的<span class="math inline">\(k\)</span>次多项式.</p>
+<p>另外根据定义,<span class="math inline">\(r \in \mathbb{ Z } \land r
+&lt; k\)</span>时,该公式给出<span class="math inline">\(0\)</span>.</p>
+<p>值得一提的是,为了使二项式系数在面对<span class="math inline">\(0\)</span>的时候更加简洁,通常直接定义<span class="math inline">\(0 ! = 1 , 0^0 = 1\)</span>.</p>
+<p>另外不难发现<span class="math inline">\(\binom{ 2 n }{ n
+}\)</span>是所有<span class="math inline">\(\binom{ 2 n }{ k
+}\)</span>中最大的.事实上我们有Wallis公式:<span class="math inline">\(\lim_{ n \rightarrow \infty } \frac{ ( \frac{ 2^{
+2 n } }{ \binom{ 2 n }{ n } } )^2 }{ 2 n + 1 } = \frac{ \pi }{ 2
+}\)</span>.</p>
+<h3><span id="基本的二项式恒等式">基本的二项式恒等式</span></h3>
+<ol type="1">
+<li>阶乘展开式:<span class="math inline">\(\binom{ n }{ k } = \cfrac{ n
+! }{ k ! ( n - k ) ! } , n , k \in \mathbb{ N } , n \geq k
+\\\)</span>.</li>
+</ol>
+<p>证明根据定义是显然的.</p>
+<ol start="2" type="1">
+<li>对称恒等式:<span class="math inline">\(\binom{ n }{ k } = \binom{ n
+}{ n - k } , n \in \mathbb{ N } , k \in \mathbb{ Z } \\\)</span>.</li>
+</ol>
+<p>根据<span class="math inline">\(( 1 )\)</span>,<span class="math inline">\(0 \leq k \leq
+n\)</span>时是显然的.而其他情况两边都会给出<span class="math inline">\(0\)</span>,因此也是成立的.</p>
+<ol start="3" type="1">
+<li>吸收恒等式:<span class="math inline">\(\binom{ r }{ k } = \cfrac{ r
+}{ k } \binom{ r - 1 }{ k - 1 } , k \in \mathbb{ Z } \land k \ne 0
+\\\)</span>.</li>
+</ol>
+<p>证明根据定义是显然的.</p>
+<ol start="4" type="1">
+<li>吸收恒等式的变式:<span class="math inline">\(k \binom{ r }{ k } = r
+\binom{ r - 1 }{ k - 1 } , k \in \mathbb{ Z } \\\)</span>.</li>
+</ol>
+<p>根据<span class="math inline">\(( 3 )\)</span>,只需要验证<span class="math inline">\(k = 0\)</span>的情况即可,也是显然的.</p>
+<ol start="5" type="1">
+<li>相伴恒等式:<span class="math inline">\(( r - k ) \binom{ r }{ k } =
+r \binom{ r - 1 }{ k } , k \in \mathbb{ Z } \\\)</span>.</li>
+</ol>
+<p>证明如下:</p>
+<p><span class="math display">\[
+\begin{aligned}
+( r - k ) \binom{ r }{ k } &amp; = ( r - k ) \binom{ r }{ r - k } \\
+&amp; = r \binom{ r - 1 }{ r - k - 1 } \\
+&amp; = r \binom{ r - 1 }{ k }
+\end{aligned}
+\]</span></p>
+<p>问题在于:我们在上述描述中并未提到<span class="math inline">\(r\)</span>的范围,但是推导过程要求<span class="math inline">\(r \in \mathbb{ N
+}\)</span>.不过,我们已经说明了二项式系数是关于<span class="math inline">\(r\)</span>的<span class="math inline">\(k\)</span>次多项式,因此只需要有<span class="math inline">\(k + 1\)</span>个<span class="math inline">\(r\)</span>满足这个公式即可.而根据推导过程显然有无限个<span class="math inline">\(r\)</span>满足,因此这个公式对<span class="math inline">\(r \in \mathbb{ C }\)</span>也是成立的.</p>
+<p>不过事实上,直接用吸收恒等式就可以证明:</p>
+<p><span class="math display">\[
+\begin{aligned}
+k \binom{ r }{ k } &amp; = r \binom{ r - 1 }{ k - 1 } \\
+( r - k ) \binom{ r }{ r - k } &amp; = r \binom{ r - 1 }{ r - k - 1 } \\
+( r - k ) \binom{ r }{ k } &amp; = r \binom{ r - 1 }{ k }
+\end{aligned}
+\]</span></p>
+<ol start="6" type="1">
+<li>加法公式:<span class="math inline">\(\binom{ r }{ k } = \binom{ r -
+1 }{ k } + \binom{ r - 1 }{ k - 1 } , k \in \mathbb{ Z }
+\\\)</span>.</li>
+</ol>
+<p>证明可以使用定义,也可以先用<span class="math inline">\(r \in \mathbb{
+N }\)</span>的情况给出组合意义,再使用多项式推理法证明.</p>
+<ol start="7" type="1">
+<li><span class="math inline">\(\binom{ r }{ m } \binom{ m }{ k } =
+\binom{ r }{ k } \binom{ r - k }{ m - k } , n , k \in \mathbb{ Z }
+\\\)</span>.</li>
+</ol>
+<p>证明可以使用组合意义和多项式推理法.</p>
+<ol start="8" type="1">
+<li>平行求和法:<span class="math inline">\(\sum_{ k \leq n } \binom{ r +
+k }{ k } = \binom{ r + n + 1 }{ n } , n \in \mathbb{ N }
+\\\)</span>.</li>
+</ol>
+<p>我们不妨考虑不断使用加法公式:</p>
+<p><span class="math inline">\(\binom{ r + n + 1 }{ n } = \binom{ r + n
+}{ n } + \binom{ r + n }{ n - 1 } = \binom{ r + n }{ n } + \binom{ r + n
+- 1 }{ n - 1 } + \binom{ r + n - 1 }{ n - 2 } = . . .
+\\\)</span>,最终下标会减成负数,这样后面的项就全都是<span class="math inline">\(0\)</span>了.</p>
+<p>也可以考虑组合意义:如果<span class="math inline">\(r \in \mathbb{ N
+}\)</span>,那么我们考虑从右到左第一个没有被选上的数,假设它是<span class="math inline">\(r + k +
+1\)</span>,那么在它右边的数全部选择了,一共是<span class="math inline">\(n - k\)</span>个数,而还需要在左边的<span class="math inline">\(r + k\)</span>中选择<span class="math inline">\(k\)</span>个数.</p>
+<ol start="9" type="1">
+<li>上指标求和法:<span class="math inline">\(\sum_{ 0 \leq k \leq n }
+\binom{ k }{ m } = \binom{ n + 1 }{ m + 1 } , n , m \in \mathbb{ N }
+\\\)</span>.</li>
+</ol>
+<p>可以组合意义解释:我们不妨假设选的最大数是<span class="math inline">\(k + 1\)</span>,接下来就还需要在<span class="math inline">\([ 1 , k ]\)</span>中选择<span class="math inline">\(m\)</span>个.</p>
+<p>如果我们将这个公式两边同时乘以<span class="math inline">\(m
+!\)</span>,我们可以得到公式:<span class="math inline">\(\sum_{ 0 \leq k
+\leq n } k^{ \underline{ m } } = \cfrac{ ( n + 1 )^{ \underline{ m + 1 }
+} }{ m + 1 } , n , m \in \mathbb{ N }
+\\\)</span>,这也就是有限微积分的公式中的一个.</p>
+<ol start="10" type="1">
+<li>二项式定理:<span class="math inline">\(( x + y )^r = \sum_{ k }
+\binom{ r }{ k } x^k y^{ r - k } , r \in \mathbb{ N } \\\)</span>.</li>
+</ol>
+<p>可以使用组合意义证明.</p>
+<p>二项式定理有一些有用的特殊情况:</p>
+$$
+<span class="math display">\[\begin{aligned}
+\sum_{ 0 \leq k \leq n } \binom{ n }{ k } &amp; = 2^n , n \in \mathbb{ N
+} \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>在二项式定理中令<span class="math inline">\(x = y =
+1\)</span>即可证明.</p>
+$$
+<span class="math display">\[\begin{aligned}
+\sum_{ 0 \leq k \leq n } ( - 1 )^k \binom{ n }{ k } &amp; = 0^n = [ n =
+0 ] , n \in \mathbb{ N } \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>在二项式定理中令<span class="math inline">\(x = - 1 , y =
+1\)</span>即可证明,值得一提的是,当<span class="math inline">\(n =
+0\)</span>的时候这个式子给出<span class="math inline">\(1\)</span>,并在其他情况下给出<span class="math inline">\(0\)</span>,这个式子是二项式反演的基础.</p>
+<ol start="11" type="1">
+<li>三项式定理:<span class="math inline">\(( x + y + z )^n = \sum_{ 0
+\leq a , b , c \leq n } [ a + b + c = n ] \cfrac{ n ! }{ a ! b ! c ! }
+x^a y^b z^c , n \in \mathbb{ N } \\\)</span>.</li>
+</ol>
+<p>证明与二项式定理类似.值得一提的是,<span class="math inline">\(\cfrac{
+n ! }{ a ! b ! c ! } = \binom{ n }{ b + c } \binom{ b + c }{ c
+}\)</span>.</p>
+<ol start="12" type="1">
+<li>多项式定理:<span class="math inline">\(( \sum_{ i = 1 }^m x_i )^n =
+\sum_{ \forall i \in [ 1 , m ] , 0 \leq a_i \leq n } [ \sum_{ i = 1 }^m
+a_i = n ] \cfrac{ n ! }{ \prod_{ i = 1 }^m a_i ! } \prod_{ i = 1 }^m
+x_i^{ a_i } , n \in \mathbb{ N } \\\)</span>.</li>
+</ol>
+<p>证明与二项式定理类似.</p>
+<ol start="13" type="1">
+<li>范德蒙德卷积:<span class="math inline">\(\sum_{ k } \binom{ r }{ m +
+k } \binom{ s }{ n - k } = \binom{ r + s }{ n + m } , n , m \in \mathbb{
+Z } \\\)</span>.</li>
+</ol>
+<p>证明可以使用组合意义和多项式推理法.</p>
+<p>另外,这个式子可以直接使用生成函数证明.</p>
+<ol start="14" type="1">
+<li>范德蒙德卷积的变式:<span class="math inline">\(\sum_{ k } \binom{ l
+}{ m + k } \binom{ s }{ n + k } = \binom{ l + s }{ l - m + n } , l \in
+\mathbb{ N } , n , m \in \mathbb{ Z } \\\)</span>.</li>
+</ol>
+<p>有<span class="math inline">\(\binom{ l }{ m + k } = \binom{ l }{ l -
+m - k }\)</span>,然后运用范德蒙德卷积即可得到答案.</p>
+<ol start="15" type="1">
+<li>上指标反转公式:<span class="math inline">\(\binom{ r }{ k } = ( - 1
+)^k \binom{ k - r - 1 }{ k } \\\)</span>.</li>
+</ol>
+<p>根据定义显然.</p>
+<h3><span id="扩展的二项式恒等式整数范围内">扩展的二项式恒等式(整数范围内)</span></h3>
+<ol type="1">
+<li><span class="math inline">\(\sum_{ k \leq m } \binom{ r }{ k } ( - 1
+)^k = ( - 1 )^m \binom{ r - 1 }{ m } , m \in \mathbb{ Z }
+\\\)</span>.</li>
+</ol>
+<p>证明如下:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{ k \leq m } \binom{ r }{ k } ( - 1 )^k &amp; = \sum_{ k \leq m }
+\binom{ k - r - 1 }{ k } \\
+&amp; = \binom{ - r + m }{ m } = ( - 1 )^m \binom{ r - 1 }{ m }
+\end{aligned}
+\]</span></p>
+<ol start="2" type="1">
+<li><span class="math inline">\(\sum_{ - q \leq k \leq l } \binom{ l - k
+}{ m } \binom{ q + k }{ n } = \binom{ l + q + 1 }{ m + n + 1 } , n , m
+\in \mathbb{ N } , l + q \geq 0 \\\)</span>.</li>
+</ol>
+<p>可以组合意义与多项式推理法证明.</p>
+<ol start="3" type="1">
+<li><span class="math inline">\(\sum_{ k } \binom{ a + b }{ a + k }
+\binom{ a + b }{ b + k } ( - 1 )^k = \binom{ a + b }{ a } , a , b \in
+\mathbb{ N } \\\)</span>.</li>
+</ol>
+<p>可以数学归纳证明.</p>
+<ol start="4" type="1">
+<li><span class="math inline">\(\sum_{ k = 0 }^m \cfrac{ \binom{ m }{ k
+} }{ \binom{ n }{ k } } = \cfrac{ n + 1 }{ n + 1 - m } , n , m \in
+\mathbb{ N } , n \geq m \\\)</span>.</li>
+</ol>
+<p>我们有<span class="math inline">\(\binom{ n }{ m } \binom{ m }{ k } =
+\binom{ n }{ k } \binom{ n - k }{ m - k } \\\)</span>,两边同时除以<span class="math inline">\(\binom{ n }{ m } \binom{ n - k }{ m - k }
+\\\)</span>,于是我们得到了<span class="math inline">\(\cfrac{ \binom{ m
+}{ k } }{ \binom{ n }{ k } } = \cfrac{ \binom{ n - k }{ m - k } }{
+\binom{ n }{ m } } \\\)</span>.</p>
+<p>有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{ k = 0 }^m \cfrac{ \binom{ m }{ k } }{ \binom{ n }{ k } } &amp; =
+\sum_{ k = 0 }^m \cfrac{ \binom{ n - k }{ m - k } }{ \binom{ n }{ m } }
+\\
+&amp; = \cfrac{ 1 }{ \binom{ n }{ m } } \sum_{ k = 0 }^m \binom{ n - k
+}{ m - k } \\
+&amp; = \cfrac{ 1 }{ \binom{ n }{ m } } \sum_{ k = 0 }^m \binom{ n - m +
+k }{ k } \\
+&amp; = \cfrac{ \binom{ n + 1 }{ m } }{ \binom{ n }{ m } } \\
+&amp; = \cfrac{ n + 1 }{ n + 1 - m }
+\end{aligned}
+\]</span></p>
+<ol start="5" type="1">
+<li><span class="math inline">\(( - 1 )^m \binom{ - n - 1 }{ m } = ( - 1
+)^n \binom{ - m - 1 }{ n } , n , m \in \mathbb{ N } \\\)</span>.</li>
+</ol>
+<p>根据上指标反转公式,这个公式两边都等于<span class="math inline">\(\binom{ n + m }{ m } \\\)</span>.</p>
+<ol start="6" type="1">
+<li><span class="math inline">\(\sum_{ k \leq m } \binom{ r }{ k } (
+\cfrac{ r }{ 2 } - k ) = \cfrac{ m + 1 }{ 2 } \binom{ r }{ m + 1 } , m
+\in \mathbb{ Z } \\\)</span>.</li>
+</ol>
+<p>可以使用归纳法证明这个公式.</p>
+<ol start="7" type="1">
+<li><span class="math inline">\(\sum_{ k \leq m } \binom{ m + r }{ k }
+x^k y^{ m - k } = \sum_{ k \leq m } \binom{ - r }{ k } ( - x )^k ( x + y
+)^{ m - k } , m \in \mathbb{ Z } \\\)</span>.</li>
+</ol>
+<p>不妨令左边的值为<span class="math inline">\(S_m\)</span>,我们有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+S_m &amp; = \sum_{ k \leq m } \binom{ m + r }{ k } x^k y^{ m - k } =
+\sum_{ k \leq m } \binom{ m + r - 1 }{ k } x^k y^{ m - k } + \sum_{ k
+\leq m } \binom{ m + r - 1 }{ k - 1 } x^k y^{ m - k } \\
+&amp; = y \sum_{ k &lt; m } \binom{ m - 1 + r }{ k } x^k y^{ m - 1 - k }
++ \binom{ m + r - 1 }{ m } x^m + x \sum_{ k \leq m } \binom{ m + r - 1
+}{ k - 1 } x^{ k - 1 } y^{ m - k } \\
+&amp; = ( x + y ) S_{ m - 1 } + \binom{ m + r - 1 }{ m } x^m \\
+&amp; = ( x + y ) S_{ m - 1 } + \binom{ r }{ m } ( - x )^m
+\end{aligned}
+\]</span></p>
+<p>左右两边满足相同递归式,通过数学归纳法不难证明二者相等.</p>
+<ol start="8" type="1">
+<li><span class="math inline">\(\sum_{ k \leq m } \binom{ m + k }{ k }
+2^{ - k } = 2^m , m \in \mathbb{ N } \\\)</span>.</li>
+</ol>
+<p>考虑<span class="math inline">\(( 7 )\)</span>,将<span class="math inline">\(x = y = 1 , r = m + 1\)</span>带入,得到:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{ k \leq m } \binom{ 2 m + 1 }{ k } &amp; = \sum_{ k \leq m }
+\binom{ m + k }{ k } 2^{ m - k } \\
+2^{ 2 m } &amp; = \sum_{ k \leq m } \binom{ m + k }{ k } 2^{ m - k } \\
+2^m &amp; = \sum_{ k \leq m } \binom{ m + k }{ k } 2^{ - k }
+\end{aligned}
+\]</span></p>
+<ol start="9" type="1">
+<li><span class="math inline">\(\sum_{ k } \binom{ l }{ m + k } \binom{
+s + k }{ n } ( - 1 )^k = ( - 1 )^{ l + m } \binom{ s - m }{ n - l } , l
+\in \mathbb{ N } , n , m \in \mathbb{ Z } \\\)</span>.</li>
+</ol>
+<p>可以数学归纳证明.</p>
+<ol start="10" type="1">
+<li><span class="math inline">\(\sum_{ k \leq l } \binom{ l - k }{ m }
+\binom{ s }{ k - n } ( - 1 )^k = ( - 1 )^{ l + m } \binom{ s - m - 1 }{
+l - n - m } , l , n , m \in \mathbb{ N } \\\)</span>.</li>
+</ol>
+<p>可以数学归纳证明.</p>
+<h3><span id="拓展的二项式恒等式实数范围内">拓展的二项式恒等式(实数范围内)</span></h3>
+<ol type="1">
+<li><span class="math inline">\(\binom{ r }{ k } \binom{ r - \cfrac{ 1
+}{ 2 } }{ k } = \cfrac{ \binom{ 2 r }{ 2 k } \binom{ 2 k }{ k } }{ 2^{ 2
+k } } , k \in \mathbb{ Z } \\\)</span>.</li>
+</ol>
+<p>将加倍公式两边同时除以<span class="math inline">\(k
+!^2\)</span>即可得到这个公式.</p>
+<ol start="2" type="1">
+<li><span class="math inline">\(\binom{ n - \cfrac{ 1 }{ 2 } }{ n } =
+\cfrac{ \binom{ 2 n }{ n } }{ 2^{ 2 n } } , n \in \mathbb{ Z }
+\\\)</span>.</li>
+</ol>
+<p>将<span class="math inline">\(( 1 )\)</span>中令<span class="math inline">\(r = k = n\)</span>即可得到这个公式.</p>
+<ol start="3" type="1">
+<li><span class="math inline">\(\binom{ - \cfrac{ 1 }{ 2 } }{ n } = (
+\cfrac{ - 1 }{ 4 } )^n \binom{ 2 n }{ n } , n \in \mathbb{ Z }
+\\\)</span>.</li>
+</ol>
+<p>即<span class="math inline">\(( 2 )\)</span>的变形.</p>
+<ol start="4" type="1">
+<li><span class="math inline">\(\sum_{ k } \binom{ n }{ 2 k } \binom{ 2
+k }{ k } 2^{ - 2 k } = \binom{ n - \cfrac{ 1 }{ 2 } }{ \lfloor \cfrac{ n
+}{ 2 } \rfloor } , n \in \mathbb{ N } \\\)</span></li>
+</ol>
+<p>首先根据<span class="math inline">\(( 1 )\)</span>,左边<span class="math inline">\(= \sum_{ k } \binom{ \cfrac{ n }{ 2 } }{ k }
+\binom{ \cfrac{ n - 1 }{ 2 } }{ k } \\\)</span>,而考虑到<span class="math inline">\(\cfrac{ n }{ 2 }\)</span>和<span class="math inline">\(\cfrac{ n - 1 }{ 2
+}\)</span>必有一个是自然数,因此可以直接用范德蒙德卷积的变形.</p>
+<ol start="5" type="1">
+<li><span class="math inline">\(\sum_{ k } \binom{ - \cfrac{ 1 }{ 2 } }{
+k } \binom{ - \cfrac{ 1 }{ 2 } }{ n - k } = ( - 1 )^n , n \in \mathbb{ N
+} \\\)</span>.</li>
+</ol>
+<p>直接使用范德蒙德卷积即可证明.</p>
+<ol start="6" type="1">
+<li><span class="math inline">\(\sum_{ k } \binom{ 2 k }{ k } \binom{ 2
+n - 2 k }{ n - k } = 4^n , n \in \mathbb{ N } \\\)</span>.</li>
+</ol>
+<p>由<span class="math inline">\(( 5 )\)</span>和<span class="math inline">\(( 3 )\)</span>不难推出.</p>
+<ol start="7" type="1">
+<li><span class="math inline">\(\sum_{ k } \binom{ n }{ k } \cfrac{ ( -
+1 )^k }{ x + k } = x^{ - 1 } \binom{ x + n }{ n }^{ - 1 } , x \notin \{
+0 , - 1 , . . . , - n \} \\\)</span>.</li>
+</ol>
+<p>令<span class="math inline">\(f ( x ) = ( x - 1 )^{ \underline{ - 1 }
+}\)</span>,直接做高阶差分即可得到这个式子.</p>
+<ol start="8" type="1">
+<li><span class="math inline">\(\sum_{ k = 0 }^n \binom{ r }{ k }
+\binom{ r }{ n - k } ( - 1 )^k = [ n \ is \ \mathrm{ even } ] ( - 1 )^{
+\cfrac{ n }{ 2 } } \binom{ r }{ \cfrac{ n }{ 2 } } \\\)</span>.</li>
+</ol>
+<p>首先不难发现,<span class="math inline">\(( 1 - z )^r = \sum_{ k \geq
+0 } ( - 1 )^k \binom{ r }{ k } \\\)</span>.</p>
+<p>考虑<span class="math inline">\(( 1 - z )^r ( 1 + z )^r = ( 1 - z^2
+)^r\)</span>.</p>
+<p>我们有<span class="math inline">\([ z^n ] ( 1 - z )^r ( 1 + z )^r = [
+z^n ] ( 1 - z^2 )^r\)</span>,不难发现即上式.</p>
+<h3><span id="卡特兰数">卡特兰数</span></h3>
+<p>卡特兰数<span class="math inline">\(f_n\)</span>表示:长度为<span class="math inline">\(2 n\)</span>的合法括号序列个数.</p>
+<p>卡特兰数的前几项为<span class="math inline">\(1 , 1 , 2 , 5 , 14 , 42
+, 132 \cdots\)</span>.</p>
+<p>接下来,我们通过这个定义来证明以下其他定义方式.</p>
+<p>递归定义:<span class="math inline">\(f_n = \sum_{ i = 0 }^{ n - 1 }
+f_i f_{ n - 1 - i }\)</span>.</p>
+<p>不妨考虑枚举一个括号序列的第一个断点,则该括号序列应形如<span class="math inline">\(( A ) B\)</span>.</p>
+<p>考虑将其删成<span class="math inline">\(A\)</span>和<span class="math inline">\(B\)</span>,则<span class="math inline">\(A\)</span>一定合法,因为若<span class="math inline">\(A\)</span>不合法,那么这里一定不是第一个断点.</p>
+<p>通项公式:<span class="math inline">\(f_n = \frac{ 1 }{ n + 1 } C_{ 2
+n }^n = C_{ 2 n }^n - C_{ 2 n }^{ n - 1 }\)</span>.</p>
+<p>考虑平面直角坐标系,我们将’(‘认为是向右上走一单位长度,将’)’认为是向右下走一单位长度.</p>
+<p>那么卡特兰数就相当于从<span class="math inline">\(( 0 , 0
+)\)</span>走到<span class="math inline">\(( 2 n , 0
+)\)</span>不经过第四象限的方案数.</p>
+<p>考虑反射容斥,如果只是走到<span class="math inline">\(( 2 n , 0
+)\)</span>的方案数是<span class="math inline">\(C_{ 2 n
+}^n\)</span>.</p>
+<p>而如果到达第四象限,说明在这条这线上存在一个点<span class="math inline">\(( x , - 1 )\)</span>.</p>
+<p>考虑将<span class="math inline">\(x\)</span>以后的折线以直线<span class="math inline">\(y = - 1\)</span>为对称轴反转,那么终点到了<span class="math inline">\(( 2 n , - 2 )\)</span>.</p>
+<p>不难发现,任意从<span class="math inline">\(( 0 , 0
+)\)</span>走到<span class="math inline">\(( 2 n , - 2
+)\)</span>的方案一定唯一对应了一种从<span class="math inline">\(( 0 , 0
+)\)</span>走到<span class="math inline">\(( 2 n , 0
+)\)</span>的不合法方案.因为从<span class="math inline">\(( 0 , 0
+)\)</span>走到<span class="math inline">\(( 2 n , - 2
+)\)</span>一定会经过直线<span class="math inline">\(y = -
+1\)</span>,将后半部分对称后就是其对应方案.而从<span class="math inline">\(( 0 , 0 )\)</span>走到<span class="math inline">\(( 2 n , - 2 )\)</span>的方案数为<span class="math inline">\(C_{ 2 n }^{ n - 1 }\)</span>.</p>
+<p>因而<span class="math inline">\(f_n = C_{ 2 n }^n - C_{ 2 n }^{ n - 1
+} \\\)</span>.</p>
+<p>而<span class="math inline">\(C_{ 2 n }^n - C_{ 2 n }^{ n - 1 } =
+\frac{ ( 2 n ) ! }{ n ! n ! } - \frac{ ( 2 n ) ! }{ ( n - 1 ) ! ( n + 1
+) ! } = \frac{ ( 2 n ) ! }{ n ! ( n + 1 ) ! } = \frac{ C_{ 2 n }^n }{ n
++ 1 } \\\)</span>.</p>
+<p>递推定义:<span class="math inline">\(f_n = \frac{ 4 n - 2 }{ n + 1 }
+f_{ n - 1 } \\\)</span>.</p>
+<p>使用一下上一步的通项公式:</p>
+<p>f_n=\</p>
+<p>f_{n-1}=</p>
+<p>\end{cases}\</p>
+<p>不难发现<span class="math inline">\(f_n = \frac{ ( 2 n - 1 ) ( 2 n )
+}{ n ( n + 1 ) } f_{ n - 1 } \\\)</span>.整理,得到<span class="math inline">\(f_n = \frac{ 4 n - 2 }{ n + 1 } f_{ n - 1 }
+\\\)</span>.</p>
+<p>换个记号,设<span class="math inline">\(C_n\)</span>为卡特兰数的第<span class="math inline">\(n\)</span>项,卡特兰数有一个著名的结论是<span class="math inline">\(k\)</span>次卷积:</p>
+<p><span class="math display">\[
+C^{ ( k ) }_n = \sum_{ \sum_{ j = 1 }^k a_j = n } \prod C_{ a_i } =
+\frac{ k }{ n + k } \binom{ 2 n + k - 1 }{ n }
+\]</span></p>
+<p>我们可以这么理解它:它指的是一个长度为<span class="math inline">\(n +
+k - 1\)</span>的括号序列,前<span class="math inline">\(k -
+1\)</span>个必须是左括号的方案数.为啥呢?因为这样这个括号序列必须写成<span class="math inline">\(( ( ( A ) B ) C )
+D\)</span>之类的形式,等价于卷积.</p>
+<p>那么证明就很简单了,类似反射容斥,有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+C^{ ( k ) }_n &amp; = \binom{ 2 n + k - 1 }{ n } - \binom{ 2 n + k - 1
+}{ n - 1 } \\
+&amp; = \frac{ k }{ n + k } \binom{ 2 n + k - 1 }{ n }
+\end{aligned}
+\]</span></p>
+<h5><span id="examplehnoi2009有趣的数列">Example([HNOI2009]有趣的数列)</span></h5>
+<p>首先,如果没有第三条限制,那显然奇数位置和偶数位置互不影响,直接随便选,答案就是<span class="math inline">\(\binom{ 2 n }{ n }\)</span>.</p>
+<p>而有了限制呢,我们还是想随便选然后顺序排起来,但是这次不能排列的时候使奇数位置大于偶数位置,可以发现这就是括号序列需要满足的条件,于是答案就是卡特兰数.</p>
+<p>至于处理,这题因为模数不是质数,需要做质因数分解来维护除法.</p>
+<h5><span id="example223省选10连测day7b">Example2([23省选10连测day7]b)</span></h5>
+<p>给定<span class="math inline">\(x , n\)</span>,对<span class="math inline">\(y \in [ 1 , n ]\)</span>,固定<span class="math inline">\(p_x =
+y\)</span>做笛卡尔树的<strong>形态</strong>计数.<span class="math inline">\(n \leq 5 \times 10^5\)</span>.</p>
+<p>由于是对树的形态计数,其实根本就不在乎每个点具体的取值,只要这个取值有解就行.事实上,容易发现<span class="math inline">\(a_x = y\)</span>只要满足:</p>
+<ol type="1">
+<li><p><span class="math inline">\(x\)</span>节点的祖先数量不超过<span class="math inline">\(y - 1\)</span>个(深度小于等于<span class="math inline">\(y\)</span>).</p></li>
+<li><p><span class="math inline">\(x\)</span>节点的子树大小不超过<span class="math inline">\(n - y + 1\)</span>.</p></li>
+</ol>
+<p>发现合法不太好记,经典补集转化,然后两个不合法情况无关,分别算.</p>
+<p>我们考虑直接算出<span class="math inline">\(f_p\)</span>表示<span class="math inline">\(x\)</span>的深度为<span class="math inline">\(p\)</span>的答案,<span class="math inline">\(g_p\)</span>表示<span class="math inline">\(x\)</span>的子树大小为<span class="math inline">\(p\)</span>的答案,然后就可以完成这个题.</p>
+<p>这两部分怎么算呢?</p>
+<p>先看深度:<span class="math inline">\(x\)</span>的祖先有两种:一种在序列中在<span class="math inline">\(x\)</span>的左边,一种在<span class="math inline">\(x\)</span>的右边.我们设前者为<span class="math inline">\(0 = l_0 &lt; l_1 &lt; l_2 &lt; \cdots l_p &lt; l_{
+p + 1 } = x\)</span>,设后者为<span class="math inline">\(n + 1 = r_0
+&gt; r_1 &gt; r_2 &gt; \cdots &gt; r_{ q } &gt; r_{ q + 1 } =
+x\)</span>.这么分类有什么用呢?我们考虑<span class="math inline">\(( l_{
+i - 1 } , l_{ i } )\)</span>这一段数能放在哪里,它只能是<span class="math inline">\(l_{ i
+}\)</span>的左儿子,独立于整棵树,因此这一段的答案就是<span class="math inline">\(C_{ l_i - l_{ i - 1 } - 1 }\)</span>.</p>
+<p>记:</p>
+$$
+<span class="math display">\[\begin{aligned}
+L_p &amp; = \sum_{ l } \prod_{ i = 1 }^{ p + 1 } C_{ l_i - l_{ i - 1 } -
+1 } \\
+R_q &amp; = \sum_{ r } \prod_{ i = 1 }^{ q + 1 } C_{ r_{ i - 1 } - r_i -
+1 } \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>注意到这等价于卡特兰数的<span class="math inline">\(k\)</span>次卷积,有:</p>
+$$
+<span class="math display">\[\begin{aligned}
+L_p &amp; = C_{ x - p - 1 }^{ ( p + 1 ) } \\
+R_q &amp; = C^{ ( q + 1 ) }_{ n - x - q } \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>此时的答案自然是<span class="math inline">\(f_{ p + q + 1 } = L_p R_q
+\binom{ p + q }{ q }\)</span>,做卷积.</p>
+<p>儿子怎么算呢?二叉搜索树有一个经典性质:确定根后每个点插在哪里是固定的.也就是说我们把<span class="math inline">\(x\)</span>的子树从原树中删去,然后插入<span class="math inline">\(x\)</span>一定会插回原位置,这是一个双射.而子树内随便做,设左子树大小为<span class="math inline">\(p\)</span>,右子树大小为<span class="math inline">\(q\)</span>,我们有<span class="math inline">\(g_{ p
++ q + 1 } = C_p C_q C_{ n - ( p + q + 1 ) } = C_{ n - 1 }^{ ( 3 )
+}\)</span>,同样是简单的卷积.</p>
+<h3><span id="二项式系数的处理">二项式系数的处理</span></h3>
+<h4><span id="通过恒等式变形求解">通过恒等式变形求解</span></h4>
+<h5><span id="example1">Example1</span></h5>
+<p>求<span class="math inline">\(\sum_{ k = 0 }^n k \binom{ m - k - 1 }{
+m - n - 1 } , n , m \in \mathbb{ N } \land m &gt; n \\\)</span>.</p>
+<p>这个式子乘了个系数<span class="math inline">\(k\)</span>导致很难处理,一个自然的想法是使用吸收恒等式将<span class="math inline">\(k\)</span>消去,然后对后面的式子使用上指标求和.</p>
+<p>于是:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{ k = 0 }^n k \binom{ m - k - 1 }{ m - n - 1 } &amp; = \sum_{ k = 0
+}^n m \binom{ m - k - 1 }{ m - n - 1 } - \sum_{ k = 0 }^n ( m - k )
+\binom{ m - k - 1 }{ m - n - 1 } \\
+&amp; = m \sum_{ k = 0 }^{ m - 1 } \binom{ m - k - 1 }{ m - n - 1 } - (
+m - n ) \sum_{ k = 0 }^m \binom{ m - k }{ m - n }
+\end{aligned}
+\]</span></p>
+<p>不妨令<span class="math inline">\(S_m = \sum_{ k = 0 }^m \binom{ m -
+k }{ m - n } \\\)</span>,不难发现我们有:</p>
+<p><span class="math display">\[
+S_m = \sum_{ k = 0 }^m \binom{ k }{ m - n } = \binom{ m + 1 }{ m - n + 1
+}
+\]</span></p>
+<p>于是原式<span class="math inline">\(= mS_{ m - 1 } - ( m - n ) S_m =
+\cfrac{ n }{ m - n + 1 } \binom{ m }{ m - n } \\\)</span>.</p>
+<p>不过事实上,我们有另一种方式来处理这个等式,我们直接将<span class="math inline">\(k = \binom{ k }{ 1 }\)</span>带入:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{ k = 0 }^n k \binom{ m - k - 1 }{ m - n - 1 } &amp; = \sum_{ k = 0
+}^n \binom{ k }{ 1 } \binom{ m - k - 1 }{ m - n - 1 } \\
+&amp; = \binom{ m }{ m - n + 1 } \\
+&amp; = \cfrac{ n }{ m - n + 1 } \binom{ m }{ m - n }
+\end{aligned}
+\]</span></p>
+<h5><span id="example2">Example2</span></h5>
+<p>求<span class="math inline">\(\sum_{ k } k \binom{ n }{ k } \binom{ s
+}{ k } , n \in \mathbb{ N } \\\)</span>.</p>
+<p>第一反应仍然是使用吸收恒等式,但是注意到<span class="math inline">\(n\)</span>和<span class="math inline">\(s\)</span>的范围不一样,由于吸收恒等式的范围很松,因此应选择一个范围更松的数吸收,这样才能保证另一个数范围的特殊性,于是有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{ k } k \binom{ n }{ k } \binom{ s }{ k } &amp; = s \sum_{ k }
+\binom{ n }{ k } \binom{ s - 1 }{ k - 1 } \\
+&amp; = s \binom{ n + s - 1 }{ n - 1 }
+\end{aligned}
+\]</span></p>
+<h5><span id="example3">Example3</span></h5>
+<p>求<span class="math inline">\(\sum_{ 0 \leq k } \binom{ n + k }{ 2 k
+} \binom{ 2 k }{ k } \cfrac{ ( - 1 )^k }{ k + 1 } , n \in \mathbb{ N }
+\\\)</span>.</p>
+<p>我们有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{ 0 \leq k } \binom{ n + k }{ 2 k } \binom{ 2 k }{ k } \cfrac{ ( -
+1 )^k }{ k + 1 } &amp; = \sum_{ 0 \leq k } \binom{ n + k }{ k } \binom{
+n }{ k } \cfrac{ ( - 1 )^k }{ k + 1 } , n \in \mathbb{ N } \\
+&amp; = \cfrac{ 1 }{ n + 1 } \sum_{ 0 \leq k } \binom{ n + k }{ k }
+\binom{ n + 1 }{ k + 1 }{ ( - 1 )^k } \\
+&amp; = \cfrac{ 1 }{ n + 1 } \sum_{ 0 \leq k } \binom{ - n - 1 }{ k }
+\binom{ n + 1 }{ k + 1 } \\
+&amp; = \cfrac{ 1 }{ n + 1 } \binom{ 0 }{ n } \\
+&amp; = [ n = 0 ]
+\end{aligned}
+\]</span></p>
+<h5><span id="example4">Example4</span></h5>
+<p>求<span class="math inline">\(\sum_{ k \geq 0 } \binom{ n + k }{ m +
+2 k } \binom{ 2 k }{ k } \cfrac{ ( - 1 )^k }{ k + 1 } , n , m \in
+\mathbb{ N_+ } \\\)</span>.</p>
+<p>考虑恒等式扩展的二项式恒等式(整数范围内)的<span class="math inline">\(( 1 )\)</span>,我们有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{ k \geq 0 } \binom{ n + k }{ m + 2 k } \binom{ 2 k }{ k } \cfrac{
+( - 1 )^k }{ k + 1 } &amp; = \sum_{ k \geq 0 } \sum_{ 0 \leq j \leq n +
+k - 1 } \binom{ n + k - 1 - j }{ 2 k } \binom{ j }{ m - 1 } \binom{ 2 k
+}{ k } \cfrac{ ( - 1 )^k }{ k + 1 } \\
+&amp; = \sum_{ 0 \leq j \leq n - 1 } \binom{ j }{ m - 1 } \sum_{ j + 1 -
+n \leq k , 0 \leq k } \binom{ n + k - 1 - j }{ 2 k } \binom{ 2 k }{ k }
+\cfrac{ ( - 1 )^k }{ k + 1 }
+\end{aligned}
+\]</span></p>
+<p>注意到如果<span class="math inline">\(j + 1 - n \geq
+0\)</span>,则<span class="math inline">\(\binom{ n + k - 1 - j }{ 2 k }
+\\\)</span>应为<span class="math inline">\(0\)</span>.所以有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \sum_{ 0 \leq j \leq n - 1 } \binom{ j }{ m - 1 } \sum_{ j + 1 - n
+\leq k , 0 \leq k } \binom{ n + k - 1 - j }{ 2 k } \binom{ 2 k }{ k }
+\cfrac{ ( - 1 )^k }{ k + 1 } \\
+= &amp; \sum_{ 0 \leq j &lt; n } \binom{ j }{ m - 1 } [ n - 1 - j = 0 ]
+= \binom{ n - 1 }{ m - 1 }
+\end{aligned}
+\]</span></p>
+<h5><span id="example5">Example5</span></h5>
+<p>求<span class="math inline">\(\sum_{ k = 0 }^n ( C_n^k
+)^2\)</span>.</p>
+<p><span class="math display">\[
+\sum_{ k = 0 }^n ( C_n^k )^2 = \sum_{ k = 0 }^n C_{ n }^k \times C_{ n
+}^{ n - k } = C_n^{ 2 n }
+\]</span></p>
+<h4><span id="转化为递归式和式求解">转化为递归式/和式求解</span></h4>
+<h5><span id="example1">Example1</span></h5>
+<p>求<span class="math inline">\(Q_n = \sum_{ k \leq 2^n } \binom{ 2^n -
+k }{ k } ( - 1 )^k , n \in \mathbb{ N } \\\)</span>.</p>
+<p>如果要转化为递归式的话,我们所掌握的只有加法恒等式,但加法恒等式只给出了杨辉三角中相邻两行的关系.但由于<span class="math inline">\(Q_n\)</span>的式子中实际上只与<span class="math inline">\(2^n\)</span>有关,我们不妨令<span class="math inline">\(R_n = \sum_{ k \leq n } \binom{ n - k }{ k } ( - 1
+)^k \\\)</span>,显然有<span class="math inline">\(Q_n = R_{ 2^n
+}\)</span>.</p>
+<p>而我们有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+R_n &amp; = \sum_{ k \leq n } \binom{ n - 1 - k }{ k } ( - 1 )^k +
+\sum_{ k \leq n } \binom{ n - 1 - k }{ k - 1 } ( - 1 )^k \\
+&amp; = \sum_{ k \leq n } \binom{ n - 1 - k }{ k } ( - 1 )^k + \sum_{ k
+\leq n - 1 } \binom{ n - k - 2 }{ k } ( - 1 )^{ k + 1 } \\
+&amp; = \sum_{ k \leq n - 1 } \binom{ n - 1 - k }{ k } ( - 1 )^k +
+\binom{ - 1 }{ n } ( - 1 )^n - ( \sum_{ k \leq n - 2 } \binom{ n - 2 - k
+}{ k } ( - 1 )^k + \binom{ - 1 }{ n - 1 } ( - 1 )^{ n - 1 } ) \\
+&amp; = \sum_{ k \leq n - 1 } \binom{ n - 1 - k }{ k } ( - 1 )^k -
+\sum_{ k \leq n - 1 } \binom{ n - 2 - k }{ k } ( - 1 )^k \\
+&amp; = R_{ n - 1 } - R_{ n - 2 } \\
+&amp; = R_{ n - 2 } - R_{ n - 3 } - R_{ n - 2 } \\
+&amp; = - R_{ n - 3 } \\
+&amp; = R_{ n - 6 }
+\end{aligned}
+\]</span></p>
+<p>也即<span class="math inline">\(R_n\)</span>具有周期性,不难计算前几项答案,最后有<span class="math inline">\(Q_n \begin{cases}1 &amp; n = 0 \\ 0 &amp; n \ is \
+\mathrm{ odd } \\ - 1 &amp; n &gt; 0 \land n \ is \ \mathrm{ even
+}\end{cases}\)</span>.</p>
+<h5><span id="example2">Example2</span></h5>
+<p>求<span class="math inline">\(( \sum^{ + \infty }_{ i = 0 } C^{ ik +
+r }_{ nk } ) \mod p\)</span>.</p>
+<p>考虑设<span class="math inline">\(f ( n , r ) = \sum^{ + \infty }_{ i
+= 0 } C^{ ik + r }_{ nk } \\\)</span>,则有:</p>
+$$
+<span class="math display">\[\begin{aligned}
+f ( n , r ) &amp; = \sum^{ + \infty }_{ i = 0 } C^{ ik + r }_{ nk } \\
+&amp; = \sum_{ i = 0 }^{ + \infty } \sum_{ j = 0 }^k C_{ nk - k }^{ ik +
+r - j } \times C_k^j \\
+&amp; = \sum^k_{ j = 0 } C_k^j \sum_{ i = 0 }^{ + \infty } C_{ nk - k
+}^{ ik + r - j } \\
+&amp; = \sum_{ j = 0 }^k C_k^j f ( n - 1 , r - j ) \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>整理上式,得到:<span class="math inline">\(f ( n , r ) = \sum_{ j = 0
+}^k C_k^j f ( n - 1 , r - j ) \\\)</span>.</p>
+<p>于是我们得到了关于<span class="math inline">\(f\)</span>的转移方程,可以矩阵加速.</p>
+<h4><span id="利用微积分求解">利用微积分求解</span></h4>
+<h5><span id="example">Example</span></h5>
+<p>求<span class="math inline">\(\sum_{ k = 1 }^n k^2
+C_n^k\)</span>.</p>
+$$
+<span class="math display">\[\begin{aligned}
+( ( 1 + x )^n ) &amp; = ( \sum_{ k = 0 }^n C_n^k x^{ k } ) \\
+( ( 1 + x )^n ) &#39; &amp; = ( \sum_{ k = 0 }^n C_n^k x^{ k } ) &#39;
+\\
+n ( 1 + x )^{ n - 1 } &amp; = \sum_{ k = 0 }^n kC_n^k x^{ k - 1 } \\
+nx ( 1 + x )^{ n - 1 } &amp; = \sum_{ k = 0 }^n kC_n^k x^{ k } \\
+( nx ( 1 + x )^{ n - 1 } ) &#39; &amp; = ( \sum_{ k = 0 }^n kC_n^k x^{ k
+} ) &#39; \\
+n ( ( 1 + x )^{ n - 1 } + ( n - 1 ) x ( 1 + x )^{ n - 2 } ) &amp; =
+\sum_{ k = 0 }^n k^2 C_n^k x^{ k - 1 } \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>取<span class="math inline">\(x = 1\)</span>,则原式<span class="math inline">\(= n ( n + 1 ) 2^{ n - 2 }\)</span>.</p>
+<h4><span id="转化为二维平面">转化为二维平面</span></h4>
+<h5><span id="example1">Example1</span></h5>
+<p>多次询问给定<span class="math inline">\(k , r\)</span>,<span class="math inline">\(\sum k \leq 2 n , r &lt; 2 n - k\)</span>,求<span class="math inline">\(\sum_{ i = 0 }^{ r } \frac{ 1 }{ 2^i } \binom{ i
+}{ n - k }\)</span>,.</p>
+<p>我们把模型抽象成:在二维平面上,从<span class="math inline">\(( 0 , 0
+)\)</span>随机游走到<span class="math inline">\(( n - k + 1 , r - n + k
+)\)</span>正下方(包含这个点)的概率,容易发现此时向右走了<span class="math inline">\(n - k\)</span>步,总共走了<span class="math inline">\(\leq
+r\)</span>步,然后再向右走一步保证第一次走到了<span class="math inline">\(( n - k + 1 , r - n + k )\)</span>下方.</p>
+<p>因为是概率,所以当我们已经确定这个事会发生的时候可以多走几步,不难发现这里的概率等价于走到<span class="math inline">\(x + y = r + 1\)</span>这条直线时横坐标<span class="math inline">\(\geq n - k +
+1\)</span>的概率.枚举一下总共向上走了几步,就得到<span class="math inline">\(\frac{ 1 }{ 2^{ r } } \sum_{ j = 0 }^{ r - n + k }
+\binom{ r + 1 }{ j }\)</span>,注意这里是<span class="math inline">\(\frac{ 1 }{ 2^r
+}\)</span>,因为从一开始钦定了一步,因此映射过来需要多乘个<span class="math inline">\(\frac{ 1 }{ 2 }\)</span>,反映射就要乘个<span class="math inline">\(2\)</span>.但是这个式子还是做不了,因为<span class="math inline">\(r\)</span>并不满足<span class="math inline">\(\sum
+r \leq 2 n\)</span>.我们需要另辟蹊径.</p>
+<p>做一下补集转化转化成走到上方的概率,这个概率就等价于<span class="math inline">\(1 - \frac{ 1 }{ 2^{ r } } \sum_{ i = 0 }^{ n - k }
+\binom{ r + 1 }{ i }\)</span>.我们考虑暴力预处理出<span class="math inline">\(f_r = \sum_{ i = 0 }^{ n } \binom{ r }{ i
+}\)</span>,每次删掉一个后缀的组合数就行.现在的问题在于<span class="math inline">\(f\)</span>怎么做.</p>
+<p>直接拆组合数,我们有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+f_r &amp; = \sum_{ i = 0 }^n \binom{ r }{ i } \\
+&amp; = \sum_{ i = 0 }^n \binom{ r - 1 }{ i - 1 } + \sum_{ i = 0 }^n
+\binom{ r - 1 }{ i } \\
+&amp; = 2 \sum_{ i = 0 }^n \binom{ r - 1 }{ i } - \binom{ r - 1 }{ n }
+\\
+&amp; = 2 f_{ r - 1 } - \binom{ r - 1 }{ n }
+\end{aligned}
+\]</span></p>
+<h3><span id="lucas定理">Lucas定理</span></h3>
+<p>若<span class="math inline">\(p\)</span>是质数,则<span class="math inline">\(C_n^m \mod p = C_{ n \mod p }^{ m \mod p } \times
+C_{ \lfloor \frac{ n }{ p } \rfloor }^{ \lfloor \frac{ m }{ p } \rfloor
+} \mod p \\\)</span>.</p>
+<p>或者说,将<span class="math inline">\(n\)</span>和<span class="math inline">\(m\)</span>在<span class="math inline">\(p\)</span>进制下分解,再逐位求组合数并相乘.</p>
+<p>证明:</p>
+<p>首先,若<span class="math inline">\(i \ne 0\)</span>且<span class="math inline">\(i \ne p\)</span>,<span class="math inline">\(C_{ p
+}^i \equiv \frac{ p }{ i } C_{ p - 1 }^{ i - 1 } \equiv 0 ( \mod p )
+\\\)</span>.</p>
+<p>而根据二项式定理,<span class="math inline">\(( 1 + x )^p \equiv
+\sum_{ i = 0 }^p C_{ p }^i x^i = 1 + x^p ( \mod p ) \\\)</span>.</p>
+<p>令<span class="math inline">\(n = k_1 p + b_1\)</span>,<span class="math inline">\(m = k_2 p + b_2\)</span>,则<span class="math inline">\(( 1 + x )^n = ( 1 + x )^{ k_1 p } ( 1 + x )^{ b_1
+} \\\)</span>.</p>
+<p>而<span class="math inline">\(( 1 + x )^{ k_1 p } \equiv ( 1 + x^p
+)^{ k_1 } ( \mod p ) \\\)</span>,有<span class="math inline">\(( 1 + x
+)^n \equiv ( 1 + x^p )^{ k_1 } ( 1 + x )^{ b_1 } \\\)</span>.</p>
+<p>根据二项式定理,<span class="math inline">\(C_n^m \bmod
+p\)</span>即<span class="math inline">\(x^m\)</span>项的系数.</p>
+<p>我们可以得出,<span class="math inline">\(C_n^m x^m \equiv C_{ k_1 }^{
+k_2 } x^{ k_2 p } C_{ b 1 }^{ b_2 } x^{ b_2 } \pmod{ p }
+\\\)</span>,那么有<span class="math inline">\(C_a^b \equiv C_{ k_1 }^{
+k_2 } C_{ b_1 }^{ b_2 } \pmod{ p } \\\)</span>.</p>
+<p>另外,Lucas定理有一个很重要的推论是:</p>
+<p><span class="math display">\[
+\binom{ n }{ m } \equiv [ m \subseteq n ] \pmod{ 2 }
+\]</span></p>
+<h5><span id="example1cf1770fkoxia-andsequence">Example1([CF1770F]Koxia and
+Sequence)</span></h5>
+<p>首先观察样例并思考,可以发现当<span class="math inline">\(n\)</span>为偶数时,显然翻转整个序列就可以一一对应(除非翻转后与本身相同,但这种情况下异或值也是<span class="math inline">\(0\)</span>),所以异或值为<span class="math inline">\(0\)</span>.不然,我们可以翻转<span class="math inline">\(a [ 2 . . . n ]\)</span>,得出答案应该是所有<span class="math inline">\(a_1\)</span>的异或和.</p>
+<p>问题在于接下来怎么做,我们考虑把按位或的那个东西容斥掉.现在问题转化为:对于所有<span class="math inline">\(y &#39; \subseteq y\)</span>,求出满足<span class="math inline">\(a_i \subseteq y &#39; , \sum a_i =
+x\)</span>时,<span class="math inline">\(a_1\)</span>异或和.接下来怎么做呢?我们考虑拆位,若<span class="math inline">\(2^k \subseteq y &#39;\)</span>,假设<span class="math inline">\(a_1\)</span>的第<span class="math inline">\(k\)</span>位是<span class="math inline">\(1\)</span>,然后讨论此时它对答案是否会产生贡献.</p>
+<p>我们不难发现,第<span class="math inline">\(k\)</span>位贡献是:</p>
+<p><span class="math display">\[
+[ 2^k \subseteq y &#39; ] \bigoplus_{ \sum a = x } [ 2^k \subseteq a_1 ]
+\prod_{ i = 1 }^n [ a_i \subseteq y &#39; ]
+\]</span></p>
+<p>这个东西看上去没办法做,但我们突然想到个事:Lucas定理的推论:<span class="math inline">\([ x \subseteq y ] \equiv \binom{ y }{ x } \pmod{ 2
+}\)</span>.</p>
+<p>所以原式化简为:</p>
+$$
+<span class="math display">\[\begin{aligned}
+&amp; \binom{ y &#39; }{ 2^k } \sum_{ \sum a = x } \binom{ a_1 }{ 2^k }
+\prod_{ i = 1 }^n \binom{ y &#39; }{ a_i } \pmod{ 2 } \\
+= &amp; \binom{ y &#39; }{ 2^k } \sum_{ a_1 } \binom{ y &#39; - 2^k }{
+a_1 - 2^k } \sum_{ \sum a = x - a_1 } \prod_{ i = 2 }^n \binom{ y &#39;
+}{ a_i } \pmod{ 2 } \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>然后呢?不难发现后面那一串是范德蒙德卷积的形式,就可以写成:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \binom{ y &#39; }{ 2^k } \sum_{ a_1 } \binom{ y &#39; - 2^k }{ a_1
+- 2^k } \binom{ ( n - 1 ) y &#39; }{ x - a_1 } \pmod{ 2 } \\
+= &amp; \binom{ y &#39; }{ 2^k } \binom{ ny &#39; - 2^k }{ x - 2^k }
+\pmod{ 2 } \\
+= &amp; [ 2^k \subseteq y &#39; ] [ ( x - 2^k ) \subseteq ( ny &#39; -
+2^k ) ]
+\end{aligned}
+\]</span></p>
+<h3><span id="扩展lucas定理">扩展Lucas定理</span></h3>
+<p>令<span class="math inline">\(p = \prod p_i^{ e_i
+}\)</span>,那我们只要对于每个<span class="math inline">\(i\)</span>求出<span class="math inline">\(C_n^m
+\mod p_i^{ e_i }\)</span>,然后使用中国剩余定理合并即可.</p>
+<p>那现在问题转化为要求<span class="math inline">\(C_n^m \mod
+p^k\)</span>,其中<span class="math inline">\(p \in \mathrm{ prime
+}\)</span>.</p>
+<p>原式<span class="math inline">\(= \frac{ n ! }{ m ! ( n - m ) ! }
+\mod p^k = \frac{ \frac{ n ! }{ p^x } }{ \frac{ m ! }{ p^y } \frac{ ( n
+- m ) ! }{ p^z } } p^{ x - y - z } \mod p^k \\\)</span>.</p>
+<p>现在问题转化为求<span class="math inline">\(\frac{ n ! }{ p^x } \mod
+p^k 以 及 p^x \\\)</span>.</p>
+<p>注意到:</p>
+<p><span class="math display">\[
+\begin{aligned}
+n ! &amp; = \prod_{ i = 1 } i \\
+&amp; = ( \prod_{ i = wp , w \in \mathbb{ Z } } i ) ( \prod_{ i \ne wp ,
+w \in \mathbb{ Z } } i ) \\
+&amp; = p^{ \lfloor n p \rfloor } ( \lfloor n p \rfloor ! ) ( \prod_{ i
+\ne wp , w \in \mathbb{ Z } } i ) \\
+&amp; \equiv p^{ \lfloor \frac{ n }{ p } \rfloor } ( \lfloor \frac{ n }{
+p } \rfloor ! ) ( \prod_{ i = 1 , i \ne wp , w \in \mathbb{ Z } }^{ p^k
+} i )^{ \lfloor \frac{ n }{ p^k } \rfloor } ( \prod^{ n \ \bmod{ p^k }
+}_{ i = p^k \lfloor \frac{ n }{ p^k } \rfloor , i \ne wp , w \in
+\mathbb{ Z } } i ) ( \mod p^k )
+\end{aligned}
+\]</span></p>
+<p>递归求解即可.</p>
+<p>ps:</p>
+<p>这样摆式子可能非常难以理解,我们考虑将<span class="math inline">\([ 1
+, n ]\)</span>的所有数全部排成一个宽为<span class="math inline">\(p^k\)</span>的矩阵.</p>
+<p>那右边第一项就是把那些<span class="math inline">\(p\)</span>的倍数的列拿出来,第二项是那些填满的行,第三项是最后没填满的一行.</p>
+<h2><span id="斯特林数">斯特林数</span></h2>
+<h3><span id="第一类斯特林数">第一类斯特林数</span></h3>
+<p><span class="math inline">\(n \brack k \\\)</span>:长度为<span class="math inline">\(n\)</span>的排列划分成<span class="math inline">\(k\)</span>个轮换的方案数.</p>
+<p>考虑现在已经将<span class="math inline">\(n -
+1\)</span>个数分成了若干轮换,现在新加入第<span class="math inline">\(n\)</span>个数.这个数要么和其他的数一起组成轮换,要么自己形成自环.</p>
+<p>而由于它可以插入前面轮换的任意位置,显然<span class="math inline">\(\left [ \begin{array}{ c } n \\ k\end{array}
+\right ] = ( n - 1 ) \left [ \begin{array}{ c } n - 1 \\ k\end{array}
+\right ] + \left [ \begin{array}{ c } n - 1 \\ k - 1\end{array} \right ]
+\\\)</span>.</p>
+<p>特别地,我们定义<span class="math inline">\(\left [ \begin{array}{ c }
+0 \\ k\end{array} \right ] = [ k = 0 ] \\\)</span>.</p>
+<p>由于所有的排列都由若干置换组成,因此我们有:<span class="math inline">\(\sum_{ k = 0 }^n \left [ \begin{array}{ c } n \\
+k\end{array} \right ] = n !\)</span>.</p>
+<h3><span id="第二类斯特林数">第二类斯特林数</span></h3>
+<p><span class="math inline">\(\left \{ \begin{array}{ c } n \\
+k\end{array} \right \}\)</span>:将<span class="math inline">\(n\)</span>个本质不同的物品划分成k个非空集合的方案数.</p>
+<p>考虑现在已经放好<span class="math inline">\(n -
+1\)</span>个物品,正要放入第<span class="math inline">\(n\)</span>个物品.那么这个物品要么单独放在一起,要么和其他物品放在一起.显然<span class="math inline">\(\left \{ \begin{array}{ c } n \\ k\end{array}
+\right \} = k \left \{ \begin{array}{ c } n - 1 \\ k\end{array} \right
+\} + \left \{ \begin{array}{ c } n - 1 \\ k - 1\end{array} \right \}
+\\\)</span>.</p>
+<p>特别地,我们定义<span class="math inline">\(\left \{ \begin{array}{ c
+} 0 \\ k\end{array} \right \} = [ k = 0 ] \\\)</span>.</p>
+<h3><span id="斯特林数的扩展">斯特林数的扩展</span></h3>
+<p>如果我们让斯特林数的定义式扩展到整数域,我们可以发现一个性质:<span class="math inline">\({ n \brack m } ={ - m \brace - n }
+\\\)</span>.</p>
+<h3><span id="基本斯特林恒等式">基本斯特林恒等式</span></h3>
+<ol type="1">
+<li><span class="math inline">\(x^n = \sum_{ k = 0 }^n \left \{
+\begin{array}{ c } n \\ k\end{array} \right \} x^{ \underline{ k } } =
+\sum_{ k = 0 }^n \left \{ \begin{array}{ c } n \\ k\end{array} \right \}
+( - 1 )^{ n - k } x^{ \overline{ k } } \\\)</span>.</li>
+</ol>
+<p>证明:先考虑前半段,不妨使用数学归纳.若<span class="math inline">\(x^{
+n - 1 } = \sum_{ k = 0 }^{ n - 1 } \left \{ \begin{array}{ c } n - 1 \\
+k\end{array} \right \} x^{ \underline{ k } } \\\)</span>,我们要证</p>
+<p>\</p>
+$$
+<span class="math display">\[\begin{aligned}
+x \sum_{ k = 0 }^{ n - 1 } \left \{ \begin{array}
+{ c } n - 1 \\
+k
+\end{array} \right \} x^{ \underline{ k } } &amp; = \sum_{ k = 0 }^{ n }
+\left \{ \begin{array}
+{ c } n \\
+k
+\end{array} \right \} x^{ \underline{ k } } \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>考虑<span class="math inline">\(( x - k ) x^{ \underline{ k } } = x^{
+\underline{ k + 1 } }\)</span>,所以<span class="math inline">\(x \cdot
+x^{ \underline{ k } } = x^{ \underline{ k + 1 } } + kx^{ \underline{ k }
+} \\\)</span>.那么左边即:</p>
+$$
+<span class="math display">\[\begin{aligned}
+&amp; \sum_{ k = 0 }^{ n - 1 } \left \{ \begin{array}
+{ c } n - 1 \\
+k
+\end{array} \right \} x^{ \underline{ k + 1 } } + \sum_{ k = 0 }^{ n - 1
+} \left \{ \begin{array}
+{ c } n - 1 \\
+k
+\end{array} \right \} kx^{ \underline{ k } } \\
+= &amp; \sum_{ k = 1 }^{ n } \left \{ \begin{array}
+{ c } n - 1 \\
+k - 1
+\end{array} \right \} x^{ \underline{ k } } + \sum_{ k = 1 }^{ n } \left
+\{ \begin{array}
+{ c } n - 1 \\
+k
+\end{array} \right \} kx^{ \underline{ k } } \\
+= &amp; \sum_{ k = 0 }^n \left \{ \begin{array}
+{ c } n \\
+k
+\end{array} \right \} x^{ \underline{ k } } \\
+\\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>至于后半段,由于<span class="math inline">\(x^{ \underline{ n } } = (
+- 1 )^n ( - x )^{ \overline{ n } } \\\)</span>,所以<span class="math inline">\(x^n = \sum_{ k = 0 }^n \left \{ \begin{array}{ c }
+n \\ k\end{array} \right \} ( - 1 )^k ( - x )^{ \overline{ k } }
+\\\)</span>.</p>
+<p>不妨用<span class="math inline">\(x\)</span>来代替<span class="math inline">\(- x\)</span>,我们有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+( - x )^n &amp; = \sum_{ k = 0 }^n \left \{ \begin{array}
+{ c } n \\
+k
+\end{array} \right \} ( - 1 )^k ( x )^{ \overline{ k } } \\
+x^n &amp; = \sum_{ k = 0 }^n \left \{ \begin{array}
+{ c } n \\
+k
+\end{array} \right \} ( - 1 )^{ n - k } x^{ \overline{ k } }
+\end{aligned}
+\]</span></p>
+<ol start="2" type="1">
+<li><p><span class="math inline">\(x^{ \overline{ n } } = \sum_{ k = 0
+}^n \left [ \begin{array}{ c } n \\ k\end{array} \right ] x^k
+\\\)</span>.</p></li>
+<li><p><span class="math inline">\(x^{ \underline{ n } } = \sum_{ k = 0
+}^n \left [ \begin{array}{ c } n \\ k\end{array} \right ] ( - 1 )^{ n -
+k } x^k \\\)</span>.</p></li>
+</ol>
+<p>证明:</p>
+<p>先考虑前者,由于<span class="math inline">\(( x + n - 1 ) x^k = x^{ k
++ 1 } + ( n - 1 ) x^k
+\\\)</span>,所以类似于(1)前半段的推导即可得到,后者同样可以使用下降幂和上升幂的转化来得到.</p>
+<ol start="4" type="1">
+<li>反转公式:<span class="math inline">\(\sum_{ k = 0 }^n \left [
+\begin{array}{ c } n \\ k\end{array} \right ] \left \{ \begin{array}{ c
+} k \\ m\end{array} \right \} ( - 1 )^{ n - k } = \sum_{ k = 0 }^n \left
+\{ \begin{array}{ c } n \\ k\end{array} \right \} \left [ \begin{array}{
+c } k \\ m\end{array} \right ] ( - 1 )^{ n - k } = [ m = n ]
+\\\)</span>.</li>
+</ol>
+<p>证明:</p>
+<p>考虑先证明后半部分,将(3)带入(1),得到<span class="math inline">\(x^n =
+\sum_{ k = 0 }^n \left \{ \begin{array}{ c } n \\ k\end{array} \right \}
+x^{ \underline{ k } } = \sum_{ k = 0 }^n \sum_{ m = 0 }^k \left \{
+\begin{array}{ c } n \\ k\end{array} \right \} \left [ \begin{array}{ c
+} k \\ m\end{array} \right ] ( - 1 )^{ n - k } x^m \\\)</span>.</p>
+<p>由于这对任意<span class="math inline">\(x\)</span>都成立,因此右边除了<span class="math inline">\(x^n\)</span>以外的项系数均为<span class="math inline">\(0\)</span>,而<span class="math inline">\(x^n\)</span>的系数为<span class="math inline">\(1\)</span>.前半部分是同理的.这个公式是斯特林反演的基础.</p>
+<ol start="5" type="1">
+<li><p><span class="math inline">\(\left \{ \begin{array}{ c } n + 1 \\
+m + 1\end{array} \right \} = \sum_{ k = m }^n \left ( \begin{array}{ c }
+n \\ k\end{array} \right ) \left \{ \begin{array}{ c } k \\ m\end{array}
+\right \} \\\)</span>.</p></li>
+<li><p><span class="math inline">\(\left [ \begin{array}{ c } n + 1 \\ m
++ 1\end{array} \right ] = \sum_{ k = m }^n \left ( \begin{array}{ c } n
+\\ k\end{array} \right ) \left [ \begin{array}{ c } k \\ m\end{array}
+\right ] \\\)</span>.</p></li>
+</ol>
+<p>证明:对于前者,考虑组合意义,将<span class="math inline">\(n +
+1\)</span>个分为<span class="math inline">\(m +
+1\)</span>组,也就是先找一部分分成<span class="math inline">\(m\)</span>组,再把剩下的分到一组.对于后者,也可以同样考虑组合意义.</p>
+<h3><span id="补充斯特林恒等式">补充斯特林恒等式</span></h3>
+<ol start="7" type="1">
+<li><p><span class="math inline">\(\left \{ \begin{array}{ c } n \\
+m\end{array} \right \} = \sum_{ k = m }^n \left ( \begin{array}{ c } n
+\\ k\end{array} \right ) \left \{ \begin{array}{ c } k + 1 \\ m +
+1\end{array} \right \} ( - 1 )^{ n - k } \\\)</span>.</p></li>
+<li><p><span class="math inline">\(\left [ \begin{array}{ c } n \\
+m\end{array} \right ] = \sum_{ k = m }^n \left ( \begin{array}{ c } n \\
+k\end{array} \right ) \left [ \begin{array}{ c } k + 1 \\ m +
+1\end{array} \right ] ( - 1 )^{ n - k } \\\)</span>.</p></li>
+</ol>
+<p>证明:由(5)(6),根据二项式反演可知.</p>
+<ol start="9" type="1">
+<li><span class="math inline">\(m ! \left \{ \begin{array}{ c } n \\
+m\end{array} \right \} = \sum_{ k = 0 }^m C_m^k k^n ( - 1 )^{ m - k }
+\\\)</span>.</li>
+</ol>
+<p>证明:首先有<span class="math inline">\(m^n = \sum_{ k = 0 }^m m^{
+\underline{ k } } \left \{ \begin{array}{ c } m \\ k\end{array} \right
+\} = \sum_{ k = 0 }^m k ! C_m^k \left \{ \begin{array}{ c } m \\
+k\end{array} \right \} \\\)</span>,对这个式子进行二项式反演即可.</p>
+<ol start="10" type="1">
+<li><span class="math inline">\(\left \{ \begin{array}{ c } n + 1 \\ m +
+1\end{array} \right \} = \sum_{ k = 0 }^n \left \{ \begin{array}{ c } k
+\\ m\end{array} \right \} ( m + 1 )^{ n - k } \\\)</span>.</li>
+</ol>
+<p>证明:</p>
+<p>考虑组合意义,相当于先把前<span class="math inline">\(k\)</span>个分为<span class="math inline">\(m\)</span>组,把第<span class="math inline">\(k +
+1\)</span>个数放到第<span class="math inline">\(m +
+1\)</span>组.然后剩下<span class="math inline">\(( n + 1 ) - ( k + 1 ) =
+n -
+k\)</span>个随便放.相当于我们按照每组所放的数的最小值区分每组.由于这么做,第<span class="math inline">\(m + 1\)</span>组(最小值最大的那组)在<span class="math inline">\(k\)</span>不同的时候最小值是不同的,因此一定不重不漏.</p>
+<ol start="11" type="1">
+<li><span class="math inline">\(\left [ \begin{array}{ c } n + 1 \\ m +
+1\end{array} \right ] = \sum_{ k = 0 }^n \left [ \begin{array}{ c } k \\
+m\end{array} \right ] C_{ n }^k ( n - k ) ! = n ! \sum_{ k = 0 }^n
+\frac{ \left [ \begin{array}{ c } k \\ m\end{array} \right ] }{ k ! }
+\\\)</span>.</li>
+</ol>
+<p>证明:</p>
+<p>先考虑前半部分,首先如果<span class="math inline">\(n &gt;
+0\)</span>,我们有<span class="math inline">\(\left [ \begin{array}{ c }
+n \\ 1\end{array} \right ] = ( n - 1 ) !
+\\\)</span>.这个式子很显然,我们现在有一个长度为<span class="math inline">\(n - 1\)</span>的环,想要往里插入第<span class="math inline">\(n\)</span>个数有<span class="math inline">\(n -
+1\)</span>种选择,所以我们有:<span class="math inline">\(\left [
+\begin{array}{ c } n \\ 1\end{array} \right ] = \left [ \begin{array}{ c
+} n - 1 \\ 1\end{array} \right ] ( n - 1 )
+\\\)</span>,数学归纳一下即可.</p>
+<p>那么前半部分的组合意义就是:考虑将<span class="math inline">\(n +
+1\)</span>个数划分成<span class="math inline">\(m +
+1\)</span>个环,我们先将其中<span class="math inline">\(k\)</span>个数划分成<span class="math inline">\(m\)</span>个环,剩下<span class="math inline">\(n +
+1 -
+k\)</span>个数划分成另一个环.但是这样算显然会算重,所以我们只需要勒令第<span class="math inline">\(n +
+1\)</span>个数在最后一个环里即可.该证明就显然了.</p>
+<p>而由于<span class="math inline">\(C_n^k ( n - k ) ! = C_n^{ n - k } (
+n - k ) ! = n^{ \underline{ n - k } } = \frac{ n ! }{ k ! }
+\\\)</span>.因此后半部分也得证.</p>
+<ol start="12" type="1">
+<li><p><span class="math inline">\(\left \{ \begin{array}{ c } n + m + 1
+\\ m\end{array} \right \} = \sum_{ k = 0 }^m k \left \{ \begin{array}{ c
+} n + k \\ k\end{array} \right \} \\\)</span>.</p></li>
+<li><p><span class="math inline">\(\left [ \begin{array}{ c } n + m + 1
+\\ m\end{array} \right ] \sum_{ k = 0 }^m ( n + k ) \left [
+\begin{array}{ c } n + k \\ k\end{array} \right ] \\\)</span>.</p></li>
+</ol>
+<p>证明:</p>
+<p>先考虑前者,我们将<span class="math inline">\(n +
+k\)</span>个位置分到<span class="math inline">\(k\)</span>个集合之后.还剩下<span class="math inline">\(( n + m + 1 ) - ( n + k ) = ( m - k + 1
+)\)</span>个数,剩下<span class="math inline">\(( m - k
+)\)</span>个集合.</p>
+<p>拿出来<span class="math inline">\(( n + k + 1
+)\)</span>这个数,剩下的数刚好够每个集合放一个.最后枚举一下把<span class="math inline">\(( n + k + 1
+)\)</span>放在哪里即可.由于每个划分一定存在一段(可能是<span class="math inline">\(0\)</span>)单独自己集合的后缀.所以这个递推成立.后者也可以同样证明.</p>
+<ol start="14" type="1">
+<li><span class="math inline">\(C_n^m ( n - 1 )^{ \underline{ n - m } }
+= \sum_{ k = m }^n \left [ \begin{array}{ c } n \\ k\end{array} \right ]
+\left \{ \begin{array}{ c } k \\ m\end{array} \right \}
+\\\)</span>.</li>
+</ol>
+<p>证明:</p>
+<p>考虑<span class="math inline">\(( n - 1 )^{ \underline{ n - m } } =
+\frac{ ( n - 1 ) ! }{ ( m - 1 ) ! } \\\)</span>,不妨设<span class="math inline">\(f ( n , m ) = \sum_{ k = m }^n \left [
+\begin{array}{ c } n \\ k\end{array} \right ] \left \{ \begin{array}{ c
+} k \\ m\end{array} \right \} \\\)</span>,相当于将<span class="math inline">\(n\)</span>个数分成非空<span class="math inline">\(m\)</span>组,然后组内的数要形成若干轮换的方案数.那么知道<span class="math inline">\(f ( n , m ) = f ( n - 1 , m - 1 ) + ( n - 1 + m )
+f ( n - 1 , m ) \\\)</span>.</p>
+<p>设<span class="math inline">\(g ( n , m ) = C_n^m \frac{ ( n - 1 ) !
+}{ ( m - 1 ) ! } = \frac{ n ! ( n - 1 ) ! }{ m ! ( n - m ) ! ( m - 1 ) !
+} \\\)</span>,那么知道:</p>
+$$
+<span class="math display">\[\begin{aligned}
+g ( n - 1 , m - 1 ) &amp; = \frac{ ( n - 1 ) ! ( n - 2 ) ! }{ ( m - 1 )
+! ( n - m ) ! ( m - 2 ) ! } \\
+g ( n - 1 , m ) &amp; = \frac{ ( n - 1 ) ! ( n - 2 ) ! }{ m ! ( n - 1 -
+m ) ! ( m - 2 ) ! } \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>显然<span class="math inline">\(g ( n , m ) = g ( n - 1 , m - 1 ) + (
+n - 1 + m ) g ( n - 1 , m ) \\\)</span>,数学归纳即可.</p>
+<ol start="15" type="1">
+<li><p><span class="math inline">\(C_n^m = \frac{ n ! }{ m ! ( n - m ) !
+} = \sum_{ k = m }^n \left \{ \begin{array}{ c } n + 1 \\ k +
+1\end{array} \right \} \left [ \begin{array}{ c } k \\ m\end{array}
+\right ] ( - 1 )^{ m - k } \\\)</span>.</p></li>
+<li><p><span class="math inline">\(n^{ \underline{ n - m } } = \frac{ n
+! }{ m ! } = \sum_{ k = m }^n \left [ \begin{array}{ c } n + 1 \\ k +
+1\end{array} \right ] \left \{ \begin{array}{ c } k \\ m\end{array}
+\right \} ( - 1 )^{ m - k } ， 其 中 m \leq n \\\)</span>.</p></li>
+</ol>
+<p>证明:考虑(5)(6),对其做一遍斯特林反演即可.</p>
+<ol start="17" type="1">
+<li><p><span class="math inline">\(\left \{ \begin{array}{ c } n \\ l +
+m\end{array} \right \} C_{ l + m }^l = \sum_{ k = l }^n \left \{
+\begin{array}{ c } k \\ l\end{array} \right \} \left \{ \begin{array}{ c
+} n - k \\ m\end{array} \right \} C_n^k \\\)</span>.</p></li>
+<li><p><span class="math inline">\(\left [ \begin{array}{ c } n \\ l +
+m\end{array} \right ] C_{ l + m }^l = \sum_{ k = l }^n \left [
+\begin{array}{ c } k \\ l\end{array} \right ] \left [ \begin{array}{ c }
+n - k \\ m\end{array} \right ] C_n^k \\\)</span>.</p></li>
+</ol>
+<p>证明:先考虑前者,左边即先将<span class="math inline">\(n\)</span>个数分为<span class="math inline">\(l +
+m\)</span>个集合,然后再挑出<span class="math inline">\(l\)</span>个集合.那不妨枚举这<span class="math inline">\(l\)</span>个集合中是哪些数,然后再进行分配.后者同理.</p>
+<h2><span id="欧拉数">欧拉数</span></h2>
+<p>记<span class="math inline">\(\left \langle \begin{array}\\ n \\
+k\end{array} \right \rangle\)</span>表示<span class="math inline">\(\{ 1
+, 2 , . . . , n \}\)</span>的排列<span class="math inline">\(a\)</span>中满足这条性质的排列个数:存在且只存在<span class="math inline">\(k\)</span>个升高,换句话说,存在且只存在<span class="math inline">\(k\)</span>个<span class="math inline">\(i\)</span>,满足<span class="math inline">\(1 \leq
+i &lt; n\)</span>,<span class="math inline">\(a_i &lt; a_{ i + 1
+}\)</span>.不难发现<span class="math inline">\(\left \langle
+\begin{array}\\ n \\ k\end{array} \right \rangle = \left \langle
+\begin{array}\\ n \\ n - k - 1\end{array} \right \rangle\)</span>.</p>
+<p>考虑在一个<span class="math inline">\(\{ 1 , 2 , . . . , n - 1
+\}\)</span>的排列中插入<span class="math inline">\(n\)</span>,设插入的位置是原本<span class="math inline">\(a_i\)</span>的后面,那么要么原本<span class="math inline">\(a_i &lt; a_{ i + 1
+}\)</span>,要么反之.前者不会改变排列的升高的数量,后者则会增加<span class="math inline">\(1\)</span>.另外还有一种情况是插入到了序列最前面.于是我们自然得到:<span class="math inline">\(\left \langle \begin{array}\\ n \\ k\end{array}
+\right \rangle = ( k + 1 ) \left \langle \begin{array}\\ n - 1 \\
+k\end{array} \right \rangle + ( n - k ) \left \langle \begin{array}\\ n
+- 1 \\ k - 1\end{array} \right \rangle\)</span>.</p>
+<p>特别地,我们令<span class="math inline">\(\left \langle
+\begin{array}\\ 0 \\ k\end{array} \right \rangle = [ k = 0
+]\)</span>,若<span class="math inline">\(k &lt; 0\)</span>,则<span class="math inline">\(\left \langle \begin{array}\\ n \\ k\end{array}
+\right \rangle = 0\)</span>.</p>
+<h3><span id="欧拉数与二项式系数">欧拉数与二项式系数</span></h3>
+<p>我们有Worpitzky恒等式:</p>
+<p><span class="math display">\[
+x^n = \sum_{ k \geq 0 } \binom{ x + k }{ n } \left \langle \begin{array}
+\\
+n \\
+k
+\end{array} \right \rangle , n \in \mathbb{ N }
+\]</span></p>
+<p>还有另一个恒等式:</p>
+<p><span class="math display">\[
+\left \langle \begin{array}
+\\
+n \\
+m
+\end{array} \right \rangle = \sum_{ k = 0 }^m \binom{ n + 1 }{ k } ( m +
+1 - k )^n ( - 1 )^k
+\]</span></p>
+<p>剩下的不会了.</p>
+<h2><span id="伯努利数">伯努利数</span></h2>
+<p>定义<span class="math inline">\(B_j\)</span>为第<span class="math inline">\(j\)</span>个伯努利数,且满足<span class="math inline">\(\sum_{ j = 0 }^m \binom{ m + 1 }{ j } B_j = [ m =
+0 ] , m \geq 0 \\\)</span>.</p>
+<p>定义<span class="math inline">\(S_m ( n ) = \sum_{ i = 0 }^{ n - 1 }
+i^m\)</span>.</p>
+<p>伯努利数满足公式:<span class="math inline">\(S_m ( n ) = \cfrac{ 1 }{
+m + 1 } \sum_{ k = 0 }^m \binom{ m + 1 }{ k } B_k n^{ m + 1 - k }
+\\\)</span>.</p>
+<p>证明如下:</p>
+<p>对<span class="math inline">\(S_{ m + 1 } ( n
+)\)</span>使用扰动法,我们有:</p>
+$$
+<span class="math display">\[\begin{aligned}
+S_{ m + 1 } ( n ) + n^{ m + 1 } &amp; = \sum_{ k = 0 }^{ n - 1 } ( k + 1
+)^{ m + 1 } \\
+&amp; = \sum_{ k = 0 }^{ n - 1 } \sum_{ j = 0 }^{ m + 1 } \binom{ m + 1
+}{ j } k^j \\
+&amp; = \sum_{ j = 0 }^{ m + 1 } \binom{ m + 1 }{ j } S_j ( n ) \\
+&amp; = \sum_{ j = 0 }^{ m } \binom{ m + 1 }{ j } S_j ( n ) + S_{ m + 1
+} ( n ) \\
+n^{ m + 1 } &amp; = \sum_{ j = 0 }^m \binom{ m + 1 }{ j } S_j ( n ) \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>接下来使用数学归纳,假设<span class="math inline">\(0 \leq j &lt;
+m\)</span>时该公式成立,并假设有<span class="math inline">\(S_m ( n ) =
+\cfrac{ 1 }{ m + 1 } \sum_{ k = 0 }^m \binom{ m + 1 }{ k } B_k n^{ m + 1
+- k } + \Delta \\\)</span>,我们只需要证明<span class="math inline">\(\Delta = 0\)</span>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+n^{ m + 1 } &amp; = \sum_{ j = 0 }^m \binom{ m + 1 }{ j } \cfrac{ 1 }{ j
++ 1 } \sum_{ k = 0 }^j \binom{ j + 1 }{ k } B_k n^{ j + 1 - k } + ( m +
+1 ) \Delta \\
+&amp; = \sum_{ 0 \leq k \leq j \leq m } \binom{ j + 1 }{ k } \binom{ m +
+1 }{ j } \cfrac{ 1 }{ j + 1 } B_k n^{ j + 1 - k } + ( m + 1 ) \Delta \\
+&amp; = \sum_{ 0 \leq k \leq j \leq m } \binom{ j + 1 }{ j - k } \binom{
+m + 1 }{ j } \cfrac{ 1 }{ j + 1 } B_{ j - k } n^{ k + 1 } + ( m + 1 )
+\Delta \\
+&amp; = \sum_{ 0 \leq k \leq j \leq m } \binom{ j + 1 }{ k + 1 } \binom{
+m + 1 }{ j } \cfrac{ 1 }{ j + 1 } B_{ j - k } n^{ k + 1 } + ( m + 1 )
+\Delta \\
+&amp; = \sum_{ 0 \leq k \leq m } \cfrac{ n^{ k + 1 } }{ k + 1 } \sum_{ j
+= k }^m B_{ j - k } \binom{ m + 1 }{ j } \binom{ j }{ k } + ( m + 1 )
+\Delta \\
+&amp; = \sum_{ 0 \leq k \leq m } \cfrac{ n^{ k + 1 } }{ k + 1 } \binom{
+m + 1 }{ k } \sum_{ j = k }^m B_{ j - k } \binom{ m + 1 - k }{ j - k } +
+( m + 1 ) \Delta \\
+&amp; = \sum_{ k = 0 }^m \cfrac{ n^{ k + 1 } }{ k + 1 } \binom{ m + 1 }{
+k } \sum_{ j = 0 }^{ m - k } B_{ j } \binom{ m + 1 - k }{ j } + ( m + 1
+) \Delta \\
+&amp; = \sum_{ k = 0 }^m \cfrac{ n^{ k + 1 } }{ k + 1 } \binom{ m + 1 }{
+k } [ m - k = 0 ] + ( m + 1 ) \Delta \\
+&amp; = n^{ m + 1 } + ( m + 1 ) \Delta
+\end{aligned}
+\]</span></p>
+<p>显然<span class="math inline">\(\Delta = 0\)</span>,上式成立.</p>
+<h2><span id="斐波那契数">斐波那契数</span></h2>
+<p>定义斐波那契数<span class="math inline">\(F_n = \begin{cases}0 &amp;
+n = 0 \\ 1 &amp; n = 1 \\ F_{ n - 1 } + F_{ n - 2 } &amp; n &gt;
+1\end{cases}\)</span>.</p>
+<h3><span id="斐波那契数的扩展定义">斐波那契数的扩展定义</span></h3>
+<p>首先根据数学归纳,不难证明卡西尼恒等式:</p>
+<p><span class="math display">\[
+F_{ n + 1 } F_{ n - 1 } - F_n^2 = ( - 1 )^n , n &gt; 0
+\]</span></p>
+<p>事实上,如果我们将斐波那契数的递推式改写作:<span class="math inline">\(F_n = F_{ n + 2 } - F_{ n + 1
+}\)</span>,我们可以在<span class="math inline">\(n \in \mathbb{ Z
+}\)</span>的时候定义斐波那契数,同样也是满足上面的恒等式的,而且我们可以发现:</p>
+<p><span class="math display">\[
+F_{ - n } = ( - 1 )^{ n - 1 } F_n , n \in \mathbb{ Z }
+\]</span></p>
+<h3><span id="斐波那契数与数论">斐波那契数与数论</span></h3>
+<p>如果我们考虑不断使用斐波那契递推式展开,不难发现:</p>
+<p><span class="math display">\[
+\begin{aligned}
+F_{ n + k } &amp; = F_k F_{ n + 1 } + F_{ k - 1 } F_n \\
+F_{ n + m + 1 } &amp; = F_{ n + 1 } F_{ m + 1 } + F_n F_m
+\end{aligned}
+\]</span></p>
+<p>另外,如果我们在上面这个式子中取<span class="math inline">\(k = wn , w
+\in \mathbb{ N }\)</span>并使用归纳法,我们又可以得到一个性质:<span class="math inline">\(F_{ kn }\)</span>是<span class="math inline">\(F_n\)</span>的倍数,<span class="math inline">\(k
+\in \mathbb{ Z }\)</span>.</p>
+<p>再观察这个式子,使用归纳法可以证明<span class="math inline">\(\gcd (
+F_{ n } , F_{ n - 1 } ) = 1\)</span>,进一步有:<span class="math inline">\(\gcd ( F_{ n + m } , F_m ) = \gcd ( F_n , F_m
+)\)</span>.</p>
+<p>如果我们推广这个结论,就可以得到一个重要的性质:</p>
+<p><span class="math display">\[
+\gcd ( F_m , F_n ) = F_{ \gcd ( n , m ) }
+\]</span></p>
+<p>如果我们再一次推广这个结论,可以得到马蒂亚舍维奇引理:</p>
+<p><span class="math display">\[
+F_n^2 | F_m \Leftrightarrow nF_n | m , n &gt; 2
+\]</span></p>
+<p>这个引理的证明如下:</p>
+<p>由于<span class="math inline">\(F_{ n + 1 } \equiv F_{ n - 1 } \pmod{
+F_n }\)</span>.于是我们有:<span class="math inline">\(F_{ 2 n } = F_n
+F_{ n + 1 } + F_{ n - 1 } F_n\)</span>,也就是<span class="math inline">\(F_{ 2 n } \equiv 2 F_n F_{ n + 1 } \pmod{ F_n^2
+}\)</span>.</p>
+<p>另外我们有:<span class="math inline">\(F_{ 2 n + 1 } \equiv F_{ n + 1
+}^2 \pmod{ F_n^2 }\)</span>.</p>
+<p>同理,使用归纳法可以证明:<span class="math inline">\(F_{ kn } \equiv
+kF_n F_{ n + 1 }^{ k - 1 } \pmod{ F_n^2 } , F_{ kn + 1 } \equiv F_{ n +
+1 }^k \pmod{ F_n^2 }\)</span>.</p>
+<p>而<span class="math inline">\(F_{ n + 1 } \bot F_n\)</span>,于是<span class="math inline">\(F_{ kn } \equiv 0 \pmod{ F_n^2 } \Leftrightarrow k
+\equiv 0 \pmod{ F_n } , n &gt; 2\)</span>.</p>
+<h3><span id="斐波那契数系">斐波那契数系</span></h3>
+<p>我们如果定义<span class="math inline">\(j \gg k \Leftrightarrow j
+\geq k + 2\)</span>,那么有齐肯多夫定理:</p>
+<p>每个正整数都有唯一的表示方式满足:<span class="math inline">\(n =
+\sum_{ i = 1 }^r F_{ k_i } , \forall 1 \leq i &lt; r , k_i \gg k_{ i + 1
+} \gg 0\)</span>.</p>
+<p>首先证明存在性:我们考虑数学归纳,对于一个数n,如果<span class="math inline">\(\exists k\)</span>满足<span class="math inline">\(F_k = n\)</span>,则显然成立,不然,应<span class="math inline">\(\exists k\)</span>满足<span class="math inline">\(F_k &lt; n &lt; F_{ k + 1 }\)</span>,而<span class="math inline">\(n - F_k\)</span>的表示已经存在了.另外,由于<span class="math inline">\(n - F_k &lt; F_{ k + 1 } - F_k = F_{ k - 1
+}\)</span>,因此必定不可能出现选了<span class="math inline">\(F_k\)</span>又选了<span class="math inline">\(F_{
+k - 1 }\)</span>的情况,存在性得证.</p>
+<p>至于唯一性,如果我们不选择<span class="math inline">\(F_k\)</span>而是选择<span class="math inline">\(F_{ k - 1
+}\)</span>,那么显然接下来无论怎么选,它们的加和都不可能大于等于<span class="math inline">\(F_k\)</span>,因此一定是唯一的.</p>
+<p>这样的话,我们可以将一个自然数<span class="math inline">\(n\)</span>以斐波那契数的形式表示出来.</p>
+<h3><span id="斐波那契数的封闭形式">斐波那契数的封闭形式</span></h3>
+<p>使用生成函数,令<span class="math inline">\(F ( z ) = \sum_{ k \geq 0
+} F_k z^k\)</span>.那么不难发现<span class="math inline">\(F ( z ) - zF
+( z ) - z^2 F ( z ) = z\)</span>,也就是<span class="math inline">\(F ( z
+) = \cfrac{ z }{ 1 - z - z^2 }\)</span>.</p>
+<p>考虑这个形式一定可以分解为<span class="math inline">\(F ( z ) =
+\cfrac{ a }{ 1 - \alpha z } + \cfrac{ b }{ 1 - \beta z
+}\)</span>的形式,而这两种形式对应的生成函数都很显然.</p>
+<p>进行因式分解,如果令<span class="math inline">\(\phi = \cfrac{ 1 +
+\sqrt{ 5 } }{ 2 } , \hat \phi = \cfrac{ 1 - \sqrt{ 5 } }{ 2
+}\)</span>,那么可以得到<span class="math inline">\(F_n = \cfrac{ 1 }{
+\sqrt{ 5 } } ( \phi^n - \hat \phi^n )\)</span>.</p>
+<p>另外,由于<span class="math inline">\(\hat
+\phi^n\)</span>的影响很小,于是又有<span class="math inline">\(F_n =
+\lfloor \cfrac{ \phi^n }{ \sqrt{ 5 } } + 0 . 5 \rfloor\)</span>.</p>
+<h3><span id="连项式">连项式</span></h3>
+<p>连项式多项式<span class="math inline">\(K_n ( x_1 , x_2 , . . . , x_n
+)\)</span>定义为:<span class="math inline">\(K_n ( x_1 , x_2 , . . . ,
+x_n ) = \begin{cases}1 &amp; n = 0 \\ x_1 &amp; n = 1 \\ x_n K_{ n - 1 }
+( x_1 , x_2 , . . . x_{ n - 1 } ) + K_{ n - 2 } ( x_1 , x_2 , . . . ,
+x_{ n - 2 } ) &amp; n \geq 2\end{cases}\)</span>.</p>
+<p>通过定义不难发现:<span class="math inline">\(K_n ( 1 , 1 , . . . , 1
+) = F_{ n + 1 }\)</span>.</p>
+<p>继续观察式子,会发现它递归的过程相当于枚举是否消掉相邻的一对数<span class="math inline">\(( x_{ n - 1 } , x_n
+)\)</span>.我们考虑用这样一种形式的字符串来表示最后某一项的情况:‘.’为还没有消除掉的项,长度为<span class="math inline">\(1\)</span>;’-‘为已经消除了的两项,长度为<span class="math inline">\(2\)</span>.那么<span class="math inline">\(K_n (
+x_1 , x_2 , . . . , x_n )\)</span>就可以表示为一个长度为<span class="math inline">\(n\)</span>的字符串,其中若有<span class="math inline">\(k\)</span>个’-‘,有<span class="math inline">\(n -
+2 k\)</span>个’.’,则有<span class="math inline">\(\binom{ n - k }{ k
+}\)</span>种不同的排列方式.</p>
+<p>于是我们有:</p>
+$$
+<span class="math display">\[\begin{aligned}
+K_n ( z , z , . . . , z ) &amp; = \sum_{ k = 0 }^n \binom{ n - k }{ k }
+z^{ n - 2 k } \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>另外,这也导出:<span class="math inline">\(F_{ n + 1 } = \sum_{ k = 0
+}^n \binom{ n - k }{ k } \\\)</span>.</p>
+<p>考虑上面的构造过程,不难发现<span class="math inline">\(K_n ( x_1 ,
+x_2 , . . . , x_n ) = K_n ( x_n , x_{ n - 1 } , . . . , x_1
+)\)</span>.</p>
+<p>于是递归式可以写成:<span class="math inline">\(K_n ( x_1 , x_2 , . .
+. , x_n ) = x_1 K_{ n - 1 } ( x_2 , x_3 , . . . x_{ n } ) + K_{ n - 2 }
+( x_3 , x_4 , . . . , x_{ n } )\)</span>.</p>
+<p>进一步地,不断展开后得到:</p>
+<p><span class="math display">\[
+\begin{aligned}
+K_{ m + n } ( x_1 , . . . , x_m , x_{ m + 1 } , . . . , x_{ n + m } )
+&amp; = \\
+K_m ( x_1 , . . . , x_m ) K_n ( x_{ m + 1 } , . . . , x_{ n + m } ) +
+K_{ m - 1 } ( x_1 , . . . , x_{ m - 1 } ) K_{ n - 1 } ( x_{ m + 2 } , .
+. . , x_{ n + m } )
+\end{aligned}
+\]</span></p>
+<p>另外,根据连项式的定义,不难导出<span class="math inline">\(K_n ( x_1 ,
+. . . , x_n + y ) = K_n ( x_1 , . . . , x_n ) + K_{ n - 1 } ( x_1 , . .
+. , x_{ n - 1 } ) y\)</span>.</p>
+<p>由这个公式可以推出:<span class="math inline">\(\cfrac{ K_{ n + 1 } (
+a_0 , . . . , a_n ) }{ K_n ( a_1 , . . . , a_n ) } = \cfrac{ K_n ( a_0 ,
+. . . , a_{ n - 1 } + \cfrac{ 1 }{ a_n } ) }{ K_{ n - 1 } ( a_1 , . . .
+, a_{ n - 1 } + \cfrac{ 1 }{ a_n } ) }\)</span>.</p>
+<p>不断做这个迭代,于是我们可以得到连项式与连分数之间的关系:</p>
+<p><span class="math display">\[
+\cfrac{ K_{ n + 1 } ( a_0 , . . . , a_n ) }{ K_n ( a_1 , . . . , a_n ) }
+= a_0 + \cfrac{ 1 }{ a_1 + \cfrac{ 1 }{ a_2 + \cfrac{ 1 }{ a_3 + . . . }
+} }
+\]</span></p>
+<p>另外,这个与数论中的Stern-Brocot树有很大关系,暂略.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -13789,935 +15085,6 @@ B } Mnq
 ( y^{ s_i } + 1 ) = ( \prod ( x^{ s_i } + 1 ) ) ( \prod ( y^{ s_i } + 1
 ) )\)</span>.也就是<span class="math inline">\(x\)</span>和<span class="math inline">\(y\)</span>是互相独立的,我们可以分开算.</p>
 <p>对于那些有偏好的学校,我们暴力算就行.复杂度不会高于<span class="math inline">\(O ( mk^2 s )\)</span>.最后两部分合并一下.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://lwlaymh.github.io/2025/06/23/%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E8%AE%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F1.jpg">
-      <meta itemprop="name" content="LWLAymh">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LWLAymh的备忘录">
-      <meta itemprop="description" content="不过是白日梦里一瞬息">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | LWLAymh的备忘录">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/06/23/%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E8%AE%BA/" class="post-title-link" itemprop="url">图论</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-06-23 00:00:25" itemprop="dateCreated datePublished" datetime="2025-06-23T00:00:25+08:00">2025-06-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/OI/" itemprop="url" rel="index"><span itemprop="name">OI</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2025/06/23/%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E8%AE%BA/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2025/06/23/%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E8%AE%BA/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-<h3><span id="约定">约定</span></h3>
-<p><span class="math inline">\(K_n\)</span>为<span class="math inline">\(n\)</span>个点的完全图</p>
-<h3><span id="树的性质">树的性质</span></h3>
-<h5><span id="example1hdu6035colorfultree">Example1([HDU6035]Colorful
-Tree)</span></h5>
-<p>考虑每种颜色的贡献,一种颜色的贡献显然是删去所有这个颜色的边后,剩下的联通块之间的路径.</p>
-<h5><span id="example22022qbxt国庆day1tree">Example2([2022qbxt国庆Day1]tree)</span></h5>
-<p>首先考虑分开处理每个点,在做每个点的时候假设它的所有子节点全部已经满足条件了,最终我们再通过计算组合数的方式计算即可.</p>
-<p>那么最后,我们需要对于每个点进行处理,假设我们已知这个子树的集合是<span class="math inline">\(S\)</span>,那么我们需要用容斥计算如果当前子树集合是<span class="math inline">\(S\)</span>的子集的情况,不难发现容斥式子:</p>
-<p><span class="math display">\[
-ans = \sum_{ k = \max \{ f_v | x \rightarrow v \} }^{ f_x } ( - 1 )^{
-f_x - k } k \binom{ f_x }{ k } \sum_{ x \rightarrow v } \binom{ k }{ f_v
-}
-\]</span></p>
-<p>其实也就是个二项式反演的形式.</p>
-<p>这题还需要一些技巧优化,我们首先发现由于<span class="math inline">\(f_v\)</span>有可能有重复的,我们可以提前把重复的<span class="math inline">\(f_v\)</span>压缩到一起再用快速幂求,于是后面的部分最多不过<span class="math inline">\(\sqrt{ n
-}\)</span>级别.而前面是一个类似于树上启发式合并的东西,于是复杂度<span class="math inline">\(O ( n \sqrt{ n } \log n )\)</span>.</p>
-<h5><span id="example3cf1628egroceries-in-meteor-town">Example3(CF1628E
-Groceries in Meteor Town)</span></h5>
-<p>因为要求路径最大值,所以先建Kruskal重构树.然后问题转化为求一个点和一群白点的LCA是谁.</p>
-<p>树上多点LCA有个经典性质:也就相当于其中<span class="math inline">\(dfn\)</span>序最大的和最小的两个点的LCA.</p>
-<p>至于区间覆盖可以用线段树.</p>
-<h5><span id="example4loj3692">Example4(loj3692)</span></h5>
-<p>注意到<span class="math inline">\(D\)</span>很小.</p>
-<p>我们考虑处理邻域乘,设<span class="math inline">\(f_{ x , i
-}\)</span>表示<span class="math inline">\(x\)</span>的<span class="math inline">\(i\)</span>级儿子需要乘上的答案.每次修改时,先将<span class="math inline">\(f_{ x , D }\)</span>和<span class="math inline">\(f_{ x , D - 1 }\)</span>乘上<span class="math inline">\(W\)</span>,然后令<span class="math inline">\(x =
-fa_x\)</span>,<span class="math inline">\(D = D -
-2\)</span>,继续此操作直到<span class="math inline">\(D\)</span>为<span class="math inline">\(0\)</span>.</p>
-<p>然后询问的时候直接暴力跳<span class="math inline">\(D\)</span>层父亲找答案,不难发现这样做是对的.</p>
-<p>同样的思路可以脱离点分治处理很多邻域问题.</p>
-<h4><span id="树的直径">树的直径</span></h4>
-<ol type="1">
-<li><p>定义:树中最长的一条简单路径.</p></li>
-<li><p>树的直径可能有多个.</p></li>
-<li><p>直径的两个端点一定是两个叶子节点.</p></li>
-<li><p>如果树有多条直径,树的不同的直径的中点/中边一定是相同的.</p></li>
-<li><p>到一个点距离最远的点一定是直径的一个端点.</p></li>
-<li><p>对于两棵树,如果第一棵树直径两端点为<span class="math inline">\((
-u , v )\)</span>,第二棵树直径两端点为<span class="math inline">\(( x , y
-)\)</span>,用一条边将两棵树连接,那么新树的直径一定是<span class="math inline">\(u , v , x , y\)</span>中的两个点.</p></li>
-</ol>
-<p>上述的证明大都是考虑反证法:如果不成立,则一定存在一条更长的直径.</p>
-<h5><span id="example1sdoi2013直径">Example1([SDOI2013]直径)</span></h5>
-<p>有一个做法是:考虑找到直径的中点/中边,找到它到两边的最远距离的点,显然两边的点分别的以中点/中边的两个端点为根的LCA中间的部分就是一定会被包含的边.</p>
-<h4><span id="树的重心">树的重心</span></h4>
-<ol type="1">
-<li><p>定义:树的重心是删去后所有剩余子树大小最大值最小的点.</p></li>
-<li><p>树的重心是删去后所有剩余子树大小全部小于等于<span class="math inline">\(\lfloor \cfrac{ n }{ 2 }
-\rfloor\)</span>的点.</p></li>
-<li><p>树的重心只有可能有一个或两个.</p></li>
-<li><p>如果树有两个重心,那么这两个重心相邻.</p></li>
-<li><p>树的重心是所有点到其距离之和最小的点.</p></li>
-<li><p>把一个树添加或删除一个叶子,那么它的重心最多只移动一条边的距离.</p></li>
-<li><p>把两个树通过一条边相连得到一个新的树,那么新的树的重心在连接原来两个树的重心的路径上.</p></li>
-</ol>
-<p>(2)的证明如下:</p>
-<p>如果重心是<span class="math inline">\(u\)</span>,且删去<span class="math inline">\(u\)</span>后剩余最大子树大小大于<span class="math inline">\(\lfloor \cfrac{ n }{ 2 }
-\rfloor\)</span>,设这棵子树中与<span class="math inline">\(u\)</span>相邻的点为<span class="math inline">\(v\)</span>,则我们删去<span class="math inline">\(v\)</span>后,最大子树大小一定会减少,不满足假设,所以(2)得证.</p>
-<p>另外,如果一个点删去后所有剩余子树大小全部小于等于<span class="math inline">\(\lfloor \cfrac{ n }{ 2 }
-\rfloor\)</span>,那它也一定是重心.因为不存在除了重心以外的满足条件的点:考虑调整法,与重心相邻的点一定都不满足条件,因为它们的子树大小全都小于等于<span class="math inline">\(\lfloor \cfrac{ n }{ 2 }
-\rfloor\)</span>,移动后最大子树一定不小于<span class="math inline">\(n -
-\lfloor \cfrac{ n }{ 2 } \rfloor\)</span>.</p>
-<p>(3)(4)的证明如下:</p>
-<p>首先证明:如果有两个点都是重心,那它们一定相邻.</p>
-<p>考虑如果二者不相邻,那删去它们后剩下的最大子树大小一定相等,设这两个点分别为<span class="math inline">\(x , y\)</span>,那删去<span class="math inline">\(x\)</span>后,剩下的最大子树一定包含了<span class="math inline">\(y\)</span>,而这个子树的大小一定小于等于<span class="math inline">\(\lfloor \cfrac{ n }{ 2 }
-\rfloor\)</span>.那删去<span class="math inline">\(y\)</span>后,剩下的最大子树大小必定大于<span class="math inline">\(\lfloor \cfrac{ n }{ 2 }
-\rfloor\)</span>,一定不合法.</p>
-<p>而树上不可能有超过两个点两两相邻,于是最多只有两个重心,且它们一定相邻.</p>
-<p>(5)的证明如下:</p>
-<p>考虑如果<span class="math inline">\(u\)</span>是树的重心,我们看能不能将<span class="math inline">\(u\)</span>调整到另一个点使得所有点到其距离之和更小.</p>
-<p>由于调整是一步一步做的,显然只需要判断所有和<span class="math inline">\(u\)</span>相邻的点是否符合条件即可.设这个点为<span class="math inline">\(x\)</span>,那我们把<span class="math inline">\(u\)</span>改为<span class="math inline">\(x\)</span>,会使答案减小<span class="math inline">\(siz_x\)</span>,增加<span class="math inline">\(n -
-siz_x\)</span>,由于<span class="math inline">\(siz_x \leq \lfloor
-\cfrac{ n }{ 2 } \rfloor\)</span>,所以这么做一定不优.</p>
-<p>(6)的证明如下:</p>
-<p>首先,如果加入一个叶子节点后,各个子树大小仍然都<span class="math inline">\(&lt; \lfloor \cfrac{ n }{ 2 }
-\rfloor\)</span>,那显然不必调整.</p>
-<p>不然,显然是往叶子节点移动一格或者加入一个相邻的重心.</p>
-<p>(7)的证明如下:</p>
-<p>不妨设两棵树大小分别为<span class="math inline">\(siz_a \leq
-siz_b\)</span>,然后令相连的两个点是这两棵树的根.</p>
-<p>对于<span class="math inline">\(b\)</span>中的重心,肯定是会往根跳,并且不可能跳出<span class="math inline">\(b\)</span>原本的树.</p>
-<h5><span id="example1csp-s2019树的重心">Example1([CSP-S2019]树的重心)</span></h5>
-<p>首先取重心<span class="math inline">\(rt\)</span>为根,如果有两个就随便取一个.</p>
-<p>接下来我们考虑对于每个点<span class="math inline">\(x\)</span>,它在什么情况下会成为重心.首先,删掉的边不可能在<span class="math inline">\(x\)</span>的子树内,不然一定不可能取到<span class="math inline">\(x\)</span>的.然后,我们假设删掉的子树大小为<span class="math inline">\(S\)</span>,<span class="math inline">\(x\)</span>的子树内最大的一个子树大小为<span class="math inline">\(g_x\)</span>,那么根据重心的性质有:</p>
-$$
-<span class="math display">\[\begin{aligned}
-2 ( n - S - siz_x ) &amp; \leq n - S \\
-2 g_x &amp; \leq n - S \\
-
-\end{aligned}\]</span>
-<p>$$</p>
-<p>整理得到:</p>
-<p><span class="math display">\[
-2 g_x \leq n - S \leq 2 siz_x
-\]</span></p>
-<p>考虑这个怎么计算:如果没有删边必须在<span class="math inline">\(x\)</span>子树外的限制,那显然可以直接遍历一遍存下<span class="math inline">\(n -
-S\)</span>,然后统一使用值域树状数组做.而我们接下来考虑删去<span class="math inline">\(x\)</span>子树内的贡献,类似colorful
-tree的做法,每次dfs到一个点,记录下来当前树状数组的答案,然后dfs子树,回溯时拿新答案减去旧答案就是子树内的答案.</p>
-<p>接下来我们需要考虑<span class="math inline">\(x =
-rt\)</span>怎么做.</p>
-<p>考虑<span class="math inline">\(x\)</span>的子树中最大的那个和次大的那个,如果我们删去的节点不在最大的子树中,那只需要保证最大的子树大小满足条件;不然,只需保证次大的子树大小满足条件,也是好维护的.</p>
-<h4><span id="树的结构的维护">树的结构的维护</span></h4>
-<h5><span id="example1">Example1</span></h5>
-<p>给定一棵树,树上点有点权<span class="math inline">\(val\)</span>.现在有一个值<span class="math inline">\(sum\)</span>,初始为<span class="math inline">\(0\)</span>.从<span class="math inline">\(1\)</span>号点出发,每第一次到一个点<span class="math inline">\(u\)</span>,就会使<span class="math inline">\(sum +
-= val_u\)</span>.求在时刻保证<span class="math inline">\(sum \geq
-0\)</span>的前提下,<span class="math inline">\(sum\)</span>最终的最大值.</p>
-<p>首先注意到为了保证<span class="math inline">\(sum \geq
-0\)</span>这个性质,一个节点应该有两个值:<span class="math inline">\(lim\)</span>表示能走到这个点所需要的最小的<span class="math inline">\(sum\)</span>,<span class="math inline">\(val\)</span>表示到了这个点后能获得的价值.显然如果<span class="math inline">\(val \leq 0\)</span>则无意义.</p>
-<p>如果我们能一开始处理出根的所有儿子的<span class="math inline">\(lim\)</span>和<span class="math inline">\(val\)</span>,我们就可以使用先走<span class="math inline">\(lim\)</span>小的点,并不断累计<span class="math inline">\(sum\)</span>的方式做.</p>
-<p>所以考虑不断向上合并信息.不难发现此时一个点要处理出多对<span class="math inline">\(( lim , val
-)\)</span>.考虑用一个左偏树维护这个东西.</p>
-<p>但是,我们还需要保证不能跳着选点.也就是说我们要保证选中一个点,这个点的父亲必须选,怎么办呢?</p>
-<p>一个方式是,我们把排序方法从只看<span class="math inline">\(lim\)</span>变成先判是否存在祖先后代关系,再判断<span class="math inline">\(lim\)</span>.</p>
-<p>另一个方式是,我们每次直接把当前子树根节点扔到堆顶.但是需要满足堆的性质.不难发现如果这个点<span class="math inline">\(val &lt; 0\)</span>,我们可以将它与下面的<span class="math inline">\(lim\)</span>最的节点合并直到这个点<span class="math inline">\(val \geq 0\)</span>.而如果这个点的<span class="math inline">\(lim\)</span>太大,我们同样可以合并.注意到这样我们采取了一种很聪明的方式维护了树的形态.</p>
-<h4><span id="dfs树的性质">dfs树的性质</span></h4>
-<h5><span id="example1cf1361ejames-andthe-chase">Example1([CF1361E]James and
-the Chase)</span></h5>
-<p>如何判断一个点是否是好的呢?首先,如果要求是任意路径,那一个点是好的当且仅当它是一个叶向有根树的根.</p>
-<p>现在要求是简单路径,那也就是说如果走了重复点是可以忽略的,这也就是说这个叶向有根树可以有反走边,而显然不能有横插边.不难发现这是充要条件.</p>
-<p>另一个问题是:如何快速判断一个点是否满足上述条件呢?首先我们求出以一个好的点为根的dfs树(随机选取一定数量的点,如果一个都不是好点直接输出<span class="math inline">\(- 1\)</span>),然后我们发现:一个点<span class="math inline">\(u\)</span>是好的必要条件是它的子树内只有一条反走边,证明显然.假设<span class="math inline">\(u\)</span>通过这条反走边走到了点<span class="math inline">\(v\)</span>,那么<span class="math inline">\(u\)</span>是好的点当且仅当<span class="math inline">\(v\)</span>也是好的点.</p>
-<p>这是为啥呢?首先,因为我们是以一个好点为根跑的dfs树,所以<span class="math inline">\(u\)</span>走到子树内的点必定只有一种方式.那子树外的点呢?走到<span class="math inline">\(v\)</span>后,显然就要从它走到其它点,而它到<span class="math inline">\(u\)</span>的子树内显然只有一种方案,那如果<span class="math inline">\(v\)</span>到其它点也只有一种方案,那么根据<span class="math inline">\(u \rightarrow v\)</span>这条路径,<span class="math inline">\(u\)</span>显然也是好点.</p>
-<h5><span id="example2loj-6276">Example2(Loj 6276)</span></h5>
-<p>找到所有颜色相同的点对<span class="math inline">\(( x , y
-)\)</span>,经过它们的路径都不合法,显然经过它们的路径可以用dfs序刻画成矩阵,最后要求矩阵面积并.</p>
-<h3><span id="圆方树的性质">圆方树的性质</span></h3>
-<ol type="1">
-<li><p>对于任意的非空无向图<span class="math inline">\(G\)</span>,一定存在一个<span class="math inline">\(G\)</span>的点双连通分量<span class="math inline">\(B\)</span>,使得<span class="math inline">\(B\)</span>中只有不超过<span class="math inline">\(1\)</span>个节点是<span class="math inline">\(G\)</span>的割点.其中,若<span class="math inline">\(B\)</span>中没有<span class="math inline">\(G\)</span>的割点,则有<span class="math inline">\(B
-= G\)</span>.</p></li>
-<li><p>若一个点双连通分量不为<span class="math inline">\(K_2\)</span>,则该点双连通分量中至少有一个简单环.</p></li>
-<li><p>在仙人掌上的每个点双连通分量要么是<span class="math inline">\(K_2\)</span>,要么是一个简单环.</p></li>
-<li><p>对于一个不是<span class="math inline">\(K_2\)</span>的点双连通分量中的任意一个点<span class="math inline">\(u\)</span>,一定存在一个简单环<span class="math inline">\(C\)</span>使得<span class="math inline">\(u\)</span>在<span class="math inline">\(C\)</span>上.</p></li>
-<li><p>对于一个不是<span class="math inline">\(K_2\)</span>的点双连通分量中的任意两个点<span class="math inline">\(u , v\)</span>,一定存在一个简单环<span class="math inline">\(C\)</span>使得<span class="math inline">\(u ,
-v\)</span>在<span class="math inline">\(C\)</span>上.</p></li>
-<li><p>对于一个不是<span class="math inline">\(K_2\)</span>的点双,任给一点<span class="math inline">\(x\)</span>和一边<span class="math inline">\(e\)</span>,一定存在经过<span class="math inline">\(x , e\)</span>的简单环.</p></li>
-<li><p>对于一个不是<span class="math inline">\(K_2\)</span>的点双,任给两点<span class="math inline">\(s , t\)</span>和一边<span class="math inline">\(e\)</span>,一定存在一条<span class="math inline">\(s - e - t\)</span>的简单路径.</p></li>
-</ol>
-<p>(6)的证明非常变魔术,你考虑把<span class="math inline">\(e : u
-\leftrightarrow v\)</span>这条边给改成<span class="math inline">\(u
-\leftrightarrow w \leftrightarrow v\)</span>,然后<span class="math inline">\(w\)</span>和<span class="math inline">\(x\)</span>在一个简单环上,意味着<span class="math inline">\(u , w , v , x\)</span>在一个简单环上.</p>
-<p>(7)考虑(6)就行,先找到<span class="math inline">\(s\)</span>和<span class="math inline">\(e\)</span>所在的简单环,然后从这个环上连到<span class="math inline">\(t\)</span>.</p>
-<h3><span id="任意图的性质">任意图的性质</span></h3>
-<ol type="1">
-<li>若一张无向连通图<span class="math inline">\(G\)</span>中存在<span class="math inline">\(3\)</span>个不同的一度点<span class="math inline">\(x , y , z\)</span>,则一定存在一个点<span class="math inline">\(u \notin \{ x , y , z \}\)</span>使得存在<span class="math inline">\(3\)</span>条两两没有公共边的简单路径满足其中一个端点均为<span class="math inline">\(u\)</span> 且另一个端点分别为<span class="math inline">\(x , y ,
-z\)</span>.(证明考虑求生成树后讨论LCA)</li>
-</ol>
-<h3><span id="dsu-on-tree">dsu on tree</span></h3>
-<h5><span id="exampleqoj5020">Example(QOJ5020)</span></h5>
-<p>我们考虑树链剖分,这样将问题转化为三部分:</p>
-<ol type="1">
-<li><p>对于某个点而言,到它距离<span class="math inline">\(\leq
-d\)</span>的点数量.这个问题可以使用点分治解决.</p></li>
-<li><p>对于某条重链的上半部分而言,它连接的所有轻子树中,到它距离<span class="math inline">\(\leq d\)</span>的点数量.这个问题直接dsu on
-tree.</p></li>
-<li><p>对于某个点而言,在它子树内到它距离<span class="math inline">\(\leq
-d\)</span>的点数量.这个问题也可以直接dsu on tree.</p></li>
-</ol>
-<p>为什么转化为三个部分就能求解呢?我们考虑一条链<span class="math inline">\(u \rightarrow w \rightarrow v\)</span>,其中<span class="math inline">\(w\)</span>是这条链上深度最浅的点.那么首先我们统计在<span class="math inline">\(w\)</span>子树外的,这一个部分可以由(1)和(3)做差求出来.然后我们要求的就是在<span class="math inline">\(w\)</span>子树内,到这条链的距离<span class="math inline">\(\leq
-d\)</span>的点的数量.这个怎么求呢?我们考虑差分,求一下<span class="math inline">\(1 \rightarrow u\)</span>和<span class="math inline">\(1 \rightarrow
-w\)</span>的答案然后做差.这样我们对这条到根的路径重链剖分,只需要处理重链的上半部分以及两条重链的连接处.不难发现两条重链的连接处会被多算一次,拿(3)减一下就好.以及这条路径所叉出去的重儿子也需要用(3).</p>
-<p>现在的问题在于怎么求(2)和(3),先考虑(2),我们对于每一条重链从顶端走到低端不断地加入轻儿子,然后维护BIT就行.(3)是类似的,只不过是需要从底端走到顶端.</p>
-<p>注意如果把重儿子和轻儿子分开处理,那么可能会在一些奇怪的地方算重,解决方法是特判<span class="math inline">\(w\)</span>处的答案,然后拆成两条互相之间完全没有影响的链,当然这也有可能会发生跳重链的时候轻儿子算重的情况,同样需要判断一下.</p>
-<h3><span id="最小生成树">最小生成树</span></h3>
-<h5><span id="example1cf1550f-jumpingaround">Example1(CF1550F Jumping
-Around)</span></h5>
-<p>首先考虑离线.注意到每次肯定跳到一个自己能跳到的点,而这个点应该是所需灵活度最小的点.</p>
-<p>考虑boruvka算法,建立最小生成树并判断.</p>
-<h3><span id="kruskal重构树">Kruskal重构树</span></h3>
-<p>最小生成树时,每一次加边的时候把那个边变成虚点,两个点连到这条边上.任意两个点的LCA就是它们路径上的最小边权.</p>
-<h3><span id="最短路">最短路</span></h3>
-<h5><span id="example1cf1753d-the-beach">Example1(CF1753D The Beach)</span></h5>
-<p>首先,自然的想法是把格子图黑白染色.</p>
-<p>然后,我们注意到一个床是不可能被移动两次及以上的.因为如果是横着动两次,那不动自然就有一对空位置了;如果是转两次,考虑转的目的一定是为了空出某个位置或某两个位置(不可能为了空出三个位置,显然这么做很闲),一次操作足矣;如果是动一次转一次也是一样的,要么转的很闲要么原本就存在这么一对空位置.</p>
-<p>我们再进行一步转化,考虑把动床改为动格子.换句话说,每个格子可以通过一定的代价移动到和它相邻的床的与它不相邻的那个位置上.注意到移动格子的过程只会把黑格子移动到黑格子,白格子移动到白格子.</p>
-<p>于是建立超级源点跑两边最短路,枚举最后床放在哪里即可.不过这里有一点是一个床有没有可能被黑白最短路同时跑了一遍,是有可能的,但这么跑一定不优秀,不可能是最小答案.</p>
-<h5><span id="example2cf843ddynamicshortest-path">Example2([CF843D]Dynamic
-Shortest Path)</span></h5>
-<p>注意到<span class="math inline">\(O ( nq
-)\)</span>能过.而且每次修改只是对于若干条边<span class="math inline">\(+
-1\)</span>,自然想到每次修改完后跑01bfs.</p>
-<p>但是怎么跑呢?注意到维护每个点最短路的增量,并且在路径的增量上跑01bfs,自然可求.</p>
-<h5><span id="example3同余最短路luogup2371墨墨的等式">Example3
-同余最短路([luoguP2371]墨墨的等式)</span></h5>
-<p>因为<span class="math inline">\(a_i\)</span>无序,假设<span class="math inline">\(a_1\)</span>最小,那么所有的数字都可以按<span class="math inline">\(\mod a_1\)</span>的结果分成<span class="math inline">\(a_1\)</span>类.我们按照余数设置<span class="math inline">\(a_1\)</span>个点,编号为<span class="math inline">\(0\)</span>至<span class="math inline">\(a_1 -
-1\)</span>.</p>
-<p>设<span class="math inline">\(dis_i\)</span>为所有能组成的数中且<span class="math inline">\(\mod a_1\)</span>余数为<span class="math inline">\(i\)</span>的最小数.那么,所有能表示出来的<span class="math inline">\(\bmod a_1\)</span>余数为<span class="math inline">\(i\)</span>的数都可以写作<span class="math inline">\(dis_i + k \times a_1 , k \in \mathbb{ N
-}\)</span>的形式,求得<span class="math inline">\(dis_i\)</span>后可以很轻易算出.</p>
-<p>那么怎么求<span class="math inline">\(dis_i\)</span>呢?我们考虑:对于任意一个数<span class="math inline">\(k\)</span>,它可以怎么得到.注意到如果<span class="math inline">\(k - a_j\)</span>(其中<span class="math inline">\(i
-\ne j\)</span>)可行,那么<span class="math inline">\(k\)</span>一定可行.自然有:<span class="math inline">\(dis_i = \min \{ dis_j + a_k | 0 \leq j &lt; a_i ,
-k \ne i \}\)</span>.</p>
-<p>这显然是一个最短路问题.</p>
-<h3><span id="差分约束">差分约束</span></h3>
-<h5><span id="example1agc056c-01balanced">Example1([AGC056C] 01
-Balanced)</span></h5>
-<p>将<span class="math inline">\(1\)</span>看成<span class="math inline">\(- 1\)</span>,<span class="math inline">\(0\)</span>看成<span class="math inline">\(+
-1\)</span>,不难发现字典序最小也就是让前缀和序列字典序最小,并且有<span class="math inline">\(sum_{ r_i } = sum_{ l_i - 1 }\)</span>以及<span class="math inline">\(- 1 \leq sum_{ i } - sum_{ i - 1 } \leq
-1\)</span>,然后做<span class="math inline">\(01\)</span>bfs跑最短路,显然最短路可以保证每个<span class="math inline">\(sum\)</span>都尽可能小.</p>
-<p>然后另一个问题在于这玩意为啥不会让<span class="math inline">\(sum_i =
-sum_{ i - 1 }\)</span>,这个建图后观察一下就知道不会发生这种情况.</p>
-<h3><span id="2-sat">2-SAT</span></h3>
-<h5><span id="example1cf1697f">Example1(CF1697F)</span></h5>
-<p>对每个点建立<span class="math inline">\(k\)</span>对点表示<span class="math inline">\(a_i \geq x\)</span>和<span class="math inline">\(a_i &lt; x\)</span>,就能做了.</p>
-<h5><span id="example22021集训队互测-序列">Example2(2021集训队互测 序列)</span></h5>
-<p>注意到如果<span class="math inline">\(a_i &lt; x\)</span>,那么<span class="math inline">\(a_j \geq x \land a_k \geq
-x\)</span>,这样就可以刻画所有的条件.</p>
-<p>而且一定可以刻画所有的条件.</p>
-<h3><span id="对偶图">对偶图</span></h3>
-<h5><span id="example1csp-s-2021交通规划">Example1([CSP-S 2021]
-交通规划)</span></h5>
-<p>先考虑如果附加点的颜色全都相同,那肯定输出<span class="math inline">\(0\)</span>即可.</p>
-<p>考虑附加点的数量为<span class="math inline">\(2\)</span>的时候,那显然最优情况需要将整个图分成各自联通的两部分,一部分染成黑色,一部分染成白色.可以发现这就是一个对偶图.</p>
-<p>而如果附加点的数量很多怎么做呢?稍微思考一下</p>
-<h3><span id="广义串并联图三度化">广义串并联图/三度化</span></h3>
-<h4><span id="定义">定义</span></h4>
-<p>定义:不存在<span class="math inline">\(4\)</span>个点使得任意两点之间存在一条简单路径,且这六条路径不在<span class="math inline">\(4\)</span>个点之外的地方相交.</p>
-<h4><span id="删一度点">删一度点</span></h4>
-<p>经典问题引入:树上带权最大独立集.</p>
-<p>首先dp是可以实现的,我们考虑是否存在贪心算法.</p>
-<p>首先,如果不带权,我们显然可以每次选取一度点或零度点,并删去所有相连的点.这样做显然是最优的.</p>
-<p>但怎么做带权的方法呢?我们注意到可以先删掉所有负点权的点,然后可以加入剩下的所有零度点.</p>
-<p>那么对于一度点呢?对于一个一度点<span class="math inline">\(u\)</span>和它的相邻点<span class="math inline">\(v\)</span>,我们不能盲目选<span class="math inline">\(u\)</span>的原因是可能选取<span class="math inline">\(v\)</span>会更优秀.考虑做一个带悔贪心,我们先把<span class="math inline">\(u\)</span>选上,然后把<span class="math inline">\(v\)</span>的权值设为<span class="math inline">\(val_v - val_u\)</span>,相当于我们仍然可以选<span class="math inline">\(v\)</span>,但是要花费<span class="math inline">\(val_u\)</span>的代价把<span class="math inline">\(u\)</span>删去.</p>
-<p>我们把类似这样的操作称为<strong>删一度点</strong>.</p>
-<h4><span id="缩二度点">缩二度点</span></h4>
-<p>问题引入:给定一个仙人掌,每个点可以染色为<span class="math inline">\(0\)</span>或<span class="math inline">\(1\)</span>,<span class="math inline">\(u\)</span>节点染成<span class="math inline">\(0\)</span>会有<span class="math inline">\(b_u\)</span>的贡献,不然有<span class="math inline">\(w_u\)</span>的贡献.若一条边<span class="math inline">\(e\)</span>相邻的两点颜色相同则有<span class="math inline">\(s_e\)</span>的贡献,不然有<span class="math inline">\(d_e\)</span>的贡献,求最大答案.</p>
-<p>首先如果有一度点和零度点,我们仍然可以使用删一度点的操作.</p>
-<p>如果没有,考虑仙人掌上的一个点双一定是一个简单环.而且一定存在一个点双<span class="math inline">\(B\)</span>满足<span class="math inline">\(B\)</span>只包含一个割点.</p>
-<p>那么对于这个点双上的一个非割点<span class="math inline">\(x\)</span>以及和它相邻的两个点<span class="math inline">\(u\)</span>和<span class="math inline">\(v\)</span>,我们考虑<span class="math inline">\(x\)</span>的染色有可能改变<span class="math inline">\(u\)</span>和<span class="math inline">\(v\)</span>的答案,那么怎么办呢?</p>
-<p>冷静思考一下,我们想办法把<span class="math inline">\(x\)</span>给删掉.简单来说,我们把<span class="math inline">\(u\)</span>和<span class="math inline">\(v\)</span>之间连一条边权为<span class="math inline">\([ w_{ 0 , 0 } , w_{ 0 , 1 } , w_{ 1 , 0 } , w_{ 1
-, 1 } ]\)</span>的边,分别表示<span class="math inline">\(u\)</span>和<span class="math inline">\(v\)</span>的染色为以上四种情况时这条边(也就是原本的<span class="math inline">\(x\)</span>)的最大贡献是什么,这显然可以通过讨论<span class="math inline">\(x\)</span>的取值而求得.这样初始边权实际上就是<span class="math inline">\([ s , d , d , s
-]\)</span>,于是我们就可以删掉一个二度点并连起来与它相邻的两个点,我们把类似这样的操作称为<strong>缩二度点</strong>.</p>
-<h4><span id="叠合重边">叠合重边</span></h4>
-<p>注意到使用缩二度点的时候,会把一个三元环缩成两个点及链接它们的两条重边,但是我们可以直接把重边合起来,我们把类似这样的操作称为<strong>叠合重边</strong>.</p>
-<h4><span id="正确性证明">正确性证明</span></h4>
-<p>接下来我们证明:任何广义串并联图都可以通过以上三种操作缩为一个点.</p>
-<h5><span id="引理1">引理1</span></h5>
-<p>对于一个无向图<span class="math inline">\(G\)</span>,若进行若干次删一度点操作,缩<span class="math inline">\(2\)</span>度点操作以及叠合重边操作后得到的图不是广义串并联图,那么<span class="math inline">\(G\)</span>也不是广义串并联图.</p>
-<p>考虑用逆操作还原原图.删一度点的逆操作是加入一个点,叠合重边的逆操作是将一条边变成两条边,这两个操作显然不会使一个不是广义串并联图的图变成广义串并联图.接下来考虑缩二度点的逆操作:删掉一条边<span class="math inline">\(( u , v )\)</span>并加入一个点<span class="math inline">\(w\)</span>和两条边<span class="math inline">\(( u
-, w )\)</span>和<span class="math inline">\(( w , v )\)</span>.</p>
-<p>由于这个图不是广义串并联图,所以一定存在一组反例点<span class="math inline">\(\{ a , b , c , d
-\}\)</span>.如果我们删掉的边不在作为反例的六条边上,那显然不影响;如果在,由于新加入的两条边仍然可以作为路径,所以也不影响.</p>
-<p>于是引理得证.</p>
-<h5><span id="引理2">引理2</span></h5>
-<p>任意一张所有点的度数都大于等于<span class="math inline">\(3\)</span>的简单无向连通图,一定不是广义串并联图.</p>
-<p>这个引理的严格证明有些麻烦.我们冷静一下,一个四个点的完全图满足以上条件且不是广义串并联图.而其他的图感性理解一下应该可以通过缩路径的方式变成一个四个点的完全图.</p>
-<p>结合引理1,我们得知任意一个操作后不能变成单个节点的图的无向连通图不是广义串并联图.</p>
-<h5><span id="引理3">引理3</span></h5>
-<p>任意一个满足<span class="math inline">\(m \leq n +
-k\)</span>的图,通过删一度点,缩二度点,叠合重边操作后,<span class="math inline">\(m\)</span>和<span class="math inline">\(n\)</span>都会到达一个<span class="math inline">\(O ( k )\)</span>的量级.</p>
-<p>考虑缩完点后,所有点的度数<span class="math inline">\(\geq
-3\)</span>,于是有<span class="math inline">\(2 m \geq 3
-n\)</span>,而在操作过程中,<span class="math inline">\(m -
-n\)</span>的值显然是不增的,于是有<span class="math inline">\(m - n \leq
-k\)</span>,解一下方程得到<span class="math inline">\(n \leq 2 k , m \leq
-3 k\)</span>.</p>
-<h4><span id="example122zr提高十连测day6摆件">Example1(22zr提高十连测day6摆件)</span></h4>
-<p>首先考虑颜色之间没啥区别,所以对于一棵树来说,朴素的dp是可以的.</p>
-<p>简单来说,设<span class="math inline">\(dp_i\)</span>表示第<span class="math inline">\(i\)</span>棵子树的答案.合并的时候考虑设<span class="math inline">\(f_v = \cfrac{ 1 }{ k } dp_v sam_e + \cfrac{ k - 1
-}{ k } dp_v dif_e\)</span>,自然有<span class="math inline">\(dp_u =
-\prod_{ u \rightarrow v } f_v \\\)</span>.</p>
-<p>接下来考虑先随便找一棵生成树,然后暴力枚举多余的反走边的深度较低的叶子节点的颜色,再进行dp即可.</p>
-<p>另外也可以缩点后做,不过对于这题没啥区别.</p>
-<h4><span id="example2joi-open-2022放学路">Example2([JOI Open 2022]
-放学路)</span></h4>
-<p>广义串并联图的一个很重要的思想是:我们通过一些手段改变这个图的形态为一个好做的形态,但是答案又和原图相同.</p>
-<p>在这个思想的指导下,我们考虑这个题能否进行三度化.不过注意起点和终点简单特判一下,别把他们给删了.这样我们最后如果得到了一个只有起点和终点的图,那就一定是no.</p>
-<p>然后如果没有只得到起点和终点呢?对最短路图建DAG,考虑如果<span class="math inline">\(S\)</span>和<span class="math inline">\(T\)</span>在一个点双中,我们找到两个点<span class="math inline">\(u , v\)</span>,使得<span class="math inline">\(u
-\rightarrow v\)</span>,并且<span class="math inline">\(u\)</span>的出度至少是<span class="math inline">\(2\)</span>,<span class="math inline">\(v\)</span>的入度至少是<span class="math inline">\(2\)</span>,显然只要找到就做完了.现在的问题就在于为啥这条边一定存在.这个考虑找一个入度至少为<span class="math inline">\(2\)</span>的点<span class="math inline">\(v\)</span>,找到它的入点<span class="math inline">\(u\)</span>,如果<span class="math inline">\(u\)</span>的出度不是<span class="math inline">\(2\)</span>,那么<span class="math inline">\(u\)</span>也是一个入度至少为<span class="math inline">\(2\)</span>的点.这样往前推一定至少能推到一个点(因为不可能<span class="math inline">\(S\)</span>贡献了俩入度).</p>
-<p>如何保证<span class="math inline">\(S ,
-T\)</span>在一个点双中呢?其实只需要添加一条边<span class="math inline">\(( S , T , dis_{ S \rightarrow T }
-)\)</span>就行了.显然加了后不会对答案产生影响.然后不在<span class="math inline">\(S , T\)</span>这个边双内的点也没有用了.</p>
-<h3><span id="点分治">点分治</span></h3>
-<h5><span id="example1cfgym101002k">Example1(CFgym101002K)</span></h5>
-<p>点分治,假设当前分治重心是<span class="math inline">\(g\)</span>,将每个数缩成一个二元组<span class="math inline">\(( w_i , d_i )\)</span>,所求就是<span class="math inline">\(w_i w_j + d_i +
-d_j\)</span>最小,直接排序做斜率优化.</p>
-<h4><span id="点分树的性质">点分树的性质</span></h4>
-<ol type="1">
-<li><p>点分树的高度是<span class="math inline">\(O ( \log n
-)\)</span>级别.</p></li>
-<li><p>两个点在原树上的路径一定经过其在点分树上的LCA.</p></li>
-</ol>
-<h5><span id="example1codechef-btree">Example1(codechef [BTREE])</span></h5>
-<p>这题用到了一个经典套路:一个树形连通图的点数减去边数为<span class="math inline">\(1\)</span>,把虚树建出来,能到达一个点的守卫必然是一个树形连通图(虚树中原本没有守卫的点可以加个不同覆盖范围的守卫).于是我们只需要求出每个守卫能覆盖多少点以及两个守卫之间的那条路径能覆盖多少个点,前者用点分树轻松维护,后者的话找一下这条边上的某个满足条件的点就行.</p>
-<h5><span id="example2">Example2</span></h5>
-<p>给定一棵树,现在在上面选定<span class="math inline">\(m\)</span>对不同的点,要求每对点的距离之和最大.</p>
-<p>考虑如果确定了<span class="math inline">\(2
-m\)</span>个点,我们如何匹配他们.对每条边算贡献,假设这条边两侧分别有<span class="math inline">\(a , b\)</span>个点,那么这条边最大的贡献就是<span class="math inline">\(\min \{ a , b
-\}\)</span>.不难发现这个上界可以取到,只需要取这<span class="math inline">\(2
-m\)</span>个点的带权重心,由于不存在绝对众数,所以直接两两匹配.枚举带权重心是啥,这样复杂度<span class="math inline">\(O ( n^2 )\)</span>.</p>
-<p>那么怎么优化呢?我们注意到如果以一个点<span class="math inline">\(x\)</span>作为根,而它有一个儿子<span class="math inline">\(y\)</span>,<span class="math inline">\(y\)</span>的子树中选了少于<span class="math inline">\(m\)</span>个点,那么我们以<span class="math inline">\(y\)</span>为根一定是不优秀的,不然一开始就不可能只选少于<span class="math inline">\(m\)</span>个点,再考虑带权重心这个东西,上点分树.</p>
-<p>具体来说,我们建立点分树,然后从点分树的根开始枚举带权重心,如果当前没有一棵子树选了<span class="math inline">\(m\)</span>个点,就停止,不然往选了<span class="math inline">\(m\)</span>个点的那棵子树走(如果有两个的话选第<span class="math inline">\(m\)</span>大更大的那个),这样就只会选取<span class="math inline">\(O ( \log n )\)</span>个带权重心.</p>
-<h3><span id="边分治">边分治</span></h3>
-<p>需要建立虚点转二叉树.</p>
-<h4><span id="边分树的性质">边分树的性质</span></h4>
-<ol type="1">
-<li><p>非叶子节点代表边,叶子节点代表点.</p></li>
-<li><p>边分树的高度是<span class="math inline">\(O ( \log n
-)\)</span>级别.</p></li>
-<li><p>边分树上每棵子树中的叶子节点一定联通.</p></li>
-<li><p>是一棵完全二叉树.</p></li>
-<li><p>两个点在原树上的路径一定经过其在边分树上的LCA所代表的边.</p></li>
-</ol>
-<h3><span id="二分图">二分图</span></h3>
-<h4><span id="定理">定理</span></h4>
-<h5><span id="最大流-最小割定理">最大流-最小割定理</span></h5>
-<h5><span id="hall定理">Hall定理</span></h5>
-<p>对于二分图<span class="math inline">\(\langle V_1 , V_2 , E \rangle ,
-| V_1 | \leq | V_2 |\)</span>,那么该图存在完备匹配的充要条件是<span class="math inline">\(\forall Q \subseteq V_1 , | Q | \leq | N ( Q )
-|\)</span>,其中<span class="math inline">\(N ( Q
-)\)</span>指的是所有与<span class="math inline">\(Q\)</span>中点有边相连的点的集合.</p>
-<p>必要性很显然,接下来说明充分性.设<span class="math inline">\(T\)</span>为最小点覆盖,也就是最大匹配的数量,再设<span class="math inline">\(M\)</span>为最大匹配,此时自然有:</p>
-<p><span class="math display">\[
-| M | = | T | = | T_1 | + | T_2 | \geq | T_1 | + | N ( V_1 / T_1 ) |
-\geq | T_1 | + | V_1 / T_1 | = | V_1 |
-\]</span></p>
-<p>显然<span class="math inline">\(| M | \leq | V_1 |\)</span>,于是<span class="math inline">\(| M | = | V_1 |\)</span>.</p>
-<p>另外,Hall定理有一个推论:正则二分图一定存在完美匹配.什么叫正则二分图,就是所有的点的度数(不为<span class="math inline">\(0\)</span>)都相等的图.</p>
-<p><span class="math inline">\(2^d\)</span>-正则二分图求完美匹配的话,可以不断求欧拉回路并给边定向,每次把一个方向的边全都删掉,这样就转化成了<span class="math inline">\(2^{ d - 1 }\)</span>-正则二分图,不断递归到<span class="math inline">\(d = 0\)</span>.</p>
-<h5><span id="vizing定理">Vizing定理</span></h5>
-<p>设<span class="math inline">\(f ( G )\)</span>表示将<span class="math inline">\(G\)</span>边染色,使得有公共点的边的颜色不同,最少需要的颜色数量.</p>
-<p>设<span class="math inline">\(\delta ( G )\)</span>表示<span class="math inline">\(G\)</span>中的点的最大度数.</p>
-<p>对于一般图,我们有:<span class="math inline">\(\delta ( G ) \leq f ( G
-) \leq \delta ( G ) + 1\)</span>,对于二分图有<span class="math inline">\(\delta ( G ) = f ( G )\)</span>.</p>
-<p>考虑这个的证明:我们每次将一对点<span class="math inline">\(( x , y
-)\)</span>染色,考虑设它们当前没染色的最小的颜色是<span class="math inline">\(l_x , l_y ( l_x \leq l_y
-)\)</span>,如果相等就直接选,不然类似增广路更新.</p>
-<h4><span id="二分图最大权匹配">二分图最大权匹配</span></h4>
-<p>假定二分图两边两两有边(不是的话可以补上<span class="math inline">\(-
-\infty\)</span>的边),这样就一定存在完美匹配.</p>
-<p>我们给每个点一个顶标权值<span class="math inline">\(v\)</span>,对于任意一条边<span class="math inline">\(e : a \leftrightarrow b\)</span>,它的权值是<span class="math inline">\(w_e\)</span>,我们要求<span class="math inline">\(v\)</span>满足<span class="math inline">\(v_a +
-v_b \geq w_e\)</span>.</p>
-<p>如果我们规定了一组顶标后,取出所有满足<span class="math inline">\(v_a
-+ v_b =
-w_e\)</span>的边后的图(称作相等子图)存在完美匹配,那这组完美匹配就一定是最大权匹配.</p>
-<p>这是为啥呢?考虑此时的最大权其实也就是<span class="math inline">\(\sum
-v\)</span>,而由于<span class="math inline">\(v_a + v_b \geq
-w_e\)</span>,因此最大权匹配一定不会超过<span class="math inline">\(\sum
-v\)</span>.这就是一个可达的上界.</p>
-<p>那么我们该怎么得到一个相等子图呢?考虑先构造一组合法的顶标,让左部端点取边的最大值,右部端点取<span class="math inline">\(0\)</span>,然后开始增广.</p>
-<p>从左侧任意一个非匹配点出发,在相等子图上走增广路并增广.如果增广失败,我们将访问过的左部端点全部减去<span class="math inline">\(d\)</span>,右部端点全部加上<span class="math inline">\(d\)</span>,注意到此时匹配边一定不会变化,因为匹配边要么两个端点都没被访问过,要么都被访问过.而左端点被访问过,右端点没被访问过的边有可能加入相等子图,我们考虑取所有这种边的需要的差值的最小值并进行更新.但是直接这么做的复杂度有点高.</p>
-<p>使用bfs优化,可以发现只会扩大<span class="math inline">\(O ( n^2
-)\)</span>次子图,每次复杂度<span class="math inline">\(O ( n
-)\)</span>,增广的复杂度类似,于是总复杂度<span class="math inline">\(O (
-n^3 )\)</span>.</p>
-<h4><span id="example">Example</span></h4>
-<h5><span id="example1xvii-open-cup-named-after-ev-pankratiev-grand-prix-ofjapanopenstrain-contest-1489-bpoint-pairs">Example1([
-XVII Open Cup named after E.V. Pankratiev. Grand Prix of
-Japan(openstrain contest 1489) B]Point Pairs)</span></h5>
-<p>看到这种要求横坐标或纵坐标相同的题,有一个自然的想法是建立二分图,对于点<span class="math inline">\(( x , y )\)</span>,将二分图左边的<span class="math inline">\(x\)</span>和右边的<span class="math inline">\(y\)</span>连一条边.那么配对等价于要每次找两条相邻的边删掉.那么如何删掉呢?</p>
-<p>首先发现的是,二分图不同的连通块可以分开处理,我们接下来只讨论一个连通块的情况.如果这个连通块有奇数条边,显然一定不行.而又可以发现,如果这个连通块有一个点度数仅为<span class="math inline">\(1\)</span>,那这条边如何删是确定的,我们可以把它和另一条边删掉,不难发现怎么删最后得到的新图仍然联通.而如果不存在度数为<span class="math inline">\(1\)</span>的点呢?由于这是一个二分图,不存在奇环,所以我们可以找一个简单环删掉,之后显然也是一个连通块.我们到这里就可以发现问题了.运用数学归纳不难证明:只要一个连通块的边数是偶数就一定合法.</p>
-<p>然后我们可以使用可撤销的分治解决这个问题.</p>
-<h3><span id="网络流常见模型">网络流常见模型</span></h3>
-<h4><span id="最大流">最大流</span></h4>
-<h4><span id="最小费用最大流">最小费用最大流</span></h4>
-<h4><span id="最小割">最小割</span></h4>
-<p>最大流<span class="math inline">\(=\)</span>最小割,证明显然.</p>
-<p>最小割求方案。这个是简单的，我们删去所有流量<span class="math inline">\(0\)</span>的边后从<span class="math inline">\(S\)</span>开始bfs，找到所有<span class="math inline">\(S\)</span>能到达的点，显然这些点（注意如果这个点一开始就不能到达<span class="math inline">\(T\)</span>，那它是废物，不用管它，下面只讨论它能到达<span class="math inline">\(T\)</span>的情况）组成一个SCC（为啥呢？首先<span class="math inline">\(S\)</span>能到达它们，其次由于是最小割，因此这个点一定到达不了<span class="math inline">\(T\)</span>，而原本是可以到达<span class="math inline">\(T\)</span>的，假设这个点是<span class="math inline">\(x\)</span>，那么一定是原本存在一条<span class="math inline">\(S \rightarrow x \rightarrow
-T\)</span>的路径被割掉了，也就是现在一定存在一条<span class="math inline">\(x \rightarrow
-S\)</span>的路径）。最小割包含的边一定是这个集合和其它集合交界处的边。这是为啥呢？首先这些边一定组成了原图的一个割，其次，我们发现割不可能存在<span class="math inline">\(S\)</span>所在SCC中，而割掉完全不连接<span class="math inline">\(S\)</span>的边可以发现不如割其中一个点在<span class="math inline">\(S\)</span>所在SCC的边。</p>
-<h5><span id="example1luogup4313-文理分科">Example1(luoguP4313 文理分科)</span></h5>
-<p>先把所有的满意值全部吃下,然后考虑放弃哪些.</p>
-<p>对于每个人<span class="math inline">\(u\)</span>,将<span class="math inline">\(S\)</span>向他连一条流量为<span class="math inline">\(art\)</span>的边,它向<span class="math inline">\(T\)</span>连一条为<span class="math inline">\(science\)</span>的边,表示它自己要么放弃文科,要么放弃理科.</p>
-<p>然后再对每个点建立一个虚点<span class="math inline">\(u
-&#39;\)</span>,<span class="math inline">\(S\)</span>向<span class="math inline">\(u &#39;\)</span>连一条为<span class="math inline">\(sameart\)</span>的边,<span class="math inline">\(u
-&#39;\)</span>向相邻的实点连<span class="math inline">\(\infty\)</span>的边,表示要么放弃<span class="math inline">\(sameart\)</span>,要么那些点全都放弃理科.<span class="math inline">\(samescience\)</span>是同理的.</p>
-<p>从这也可以看出来,大部分最小割的题目其实就是将冲突的选项放到一条路径中,然后考虑放弃哪些,将这个限制用最小割表示出来.</p>
-<h5><span id="example2hnoi2013切糕">Example2([HNOI2013]切糕)</span></h5>
-<p>也是显然的最小割,唯一难处理的地方在于相差<span class="math inline">\(\leq D\)</span>.</p>
-<p>这个怎么做呢?建图后先每一竖轴都变成了一条链,我们在链之间加一些<span class="math inline">\(\infty\)</span>的边,使得如果断开的两个点之差大于<span class="math inline">\(D\)</span>,那就可以通过这条边破坏最小割结构.</p>
-<p>这题同样告诉我们:对于最小割题目中的限制条件,几乎都是需要考虑破坏最小割结构的(也有可能是用费用流限制).</p>
-<h5><span id="example3uoj704">Example3(uoj704)</span></h5>
-<p>二分图最小割计数.</p>
-<p>先求出最小割,然后显然每个匹配的三条边一定会选择一条割掉.</p>
-<p>不妨设<span class="math inline">\(a_i = 0 / 1 / 2\)</span>表示第<span class="math inline">\(i\)</span>对匹配割掉了哪一条边.</p>
-<p>考虑每个非匹配边<span class="math inline">\(( u , v
-)\)</span>对点权的限制:</p>
-<ol type="1">
-<li><p><span class="math inline">\(u\)</span>在最大匹配<span class="math inline">\(i\)</span>中,<span class="math inline">\(v\)</span>不在.则<span class="math inline">\(a_i =
-0\)</span>.</p></li>
-<li><p><span class="math inline">\(v\)</span>在最大匹配<span class="math inline">\(i\)</span>中,<span class="math inline">\(u\)</span>不在,则<span class="math inline">\(a_i =
-2\)</span>.</p></li>
-<li><p><span class="math inline">\(u\)</span>在最大匹配<span class="math inline">\(i\)</span>中,<span class="math inline">\(v\)</span>在最大匹配<span class="math inline">\(j\)</span>中,则<span class="math inline">\(a_i =
-0\)</span>或<span class="math inline">\(a_j = 2\)</span>.</p></li>
-</ol>
-<p>前两种是好处理的,考虑第三种:显然所有都选<span class="math inline">\(2\)</span>或所有都选<span class="math inline">\(0\)</span>是一种方案,更进一步地,我们将<span class="math inline">\(i \rightarrow
-j\)</span>,那么在一个强连通分量中的点一定都是<span class="math inline">\(2\)</span>或都是<span class="math inline">\(0\)</span>.这样可以缩点,缩点后发现DAG上的每一条路径的染色都形如<span class="math inline">\(0 , 0 , 0 , \cdots , 0 , ( 1 ) , 2 , \cdots , 2 ,
-2 , 2\)</span>.</p>
-<p>不妨折半搜索,按照拓扑排序,确定前一半哪些是<span class="math inline">\(0\)</span>,剩下是<span class="math inline">\(1 /
-2\)</span>,那他们的后继必然全都是<span class="math inline">\(2\)</span>,这样后面的是<span class="math inline">\(2\)</span>的集合一定是这个后继集合的超集,高维后缀和.</p>
-<p>接下来只需要判断哪些位置可以选<span class="math inline">\(1\)</span>.相当于前驱全都是<span class="math inline">\(0\)</span>并且后继全都是<span class="math inline">\(2\)</span>.</p>
-<h4><span id="二分图匹配">二分图匹配</span></h4>
-<h4><span id="二分图最小点覆盖">二分图最小点覆盖</span></h4>
-<p>二分图最小点覆盖<span class="math inline">\(=\)</span>二分图最小割.</p>
-<p>问题在于如何求解方案.</p>
-<p>我们从左侧的非匹配点开始dfs,走还有残留流量的路径.并将路径上所有的点全都打上标记.那么左侧所有的未标记点和右侧所有的标记点就是一组合法的方案.</p>
-<p>这是为啥呢?首先我们注意到,左侧的非匹配点一定会被标记,右侧的非匹配点一定不会被标记.</p>
-<p>为啥右侧的非匹配点一定不会被标记呢?因为如果被标记了,从左侧非匹配点到右侧非匹配点这条路径的起始边和终边就都是非匹配边,显然是一条增广路.</p>
-<p>然后我们又注意到:对于一组匹配点,要么两者都被标记,要么两者都不被标记,因为一旦走到了右侧点,下一步必然走向左侧点.而如果走到了左侧点,也必然是从右侧点走过来的.</p>
-<p>接下来我们讨论一下:</p>
-<p>对于非匹配边,由于其必然连了一个左侧非匹配点,所以它的右边必然被选择了.</p>
-<p>对于匹配边,不难发现它会被某个匹配点覆盖掉.</p>
-<p>于是得证.</p>
-<p>当然,上面的证明略显啰嗦.事实上我们这么考虑:</p>
-<p>首先,我们按照套路,求出<span class="math inline">\(S\)</span>所有能到达的点.根据二分图的性质,这个点的集合必然不包括<span class="math inline">\(T\)</span>.</p>
-<p>然后我们取所有不在这个点集的左侧点和所有在这个点集的右侧点,这样所有的点被分为了四个部分,边也自然被分为了四个部分,讨论一下就知道这四个部分中有一个部分是不存在边的.于是得证.</p>
-<h4><span id="二分图最大独立集">二分图最大独立集</span></h4>
-<p>二分图最大独立集<span class="math inline">\(= n
--\)</span>二分图最小点覆盖.</p>
-<h5><span id="example1cf1404e">Example1(CF1404E)</span></h5>
-<p>在两个可选矩形的边界处建立一个点,如果它被选了,那么说明这个矩形和上面那个矩形被一起覆盖了.然后注意到每有一个点被选,自然就多覆盖了一个矩形,显然一个矩形不可能又跟纵向的一起被覆盖又跟横向的一起被覆盖,在他俩之间连边跑最大独立集即可.</p>
-<p>感觉还是类似于最小路径覆盖,将这种两个一起被覆盖就减少答案的东西转换成一整条流.</p>
-<h4><span id="最大权闭合子图">最大权闭合子图</span></h4>
-<p>原图的边流量设为<span class="math inline">\(+
-\infty\)</span>,然后对于每个点<span class="math inline">\(x\)</span>,如果<span class="math inline">\(val_x
-&gt; 0\)</span>,那么<span class="math inline">\(ans + =
-val_x\)</span>,然后将<span class="math inline">\(S \rightarrow
-x\)</span>,流量为<span class="math inline">\(val_x\)</span>;不然,<span class="math inline">\(x \rightarrow T\)</span>,流量为<span class="math inline">\(- val_x\)</span>,然后求出最小割<span class="math inline">\(w\)</span>,答案即为<span class="math inline">\(ans
-- w\)</span>.</p>
-<h5><span id="example1luogup4177">Example1(luoguP4177)</span></h5>
-<p>只需要把中间的<span class="math inline">\(\infty\)</span>边改为租用的代价即可.</p>
-<h4><span id="最小路径覆盖覆盖点">最小路径覆盖(覆盖点)</span></h4>
-<p>将每个点<span class="math inline">\(x\)</span>拆为两个点<span class="math inline">\(A_x\)</span>,<span class="math inline">\(B_x\)</span>,将<span class="math inline">\(S\)</span>向所有<span class="math inline">\(A\)</span>连边,<span class="math inline">\(B\)</span>向<span class="math inline">\(T\)</span>连边,如果图中存在一条路径<span class="math inline">\(x \rightarrow y\)</span>,则连边<span class="math inline">\(A_x \rightarrow B_y\)</span>,流量均为<span class="math inline">\(1\)</span>,然后求出最大流<span class="math inline">\(w\)</span>,答案即为<span class="math inline">\(n -
-w\)</span>.</p>
-<p>还有一个版本是可以重复走点,做一遍传递闭包就行.因为可重复相当于原图上的可跳点,这个版本又叫最小链覆盖.</p>
-<h5><span id="example1网络流24题魔术球问题">Example1([网络流24题]魔术球问题)</span></h5>
-<p>枚举球数,不断在残联网络上加边并在新图跑最小路径覆盖即可.</p>
-<h4><span id="最长反链">最长反链</span></h4>
-<p>反链是一个点的集合,满足这个集合中的点两两不可达.</p>
-<p>最长反链<span class="math inline">\(=\)</span>可重复走点的最小点覆盖(最小链覆盖).</p>
-<p>为啥呢?因为发现做完传递闭包后等价于新图的最大独立集.当然图是有性质的,观察一下可重复走点的最小点覆盖就可以发现等价于传递闭包后在二分图上求最大独立集.</p>
-<h5><span id="example1cf1630fmaking-itbipartite">Example1([CF1630F]Making It
-Bipartite)</span></h5>
-<p>首先显然的一点是,对于任意一个数字<span class="math inline">\(x\)</span>,这个序列中不能同时出现<span class="math inline">\(px\)</span>和<span class="math inline">\(pqx\)</span>,其中<span class="math inline">\(p ,
-q\)</span>都是大于等于二的正整数.这是显然的.如果我们把图改为有向图,由<span class="math inline">\(x \rightarrow
-px\)</span>,那么整个图就只会有两种点:只有出边的点和只有入边的点.</p>
-<p>那么我们该怎么办呢?如果是只能出现<span class="math inline">\(x\)</span>就不能出现<span class="math inline">\(px\)</span>,那这就是一个经典的最长反链问题.但多了一层,我们可以考虑类似分层图的思想:建立和原图完全一样的图<span class="math inline">\(G &#39;\)</span>,并且将<span class="math inline">\(G\)</span>中的<span class="math inline">\(x\)</span>向<span class="math inline">\(G
-&#39;\)</span>中的<span class="math inline">\(x
-&#39;\)</span>连有向边,然后跑最长反链.不难发现这样做是正确的.</p>
-<h4><span id="平面图最小割">平面图最小割</span></h4>
-<p>平面图最小割<span class="math inline">\(=\)</span>对偶图最短路.</p>
-<h4><span id="最小费用任意流">最小费用任意流</span></h4>
-<p>一般费用流,但是当当前增广路代价为正的就停止增广.</p>
-<p>和最小费用最大流不一样,这玩意是可以增量的.</p>
-<p>只需要考虑所有新的从源到汇的增广路以及增加过程出现的负环即可.</p>
-<h5><span id="example1luogup4694pa2013raper">Example1(luoguP4694
-[PA2013]Raper)</span></h5>
-<p>费用流模型很好建立,问题在于这个东西好像跑费用流有点慢.</p>
-<p>那咋办呢?我们考虑到费用流是有凸性的.所以搭配一下wqs二分.</p>
-<p>然后分一下三种情况讨论:</p>
-<ol type="1">
-<li><p>直接<span class="math inline">\(S \rightarrow
-T\)</span>的负增广路,相当于选取最小的<span class="math inline">\(b\)</span>和当前的<span class="math inline">\(a\)</span>搭配.</p></li>
-<li><p>有一条<span class="math inline">\(S \rightarrow a \rightarrow b
-\rightarrow a \rightarrow S\)</span>的负环,相当于以当前的<span class="math inline">\(a\)</span>代替前面的某个较大的<span class="math inline">\(a\)</span>.</p></li>
-<li><p>有一条<span class="math inline">\(S \rightarrow a \rightarrow b
-\rightarrow T \rightarrow b \rightarrow a \rightarrow
-S\)</span>的负环,注意到这个环必然没意义,因为不可能存在一条<span class="math inline">\(T \rightarrow
-S\)</span>的负路径(不然反路径就是正的,而最小费用任意流不可能流正路径),所以这种情况不如直接选<span class="math inline">\(S \rightarrow T\)</span>的路径.</p></li>
-</ol>
-<p>讨论完拿堆模拟一下就行.</p>
-<p>这引出了著名的模拟费用流算法.</p>
-<h4><span id="负费用最小流">负费用最小流</span></h4>
-<p>一般费用流,但是当增广当前增广路时费用变成正的就停止增广.</p>
-<p>注意如果两条增广路代价相同选流量大的那条.</p>
-<h4><span id="有负环的费用流">有负环的费用流</span></h4>
-<p>首先注意到:如果初始图没有负环,那无论后面怎么流都不可能出来负环.因为这意味着要么是一开始流了个正环,要么是一开始有负路径不走走正路径,都不太可能.</p>
-<p>对于所有的负边<span class="math inline">\(u \rightarrow
-v\)</span>,我们建立两个新点<span class="math inline">\(S
-&#39;\)</span>和<span class="math inline">\(T
-&#39;\)</span>,我们先将这条负边反向权值取相反数并让答案加上<span class="math inline">\(f \times v\)</span>,之后令<span class="math inline">\(u \rightarrow T &#39; , S &#39; \rightarrow
-v\)</span>,跑<span class="math inline">\(S &#39; \rightarrow T
-&#39;\)</span>的费用流,这个时候再在残联网络上跑<span class="math inline">\(s \rightarrow t\)</span>的费用流就是答案.</p>
-<p>为啥会这样呢?</p>
-<p>首先先证明正确性,这个东西相当于一开始跑了一下<span class="math inline">\(T &#39; \rightarrow u \rightarrow v \rightarrow S
-&#39;\)</span>的图.然后我们在跑<span class="math inline">\(S &#39;
-\rightarrow T &#39;\)</span>的时候一定是可以把上面的那个东西所从<span class="math inline">\(T &#39; \rightarrow S
-&#39;\)</span>的所有流量全都退回去,因为这是一个可以构造的上界.也就相当于我们跑了一个环流.而在费用流里跑环流显然是不会影响答案的.</p>
-<p>好,那么为啥这么做就不会出现负环了呢?因为你不可能在跑<span class="math inline">\(S &#39; \rightarrow T
-&#39;\)</span>的时候跑个正环出来,自然不可能出现负环.</p>
-<p>另外有一点是,一个点可能向<span class="math inline">\(S
-&#39;\)</span>或<span class="math inline">\(T
-&#39;\)</span>连很多边,其实是可以拼掉的,因为这些边全都是零权边,而构造完后的图是非负权边.</p>
-<h4><span id="模拟费用流">模拟费用流</span></h4>
-<p>对于特殊的图,模拟EK费用流的增广过程并进行操作.</p>
-<p>对着例题记吧.</p>
-<h5><span id="example1luogup4694pa2013raper">Example1(luoguP4694
-[PA2013]Raper)</span></h5>
-<h4><span id="散题">散题</span></h4>
-<h5><span id="example1cqoi2014危桥">Example1([CQOI2014]危桥)</span></h5>
-<p>有一个朴素的想法是:我们直接按题意建图,然后<span class="math inline">\(S \rightarrow a_1 , b_1\)</span>,<span class="math inline">\(T \rightarrow a_2 ,
-b_2\)</span>,跑最大流然后检查是否满流.</p>
-<p>问题在于,这样有可能会出现<span class="math inline">\(a_1 \rightarrow
-b_2\)</span>的流量,我们怎么避免这种情况呢?</p>
-<p>做法是,我们交换<span class="math inline">\(b_1 ,
-b_2\)</span>并重复上面的过程,如果还是满流,我们声明一定合法.</p>
-<p>为什么呢?我们注意到此时网络上的流量分为四种:<span class="math inline">\(a_1 \rightarrow a_2\)</span>,<span class="math inline">\(a_1 \rightarrow b_2\)</span>,<span class="math inline">\(b_1 \rightarrow a_2\)</span>,<span class="math inline">\(b_1 \rightarrow b_2\)</span>.不难发现<span class="math inline">\(a_1 \rightarrow b_2\)</span>和<span class="math inline">\(b_1 \rightarrow a_2\)</span>的流量是相等的.</p>
-<p>在第二次跑网络流时,我们不妨直接将<span class="math inline">\(a_1
-\rightarrow a_2\)</span>和<span class="math inline">\(b_2 \rightarrow
-b_1\)</span>的流量加入答案并将这两条路径反向.此时,如果<span class="math inline">\(a_1\)</span>还是要走到<span class="math inline">\(b_1\)</span>,你发现第一轮的时候已经找到了一条<span class="math inline">\(b_1 \rightarrow
-a_2\)</span>的路径,我们一定可以走这条来构造出只有<span class="math inline">\(a_1 \rightarrow a_2\)</span>的路径,另一边同理.</p>
-<h3><span id="图的计数问题">图的计数问题</span></h3>
-<h4><span id="prufer序列">Prufer序列</span></h4>
-<p>我们可以将一颗有编号<span class="math inline">\(n\)</span>个点(<span class="math inline">\(n \geq 2\)</span>)的无根树与一个长度为<span class="math inline">\(n -
-2\)</span>的Prufer序列建立双射.换句话说,一颗有编号<span class="math inline">\(n\)</span>个节点的无根树总共有<span class="math inline">\(n^{ n - 2 }\)</span>种(Cayley公式).</p>
-<p>首先证明一个树可以对应到一个序列:每次选择一个度数为<span class="math inline">\(1\)</span>的编号最小的点,把它连向的点加到序列中并把这个点删去,直到最后只剩下两个节点,这样我们就把一棵树对应到一个序列.不难发现每个点出现的次数是其度数<span class="math inline">\(- 1\)</span>.</p>
-<p>然后证明一个序列可以还原成一棵树:</p>
-<p>我们可以通过序列得知每个点的度数,每次找到度数中最小的那个点并把它与序列中的第一个元素连边并删去序列中的第一个元素,不断这么做显然可以还原树.</p>
-<h5><span id="example">Example</span></h5>
-<p>一个<span class="math inline">\(n\)</span>个点的图有<span class="math inline">\(k\)</span>个连通块,现在加入<span class="math inline">\(k - 1\)</span>条边使得图连通,求方案数.</p>
-<p>令<span class="math inline">\(s_i\)</span>为第<span class="math inline">\(i\)</span>个连通块的点数,<span class="math inline">\(d_i\)</span>为第<span class="math inline">\(i\)</span>个连通块所新连上的边数,如果我们令<span class="math inline">\(\binom{ n }{ c_1 , c_2 , . . . , c_m } = \cfrac{ n
-! }{ c_1 ! c_2 ! . . . c_m ! } , \sum_{ i = 1 }^m c_i = n
-\\\)</span>,也即将<span class="math inline">\(n\)</span>个位置拆分成<span class="math inline">\(m\)</span>个集合,第<span class="math inline">\(i\)</span>个集合有<span class="math inline">\(c_i\)</span>个位置的方案数.</p>
-<p>那我们所需要做的也就是枚举每个连通块所新连出的边数<span class="math inline">\(d_i\)</span>,于是答案即<span class="math inline">\(\sum_d [ \sum d_i = 2 k - 2 ] \binom{ k - 2 }{ d_1
-- 1 , d_2 - 1 , . . . , d_k - 1 } \prod_{ i = 1 }^k s_i^{ d_i }
-\\\)</span>.</p>
-<p>注意到我们有多项式定理:<span class="math inline">\(( x_1 + x_2 + . .
-. + x_m )^n = \sum_{ c } [ \sum c_i = n ] \binom{ n }{ c_1 , c_2 , . . .
-, c_m } \prod_{ i = 1 }^m x_i^{ c_i } \\\)</span>.</p>
-<p>于是原式<span class="math inline">\(= n^{ k - 2 } \prod_{ i = 1 }^k
-s_i\)</span>.</p>
-<h4><span id="prufer序列的矩阵树定理理解">Prufer序列的矩阵树定理理解</span></h4>
-<p>事实上,Prufer序列其实是可以拿矩阵树定理代替的(但是更麻烦一点).</p>
-<p>我们先考虑证明Cayley公式:构造矩阵:</p>
-<p><span class="math display">\[
-\begin{bmatrix}
-- n + 1 &amp; 1 &amp; \cdots &amp; 1 \\
-1 &amp; - n + 1 &amp; \cdots &amp; 1 \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-1 &amp; 1 &amp; \cdots &amp; - n + 1
-\end{bmatrix}
-\]</span></p>
-<p>其主余子式为:</p>
-<p><span class="math display">\[
-\begin{bmatrix}
-- n + 1 &amp; 1 &amp; \cdots &amp; 1 \\
-1 &amp; - n + 1 &amp; \cdots &amp; 1 \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-1 &amp; 1 &amp; \cdots &amp; - n + 1
-\end{bmatrix}
-\]</span></p>
-<p>将所有行全部加到第一行:</p>
-<p><span class="math display">\[
-\begin{bmatrix}
-- 1 &amp; - 1 &amp; \cdots &amp; - 1 \\
-1 &amp; - n + 1 &amp; \cdots &amp; 1 \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-1 &amp; 1 &amp; \cdots &amp; - n + 1
-\end{bmatrix}
-\]</span></p>
-<p>全部加下来,然后就成了上三角矩阵,将对角线乘起来就是<span class="math inline">\(n^{ n - 2 }\)</span>.</p>
-<p>连通块的结论是类似的.</p>
-<h4><span id="lgv引理">LGV引理</span></h4>
-<p>设<span class="math inline">\(G\)</span>是一个有限的带权有向无环图,有点集<span class="math inline">\(V\)</span>的一个大小为<span class="math inline">\(n\)</span>的子集<span class="math inline">\(A = \{
-a_1 , a_2 , . . . , a_n \}\)</span>作为起点集合,一个大小为<span class="math inline">\(n\)</span>的子集<span class="math inline">\(B = \{
-b_1 , b_2 , . . . , b_n \}\)</span>作为终点集合.</p>
-<p>记边<span class="math inline">\(i\)</span>的权值为<span class="math inline">\(w_i\)</span>.对于有向路径<span class="math inline">\(p\)</span>,记路径上所有边的边权的乘积为<span class="math inline">\(W ( p )\)</span>.记<span class="math inline">\(e (
-u , v ) = \sum_{ p : u \rightarrow v } W ( p )\)</span>,即从<span class="math inline">\(u\)</span>到<span class="math inline">\(v\)</span>的所有路径的边权乘积之和.</p>
-<p>记<span class="math inline">\(P : A \rightarrow B = ( p_1 , p_2 , . .
-. , p_n )\)</span>,<span class="math inline">\(p_i\)</span>表示从<span class="math inline">\(a_i\)</span>到<span class="math inline">\(b_{
-\sigma ( i ) }\)</span>的一条路径,其中<span class="math inline">\(\sigma\)</span>是一个排列,记<span class="math inline">\(sign ( \sigma )\)</span>为<span class="math inline">\(-
-1\)</span>以这个排列的逆序对数量为幂的值.又记<span class="math inline">\(\sigma ( P )\)</span>为<span class="math inline">\(P\)</span>所对应终点的排列.若满足<span class="math inline">\(\forall 1 \leq i , j \leq n , i \ne
-j\)</span>,<span class="math inline">\(p_i\)</span>与<span class="math inline">\(p_j\)</span>没有公共点,则记作<span class="math inline">\(P^u\)</span>,否则记作<span class="math inline">\(P^c\)</span>,若不作区分记作<span class="math inline">\(P\)</span>.记<span class="math inline">\(W_{ all }
-( P ) = \prod_{ i = 1 }^n W ( p_i )
-\\\)</span>,也就是所有路径的乘积.</p>
-<p>设矩阵<span class="math inline">\(M\)</span>满足<span class="math inline">\(M_{ i , j } = e ( a_i , b_j )\)</span>,那么有:</p>
-<p><span class="math display">\[
-\det M = \sum_{ P^u : A \rightarrow B } sign ( \sigma ( P^u ) ) W_{ all
-} ( P^u )
-\]</span></p>
-<p>证明:</p>
-<p>根据行列式的定义,我们有:</p>
-$$
-<span class="math display">\[\begin{aligned}
-\det M &amp; = \sum_{ \sigma } sign ( \sigma ) \prod_{ i = 1 }^n e ( a_i
-, b_{ \sigma ( i ) } ) \\
-&amp; = \sum_{ \sigma } sign ( \sigma ) \prod_{ i = 1 }^n \sum_{ p_i :
-a_i \rightarrow b_{ \sigma ( i ) } } w ( p_i ) \\
-
-\end{aligned}\]</span>
-<p>$$</p>
-<p>考虑后面那部分,<span class="math inline">\(\prod_{ i = 1 }^n \sum_{
-p_i : a_i \rightarrow b_{ \sigma ( i ) } } w ( p_i )
-\\\)</span>形如一个卷积的形式,所以这个式子等价于所有对应排列为<span class="math inline">\(\sigma\)</span>的<span class="math inline">\(P\)</span>的<span class="math inline">\(w ( P
-)\)</span>,所以有:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\det M &amp; = \sum_{ \sigma } sign ( \sigma ) ( \sum_{ P : \{ a_1 , . .
-. , a_n \} \rightarrow \{ b_{ \sigma ( 1 ) } , . . . , b_{ \sigma ( n )
-} \} } w ( P ) ) \\
-&amp; = \sum_{ P : A \rightarrow B } sign ( \sigma ( P ) ) w ( P ) \\
-&amp; = \sum_{ P^u : A \rightarrow B } sign ( \sigma ( P^u ) ) w ( P^u )
-+ \sum_{ P^c : A \rightarrow B } sign ( \sigma ( P^c ) ) w ( P^c )
-\end{aligned}
-\]</span></p>
-<p>接下来只需证明<span class="math inline">\(\sum_{ P^c : A \rightarrow
-B } sign ( \sigma ( P^c ) ) w ( P^c ) = 0 \\\)</span>即可.</p>
-<p>设所有<span class="math inline">\(P^c\)</span>组成的集合为<span class="math inline">\(E\)</span>,考虑构造一个映射<span class="math inline">\(f : E \rightarrow E\)</span>满足如下条件:</p>
-<ol type="1">
-<li><p><span class="math inline">\(f ( P^c ) \ne P^c\)</span>.</p></li>
-<li><p><span class="math inline">\(f ( f ( P^c ) ) =
-P^c\)</span>.</p></li>
-<li><p><span class="math inline">\(w ( f ( P^c ) ) = w ( P^c
-)\)</span>.</p></li>
-<li><p><span class="math inline">\(sign ( f ( P^c ) ) = - sign ( P^c
-)\)</span>.</p></li>
-</ol>
-<p>上面的结论即得证.</p>
-<p>我们不妨考虑<span class="math inline">\(P^c\)</span>中的第一对相交的路径<span class="math inline">\(p_i\)</span>和<span class="math inline">\(p_j\)</span>,并交换它们的终点.显然满足上述条件,于是结论得证.</p>
-<h5><span id="example">Example</span></h5>
-<p>现在有<span class="math inline">\(n\)</span>个点,第<span class="math inline">\(i\)</span>个点位于<span class="math inline">\((
-a_i , 1 )\)</span>,需要走到<span class="math inline">\(( b_i , n
-)\)</span>.一个在<span class="math inline">\(( x , y
-)\)</span>的点可以走向<span class="math inline">\(( x + 1 , y
-)\)</span>或<span class="math inline">\(( x , y + 1
-)\)</span>.求路径不相交的方案数.</p>
-<p>路径不相交,则终点排列只有可能是<span class="math inline">\(\{ 1 , 2 ,
-. . . , n \}\)</span>,直接使用LGV引理即可.</p>
-<h4><span id="矩阵树定理">矩阵树定理</span></h4>
-<h5><span id="无向图情况">无向图情况</span></h5>
-<p>定义无向图的度数矩阵<span class="math inline">\(D ( G
-)\)</span>为:<span class="math inline">\(D ( G )_{ i , j } =
-\begin{cases}0 &amp; i \ne j \\ \deg_{ i } &amp; i =
-j\end{cases}\)</span>.</p>
-<p>令<span class="math inline">\(w ( i , j )\)</span>为<span class="math inline">\(i\)</span>与<span class="math inline">\(j\)</span>之间直接相连的无向边个数,定义无向图的邻接矩阵<span class="math inline">\(A ( G )_{ i , j } = \begin{cases}0 &amp; i = j \\
-w ( i , j ) &amp; i \ne j\end{cases}\)</span></p>
-<p>定义无向图的基尔霍夫矩阵(又称拉普拉斯矩阵)<span class="math inline">\(L ( G ) = D ( G ) - A ( G )\)</span>.</p>
-<p>记<span class="math inline">\(t ( G )\)</span>为图<span class="math inline">\(G\)</span>的生成树个数,那么有:<span class="math inline">\(t ( G
-)\)</span>等于基尔霍夫矩阵任意一个主余子式.</p>
-<p>引理:无向图的基尔霍夫矩阵的任意一个代数余子式都相等.</p>
-<p>证明:考虑删去第<span class="math inline">\(i\)</span>行,设剩下的矩阵为<span class="math inline">\(A = [ \vec{ r }_1 , \vec{ r }_2 , . . . , \vec{ r
-}_n ]\)</span>,根据基尔霍夫矩阵的性质,不难发现<span class="math inline">\(\sum{ \vec{ r }_i } = \vec{ 0 }\)</span>.<span class="math inline">\(\forall 1 \leq j &lt; k \leq
-n\)</span>,如果我们删去第<span class="math inline">\(j\)</span>列,考虑将除了第<span class="math inline">\(k\)</span>列的其它列全部加到第<span class="math inline">\(k\)</span>列,于是得到矩阵<span class="math inline">\([ \vec{ r }_1 , . . . , \vec{ r }_{ j - 1 } ,
-\vec{ r }_{ j + 1 } , . . . , \vec{ r }_{ k - 1 } , - \vec{ r }_j ,
-\vec{ r }_{ k + 1 } , . . . , \vec{ r }_n
-]\)</span>.我们接下来一路将第<span class="math inline">\(k\)</span>列交换到第<span class="math inline">\(j
-+ 1\)</span>列之前并取反,我们就得到了删去第<span class="math inline">\(k\)</span>列的矩阵,于是有<span class="math inline">\(M_{ i , j } = ( - 1 )^{ 1 + ( k - 1 ) - ( j + 1 )
-+ 1 } M_{ i , k }\)</span>,也就是<span class="math inline">\(C_{ i , j }
-= C_{ i , k }\)</span>,同理可证明<span class="math inline">\(C_{ j , i }
-= C_{ k , i }\)</span>.</p>
-<p>接下来,用<span class="math inline">\(T\)</span>表示生成树的边的集合,设<span class="math inline">\(w ( T ) = \prod_{ e \in T } w ( e
-)\)</span>,我们只需证明<span class="math inline">\(C_{ 1 , 1 } = \sum w
-( T )\)</span>.</p>
-<p>定义<span class="math inline">\(\zeta ( e , u ) = v , e = \{ u , v
-\}\)</span>,考虑构造一个<span class="math inline">\(n \times
-m\)</span>的矩阵<span class="math inline">\(A\)</span>满足<span class="math inline">\(A_{ i , j } = \begin{cases}1 &amp; i \in e_j \land
-i &lt; \zeta ( e_j , i ) \\ - 1 &amp; i \in e_j \land i &gt; \zeta ( e_j
-, i ) \\ 0 &amp; other\end{cases} \\\)</span>.</p>
-<p>注意到:</p>
-$$
-<span class="math display">\[\begin{aligned}
-AA^T ( i , j ) &amp; = \sum_{ k = 1 }^m A ( i , k ) A^T ( k , j ) \\
-&amp; = \sum_{ k = 1 }^m A ( i , k ) A ( j , k ) \\
-
-\end{aligned}\]</span>
-<p>$$</p>
-<p>当<span class="math inline">\(i = j\)</span>时,不难发现<span class="math inline">\(AA^T ( i , j ) = \sum_{ k = 1 }^m [ i \in e_k ] =
-\deg_i\)</span>.不然,注意到显然为<span class="math inline">\(- \sum_{ k
-= 1 }^m [ i \in e_k ] [ j \in e_k ]\)</span>.也就是说,<span class="math inline">\(AA^T = L\)</span>.</p>
-<p>定义<span class="math inline">\(A\)</span>删去第一行后得到的矩阵为<span class="math inline">\(B\)</span>,则<span class="math inline">\(BB^T =
-M_{ 1 , 1 }\)</span>.此时我们带入Cauchy-Binet公式,得到:</p>
-<p><span class="math display">\[
-\begin{aligned}
-M_{ 1 , 1 } &amp; = \sum_{ | S | = n - 1 , S \subseteq \{ 1 , 2 , . . .
-, m \} } \det ( B [ S ] B^T [ S ] ) \\
-&amp; = \sum_{ | S | = n - 1 , S \subseteq \{ 1 , 2 , . . . , m \} }
-\det ( B [ S ] )^2
-\end{aligned}
-\]</span></p>
-<p>接下来我们需要证明:如果<span class="math inline">\(S\)</span>集合构成了一棵生成树,那么<span class="math inline">\(\det B [ S ] = \pm 1\)</span>.反之,<span class="math inline">\(\det B [ S ] = 0\)</span>.</p>
-<p>如果集合没有构成一个生成树,则至少存在一个简单环.如果有某个点是孤立点那么答案肯定是<span class="math inline">\(0\)</span>,因此只需考虑每个点都与边连通的情况即可.</p>
-<p>考虑这种情况下,如果有两条边<span class="math inline">\(( u_1 , u_2
-)\)</span>和<span class="math inline">\(( u_2 , u_3
-)\)</span>被选上了,那么我们可以通过列变换将它们改为<span class="math inline">\(( u_1 , u_2 )\)</span>和<span class="math inline">\(( u_1 , u_3
-)\)</span>.这样不断进行下去,如果存在环,一定会出现重边选择的情况,这个时候行列式的值为<span class="math inline">\(0\)</span>.如果不存在环,那么我们可以通过这个操作得到一个菊花图.所以行列式为<span class="math inline">\(\pm 1\)</span>.</p>
-<p>所以定理得证.</p>
-<h6><span id="example省选联考-2020-a卷作业题">Example([省选联考 2020 A
-卷]作业题)</span></h6>
-<p>给定一个图,设第<span class="math inline">\(i\)</span>条边的权值为<span class="math inline">\(w_i\)</span>,求所有生成树的<span class="math inline">\(\gcd ( w_1 , . . . , w_{ n - 1 } ) \sum_{ i = 1
-}^{ n - 1 } w_i\)</span>之和.</p>
-<p>首先前面的<span class="math inline">\(\gcd\)</span>可以使用<span class="math inline">\(\varphi * I =
-id\)</span>来处理.于是剩下的问题在于我们如何将一个生成树的边的和代替乘积作为贡献来求和.</p>
-<p>不妨进行扩域,令<span class="math inline">\(j^2 = 0 , j \ne
-0\)</span>,这样我们可以类比复数来将每个数写作<span class="math inline">\(a + bj\)</span>的模式.考虑将每条边的边权改为<span class="math inline">\(w_i j +
-1\)</span>并定义新域的四则运算,取最后得到的数<span class="math inline">\(a + bj\)</span>的<span class="math inline">\(b\)</span>作为答案即可.</p>
-<p>另外,注意到这样做复杂度<span class="math inline">\(wn^3\)</span>,很难通过.考虑每次只当边数大于等于<span class="math inline">\(n - 1\)</span>的时候再跑行列式.不妨设<span class="math inline">\(\sigma ( n )\)</span>为<span class="math inline">\(n\)</span>的因数个数,考虑如果因数很分散,那肯定复杂度很低,不然,我们有复杂度<span class="math inline">\(O ( n^3 \cfrac{ \sum_{ i = 1 }^m \sigma ( w_i ) }{
-n - 1 } )\)</span>,可以通过.</p>
-<h6><span id="example北京省选集训2019生成树计数">Example([北京省选集训2019]生成树计数)</span></h6>
-<p>给定一个图,设第<span class="math inline">\(i\)</span>条边的权值为<span class="math inline">\(w_i\)</span>,求所有生成树的<span class="math inline">\(( \sum_{ i = 1 }^{ n - 1 } w_i
-)^k\)</span>之和.</p>
-<p>考虑将第<span class="math inline">\(e\)</span>条边边权改为<span class="math inline">\(\sum_{ i = 0 }^k \cfrac{ w_e^i x^i }{ i !
-}\)</span>.根据多项式定理,显然最后取<span class="math inline">\([ x^k
-]\)</span>并乘以<span class="math inline">\(k !\)</span>即可.</p>
-<h5><span id="有向图情况">有向图情况</span></h5>
-<p>定义有向图的出度矩阵<span class="math inline">\(D^{ out } ( G ) =
-\begin{cases}0 &amp; i \ne j \\ \deg^{ out }_i &amp; i =
-j\end{cases}\)</span>,类似地可以定义入度矩阵<span class="math inline">\(D^{ in } ( G )\)</span>.</p>
-<p>令<span class="math inline">\(cnte ( i , j )\)</span>为从<span class="math inline">\(i\)</span>直接连向<span class="math inline">\(j\)</span>的有向边个数,定义有向图的邻接矩阵<span class="math inline">\(A ( G )_{ i , j } = \begin{cases}0 &amp; i = j \\
-cnte ( i , j ) &amp; i \ne j\end{cases}\)</span></p>
-<p>定义有向图的出度基尔霍夫矩阵<span class="math inline">\(L^{ out } ( G
-) = D^{ out } ( G ) - A ( G
-)\)</span>,同理可以定义其入度基尔霍夫矩阵<span class="math inline">\(L^{
-in } ( G )\)</span>.</p>
-<p>记<span class="math inline">\(t^{ root } ( r , G )\)</span>为图<span class="math inline">\(G\)</span>以<span class="math inline">\(r\)</span>为根的根向生成树(<span class="math inline">\(r\)</span>为根时,所有边都从儿子指向父亲)个数,同理可以定义叶向生成树个数<span class="math inline">\(t^{ leaf } ( r , G )\)</span>.</p>
-<p>设<span class="math inline">\(M^{ out }_{ r , r }\)</span>为<span class="math inline">\(L^{ out }\)</span>的主余子式,有<span class="math inline">\(t^{ root } ( r , G ) = M^{ out }_{ r , r
-}\)</span>.叶向同理.</p>
-<p>下面只简单提到根向生成树的证明,叶向同理.</p>
-<p>类似于无向图,我们考虑构造<span class="math inline">\(n \times
-m\)</span>矩阵<span class="math inline">\(A\)</span>和<span class="math inline">\(( n - 1 ) \times m\)</span>矩阵<span class="math inline">\(B\)</span>:</p>
-<p><span class="math display">\[
-\begin{aligned}
-A_{ i , j } &amp; = \begin{cases}
-1 &amp; e_j &#39; s \ head \ is \ i \\
-- 1 &amp; e_j &#39; s \ tail \ is \ i \\
-0 &amp; other
-\end{cases} \\
-B_{ i , j } &amp; = \begin{cases}
-1 &amp; e_j &#39; s \ head \ is \ i \\
-0 &amp; other
-\end{cases}
-\end{aligned}
-\]</span></p>
-<p>剩下的部分与无向图类似.</p>
-<h4><span id="best定理">BEST定理</span></h4>
-<p>设<span class="math inline">\(ec ( G )\)</span>为有向图<span class="math inline">\(G\)</span>的欧拉回路个数,若其存在欧拉回路,则:</p>
-<p><span class="math display">\[
-ec ( G ) = t^{ root } ( G , x ) \prod_{ i = 1 }^n ( \deg_i - 1 ) !
-\]</span></p>
-<p>其中<span class="math inline">\(\deg_i = \deg^{ in }_i = \deg_i^{ out
-}\)</span>.</p>
-<p>考虑如果勒令以<span class="math inline">\(x\)</span>为起点,我们保留除了<span class="math inline">\(x\)</span>以外每个点的最后经过的出边,最后一定会形成一棵根向树.而其他点可以随便选(由于我们勒令了每个点存在一个出边,所以不可能走到死胡同),这样的答案是<span class="math inline">\(t^{ root } ( G , x ) \deg_x \prod_{ i = 1 }^n (
-\deg_i - 1 ) !\)</span>.</p>
-<p>但是如果没有规定起点,考虑循环重构,在我们选择不同的边当作初始边时,只需循环一下总体的顺序,就可以得到以另一条边为初始边的另一个图,所以答案要比规定起点的答案多除一个<span class="math inline">\(\deg_x\)</span>.</p>
-<h4><span id="格路计数问题">格路计数问题</span></h4>
-<h5><span id="定义">定义</span></h5>
-<ol type="1">
-<li><p>在平面直角坐标系中,横坐标和纵坐标都是整数的点称为格点,平面格路是指从一个格点到另一格点只走格点的路,格路的长度是指其所走的路的步数.</p></li>
-<li><p>对于一条从<span class="math inline">\(( 0 , 0 )\)</span>到<span class="math inline">\(( n , m )\)</span>的格路,若其只使用了上步<span class="math inline">\(U = ( 0 , 1 )\)</span>,右步<span class="math inline">\(L = ( 1 , 0 )\)</span>,则我们称其为<span class="math inline">\(( n , m )\)</span>自由路.</p></li>
-<li><p>记<span class="math inline">\(\mathcal{ F } ( n , m
-)\)</span>为<span class="math inline">\(( n , m
-)\)</span>自由路的集合,<span class="math inline">\(F ( n , m ) = \#
-\mathcal{ F } ( n , m )\)</span>为<span class="math inline">\(( n , m
-)\)</span>自由路数量,即<span class="math inline">\(\mathcal{ F } ( n , m
-)\)</span>的元素个数,显然<span class="math inline">\(F ( n , m ) =
-\binom{ n + m }{ n } \\\)</span>.</p></li>
-<li><p>对于一条从<span class="math inline">\(( 0 , 0 )\)</span>到<span class="math inline">\(( n , m
-)\)</span>的自由路,若其始终不经过对角线<span class="math inline">\(y =
-\cfrac{ m }{ n } x\)</span>下方,则我们称之为<span class="math inline">\(( n , m ) - Dyck\)</span>路.</p></li>
-<li><p>记<span class="math inline">\(\mathcal{ D } ( n , m
-)\)</span>为<span class="math inline">\(( n , m
-)\)</span>自由路的集合,<span class="math inline">\(D ( n , m ) = \#
-\mathcal{ D } ( n , m )\)</span>为<span class="math inline">\(( n , m
-)\)</span>自由路数量,即<span class="math inline">\(\mathcal{ D } ( n , m
-)\)</span>的元素个数.</p></li>
-<li><p>对于从<span class="math inline">\(( 0 , 0 )\)</span>到<span class="math inline">\(( n , m )\)</span>的<span class="math inline">\(2\)</span>条格路<span class="math inline">\(P ,
-Q\)</span>,其中<span class="math inline">\(P = u_1 u_2 . . . u_{ n + m }
-, Q = v_1 v_2 . . . v_{ n + m } ( u_i , v_i \in{ L , U } , i = 1 , 2 , .
-. . , n + m )\)</span>.若 <span class="math inline">\(\exists i , u_{ i
-+ 1 } . . . u_{ n + m } u_1 . . . u_i = v_1 v_2 . . . v_{ n + m
-}\)</span>,则我们称格路<span class="math inline">\(P ,
-Q\)</span>等价.将<span class="math inline">\(P\)</span>的等价格路全集记为<span class="math inline">\([ P ]\)</span>.</p></li>
-<li><p>对于任意格路<span class="math inline">\(P\)</span>,记<span class="math inline">\(P_k = u_{ k + 1 } . . . u_{ n + m } u_1 . . .
-u_k\)</span>,则<span class="math inline">\([ P ] = \{ P_k | k = 1 , 2 ,
-3 , · · · , n + m \}\)</span>.定义<span class="math inline">\(P\)</span>的周期为使得<span class="math inline">\(P = P_k\)</span>的最小数<span class="math inline">\(k\)</span>，用<span class="math inline">\(period (
-P )\)</span>表示,则显然有<span class="math inline">\(\# [ P ] = period (
-P )\)</span>.</p></li>
-</ol>
-<h5><span id="定理">定理</span></h5>
-<h4><span id="散模型">散模型</span></h4>
-<h5><span id="多叉堆计数">多叉堆计数</span></h5>
-<p>有一棵树,要求给每个点一个<span class="math inline">\([ 1 , n
-]\)</span>的权值且不同的点权值不同,满足父亲的权值小于儿子的权值,求方案数.</p>
-<p>不妨设以<span class="math inline">\(u\)</span>为根节点的子树方案数为<span class="math inline">\(f_u\)</span>,<span class="math inline">\(u\)</span>的儿子是<span class="math inline">\(v_1
-, . . . , v_k\)</span>,注意到<span class="math inline">\(f_u = \binom{
-siz_u - 1 }{ siz_{ v_1 } , siz_{ v_2 } , . . . , siz_{ v_k } } \prod f_{
-v_i } = ( siz_u - 1 ) ! \prod_{ u \rightarrow v } \frac{ f_{ v } }{
-siz_v ! } \\\)</span>.</p>
-<p>那么考虑根的答案<span class="math inline">\(f_1\)</span>,考虑不断将<span class="math inline">\(f_1\)</span>中含有的其它<span class="math inline">\(f_u\)</span>向下展开,自然的,除了<span class="math inline">\(1\)</span>号点外,每个点对答案都贡献了一个<span class="math inline">\(\frac{ 1 }{ siz }\)</span>,而根的贡献是<span class="math inline">\(( n - 1 ) !\)</span>.</p>
-<p>也就是说,<span class="math inline">\(ans = ( n - 1 ) ! \prod_{ u = 2
-}^n \frac{ 1 }{ siz_u } = n ! \prod_{ u = 1 }^n \frac{ 1 }{ siz_u }
-\\\)</span>.</p>
-<h6><span id="example1agc060c-large-heap">Example1([AGC060C] Large Heap)</span></h6>
-<p>如果没有限制,就是一个简单的多叉堆计数.</p>
-<p>而有了限制怎么做呢?我们考虑把<span class="math inline">\(u\)</span>到<span class="math inline">\(1\)</span>的路径和<span class="math inline">\(v\)</span>到<span class="math inline">\(1\)</span>的路径归并起来,会得到一条长链.我们只要确定了长链上的元素,通过组合数以及二叉堆计数,自然可以算出不在长链上的元素的答案.而对于长链上的元素,我们可以直接设计一个<span class="math inline">\(O ( n^2 )\)</span>的dp即可.</p>
-<h6><span id="example2heoi2013sao">Example2([HEOI2013]SAO)</span></h6>
-<p>显然给出的是一张树形图,然后每条边有一个限制表示这条边所连接的两个点哪个更大.现在给每个点一个<span class="math inline">\([ 1 , n
-]\)</span>的权值且不同的点权值不同求方案数.</p>
-<p>我们随便找一个点然后当成有根树做,然后如果只有父亲小于儿子的边就是简单的多叉堆计数.不然,我们可以做一个简单容斥.这样问题就又转化回多叉堆计数,容斥部分写一个树形dp就好.</p>
-<p>补一下,这个树形dp没有那么简单.首先你注意到多叉堆计数是跟子树大小有关系的,所以你不能简单地设计<span class="math inline">\(f_{ i , j }\)</span>表示<span class="math inline">\(i\)</span>子树内选中了<span class="math inline">\(j\)</span>条边的代价,你必须加一维来处理子树大小,也就是设<span class="math inline">\(f_{ u , siz , cnt }\)</span>表示<span class="math inline">\(u\)</span>所在连通块大小为<span class="math inline">\(siz\)</span>,子树中总共选择了<span class="math inline">\(cnt\)</span>条边的代价.</p>
-<p>但是注意到这题的容斥系数是<span class="math inline">\(( - 1
-)^k\)</span>,其中<span class="math inline">\(k\)</span>是选择的儿子小于父亲的数量,然后其它的要求儿子大于父亲的边随便选.你发现你选中了一条边,无非是对答案乘以一个<span class="math inline">\(- 1\)</span>,这是没有必要记录的.因此直接以<span class="math inline">\(f_{ u , siz }\)</span>的状态转移就行.</p>
-<p>这个故事告诉我们别什么容斥都最后算,你能在做的过程中把<span class="math inline">\(- 1\)</span>乘上去就别惦记最后统一求和了.</p>
-<h5><span id="三元环计数">三元环计数</span></h5>
-<p>我们对原图建立一个新的有向图,在新图中,如果<span class="math inline">\(u \rightarrow v\)</span>,则在原图中<span class="math inline">\(\deg u &lt; \deg v\)</span>或<span class="math inline">\(\deg u = \deg v \land u &lt;
-v\)</span>.根据自然根号,每个点的出度不会超过<span class="math inline">\(O ( \sqrt{ n } )\)</span>.</p>
-<p>接下来枚举原图的一条边<span class="math inline">\(u \leftrightarrow
-v\)</span>,只要在新的图中找到<span class="math inline">\(w\)</span>满足<span class="math inline">\(u
-\rightarrow v , u \rightarrow w , v \rightarrow
-w\)</span>即可.打tag做一做,复杂度<span class="math inline">\(O ( n
-\sqrt{ n } )\)</span>.</p>
-<h5><span id="四元环计数">四元环计数</span></h5>
-<p>仍然类似三元环计数那样建立新图.</p>
-<p>考虑原图中的两条边<span class="math inline">\(u \leftrightarrow
-v\)</span>和<span class="math inline">\(u \leftrightarrow v
-&#39;\)</span>,我们考虑对四元环中度数最大的那个点<span class="math inline">\(w\)</span>计数,对于这个<span class="math inline">\(w\)</span>统计一个tag表示形如<span class="math inline">\(u \leftrightarrow v \rightarrow
-w\)</span>的数量,每次改变<span class="math inline">\(u\)</span>的时候清空一下全图tag.</p>
-<h5><span id="有标号dag计数">有标号DAG计数</span></h5>
-<p>即:</p>
-$$
-<span class="math display">\[\begin{aligned}
-f_n &amp; = \sum_{ k = 1 }^n \binom{ n }{ k } ( - 1 )^{ k - 1 } 2^{ k (
-n - k ) } f_{ n - k } \\
-
-\end{aligned}\]</span>
-<p>$$</p>
-<p>证明见反演与容斥-子集反演-Example2.</p>
-<h6><span id="example1qoj5749">Example1(qoj5749)</span></h6>
-<p>注意到一个环内部不能有任何边,那么其实也就是有标号DAG计数,只不过要乘上一个斯特林数.不妨设<span class="math inline">\(g_{ n , m }\)</span>为<span class="math inline">\(n\)</span>个点<span class="math inline">\(m\)</span>条边的答案,再设<span class="math inline">\(G_n\)</span>为其生成函数.事实上,我们自然有:</p>
-$$
-<span class="math display">\[\begin{aligned}
-G_n &amp; = \sum_{ k = 1 } \binom{ n }{ k } \sum_{ j = 1 }^k{ k \brack j
-} ( - 1 )^{ j - 1 } ( 1 + z )^{ k ( n - k ) } G_{ n - k } \\
-&amp; = \sum_{ k = 1 } \binom{ n }{ k } ( 1 + z )^{ k ( n - k ) } G_{ n
-- k } \sum_{ j = 1 }^k{ k \brack j } ( - 1 )^{ j - 1 } \\
-
-\end{aligned}\]</span>
-<p>$$</p>
-<p>逆用斯特林公式,如果<span class="math inline">\(n \geq 1\)</span>:</p>
-<p><span class="math display">\[
-\sum_{ i }{ n \brack i } ( - 1 )^{ i - 1 } = ( - 1 ) \times ( - 1 )^{
-\overline{ n } } = [ n = 1 ]
-\]</span></p>
-<p>注意到<span class="math inline">\(G_1 = 1\)</span>,于是:</p>
-<p><span class="math display">\[
-\begin{aligned}
-G_n &amp; = n ( 1 + z )^{ n - 1 } G_{ n - 1 } \\
-&amp; = n ! ( 1 + z )^{ \frac{ n ( n - 1 ) }{ 2 } } \\
-[ z^m ] G_n &amp; = n ! \binom{ \frac{ n ( n - 1 ) }{ 2 } }{ m }
-\end{aligned}
-\]</span></p>
 
       
     </div>

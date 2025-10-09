@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/%E5%A4%B4%E5%83%8F1.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/%E5%A4%B4%E5%83%8F1.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/%E5%A4%B4%E5%83%8F1.jpg">
+  <link rel="mask-icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lwlaymh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="前言 ZFC公理体系  存在公理(Exi) 外延公理(Ext) 分离公理模式(Sep) 配对公理(Pai) 并集公理(Uni) 幂集公理(Pow) 无穷公理(Inf) 替换公理模式(Rep) 正则公理(Fnd) 选择公理(AC) 集合的简单运算  关系  有序对 笛卡尔积 二元关系 函数关系 等价关系 序关系  实数的构造  自然数 递">
+<meta property="og:type" content="article">
+<meta property="og:title" content="近世代数">
+<meta property="og:url" content="http://lwlaymh.github.io/2025/07/05/%E5%AD%A6%E4%B9%A0-%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/index.html">
+<meta property="og:site_name" content="LWLAymh的备忘录">
+<meta property="og:description" content="前言 ZFC公理体系  存在公理(Exi) 外延公理(Ext) 分离公理模式(Sep) 配对公理(Pai) 并集公理(Uni) 幂集公理(Pow) 无穷公理(Inf) 替换公理模式(Rep) 正则公理(Fnd) 选择公理(AC) 集合的简单运算  关系  有序对 笛卡尔积 二元关系 函数关系 等价关系 序关系  实数的构造  自然数 递">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-05T07:46:14.402Z">
+<meta property="article:modified_time" content="2025-10-09T02:56:05.234Z">
+<meta property="article:author" content="LWLAymh">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://lwlaymh.github.io/2025/07/05/%E5%AD%A6%E4%B9%A0-%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://lwlaymh.github.io/2025/07/05/%E5%AD%A6%E4%B9%A0-%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/","path":"2025/07/05/学习-近世代数/","title":"近世代数"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>近世代数 | LWLAymh的备忘录</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+  <script src="/js/third-party/addtoany.js" defer></script>
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+<link rel="dns-prefetch" href="my-repository-jade-beta-79.vercel.app">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">LWLAymh的备忘录</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">混乱节拍拼凑出血肉喧嚷</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">ZFC公理体系</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.1.</span> <span class="nav-text">存在公理(Exi)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.2.</span> <span class="nav-text">外延公理(Ext)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.3.</span> <span class="nav-text">分离公理模式(Sep)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.4.</span> <span class="nav-text">配对公理(Pai)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.5.</span> <span class="nav-text">并集公理(Uni)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.6.</span> <span class="nav-text">幂集公理(Pow)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.7.</span> <span class="nav-text">无穷公理(Inf)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.8.</span> <span class="nav-text">替换公理模式(Rep)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.9.</span> <span class="nav-text">正则公理(Fnd)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.10.</span> <span class="nav-text">选择公理(AC)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.11.</span> <span class="nav-text">集合的简单运算</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">关系</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.0.1.</span> <span class="nav-text">有序对</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.0.2.</span> <span class="nav-text">笛卡尔积</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">3.0.3.</span> <span class="nav-text">二元关系</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">3.1.</span> <span class="nav-text">函数关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">3.2.</span> <span class="nav-text">等价关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">3.3.</span> <span class="nav-text">序关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">实数的构造</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">4.1.</span> <span class="nav-text">自然数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">4.2.</span> <span class="nav-text">递归定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">4.3.</span> <span class="nav-text">等势</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">4.3.1.</span> <span class="nav-text">Cantor-Bernstein定理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">4.3.2.</span> <span class="nav-text">夹逼定理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">4.3.3.</span> <span class="nav-text">幂集的大小</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">4.3.4.</span> <span class="nav-text">有穷与无穷</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="LWLAymh"
+      src="/images/%E5%A4%B4%E5%83%8F1.jpg">
+  <p class="site-author-name" itemprop="name">LWLAymh</p>
+  <div class="site-description" itemprop="description">不过是白日梦里一瞬息</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/LWLAymh" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LWLAymh" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lwlaymh@outlook.com" title="E-Mail → mailto:lwlaymh@outlook.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/LWLAymh" title="WeChat → LWLAymh" rel="noopener me"><i class="fab fa-skype fa-fw"></i>WeChat</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://minyuchengmin.github.io/" title="https:&#x2F;&#x2F;minyuchengmin.github.io" rel="noopener" target="_blank">ycm的blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://shanlunjiajian.github.io/" title="http:&#x2F;&#x2F;shanlunjiajian.github.io" rel="noopener" target="_blank">qyc的blog</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.cnblogs.com/do-while-true" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;do-while-true" rel="noopener" target="_blank">dwt的blog</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lwlaymh.github.io/2025/07/05/%E5%AD%A6%E4%B9%A0-%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F1.jpg">
+      <meta itemprop="name" content="LWLAymh">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LWLAymh的备忘录">
+      <meta itemprop="description" content="不过是白日梦里一瞬息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="近世代数 | LWLAymh的备忘录">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          近世代数
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-07-05 15:46:14" itemprop="dateCreated datePublished" datetime="2025-07-05T15:46:14+08:00">2025-07-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-10-09 10:56:05" itemprop="dateModified" datetime="2025-10-09T10:56:05+08:00">2025-10-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">大学课程</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2025/07/05/%E5%AD%A6%E4%B9%A0-%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2025/07/05/%E5%AD%A6%E4%B9%A0-%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><!-- toc -->
+<ul>
+<li><a href="#前言">前言</a></li>
+<li><a href="#zfc公理体系">ZFC公理体系</a>
+<ul>
+<li><a href="#存在公理exi">存在公理(Exi)</a></li>
+<li><a href="#外延公理ext">外延公理(Ext)</a></li>
+<li><a href="#分离公理模式sep">分离公理模式(Sep)</a></li>
+<li><a href="#配对公理pai">配对公理(Pai)</a></li>
+<li><a href="#并集公理uni">并集公理(Uni)</a></li>
+<li><a href="#幂集公理pow">幂集公理(Pow)</a></li>
+<li><a href="#无穷公理inf">无穷公理(Inf)</a></li>
+<li><a href="#替换公理模式rep">替换公理模式(Rep)</a></li>
+<li><a href="#正则公理fnd">正则公理(Fnd)</a></li>
+<li><a href="#选择公理ac">选择公理(AC)</a></li>
+<li><a href="#集合的简单运算">集合的简单运算</a></li>
+</ul></li>
+<li><a href="#关系">关系</a>
+<ul>
+<li><a href="#有序对">有序对</a></li>
+<li><a href="#笛卡尔积">笛卡尔积</a></li>
+<li><a href="#二元关系">二元关系</a></li>
+<li><a href="#函数关系">函数关系</a></li>
+<li><a href="#等价关系">等价关系</a></li>
+<li><a href="#序关系">序关系</a></li>
+</ul></li>
+<li><a href="#实数的构造">实数的构造</a>
+<ul>
+<li><a href="#自然数">自然数</a></li>
+<li><a href="#递归定理">递归定理</a></li>
+<li><a href="#等势">等势</a>
+<ul>
+<li><a href="#cantor-bernstein定理">Cantor-Bernstein定理</a></li>
+<li><a href="#夹逼定理">夹逼定理</a></li>
+<li><a href="#幂集的大小">幂集的大小</a></li>
+<li><a href="#有穷与无穷">有穷与无穷</a></li>
+</ul></li>
+</ul></li>
+</ul>
+<!-- tocstop -->
+<span id="more"></span>
+<h3><span id="前言">前言</span></h3>
+<p>本笔记是Paolo Aluffi《Algebra:
+Chapter0》一书的笔记.并在过程中参考李文威《代数学讲义》和《代数学方法》,复旦大学出版社的《集合论:
+对无穷概念的探索》.中途也许会部分重复指涉本人的高等代数笔记,以及网络资料.</p>
+<p>这看上去是一个相当庞大的工程.笔者于2025.10.09写下此前言,计划能在2026前完成前四章(集合与范畴,群,环和模,再探群)的内容,第五章(Irreducibility
+and factorization in integral
+domains)于我来说是完全新的内容,接下来三章(线性代数,域,再探线性代数)预计并不会讲的有多详细(坦白地,一章讲的有多详细,也许完全取决于我个人对此的熟悉程度).至于最后一章(同调代数),也许需要再拖延一会.总之,笔者希望这并不会耗费一年或者更多的时间.也不希望它占据笔者的全部课余时间(笔者手上还有一套《Software
+Foundations》还没读完,而且希望能在这一年重温《具体数学》.另外,《数学天书中的证明》也许也在笔者后期的任务当中(会写成整套笔记吗?还是偶尔看到比较漂亮的就单发一期luogu博客).课内的压力并不算轻松.而且除专业知识外,《白痴》已经读了半年了还没读完…)</p>
+<p>本文应该会只在<a href="lwlaymh.github.io">个人博客</a>上连载,标题大概率会取《近世代数》.也许会在luogu博客逐章搬运一份,但肯定也是不保证可读性的(luogu博客不支持xymatrix等语法).也许于此之前又要找时间把个人博客再翻新一下,换个国内的服务器部署……但总之,作为一本饱受盛誉的教材,笔者希冀于此中翻新与重塑曾经学过的知识.</p>
+<h3><span id="zfc公理体系">ZFC公理体系</span></h3>
+<h4><span id="存在公理exi">存在公理(Exi)</span></h4>
+<p><span class="math display">\[
+\exists x(x=x)
+\]</span></p>
+<p>也即:这里总存在着一个集合.在最早的ZFC公理体系中,这条公理也被定义成:空集是存在的.然而空集定理要比这条更强一些,我们会在后面证明空集的存在性.</p>
+<h4><span id="外延公理ext">外延公理(Ext)</span></h4>
+<p><span class="math display">\[
+\forall X\forall Y\forall u(u\in X\Leftrightarrow u\in Y)\Leftrightarrow
+X=Y
+\]</span></p>
+<p>也即:两个有相同元素的集合相等.如果补充<span class="math inline">\(\subseteq,\supseteq\)</span>的定义,这里也可以写作:
+<span class="math display">\[
+\forall X\forall Y((X\subseteq Y)\land (Y\subseteq X))\Leftrightarrow
+X=Y
+\]</span></p>
+<h4><span id="分离公理模式sep">分离公理模式(Sep)</span></h4>
+<p>令<span class="math inline">\(\varphi(u)\)</span>为条件,则: <span class="math display">\[
+\forall X\exists Y\forall u(u\in Y\Leftrightarrow u\in X\land
+\varphi(u))
+\]</span> 也即:我们可以将一个集合中满足条件<span class="math inline">\(\varphi(u)\)</span>的元素取出组合成一个新的集合.分离公理有的时候又被叫做<strong>概括公理</strong>或者<strong>子集公理</strong>.</p>
+<p>分离公理是对<strong>概括原则</strong>(即:对于任意条件<span class="math inline">\(\psi(u)\)</span>,概括原则试图定义集合<span class="math inline">\(Y=\{x|\psi(u\}\)</span>)的限制.由分离公理模式以罗素悖论可以立刻导出不存在”所有集合组成的集合”.</p>
+<p>现在我们试图用分离公理模式来定义<strong>空集</strong>,一个较为显然的办法是考虑定义<span class="math inline">\(\emptyset=\{x|x\ne
+x\}\)</span>,可正如我们刚刚所说的,这种集合并不合法:我们总需要指定一个<span class="math inline">\(X\)</span>才能定义<span class="math inline">\(\emptyset=\{x\in X|x\ne
+x\}\)</span>,如若在这里指定一个<span class="math inline">\(X\)</span>就会有非典范的争议(虽然我们的确可以用存在公理声明存在这样的集合).因此不妨采取以下策略:</p>
+<p>考虑如果<span class="math inline">\(\varphi(u)\Rightarrow u\in
+X\)</span>,则<span class="math inline">\(\{u\in
+X|\varphi(u)\}\)</span>可以自然定义为<span class="math inline">\(\{u|\varphi(u)\}\)</span>,此时可见这个集合并不依赖于<span class="math inline">\(X\)</span>:事实上<span class="math inline">\(\forall X&#39;\)</span>如若有<span class="math inline">\(\varphi(u)\Rightarrow u\in X&#39;\)</span>则<span class="math inline">\(\{u\in X|\varphi(u)\}=\{u\in
+X&#39;|\varphi(u)\}\)</span>.而<span class="math inline">\(\forall
+X,x\ne x\Rightarrow x\in
+X\)</span>总是真的,又根据存在公理,至少存在这样一个<span class="math inline">\(X\)</span>,而对于所有的<span class="math inline">\(X\)</span>,定义出来的<span class="math inline">\(\emptyset=\{x|x\ne
+x\}\)</span>都是同一集合,这就搞定了.</p>
+<p>从上面的讨论也可以见到:<span class="math inline">\(\{u|\varphi(u)\}\)</span>是一个集合当且仅当<span class="math inline">\(\exists X(\varphi(u)\Rightarrow u\in
+X)\)</span>.不然,我们将<span class="math inline">\(\{u|\varphi(u)\}\)</span>成为一个<strong>类</strong>.当然所有的集合都是类,而类不一定是集合,并非集合的类被称作<strong>真类</strong>.</p>
+<p>今后用到的不加说明均表示集合,有些特殊的类会用黑体大写字母表示,例如所有集合组成的类记作<span class="math inline">\(\mathbf{V}=\{x|x=x\}\)</span>,将罗素类记作<span class="math inline">\(\mathbf{R}=\{x|x\notin x\}\)</span>.</p>
+<p>分离公理可以定义集合的交和差,不必过多赘述.值得一提的是集合内所有元素(也是集合)的交,被定义为<strong>任意交</strong>:对任意集合<span class="math inline">\(X\ne \emptyset\)</span>,<span class="math inline">\(\bigcap X=\{u|\forall Y(Y\in X\Rightarrow u\in
+Y)\}\)</span>也是集合,这里要求<span class="math inline">\(X\ne
+\emptyset\)</span>的原因当然是我们定义需要<span class="math inline">\(\exists Y\)</span>.</p>
+<h4><span id="配对公理pai">配对公理(Pai)</span></h4>
+<p><span class="math display">\[
+\forall a\forall b\exists c\forall x(x\in c\Leftrightarrow x=a\lor x=b)
+\]</span></p>
+<p>即:对任意<span class="math inline">\(a,b\)</span>存在一个集合只以<span class="math inline">\(a,b\)</span>为元素.配对公理的显然推论是单点集<span class="math inline">\(\{a\}=\{a,a\}\)</span>是集合.</p>
+<h4><span id="并集公理uni">并集公理(Uni)</span></h4>
+<p><span class="math display">\[
+\forall X\exists Y\forall u(u\in Y\Leftrightarrow \exists z(z\in X\land
+u\in z))
+\]</span></p>
+<p>也即:对任意集合<span class="math inline">\(X\)</span>,可以将它的所有元素(当然也是集合了)全都并起来,根据外延公理,这样的<span class="math inline">\(Y\)</span>是唯一的,称作<span class="math inline">\(X\)</span>的<strong>并</strong>,记作<span class="math inline">\(\bigcup X\)</span>.特别地定义<span class="math inline">\(X\cup Y=\bigcup\{X,Y\}\)</span>.</p>
+<h4><span id="幂集公理pow">幂集公理(Pow)</span></h4>
+<p><span class="math display">\[
+\forall X\exists Y\forall u(u\in Y\Leftrightarrow u\subseteq X)
+\]</span></p>
+<p>也就是一个集合的所有子集可以组成一个新的集合,称作<span class="math inline">\(X\)</span>的幂集,记作<span class="math inline">\(\mathcal{P}(X)\)</span>,也有记作<span class="math inline">\(2^X\)</span>的.</p>
+<h4><span id="无穷公理inf">无穷公理(Inf)</span></h4>
+<p>对任意集合<span class="math inline">\(x\)</span>,我们将集合<span class="math inline">\(x\cup \{x\}\)</span>称作<span class="math inline">\(x\)</span>的<strong>后继</strong>,一般记作<span class="math inline">\(S(x)\)</span>,则: <span class="math display">\[
+\exists X(\emptyset\in X\land \forall x(x\in X\Rightarrow S(x)\in X))
+\]</span> 或言之我们承认下述元素可以在一起组成一个集合: <span class="math display">\[
+\emptyset,\{\emptyset\},\{\emptyset,\{\emptyset\}\},\{\emptyset,\{\emptyset\},\{\emptyset,\{\emptyset\}\}\}
+\]</span> 无穷公理彻底保证了我们可以制造出无穷集合(或言:<span class="math inline">\(\mathbb{N}\)</span>),但初看的疑问一定是为何不直接定义以下元素组成的集合存在:
+<span class="math display">\[
+\emptyset,\{\emptyset\},\{\emptyset,\{\emptyset\}\},\{\emptyset,\{\emptyset\},\{\{\emptyset\}\}\}
+\]</span>
+首要的原因就是这样做无法递归,你怎么在最后声明”嵌套若干次集合”这个操作.另一个原因是序关系的定义对后继定义有很大的依赖性,我们将在后面讲到.</p>
+<h4><span id="替换公理模式rep">替换公理模式(Rep)</span></h4>
+<p>给定公式<span class="math inline">\(\psi(x,y)\)</span>,并且对任意<span class="math inline">\(x\)</span>,都有唯一的<span class="math inline">\(y\)</span>使得<span class="math inline">\(\psi(x,y)\)</span>成立(注意其实这里并不一定是函数),则:
+<span class="math display">\[
+\forall A\forall x\in A\exists!y \psi(x,y)\Rightarrow \exists B\forall
+x\in A\exists y\in B\psi(x,y)
+\]</span> 也即:任何集合在一个formula下的像仍然是一个集合.</p>
+<p>替换公理模式极其地强,我们后面会再讨论这个问题.</p>
+<h4><span id="正则公理fnd">正则公理(Fnd)</span></h4>
+<p><span class="math display">\[
+\forall x(x\ne \emptyset \Rightarrow \exists y(y\in x\land x\cap
+y=\emptyset))
+\]</span></p>
+<p>这一则公理的形式与上面的构造性或存在性公理不同,它给予了集合一种更好的性质,并以此断定某些东西并不是集合.有的时候也称其为<strong>基础公理</strong>.它实际上断言的是<span class="math inline">\(x\)</span>上总有一个以<span class="math inline">\(\in\)</span>关系限制住的”极小元”<span class="math inline">\(y\)</span>,也就是说,<span class="math inline">\(x\)</span>里再没有其它元素属于<span class="math inline">\(y\)</span>了.</p>
+<p>正则公理的一则推论是任意集合<span class="math inline">\(x\)</span>都不属于自身.考虑反证:假设有一个集合<span class="math inline">\(x\in x\)</span>,取<span class="math inline">\(I=\{x\}\)</span>,则正则公理施加在<span class="math inline">\(I\)</span>上必然导出<span class="math inline">\(I\cap x=\empty\)</span>,然而<span class="math inline">\(I\cap x=x\ne \empty\)</span>,这就矛盾了.</p>
+<p>正则公理的另一则推论是不存在<strong>无穷下降链</strong><span class="math inline">\(\{x_0,x_1,\cdots,x_n,x_{n+1},\cdots\}\)</span>,其中<span class="math inline">\(\forall n,x_{n+1}\in
+x_n\)</span>.证明非常简单,因为这里面压根不存在极小元.</p>
+<p>然而,不存在无穷下降链并不意味着不存在无穷上升链.只需看<span class="math inline">\(\mathbb{N}\)</span>即可发现一个显然的无穷上升链.笔者认为可以理解为:如果<span class="math inline">\(A\)</span>是集合,总可以通过之前的公理在有限次”拆包”后判定<span class="math inline">\(A\)</span>是集合.因此正则公理实际上是一个对于判定性的公理.</p>
+<h4><span id="选择公理ac">选择公理(AC)</span></h4>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\forall X[\emptyset\notin X\land \forall x\in X\forall y\in X(x\cap
+y=\emptyset)]\\
+\to&amp;\exists S\forall x\in X\exists!y(S\cap x=\{y\})
+\end{aligned}
+\]</span></p>
+<p>也即:对于任意集合<span class="math inline">\(X\)</span>,如果它满足:</p>
+<ol type="1">
+<li><span class="math inline">\(\emptyset\notin X\)</span>.</li>
+<li><span class="math inline">\(X\)</span>中的元素两两不交.</li>
+</ol>
+<p>则存在集合<span class="math inline">\(S\)</span>(当然未必唯一),对任意<span class="math inline">\(x\in X\)</span>,<span class="math inline">\(S\cap
+x\)</span>是单点集合.换言之:可以从一个集合内的每个元素(当然也作为一个集合)中取出一个代表元.</p>
+<p>选择公理极其吊诡的地方恰在于其构造集合<span class="math inline">\(S\)</span>的方式不是唯一的,也未必存在典范的构造方式.</p>
+<h4><span id="集合的简单运算">集合的简单运算</span></h4>
+<p>定义<span class="math inline">\(X\)</span>和<span class="math inline">\(Y\)</span>的<strong>对称差</strong>为<span class="math inline">\(X\triangle Y=(X-Y)\cup(Y-X)\)</span>.</p>
+<p>对任意集合<span class="math inline">\(X,Y,Z\)</span>,除去常见结合律与交换律,有:</p>
+<ol type="1">
+<li><strong>分配律</strong>:<span class="math inline">\(X\cap (Y\cup
+Z)=(X\cap Y)\cup (X\cap Z)\)</span>.</li>
+<li><strong>分配律</strong>:<span class="math inline">\(X\cup (Y\cap
+Z)=(X\cup Y)\cap (X\cup Z)\)</span>.</li>
+<li><strong>德摩根律</strong>:<span class="math inline">\(X-(Y\cup
+Z)=(X-Y)\cap(X-Z)\)</span>.</li>
+<li><strong>德摩根律</strong>:<span class="math inline">\(X-(Y\cap
+Z)=(X-Y)\cup(X-Z)\)</span>.</li>
+</ol>
+<h3><span id="关系">关系</span></h3>
+<p>ZFC公理体系已然奠定了现代数学的地基,因此相当一部分数学家相信任何数学理论都在某种意义上是关于集合的理论,并着手重建有关数学的一切.</p>
+<h5><span id="有序对">有序对</span></h5>
+<p>二元关系的要素是成对出现的有顺序的对象,或称<strong>有序对</strong>,定义为<span class="math inline">\((a,b)=\{\{a\},\{a,b\}\}\)</span>,可以由配对公理得知这仍然是一个集合.容易用外延公理得到<span class="math inline">\((a,b)=(a&#39;,b&#39;)\Leftrightarrow a=a&#39;\land
+b=b&#39;\)</span>.</p>
+<h5><span id="笛卡尔积">笛卡尔积</span></h5>
+<p>令<span class="math inline">\(X,Y\)</span>为集合,定义其<strong>笛卡尔积</strong>为<span class="math inline">\(X\times Y=\{(x,y)|x\in X\land y\in
+Y\}\)</span>.验证笛卡尔积的结果是集合的策略也比较简单,例如可以先用替换公里模式拿到<span class="math inline">\(\{(x,\emptyset)\}\)</span>和<span class="math inline">\(\{(\emptyset,y)\}\)</span>,并起来之后用幂集公理和分离公理.总之都是抽象废话,不再赘述了.</p>
+<p>容易推广到<span class="math inline">\(n\)</span>个集合的笛卡尔积<span class="math inline">\(X_1\times X_2\times \cdots\times X_n\)</span></p>
+<h5><span id="二元关系">二元关系</span></h5>
+<p>定义一个集合<span class="math inline">\(R\)</span>称作<strong>二元关系</strong>,如果存在集合<span class="math inline">\(X,Y,R\subseteq X\times Y\)</span>.用<span class="math inline">\(R(x,y)\)</span>表示<span class="math inline">\((x,y)\in R\)</span>,称<span class="math inline">\(x\)</span>和<span class="math inline">\(y\)</span>有关系<span class="math inline">\(R\)</span>,有时也习惯性写作<span class="math inline">\(xRy\)</span>.</p>
+<p>引入以下定义:</p>
+<ol type="1">
+<li><span class="math inline">\(R\)</span>的<strong>定义域</strong>定义为<span class="math inline">\(\mathrm{dom}(R)=\{x|\exists y
+R(x,y)\}\)</span>.</li>
+<li><span class="math inline">\(R\)</span>的<strong>值域</strong>定义为<span class="math inline">\(\mathrm{ran}(R)=\{y|\exists x
+R(x,y)\}\)</span>.</li>
+<li>如果<span class="math inline">\(R\subseteq X^2\)</span>,则称<span class="math inline">\(R\)</span>是<span class="math inline">\(X\)</span>上的二元关系.</li>
+<li>集合<span class="math inline">\(A\)</span>在<span class="math inline">\(R\)</span>下的<strong>像</strong>定义为:<span class="math inline">\(R[A]=\{y\in \mathrm{ran}(R)|\exists x\in
+A(R(x,y))\}\)</span>.</li>
+<li>集合<span class="math inline">\(B\)</span>在<span class="math inline">\(R\)</span>下的<strong>逆像</strong>定义为:<span class="math inline">\(R^{-1}[B]=\{x\in \mathrm{dom}(R)|\exists y\in
+B(R(x,y))\}\)</span>.</li>
+<li><span class="math inline">\(R\)</span>的<strong>逆</strong>定义为<span class="math inline">\(R^{-1}=\{(y,x)|(x,y)\in R\}\)</span>.</li>
+<li>二元关系<span class="math inline">\(R\)</span>和<span class="math inline">\(S\)</span>的<strong>复合</strong>定义为<span class="math inline">\(S\circ R=\{(x,z)|\exists y((x,y)\in R\land
+(y,z)\in S)\}\)</span>.</li>
+</ol>
+<p>用分离公理模式得知<span class="math inline">\(\mathrm{dom}(R)\)</span>和<span class="math inline">\(\mathrm{ran}(R)\)</span>当然都是集合.</p>
+<h4><span id="函数关系">函数关系</span></h4>
+<p>函数是一种特殊的二元关系.如果二元关系<span class="math inline">\(f\)</span>满足: <span class="math display">\[
+(x,y)\in f\land (x,z)\in f\Rightarrow y=z
+\]</span> 则称<span class="math inline">\(f\)</span>是一个<strong>函数</strong>,其中<span class="math inline">\(y\)</span>称作<span class="math inline">\(f\)</span>在<span class="math inline">\(x\)</span>处的值,记作<span class="math inline">\(f(x)=y\)</span>或者<span class="math inline">\(f:x\mapsto y\)</span>.如果<span class="math inline">\(\mathrm{dom}(f)=X,\mathrm{ran}(f)\subseteq
+Y\)</span>,则称<span class="math inline">\(f\)</span>是从<span class="math inline">\(X\)</span>到<span class="math inline">\(Y\)</span>的函数,记作<span class="math inline">\(f:X\to
+Y\)</span>.显然任何集合都有到自身的函数<strong>等同函数</strong><span class="math inline">\(\mathrm{id}_X:X\to X,x\mapsto x\)</span>.</p>
+<p>函数的外延性从而自然被外延公理导出,也即<span class="math inline">\(f=g\)</span>当且仅当<span class="math inline">\(\mathrm{dom}(f)=\mathrm{dom}(g)\land \forall x\in
+\mathrm{dom}(f)(f(x)=g(x))\)</span>.引出以下定义:</p>
+<ol type="1">
+<li><strong>单射</strong>:<span class="math inline">\(\forall x_1,x_2\in
+X\)</span>,如果<span class="math inline">\(x_1\ne x_2\)</span>,则<span class="math inline">\(f(x_1)\ne f(x_2)\)</span>.</li>
+<li><strong>满射</strong>:<span class="math inline">\(\mathrm{ran}(f)=Y\)</span>.</li>
+<li><strong>双射</strong>:既是单射,又是满射.</li>
+</ol>
+<p>设<span class="math inline">\(f : A \rightarrow B , g : B \rightarrow
+A\)</span>,那么:</p>
+<ol type="1">
+<li><p>如果<span class="math inline">\(g \circ f =
+\mathrm{id}_A\)</span>,称<span class="math inline">\(g\)</span>是<span class="math inline">\(f\)</span>的一个<strong>左逆</strong>,不难发现<span class="math inline">\(f\)</span>存在左逆当且仅当<span class="math inline">\(f\)</span>是单射(依靠定义).</p></li>
+<li><p>如果<span class="math inline">\(f \circ g =
+\mathrm{id}_B\)</span>,称<span class="math inline">\(g\)</span>是<span class="math inline">\(f\)</span>的一个<strong>右逆</strong>,不难发现<span class="math inline">\(f\)</span>存在右逆当且仅当<span class="math inline">\(f\)</span>是满射(需要选择公理).</p></li>
+<li><p>如果<span class="math inline">\(g\)</span>既是<span class="math inline">\(f\)</span>的左逆又是<span class="math inline">\(f\)</span>的右逆,则称<span class="math inline">\(g\)</span>为<span class="math inline">\(f\)</span>的<strong>逆</strong>,不难发现<span class="math inline">\(f\)</span>存在逆当且仅当<span class="math inline">\(f\)</span>是双射,并且逆唯一.</p></li>
+</ol>
+<p>还有以下定义:</p>
+<ol type="1">
+<li>对任意函数<span class="math inline">\(f\)</span>和集合<span class="math inline">\(A\)</span>,<span class="math inline">\(f|_A=\{(x,y)\in f|x\in
+A\}\)</span>是一个函数,称为<span class="math inline">\(f\)</span>在<span class="math inline">\(A\)</span>上的<strong>限制</strong>.</li>
+<li>如果<span class="math inline">\(g=f|_A\)</span>,则称<span class="math inline">\(f\)</span>是<span class="math inline">\(g\)</span>的<strong>扩张</strong>.</li>
+<li>定义函数<span class="math inline">\(f,g\)</span>是相容的,如果<span class="math inline">\(\forall x\in \mathrm{dom}(f)\cap
+\mathrm{dom}(g),f(x)=g(x)\)</span>.容易证明此时<span class="math inline">\(f\cup g\)</span>是函数.</li>
+<li>函数的集合<span class="math inline">\(\mathcal{F}\)</span>称为<strong>相容的系统</strong>,如果其中任何两个函数都是相容的.容易证明此时<span class="math inline">\(\bigcup \mathcal{F}\)</span>也是函数.</li>
+<li>令<span class="math inline">\(X,Y\)</span>都是集合,则<span class="math inline">\(X\)</span>到<span class="math inline">\(Y\)</span>的所有函数组成的集合定义为<span class="math inline">\(Y^X=\{f|f:X\to
+Y\}\)</span>.容易检验这也是个集合(幂集打开再筛掉就行)</li>
+<li>此外,由柯里化过程,容易发现<span class="math inline">\((X^{Y})^Z\cong
+X^{Y\times Z}\)</span>.</li>
+</ol>
+<h4><span id="等价关系">等价关系</span></h4>
+<p>令<span class="math inline">\(R\subseteq
+X^2\)</span>为二元关系,若<span class="math inline">\(R\)</span>有以下性质:</p>
+<ol type="1">
+<li><strong>自反性</strong>:<span class="math inline">\(\forall x\in
+X,R(x,x)\)</span>.</li>
+<li><strong>对称性</strong>:<span class="math inline">\(\forall x,y\in
+X,R(x,y)\Leftrightarrow R(y,x)\)</span>.</li>
+<li><strong>传递性</strong>:<span class="math inline">\(\forall x,y,z\in
+X,R(x,y)\land R(y,z)\Rightarrow R(x,z)\)</span>.</li>
+</ol>
+<p>则称其是一个<strong>等价关系</strong>,习惯上用<span class="math inline">\(\sim\)</span>表示.此时对每一<span class="math inline">\(x\in X\)</span>,与<span class="math inline">\(x\)</span>等价的元素构成了<span class="math inline">\(X\)</span>的一个子集,这些子集把<span class="math inline">\(X\)</span>分成互不相交的若干部分,一般将<span class="math inline">\(x\in X\)</span>关于<span class="math inline">\(\sim\)</span>的<strong>等价类</strong>记作<span class="math inline">\([x]_\sim=\{t\in X|t\sim
+x\}\)</span>,或者简写为<span class="math inline">\([x]\)</span>.等价类显然是集合.容易证明<span class="math inline">\(\forall x,y\in X,[x]=[y]\lor [x]\cap
+[y]=\emptyset\)</span>.</p>
+<p>接下来定义<strong>商集</strong>为<span class="math inline">\(X/\sim=\{[x]_\sim|x\in X\}\)</span>.</p>
+<p>对于一个集合<span class="math inline">\(X\)</span>,<span class="math inline">\(S\subseteq 2^X\)</span>,如果<span class="math inline">\(S\)</span>满足:</p>
+<ol type="1">
+<li><span class="math inline">\(\forall a,b\in S,a\ne b\Rightarrow a\cap
+b=\emptyset\)</span>.</li>
+<li><span class="math inline">\(\bigcup S=X\)</span>.</li>
+</ol>
+<p>则称<span class="math inline">\(S\)</span>是<span class="math inline">\(X\)</span>的<strong>划分</strong>.显然商集是一个划分.反之由划分也可以确定一个等价关系<span class="math inline">\(\sim_S=\{(x,y)\in X\times X|\exists c\in S(x\in
+c\land y\in c)\}\)</span>.</p>
+<h4><span id="序关系">序关系</span></h4>
+<p>对于<span class="math inline">\(R\subseteq
+X^2\)</span>是二元关系,如果其满足:</p>
+<ol type="1">
+<li>自反性.</li>
+<li><strong>反对称性</strong>:<span class="math inline">\(\forall x,y\in
+X,R(x,y)\land R(y,x)\Rightarrow x=y\)</span>.</li>
+<li>传递性.</li>
+</ol>
+<p>就称其是<span class="math inline">\(X\)</span>上的<strong>偏序关系</strong>,一般干脆记作<span class="math inline">\(\leq\)</span>,若同时无法取等则自然地记作<span class="math inline">\(&lt;\)</span>.此时称<span class="math inline">\(X\)</span>为<strong>偏序集</strong>.如果它还满足:</p>
+<ol start="4" type="1">
+<li><strong>连接性</strong>:对所有的<span class="math inline">\(x,y\in
+X,x\leq y\lor y\leq x\)</span>.</li>
+</ol>
+<p>则称<span class="math inline">\(\leq\)</span>是<span class="math inline">\(X\)</span>上的<strong>全序关系</strong>.此时称<span class="math inline">\(X\)</span>为<strong>全序集</strong>.</p>
+<p>再引入以下定义:</p>
+<ol type="1">
+<li>如果<span class="math inline">\(a\in X\)</span>,<span class="math inline">\(\forall x\in X\)</span>,<span class="math inline">\(a\)</span>都不大于<span class="math inline">\(x\)</span>,或者说<span class="math inline">\(\forall x\in X(\lnot(a&gt;x))\)</span>,则称<span class="math inline">\(a\)</span>为<span class="math inline">\(X\)</span>的<strong>极小元</strong>.同理可以定义<strong>极大元</strong>.</li>
+<li>如果<span class="math inline">\(a\in X\)</span>,<span class="math inline">\(\forall x\in X\)</span>,<span class="math inline">\(a\)</span>都小于<span class="math inline">\(x\)</span>,或者说<span class="math inline">\(\forall x\in X(a\leq x)\)</span>,则称<span class="math inline">\(a\)</span>是<span class="math inline">\(X\)</span>的<strong>最小元</strong>.同理可以定义<strong>最大元</strong>.</li>
+<li>如果<span class="math inline">\(X_0\subseteq X,\exists a\in
+X,\forall x\in X_0,a\geq x\)</span>.称<span class="math inline">\(a\)</span>为<span class="math inline">\(X_0\)</span>在<span class="math inline">\(X\)</span>中的<strong>上界</strong>.如果<span class="math inline">\(X_0\)</span>在<span class="math inline">\(X\)</span>中的所有上界的集合由最小元<span class="math inline">\(a_0\)</span>则称其为<strong>上确界</strong>.记作<span class="math inline">\(\sup(X_0)\)</span>.同理定义<strong>下界</strong>和<strong>下确界</strong><span class="math inline">\(\inf(X_0)\)</span>.</li>
+</ol>
+<p>容易见到以下性质:</p>
+<ol type="1">
+<li>全序集中极小元等价于最小元,极大元等价于最大元.</li>
+<li>偏序集如果有最大或最小元,则它们是唯一的.</li>
+<li>集合<span class="math inline">\(X_0\)</span>的上确界如果存在,它可能不属于<span class="math inline">\(X_0\)</span>;如果它属于<span class="math inline">\(X_0\)</span>,则一定是<span class="math inline">\(X_0\)</span>的最大元.</li>
+</ol>
+<h3><span id="实数的构造">实数的构造</span></h3>
+<h4><span id="自然数">自然数</span></h4>
+<p>早在无穷公里处我们就定义了自然数,策略是: <span class="math display">\[
+\begin{aligned}
+0&amp;=\emptyset\\
+1&amp;=\{\emptyset\}=S(0)\\
+2&amp;=\{\emptyset,\{\emptyset\}\}=S(1)\\
+3&amp;=\{\emptyset,\{\emptyset\},\{\emptyset,\{\emptyset\}\}\}=S(2)\\
+\cdots&amp;=\cdots
+\end{aligned}
+\]</span> 如果一个集合<span class="math inline">\(X\)</span>满足<span class="math inline">\(\emptyset\in X\land \forall x(x\in X\Rightarrow
+S(x)\in
+X)\)</span>则称其为<strong>归纳集</strong>(从而无穷公理等价于:存在一个归纳集),容易见到用自然数表示的元素在所有归纳集中都会出现,因此自然数是最小的归纳集,有人会如此定义:<span class="math inline">\(\mathbb{N}=\{n|\forall X(X\text{ is a inductive
+set}\Rightarrow n\in
+X)\}\)</span>.这里可以看到一个很好的性质就是,我们可以认为<span class="math inline">\(\mathbb{N}=+\infty\)</span>.</p>
+<p>如果<span class="math inline">\(M\)</span>是自然数的某个子集,并且<span class="math inline">\(M\)</span>是归纳集而且<span class="math inline">\(0\in M\)</span>,立刻就可以见到<span class="math inline">\(M=\mathbb{N}\)</span>.这就是所谓<strong>归纳原理</strong>或者<strong>数学归纳</strong>,意为:
+<span class="math display">\[
+\begin{aligned}
+&amp;M\subseteq \mathbb{N}\land 0\in M\land \forall x(x\in M\to S(x)\in
+M)\\
+\Rightarrow &amp;N=M
+\end{aligned}
+\]</span> 容易见到<span class="math inline">\(\mathbb{N}\)</span>上的另一个好性质是<span class="math inline">\(0\in 1\in 2\in\cdots\)</span>,因此干脆将<span class="math inline">\(\in\)</span>作为一种序关系,对于自然数<span class="math inline">\(k,n,m\)</span>,立刻见到:</p>
+<ol type="1">
+<li><span class="math inline">\(n\subset n+1,n\in n+1\)</span>.</li>
+<li><span class="math inline">\(x\in n\Rightarrow x\in
+\mathbb{N}\)</span>.</li>
+<li><span class="math inline">\(k\in m\land m\in n\Rightarrow k\in
+n\)</span>.</li>
+<li><span class="math inline">\(m\in n\Leftrightarrow m\subset
+n\)</span>.</li>
+</ol>
+<p>可以见到这是一个全序关系.不妨定义<span class="math inline">\(m\in
+n\)</span>为<span class="math inline">\(m&lt;
+n\)</span>.既然是良序,还可以拿出<strong>第二归纳原理</strong>:如果<span class="math inline">\(\forall k&lt;n\)</span>都有<span class="math inline">\(\varphi(k)\)</span>可以推出<span class="math inline">\(\varphi(n)\)</span>,并且<span class="math inline">\(\varphi(0)\)</span>,则<span class="math inline">\(\varphi\)</span>对所有的<span class="math inline">\(n\)</span>成立.</p>
+<h4><span id="递归定理">递归定理</span></h4>
+<p>对任意集合<span class="math inline">\(A\)</span>,<span class="math inline">\(\forall a\in A\)</span>,以及任意函数<span class="math inline">\(g:A\times \mathbb{N}\to
+A\)</span>,存在唯一的函数<span class="math inline">\(f:\mathbb{N}\to
+A\)</span>满足:</p>
+<ol type="1">
+<li><span class="math inline">\(f(0)=a\)</span>.</li>
+<li><span class="math inline">\(\forall n\in
+\mathbb{N},f(n+1)=g(f(n),n)\)</span>.</li>
+</ol>
+<p>为证明此,先引入定义<strong>序列</strong>是以自然数<span class="math inline">\(n\)</span>(如果你稍加思考会意识到,这里的<span class="math inline">\(n\)</span>实际上是<span class="math inline">\(0,1,\cdots,n-1\)</span>组成的集合)或自然数集合<span class="math inline">\(\mathbb{N}\)</span>(其实就是无穷对吧)为定义域的函数.如果定义域是<span class="math inline">\(n\in \mathbb{N}\)</span>则称其为长度为<span class="math inline">\(n\)</span>的<strong>有穷序列</strong>.特别地定义域为<span class="math inline">\(0\)</span>的序列为<strong>空序列</strong>,而定义域为<span class="math inline">\(\mathbb{N}\)</span>的序列称为<strong>无穷序列</strong>.</p>
+<p>从而我们可以自然地定义一个由集合<span class="math inline">\(A\)</span>中的元素组成的长度为<span class="math inline">\(n\)</span>的序列是一个由<span class="math inline">\(n\)</span>到<span class="math inline">\(A\)</span>的函数<span class="math inline">\(s:n\to
+A\)</span>(再次强调这里的<span class="math inline">\(n\)</span>是一个集合),注意到所有这样的序列组成的集合是<span class="math inline">\(A^n\)</span>.</p>
+<p>现在我们着手证明<strong>递归定理</strong>.</p>
+<p>先证明存在性.处理无穷的强大武器其实是并集公理.考虑取序列<span class="math inline">\(t:(m+1)\to A\)</span>,如果<span class="math inline">\(t_0=a\)</span>而对所有的<span class="math inline">\(k&lt;m,t_{k+1}=g(t_k,k)\)</span>,则称<span class="math inline">\(t\)</span>是基于<span class="math inline">\(a,g\)</span>的<span class="math inline">\(m\)</span><strong>近似</strong>.接下来取所有的近似<span class="math inline">\(t\)</span>组成集合<span class="math inline">\(\mathcal{F}=\{t\in 2^{\mathbb{N}\times A}|t\text{
+is m-approxity}\}\)</span>,令<span class="math inline">\(f=\bigcup
+\mathcal{F}\)</span>.</p>
+<p>接下来应当证明以下事实:</p>
+<ol type="1">
+<li><span class="math inline">\(f\)</span>是函数.</li>
+<li><span class="math inline">\(\mathrm{dom}(f)=\mathbb{N},\mathrm{ran}(f)\subseteq
+A\)</span>.</li>
+<li><span class="math inline">\(f(0)=a\)</span>.</li>
+<li><span class="math inline">\(\forall n\in
+\mathbb{N},f(n+1)=g(f(n),n)\)</span>.</li>
+</ol>
+<p>为证明(1),只需证明<span class="math inline">\(\mathcal{F}\)</span>是相容的函数系统即可.也就是<span class="math inline">\(\forall t,u\in
+\mathcal{F},\mathrm{dom}(t)=n,\mathrm{dom}(u)=m\)</span>,不妨假设<span class="math inline">\(n&lt;m\)</span>,现在我们需要证明<span class="math inline">\(\forall k&lt;n,t_k=u_k\)</span>.</p>
+<p>首先显然<span class="math inline">\(t_0=u_0=a\)</span>,从定义得知如果<span class="math inline">\(t_k=u_k\)</span>可以得知<span class="math inline">\(t_{k+1}=g(t_k,k)=g(u_k,k)=u_{k+1}\)</span>,归纳就证明成功了.</p>
+<p>为证明(2),首先显然<span class="math inline">\(\mathrm{dom}(f)\subseteq
+\mathbb{N}\)</span>,只需证明<span class="math inline">\(\mathrm{dom}(f)\supseteq
+\mathbb{N}\)</span>即可.为证明此,需要证明<span class="math inline">\(\forall n\in \mathbb{N}\)</span>,都存在一个<span class="math inline">\(n-\)</span>近似<span class="math inline">\(t\)</span>.首先存在<span class="math inline">\(0\)</span>近似,此后只需数学归纳和并集原理就可以得到总存在<span class="math inline">\(n\)</span>近似,这就搞定了.</p>
+<p>其次要证明<span class="math inline">\(\mathrm{ran}(f)\subseteq
+A\)</span>.这个是显然的.</p>
+<p>(3)也是数学归纳,不必赘述.</p>
+<p>于是我们搞定了存在性,接下来只需要简述唯一性即可.如果还存在另一个<span class="math inline">\(h:\mathbb{N}\to
+A\)</span>也满足条件,只需归纳法可以证明二者相等.</p>
+<p>只需柯里化就可以拿到带参数的版本:</p>
+<p>令<span class="math inline">\(a:P\to A\)</span>和<span class="math inline">\(g:P\times A\times \mathbb{N}\to
+A\)</span>为函数,存在唯一的函数<span class="math inline">\(f:P\times
+\mathbb{N}\to A\)</span>满足:</p>
+<ol type="1">
+<li><span class="math inline">\(\forall p\in
+P,f(p,0)=a(p)\)</span>.</li>
+<li><span class="math inline">\(\forall n\in \mathbb{N},p\in
+P,f(p,n+1)=g(p,f(p,n),n)\)</span>.</li>
+</ol>
+<p>原因自然是考虑<span class="math inline">\(a\in
+A^P\)</span>,因此拿到了<span class="math inline">\(G:A^P\times
+\mathbb{N}\to A^P\)</span>和唯一的函数<span class="math inline">\(F:\mathbb{N}\to A^P\)</span>即可.不必过多赘述.</p>
+<p>递归定理可以自然地定义自然数上的加法和乘法.</p>
+<h4><span id="等势">等势</span></h4>
+<p>如果存在一个以集合<span class="math inline">\(X\)</span>为定义域,集合<span class="math inline">\(Y\)</span>为值域的双射,就称集合<span class="math inline">\(X\)</span>和<span class="math inline">\(Y\)</span>是<strong>等势的</strong>,记作<span class="math inline">\(|X|=|Y|\)</span>.如果存在集合<span class="math inline">\(X\)</span>到<span class="math inline">\(Y\)</span>的单射,就称<span class="math inline">\(X\)</span>的势小于等于<span class="math inline">\(Y\)</span>的势,记作<span class="math inline">\(|X|\leq
+|Y|\)</span>.既然用此符号,重要的问题在于<span class="math inline">\(\leq\)</span>符号是否是一个序关系,其判定中最重要的问题由下述定理给出:</p>
+<h5><span id="cantor-bernstein定理">Cantor-Bernstein定理</span></h5>
+<p>如果<span class="math inline">\(| A | \leq | B | \land | B | \leq | A
+|\)</span>,则<span class="math inline">\(| A | = | B |\)</span>.</p>
+<p>不妨设两个单射<span class="math inline">\(f : A \rightarrow B , g : B
+\rightarrow
+A\)</span>我们考虑一个感性的做法:考虑将这个东西画成二分图,然后要找它的完美匹配.我们不妨先把不同的连通块拆开,你会发现大部分的图都可以用<span class="math inline">\(f , f^{ - 1
+}\)</span>来构造双射,只有一种除外:那就是以一个<span class="math inline">\(B\)</span>中节点开始不断延伸的无限的,我们在这里使用<span class="math inline">\(g , g^{ - 1 }\)</span>来构造即可.</p>
+<p>如果要把上面的东西写成形式化的东西,我们可以这么写:取<span class="math inline">\(C_0 = B \setminus f ( A )\)</span>,<span class="math inline">\(C_n = f ( g ( C_{ n - 1 } )
+)\)</span>,那么对于<span class="math inline">\(C = \cup_{ n \geq 0 }
+C_n\)</span>,使用<span class="math inline">\(g , g^{ - 1
+}\)</span>构造双射,剩下的使用<span class="math inline">\(f , f^{ - 1
+}\)</span>构造双射.</p>
+<p>容易证明Cantor-Bernstein定理与以下定理等价:</p>
+<h5><span id="夹逼定理">夹逼定理</span></h5>
+<p><span class="math display">\[
+(A&#39;\subseteq B\subseteq A)\land (|A&#39;|=|A|)\Rightarrow |B|=|A|
+\]</span></p>
+<p>考虑Cantor-Bernstein定理应该与夹逼定理等价,必要性显然,充分性的话考虑单射<span class="math inline">\(f:X\to Y,g:Y\to X\)</span>,则显然有<span class="math inline">\(g(Y)\subseteq X,f(X)\subseteq
+Y\)</span>从而导出<span class="math inline">\(g(f(X))\subseteq
+g(Y)\subseteq X\)</span>.然而单射显然有<span class="math inline">\(|g(f(X))|=|X|,|g(Y)|=|Y|\)</span>.这样就可以证明Cantor-Bernstein定理.</p>
+<p>证明大同小异,目的是找出以<span class="math inline">\(A\)</span>中元素起点的无穷链,并将剩下的部分直接建立对应.</p>
+<p>考虑令<span class="math inline">\(h:A\to
+A&#39;\)</span>为双射.直接取<span class="math inline">\(C_0=A\setminus
+B,C_{n+1}=h(C_n)\)</span>,最后取<span class="math inline">\(C=\bigcup_{n\geq 0}C_n\)</span>.立刻见到<span class="math inline">\(h(C)=\bigcup_{n=1}^\infty C_n=C-C_0\subseteq
+C\)</span>.</p>
+<p>下面构造双射<span class="math inline">\(H:A\to B\)</span>: <span class="math display">\[
+H(x)=\begin{cases}h(x)&amp;x\in C\\x&amp;x\in A\setminus C\end{cases}
+\]</span> 由于<span class="math inline">\(C,A\setminus
+C\)</span>这两部分互不干扰,因此显然是单射.接下来需要证明其满性,由于<span class="math inline">\(A-B\subseteq C\)</span>,从而<span class="math inline">\(A-C\subseteq B\)</span>,因而考虑: <span class="math display">\[
+\begin{aligned}
+\mathrm{ran}(H)&amp;=(C-(A-B))\cup (A-C)\\
+&amp;=(C\cup(A-C))-((A-B)-(A-C))\\
+&amp;=A-(A-B)\\
+&amp;=B
+\end{aligned}
+\]</span> 这就搞定了.</p>
+<h5><span id="幂集的大小">幂集的大小</span></h5>
+<p>求证:<span class="math inline">\(|2^S|&gt;|S|\)</span>.</p>
+<p>首先容易证明<span class="math inline">\(|2^S|\geq
+|S|\)</span>,现在要证明它们的确不相同.考虑罗素悖论,假设存在一个双射<span class="math inline">\(f:S\to 2^S\)</span>,取出<span class="math inline">\(T=\{a\in S|a\notin
+f(a)\}\)</span>,然后看其原像<span class="math inline">\(b=f^{-1}(T)\)</span>.此时,如果<span class="math inline">\(b\in f(b)=T\)</span>,则其应该满足<span class="math inline">\(b\notin f(b)\)</span>;反之,如果<span class="math inline">\(b\notin f(b)=T\)</span>,则它又该满足<span class="math inline">\(b\in T\)</span>,从而导出矛盾.</p>
+<h5><span id="有穷与无穷">有穷与无穷</span></h5>
+<p>根据上述讨论,我们可以将<span class="math inline">\(|n|\)</span>自然地记作<span class="math inline">\(n\)</span>.</p>
+<p>引入以下定义:</p>
+<ol type="1">
+<li>若<span class="math inline">\(\exists n\in
+\mathbb{N},|X|=n\)</span>,就称<span class="math inline">\(X\)</span>为<strong>有穷的</strong>.</li>
+<li>若<span class="math inline">\(\forall n\in \mathbb{N},|X|\ne
+n\)</span>,就称<span class="math inline">\(X\)</span>为<strong>无穷的</strong>.</li>
+<li>若<span class="math inline">\(|X|=|\mathbb{N}|\)</span>,就称<span class="math inline">\(X\)</span>是<strong>可数的</strong>或者<strong>可数无穷的</strong>.</li>
+</ol>
+<p>见到以下结论:</p>
+<ol type="1">
+<li><strong>鸽笼原理</strong>:若<span class="math inline">\(n\in
+\mathbb{N}\)</span>,则不存在<span class="math inline">\(n\)</span>到它的真子集<span class="math inline">\(X\subsetneq n\)</span>上的双射.从而导出如果<span class="math inline">\(n\not \equiv m\)</span>,则<span class="math inline">\(|n|\ne |m|\)</span>.从而导出对任意有穷集合<span class="math inline">\(X\)</span>,不存在<span class="math inline">\(X\)</span>到<span class="math inline">\(X\)</span>的真子集的双射.</li>
+<li>每一无穷集合都有一个可数子集.</li>
+<li>两个可数集合的并是可数集合.</li>
+<li>作为(3)的推论,有穷个可数集合的并是可数的.</li>
+<li>作为(4)的强化,可数个可数集合的并是可数的.</li>
+<li>如果<span class="math inline">\(A,B\)</span>是可数的,则<span class="math inline">\(A\times B\)</span>是可数的.</li>
+<li>作为(6)的强化,可数个可数集合的笛卡尔积是可数的.</li>
+<li>作为(7)的推论,<span class="math inline">\(\bigcup_{n\in
+\mathbb{N}}\mathbb{N}^n\)</span>是可数的.</li>
+<li>作为(8)的推论如果<span class="math inline">\(A\)</span>是可数的,则其有穷子集组成的集合<span class="math inline">\(X=\{x\subseteq A|\exists
+n,|x|=n\}\)</span>是可数的.</li>
+</ol>
+<p>从(1)开始,反证法自然是好做的.</p>
+<p>(2)是选择公理的推论,只需递归使用选择函数每次从之前的集合中删掉已经取出的代表元的并取出新的代表元即可.</p>
+<p>(3)(4)(5)(6)(7)(8)(9)都是对角线证明法,不必赘述(顺便一提这里还有另一种方法,就是考虑用<span class="math inline">\(2^m(2n+1)\)</span>来表示有序对<span class="math inline">\((n,m)\)</span>).</p>
+<p>如果避开将自然数引入势的定义,先承认选择公理,则也可以途径下述方法,我们声称以下命题等价:</p>
+<ol type="1">
+<li>集合<span class="math inline">\(X\)</span>是有穷的.</li>
+<li>存在<span class="math inline">\(X\)</span>上的全序<span class="math inline">\(\leq\)</span>满足<span class="math inline">\(X\)</span>的每一非空子集在$$下有最大元和最小元.</li>
+<li><span class="math inline">\(X\)</span>的每一非空子集族都有$$关系下的极大元.</li>
+<li><span class="math inline">\(X\)</span>是<strong>戴德金有穷</strong>的:不存在<span class="math inline">\(X\)</span>到其真子集的一一映射.</li>
+</ol>
+<p>(1)推(2)是显然的,因为只需规定其对集合<span class="math inline">\(n\)</span>的映射作为全序关系即可,可以轻松得出其子集的最大元(射出的自然数的并)和最小元(射出的自然数的交).</p>
+<p>事实上有穷集合的任意全序关系下,任意非空子集都有最大元和最小元.方法是逐个比较过去找就可以了.</p>
+<p>(2)推(1)的话考虑<span class="math inline">\(X\)</span>有最小元<span class="math inline">\(x_0\)</span>,<span class="math inline">\(X-\{x_0\}\)</span>有最小元<span class="math inline">\(x_1\)</span>,以此类推.不断做此操作,做到第<span class="math inline">\(m+1\)</span>步的时候,我们已经取出了<span class="math inline">\(\{x_0,\cdots,x_m\}\)</span>.如果这个操作无法在有限步内结束,意味着子集<span class="math inline">\(\{x_0,\cdots\}\)</span>不存在最大元,这样就矛盾了.</p>
+<p>(1)推(3)</p>
+<p>我们还想证明下面两条结论(承认选择公理):</p>
+<ol type="1">
+<li>任何两个集合<span class="math inline">\(S,T\)</span>,总有<span class="math inline">\(|S|\leq |T|\lor |T|\leq |S|\)</span>.</li>
+<li>任何无穷集合<span class="math inline">\(S\)</span>,总有<span class="math inline">\(|S|=|S\times S|\)</span>.</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"># 数学</a>
+          </div>
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+      <a class="a2a_button_telegram"></a>
+      <a class="a2a_button_wechat"></a>
+      <a class="a2a_button_qzone"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/07/02/%E9%B2%9C%E8%8A%B1-%E6%98%A8%E5%A4%9C%E6%98%9F%E8%BE%B0%E6%98%A8%E5%A4%9C%E9%A3%8E/" rel="prev" title="昨夜星辰昨夜风">
+                  <i class="fa fa-angle-left"></i> 昨夜星辰昨夜风
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/07/12/%E9%B2%9C%E8%8A%B1-%E5%88%AB%E5%9B%9E%E5%A4%B4%EF%BC%8C%E5%88%AB%E5%9B%9E%E5%A4%B4/" rel="next" title="别回头，别回头">
+                  别回头，别回头 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">LWLAymh</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"my-repository-jade-beta-79.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"有什么想法?","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2025/07/05/%E5%AD%A6%E4%B9%A0-%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+  <!-- 音乐播放器 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
+  <div id="aplayer" class="aplayer" data-id="7637648380" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true" data-order="random" data-theme="#F58EA8"></div>
+  <script src="https://unpkg.com/meting@1.2/dist/Meting.min.js"></script>
+  <!-- 音乐播放器 end -->
+</body>
+</html>
