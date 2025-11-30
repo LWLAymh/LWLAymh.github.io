@@ -178,7 +178,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-count">65</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -235,6 +235,1054 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://lwlaymh.github.io/2025/06/23/%E5%AD%A6%E4%B9%A0-OI%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E5%A5%97%E8%B7%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F1.jpg">
+      <meta itemprop="name" content="LWLAymh">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LWLAymh的备忘录">
+      <meta itemprop="description" content="不过是白日梦里一瞬息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | LWLAymh的备忘录">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/06/23/%E5%AD%A6%E4%B9%A0-OI%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E5%A5%97%E8%B7%AF/" class="post-title-link" itemprop="url">OI中的常见套路</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-06-23 00:00:24" itemprop="dateCreated datePublished" datetime="2025-06-23T00:00:24+08:00">2025-06-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OI/" itemprop="url" rel="index"><span itemprop="name">OI</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2025/06/23/%E5%AD%A6%E4%B9%A0-OI%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E5%A5%97%E8%B7%AF/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2025/06/23/%E5%AD%A6%E4%B9%A0-OI%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E5%A5%97%E8%B7%AF/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <span id="more"></span>
+<h3><span id="本质相同">本质相同</span></h3>
+<h5><span id="example1">Example1</span></h5>
+<p>对于所有满足以下条件的长度为<span class="math inline">\(n\)</span>的序列<span class="math inline">\(\{ a
+\}\)</span>,我们称它是好的:</p>
+<p><span class="math display">\[
+\begin{aligned}
+a_1 &amp; = 1 \\
+\forall 2 &amp; \leq i \leq n , a_i \leq \max \{ a_1 , \cdots , a_{ i -
+1 } \} + 1
+\end{aligned}
+\]</span></p>
+<p>对于每一个数<span class="math inline">\(1 \leq x \leq
+n\)</span>,求它在每个好的序列中出现的次数的平方和.其中<span class="math inline">\(1 \leq n \leq 3000\)</span>,任意模数.</p>
+<p>首先注意到可以枚举每个数<span class="math inline">\(x\)</span>出现的次数,这样就转化为对满足某些位置是<span class="math inline">\(x\)</span>的好的序列计数.</p>
+<p>对于一个没有限制的好的序列,设<span class="math inline">\(f_{ i , j
+}\)</span>表示<span class="math inline">\([ 1 , i ]\)</span>中填了<span class="math inline">\([ 1 , j ]\)</span>(其中<span class="math inline">\(j\)</span>必填)的方案数,不难发现这就是第二类斯特林数.</p>
+<p>这样,对于一个<span class="math inline">\(x\)</span>,我们可以枚举它第一次出现的位置以及出现的次数,以及它第一次出现的位置后面的大于等于它的数的数量,合并即可.复杂度<span class="math inline">\(O ( n^4 )\)</span>.</p>
+<p>再思考一下,似乎我们不用枚举它出现的次数,而是可以直接用<span class="math inline">\(g_{ i , j , 0 / 1 / 2 }\)</span>表示在<span class="math inline">\([ 1 , i ]\)</span>中填<span class="math inline">\([ 1 , j ]\)</span>,<span class="math inline">\(1\)</span>出现次数的平方和.同样枚举后面有多少大于等于它的位置,然后就可以把这些位置抽出来作为一个子序列,这个子序列就可以认为<span class="math inline">\(x\)</span>就是<span class="math inline">\(1\)</span>.复杂度<span class="math inline">\(O (
+n^3 )\)</span>.</p>
+<p>如果写出上面的式子的话,会发现最难处理的是一个形如<span class="math inline">\(x^k\)</span>的项,表示<span class="math inline">\(x\)</span>第一次出现的位置后面仍然选比它小的数字的位置的方案数.这个怎么办呢?自然的想法是想在dp中顺便把它算了.</p>
+<p>再进一步想,我们之所以合并麻烦,是因为取了两段上升区间.如果我们能求出一个上升区间和一个下降区间,在交点处合并呢?</p>
+<p>但是这样怎么统计平方和呢?我们发现如果在<span class="math inline">\([
+1 , k ]\)</span>中选了<span class="math inline">\([ 1 , i
+]\)</span>,那么<span class="math inline">\([ 1 , i ]\)</span>在<span class="math inline">\([ k + 1 , n
+]\)</span>中是本质完全相同的,因此还是可以用上面的dp求.</p>
+<h3><span id="排列转环">排列转环</span></h3>
+<h5><span id="example1p8416">Example1(P8416)</span></h5>
+<p>这题牛逼.</p>
+<p>首先考虑一维的情况,一维情况下最劣应该是<span class="math inline">\(2
+, 3 , . . . , n , 1\)</span>这样的.</p>
+<p>为啥捏?因为注意到操作数<span class="math inline">\(= n
+-\)</span>排列环数,这样的排列环数为<span class="math inline">\(1\)</span>,显然是最小的.加上列也差不多,所以<span class="math inline">\(k_0 = 2 n ( n - 1 ) = 2 n^2 - 2 n\)</span>.</p>
+<p>而我们显然可以通过两次操作把一个位置归位,最后剩一行再随便做做,这样的答案就是<span class="math inline">\(2 n^2 - n +
+1\)</span>,如果我们想赢,那就需要在上面的<span class="math inline">\(n -
+1\)</span>行每行省出一步操作.</p>
+<p>这咋做呢?类似上面的做法,也考虑找环然后省一步,对于一行,我们找到所有应该放在这里的值以及它们所在的列,把它们应该在的列和实际在的列连边,一定能找到至少一个环(自环也算),删环就可以省一步操作.</p>
+<h5><span id="example2">Example2</span></h5>
+<p>给序列<span class="math inline">\(a\)</span>和排列<span class="math inline">\(b\)</span>,有若干次操作:</p>
+<ol type="1">
+<li><p>修改操作:给定<span class="math inline">\(x , y\)</span>,将<span class="math inline">\(a_x\)</span>改为<span class="math inline">\(y\)</span>.</p></li>
+<li><p>查询操作:给定<span class="math inline">\(l , r ,
+x\)</span>,查区间<span class="math inline">\([ l , r
+]\)</span>内最长的子区间<span class="math inline">\([ l &#39; , r &#39;
+]\)</span>,使得对<span class="math inline">\(\forall l &#39; \leq i &lt;
+r &#39;\)</span>,有<span class="math inline">\(a_{ i + 1 } = b_{ a_i
+}\)</span>,且存在<span class="math inline">\(l &#39; \leq i \leq r
+&#39;\)</span>使得<span class="math inline">\(a_i =
+x\)</span>.需要输出满足条件的子区间的长度最大值.</p></li>
+</ol>
+<p>一步一步来,首先处理出所有的极长的满足条件的段,不难发现修改一个点只会断掉一个段或者连接两个段,影响是<span class="math inline">\(O ( 1 )\)</span>的.</p>
+<p>难点在于,我们如何处理要求其中存在一个<span class="math inline">\(x\)</span>这种东西.</p>
+<p>注意到<span class="math inline">\(b\)</span>是排列,上置换,不难发现<span class="math inline">\(b\)</span>其实就是一个置换,也就是说每一个极长的段一定是一个置换环内部的元素,我们可以快速定位到<span class="math inline">\(x\)</span>所在的置换环.但这样还是不能做.</p>
+<p>考虑由于是单点查询<span class="math inline">\(x\)</span>,我们可以直接将数组也做置换,这样一个置换环就在一个区间内部,意味着一个极长的段一定是一个区间或者两个区间(原区间的一段前缀和一段后缀).</p>
+<p>现在对于区间查询,我们考虑特殊处理和端点相交的段,这个是平凡的.这样我们只需要处理出完全被区间包含的那些段该怎么做.把右端点缩一缩,就等价于左端点完全被区间包含的那些点.也就是以<span class="math inline">\(a\)</span>为横坐标,<span class="math inline">\(l\)</span>为纵坐标,这样这些就相当于对一条横线取<span class="math inline">\(\max\)</span>,然后查询一段竖着的线段的最大值.注意到一行不可能有两个横线,因此可以线段树分治+线段树维护,复杂度<span class="math inline">\(O ( n \log^2 n )\)</span>.</p>
+<h3><span id="规定转移顺序">规定转移顺序</span></h3>
+<h5><span id="example1">Example1</span></h5>
+<p>给定一张<span class="math inline">\(n\)</span>个点的图,每个点有一个<span class="math inline">\([ 1 , k
+]\)</span>的颜色,求这张图有多少个子图是一棵树并且在这棵树中每种颜色恰好出现了一次.</p>
+<p>首先无根树转有根树计数,设<span class="math inline">\(dp_{ i , S
+}\)</span>表示以<span class="math inline">\(i\)</span>为根,已经选了<span class="math inline">\(S\)</span>集合中的颜色的方案数.转移的时候枚举出边(注意可能会算重,只要是会算重的都考虑钦定某种颜色在其中一个块里),复杂度<span class="math inline">\(O ( m 3^k )\)</span>.</p>
+<p>冷静一下,想到斯坦纳树,于是再设一个<span class="math inline">\(g_{ x ,
+S }\)</span>表示以<span class="math inline">\(x\)</span>为根且<span class="math inline">\(x\)</span>只有一个儿子,<span class="math inline">\(S\)</span>的定义类似的方案数.这样我们就可以用斯坦纳树的换根技巧计数.很厉害.</p>
+<p>这个故事告诉我们:对于图论计数问题(尤其是和树有关),<span class="math inline">\(m\)</span>大概率可以转化为<span class="math inline">\(n\)</span>,但是需要一些小技巧(例如斯坦纳树)</p>
+<h5><span id="example2p7142">Example2(P7142)</span></h5>
+<p>类似宝藏那个题,我们考虑设<span class="math inline">\(f_{ d , S_1 ,
+S_2 }\)</span>表示<span class="math inline">\(S_1\)</span>中的点到<span class="math inline">\(1\)</span>的距离<span class="math inline">\(&lt;
+d\)</span>,<span class="math inline">\(S_2\)</span>中的点到<span class="math inline">\(1\)</span>的距离<span class="math inline">\(=
+d\)</span>.然后枚举到<span class="math inline">\(1\)</span>的距离<span class="math inline">\(= d + 1\)</span>的点集,这一部分复杂度是<span class="math inline">\(O ( n 3^n
+)\)</span>,预处理一下不同情况的答案即可.</p>
+<h3><span id="复杂度均摊">复杂度均摊</span></h3>
+<p>大概是如果多组询问那复杂度是错误的,但是如果我全局求,那我<span class="math inline">\(\sum\)</span>起来的总复杂度大概是对的.经典问题是树上背包.</p>
+<h5><span id="example1">Example1</span></h5>
+<p>给定一颗二叉树,求对于每一个<span class="math inline">\(x\)</span>,满足<span class="math inline">\(x , y ,
+z\)</span>互不相同的三元组<span class="math inline">\(( x , y , z
+)\)</span>的价值(定义为两两距离之和对<span class="math inline">\(L\)</span>取膜)的最大值是多少.<span class="math inline">\(n \leq 3000\)</span>.</p>
+<p>乍一看,二叉树,想到换根后做dsu on tree+set.但是<span class="math inline">\(O ( n^2 \log^2 n
+)\)</span>实在是跑不过去.冷静一下,除去三点共线的情况,考虑三个点在二叉树上的两两LCA一定只有两个点,枚举其中深度较浅的那个点并枚举其子树中的两个点和子树外的一个点.假设其子树内有<span class="math inline">\(x\)</span>个点对,子树外有<span class="math inline">\(y\)</span>个点,注意到<span class="math inline">\(\sum x = n^2 \land \sum y \leq
+n^2\)</span>,于是总复杂度<span class="math inline">\(O ( n^2 \log n
+)\)</span>.</p>
+<h3><span id="字典序相关">字典序相关</span></h3>
+<p>题目中询问满足条件的字典序第<span class="math inline">\(k\)</span>小之类的问题,通常采用转化为计数问题.</p>
+<h5><span id="example12022noip十连测day88ady">Example1([2022noip十连测day8]8ady)</span></h5>
+<p>首先,我们肯定想如果知道<span class="math inline">\(a\)</span>,我们怎么求出<span class="math inline">\(b\)</span>.</p>
+<p>首先不难发现,我们可以这么还原:先开一个堆,然后先将前<span class="math inline">\(m - 1\)</span>个位置扔进堆里,从第<span class="math inline">\(m\)</span>个位置开始,假设现在到了第<span class="math inline">\(i\)</span>个位置<span class="math inline">\(( m
+\leq i \leq n )\)</span>,每次将<span class="math inline">\(a_i\)</span>扔进堆里,并从堆中取最小元素扔到<span class="math inline">\(i - m +
+1\)</span>位置,最后把堆清空到剩下的位置即可.</p>
+<p>大量实验证明:这种反向构造思路,你用个堆通常是做不动的.</p>
+<p>我们考虑有没有别的做法.</p>
+<p>一个一个数地考虑,<span class="math inline">\(b_1\)</span>在<span class="math inline">\(a\)</span>中的位置应该在哪?显然是应该在<span class="math inline">\([ 1 , m
+]\)</span>中,而且根据上面的堆的做法,显然它应该是<span class="math inline">\([ 1 , m
+]\)</span>中最小的数字,换句话说,我们需要满足:<span class="math inline">\([ 1 , m ]\)</span>中除它以外的数字都比它大.</p>
+<p>我们继续考虑<span class="math inline">\(b_2\)</span>,显然它在<span class="math inline">\(a\)</span>中应该在<span class="math inline">\([ 1
+, m + 1 ]\)</span>中,并且需要满足<span class="math inline">\([ 1 , m + 1
+]\)</span>中的所有数字除了<span class="math inline">\(b_1\)</span>,都比它大.</p>
+<p>以此类推.不难注意到对于一个数<span class="math inline">\(b_i\)</span>,其中<span class="math inline">\(1
+\leq i \leq n - m + 1\)</span>,它能填回的原序列的位置一定最大最大是<span class="math inline">\([ 1 , m + i - 1
+]\)</span>,并且如果它能填到区间<span class="math inline">\([ l , r
+]\)</span>中,这个区间中除去在它之前填进来的数字以外,均比它大.</p>
+<p>但是,这显然是个上界.这个区间能不能缩小一下呢?</p>
+<p>对于一个<span class="math inline">\(i\)</span>,我们找到最大的<span class="math inline">\(j\)</span>满足<span class="math inline">\(1 \leq j
+&lt; i\)</span>并且<span class="math inline">\(b_j &gt;
+b_i\)</span>(有可能找不到).</p>
+<p>冷静一下,显然,<span class="math inline">\(b_i\)</span>不能填到<span class="math inline">\([ 1 , j + m - 1
+]\)</span>.(因为如果它扔在这里,那它就:在<span class="math inline">\(j\)</span>出堆前入堆,在<span class="math inline">\(j\)</span>出堆后出堆,显然不合法)</p>
+<p>也就是说,我们将每个数能填的区间缩小为了<span class="math inline">\([
+j + m , i + m - 1 ]\)</span>.</p>
+<p>那是不是说每个数只要填在这个区间中,就一定合法呢?</p>
+<p>我们考虑一个数<span class="math inline">\(i\)</span>以及所有比它小且在它后面的数字<span class="math inline">\(j\)</span>,当<span class="math inline">\(j = i +
+1\)</span>时,显然<span class="math inline">\(j\)</span>只有一种选择,直接填上;当<span class="math inline">\(j = i + 2\)</span>时,若<span class="math inline">\(i + 1\)</span>已经选择好了,那<span class="math inline">\(j\)</span>显然也只有一种选择,填上.这样,对于所有<span class="math inline">\(i\)</span>,如果它前面有一个大于它的数字,那它一定只有一个位置可以填.</p>
+<p>这样我们就可以简化为:给定<span class="math inline">\(b\)</span>数组单调递增的问题.不难发现该条件下<span class="math inline">\(i\)</span>可以选择的区间是<span class="math inline">\([ 1 , i + m - 1 ]\)</span>,且满足条件一定有解.</p>
+<p>冷静一下,这个时候假设新序列长度为<span class="math inline">\(len\)</span>,那显然一共有<span class="math inline">\(m^{ len }\)</span>个满足条件的<span class="math inline">\(a\)</span>序列.注意到这个级别是指数级别.</p>
+<p>所以前面一定是按顺序填,直到后面才会打乱顺序.而后面的长度大概也就是个<span class="math inline">\(\log_m k\)</span>,枚举枚举就行.</p>
+<h3><span id="前缀和与差分">前缀和与差分</span></h3>
+<h5><span id="example1loj3266">Example1(loj3266)</span></h5>
+<p>把点都扔到坐标系上,显然到一个点曼哈顿距离相等的数一定在一个正方形(对角线平行于坐标轴)上.</p>
+<p>我们考虑如果已知两个点,怎么找第三个点的坐标,显然是两个正方形的边界的交点,那也就是说,曼哈顿距离下,一个等边三角形必定有两个点所在直线与坐标轴成<span class="math inline">\(45
+\degree\)</span>角,那这两个点必然和另一个点组成了一个等腰直角三角形(欧几里得意义下),我们枚举等腰直角三角形的直角顶点和直角边长就可以确认这两个点的坐标,而另一个点一定在一条与坐标轴成<span class="math inline">\(45 \degree\)</span>的斜线上,可以使用前缀和做.</p>
+<p>注意到有的点对可能会被算两遍,要特判.</p>
+<h5><span id="example2">Example2</span></h5>
+<p>小孔在玩卡牌游戏.众所周知,在卡牌游戏里,过牌是很关键的,所以目前小孔的牌库中,只可能有数字牌<span class="math inline">\(0 , 1 , 2 , 3 , 4\)</span>.</p>
+<p>数字牌<span class="math inline">\(x\)</span>的含义是当你打出它的时候,会从牌库的顶端抽<span class="math inline">\(x\)</span>张牌到自己手里,若牌库中不足<span class="math inline">\(x\)</span>张牌,则将牌库抽空为止.打出的数字牌<span class="math inline">\(x\)</span>会放入弃牌堆中.在题目中你可以认为这张牌不会再被用到了.</p>
+<p>目前,牌库里有<span class="math inline">\(n\)</span>张牌,从牌堆顶到牌堆底数第<span class="math inline">\(i\)</span>张牌为数字牌<span class="math inline">\(a_i\)</span>.在开始回合时,发牌员会进行一次切牌,切牌的结果是从牌堆顶到牌堆底的牌的顺序变为了<span class="math inline">\(a_s , a_{ s + 1 } , . . . , a_n , a_1 , . . . ,
+a_{ s − 1 }\)</span>.</p>
+<p>接着,小孔会抽<span class="math inline">\(k\)</span>张牌堆顶的牌到自己手上.每次小孔可以打出一张牌,但这一回合中小孔至多打出<span class="math inline">\(p\)</span>张牌.小孔可以在任意时刻结束回合.</p>
+<p>请问,这一回合中若小孔使用最优策略,那么牌库里最少还剩多少牌.进一步地,有<span class="math inline">\(q\)</span>次这样的询问,每次询问给定三个整数<span class="math inline">\(s , k ,
+p\)</span>,你需要输出牌库里最少还剩多少牌.<span class="math inline">\((
+n , q \leq 3 \times 10^5 )\)</span>.</p>
+<p>每次询问是独立的,也就是说每次询问并不会以任何方式影响到之后的询问.</p>
+<p>首先我们想一下我们需要知道什么:我们需要知道其在这一回合中打出的各种牌的数量是多少.而只要知道这一点,我们自然得到了答案是多少.注意到每次一定优先打出手头上最大的牌.</p>
+<p>我们设<span class="math inline">\(sum_{ t , i
+}\)</span>表示从开始到抽完第<span class="math inline">\(i\)</span>张牌<strong>之前</strong>,在只用大于<span class="math inline">\(t\)</span>的牌的前提下,还能往下抽多少张牌.显然<span class="math inline">\(sum_{ t , 0 } = 0\)</span>并且<span class="math inline">\(sum_{ t , i } = sum_{ t , i - 1 } + a_{ i - 1 } [
+a_{ i - 1 } &gt; t ] - 1\)</span>.注意到<span class="math inline">\(sum_{ t , i } = 0\)</span>就抽不了第<span class="math inline">\(i\)</span>张牌了.不考虑还能抽负数张牌的情况,注意到<span class="math inline">\(sum\)</span>数组具有可差分性!</p>
+<p>那我们一开始抽了<span class="math inline">\(k\)</span>张牌,也就是令<span class="math inline">\(sum_{ s + 1 } \leftarrow sum_{ s + 1 } +
+k\)</span>,那第一个不能继续抽牌的地方显然也就是第一个满足<span class="math inline">\(sum_{ i } - sum_{ s } \leq
+0\)</span>的地方,用原本的<span class="math inline">\(sum\)</span>数组表示也就是<span class="math inline">\(sum_{ i } + k \leq sum_{ s
+}\)</span>.那第二个地方呢?由于后面的<span class="math inline">\(sum\)</span>都加上<span class="math inline">\(k\)</span>了,第二个地方也就是满足<span class="math inline">\(sum_j \leq sum_{ i } -
+t\)</span>的地方(不过注意到后面要倍增,所以直接写<span class="math inline">\(sum_j &lt;
+sum_i\)</span>也可以,这样方便用单调栈维护这个东西).以此类推,注意到这个东西和询问无关,可以使用倍增预处理,处理的过程中判断一下还有没有大小为<span class="math inline">\(t\)</span>的牌以及用牌总数是否小于等于<span class="math inline">\(p\)</span>即可.都是可以用前缀和之类的东西预处理的.最后从小的牌开始选,选完之后的牌就可以当成<span class="math inline">\(0\)</span>牌了.另外要注意:我们要保证目前一定有大小为<span class="math inline">\(t\)</span>的牌选,所以需要在做之前判断一下最后一次选择大小为<span class="math inline">\(t\)</span>的牌的位置是在哪里.</p>
+<p>等一下,注意到我们好像没啥办法判断还有没有大小为<span class="math inline">\(t\)</span>的牌.有一个方法是:我们直接令所有<span class="math inline">\(\leq t - 1\)</span>的牌变成<span class="math inline">\(t\)</span>,并处理出不用<span class="math inline">\(\leq t -
+1\)</span>的牌能跑到的最右点,然后取个<span class="math inline">\(\min\)</span>.</p>
+<p>想出<span class="math inline">\(sum\)</span>数组并发现可差分性后,这个题突然就变可做了.问题来了:咋想到的<span class="math inline">\(sum\)</span>数组,又是怎么发现的可差分性?</p>
+<p>首先,由于切牌这个环节会变化起点.所以有两种可能:要么是像倍增那样起点不定,要么是像差分一样其它起点的答案可以由原本的起点答案得到.那想到差分后呢?又注意到一定会先选较大的牌,所以大概率可以分层考虑:这样就先把问题转化为只有<span class="math inline">\(0 / 1\)</span>或者是只有<span class="math inline">\(0 / 1 /
+2\)</span>的情况再继续考虑.由于要多组询问,所以答案一定是可以通过某种方式迅速算出来的,考虑到只要得到每种牌选的次数就可以快速算答案.又有一定是比它大的牌都选完了才选它,于是考虑第一次选不了其它牌只能选它的地方.注意到这个地方可以使用前缀和在变换起点的情况下求.于是由前缀和判断差分性质.</p>
+<h3><span id="二分答案">二分答案</span></h3>
+<h5><span id="example12022qbxt国庆day6kth">Example1([2022qbxt国庆Day6]kth)</span></h5>
+<p>考虑<span class="math inline">\(f\)</span>的取值不会很多,我们可以枚举<span class="math inline">\(f\)</span>的取值,并把相同取值的归类.也就是,对于<span class="math inline">\(f = i\)</span>的类别里也就是后<span class="math inline">\(i\)</span>位为<span class="math inline">\(0\)</span>,第<span class="math inline">\(i\)</span>位为<span class="math inline">\(1\)</span>的那些数.</p>
+<p>注意到每个类别内部是很有序的,也就是说我们可以采取类似初赛归并排序的方法二分,找到前<span class="math inline">\(k\)</span>大的和.</p>
+<p>调了一年,这个故事告诉我们,如果一个东西暴力调整能过/复杂度均摊,就不要写一些很丑的很难写的即使更快的东西去做.</p>
+<h5><span id="example2">Example2</span></h5>
+<p>给你一棵<span class="math inline">\(n\)</span>个点的树,每条边是一个字符(字符集是小写字母),一个点的所有相邻边边权不同.</p>
+<p>有<span class="math inline">\(m\)</span>次操作:每次询问给出点<span class="math inline">\(x\)</span>和字符串<span class="math inline">\(S\)</span>,<span class="math inline">\(S\)</span>中不包含相同字符,<span class="math inline">\(| S | = 26\)</span>,每次修改会修改一条边边权.</p>
+<p>从<span class="math inline">\(x\)</span>点开始,每次对与<span class="math inline">\(x\)</span>点相邻的边,对这些边找出其边权在<span class="math inline">\(S\)</span>中出现的位置,找出边权出现位置最靠前的边,然后走过去.</p>
+<p>每次询问走过的边直接从树上删除,一条边正反方向算同一条边,也就是说没法<span class="math inline">\(x \rightarrow y \rightarrow x\)</span>.</p>
+<p>这个过程会停机,你需要输出在哪个点停下来,询问之间独立.</p>
+<p>这题最重要的思想在于:我们首先需要将这个问题改成一个判定性问题:判定性问题显然弱于找到答案.</p>
+<p>怎么判定呢?对于一条路径,如果我们要沿着它走,那么我们就可以确定每个点的最小边(或者次小边),这等价于给出若干个边之间的大小关系,可以使用bitset维护一下,最后判定即可.我们发现判定数组是可以合并的,于是这玩意可以扔到线段树上维护.</p>
+<p>会了判定这题就做完了,做树链剖分,然后开始从下往上跳重链,能跳到顶端就跳,不然二分跳到哪里,下去是同理的,只不过下去的二分需要多个<span class="math inline">\(\log n\)</span>.</p>
+<h3><span id="整体二分">整体二分</span></h3>
+<p>通常解决在二分的情况下,单次check的复杂度比较高的问题.思想是把所有询问共同的check一起做.</p>
+<p>整体二分的具体复杂度往往需要现场分析.</p>
+<p>最常用的整体二分的写法是分治.但是有的问题(例如不能撤销)可能不太好写分治.</p>
+<p>还有一种方式是,我们把所有询问一字排开,然后求出每个询问当前二分的<span class="math inline">\(mid\)</span>,然后顺序处理或者别的什么处理方式做这些<span class="math inline">\(mid\)</span>.</p>
+<h5><span id="example1agc002dstamp-rally">Example1([AGC002D]Stamp Rally)</span></h5>
+<p>直接整体二分,注意需要做可撤销并查集之类的东西.</p>
+<h3><span id="分治">分治</span></h3>
+<h5><span id="example1平面最近点对">Example1(平面最近点对)</span></h5>
+<p>按照<span class="math inline">\(x\)</span>轴排序,递归做两边的子问题,假设两边问题的最小值为<span class="math inline">\(d\)</span>,对着<span class="math inline">\(d\)</span>做中间的问题.</p>
+<h5><span id="example2cf1764g3doremys-perfect-ds-class-hard-version">Example2([CF1764G3]
+Doremy’s Perfect DS Class (Hard Version))</span></h5>
+<p>有一个<span class="math inline">\([ 1 , n ]\)</span>的排列<span class="math inline">\(p\)</span>,每次可以询问<span class="math inline">\(l , r , k\)</span>,交互库会返回<span class="math inline">\(\lfloor \frac{ p_l }{ k } \rfloor , \lfloor \frac{
+p_{ l + 1 } }{ k } \rfloor , \cdots , \lfloor \frac{ p_r }{ k }
+\rfloor\)</span>中不同数字的个数,你需要在<span class="math inline">\(20\)</span>次询问内找到<span class="math inline">\(p\)</span>中<span class="math inline">\(1\)</span>的位置.</p>
+<p>第一反应就是令<span class="math inline">\(k =
+2\)</span>,然后如果<span class="math inline">\(n\)</span>是奇数,不难发现此时只有<span class="math inline">\(1\)</span>自己一个人一组.一个自然的想法是,我们可以对于每个位置<span class="math inline">\(i\)</span>,查询<span class="math inline">\([ 1 , i
+- 1 ]\)</span>和<span class="math inline">\([ 1 , i
+]\)</span>的答案,如果答案一样,那这个位置肯定不是<span class="math inline">\(1\)</span>.如果不一样,我们再查一下<span class="math inline">\([ i , n ]\)</span>和<span class="math inline">\([
+i + 1 , n ]\)</span>.由于<span class="math inline">\(1\)</span>不会和左右任意一个人配对,不难发现如果这两种情况都不一样,那这里一定是<span class="math inline">\(1\)</span>,这样我们就做到了<span class="math inline">\(2 n - 2\)</span>次查询.</p>
+<p>那么如何优化呢?我们冷静一下,如果我们查询一个区间<span class="math inline">\([ l , r ]\)</span>,那么得到的答案自然是<span class="math inline">\(len
+-\)</span>配对数字都在区间内的对数,因此我们自然也能得到这个区间的未配对数.这个时候发现,对于位置<span class="math inline">\(i\)</span>,如果我们查询<span class="math inline">\([ 1 , i ]\)</span>和<span class="math inline">\([
+i + 1 , n ]\)</span>,由于这两个区间内没配对的数字要么是<span class="math inline">\(1\)</span>,要么会和另一个区间中的数字配对,因此这两个区间中,未配对数多的那个一定包含<span class="math inline">\(1\)</span>.这样就可以通过<span class="math inline">\(k\)</span>不断向下二分,最后只需要<span class="math inline">\(20\)</span>步操作就可以解决<span class="math inline">\(n\)</span>是奇数的情况.</p>
+<p>那么<span class="math inline">\(n\)</span>是偶数怎么办呢?这个时候<span class="math inline">\(1\)</span>和<span class="math inline">\(n\)</span>都没人配对.我们需要找到<span class="math inline">\(n\)</span>并将它杀掉.注意到<span class="math inline">\(k\)</span>可以取别的数,我们如果只是让<span class="math inline">\(k = 2\)</span>未免有些弱,而且看上去也区分不了<span class="math inline">\(1\)</span>和<span class="math inline">\(n\)</span>,而不难发现,令<span class="math inline">\(k = n\)</span>就可以找到<span class="math inline">\(n\)</span>在哪里,于是可以先找<span class="math inline">\(n\)</span>再找<span class="math inline">\(1\)</span>,需要<span class="math inline">\(40\)</span>步.</p>
+<p>那怎么继续优化呢?我们还是令<span class="math inline">\(k =
+2\)</span>,查询<span class="math inline">\([ 1 , i ]\)</span>和<span class="math inline">\([ i + 1 , n
+]\)</span>,我们发现此时会有两种情况:</p>
+<ol type="1">
+<li><p>左右两边未配对数量相差<span class="math inline">\(2\)</span>,这个时候<span class="math inline">\(1\)</span>和<span class="math inline">\(n\)</span>一定都在较大的那边,直接递归.</p></li>
+<li><p>左右两边未配对数量相等,这个时候一定<span class="math inline">\(1\)</span>在一边,<span class="math inline">\(n\)</span>在另一边,我们可以通过一次查询<span class="math inline">\(k = n\)</span>判断哪边是<span class="math inline">\(n\)</span>.</p></li>
+</ol>
+<p>于是只需要<span class="math inline">\(21\)</span>次.</p>
+<p>但是还是不够,我们从哪里抠出那一次呢?发现最后处理区间<span class="math inline">\([ i , i + 1
+]\)</span>还需要两步操作,我们看看能不能省掉一步.</p>
+<ol type="1">
+<li><p><span class="math inline">\(1\)</span>和<span class="math inline">\(n\)</span>都在<span class="math inline">\([ i , i
++ 1 ]\)</span>中,我们显然只需要查询一步就可以知道哪边是<span class="math inline">\(n\)</span>.</p></li>
+<li><p>只有<span class="math inline">\(1\)</span>在<span class="math inline">\([ i , i + 1
+]\)</span>中,我们考虑利用一下前面的信息.注意到我们一定已经知道<span class="math inline">\([ 1 , i - 1 ] , [ i , n ] , [ 1 , i + 1 ] , [ i +
+2 , n ]\)</span>的答案(如果区间为空或者区间为<span class="math inline">\([ 1 , n
+]\)</span>显然我们也知道答案),假设这个区间中的两个数是<span class="math inline">\(1\)</span>和<span class="math inline">\(x\)</span>,<span class="math inline">\(x \in ( 1 ,
+n )\)</span>,那么<span class="math inline">\(x\)</span>一定有一个和它配对的数字,我们考虑通过<span class="math inline">\([ 1 , i - 1 ]\)</span>和<span class="math inline">\([ 1 , i + 1 ]\)</span>就可以知道和<span class="math inline">\(x\)</span>配对的数字在<span class="math inline">\([ 1 , i - 1 ]\)</span>还是在<span class="math inline">\([ i + 2 , n
+]\)</span>.接下来只需要一步判断就可以找到<span class="math inline">\(1\)</span>了.</p></li>
+</ol>
+<h5><span id="example3xviiopen-cup-named-after-ev-pankratiev-grand-prix-of-japanopentraisncontest-1489d-nice-set-of-points">Example3(XVII
+Open Cup named after E.V. Pankratiev. Grand Prix of Japan(opentraisn
+contest 1489)D Nice Set of Points)</span></h5>
+<p>给定一个点集<span class="math inline">\(S = \{ ( x , y )
+\}\)</span>,<span class="math inline">\(( x_1 , y_1 )\)</span>和<span class="math inline">\(( x_2 , y_2 )\)</span>可达当且仅当<span class="math inline">\(x_1 = x_2 \lor y_1 =
+y_2\)</span>.称一个点集是好的当且仅当这个点集中任意两个点的最短距离是它们的曼哈顿距离.给出一个点集,大小为<span class="math inline">\(N\)</span>,<span class="math inline">\(1 \leq N
+\leq 1000\)</span>,加入不多于<span class="math inline">\(10000 -
+N\)</span>个点使得这个点集变成好的.</p>
+<p>找一条分界线<span class="math inline">\(x =
+d\)</span>,我们将这条线左右两边的点全都作出在这条线上的投影点,将这些投影点全都加入,不难发现左右两边之间的路径就合法了,继续递归就行.</p>
+<h5><span id="example4cf1442dsum">Example4([CF1442D]Sum)</span></h5>
+<p>一个自然的想法是由于越靠后的可能越优秀,所以应该是要不断往后挖的.具体地,我们发现只可能有一个数组被选了一部分,剩下的数组要么不选,要么全选.</p>
+<p>为什么呢?假设有两个数组各选了一部分,不妨假设它们最后选的数分别是<span class="math inline">\(a\)</span>和<span class="math inline">\(b\)</span>,下一个未选的数分别是<span class="math inline">\(c\)</span>和<span class="math inline">\(d\)</span>,有<span class="math inline">\(c \geq a
+, d \geq b\)</span>,假设<span class="math inline">\(a \geq
+b\)</span>,那么自然有<span class="math inline">\(c \geq
+b\)</span>,于是我们把<span class="math inline">\(b\)</span>删掉换成<span class="math inline">\(c\)</span>一定更优秀.</p>
+<p>有了这个性质后,我们可以枚举是哪个数组只选了一部分,然后求出剩下部分的背包,背包部分可以求前缀和后缀最后合并起来,我们的复杂度就是<span class="math inline">\(O ( nk^2 )\)</span>.</p>
+<p>但这个复杂度还是不太够,如何优化呢?</p>
+<p>注意到这里的背包是支持撤销操作的,我们考虑一个分治做法:每次做到<span class="math inline">\([ l , r ]\)</span>的时候,假设此时<span class="math inline">\([ 1 , l - 1 ]\)</span>和<span class="math inline">\([ r + 1 , n ]\)</span>都加入答案了,我们把<span class="math inline">\([ mid + 1 , r
+]\)</span>也加入背包,然后递归求解<span class="math inline">\([ l , mid
+]\)</span>,然后再撤销,同样的方法求解右边的答案.复杂度<span class="math inline">\(O ( nk \log n )\)</span>.</p>
+<h5><span id="example5agc044d">Example5(AGC044D)</span></h5>
+<p>这题在于分治后归并,考虑我们是可以快速判断一个串是否是原串的子序列的,就是判断它们的编辑距离是否恰好等于长度之差.而我们也可以快速判断每个字母在原串中出现了多少次,只需要询问<span class="math inline">\(L\)</span>个这个字母然后看编辑距离就是替换的次数.这样我们考虑对字母分治,<span class="math inline">\([ l , r ]\)</span>表示只用到<span class="math inline">\([ l , r
+]\)</span>中的字母,得到的极长的原串的子序列是什么.边界情况<span class="math inline">\([ l , l ]\)</span>是好处理的,对于<span class="math inline">\([ l , r ]\)</span>,我们考虑归并,合并<span class="math inline">\([ l , mid ]\)</span>和<span class="math inline">\([ mid + 1 , r
+]\)</span>的时候不断判断当前串是否是子序列就行.</p>
+<h3><span id="倍增">倍增</span></h3>
+<p>顺便一提,倍增比二分方便的一点在于:倍增能迅速确定答案的规模,这在复杂度与答案规模有关的时候至关重要.</p>
+<h5><span id="example1scoi2015国旗计划">Example1([SCOI2015]国旗计划)</span></h5>
+<p>先破环成链,然后设<span class="math inline">\(f_{ i , j
+}\)</span>表示从<span class="math inline">\(i\)</span>这个人,途径<span class="math inline">\(2^j\)</span>个人后能到达的最远的人是谁,然后就可以直接通过倍增处理.</p>
+<h5><span id="example2pkusc2018星际穿越">Example2([PKUSC2018]星际穿越)</span></h5>
+<h5><span id="example3cf1523hhopping-around-the-array">Example3(CF1523H
+Hopping Around the Array)</span></h5>
+<p>类似国旗计划,只不过需要用背包合并一维.</p>
+<p>不过吧,这题有个问题在于最后的询问,我们要每次判断当前越界的点的代价是否小于等于dp数组的代价,如果小就回撤dp数组(因为无论如何都必不可能在这里选择).</p>
+<h5><span id="example4loj3665">Example4(loj3665)</span></h5>
+<p>思考一下发现,走相同的步数能到的点一定是一段区间,于是考虑使用倍增算法,设<span class="math inline">\(f_{ x , i }\)</span>表示从<span class="math inline">\(x\)</span>走<span class="math inline">\(2^i\)</span>步能到的区间,转移是简单的RMQ问题.</p>
+<p>但是初值怎么求呢?先考虑右端点怎么求.对于每个路线<span class="math inline">\(j\)</span>,它会把<span class="math inline">\([ A_j
+, A_j + k - 1 ]\)</span>能到达的右端点与<span class="math inline">\(B_j\)</span>取<span class="math inline">\(\max\)</span>,由于查询在修改之后,所以这个东西很好做.</p>
+<h5><span id="example5cf1707e">Example5(CF1707E)</span></h5>
+<p>引理1:如果<span class="math inline">\([ l , r ] \subseteq [ L , R
+]\)</span>,则<span class="math inline">\(f ( ( l , r ) ) \subseteq f ( (
+L , R ) )\)</span>.</p>
+<p>引理2:如果<span class="math inline">\([ L , R ] = [ l_1 , r_1 ] \cup
+[ l_2 , r_2 ]\)</span>,则<span class="math inline">\(f ( ( L , R ) ) = f
+( ( l_1 , r_1 ) ) \cup f ( ( l_2 , r_2 ) )\)</span>.</p>
+<p>引理1显然,引理2是因为<span class="math inline">\([ L , R
+]\)</span>中的最大值和最小值一定都被后面的两个部分取到.</p>
+<p>于是,考虑<span class="math inline">\([ l , r ] = \cup_{ i = l }^{ r -
+1 } [ i , i + 1 ]\)</span>,就可以倍增了.</p>
+<p>考虑求出每个单点的倍增数组,那么总区间的倍增数组也就是这些数组的最小值和最大值.</p>
+<p>大概做一下.</p>
+<h5><span id="example622zr提高组十连测day6百分号">Example6([22zr提高组十连测day6]百分号)</span></h5>
+<p>首先看上去多组询问给定起点终点看上去就很像倍增.</p>
+<p>一个很自然的设计是<span class="math inline">\(L_{ x , i
+}\)</span>表示从<span class="math inline">\(x\)</span>这个点跳<span class="math inline">\(2^i\)</span>所能到达的最左端的点,<span class="math inline">\(R_{ x , i
+}\)</span>同理.但是能跳到最远的点不一定能跳到一个较近的点,那咋办呢?</p>
+<p>冷静一下,注意到我们好像还没有用到括号序列的性质:两个跳跃要么包含要么不交,不可能出现第三种情况.</p>
+<p>所以,如果目前能跳到的最远的点为<span class="math inline">\(l ,
+r\)</span>,那么再跳一步能到达的最远的点一定是从<span class="math inline">\(l\)</span>或<span class="math inline">\(r\)</span>跳过去的.考虑反证这个结论,设能从<span class="math inline">\(( l , r )\)</span>中的一个点<span class="math inline">\(k\)</span>跳到更远的点,那么由于之前没跳到过<span class="math inline">\(k\)</span>就跳到<span class="math inline">\(l\)</span>了,所以一定存在一个<span class="math inline">\(i &gt; k\)</span>,<span class="math inline">\(i
+\rightarrow l\)</span>,而如果存在<span class="math inline">\(j &lt;
+l\)</span>,<span class="math inline">\(k \rightarrow
+j\)</span>,显然不满足性质.</p>
+<p>同理,我们最后处理询问答案的时候,考虑从<span class="math inline">\(x\)</span>和<span class="math inline">\(y\)</span>都跳.先从<span class="math inline">\(x\)</span>跳到再跳一步就会跳过<span class="math inline">\(y\)</span>的位置,然后把<span class="math inline">\(y\)</span>跳到再跳一步就会跳过<span class="math inline">\(x\)</span>的位置,那么现在的<span class="math inline">\(x\)</span>和<span class="math inline">\(y\)</span>一定相邻,不然分别跳一步就会出现包含的情况,于是一定是最优解.</p>
+<h3><span id="对称建立双射">对称/建立双射</span></h3>
+<h5><span id="example1cf1627f">Example1(CF1627F)</span></h5>
+<p>冷静一下考虑,分界线一定是一个中心对称图形,分成的两部分一定中心对称.那这条分界线一定过中心点.</p>
+<p>我们考虑这么一点:如果所有点对都在矩阵一边,我们就可以直接求中心点到矩阵一边的最短路然后对称一下就好了.</p>
+<p>而矩阵上遍布点对怎么办呢?我们在和每个点对对称的位置把这个点对复制一遍,然后从中心点找到一条到边界的最短路,把它对称一下即可.</p>
+<h5><span id="example2ah2017hnoi2017抛硬币">Example2([AH2017/HNOI2017]抛硬币)</span></h5>
+<p>设<span class="math inline">\(A\)</span>的正面朝上为<span class="math inline">\(S_A\)</span>,<span class="math inline">\(B\)</span>的为<span class="math inline">\(S_B\)</span>.设<span class="math inline">\(p_1 =
+\sum [ S_A &gt; S_B ] , p_2 = \sum [ S_A = S_B ] , p_3 = \sum [ S_A &lt;
+S_B ]\)</span>.</p>
+<p>当<span class="math inline">\(a = b\)</span>,翻转所有硬币,自然有<span class="math inline">\(p_1 = p_3\)</span>,又设<span class="math inline">\(P = p_1 + p_2 + p_3 = 2^{ a + b
+}\)</span>,于是求得<span class="math inline">\(p_2\)</span>即可得到答案.而<span class="math inline">\(p_2 = \sum_{ i = 0 }^a \binom{ a }{ i } \binom{ b
+}{ i }\)</span>,用范德蒙德卷积的变式,有<span class="math inline">\(p_2 =
+\binom{ a + b }{ a }\)</span>.</p>
+<p>同样,当<span class="math inline">\(a &gt; b\)</span>时.我们设<span class="math inline">\(p_4 = \sum [ a - S_A &gt; b - S_B ] , p_5 = \sum [
+a - S_A = b - S_B ] , p_6 = \sum [ a - S_A &lt; b - S_B
+]\)</span>.同样是翻转硬币的套路,自然有<span class="math inline">\(p_4 =
+p_1 , p_5 = p_2 , p_6 = p_3\)</span>.注意到:<span class="math inline">\(S_A \leq S_B \Rightarrow a - S_A &gt; b -
+S_B\)</span>,但逆命题不成立.不妨设<span class="math inline">\(p_7 = \sum
+[ S_A &gt; S_B \land a - S_A &gt; b - S_B ]\)</span>.自然有:</p>
+<p><span class="math display">\[
+p_1 = p_4 = p_7 + p_2 + p_3 = p_7 + P - p_1
+\]</span></p>
+<p>于是只要求出<span class="math inline">\(p_7\)</span>就可以求得<span class="math inline">\(p_1\)</span>.</p>
+<p>考虑<span class="math inline">\(p_7\)</span>如何求,注意到<span class="math inline">\([ S_A &gt; S_B \land a - S_A &gt; b - S_B ] = [ 0
+&lt; S_A - S_B &lt; a - b ]\)</span>,我们可以枚举<span class="math inline">\(S_A -
+S_B\)</span>,然后继续用范德蒙德卷积的变式.</p>
+<h5><span id="example32022qbxt国庆day4c">Example3([2022qbxt国庆Day4]C)</span></h5>
+<p>直接考虑对于每一对位置<span class="math inline">\(( i , j ) , i &lt;
+j\)</span>,计算它们可能产生的逆序对贡献.注意到每一对对答案的贡献会大概接近<span class="math inline">\(0 .
+5\)</span>,我们考虑构造一个双射,判断双射左右是否都会贡献.</p>
+<p>设<span class="math inline">\(d_i\)</span>为<span class="math inline">\(i\)</span>个数的错排数量,根据错排公式有<span class="math inline">\(d_n = ( n - 1 ) ( d_{ n - 1 } + d_{ n - 2 }
+)\)</span>.接下来讨论一下这两个位置的取值:</p>
+<ol type="1">
+<li><p>如果<span class="math inline">\(a_i = j , a_j =
+i\)</span>,那么一定贡献了逆序对,这里总共贡献为<span class="math inline">\(d_{ n - 2 } \cfrac{ n ( n - 1 ) }{ 2
+}\)</span>,一半的贡献也就是<span class="math inline">\(\cfrac{ d_{ n - 2
+} n ( n - 1 ) }{ 4 }\)</span>.</p></li>
+<li><p>如果<span class="math inline">\(a_i = j , a_j = k , k \ne i \lor
+a_i = k , a_j = i , k \ne j\)</span>,考虑前后两者形成双射.如果<span class="math inline">\(k\)</span>在<span class="math inline">\(i\)</span>和<span class="math inline">\(j\)</span>之间,那么无论前者还是后者,都一定贡献逆序对;不然,则两种情况一定只有一种会贡献逆序对.前者多出的贡献应该是<span class="math inline">\(\cfrac{ n ( n - 1 ) ( n - 2 ) }{ 6 } ( d_{ n - 2 }
++ d_{ n - 3 } )\)</span>,也就是先选出<span class="math inline">\(i &lt;
+k &lt; j\)</span>,如果<span class="math inline">\(a_k =
+i\)</span>,那么剩余的可能性就是<span class="math inline">\(d_{ n - 3
+}\)</span>;不然,也就是说<span class="math inline">\(a_k \ne
+i\)</span>,类似于错排公式,剩余的可能性为<span class="math inline">\(d_{
+n - 2 }\)</span>.另外,由于<span class="math inline">\(d_{ n - 2 } + d_{
+n - 3 } = \cfrac{ d_{ n - 1 } }{ n - 2
+}\)</span>,所以上面的贡献也就是<span class="math inline">\(\cfrac{ n ( n
+- 1 ) }{ 6 } d_{ n - 1 }\)</span>.</p></li>
+<li><p>如果<span class="math inline">\(i , j , a_i ,
+a_j\)</span>互不相同,那我们交换<span class="math inline">\(a_i\)</span>和<span class="math inline">\(a_j\)</span>一定可以构造出另一组答案,并且这两组答案中一定只有一组贡献了逆序对,于是二者形成双射.</p></li>
+</ol>
+<p>除去上面的部分的贡献是<span class="math inline">\(\cfrac{ d_n n ( n -
+1 ) }{ 4 }\)</span>.于是总贡献为:<span class="math inline">\(n ( n - 1 )
+( \cfrac{ d_{ n - 1 } }{ 6 } + \cfrac{ d_n + d_{ n - 2 } }{ 4 }
+)\)</span>.</p>
+<h5><span id="example4arc115d">Example4(ARC115D)</span></h5>
+<p>第一反应感觉完全不可做.</p>
+<p>思考一下,如果我们随便选边肯定完蛋了:我们又不知道选出了几个奇度点,这不完蛋了?</p>
+<p>先考虑要求全是偶度点怎么办?</p>
+<p>由于点只有奇度点和偶度点两种,如果我能先随便选个边集,再把它删到全是偶度点好像就赢了.但是一方面我咋删啊,一方面这样删有可能删出重复的.又注意到删一条边就一定可以让两个点的奇偶性改变.</p>
+<p>我们考虑求出原图的一棵生成树,然后剩下的边随便选.之后从生成树深度较大的点开始考虑:如果这个点是奇度点,我们就把它的父边删掉.容易发现这样是双射.而如果有奇度点的话可以先组合数选出来然后同样做上面的操作,容易发现是一样的.</p>
+<p>不同的连通块可以分别做最后卷起来.</p>
+<h5><span id="example5hihocoder1230">Example5(Hihocoder1230)</span></h5>
+<p>这题最重要的一点在于观察到一组<span class="math inline">\(a\)</span>如果有解,那么一定是唯一解.为啥呢?我们考虑如何构造一个解:从小位到高位枚举,如果当前位所有数异或起来是<span class="math inline">\(1\)</span>,那么<span class="math inline">\(x\)</span>这一位也必然是<span class="math inline">\(1\)</span>,然后加上后进位.这是由于序列长度是奇数.然后就每次对于<span class="math inline">\(a \in [ x , m + x ]\)</span>计数,做FWT就行.</p>
+<h5><span id="example623省选10连测-day5b">Example6(23省选10连测 day5B)</span></h5>
+<p>首先我们要知道,一轮冒泡排序的过程等价于:从前往后考虑每一个点,如果它前面存在一个比它大的点,就将它和前面的点交换.</p>
+<p>于是我们考虑令<span class="math inline">\(b_i = \sum_{ j = 1 }^{ i -
+1 } [ a_j &gt; a_i ]\)</span>.也就是每次冒泡排序,这个<span class="math inline">\(b_i\)</span>都会变成<span class="math inline">\(\max \{ b_i - 1 , 0 \}\)</span>.显然<span class="math inline">\(b_i\)</span>需要满足的条件是<span class="math inline">\(b_i \in [ 0 , n - i
+]\)</span>,接下来我们证明:只要满足这个条件,<span class="math inline">\(b\)</span>和<span class="math inline">\(a\)</span>就是双射关系.根据<span class="math inline">\(a\)</span>还原<span class="math inline">\(b\)</span>是简单的,那么如何根据<span class="math inline">\(b\)</span>还原<span class="math inline">\(a\)</span>呢?我们只需要从大向小考虑元素,就可以判断元素插入哪里.</p>
+<p>有了这个条件后,我们不妨设原序列是<span class="math inline">\(a
+&#39;\)</span>,其对应<span class="math inline">\(b
+&#39;\)</span>,那么显然<span class="math inline">\(b_i = \max \{ 0 , b_i
+&#39; - m \} \leq \max \{ 0 , n - i - m \}\)</span>.也就是说,如果<span class="math inline">\(b_i = 0\)</span>,那么<span class="math inline">\(b_i &#39; \in [ 0 , m ]\)</span>,反之<span class="math inline">\(b_i &#39; = b_i +
+m\)</span>.但问题在于:我们如何保证<span class="math inline">\(b_i &#39;
+\in [ 0 , n - i
+]\)</span>呢?不难发现,冒泡排序每次会把前面最大的数扔到后面,也就是说整个序列最后的<span class="math inline">\(m\)</span>个数一定有序,那我们分开考虑:对于最后的<span class="math inline">\(m\)</span>个数,它一开始在序列中的相对顺序是无所谓的:无论如何都会扔到最后.而对于其它的数,如果<span class="math inline">\(b_i = 0\)</span>,<span class="math inline">\(b_i
+&#39; \in [ 0 , m ]\)</span>,由于最后都已经凑出<span class="math inline">\(m\)</span>个数了,从大向小将数字插入,一定可以使这一部分满足条件.而如果<span class="math inline">\(b_i &gt; 0\)</span>,由于有判定条件<span class="math inline">\(b_i \leq \max \{ 0 , n - i - m
+\}\)</span>,显然满足.于是我们设一共有<span class="math inline">\(k\)</span>个<span class="math inline">\(b_i =
+0\)</span>的位置(也就是前缀最大值位置),于是自然有<span class="math inline">\(f ( a , m ) = ( m + 1 )^k m
+!\)</span>.注意这个式子的前提在于判定每个<span class="math inline">\(b_i
+\leq \max \{ 0 , n - i - m \}\)</span>以及<span class="math inline">\(a\)</span>的最后<span class="math inline">\(m\)</span>个位置是<span class="math inline">\(n -
+m + 1 , \cdots , n - 1 ,
+n\)</span>.到这里不难发现只要满足后者前者必定满足.现在只需要统计前缀最大值的个数就可以解决这个问题了.这个设计个<span class="math inline">\(dp_{ i , j }\)</span>表示前<span class="math inline">\(i\)</span>个数的最大值是<span class="math inline">\(j\)</span>就行.</p>
+<h3><span id="拆多项式">拆多项式</span></h3>
+<p>通常适用于数据范围中有一项的范围不大的情况,然后拆成多项式后可以带入另一项较大的值.</p>
+<h5><span id="example122zr提高组十连测day5可">Example1([22zr提高组十连测day5]可)</span></h5>
+<p>首先考虑数位dp,每次枚举当前的<span class="math inline">\(k\)</span>个数中还有<span class="math inline">\(x\)</span>个数被limit,这次又有<span class="math inline">\(y\)</span>个数不用被limit,再枚举一下当前各位之和,然后可以写一个转移,复杂度<span class="math inline">\(O ( k^4 \lg x )\)</span></p>
+<p>然后想了好久发现这个东西好像优化不动了.</p>
+<p>冷静一下,注意到问题在于枚举,我们不妨把枚举换成容斥试试.设<span class="math inline">\(g ( x )\)</span>为<span class="math inline">\(\sum
+a\)</span>为<span class="math inline">\(x\)</span>的方案数,那么可以通过容斥得知:</p>
+<p><span class="math display">\[
+g ( n ) = \sum_{ i = 0 }^k ( - 1 )^i \binom{ k }{ i } \binom{ n - i ( x
++ 1 ) + k - 1 }{ k - 1 }
+\]</span></p>
+<p>我们最后要求的答案也就是<span class="math inline">\(\sum f ( n ) g (
+n )\)</span>,继续推式子:</p>
+<p><span class="math display">\[
+ans = \sum_{ n = 0 }^{ kx } f ( n ) g ( n ) = \sum_{ n = 0 }^{ kx } f (
+n ) \sum_{ i = 0 }^k ( - 1 )^i \binom{ k }{ i } \binom{ n - i ( x + 1 )
++ k - 1 }{ k - 1 }
+\]</span></p>
+<p><span class="math display">\[
+= \sum_{ i = 0 }^k ( - 1 )^i \binom{ k }{ i } \sum_{ n = 0 }^{ kx } f (
+n ) \binom{ n - i ( x + 1 ) + k - 1 }{ k - 1 }
+\]</span></p>
+<p>看上去好像推不动了.</p>
+<p>冷静一下,会发现<span class="math inline">\(n\)</span>的取值远远大于<span class="math inline">\(i ,
+k\)</span>的取值.于是我们选择把组合数拆成一个<span class="math inline">\(k -
+1\)</span>次多项式,这样只需要处理出这个多项式的每一项的系数,然后就可以预处理后面的东西.</p>
+<p>拆二项式系数的时候要注意特判上指标小于下指标的情况.</p>
+<p><span class="math display">\[
+ans = \sum_{ i = 0 }^k ( - 1 )^i \binom{ k }{ i } \sum_{ j = 0 }^{ k - 1
+} c_{ i , j } \sum_{ n = i ( x + 1 ) }^{ kx } f ( n ) n^j
+\]</span></p>
+<p>其中<span class="math inline">\(c_{ i , j } = [ n^j ] \binom{ n - i (
+x + 1 ) + k - 1 }{ k - 1 }\)</span>.</p>
+<p>这样我们就成功地分离出了一项<span class="math inline">\(\sum_{ n = i
+( x + 1 ) }^{ kx } f ( n ) n^j\)</span>,接下来考虑怎么处理这一项.</p>
+<p>考虑枚举<span class="math inline">\(i\)</span>,然后设<span class="math inline">\(dp_{ j , limit } = \sum_{ n = 0 }^{ limit } f ( n
+) n^j\)</span>,考虑拿数位dp做这个东西,枚举当前位置<span class="math inline">\(cnt\)</span>的取值<span class="math inline">\(w\)</span>,根据二项式定理,<span class="math inline">\(dp_{ a + b , limit } \leftarrow \binom{ a + b }{ b
+} dp_{ b , limit } f ( w ) ( w 10^{ cnt } )^a\)</span>,那么<span class="math inline">\(\sum_{ n = i ( x + 1 ) }^{ kx } f ( n ) n^j = dp_{
+j , kx } - dp_{ j , i ( x + 1 ) - 1 }\)</span>.</p>
+<p>这样我们需要枚举<span class="math inline">\(i , a , b ,
+cnt\)</span>得到一组答案,然后还需要把这些答案合并起来,复杂度<span class="math inline">\(O ( k^3 \lg x )\)</span>.</p>
+<h3><span id="抽屉原理">抽屉原理</span></h3>
+<h5><span id="example1unr-6小火车">Example1([UNR #6]小火车)</span></h5>
+<p>首先考虑证明一定有解:</p>
+<p>注意到我们可以先选择出两个不完全相同的集合,如果这两个集合的和相等,那么我们把只在第一个集合的<span class="math inline">\(b\)</span>设为<span class="math inline">\(-
+1\)</span>,只在第二个集合的<span class="math inline">\(b\)</span>设为<span class="math inline">\(1\)</span>,都在或都不在的设为<span class="math inline">\(0\)</span>,那么这显然就是一组解.</p>
+<p>而由于<span class="math inline">\(p &lt;
+2^n\)</span>,根据抽屉原理,显然存在这么两个集合.</p>
+<p>考虑对于一个权值区间<span class="math inline">\([ l , r
+]\)</span>,如果有超过<span class="math inline">\(r - l +
+1\)</span>个集合的和在这个区间内,那一定有两个集合可以组成一个解.</p>
+<p>假设现在已知权值区间<span class="math inline">\([ l , r
+]\)</span>一定有解,我们判断<span class="math inline">\([ l , mid
+]\)</span>中是否有超过<span class="math inline">\(mid - l +
+1\)</span>个集合,使用折半搜索再合并可以快速求出权值和为某个定值的集合有多少个.然后可以使用双指针判断,继续递归下去判断即可.复杂度<span class="math inline">\(O ( 2^{ \frac{ n }{ 2 } } n )\)</span>.</p>
+<h5><span id="example2noi2021量子通信">Example2([NOI2021]量子通信)</span></h5>
+<p>考虑<span class="math inline">\(k \leq
+15\)</span>,所以如果我们把两个零一串每<span class="math inline">\(16\)</span>个分一块,那么两个零一串相差少于<span class="math inline">\(k\)</span>处,则一定有一块完全相等.由于数据随机,这个概率为<span class="math inline">\(\cfrac{ 1 }{ 2^{ 16 } }\)</span>.</p>
+<p>考虑把在一块中是某个数的零一串全都集合到一起,然后暴力判断,复杂度约为<span class="math inline">\(O ( \cfrac{ n^2 q }{ 2^{ 16 } w } )\)</span>.</p>
+<h3><span id="拆贡献">拆贡献</span></h3>
+<h5><span id="example12022qbxt国庆day7fenwick">Example1([2022qbxt国庆Day7]fenwick)</span></h5>
+<p>注意到要变换多次,考虑每个值的贡献.</p>
+<p>一个点要往后更新,不难通过平行求和法则一个值<span class="math inline">\(v\)</span>对它向后跳<span class="math inline">\(w\)</span>步的贡献为<span class="math inline">\(\binom{ w + k }{ w
+}\)</span>.但是有修改很难办,怎么办?注意到如果我们暴力跳,查询的时候复杂度是<span class="math inline">\(O ( 1
+)\)</span>的,我们没必要让它这么低.我们把所有值对<span class="math inline">\(p\)</span>这个点的更新存到一个数组里,显然只有<span class="math inline">\(\log
+n\)</span>种步数.最后每次查询的时候用组合数一起更新即可.</p>
+<h5><span id="example2qoj5097-小-p爱学习">Example2([QOJ5097] 小 P
+爱学习)</span></h5>
+<p>这个题的厉害之处在于完全将贡献拆开.</p>
+<p>我们不妨设最后将所有的数分成了<span class="math inline">\(k\)</span>组,那么显然我们只要算出两个东西就可以得到此时的答案的和:</p>
+<ol type="1">
+<li><p><span class="math inline">\(\sum_{ x_{ 1 , . . . , k } } \prod_{
+i = 1 }^k a_{ x_i } \\\)</span>.</p></li>
+<li><p><span class="math inline">\(\sum_{ 1 \leq x_1 , . . . , x_k \leq
+n , \sum x = n } \frac{ ( nm - k ) ! }{ \prod_{ i = 1 }^k ( x_i m - 1 )
+! } \\\)</span>.</p></li>
+</ol>
+<p>第一个显然就是个背包,问题在于第二个的分子部分,我们用生成函数,设<span class="math inline">\(F = \sum_{ i = 1 }^{ n } \frac{ 1 }{ ( im - 1 ) !
+} x^i\)</span>,我们要求的就是<span class="math inline">\([ x^n ] F^k ,
+\forall 1 \leq k \leq n\)</span>.</p>
+<p>这个东西可以做BSGS,也就是光速幂.这样就可以用<span class="math inline">\(O ( n^2 \sqrt{ n } )\)</span>预处理,用<span class="math inline">\(O ( n )\)</span>查询单个<span class="math inline">\(k\)</span>.</p>
+<h5><span id="example3luogu4211lnoi2014lca">Example3(Luogu4211
+[LNOI2014]LCA)</span></h5>
+<p>将<span class="math inline">\(dep\)</span>拆成到根节点的路径上的点的数量,差分一下<span class="math inline">\([ l , r ]\)</span>,这样就只需要求<span class="math inline">\(z\)</span>和一个前缀点的LCA的<span class="math inline">\(dep\)</span>.将这个操作离线下来,我们对于每一个点把它到根节点的路径上的点全部<span class="math inline">\(+ 1\)</span>,查询每个点到根节点上的权值和就行.</p>
+<p>CF757G是一样的,只不过好像需要卡卡空间?</p>
+<h3><span id="二进制拆位">二进制拆位</span></h3>
+<h5><span id="example1luogu5354ynoi2017由乃的oj">Example1(Luogu5354
+[Ynoi2017]由乃的OJ)</span></h5>
+<p>对每一位分开处理,对于线段树上每个区间,设<span class="math inline">\(f_{ 0 }\)</span>表示一开始<span class="math inline">\(v\)</span>的这一位是<span class="math inline">\(0\)</span>,最后的答案是<span class="math inline">\(1\)</span>还是<span class="math inline">\(0\)</span>,显然可以合并,拿bitset优化一下.</p>
+<h3><span id="bitset优化暴力">bitset优化暴力</span></h3>
+<h5><span id="example12022qbxt国庆day4d">Example1([2022qbxt国庆Day4]D)</span></h5>
+<p>先想一个很明显的优化:我们记录一下每个字符出现的位置,当我们判断当前字符串是否出现过的时候,我们直接从这个字符串开头的字符存在的位置进行判断.</p>
+<p>如果我们记录下每个字符在母串中的某个位置是否存在,我们就可以基本脱离母串进行判断.注意到只需要用bitset优化这个过程就可以做到<span class="math inline">\(O ( \sum tlen + \cfrac{ nq }{ w } )\)</span>.</p>
+<h5><span id="example2noi2020-制作菜品">Example2([NOI2020] 制作菜品)</span></h5>
+<p>这题首先要根据数据范围,注意到<span class="math inline">\(m \geq n -
+1\)</span>的时候存在贪心解法.</p>
+<p>具体怎么做呢?我们将原料按照质量排序,每次选最小的那个,不够的话就选最大的那个的一部分,重新排序后递归处理.</p>
+<p>为啥这个是对的呢?根据鸽笼原理,最大的那个的质量一定大于等于<span class="math inline">\(\frac{ mk }{ n
+}\)</span>,而最小的那个数和最大的那个数之和一定大于等于<span class="math inline">\(0 + \frac{ mk }{ n - 1 } \geq
+k\)</span>,因此一定有解.</p>
+<p>接下来我们就只需要做<span class="math inline">\(m = n -
+2\)</span>的情况.</p>
+<p>那么这个怎么做呢?我们发现每道菜和两个原材料有关,于是不妨抽象成图论模型:将这两个原材料所代表的点用一条边连起来:我们发现有<span class="math inline">\(n - 2\)</span>条边和<span class="math inline">\(n\)</span>个点,这个图必不联通.也就是说如果有解,必然可以分成两个集合,这两个集合互不相关.如果我们分成了两个集合,一个集合有<span class="math inline">\(a\)</span>个原材料,另一个集合有<span class="math inline">\(n - a\)</span>个原材料,我们就可以第一个集合做<span class="math inline">\(a - 1\)</span>道菜,第二个集合做<span class="math inline">\(n - a - 1\)</span>道菜,自然解决了问题.</p>
+<p>接下来的问题在于01背包,用bitset优化一下.</p>
+<h3><span id="简化能更新答案的集合">简化能更新答案的集合</span></h3>
+<p>简单来说就是当你注意到一个答案只有可能由某些地方贡献,我们就只判断这些地方的贡献.有的时候不仅需要减小集合,还需要使这个集合尽可能好维护,这个时候可能会向集合里放一些不合法但不可能更新答案的选项.</p>
+<h5><span id="example1cf1149d-abandoningroads">Example1(CF1149D Abandoning
+Roads)</span></h5>
+<p>首先一个把只有<span class="math inline">\(a\)</span>边的连通块缩起来,那<span class="math inline">\(1\)</span>到<span class="math inline">\(i\)</span>的最短路显然是通过几个<span class="math inline">\(b\)</span>连接若干个连通块来到<span class="math inline">\(i\)</span>.</p>
+<p>由于防止用<span class="math inline">\(b\)</span>边链接连通块的时候连出环,我们需要用一个<span class="math inline">\(dp_{ S , x }\)</span>表示从<span class="math inline">\(1\)</span>经过<span class="math inline">\(S\)</span>集合的连通块到<span class="math inline">\(x\)</span>的最短路.</p>
+<p>但是集合数量可能很多,怎么办?</p>
+<p>注意到,如果这个集合只有一个点,那显然不可能重复经过;如果这个集合只有两个点,那重复经过意味着想用一条长度为<span class="math inline">\(2 b\)</span>的边代替一条长度为<span class="math inline">\(a\)</span>的边,显然也不优秀;同理集合只有三个点也不优秀.</p>
+<p>于是只有点数<span class="math inline">\(\geq
+4\)</span>的集合是有用的,复杂度<span class="math inline">\(O ( 2^{
+\frac{ n }{ 4 } } m \log n )\)</span>.</p>
+<h5><span id="example2">Example2</span></h5>
+<p>给定<span class="math inline">\(n\)</span>个正整数,要求将<span class="math inline">\(n\)</span>个正整数分到<span class="math inline">\(k\)</span>个集合中,每个集合恰好<span class="math inline">\(\cfrac{ n }{ k }\)</span>个数(保证<span class="math inline">\(k |
+n\)</span>)且每个集合中不能有相同的数.设一个方案的代价是每个集合的极差之和,求最小代价,<span class="math inline">\(n \leq 70\)</span>.</p>
+<p>首先<span class="math inline">\(O ( 3^n )\)</span>很好设计不说了.</p>
+<p>注意到这题看上去就不太能多项式复杂度,我们考虑简化一下状态数.考虑做<span class="math inline">\(O ( 3^n )\)</span>的时候,我们是将<span class="math inline">\(\cfrac{ n }{ k
+}\)</span>个数打包成一个集合再塞进去,这样看上去就不太优秀,我们考虑能不能一个数一个数塞进去.</p>
+<p>我们现在有<span class="math inline">\(k\)</span>个集合,要塞进去一个数到一个集合中.注意到最后的代价实际上和很多数是没啥关系的.考虑先把数字从小到大排序,然后挨个插入集合.如果插入一个数之前,这个集合是空的,那这个数对答案有负的贡献;如果插入一个数之后,这个集合是满的,那这个数对答案有正的贡献;反之无贡献.</p>
+<p>于是我们可以枚举目前集合填成啥样了,这样状态数变成了<span class="math inline">\(( \cfrac{ n }{ k } + 1 )^k\)</span>.</p>
+<p>这样还是过不去,我们再冷静一下,显然我们只关心每个集合填了多少个数而不关心具体是哪个集合,于是我们把每个集合的大小排序后再压成状态,这样状态数就是<span class="math inline">\(\sum_{ i = 0 }^{ k }{ \binom{ i + \frac{ n }{ k }
+}{ \frac{ n }{ k } } }
+\\\)</span>,根据目前填到第几个数分一分类就会发现这部分上限是<span class="math inline">\(O ( n \binom{ 2 \sqrt{ n } }{ \sqrt{ n } }
+)\)</span>.</p>
+<p>不过我们还需要保证一个集合里不能有相同的元素.这里我们考虑将相同的元素一起放并规定放的顺序.因为放进去的集合在放这种元素前是有大小顺序的,我们每次放进最大的集合中.换句话说,我们设<span class="math inline">\(f_{ i , j , S }\)</span>表示目前放到<span class="math inline">\(i\)</span>,状态是<span class="math inline">\(S\)</span>,并且<span class="math inline">\(a_i\)</span>放进去的那个集合目前大小是<span class="math inline">\(j + 1\)</span>(放前是<span class="math inline">\(j\)</span>).</p>
+<p>算一下复杂度是<span class="math inline">\(O ( n^2 \binom{ 2 \sqrt{ n
+} }{ \sqrt{ n } }
+)\)</span>的,实际上远远跑不满,甚至写了个map来做双射也跑过去了.</p>
+<h5><span id="example3">Example3</span></h5>
+<p>给定一张有向图,多组询问,每次询问三个数<span class="math inline">\(p ,
+x , y\)</span>,求是否能从<span class="math inline">\(p\)</span>出发只经过<span class="math inline">\([
+x , y ]\)</span>中的边且经过的边的编号单调递减到达<span class="math inline">\(1\)</span>号节点.</p>
+<p>冷静一下,先加边,注意到如果加<span class="math inline">\(u \rightarrow
+v\)</span>这条边的时候,不存在一条从<span class="math inline">\(v\)</span>到<span class="math inline">\(1\)</span>的路径,那这条边显然没有用.</p>
+<p>做完这一步后,我们注意到可以在加边的过程中对于每个<span class="math inline">\(u\)</span>维护从<span class="math inline">\(u\)</span>到<span class="math inline">\(1\)</span>的所有合法路径经过的最小编号的边的最大值<span class="math inline">\(maxn_u\)</span>,这样就可以对于每个点维护若干个二元组<span class="math inline">\(( l , r )\)</span>,只要对于<span class="math inline">\(p\)</span>,存在一个二元组<span class="math inline">\([ l , r ] \in [ x , y ]\)</span>就合法.</p>
+<h5><span id="example4petrozavodskwinter-2014-moscow-su-tapir-contestopenstrain-contest-1435ccombinations-strike-back">Example4([Petrozavodsk
+Winter-2014. Moscow SU Tapir Contest(openstrain contest 1435)
+C]Combinations Strike Back)</span></h5>
+<p>给定一个大小为<span class="math inline">\(n\)</span>的可重集,多次询问,每次询问查询插入一个数<span class="math inline">\(x\)</span>后,这个集合大小为<span class="math inline">\(k\)</span>的可重子集共有多少个,每次询问互相独立.<span class="math inline">\(n , q \leq 1 . 2 \times 10^5\)</span>,答案对<span class="math inline">\(1051721729 = 1003 \times 2^{ 20 } +
+1\)</span>取膜.</p>
+<p>自然的想法是上生成函数.</p>
+<p>假设数字<span class="math inline">\(i\)</span>在原集合中共有<span class="math inline">\(b_i\)</span>个,那么原集合大小为<span class="math inline">\(k\)</span>的可重子集数量显然为<span class="math inline">\([ z^k ] \prod_{ i = 1 }^n \frac{ z^{ b_i + 1 } - 1
+}{ z - 1 }\)</span>.</p>
+<p>插入一个数字<span class="math inline">\(x\)</span>,自然就是乘上一个<span class="math inline">\(\frac{ z^{ b_x + 2 } - 1 }{ z^{ b_x + 1 } - 1
+}\)</span>.但如果每次都乘的话复杂度显然不行.怎么办?</p>
+<p>注意到答案与插入的数字本身无关,只和这个数字在原集合中出现了多少次有关.而原集合最多有<span class="math inline">\(\sqrt{ n
+}\)</span>(自然根号)个出现次数不同的数字,预处理一下就行.</p>
+<h5><span id="example5cf1621gweightedincreasing-subsequences">Example5([CF1621G]Weighted
+Increasing Subsequences)</span></h5>
+<p>一个自然的想法是拆出每个点<span class="math inline">\(x\)</span>的贡献,再枚举终点<span class="math inline">\(y\)</span>,这样问题就转化为了以<span class="math inline">\(y\)</span>结尾并且包含<span class="math inline">\(x\)</span>的LIS计数,这样做到<span class="math inline">\(O ( n^2 )\)</span>的复杂度.</p>
+<p>那么怎么继续优化呢?我们还是想拆出每个点的贡献,但是如何不枚举终点<span class="math inline">\(y\)</span>呢?我们考虑枚举一下和它做贡献的点<span class="math inline">\(z\)</span>满足<span class="math inline">\(a_z &gt;
+a_x\)</span>并且终点<span class="math inline">\(y\)</span>满足<span class="math inline">\(y &lt; z\)</span>,但是这样的<span class="math inline">\(z\)</span>有很多个,不难发现取最后一个就行.如果我们对整个序列取后缀<span class="math inline">\(\max\)</span>,就可以得到所有可能被当作<span class="math inline">\(z\)</span>的点,而且更强的性质是,只要这些点不在LIS中,LIS的终点<span class="math inline">\(y\)</span>必然有<span class="math inline">\(y &lt;
+z\)</span>,这是显然的.做一下补集转化,就变成了计数包含<span class="math inline">\(x\)</span>和<span class="math inline">\(z\)</span>的LIS数量.</p>
+<p>注意到<span class="math inline">\(z\)</span>的数量不多,且所有数字按照权值排序后被这些<span class="math inline">\(z\)</span>分成了若干个区间.所以颠倒值域和下标重新做LIS就行.</p>
+<h5><span id="example6cf919f-a-game-withnumbers">Example6(CF919F A Game With
+Numbers)</span></h5>
+<p>最小表示法表示每个人的手牌.</p>
+<p>不过要注意有可能成环.我们考虑用刷表法更新,最后刷不出来的点就是和.</p>
+<h5><span id="example7ioi2014holiday">Example7([IOI2014]holiday)</span></h5>
+<p>首先发现走的一定是一个区间,然后发现这个区间<span class="math inline">\([ l , r ]\)</span>的<span class="math inline">\(l\)</span>随<span class="math inline">\(r\)</span>的增大具有决策单调性,然后做完了,上主席树就行.</p>
+<h5><span id="example8cf1446d2">Example8(CF1446D2)</span></h5>
+<p>我们假设目前得到的答案区间是<span class="math inline">\([ l , r
+]\)</span>,也就是说<span class="math inline">\([ l , r
+]\)</span>无论如何不可能扩展成更大的区间了.那这需要满足什么条件呢?注意到全局众数一定是答案,如果它不是答案,我们就可以往两边拓展,直到满足区间众数是答案且区间合法.显然可以实现.然后做根号分治.</p>
+<p>这个是怎么想到的呢?我们考虑一个区间如何拓展成更大的区间:如果每个数出现次数不降,显然是一个更大的区间.这同样是在说:如果我们能找到一段区间,使得加上这段区间后,原本不是区间众数的数成为了区间众数,并且区间仍然合法,那就一定更为优秀.再注意到如果一个数在全局出现次数多于区间众数,这一定可以实现,进而推出全局众数的结论.</p>
+<p>你以为结束了?没有,我们下面给出一个<span class="math inline">\(O ( n
+\log n )\)</span>的做法:</p>
+<p>首先,我们假设全局众数是<span class="math inline">\(x\)</span>,枚举和它一起成为区间众数的数字<span class="math inline">\(y\)</span>,剩下的数先不管,那么区间大概长这个样:xyxyyxyxxxxxx.</p>
+<p>我们发现这一段x一定是没有意义的:xyxyyxyxx[xxxx].</p>
+<p>我们对于每一个<span class="math inline">\(y\)</span>出现的位置,找到其左右两边离他最近的没有被标记的<span class="math inline">\(x\)</span>标记一下,没有被标记的<span class="math inline">\(x\)</span>一定没有意义.这样对于一组解<span class="math inline">\(( x , y )\)</span>,合法的端点数量只有<span class="math inline">\(O ( y 出 现 的 次 数
+)\)</span>次.每次判断每个端点是否可以做右端点,拿<span class="math inline">\(set\)</span>维护一下后缀和就可以实现<span class="math inline">\(O ( n \log n )\)</span>.</p>
+<p>当然,这里得到的区间不一定是合法的(有可能<span class="math inline">\(x
+, y\)</span>出现的次数都不是最多的,但没关系,这种一定不优秀).</p>
+<p>【luoguP4062 [Code+#1]Yazid
+的新生舞会】也是这个标记的思路,标记的话用一下链表之类的大概能做.</p>
+<h4><span id="支配对问题">支配对问题</span></h4>
+<p>lxl起的名字.</p>
+<p>这里的思路其实大概就是:我们将一些很废物的二元组杀了,然后将剩下的二元组进行贡献答案.我们称这种一个二元组严格强于另一个二元组的限制称作支配关系.</p>
+<h5><span id="第一类支配对">第一类支配对</span></h5>
+<p>虽然总数很多,但是本质不同的很少.</p>
+<h6><span id="example1luogup7880ynoi2006-rldcot">Example1(luoguP7880
+[Ynoi2006] rldcot)</span></h6>
+<p>我们这么考虑:如果现在有三个点<span class="math inline">\(a , b , c ,
+a &lt; b &lt; c\)</span>,它们两两LCA都是<span class="math inline">\(d\)</span>,那么显然<span class="math inline">\(( a
+, c )\)</span>这一对是没有用的,有用的是<span class="math inline">\(( a ,
+b )\)</span>和<span class="math inline">\(( b , c
+)\)</span>.进一步你发现这等价于什么呢:我们从下往上合并子树,每次做启发式合并,假设当前要把子树<span class="math inline">\(A\)</span>合并到子树<span class="math inline">\(B\)</span>上,考虑所有的点对<span class="math inline">\(( a , b ) , a \in A , b \in
+B\)</span>的贡献,显然,能贡献到<span class="math inline">\(a\)</span>的<span class="math inline">\(b\)</span>只有<span class="math inline">\(a\)</span>的前驱和后继,这样我们就只找到了<span class="math inline">\(O ( n \log n )\)</span>个点对,它们等价于<span class="math inline">\(O ( n \log n )\)</span>个矩形,最后把<span class="math inline">\(dep\)</span>相等的合并一下,随便做做.</p>
+<h6><span id="example2luogup8528ynoi2003-铃原露露">Example2(luoguP8528
+[Ynoi2003] 铃原露露)</span></h6>
+<p>和Example1基本差不多.</p>
+<h5><span id="第二类支配对">第二类支配对</span></h5>
+<p>虽然总数很多,但是有用的很少.</p>
+<h6><span id="example1cf765f">Example1(CF765F)</span></h6>
+<p>典.</p>
+<h6><span id="example2codechef-minxorseg">Example2(CodeChef MINXORSEG)</span></h6>
+<p>这个题比较厉害,仍然考虑<span class="math inline">\(a &lt; b &lt;
+c\)</span>,我们看如果<span class="math inline">\(a \oplus c &gt; \max \{
+a \oplus b , b \oplus c \}\)</span>的充要条件是什么.</p>
+<p>简单分类讨论一下,不难发现这意味着<span class="math inline">\(LCP ( a
+, c ) &gt; LCP ( a , b )\)</span>.于是有用的贡献对只有<span class="math inline">\(O ( n \log v )\)</span>个.</p>
+<h6><span id="example3luogu9058-ynoi2004rpmtdq">Example3(Luogu9058 [Ynoi2004]
+rpmtdq)</span></h6>
+<p>这题更为逆天.</p>
+<p>首先,这题有两个维度:树和序列,我们要先处理掉其中一维.lxl:树这一维度更加困难,因此我们应该是选择困难的那一维分治掉.</p>
+<p>考虑边分治,然后就只需要处理两棵子树间的贡献.但是对于一棵子树内的点,我们要找到在另一棵子树中有可能和它产生贡献的点对,这个咋做呢?</p>
+<p>牛逼的一步来了,我们考虑对于每个点,算出它到分治中心的距离<span class="math inline">\(r\)</span>,然后找另一棵子树中到分治中心距离<span class="math inline">\(\leq r\)</span>的点<span class="math inline">\(x\)</span>与它贡献,但是这还是有很多点,其实只需要找这些点中的<span class="math inline">\(x\)</span>的前驱后继就可以了.因为如果<span class="math inline">\(x &lt; b &lt; c\)</span>,<span class="math inline">\(b\)</span>和<span class="math inline">\(c\)</span>在同一边,那么<span class="math inline">\(( b , c )\)</span>一定比<span class="math inline">\(( a , c )\)</span>更加优秀.</p>
+<h6><span id="example4cf1635f-closestpair">Example4(CF1635F Closest
+Pair)</span></h6>
+<p>首先,由于匹配无序,我们考虑对于一对数<span class="math inline">\(( i ,
+j )\)</span>,只在<span class="math inline">\(w\)</span>较大的那个位置来更新答案.</p>
+<p>不妨假设较大的为<span class="math inline">\(i\)</span>,我们考虑<span class="math inline">\(i\)</span>有可能和谁来更新答案.</p>
+<p>如果现在有两个数<span class="math inline">\(k &lt; j , w_k \leq w_i
+\land w_j \leq w_i\)</span>,如果<span class="math inline">\(w_k \geq
+w_j\)</span>,那肯定选<span class="math inline">\(( j , i
+)\)</span>更优秀;不然,如果选<span class="math inline">\(( k , i
+)\)</span>比选<span class="math inline">\(( j , i
+)\)</span>更优秀,那么我们会发现<span class="math inline">\(( k , j
+)\)</span>比<span class="math inline">\(( k , i
+)\)</span>更要优秀,因此答案一定会由<span class="math inline">\(( k , j
+)\)</span>更新而不是由<span class="math inline">\(( k , i
+)\)</span>更新.通过这里的分析我们发现,每个数只有可能和它左右两边的第一个<span class="math inline">\(w\)</span>小于等于它的数更新.</p>
+<p>于是我们可以找到<span class="math inline">\(O ( n
+)\)</span>个可能更新答案的点对,设点对为<span class="math inline">\(( x ,
+y )\)</span>,我们每次查找一个区间<span class="math inline">\([ l , r
+]\)</span>,即要找到所有在<span class="math inline">\([ l , r
+]\)</span>内的点对并将它们的答案取min.</p>
+<p>这一步可以将<span class="math inline">\(( x , y
+)\)</span>当作二维平面的点,查询当作一个左下角为<span class="math inline">\(( l , l )\)</span>,右上角为<span class="math inline">\(( r , r
+)\)</span>的矩阵,就是一个经典的矩阵取min的操作.</p>
+<h6><span id="example5icpc2017wfmoney-for-nothing">Example5([ICPC2017
+WF]Money for nothing)</span></h6>
+<p>注意到抽象问题后等价于有若干个A点<span class="math inline">\(( x_1 ,
+y_1 )\)</span>和若干个B点<span class="math inline">\(( x_2 , y_2
+)\)</span>,我们想要找到一个A点和一个B点使得<span class="math inline">\((
+x_1 - x_2 ) ( y_1 - y_2
+)\)</span>最大.也就是它们作为右上和左下顶点的矩形面积最大.</p>
+<p>怎么做这个问题呢?首先我们必须要发现的一点是:对于A点来说,如果有两个点<span class="math inline">\(( a_1 , b_1 )\)</span>和<span class="math inline">\(( a_2 , b_2 )\)</span>满足<span class="math inline">\(a_1 \leq a_2\)</span>,<span class="math inline">\(b_1 \leq
+b_2\)</span>,那么前者一定更优秀.把那些废点删掉后,就会得到一个横坐标递增,纵坐标递减的点的序列.对于B点是同理的.</p>
+<p>这个序列看上去就很亲切了,接下来简单证明一下是满足决策单调性的就可以判断答案了.</p>
+<h3><span id="奇偶染色">奇偶染色</span></h3>
+<h5><span id="example1">Example1</span></h5>
+<p>一个<span class="math inline">\(9 \times
+9\)</span>的网格,一开始上面有<span class="math inline">\(65\)</span>个蚂蚁,每个蚂蚁每分钟会四联通移动一格,每个蚂蚁每三分钟所在的格子不能在一条直线上,求证:一定会有一个时间,两只蚂蚁在同一个格子里.</p>
+<p>sol1:</p>
+<p>注意到如果条件不成立,则一定存在若干条路径,蚂蚁在路径上转圈,也就是找到长度和尽可能大的路径不交地覆盖矩阵,注意到一定是使用<span class="math inline">\(2 \times 2\)</span>的矩阵路径,于是最多有<span class="math inline">\(64\)</span>只蚂蚁.(感性理解)</p>
+<p>sol2:</p>
+<p>考虑对奇偶染色,设<span class="math inline">\(( i , j ) =
+\begin{cases}white &amp; 2 \nmid ( i + j ) \\ blue &amp; 2 \mid i \land
+2 \mid j \\ yellow &amp; \text{ otherwise }\end{cases}\)</span>.</p>
+<p>我们把黄格子和蓝格子称为彩格子,注意到如果一开始一只蚂蚁在白格子,一分钟后必定在彩格子.一开始一只蚂蚁在蓝格子,两分钟后必定在黄格子.</p>
+<p>因为最多有<span class="math inline">\(16\)</span>个蓝格子,所以一开始黄格子和蓝格子上分别最多有<span class="math inline">\(16\)</span>只蚂蚁,从而白格子上最多有<span class="math inline">\(32\)</span>只蚂蚁,总共最多<span class="math inline">\(64\)</span>只,得证.</p>
+<h5><span id="example2cf1521e">Example2(CF1521E)</span></h5>
+<p>首先考虑我们显然可以一行空一行放,也就是说如果最大的<span class="math inline">\(a_i &gt; n \times \lceil \frac{ n }{ 2 }
+\rceil\)</span>的话显然不可以,如果能放的位置少于<span class="math inline">\(\sum a\)</span>显然也不可以.</p>
+<p>类似lyz那个题,我们考虑删去行列编号均为偶数的点,这样就满足了一个子矩阵不能全放的限制.</p>
+<p>然后呢?我们考虑将所有能放的位置排序.先把所有的位置分成三类:<span class="math inline">\(( \mathrm{ even } , \mathrm{ odd } ) , ( \mathrm{
+odd } , \mathrm{ odd } ) , ( \mathrm{ odd } , \mathrm{ even }
+)\)</span>,不同类位置按照这个顺序排,不然按照相对位置排.然后直接从头开始放.如果不合法,一定是同种颜色放到了<span class="math inline">\(( \mathrm{ even } , \mathrm{ odd }
+)\)</span>和<span class="math inline">\(( \mathrm{ odd } , \mathrm{ even
+} )\)</span>,并且相同类别是按照相对位置排序的,于是一定不满足最大的<span class="math inline">\(a_i \leq n \times \lceil \frac{ n }{ 2 }
+\rceil\)</span>的限制条件.所以这么做一定是对的.</p>
+<p>好!冷静一下,咋想到的啊.</p>
+<p>首先这种题肯定要找到一些看上去就很显然的边界,当你发现找不到的时候,大概率就一定有解了(大概率).</p>
+<p>然后呢?注意到不合法一定是同种颜色放到了<span class="math inline">\((
+\mathrm{ even } , \mathrm{ odd } )\)</span>和<span class="math inline">\(( \mathrm{ odd } , \mathrm{ even }
+)\)</span>,又观察到每种位置的数量和一个边界限制条件很像,于是就可以构造出来了.</p>
+<p>所以大概是说,这种构造题要先想判断边界的条件,然后对着做.</p>
+<h5><span id="example3cf1615f">Example3(CF1615F)</span></h5>
+<p>太牛逼了这个题.</p>
+<p>首先,找边界条件:啥时候<span class="math inline">\(s\)</span>不能变成<span class="math inline">\(t\)</span>呢?一个自然的想法是数<span class="math inline">\(1\)</span>的个数的奇偶性,但这样显然不对(<span class="math inline">\(01\)</span>和<span class="math inline">\(10\)</span>不能互相转移),我们需要一个更强的条件.</p>
+<p>然后:注意到每次操作是相邻的两个数,于是我们有:奇数位置的和-偶数位置的和是定值.但是:注意到这个操作是有限制的!它只能对相邻相同的位置做.</p>
+<p>然后我也不知道咋想到的,可能是因为找到限制条件后只要不改变限制条件就可以随便转化?反正我们先把偶数位置全部取反,这样操作就变成了交换相邻数字(如果相邻数字不相同,取反后相同,交换无用).</p>
+<p>就可以dp了.</p>
+<h5><span id="example4cf1517g">Example4(CF1517G)</span></h5>
+<p>按照横纵坐标的奇偶性,分四种情况染色.注意到四边形接下来的路径一定会形如<span class="math inline">\(1 \rightarrow 2 \rightarrow 3 \rightarrow
+4\)</span>,建立分层图跑最小割.</p>
+<h3><span id="捆绑更新答案">捆绑更新答案</span></h3>
+<h5><span id="example12022qbxt国庆day6binary">Example1([2022qbxt国庆Day6]binary)</span></h5>
+<p>首先因为有<span class="math inline">\(-
+1\)</span>,我们先考虑一个朴素的暴力,从<span class="math inline">\(L\)</span>到<span class="math inline">\(R\)</span>枚举现在被匹配的数<span class="math inline">\(i\)</span>,我们假设之前匹配到<span class="math inline">\(p -
+1\)</span>,那我们接下来一定是要找到一个最小的<span class="math inline">\(x \geq p\)</span>能把<span class="math inline">\(i\)</span>给匹配掉,仔细思考这个过程,由于是二进制考虑最高位,不难发现我们只需要找到<span class="math inline">\(( p \land i ) \oplus i\)</span>的最高位<span class="math inline">\(1\)</span>,然后把<span class="math inline">\(p\)</span>的这一位改成<span class="math inline">\(1\)</span>,然后后面的位置全部设成<span class="math inline">\(0\)</span>,如果<span class="math inline">\(i
+\subseteq p\)</span>那么就不用改.</p>
+<p>冷静一下,二进制大概率是没啥通项公式的,还是要一点一点做.但是我们枚举每一个数实在是太慢了,我们考虑一个地方:<span class="math inline">\(i \subseteq p\)</span>就不用改,下一步<span class="math inline">\(i + = 1 , p + =
+1\)</span>,如果没有发生进位还是不用改,这个过程看上去就很可以优化.</p>
+<p>所以我们考虑:当遇到<span class="math inline">\(i \subseteq
+p\)</span>的时候,我们就捆绑更新.如果不满足就暴力更新.重复这个过程,每次不断暴力更新<span class="math inline">\(\rightarrow\)</span>捆绑更新<span class="math inline">\(\rightarrow\)</span>暴力更新<span class="math inline">\(\rightarrow . .
+.\)</span>.每次捆绑更新至少会更新一个<span class="math inline">\(lowbit\)</span>,而暴力更新的情况下,每次<span class="math inline">\(p\)</span>至少会多包含一位<span class="math inline">\(i\)</span>.就算后面进位把这一位消掉了,由于这里进位了,那下一步一定可以直接包含掉,于是复杂度也是<span class="math inline">\(\log
+n\)</span>的,反复做一下就做完了,这里能分析复杂度<span class="math inline">\(O ( T \log^2 R
+)\)</span>.我们冷静一下,发现二者复杂度算重了,捆绑更新会帮助暴力更新多匹配<span class="math inline">\(1\)</span>,于是复杂度<span class="math inline">\(O
+( T \log R )\)</span>.但是肯定跑不满,考场甚至写了个上界<span class="math inline">\(O ( T \log^2 R )\)</span>的仍然跑的飞快.</p>
+<h5><span id="example2">Example2</span></h5>
+<p>给定一棵树和一个值域为<span class="math inline">\(n\)</span>序列<span class="math inline">\(a\)</span>,每次询问给出<span class="math inline">\(l , r , x\)</span>.</p>
+<p>设<span class="math inline">\(f ( x , y )\)</span>为点<span class="math inline">\(x\)</span>朝着<span class="math inline">\(y\)</span>的方向走一步后得到的点,求<span class="math inline">\(x\)</span>在经过<span class="math inline">\(a [ l
+\cdots r ]\)</span>操作后得到的答案.</p>
+<p>这么考虑:这题看上去就需要把任何一个数字<span class="math inline">\(x\)</span>,通过若干个点变成了一个<span class="math inline">\(f ( x )\)</span>,我们要做的就是把<span class="math inline">\(f ( x
+)\)</span>求出来,这玩意很难求,考虑分块,单点用长剖做<span class="math inline">\(O ( 1 )\)</span>求<span class="math inline">\(k\)</span>级祖先,然后对于每个整块预处理出它的<span class="math inline">\(f\)</span>就可以了.</p>
+<p>接下来的问题在于如何快速处理一个块的答案,考虑把所有的<span class="math inline">\(x\)</span>扔到树上,然后一起维护它们的<span class="math inline">\(f ( x )\)</span>.这玩意看上去好像有点不太能做.</p>
+<p>牛逼的一步来了:考虑对于每个块内的<span class="math inline">\(\sqrt{ n
+}\)</span>个点,建立这些点的虚树,对于不在虚树上的点,它们一定会往虚树的方向跑(其实也就是向上跑),然后处理出时间扫描线转化成在虚树上的点的问题.对于在虚树上的点,考虑虚树一共有<span class="math inline">\(O ( \sqrt{ n }
+)\)</span>条边(也就是原树上的路径),我们用一个双端队列维护每条边上的点,显然每次每条边只会有<span class="math inline">\(O ( 1 )\)</span>的入队和出队,这样就实现了<span class="math inline">\(O ( n )\)</span>的预处理单个块.</p>
+<h3><span id="单独更新答案">单独更新答案</span></h3>
+<h5><span id="example1">Example1</span></h5>
+<p>一个数轴上有<span class="math inline">\(n\)</span>个小球,第<span class="math inline">\(i\)</span>个小球在<span class="math inline">\(x_i\)</span>坐标处.数轴上还有<span class="math inline">\(m\)</span>个洞.第<span class="math inline">\(i\)</span>个洞在<span class="math inline">\(y_i\)</span>坐标处.你每秒可以以相同矢量速度移动所有小球.当一个小球和一个洞重合时,小球就会进洞.求一共可能出现多少种最终情况.(我们认为,两种”最终情况”不同,当且仅当存在一个球在两种情况中进入了不同的魔法洞中)</p>
+<p>考场的想法:按照洞分类,把被同样两个洞夹起来的球一起处理,显然会有一段区间往左走一段区间往右走,按照这种区间的长度排序,然后硬dp,复杂度<span class="math inline">\(O ( n^3 )\)</span>.</p>
+<p>实际的做法:我们抛弃区间,单独考虑每个球.对于每个球而言,有用的信息只有它到左端点的距离和它到右端点的距离.我们把这两个距离缩为<span class="math inline">\(( x_i , y_i )\)</span>.接下来我们要给每个点<span class="math inline">\(0 / 1\)</span>染色,如果是<span class="math inline">\(0\)</span>代表它要到左边的洞里,如果是<span class="math inline">\(1\)</span>代表要到右边的洞里.那什么染色条件是无解的呢?</p>
+<p>如果存在两个点<span class="math inline">\(a\)</span>和<span class="math inline">\(b\)</span>,<span class="math inline">\(col_a =
+0\)</span>,<span class="math inline">\(col_b = 1\)</span>,那显然当<span class="math inline">\(x_a \geq x_b \land y_a \leq
+y_b\)</span>时无解.换句话说,如果<span class="math inline">\(col_b = 1
+\land x_a \geq x_b \land y_a \leq y_b\)</span>,那么<span class="math inline">\(col_a = 1\)</span>.我们不妨按照<span class="math inline">\(x\)</span>降序排序,<span class="math inline">\(x\)</span>相同的按照<span class="math inline">\(y\)</span>升序排列.那就会先决定<span class="math inline">\(b\)</span>再决定<span class="math inline">\(a\)</span>.注意到:如果<span class="math inline">\(a\)</span>能确定<span class="math inline">\(c\)</span>的状态,那<span class="math inline">\(b\)</span>一定也能确定<span class="math inline">\(c\)</span>的状态.因此我们采取这个策略:如果<span class="math inline">\(x_a \geq x_b \land y_a \leq y_b \land col_b =
+1\)</span>,那我们直接不管<span class="math inline">\(a\)</span>;反之,则考虑一下<span class="math inline">\(a\)</span>的两种取值即可.具体一点,我们设<span class="math inline">\(f_{ i , 0 / 1 }\)</span>表示以<span class="math inline">\(i\)</span>结尾,<span class="math inline">\(col_i =
+0 / 1\)</span>的方案数,然后顺着做就好.注意到:我们其实不关心<span class="math inline">\(col_x\)</span>具体是啥,我们只关心最后的方案数.所以其实可以直接删去第二维.</p>
+<p>zhq对这题的理解:</p>
+<p>这可以等价成求一个上升子序列.上升子序列说的是如果<span class="math inline">\(x_i &lt; x_j , y_i &gt; y_j\)</span>,<span class="math inline">\(i\)</span>“选了”,<span class="math inline">\(j\)</span>就必须”不选”.但是钦定必须选和必须不选,这两个限制是一样的.就是说,<span class="math inline">\(j\)</span>没有选择的权力了.</p>
+<p>这个说法很有意思,但是要注意:类似说法成立当且仅当我们认为<span class="math inline">\(j\)</span>选了和认为<span class="math inline">\(j\)</span>没选对后面不会产生影响.</p>
+<h5><span id="example2petrozavodsksummer-2015-moscow-ipt-contestopenstrain-contest-1464-jtwoairlines">Example2([Petrozavodsk
+Summer-2015. Moscow IPT Contest(openstrain contest 1464) J]Two
+Airlines)</span></h5>
+<p>这是一道交互题.给定一张<span class="math inline">\(n\)</span>个点的完全图,每两个点之间是红色的边或是蓝色的边.可以询问<span class="math inline">\(2
+n\)</span>次某两个点之间的边的颜色,求一条哈密顿回路使得这条路上的颜色段最多有两个.</p>
+<p>考虑将点逐个加入.假设现在的哈密顿回路的两种颜色分别是<span class="math inline">\(r_s \rightarrow r_t\)</span>和<span class="math inline">\(b_s \rightarrow b_t\)</span>,当前要加入<span class="math inline">\(x\)</span>,我们每次询问<span class="math inline">\(x\)</span>和<span class="math inline">\(r_t\)</span>和<span class="math inline">\(b_t\)</span>之间的颜色,如果可以加入链就加入.如果不能加入,必然意味着<span class="math inline">\(x\)</span>和<span class="math inline">\(r_t\)</span>之间是蓝边,和<span class="math inline">\(b_t\)</span>之间是红边,我们查一下<span class="math inline">\(r_t\)</span>和<span class="math inline">\(b_t\)</span>之间是什么边,然后将其中一个点与<span class="math inline">\(x\)</span>一起扔到对面就行.</p>
+<p>不过这样用了<span class="math inline">\(3
+n\)</span>次询问,考虑先询问<span class="math inline">\(r_t\)</span>和<span class="math inline">\(b_t\)</span>之间的颜色,这样就能省掉一种.</p>
+<h3><span id="寻找不变量">寻找不变量</span></h3>
+<h5><span id="example1noip2021-方差">Example1([NOIP2021] 方差)</span></h5>
+<p>首先我们注意到:设<span class="math inline">\(b_i = a_i - a_{ i - 1
+}\)</span>这个操作相当于交换<span class="math inline">\(b_{ i - 1
+}\)</span>和<span class="math inline">\(b_i\)</span>.</p>
+<p>接下来推一下式子:</p>
+<p><span class="math display">\[
+\begin{aligned}
+n^2 S^2 &amp; = n \sum_{ i = 1 }^n a_i^2 - ( \sum_{ i = 1 }^n a_i )^2 \\
+&amp; = n \sum_{ i = 1 }^n ( \sum_{ j = 1 }^i b_j )^2 - ( \sum_{ i = 1
+}^n ( n - i + 1 ) b_i )^2 \\
+&amp; = n \sum_{ i = 1 }^n \sum_{ j = 1 }^i b_j \sum_{ k = 1 }^i b_k -
+\sum_{ j = 1 }^n ( n - j + 1 ) b_j \sum_{ k = 1 }^n ( n - k + 1 ) b_k \\
+&amp; = n \sum_{ j = 1 }^n b_j \sum_{ k = 1 }^n b_k \times ( n - \max \{
+j , k \} + 1 ) - \sum_{ j = 1 }^n ( n - j + 1 ) b_j \sum_{ k = 1 }^n ( n
+- k + 1 ) b_k \\
+&amp; = n \sum_{ j = 1 }^n b_{ n - j + 1 } \sum_{ k = 1 }^n b_{ n - k +
+1 } \times \min \{ j , k \} - \sum_{ j = 1 }^n jb_{ n - j + 1 } \sum_{ k
+= 1 }^n kb_{ n - k + 1 }
+\end{aligned}
+\]</span></p>
+<p>令<span class="math inline">\(c\)</span>为<span class="math inline">\(b\)</span>的倒置数组,则原式</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; = n \sum_{ j = 1 }^n c_{ j } \sum_{ k = 1 }^n c_{ k } \times \min
+\{ j , k \} - \sum_{ j = 1 }^n jc_{ j } \sum_{ k = 1 }^n kc_{ k } \\
+&amp; = 2 \sum_{ j = 1 }^n nc_j \sum_{ k = 1 }^j c_k k - 2 \sum_{ j = 1
+}^n jc_{ j } \sum_{ k = 1 }^j kc_{ k } + \sum_{ i = 1 }^n c_i^2 i ( i -
+1 ) \\
+&amp; = 2 \sum_{ j = 1 }^n ( n - j ) c_j \sum_{ k = 1 }^j c_k k + \sum_{
+i = 1 }^n c_i^2 i ( i - 1 ) \\
+&amp; = \sum_{ j = 1 }^n ( n - j ) c_j \sum_{ k = 1 }^n c_k k + \sum_{ i
+= 1 }^n ( n - 1 ) ic_i^2
+\end{aligned}
+\]</span></p>
+<p><del>推到这一步发现好像没啥用但是推了好久懒得删了</del></p>
+<p>冷静一下,由于一开始的数列是单调递增的,所以改变后的数列一定也是单调递增的(差分数组均<span class="math inline">\(\geq
+0\)</span>).感性上理解,我们肯定是想让尽可能多的数接近绝对值,于是让重新排列后的差分数组呈现单最小值的峰看上去就很优秀.</p>
+<p>这样我们设计<span class="math inline">\(dp_{ i , S
+}\)</span>表示现在填到第<span class="math inline">\(i\)</span>小的<span class="math inline">\(b\)</span>,<span class="math inline">\(\sum a =
+S\)</span>的情况下最小的<span class="math inline">\(\sum
+a^2\)</span>,复杂度<span class="math inline">\(O ( n^2 a )\)</span>.</p>
+<p>注意到<span class="math inline">\(a\)</span>很小的时候大部分<span class="math inline">\(b\)</span>都是<span class="math inline">\(0\)</span>,于是可以优化为<span class="math inline">\(O ( na^2 )\)</span>.</p>
+<h5><span id="example2agc030e-less-than3">Example2([AGC030E] Less than
+3)</span></h5>
+<p>注意到:当我们把一个位置取反的时候,这个位置相邻的左右两个位置一定有一个<span class="math inline">\(0\)</span>和一个<span class="math inline">\(1\)</span>,所以我们的操作等价于移动<span class="math inline">\(0\)</span>和<span class="math inline">\(1\)</span>的分界线.</p>
+<p>然后枚举一下从边界多产生了多少个分界线就行.</p>
+<h3><span id="组合意义">组合意义</span></h3>
+<h5><span id="example1arc110d">Example1(ARC110D)</span></h5>
+<p>注意到这相当于先把一个长度等于<span class="math inline">\(m\)</span>的序列划分成<span class="math inline">\(n + 1\)</span>段,再从第<span class="math inline">\(i\)</span>段选出<span class="math inline">\(a_i\)</span>,其中<span class="math inline">\(a_{ n
++ 1 } = 0\)</span>.</p>
+<p>于是自然是<span class="math inline">\(\binom{ n + m }{ \sum a + n
+}\)</span>.</p>
+<h5><span id="example2abc231g">Example2(ABC231G)</span></h5>
+<p>乍一看,感觉完全不可做.因为一开始给定<span class="math inline">\(a\)</span>了,感觉上好像也不太能组合意义.</p>
+<p>如果没有<span class="math inline">\(a_i\)</span>怎么做?我们设<span class="math inline">\(f_n\)</span>表示将<span class="math inline">\(k\)</span>个小球分到<span class="math inline">\(n\)</span>个盒子后的答案.那乘法相当于:分完后,在每个盒子中取出一个小球的方案数.于是<span class="math inline">\(f_n = \binom{ k }{ n } n ! n^{ k - n
+}\)</span>.</p>
+<p>那给定<span class="math inline">\(a\)</span>咋做呢?我们注意到上面的式子好像可以对于任意<span class="math inline">\(n\)</span>快速求.于是将原式子拆为:<span class="math inline">\(\prod ( a_i + b_i )\)</span>,那答案就是选出<span class="math inline">\(n - x\)</span>个<span class="math inline">\(a\)</span>和选出<span class="math inline">\(x\)</span>个<span class="math inline">\(b\)</span>的答案.前者可以背包,后者也就是<span class="math inline">\(f_x = \binom{ k }{ x } x ! n^{ k - x
+}\)</span>.</p>
+<h5><span id="example3agc060d">Example3(AGC060D)</span></h5>
+<p>不妨设<span class="math inline">\(C_p = \{ i | p_i &gt; p_{ i + 1 } ,
+1 \leq i &lt; n \}\)</span>.</p>
+<p>用一下组合意义,注意到答案等于:</p>
+<p><span class="math display">\[
+\sum_{ S } ( \sum_{ p } [ S = C_p ] )^2
+\]</span></p>
+<p>中间那个地方看上去是经典的计数容斥,我们对着它做容斥:</p>
+<p><span class="math display">\[
+\sum_{ S } ( \sum_{ p } [ S = C_p ] )^2 = \sum_{ S } ( \sum_{ S
+\subseteq T } \sum_{ p } ( - 1 )^{ | T | - | S | } [ T \subseteq C_p ]
+)^2
+\]</span></p>
+<p>这个咋做呢?我们考虑用组合意义展开:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \sum_{ S } ( \sum_{ S \subseteq T } \sum_{ p } ( - 1 )^{ | T | - |
+S | } [ T \subseteq C_p ] )^2 \\
+= &amp; \sum_{ S } \sum_{ S \subseteq T_1 , T_2 } ( - 1 )^{ | T_1 | + |
+T_2 | } ( \sum_{ p } [ T_1 \subseteq C_p ] ) ( \sum_p [ T_2 \subseteq
+C_p ] )
+\end{aligned}
+\]</span></p>
+<p>注意到<span class="math inline">\(S\)</span>屁用没有,直接交换枚举顺序.</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \sum_{ S } \sum_{ S \subseteq T_1 , T_2 } ( - 1 )^{ | T_1 | + |
+T_2 | } ( \sum_{ p } [ T_1 \subseteq C_p ] ) ( \sum_p [ T_2 \subseteq
+C_p ] ) \\
+= &amp; \sum_{ T_1 , T_2 } 2^{ | T_1 \cap T_2 | } ( - 1 )^{ | T_1 | + |
+T_2 | } ( \sum_{ p } [ T_1 \subseteq C_p ] ) ( \sum_p [ T_2 \subseteq
+C_p ] )
+\end{aligned}
+\]</span></p>
+<p>考虑<span class="math inline">\(( \sum_{ p } [ T_1 \subseteq C_p ]
+)\)</span>怎么求,注意到这等价于所有<span class="math inline">\(T_1\)</span>中的位置全都被钦定为<span class="math inline">\(&gt;\)</span>,而其他位置任意,如果我们设所有以大于号连接的部分的长度为<span class="math inline">\(l_1 , l_2 , . . . ,
+l_k\)</span>,那么这里的答案就是<span class="math inline">\(n ! \prod_{ i
+= 1 }^k \frac{ 1 }{ l_i ! }\)</span>.</p>
+<p>但我们很快发现了难点:<span class="math inline">\(2^{ | T_1 \cap T_2 |
+}\)</span>这个东西是难求的,怎么办呢?</p>
+<p>我们考虑一下这个东西的意义:其实也就是在<span class="math inline">\(T_1\)</span>和<span class="math inline">\(T_2\)</span>中都是<span class="math inline">\(&gt;\)</span>的位置,这个好像不太好求,因为<span class="math inline">\(&gt;\)</span>是很平常的,但如果取补集就不一样了,取补集后意味着都是任意的位置的数量,而我们上面已经发现了:如果有一个位置对前后两个数字的约束是独立的,那我们可以把前后两个位置拆开.于是我们有:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \sum_{ T_1 , T_2 } 2^{ | T_1 \cap T_2 | } ( - 1 )^{ | T_1 | + |
+T_2 | } ( \sum_{ p } [ T_1 \subseteq C_p ] ) ( \sum_p [ T_2 \subseteq
+C_p ] ) \\
+= &amp; \sum_{ T_1 , T_2 } 2^{ ( ( n - 1 ) - | T_1 \cup T_2 | ) - ( n -
+1 ) } ( - 2 )^{ | T_1 | + | T_2 | } ( \sum_{ p } [ T_1 \subseteq C_p ] )
+( \sum_p [ T_2 \subseteq C_p ] ) \\
+= &amp; 2^{ 1 - n } ( n ! )^2 \sum_{ T_1 } ( ( - 2 )^{ | T_1 | } \frac{
+1 }{ \prod l_{ 1 , i } ! } ) \sum_{ T_2 } ( ( - 2 )^{ | T_2 | } \frac{ 1
+}{ \prod l_{ 2 , i } ! } ) 2^{ n - 1 - | T_1 \cup T_2 | }
+\end{aligned}
+\]</span></p>
+<p>其中<span class="math inline">\(n - 1 - | T_1 \cup T_2
+|\)</span>意味着均不在<span class="math inline">\(T_1\)</span>和<span class="math inline">\(T_2\)</span>中的位置的数量.为了给每一段连续的<span class="math inline">\(&gt;\)</span>都分配权值,我们进行一个细小的修改:</p>
+<p><span class="math display">\[
+2^{ - 1 - n } ( n ! )^2 \sum_{ T_1 } ( ( - 2 )^{ | T_1 | + 1 } \frac{ 1
+}{ \prod l_{ 1 , i } ! } ) \sum_{ T_2 } ( ( - 2 )^{ | T_2 | + 1 } \frac{
+1 }{ \prod l_{ 2 , i } ! } ) 2^{ n - 1 - | T_1 \cup T_2 | }
+\]</span></p>
+<p>写到这里应该就能发现,接下来必然要对<span class="math inline">\(n - 1
+- | T_1 \cup T_2
+|\)</span>做整体操作.那我们再这么搞可能就很难受,我们采取这样的方式:对<span class="math inline">\(T_1\)</span>和<span class="math inline">\(T_2\)</span>求补集,这样它们的含义就变成了除了集合中的元素,剩下的全部被钦定为了<span class="math inline">\(&gt;\)</span>,我们自然有:</p>
+$$
+<span class="math display">\[\begin{gathered}
+2^{ 1 + n } ( n ! )^2 \sum_{ T_1 } ( \frac{ 1 }{ ( - 2 )^{ | T_1 | + 1 }
+} \frac{ 1 }{ \prod l_{ 1 , i } ! } ) \sum_{ T_2 } ( \frac{ 1 }{ ( - 2
+)^{ | T_2 | + 1 } } \frac{ 1 }{ \prod l_{ 2 , i } ! } ) 2^{ | T_1 \cap
+T_2 | } \\
+
+\end{gathered}\]</span>
+<p>$$</p>
+<p>这里已经很显然了,我们大概要做一个不断加段的做法,那此时<span class="math inline">\(| T_1 \cap T_2
+|\)</span>这个限制就显得尤其强,如果只是<span class="math inline">\(S
+\subseteq T_1 , T_2\)</span>就会好做很多:我们可以钦定<span class="math inline">\(S\)</span>作为分界线,然后把两边的东西卷起来.因此我们暴力拆开后面的式子:</p>
+$$
+<span class="math display">\[\begin{aligned}
+&amp; 2^{ 1 + n } ( n ! )^2 \sum_{ T_1 } ( \frac{ 1 }{ ( - 2 )^{ | T_1 |
++ 1 } } \frac{ 1 }{ \prod l_{ 1 , i } ! } ) \sum_{ T_2 } ( \frac{ 1 }{ (
+- 2 )^{ | T_2 | + 1 } } \frac{ 1 }{ \prod l_{ 2 , i } ! } ) 2^{ | T_1
+\cap T_2 | } \\
+= &amp; 2^{ 1 + n } ( n ! )^2 \sum_{ S } \sum_{ S \subseteq T_1 } (
+\frac{ 1 }{ ( - 2 )^{ | T_1 | + 1 } } \frac{ 1 }{ \prod l_{ 1 , i } ! }
+) \sum_{ S \subseteq T_2 } ( \frac{ 1 }{ ( - 2 )^{ | T_2 | + 1 } }
+\frac{ 1 }{ \prod l_{ 2 , i } ! } ) \\
+
+\end{aligned}\]</span>
+<p>$$</p>
+<p>令<span class="math inline">\(f ( T ) = \sum_{ S \subseteq T } (
+\frac{ 1 }{ ( - 2 )^{ | T | + 1 } } \frac{ 1 }{ \prod l_{ 2 , i } ! } )
+\\\)</span>,则原式即:</p>
+<p><span class="math display">\[
+2^{ 1 + n } ( n ! )^2 \sum_{ S } ( \sum_{ S \subseteq T } f ( T ) )^2
+\]</span></p>
+<p>考虑下面这个东西怎么求:</p>
+<p><span class="math display">\[
+\sum_{ S } ( \sum_{ S \subseteq T } f ( T ) )^2
+\]</span></p>
+<p>注意到,如果我们把每一段(<span class="math inline">\([ T_i , T_{ i + 1
+} )\)</span>)的贡献求和,那么<span class="math inline">\(f ( T
+)\)</span>相当于这些和乘起来,那么<span class="math inline">\(( \sum_{ S
+\subseteq T } f ( T )
+)^2\)</span>就是这些和的平方乘起来.换句话说,我们自然有<span class="math inline">\(ans_n = \sum_{ m } ans_{ n - m } g^2_{ m
+}\)</span>,其中<span class="math inline">\(g_m\)</span>表示长度为<span class="math inline">\(m\)</span>的一段的贡献之和.而<span class="math inline">\(g_{ n } = \sum_m g_{ n - m } \frac{ 1 }{ - 2 m !
+}\)</span>.二者都可以使用分治FFT或多项式求逆解决.更进一步地,<span class="math inline">\(h_i = \frac{ 1 }{ - 2 i ! } , G = \frac{ 1 }{ 1 -
+H } , F = \frac{ 1 }{ 1 - G }\)</span>.</p>
+<p>这题还有一个做法:tyy的变魔术做法.</p>
+<p>还是容斥,考虑将<span class="math inline">\(( &gt; , &gt;
+)\)</span>容斥掉,这样我们有若干种对:<span class="math inline">\(2 ( &lt;
+, &lt; ) , 1 ( e , e ) , - ( e , &lt; ) , - ( &lt; , e
+)\)</span>,然后我们发现两个序列联系得太紧了,我们考虑分配系数:<span class="math inline">\(&lt; \rightarrow \sqrt{ 2 }\)</span>,<span class="math inline">\(e \rightarrow - \frac{ 1 }{ \sqrt{ 2 }
+}\)</span>,但是这样发现<span class="math inline">\(( e , e
+)\)</span>算错了,你把剩下的补上就行.你会发现这个式子和上面我们推的是等价的,但是变魔术.</p>
+<h3><span id="复杂度抵消">复杂度抵消</span></h3>
+<h5><span id="example1cf1439b">Example1(CF1439B)</span></h5>
+<p>首先注意到度数小于<span class="math inline">\(k -
+1\)</span>的点一定没用,于是可以不断删点.删点后的图度数全部<span class="math inline">\(\geq k - 1\)</span>.</p>
+<p>首先如果剩下的点度数全都<span class="math inline">\(\geq
+k\)</span>那就直接找到答案,不然,我们看一下度数为<span class="math inline">\(k -
+1\)</span>的点:它要么在团里,要么没用.不妨直接暴力判断是否在团里,复杂度<span class="math inline">\(O ( k^2 )\)</span>.</p>
+<p>欸等一下,这总复杂度<span class="math inline">\(O ( mk^2
+)\)</span>了啊,这咋办?</p>
+<p>首先,删完点后的度数全都<span class="math inline">\(\geq k -
+1\)</span>,注意到此时的点数是<span class="math inline">\(O ( \frac{ m }{
+k } )\)</span>的.所以复杂度<span class="math inline">\(O ( mk
+)\)</span>.</p>
+<p>好像还是过不去,这咋办?</p>
+<p>冷静一下,如果<span class="math inline">\(k \geq \sqrt{ m
+}\)</span>,显然不可能存在团.于是复杂度<span class="math inline">\(O ( m
+\sqrt{ m } )\)</span>.</p>
+<h3><span id="寻找关系式">寻找关系式</span></h3>
+<h5><span id="example1">Example1</span></h5>
+<p>一张有向图,边有两种颜色,从<span class="math inline">\(s\)</span>开始随机游走,维护一个权值.经过第一种颜色的边,权值<span class="math inline">\(+ 1\)</span>.经过第二种颜色的边,权值归<span class="math inline">\(0\)</span>.保证<span class="math inline">\(t\)</span>没有出边,所有点均能到<span class="math inline">\(t\)</span>.询问到<span class="math inline">\(t\)</span>时权值的期望和方差.<span class="math inline">\(n \leq 100\)</span>.</p>
+<p>(注意方差为平方的期望减去期望的平方.)</p>
+<p>注意到难点在于权值归<span class="math inline">\(0\)</span>.所以一个点到<span class="math inline">\(t\)</span>的期望权值一定和到达它时的权值有关系.</p>
+<p>然后就来到了降维打击的时间:我们可以使用数学归纳法证明,如果到一个点<span class="math inline">\(u\)</span>的权值是<span class="math inline">\(x\)</span>,那它到达<span class="math inline">\(t\)</span>的权值一定形如<span class="math inline">\(a_u x + b_u\)</span>.</p>
+<p>如果要严谨一点的话,我们发现第一种颜色的边会影响常数项,第二种颜色的边会影响一次项,因此最后的答案一定是一次函数.</p>
+<p>最后可以使用高斯消元直接求出每个点权值的<span class="math inline">\(a_u\)</span>和<span class="math inline">\(b_u\)</span>,就可以求出期望.</p>
+<p>至于方差是同理的,你注意到平方的期望一定是一个二次函数.</p>
+<h3><span id="特判边界">特判边界</span></h3>
+<h5><span id="example12022icpc杭州e">Example1(2022ICPC杭州E)</span></h5>
+<p>第一反应肯定是一点一点调整成<span class="math inline">\(\{ 1 , 2 , .
+. . , n \}\)</span>的形式,写个暴力验证一下发现当<span class="math inline">\(n \geq 4\)</span>的时候的确都可以调整成功.</p>
+<p>假设目前形如:<span class="math inline">\([ 1 , k ] , A , k + 1 ,
+B\)</span>.我们考虑如何调整:</p>
+<ol type="1">
+<li><span class="math inline">\(| B | \ne 0\)</span>.</li>
+</ol>
+<p>我们有:</p>
+<p><span class="math display">\[
+\{ [ 1 , k ] , A , k + 1 , B \} \rightarrow \{ B , A , k + 1 , [ 1 , k ]
+\} \rightarrow \{ [ 1 , k + 1 ] , B , A \}
+\]</span></p>
+<ol start="2" type="1">
+<li><span class="math inline">\(| B | = 0 , | A | = 0\)</span>.</li>
+</ol>
+<p>直接合并就行.</p>
+<ol start="3" type="1">
+<li><span class="math inline">\(| B | = 0 , | A | \geq 2\)</span>.</li>
+</ol>
+<p>假设<span class="math inline">\(A = A_1 A_2\)</span>,我们有:</p>
+<p><span class="math display">\[
+\{ [ 1 , k ] , A_1 , A_2 , k + 1 \} \rightarrow \{ A_2 , k + 1 , A_1 , [
+1 , k ] \} \rightarrow \{ [ 1 , k + 1 ] , A_1 , A_2 \}
+\]</span></p>
+<ol start="4" type="1">
+<li><span class="math inline">\(| B | = 0 , | A | = 1\)</span>.</li>
+</ol>
+<p>此时一定有<span class="math inline">\(k \geq
+2\)</span>,发现有点难构造,但是我们猜测是可以构造出来的.不难证明这个问题等价于将<span class="math inline">\(\{ 1 , 2 , 4 , 3 \}\)</span>调整为<span class="math inline">\(\{ 1 , 2 , 3 , 4
+\}\)</span>,写个暴力跑一下就行.</p>
+<h3><span id="摩尔投票">摩尔投票</span></h3>
+<h5><span id="example1cf643gchoosing-ads">Example1([CF643G]Choosing Ads)</span></h5>
+<p>将摩尔投票扩展一下.我们现在想求其中出现次数大于等于<span class="math inline">\(\lfloor \frac{ n }{ p }
+\rfloor\)</span>的数字,令<span class="math inline">\(k = \lfloor \frac{
+100 }{ p } \rfloor\)</span>,我们考虑每次取出<span class="math inline">\(k +
+1\)</span>个两两不同的数字并且全部杀掉,那么做完这一步操作后,该满足条件的仍然满足条件(讨论一下),于是拿线段树维护当前的五个数的出现数量,每次对着杀就行.</p>
+<h3><span id="寻找周期性">寻找周期性</span></h3>
+<h5><span id="example1cf1463fmax-correctset">Example1([CF1463F]Max Correct
+Set)</span></h5>
+<p>自然的想法是<span class="math inline">\(O ( n 2^{ \max ( x , y ) }
+)\)</span>作dp.</p>
+<p>接下来比较牛逼的是,注意到如果<span class="math inline">\(S_1\)</span>满足条件,令<span class="math inline">\(m = x + y\)</span>那么<span class="math inline">\(S_1 \cup ( S_1 + m )\)</span>也满足条件.</p>
+<p>我们考虑<span class="math inline">\(S_1\)</span>中满足条件意味着什么,意味着<span class="math inline">\(\forall a , b \in S_1 , a &lt; b\)</span>,<span class="math inline">\(b - a \ne x \land b - a \ne
+y\)</span>,这意味着<span class="math inline">\(m + b - a \ne x \land m +
+b - a \ne y\)</span>,这同样意味着<span class="math inline">\(m + a - b =
+x + y + a - b \ne x + y - x \land m + a - b \ne x + y - y\)</span>.</p>
+<p>因此,只要我们找到了一个长度为<span class="math inline">\(m\)</span>的可行解,我们一定可以将其不断扩展到全部集合.</p>
+<p>进一步地,我们一定能证明:原集合中的最优解是以一个长度为<span class="math inline">\(m\)</span>的可行解作为周期的.</p>
+<p>这个是为啥呢?我们设<span class="math inline">\(n = km +
+c\)</span>,那么我们直接求出一个长度为<span class="math inline">\(m\)</span>的解,满足前<span class="math inline">\(c\)</span>位对答案的贡献的权值是<span class="math inline">\(k + 1\)</span>,后<span class="math inline">\(m -
+c\)</span>位贡献的权值为<span class="math inline">\(k\)</span>,然后直接求答案.注意到如果最大答案另有其人,我们一定可以拿其中的某一段不断循环得到更大的答案,这就不符合我们的假设了.</p>
+<h3><span id="补集转化">补集转化</span></h3>
+<h5><span id="example1">Example1</span></h5>
+<p>给定一个<span class="math inline">\(n\)</span>个点<span class="math inline">\(m\)</span>条边的无向图,求给每一条边定向使得<span class="math inline">\(1\)</span>和<span class="math inline">\(2\)</span>能到达同一个点(可以是<span class="math inline">\(1\)</span>或<span class="math inline">\(2\)</span>)的方案数.<span class="math inline">\(n
+\leq 15 , m \leq \frac{ n ( n - 1 ) }{ 2 }\)</span>.</p>
+<p>考虑正难则反,算不存在的概率(事实上也确实很好理解,因为存在性问题通常都要取补集),这时候我们发现:此时<span class="math inline">\(1\)</span>能到达一个集合<span class="math inline">\(S\)</span>,<span class="math inline">\(2\)</span>能到达一个集合<span class="math inline">\(T\)</span>,<span class="math inline">\(S\)</span>和<span class="math inline">\(T\)</span>无交,并且两个集合之间不可能存在边,因此我们只需要算<span class="math inline">\(f ( S )\)</span>表示<span class="math inline">\(1\)</span>能到达<span class="math inline">\(S\)</span>中的点的方案数即可,<span class="math inline">\(2\)</span>同理.</p>
+<p>那么这个怎么算呢?我们仍然考虑正难则反,如果<span class="math inline">\(1\)</span>不能到达<span class="math inline">\(S\)</span>中的所有点,那么<span class="math inline">\(1\)</span>一定只能到达<span class="math inline">\(S\)</span>中的一部分点,枚举这一部分,假设是<span class="math inline">\(T\)</span>,就可以用<span class="math inline">\(f (
+T )\)</span>算<span class="math inline">\(f ( S )\)</span>的答案.</p>
+<h3><span id="二进制分组">二进制分组</span></h3>
+<h5><span id="example1loj3273">Example1(loj3273)</span></h5>
+<p>先考虑没有插入怎么做,注意到所有的线会扫出一个空白区域:这个空白区域由一条折线围成,而所有的点都在折线外或在折线上,更进一步地,在折线外的点没有动,就是初始位置.</p>
+<p>这启发我们分开维护,每次扫线的时候更新折线,把该扔进来的扔进来,由于折线上的点<span class="math inline">\(( x , y )\)</span>,随着<span class="math inline">\(x\)</span>的增大<span class="math inline">\(y\)</span>不增,因此是简单维护的,用一下平衡树就行.</p>
+<p>问题在于如何维护插入点.我们使用二进制分组,将所有点分为大小为<span class="math inline">\(0 , 1 , 2 , 4 , \cdots ,
+2^k\)</span>大小的组,当然有些组可能没被分出来.然后如果有两个大小都是<span class="math inline">\(2^k\)</span>的组,我们暴力合并二者,得到一个还没被折线扫过的新的大小为<span class="math inline">\(2^{ k + 1 }\)</span>的组.</p>
+<h5><span id="example2luogu7447ynoi2007-rgxsxrs">Example2(Luogu7447
+[Ynoi2007] rgxsxrs)</span></h5>
+<p>一眼看上去和CF702F很像,但是区间操作感觉很艰难,怎么做呢?</p>
+<p>我们对值域分块:分成<span class="math inline">\([ 0 , 1 ) , [ 1 , 2 )
+, [ 2 , 4 ) , [ 4 , 8 ) , \cdots\)</span>,这样只会分成<span class="math inline">\(\log
+V\)</span>段,每段内部维护平衡树来处理下标.那么对于一个<span class="math inline">\(x\)</span>,它会把后面的段全部打上一个<span class="math inline">\(tag\)</span>,有些位置要掉落到下面的段上,这个维护每个段的最小值就可以处理(最多只会掉落<span class="math inline">\(\log n\)</span>段),问题是和<span class="math inline">\(x\)</span>在同一块内的没有办法打tag,但这一部分一定会掉落到下面的段,一块处理.</p>
+<p>好,下面开始思想总结:</p>
+<p>首先,我们发现这个区间和值域都很难处理,但是感觉值域更加重要,应该是对值域做均摊(也就是类似CF702F的打tag操作和暴力修改操作分开),于是考虑到对值域分块然后内部平衡树,然后发现可以做了吧.不太清楚,也有可能只是值域分块的套路.</p>
+<p>Luogu9069是同款思路,判一下负数.</p>
+<h5><span id="example3cf1515i-phoenixand-diamonds">Example3(CF1515I Phoenix
+and Diamonds)</span></h5>
+<p>俗称带修T-shirt.</p>
+<p>做法大概是这样的:我们考虑对于每次给出的<span class="math inline">\(c\)</span>,不妨假设它在<span class="math inline">\([ 2^k , 2^{ k + 1 }
+)\)</span>这个块上,那么如果它减去了任何一个还在这个块里的数字,那就一定会掉落到下一个块中.这样就又有均摊了.</p>
+<p>但是我们不一定能减去一个还在这个块里的数字,我们怎么做呢?</p>
+<p>我们考虑最后的操作一定是减去若干个小于这个块的,最后有可能再减去一个这个块的,然后<span class="math inline">\(c\)</span>就掉到了下一个块,考虑先按照价值排序,然后维护<span class="math inline">\(f_i\)</span>表示排名在<span class="math inline">\(i\)</span>前面且代价在更小的块中的代价和,我们要找到最靠左的小于<span class="math inline">\(c - 2^k\)</span>的<span class="math inline">\(f\)</span>,这个可以做线段树二分维护.</p>
+<p>[IOI2021]地牢游戏 类似,但是因为是在图上做,所以把二分要改成倍增.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -605,106 +1653,6 @@ her</p>
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://lwlaymh.github.io/2025/06/23/%E4%B9%A0%E4%BD%9C-%E9%9D%92%E8%9B%99%E7%8E%8B%E5%AD%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F1.jpg">
-      <meta itemprop="name" content="LWLAymh">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LWLAymh的备忘录">
-      <meta itemprop="description" content="不过是白日梦里一瞬息">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | LWLAymh的备忘录">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/06/23/%E4%B9%A0%E4%BD%9C-%E9%9D%92%E8%9B%99%E7%8E%8B%E5%AD%90/" class="post-title-link" itemprop="url">青蛙王子</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-06-23 00:00:24" itemprop="dateCreated datePublished" datetime="2025-06-23T00:00:24+08:00">2025-06-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B9%A0%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">习作</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2025/06/23/%E4%B9%A0%E4%BD%9C-%E9%9D%92%E8%9B%99%E7%8E%8B%E5%AD%90/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2025/06/23/%E4%B9%A0%E4%BD%9C-%E9%9D%92%E8%9B%99%E7%8E%8B%E5%AD%90/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!-- toc -->
-<!-- tocstop -->
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/06/23/%E4%B9%A0%E4%BD%9C-%E9%9D%92%E8%9B%99%E7%8E%8B%E5%AD%90/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://lwlaymh.github.io/2025/06/23/%E4%B9%A0%E4%BD%9C-%E6%B5%B7%E7%9A%84%E5%A5%B3%E5%84%BF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -775,6 +1723,106 @@ her</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2025/06/23/%E4%B9%A0%E4%BD%9C-%E6%B5%B7%E7%9A%84%E5%A5%B3%E5%84%BF/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://lwlaymh.github.io/2025/06/23/%E4%B9%A0%E4%BD%9C-%E9%9D%92%E8%9B%99%E7%8E%8B%E5%AD%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%A4%B4%E5%83%8F1.jpg">
+      <meta itemprop="name" content="LWLAymh">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LWLAymh的备忘录">
+      <meta itemprop="description" content="不过是白日梦里一瞬息">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | LWLAymh的备忘录">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/06/23/%E4%B9%A0%E4%BD%9C-%E9%9D%92%E8%9B%99%E7%8E%8B%E5%AD%90/" class="post-title-link" itemprop="url">青蛙王子</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-06-23 00:00:24" itemprop="dateCreated datePublished" datetime="2025-06-23T00:00:24+08:00">2025-06-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B9%A0%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">习作</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2025/06/23/%E4%B9%A0%E4%BD%9C-%E9%9D%92%E8%9B%99%E7%8E%8B%E5%AD%90/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2025/06/23/%E4%B9%A0%E4%BD%9C-%E9%9D%92%E8%9B%99%E7%8E%8B%E5%AD%90/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <!-- toc -->
+<!-- tocstop -->
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/06/23/%E4%B9%A0%E4%BD%9C-%E9%9D%92%E8%9B%99%E7%8E%8B%E5%AD%90/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
