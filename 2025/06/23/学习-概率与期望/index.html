@@ -27,7 +27,7 @@
 <meta property="og:description" content="离散概率 基本定义 概率空间\(\Omega\):在一个给定问题中可能发生的所有情况. 事件:\(\Omega\)的一个子集. 基本事件\(\omega\):\(\Omega\)中的单个元素,也可以看作集合大小为\(1\)的事件. 概率:若\(\omega \in \Omega\),我们称它发生的概率为\(\Pr ( \omega )\),有\(\Pr ( \omega ) \g">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-22T16:00:25.311Z">
-<meta property="article:modified_time" content="2025-11-25T06:48:06.295Z">
+<meta property="article:modified_time" content="2025-12-19T13:00:45.624Z">
 <meta property="article:author" content="LWLAymh">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary">
@@ -167,7 +167,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">离散概率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.1.</span> <span class="nav-text">基本定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.2.</span> <span class="nav-text">期望的简单运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.3.</span> <span class="nav-text">方差的简单运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.4.</span> <span class="nav-text">随机抽样调查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.5.</span> <span class="nav-text">条件概率</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.5.1.</span> <span class="nav-text">贝叶斯公式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.6.</span> <span class="nav-text">概率生成函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.6.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.6.2.</span> <span class="nav-text">Example2(Penney游戏)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.6.3.</span> <span class="nav-text">Example3([SDOI2017] 硬币游戏)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.7.</span> <span class="nav-text">二项式分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.8.</span> <span class="nav-text">模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.8.1.</span> <span class="nav-text">树上随机游走</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.1.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.1.2.</span> <span class="nav-text">Example2</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.8.2.</span> <span class="nav-text">计数与期望的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.2.1.</span> <span class="nav-text">Example(CodeChef Secplayer)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.8.3.</span> <span class="nav-text">一些小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.3.1.</span> <span class="nav-text">Example1(CF865C)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.3.2.</span> <span class="nav-text">Example2(猎人杀)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.3.3.</span> <span class="nav-text">Example3(AGC019F)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">一些不等式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.1.</span> <span class="nav-text">Union Bound</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.2.</span> <span class="nav-text">Markov 不等式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.3.</span> <span class="nav-text">Chebyshev 不等式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">一些离散分布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.1.</span> <span class="nav-text">泊松分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.2.</span> <span class="nav-text">几何分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.3.</span> <span class="nav-text">负二项分布</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">连续随机变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">4.1.</span> <span class="nav-text">高斯分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">4.2.</span> <span class="nav-text">指数分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">4.3.</span> <span class="nav-text">伽马分布</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">多维离散随机变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">5.1.</span> <span class="nav-text">重期望公式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">多维连续随机变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">6.1.</span> <span class="nav-text">二维正态分布</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">6.1.0.0.1.</span> <span class="nav-text">Example1</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">6.2.</span> <span class="nav-text">重期望公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">6.3.</span> <span class="nav-text">协方差</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">6.3.0.0.1.</span> <span class="nav-text">Example1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">6.3.1.</span> <span class="nav-text">相关系数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">6.3.2.</span> <span class="nav-text">协方差矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">6.3.2.0.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">6.3.2.0.2.</span> <span class="nav-text">Example2</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">6.4.</span> <span class="nav-text">卷积</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">熵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">7.1.</span> <span class="nav-text">KL散度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.</span> <span class="nav-text">频率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">8.1.</span> <span class="nav-text">尾不等式</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">8.1.0.0.1.</span> <span class="nav-text">Example1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">8.1.1.</span> <span class="nav-text">矩</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">8.1.1.0.1.</span> <span class="nav-text">Example2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">8.1.2.</span> <span class="nav-text">Chernoff Bound</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">8.1.2.0.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">8.1.2.0.2.</span> <span class="nav-text">Example2</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">8.1.2.0.3.</span> <span class="nav-text">Example3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">8.1.3.</span> <span class="nav-text">Hoeffding引理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">8.1.3.0.1.</span> <span class="nav-text">Example1(Chernoff-Hoeffding不等式)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">8.1.4.</span> <span class="nav-text">Sanov Bound</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">8.2.</span> <span class="nav-text">大数定律</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">8.2.1.</span> <span class="nav-text">Markov大数定律</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">8.2.2.</span> <span class="nav-text">Khinchin大数定律(弱大数定律)</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">离散概率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.1.</span> <span class="nav-text">基本定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.2.</span> <span class="nav-text">期望的简单运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.3.</span> <span class="nav-text">方差的简单运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.4.</span> <span class="nav-text">随机抽样调查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.5.</span> <span class="nav-text">条件概率</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.5.1.</span> <span class="nav-text">贝叶斯公式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.6.</span> <span class="nav-text">概率生成函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.6.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.6.2.</span> <span class="nav-text">Example2(Penney游戏)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.6.3.</span> <span class="nav-text">Example3([SDOI2017] 硬币游戏)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.7.</span> <span class="nav-text">二项式分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.8.</span> <span class="nav-text">模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.8.1.</span> <span class="nav-text">树上随机游走</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.1.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.1.2.</span> <span class="nav-text">Example2</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.8.2.</span> <span class="nav-text">计数与期望的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.2.1.</span> <span class="nav-text">Example(CodeChef Secplayer)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.8.3.</span> <span class="nav-text">一些小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.3.1.</span> <span class="nav-text">Example1(CF865C)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.3.2.</span> <span class="nav-text">Example2(猎人杀)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.8.3.3.</span> <span class="nav-text">Example3(AGC019F)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">一些不等式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.1.</span> <span class="nav-text">Union Bound</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.2.</span> <span class="nav-text">Markov 不等式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.3.</span> <span class="nav-text">Chebyshev 不等式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">一些离散分布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.1.</span> <span class="nav-text">泊松分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.2.</span> <span class="nav-text">几何分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.3.</span> <span class="nav-text">负二项分布</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">连续随机变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">4.1.</span> <span class="nav-text">高斯分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">4.2.</span> <span class="nav-text">指数分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">4.3.</span> <span class="nav-text">伽马分布</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">多维离散随机变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">5.1.</span> <span class="nav-text">重期望公式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">多维连续随机变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">6.1.</span> <span class="nav-text">二维正态分布</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">6.1.0.0.1.</span> <span class="nav-text">Example1</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">6.2.</span> <span class="nav-text">重期望公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">6.3.</span> <span class="nav-text">协方差</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">6.3.0.0.1.</span> <span class="nav-text">Example1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">6.3.1.</span> <span class="nav-text">相关系数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">6.3.2.</span> <span class="nav-text">协方差矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">6.3.2.0.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">6.3.2.0.2.</span> <span class="nav-text">Example2</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">6.4.</span> <span class="nav-text">卷积</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">熵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">7.1.</span> <span class="nav-text">KL散度</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">7.1.0.0.1.</span> <span class="nav-text">Example1</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">7.2.</span> <span class="nav-text">编码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">7.2.1.</span> <span class="nav-text">一般无损编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">7.2.2.</span> <span class="nav-text">前缀码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">7.2.3.</span> <span class="nav-text">几乎无损压缩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">7.2.4.</span> <span class="nav-text">通用压缩</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">7.3.</span> <span class="nav-text">信道编码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">8.</span> <span class="nav-text">极限的情况</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">8.1.</span> <span class="nav-text">尾不等式</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">8.1.0.0.1.</span> <span class="nav-text">Example1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">8.1.1.</span> <span class="nav-text">矩</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">8.1.1.0.1.</span> <span class="nav-text">Example2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">8.1.2.</span> <span class="nav-text">Chernoff Bound</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">8.1.2.0.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">8.1.2.0.2.</span> <span class="nav-text">Example2</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">8.1.2.0.3.</span> <span class="nav-text">Example3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">8.1.3.</span> <span class="nav-text">Hoeffding引理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">8.1.3.0.1.</span> <span class="nav-text">Example1(Chernoff-Hoeffding不等式)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">8.1.4.</span> <span class="nav-text">Sanov Bound</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">8.2.</span> <span class="nav-text">大数定律</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">8.2.1.</span> <span class="nav-text">Markov大数定律</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">8.2.2.</span> <span class="nav-text">Khinchin大数定律(弱大数定律)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">8.3.</span> <span class="nav-text">特征函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">8.4.</span> <span class="nav-text">中心极限定理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">9.</span> <span class="nav-text">统计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">9.1.</span> <span class="nav-text">点估计</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">9.1.0.0.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">9.1.0.0.2.</span> <span class="nav-text">Example2</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">9.1.0.0.3.</span> <span class="nav-text">Example3</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">9.1.0.0.4.</span> <span class="nav-text">Example4(正态分布)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">9.1.1.</span> <span class="nav-text">矩法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">9.1.2.</span> <span class="nav-text">最大似然估计</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">9.1.2.0.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">9.1.2.0.2.</span> <span class="nav-text">Example2</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">9.2.</span> <span class="nav-text">区间估计</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">9.2.0.0.1.</span> <span class="nav-text">Example1</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-number">9.2.0.0.2.</span> <span class="nav-text">Example2</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -285,7 +285,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-11-25 14:48:06" itemprop="dateModified" datetime="2025-11-25T14:48:06+08:00">2025-11-25</time>
+      <time title="修改时间：2025-12-19 21:00:45" itemprop="dateModified" datetime="2025-12-19T21:00:45+08:00">2025-12-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1024,19 +1024,29 @@ H[Y|X]&amp;=\sum_xH[Y|X=x]P[X=x]\\
 &amp;=\sum_{x,y}P(Y=y,X=x)\lg\frac{1}{P(Y=y|X=x)}\\
 &amp;=E(\lg\frac{1}{P(Y|X)})
 \end{aligned}
-\]</span> 首先检验<span class="math inline">\(f(x)=x\ln
+\]</span></p>
+<p>首先检验<span class="math inline">\(f(x)=x\ln
 x\)</span>是下凸函数,原因是<span class="math inline">\(f&#39;(x)=1+\ln
 x\)</span>而<span class="math inline">\(f&#39;&#39;(x)=\frac{1}{x}&gt;0\)</span>.于是琴生不等式给出<span class="math inline">\(f(\frac{a+b}{2})\leq
 \frac{f(a)+f(b)}{2}\)</span>,或说<span class="math inline">\(E(f(X))\geq
 f(E(X))\)</span>.</p>
-<p>可以见到以下性质:</p>
+<p>另外一个很重要的工具是对数求和不等式,对于任何非负实数<span class="math inline">\(a_1,\cdots,a_n\)</span>和正数<span class="math inline">\(b_1,\cdots,b_n\)</span>,记<span class="math inline">\(a=\sum_i a_i,b=\sum_i b_i\)</span>,则: <span class="math display">\[
+\sum_i a_i\log\frac{a_i}{b_i}\geq a\log \frac{a}{b}
+\]</span> 一个重要的性质是证明其是上凸函数,对于任意分布<span class="math inline">\(P,Q\)</span>和<span class="math inline">\(\lambda\in (0,1)\)</span>,都有: <span class="math display">\[
+H[\lambda P+(1-\lambda)Q]\geq \lambda H[P]+(1-\lambda)H[Q]
+\]</span> 原因是考虑: <span class="math display">\[
+f(\lambda p_i+(1-\lambda)q_i)\leq \lambda f(p_i)+(1-\lambda)f(q_i)
+\]</span> 可以见到以下性质:</p>
 <ol type="1">
 <li><span class="math inline">\(H[X,Y]=H[X]+H[Y|X]\)</span>.</li>
 <li><span class="math inline">\(H[X|Y]\leq H[X]\)</span>.</li>
-<li>作为(2)的推论,互信息<span class="math inline">\(I(X,Y)=H[X]+H[Y]-H[X,Y]\geq 0\)</span>.</li>
+<li>作为(2)的推论,互信息<span class="math inline">\(I(X,Y)=H[X]+H[Y]-H[X,Y]=H[X]-H[X|Y]\geq
+0\)</span>.</li>
 <li>对于一个确定性函数<span class="math inline">\(g\)</span>,<span class="math inline">\(H[X]\geq H[g(X)]\)</span>.</li>
 <li><span class="math inline">\(I(X;YZ)=I(X;Z)+I(X;Y|Z)\)</span>.</li>
-<li>当<span class="math inline">\(X,Y,Z\)</span>满足Markov规则,或者说<span class="math inline">\(P_{X,Y,Z}=P_XP_{Y|X}P_{Z|Y}\)</span>,或说<span class="math inline">\(P_{Z|Y}=P_{Z|XY}\)</span>,则<span class="math inline">\(I(X,Y)=I(X;Z)+I(X;Y|Z)\)</span>.这自然推出<span class="math inline">\(I(X;Y)\geq
+<li><span class="math inline">\(I(X;Y\mid Z)\leq
+I(X;Y)+H(Z)\)</span>.</li>
+<li>当<span class="math inline">\(X,Y,Z\)</span>满足Markov规则,或者说<span class="math inline">\(P_{X,Y,Z}=P_XP_{Y|X}P_{Z|Y}\)</span>,或说<span class="math inline">\(P_{Z|Y}=P_{Z|XY}\)</span>,则<span class="math inline">\(I(X;Y)=I(X;Z)+I(X;Y|Z)\)</span>.这自然推出<span class="math inline">\(I(X;Y)\geq
 I(X;Z)\)</span>,也即这个过程中信息不会增多.</li>
 </ol>
 <p>(1)是上述的一个显然推论.</p>
@@ -1064,7 +1074,7 @@ b_i=1\)</span>.于是上式变为: <span class="math display">\[
 H[X,g(X)]&amp;=H[g(X)]+H[X|g(X)]\\
 H[X]&amp;=H[g(X)]+H[X|g(X)]
 \end{aligned}
-\]</span> 然而后者非负,于是显然.</p>
+\]</span> 然而后者非负,于是显然.特别地,当<span class="math inline">\(g\)</span>是一个单射的时候,<span class="math inline">\(H[X]=H[g(X)]\)</span>.</p>
 <p>对于(5),留神到<span class="math inline">\(H[X]=I(X;Z)+H[X|Z]\)</span>,考虑: <span class="math display">\[
 \begin{aligned}
 I(X;YZ)&amp;=H[X]-H[X|YZ]\\
@@ -1073,6 +1083,14 @@ I(X;YZ)&amp;=H[X]-H[X|YZ]\\
 \]</span> 然而<span class="math inline">\(I(X;Y\mid Z)=H[X|
 Z]-H[(X|Y)|Z]=H[X|Z]-H[X|YZ]\)</span>.</p>
 <p>对于(6),考虑: <span class="math display">\[
+\begin{aligned}
+I(X;YZ)&amp;=I(X;Z)+I(X;Y\mid Z)\\
+&amp;=I(X;Y)+I(X;Z\mid Y)\\
+I(X;Y\mid Z)&amp;=I(X;Y)+I(X;Z\mid Y)-I(X;Z)\\
+\end{aligned}
+\]</span> 然而<span class="math inline">\(I(X;Z\mid
+Y)=H[Z|Y]-H[X|YZ]\leq H[Z]\)</span>,而<span class="math inline">\(I(X;Z)\geq 0\)</span>,于是显然.</p>
+<p>对于(7),考虑: <span class="math display">\[
 \begin{aligned}
 I(X;YZ)&amp;=I(X;Y)+I(X;Z\mid Y)\\
 I(X;YZ)&amp;=I(X;Z)+I(X;Y\mid Z)\\
@@ -1112,7 +1130,134 @@ P_X)\)</span>.顺便应该有<span class="math inline">\(D(P_{X,Z}||Q_{X,Z})\geq
 Q_1+(1-\theta)Q_2\)</span>.下面我们证明下凸: <span class="math display">\[
 D(P||Q)\leq \theta D(P_1||Q_1)+(1-\theta)D(P_2||Q_2)
 \]</span></p>
-<h2><span id="频率">频率</span></h2>
+<p>此外,有趣的性质是证明<span class="math inline">\(I(X;Y)=D(P_{XY}||P_XP_Y)\)</span>,不过这个只需简单转化即可.</p>
+<p>另外,对任意<span class="math inline">\(P_X,Q_X\)</span>和kernel<span class="math inline">\(P_{Y|X}\)</span>,令<span class="math inline">\(P_Y=P_X\circ P_{Y|X}\)</span>,<span class="math inline">\(Q_Y=Q_X\circ P_{Y|X}\)</span>.
+散度的data-processing不等式给出:<span class="math inline">\(D(P_X||Q_X)\geq D(P_Y||Q_Y)\)</span>.</p>
+<h6><span id="example1">Example1</span></h6>
+<p>求证<span class="math inline">\(d(p||q)=D(\mathrm{Bern}(p)||\mathrm{Bern}(q))\geq
+(2\log e)(p-q)^2\)</span>.</p>
+<p>具体来说,<span class="math inline">\(d(p||q)=p\log
+\frac{p}{q}+(1-p)\log \frac{1-p}{1-q }\)</span>.</p>
+<h3><span id="编码">编码</span></h3>
+<h4><span id="一般无损编码">一般无损编码</span></h4>
+<p>考虑一个编码-解码过程,要求编码器Encode是一个到<span class="math inline">\(\{0,1\}^*\)</span>的单射,从而存在其的一个左逆Decode满足$((x))=x
+$.</p>
+<p>对于编码,我们非常在意的是它的长度.考虑设<span class="math inline">\(L(X)=\text{len}(\text{Encode}(X))\)</span>,我们下面将会估计<span class="math inline">\(E(L(X))\)</span>的大小.</p>
+<p>首先证明其下界,我们断言: <span class="math display">\[
+H(X)-H(L)\leq E[L(X)]
+\]</span> 由于<span class="math inline">\(H(X)-H(L)=H(X|L)\)</span>,因此其实只需要证明<span class="math inline">\(H(X|L)\leq
+E[L]\)</span>.由于该编码无损,不妨设<span class="math inline">\(n(l)\)</span>为满足<span class="math inline">\(L(x)=l\)</span>的数量,容易见到<span class="math inline">\(n(l)\leq 2^l\)</span>,立刻有<span class="math inline">\(H(X|L=l)=\log_2 n(l)\leq l\)</span>.于是: <span class="math display">\[
+H(X|L)=\sum_l P(L=l)H(X|L=l)\leq \sum_{l}P(L=l)l=E[L]
+\]</span> 此外我们还想要估计<span class="math inline">\(H(L)\)</span>具体有多大,事实上: <span class="math display">\[
+H(L)\leq \log_2(e(1+E[L]))
+\]</span> 下面来看一种比较优秀的编码方式.不妨假设<span class="math inline">\(P(x_1)\geq P(x_2)\geq
+\cdots\)</span>,于是自然有<span class="math inline">\(P(x_i)\geq
+\frac{1}{i}\)</span>.取码长<span class="math inline">\(L(x_i)=\lfloor
+\log_2i\rfloor\)</span>.其实就是按照出现的频率用小码,则: <span class="math display">\[
+\begin{aligned}
+E[L(X)]&amp;=\sum_i P(x_i)\lfloor \log_2 i\rfloor\\
+&amp;\leq \sum_i P(x_i)\log_2 i\\
+&amp;\leq \sum_i P(x_i)\log_2 \frac{1}{P(x_i)}\\
+&amp;=H(X)
+\end{aligned}
+\]</span></p>
+<h4><span id="前缀码">前缀码</span></h4>
+<p>一个更合适的例子是前缀码,对于一个<span class="math inline">\(L(X)\)</span>函数,我们声称存在前缀码<span class="math inline">\(f\)</span>使得<span class="math inline">\(|f(x_i)|=L(x_i)\)</span>,当且仅当<span class="math inline">\(\sum_{x\in A}2^{-L(x)}\leq
+1\)</span>,原因是在二叉树上表示一下.</p>
+<p>众所周知Huffman编码是最优编码,现在我们来看它为什么优秀,我们说其满足<span class="math inline">\(H(X)\leq E[L(X)]\leq
+H(X)+1\)</span>,下面我们来证明这个结论.</p>
+<p>先证上界,由于Huffman编码是最优编码,我们只要选取任意一个编码,使得它的界<span class="math inline">\(\leq
+H(X)+1\)</span>即可.根据上面的引理,我们直接将<span class="math inline">\(x\)</span>映射到一个长度为<span class="math inline">\(\lceil \log
+\frac{1}{P(x)}\rceil\)</span>的前缀编码.此时: <span class="math display">\[
+\begin{aligned}
+E(L(X))&amp;=\sum_{x}P(x)\lceil \log \frac{1}{P(x)}\rceil\\
+&amp;\leq \sum_{x}P(x)\left(\log \frac{1}{P(x)}+1\right)\\
+&amp;=H(X)+1
+\end{aligned}
+\]</span> 再来看下界.来证明任意前缀编码都会被这个下界控制住.</p>
+<p>对于一个前缀编码,实际上是把<span class="math inline">\(X\)</span>映射到了另一个<span class="math inline">\(Y\)</span>处.由于这是一个单射,所以有<span class="math inline">\(H(X)=H(Y)\)</span>.然而: <span class="math display">\[
+\begin{aligned}
+H(Y)&amp;=\sum_{t}H(Y_t|Y_{1}\cdots Y_{t-1})\\
+\end{aligned}
+\]</span> 来看一个特定的<span class="math inline">\(H(Y_t|Y_1\cdots
+Y_{t-1}=y_1\cdots y_{t-1})\)</span>,如果此时<span class="math inline">\(y_1\cdots y_{t-1}\)</span>已经能解码了,那<span class="math inline">\(Y_t\)</span>就一定是空白,因此此时熵为<span class="math inline">\(0\)</span>;反之,则<span class="math inline">\(Y_t\)</span>要么是<span class="math inline">\(0\)</span>要么是<span class="math inline">\(1\)</span>,伯努利分布的最大值只有<span class="math inline">\(\log_2
+2=1\)</span>.因此我们可以发现,对于一个特定的<span class="math inline">\(x\)</span>和对应的<span class="math inline">\(y_1\cdots y_k\)</span>,一定有<span class="math inline">\(H(Y_t|Y_1\cdots Y_{t-1}=y_1\cdots y_{t-1})\leq
+Pr[L(x)\geq t]\)</span>.</p>
+<p>所以实际上<span class="math inline">\(H(Y)\leq \sum_t Pr[L(X)\geq
+t]=E(L)\)</span>.</p>
+<h4><span id="几乎无损压缩">几乎无损压缩</span></h4>
+<p>对于独立同分布<span class="math inline">\(X^n\)</span>,如果满足:
+<span class="math display">\[
+Pr[\text{Decode}(\text{Encode}(X^n))=X^n]\geq 1-\epsilon,\epsilon\to 0
+\]</span> 则称其为几乎无损压缩.不妨记录<span class="math inline">\(\vec
+X\sim X^n\)</span>.</p>
+<p>现在我们来看做到几乎无损压缩需要怎么办.我们将说明几乎就一定需要<span class="math inline">\(nH(X)\)</span>左右的信息长度才足够.事实上:</p>
+<ol type="1">
+<li><span class="math inline">\(\forall
+\delta&gt;0\)</span>,存在编码方案使得<span class="math inline">\(L\leq
+n(H(X)+\delta)\)</span>,并且错误概率趋近于<span class="math inline">\(0\)</span>.</li>
+<li><span class="math inline">\(\forall \delta&gt;0\)</span>,如果<span class="math inline">\(L&lt;n(H(X)-\delta)\)</span>,则无论怎么编码,错误概率趋近于<span class="math inline">\(1\)</span>.</li>
+</ol>
+<p>先来证明(1),考虑直接取<span class="math inline">\(L=n(H(X)+\delta)\)</span>,并且编码出现概率最大的前<span class="math inline">\(2^L\)</span>个元素,剩下的扔掉.不妨可以发现我们只会扔掉所有<span class="math inline">\(P(\vec X)\leq
+2^{-n(H(X)+\delta)}\)</span>的,原因是比这个阈值大的不可能超过<span class="math inline">\(2^L\)</span>个.然而留意到<span class="math inline">\(P(\vec X=(x_1,\cdots,x_n))=\prod_i
+P(X=x_i)\)</span>: <span class="math display">\[
+\begin{aligned}
+Pr[P(\vec X)\leq 2^{-n(H(X)+\delta)}]&amp;=Pr[-\log_2P(\vec X)\geq
+n(H(X)+\delta)]\\
+&amp;=Pr[-\sum_i\log_2P(X_i)\geq n(H(X)+\delta)]\\
+\end{aligned}
+\]</span> 可是<span class="math inline">\(\sum_i -\log_2
+P(X_i)\)</span>的期望恰好为<span class="math inline">\(H(X)\)</span>,因此根据Chernoff-Hoeffding
+Bound,这个错误概率<span class="math inline">\(\leq
+e^{-O(n\delta^2)}\)</span>.</p>
+<p>那么反过来的界怎么证明呢?此时最多可编码<span class="math inline">\(2^{n(H(X)-\delta)}\)</span>个元素.仍然用Chernoff
+Bound就可以搞定了.</p>
+<h4><span id="通用压缩">通用压缩</span></h4>
+<p>我们上面的所有讨论都基于已知分布的情况.如果我们不知道分布,又能做到多好的编码呢?</p>
+<p>当编码的时候不知道分布,但解码的时候知道分布的时候,事实上可以做到:<span class="math inline">\(\varlimsup_{n\to \infty}\frac{1}{n}E[L_n(X^n)]\leq
+H(X)+\epsilon\)</span>,其中<span class="math inline">\(\epsilon\)</span>可以任意小.</p>
+<p>这个怎么做呢?考虑一个暴力方法,我先随便将信息映射到<span class="math inline">\(\{0,1\}^L\)</span>.此时的Encode并非单射.解码的时候直接最大似然估计找最好的那个解码.</p>
+<p>假设<span class="math inline">\(x_i\to c_i\)</span>,并且<span class="math inline">\(P(x_1)\geq P(x_2)\geq
+\cdots\)</span>,取一个阈值<span class="math inline">\(M=2^{n(H(X)+\delta)}\)</span>,以及<span class="math inline">\(L=n(H(X)+2\delta)\)</span>现在来看失败概率也就是:
+<span class="math display">\[
+\begin{aligned}
+&amp;\sum_{i} P(x_i)Pr[c_i\in \{c_1,\cdots,c_{i-1}\}]\\
+=&amp;\sum_{i=1}^M P(x_i)Pr[c_i\in \{c_1,\cdots,c_{i-1}\}]+\sum_{i\geq
+M} P(x_i)Pr[c_i\in \{c_1,\cdots,c_{i-1}\}]\\
+\leq &amp;\sum_{i=1}^M P(x_i)\frac{M}{2^L}+2^{-O(n\delta^2)}\\
+\leq &amp;2^{-O(n\delta)}+2^{-O(n\delta^2)}\\
+\end{aligned}
+\]</span> 这个错误概率就很小了.</p>
+<h3><span id="信道编码">信道编码</span></h3>
+<p>定义<strong>信道</strong>为某种会”污染”信息的东西,或者干脆写称条件概率分布<span class="math inline">\(P_{Y|X}\)</span>.此外定义<strong>信道容量</strong><span class="math inline">\(C=\max_{P_X}I(X;Y)\)</span>,其中<span class="math inline">\((X,Y)\sim P_XP_{Y|X}\)</span>.</p>
+<p>现在我们考虑一个一般的信道编码,取<span class="math inline">\(W\to
+\vec X\in \mathcal{X}^L\to \vec Y\in \mathcal{Y}^L\to \hat
+W\)</span>.</p>
+<p>现在我们来证明以下性质:</p>
+<ol type="1">
+<li><span class="math inline">\(I(\vec X;\vec Y)\leq L\sdot
+C\)</span></li>
+<li>data-processing不等式:<span class="math inline">\(I(W;\hat W)\leq
+I(\vec X;\vec Y)\)</span></li>
+</ol>
+<p>对于(1),由于<span class="math inline">\(Y_i\)</span>独立地依赖于<span class="math inline">\(X_i\)</span>,考虑: <span class="math display">\[
+\begin{aligned}
+I(\vec X;\vec Y)&amp;=\sum_i I(\vec X;Y_i\mid Y_1\cdots Y_{i-1})\\
+&amp;=\sum_i I(X_i;Y_i)\\
+&amp;\leq L\sdot C
+\end{aligned}
+\]</span> 至于(2),实际上是互信息的data-processing不等式.</p>
+<p>接下来我们要搞定传送速率的问题.不妨设<span class="math inline">\(n=H(W)\)</span>,现在我们将要证明: <span class="math display">\[
+n\leq\frac{LC+H(\epsilon)}{1-\epsilon}
+\]</span> 其中<span class="math inline">\(\epsilon\)</span>是可接受的最大错误概率,定义为<span class="math inline">\(\epsilon=\max_w Pr[\hat W\ne W|W=w]\)</span>.</p>
+<p>怎么证明呢?考虑取一个指示变量<span class="math inline">\(Z\)</span>,当<span class="math inline">\(\hat W\ne
+W\)</span>的时候<span class="math inline">\(Z=1\)</span>,否则<span class="math inline">\(Z=0\)</span>.不妨直接让<span class="math inline">\(Z\)</span>多错一点,到达<span class="math inline">\(Pr[Z=1|W=w]\equiv
+\epsilon\)</span>以方便我们下面的分析.这样的话<span class="math inline">\(Z\)</span>和<span class="math inline">\(W\)</span>就独立了.此时立刻见到: <span class="math display">\[
+(1-\epsilon)I(W;\hat W\mid Z=0)\leq I(W;\hat W\mid Z)\leq I(W;\hat
+W)+H(Z)
+\]</span> 而<span class="math inline">\(I(W;\hat W\mid
+Z=0)=I(W;W)=H(W)=n\)</span>.</p>
+<h2><span id="极限的情况">极限的情况</span></h2>
 <h3><span id="尾不等式">尾不等式</span></h3>
 <p>留神到如果事件在<span class="math inline">\(n\)</span>次中发生了<span class="math inline">\(n_a\)</span>次,其实是不能说<span class="math inline">\(\lim_{n\to
 \infty}\frac{n_a}{n}=P\)</span>的.因为后面总是会有微小的扰动.但似乎总能刻画这些微小扰动的代价.</p>
@@ -1192,7 +1337,7 @@ t}
 \]</span> 当<span class="math inline">\(t=\frac{k}{\sigma}\)</span>的时候取最小值,从而最后的界是<span class="math inline">\(e^{-\frac{k^2}{2}}\)</span>.</p>
 <h6><span id="example3">Example3</span></h6>
 <p>当<span class="math inline">\(X\sim B(n,p)\)</span>,求<span class="math inline">\(P(X-E(X)\geq n\epsilon)\)</span>的上界.</p>
-<p>考虑<span class="math inline">\(M_X(t)=(1-p-pe^t)^n\)</span>.</p>
+<p>考虑<span class="math inline">\(M_X(t)=(1-p+pe^t)^n\)</span>.</p>
 <p>然后需要一个Lemma,我们说<span class="math inline">\((1-p)e^{-tp}+pe^{t(1-p)}\leq
 e^{\frac{t^2}{8}}\)</span>,这个会在后面的Hoeffding引理证明.</p>
 <p>直接带入,右侧为: <span class="math display">\[
@@ -1230,7 +1375,32 @@ M_{X-E(X)}(t)&amp;=E(e^{t(X-E(X))})\\
 <h4><span id="sanov-bound">Sanov Bound</span></h4>
 <p>回忆到斯特林公式<span class="math inline">\(n!\sim \sqrt{2\pi
 n}(\frac{n}{e})^n\)</span>.</p>
-<p>对于一个可能的空间<span class="math inline">\(\Omega=\{v_1,\cdots
+<p>先来看一个在二项分布上的版本,不妨设<span class="math inline">\(X_1,\cdots,X_n\sim
+\mathrm{Bern}(p)\)</span>,而<span class="math inline">\(q&gt;p\)</span>,我们断言: <span class="math display">\[
+\frac{1}{n+1}\exp(-nd(q||p))\leq Pr[\sum_i^n X_i\geq qn]\leq
+(n(1-q)+1)\exp(-nd(q||p))
+\]</span> 为此留神到<span class="math inline">\(Pr[\sum_i^n X_i\geq
+qn]=\sum_{t=qn}^n\binom{n}{t}p^t(1-p)^{n-t}\)</span>,容易证明当<span class="math inline">\(q&gt;p\)</span>的时候,<span class="math inline">\(\binom{n}{t}p^t(1-p)^{n-t}\)</span>单调下降.</p>
+<p>此时来看<span class="math inline">\(\binom{n}{qn}\)</span>的取值:
+<span class="math display">\[
+\begin{aligned}
+1&amp;\geq \binom{n}{qn}q^{qn}(1-q)^{n-qn}\\
+\binom{n}{qn}&amp;\leq \frac{1}{q^{qn}(1-q)^{n-qn}}\\
+&amp;=\left((\frac{1}{q})^q(\frac{1}{1-q})^{1-q}\right)^n\\
+&amp;=\left(\exp(q\ln  \frac{1}{q}+(1-q)\ln \frac{1}{1-q})\right)^n\\
+&amp;=\exp(nh(q))
+\end{aligned}
+\]</span> 此外,我们知道<span class="math inline">\(\binom{n}{t}q^{t}(1-q)^{n-t}\)</span>在<span class="math inline">\(t=qn\)</span>处取最大值,从而$
+q<sup>{qn}(1-q)</sup>{n-qn}<span class="math inline">\(,于是给出\)</span>(nh(q))(nh(q))$.</p>
+<p>此时观察: <span class="math display">\[
+\begin{aligned}
+\exp(nh(q))p^{qn}(1-p)^{n-qn}&amp;=\exp(nh(q))\exp(n(q\ln p+(1-q)\ln
+(1-p)))\\
+&amp;=\exp(n(q\ln \frac{p}{q}+(1-q)\ln \frac{1-p}{1-q}))\\
+&amp;=\exp(-nd(q||p))
+\end{aligned}
+\]</span> 从而给出了上面的答案.</p>
+<p>现在来看一个一般的版本.对于一个可能的空间<span class="math inline">\(\Omega=\{v_1,\cdots
 v_L\}\)</span>,现在有一个分布<span class="math inline">\(P:\Omega\to
 [0,1]\)</span>,记录<span class="math inline">\(p_i=P(v_i)\)</span>.</p>
 <p>现在从<span class="math inline">\(P\)</span>中独立取样<span class="math inline">\(x_1,\cdots,x_n\)</span>.考虑对于一个特定的可重集合<span class="math inline">\(S\)</span>,求<span class="math inline">\(Pr[\{x_1,\cdots
@@ -1255,9 +1425,13 @@ p_L^{s_L}\)</span>.</p>
 Pr[\{x_1,\cdots ,x_n\}=S]&amp;=\binom{n}{s_1,\cdots,s_L}p_1^{s_1}\cdots
 p_L^{s_L}\\
 &amp;\leq \exp(nH(Q))\exp(n\sum_i q_i\log p_i)\\
-&amp;=\exp(nH(Q))\exp(-nD(Q||P))
+&amp;=\exp(-nD(Q||P))
 \end{aligned}
 \]</span></p>
+<p>左侧也有类似的结论.</p>
+<p>如果这里把<span class="math inline">\(\{x_1,\cdots
+,x_n\}=S\)</span>弱化到<span class="math inline">\(\{x_1,\cdots
+,x_n\}\in A\)</span>,则右边当然要补一个<span class="math inline">\(|A|\)</span>,当然显然<span class="math inline">\(|A|\leq (n+1)^{L-1}\)</span></p>
 <h3><span id="大数定律">大数定律</span></h3>
 <p>对于随机变量<span class="math inline">\(\{X_i\}\)</span>,对于任意<span class="math inline">\(\epsilon&gt;0\)</span>,如果: <span class="math display">\[
 \lim_{n\to \infty} P(|\frac{1}{n}\sum_i^n X_i-\frac{1}{n}\sum_i^n
@@ -1274,6 +1448,184 @@ X_i}{n})=\frac{1}{n^2}\mathrm{Var}(\sum
 X_i)\)</span>.用Chebyshev不等式碾一下就好了.</p>
 <h4><span id="khinchin大数定律弱大数定律">Khinchin大数定律(弱大数定律)</span></h4>
 <p>设<span class="math inline">\(\{X_i\}\)</span>独立同分布,且数学期望<span class="math inline">\(\mu=E(X_i)\)</span>存在,则<span class="math inline">\(\{X_i\}\)</span>满足大数定律.</p>
+<h3><span id="特征函数">特征函数</span></h3>
+<p>对于随机变量<span class="math inline">\(X\)</span>,设<span class="math inline">\(\phi_X(t)=E(e^{itX})\)</span>为其特征函数.容易见到<span class="math inline">\(\phi_X(-it)=E(e^{tX})\)</span>.一些常见的特征函数:</p>
+<ol type="1">
+<li><span class="math inline">\(X\sim
+\pi(\lambda),M_X(t)=e^{\lambda(e^t-1)},\phi_X(t)=e^{\lambda(e^{it}-1)}\)</span>.</li>
+<li><span class="math inline">\(X\sim N(\mu,\sigma^2),M_X(t)=e^{\mu
+t+\frac{\sigma^2t^2}{2}},\phi_X(t)=e^{i\mu
+t-\frac{\sigma^2t^2}{2}}\)</span>.</li>
+<li><span class="math inline">\(X\sim
+B(n,p),M_X(t)=(1-p+pe^t)^n,\phi_X(t)=(1-p+pe^{it})^n\)</span>.</li>
+<li><span class="math inline">\(X\)</span>服从柯西分布,<span class="math inline">\(f(x)=\frac{1}{\pi(x^2+1)}\)</span>,则<span class="math inline">\(\phi_X(t)=e^{-|t|}\)</span>.</li>
+</ol>
+<p>随机变量的分布函数由其特征函数唯一确定.此外,依分布收敛等价于特征函数逐点收敛.</p>
+<p>依照上面的结论,就可以拿到<span class="math inline">\(X_n\sim
+\pi(n)\)</span>推出<span class="math inline">\(\frac{X_n-n}{\sqrt n}\to
+N(0,1)\)</span>,原因正是上面的依分布收敛的性质.</p>
+<h3><span id="中心极限定理">中心极限定理</span></h3>
+<p>先来看Lindeberg-Levy版本:</p>
+<p>设<span class="math inline">\(\{X_n\}\)</span>独立同分布,而且<span class="math inline">\(E(X_n)=\mu,\mathrm{Var}(X_n)=\sigma^2\)</span>,设<span class="math inline">\(Y_n=\sum_i^n X_i\)</span>,而<span class="math inline">\(\tilde{Y}_n=\frac{Y_n-E(Y_n)}{\sigma(Y_n)}=\frac{\sum_i^n
+(X_i-\mu)}{\sqrt n\sigma}\)</span>.</p>
+<p>我们断言<span class="math inline">\(\tilde
+Y_n\)</span>一定依分布收敛于<span class="math inline">\(Z\)</span>,其中<span class="math inline">\(Z\sim
+N(0,1)\)</span>.</p>
+<p>为什么呢?用泰勒展开考虑<span class="math inline">\(\Re
+\phi_{X_n-\mu}(t)=1-\frac{\sigma^2}{2}t^2+o(t^2)\)</span>.此时<span class="math inline">\(\Re \phi_{\tilde
+Y_n}(t)=(1-\frac{t^2}{2n}+o(\frac{t^2}{n}))^n\to
+e^{-\frac{t^2}{2}}\)</span>.</p>
+<p>现在来看一个强的版本:</p>
+<p>Berry-Esseen定理:在上述版本的基础上,如果<span class="math inline">\(E(|X_n-\mu|^3)\)</span>有限,则收敛速度有: <span class="math display">\[
+|P(\tilde Y_n\leq x)-P(Z\leq x)|\leq
+O(1)\frac{E(|X_n-\mu|^3)}{\sigma^3\sqrt{n}}
+\]</span></p>
+<h2><span id="统计">统计</span></h2>
+<h3><span id="点估计">点估计</span></h3>
+<p>将只依赖于样本,不依赖于任何位置参数的函数称作<strong>统计量</strong>.例如:</p>
+<ol type="1">
+<li>样本均值<span class="math inline">\(\bar X=\frac{1}{n}\sum_{i=1}^n
+X_i\)</span>.</li>
+<li>样本方差<span class="math inline">\(S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\bar
+X)^2\)</span>.</li>
+<li>样本<span class="math inline">\(k\)</span>阶矩<span class="math inline">\(A_k=\frac{1}{n}\sum_{i=1}^n X_i^k\)</span>.</li>
+<li>样本<span class="math inline">\(k\)</span>阶中心矩<span class="math inline">\(B_k=\frac{1}{n}\sum_{i=1}^n(X_i-\bar
+X)^k\)</span>.</li>
+</ol>
+<p>对于<span class="math inline">\(\theta\)</span>的估计量<span class="math inline">\(\hat
+\theta\)</span>,定义<strong>偏差</strong><span class="math inline">\(\mathrm{Bias}(\hat \theta)=E(\hat
+\theta)-\theta\)</span>.如果其等于<span class="math inline">\(0\)</span>,则称其是<strong>无偏</strong>的.如果<span class="math inline">\(\lim_{n\to \infty}\mathrm{Bias}(\hat
+\theta)=\theta\)</span>,则称<span class="math inline">\(\hat\theta\)</span>是<strong>渐进无偏</strong>的.</p>
+<p>此外定义<span class="math inline">\(\mathrm{MSE}(\hat
+\theta)=E\left((\hat\theta-\theta)^2\right)\)</span>.容易见到: <span class="math display">\[
+\begin{aligned}
+\mathrm{MSE}(\hat\theta)&amp;=E\left((\hat\theta-\theta)^2\right)\\
+&amp;=E\left((\hat\theta-E(\hat\theta)+E(\hat\theta)-\theta)^2\right)\\
+&amp;=E\left((\hat\theta-E(\hat\theta))^2\right)+\left(E(\hat\theta)-\theta\right)^2\\
+&amp;=\mathrm{Var}(\hat \theta)+\left(\mathrm{Bias}(\hat\theta)\right)^2
+\end{aligned}
+\]</span> 因此对于无偏估计的<span class="math inline">\(\mathrm{MSE}(\hat\theta)=\mathrm{Var}(\hat\theta)\)</span>.</p>
+<p>此外,如果估计量依概率收敛,或言<span class="math inline">\(\forall
+\epsilon&gt;0\)</span>,<span class="math inline">\(\lim_{n\to
+\infty}P\left(|\hat\theta_n-\theta|\geq
+\epsilon\right)=0\)</span>,则称<span class="math inline">\(\hat\theta_n\)</span>是<strong>一致估计量</strong>.</p>
+<p>我们有性质:如果<span class="math inline">\(\lim_{n\to
+\infty}\mathrm{MSE}(\hat\theta_n)\to 0\)</span>,则<span class="math inline">\(\hat\theta_n\)</span>为一致估计量.原因是: <span class="math display">\[
+\begin{aligned}
+&amp;P\left(|\hat\theta_n-\theta|\geq \epsilon\right)\\
+=&amp;P\left((\hat\theta_n-\theta)^2\geq \epsilon^2\right)\\
+\leq &amp;\frac{\mathrm{MSE}(\hat\theta_n)}{\epsilon^2}
+\end{aligned}
+\]</span></p>
+<h6><span id="example1">Example1</span></h6>
+<p>假设<span class="math inline">\(E(X)\)</span>和<span class="math inline">\(\mathrm{Var}(X)\)</span>均存在,独立随机的样本序列<span class="math inline">\(X_1,\cdots,X_n\)</span>,现在考虑<span class="math inline">\(\hat\theta_A=\bar X\)</span>,<span class="math inline">\(\hat \theta_B=X_1\)</span>.</p>
+<p>显然它们都是<span class="math inline">\(E(X)\)</span>的无偏估计.然而<span class="math inline">\(\mathrm{MSE}(\hat\theta_A)=\frac{\mathrm{Var}(X)}{n}\)</span>,而<span class="math inline">\(\mathrm{MSE}(\hat\theta_B)=\mathrm{Var}(X)\)</span>.</p>
+<h6><span id="example2">Example2</span></h6>
+<p>假设已知<span class="math inline">\(X\sim
+U(0,\theta)\)</span>.考虑<span class="math inline">\(\hat\theta_A=2\bar
+X\)</span>和<span class="math inline">\(\hat\theta_B=\max_k\{X_k\}\)</span>.</p>
+<p>容易见到<span class="math inline">\(\hat\theta_A\)</span>无偏.现在来看<span class="math inline">\(\hat\theta_B\)</span>,自然地: <span class="math display">\[
+\begin{aligned}
+F_{\hat\theta_B}(x)&amp;=(F_X(x))^n\\&amp;=(\frac{x}{\theta})^n\\
+E(\hat\theta_B)&amp;=\int_0^{+\infty}(1-F_{\hat\theta_B}(x))\mathrm{d}x\\
+&amp;=\int_0^\theta(1-(\frac{x}{\theta})^n)\mathrm{d}x\\
+&amp;=\frac{n}{n+1}\theta
+\end{aligned}
+\]</span> 但至少<span class="math inline">\(\hat\theta_C=\frac{n+1}{n}\hat\theta_B\)</span>无偏.</p>
+<p>现在来看,容易见到<span class="math inline">\(\mathrm{MSE}(\hat\theta)=\frac{\theta^2}{3n}\)</span>.留神到:
+<span class="math display">\[
+\begin{aligned}
+E(\hat\theta_B^2)&amp;=\int_0^{\theta^2}\left(1-\frac{x^{\frac{n}{2}}}{\theta^n}\right)\mathrm{d}x\\
+&amp;=\theta^2-\frac{2}{n+2}\theta^2\\
+&amp;=\frac{n}{n+2}\theta^2
+\end{aligned}
+\]</span> 于是<span class="math inline">\(\mathrm{Var}(\hat\theta_C^2)=(\frac{n+1}{n})^2\mathrm{Var}(\hat\theta_B^2)=\frac{\theta^2}{n(n+2)}\)</span>.</p>
+<h6><span id="example3">Example3</span></h6>
+<p>考虑<span class="math inline">\(B_2\)</span>对<span class="math inline">\(\mathrm{Var}(X)\)</span>的估计,显然有<span class="math inline">\(B_2=\frac{1}{n}\sum_k X_k^2-(\bar
+X)^2\)</span>.也就是说<span class="math inline">\(E(B_2)=E(X^2)-E(\bar
+X^2)\)</span>.看上去欣欣向荣,然而: <span class="math display">\[
+\begin{aligned}
+E(\bar X^2)&amp;=E((\bar X-E(\bar X)+E(\bar X))^2)\\
+&amp;=E((\bar X-E(\bar X))^2)+(E(\bar X))^2\\
+&amp;=(E(\bar X))^2+\frac{\mathrm{Var}(X)}{n}
+\end{aligned}
+\]</span> 这就出事了.</p>
+<h6><span id="example4正态分布">Example4(正态分布)</span></h6>
+<p>考虑估计一个正态分布<span class="math inline">\(X\sim
+N(\mu,\sigma^2)\)</span>.取<span class="math inline">\(\bar
+X\)</span>和<span class="math inline">\(S^2\)</span>作为其期望和方差的估计量.现在我们将展示一个非常厉害的结论,那就是<span class="math inline">\(\bar X\)</span>和<span class="math inline">\(S^2\)</span>实际上是独立的.</p>
+<p>考虑一个正交矩阵<span class="math inline">\(U\)</span>,其第一行每个元素限定为<span class="math inline">\(\frac{1}{\sqrt
+n}\)</span>,其余行任取.由于其正交性,这必然意味着其余行所有元素之和为<span class="math inline">\(0\)</span>.现在来取<span class="math inline">\(\vec Y=U\vec X\)</span>.从前的结论告知我们<span class="math inline">\(\vec Y\)</span>服从<span class="math inline">\(n\)</span>维高斯分布.而且:</p>
+<ol type="1">
+<li><span class="math inline">\(E(\vec Y)=(\sqrt
+n\mu,0,\cdots,0)\)</span>.</li>
+<li><span class="math inline">\(\mathrm{Cov}(\vec
+Y)=\sigma^2I\)</span>.</li>
+<li><span class="math inline">\(\sum_k Y_k^2=\sum_k X_k^2\)</span>.</li>
+</ol>
+<p>其中(1)是由于除第一行外,每一行的所有元素和为<span class="math inline">\(0\)</span>.(2)是因为原本的<span class="math inline">\(\vec
+X\)</span>的各个分量独立.(3)是因为正交变换保模长.</p>
+<p>此时必定有<span class="math inline">\(\bar X=\frac{Y_1}{\sqrt
+n}\)</span>,事实上还有: <span class="math display">\[
+\begin{aligned}
+(n-1)S^2&amp;=\sum_{i=1}^n(X_i-\bar X)^2\\
+&amp;=(\sum_k X_k^2)-n\bar X^2\\
+&amp;=\sum_{k=1}^nY_k^2-Y_1^2\\
+&amp;=\sum_{k=2}^nY_k^2
+\end{aligned}
+\]</span> 于是二者独立.还能得知<span class="math inline">\(\bar X\sim
+N(\mu,\frac{\sigma^2}{n})\)</span>,以及<span class="math inline">\(\frac{(n-1)S^2}{\sigma^2}\sim\chi^2(n-1)\)</span>.</p>
+<h4><span id="矩法">矩法</span></h4>
+<p>显然<span class="math inline">\(k\)</span>阶矩的估计总是无偏的.因此一个想法是将我们想要估计的量写成矩的函数,再分别估计矩(注意,这样做在该函数并非一次的时候当然未必无偏).</p>
+<h4><span id="最大似然估计">最大似然估计</span></h4>
+<p>尝试选择参数<span class="math inline">\(\theta\)</span>,使得<span class="math inline">\(L(\theta)=P(X_1=x_1,\cdots,X_n=x_n|\theta)\)</span>最大.</p>
+<p>如果样本干脆是均匀随机的,那就只需要最大化对数似然函数<span class="math inline">\(\ln L(\theta)=\sum_{i=1}^n \ln
+P(X_i=x_i|\theta)\)</span>.</p>
+<p>这样做当然不可能是无偏的.</p>
+<h6><span id="example1">Example1</span></h6>
+<p>考虑一个均匀分布<span class="math inline">\(U(0,\theta)\)</span>,对其进行最大似然估计的结果是<span class="math inline">\(\hat\theta=\max\{x_1,\cdots,x_n\}\)</span>.</p>
+<h6><span id="example2">Example2</span></h6>
+<p>考虑一个分类函数<span class="math inline">\(f:X\to
+Y\)</span>.现在我们已经有其采样的一些结果<span class="math inline">\((x_i,y_i)\)</span>,想要去估计一个函数<span class="math inline">\(f_\theta\)</span>.根据上面说的,我们需要最小化<span class="math inline">\(\sum_{i=1}^n-\ln f_\theta(y_i|x_i)\)</span>.</p>
+<p>现在考虑一个标签分布<span class="math inline">\(g(y|x_i)=[y=y_i]\)</span>.我们来看交叉熵: <span class="math display">\[
+\begin{aligned}
+H(g,f_\theta)&amp;=-\sum_{y}g(y|x_i)\ln f_\theta(y|x_i)\\
+&amp;=-\ln f_\theta(y_i|x_i)
+\end{aligned}
+\]</span></p>
+<h3><span id="区间估计">区间估计</span></h3>
+<p>我们想要更进一步,对于一个想要估计量<span class="math inline">\(\theta\)</span>,以及两个统计量<span class="math inline">\(\hat\theta_L\)</span>和<span class="math inline">\(\hat\theta_R\)</span>,如果必有<span class="math inline">\(P(\hat\theta_L\leq \theta\leq \hat\theta_U)\geq
+1-\alpha\)</span>,则称<span class="math inline">\([\hat\theta_L,\hat\theta_R]\)</span>为<span class="math inline">\(\theta\)</span>的<strong>置信水平</strong>为<span class="math inline">\(1-\alpha\)</span>的<strong>置信区间</strong>.类似还可以定义<strong>单侧置信下限</strong>和<strong>单侧置信上限</strong>.</p>
+<h6><span id="example1">Example1</span></h6>
+<p>对于一个<span class="math inline">\(X\sim
+N(\mu,\sigma^2)\)</span>,假设<span class="math inline">\(\sigma^2\)</span>已知,设计一个对<span class="math inline">\(\mu\)</span>的置信水平为<span class="math inline">\(1-\alpha\)</span>的估计.</p>
+<p>考虑<span class="math inline">\(\bar X\sim
+N(\mu,\frac{\sigma^2}{n})\)</span>.此时必定有<span class="math inline">\(\frac{\bar X-\mu}{\frac{\sigma}{\sqrt{n}}}\sim
+N(0,1)\)</span>.只需要取一组<span class="math inline">\(c,d\)</span>,使得<span class="math inline">\(P(c\leq \frac{\bar
+X-\mu}{\frac{\sigma}{\sqrt{n}}}\leq d)=1-\alpha\)</span>即可.</p>
+<p>现在取<span class="math inline">\(\Phi(x)=\int_{-\infty}^x\frac{1}{\sqrt{2\pi}}e^{-\frac{t^2}{2}}\mathrm{d}t\)</span>为其分布函数,取<span class="math inline">\(c=\Phi^{-1}(\frac{\alpha}{2}),d=\Phi^{-1}(1-\frac{\alpha}{2})\)</span>.留神到<span class="math inline">\(c+d=0\)</span>.化简就有: <span class="math display">\[
+P(\bar X-\frac{\Phi^{-1}(1-\frac{\alpha}{2})\sigma}{\sqrt n}\leq \mu\leq
+\bar X+\frac{\Phi^{-1}(1-\frac{\alpha}{2})\sigma}{\sqrt n})=1-\alpha
+\]</span> 不过这个估计因为要算<span class="math inline">\(\Phi^{-1}\)</span>,可能意义不是特别大.回忆到Chernoff
+Bound给出: <span class="math display">\[
+P(X-E(X)\geq k\sigma)\leq e^{-\frac{k^2}{2}}
+\]</span> 于是立刻有<span class="math inline">\(P(|\bar X-\mu|\geq
+\frac{k\sigma}{\sqrt n})\leq 2e^{-\frac{k^2}{2}}\)</span>.</p>
+<p>从而: <span class="math display">\[
+P(\bar X-\frac{\sigma\sqrt{2\ln(\frac{2}{\alpha})}}{\sqrt n}\leq \mu\leq
+\bar X+\frac{\sigma\sqrt{2\ln(\frac{2}{\alpha})}}{\sqrt n})\geq 1-\alpha
+\]</span>
+现在我们来干另一件事,众所周知,中心极限定理说大部分估计最后都会趋于一个正态分布.那么在此时,能否估计出<span class="math inline">\(P(\mu=\bar X)=O(\frac{1}{\sqrt n})\)</span>呢?</p>
+<p>考虑取<span class="math inline">\(\alpha=1-O(\frac{1}{\sqrt
+n})\)</span>,就可以发现这个时候的<span class="math inline">\(\mu\)</span>已经落在<span class="math inline">\(\bar X\pm O(1)\)</span>的区间内了.</p>
+<h6><span id="example2">Example2</span></h6>
+<p>考虑对<span class="math inline">\(X\sim B(1,p)\)</span>.设计<span class="math inline">\(p\)</span>的置信水平<span class="math inline">\(1-\alpha\)</span>的置信区间.</p>
+<p>直接考虑Chernoff Bound,给出<span class="math inline">\(P(|\bar
+X-p|&gt;\epsilon)\leq 2e^{-2n\epsilon^2}\)</span>.取<span class="math inline">\(\epsilon=\sqrt{\frac{\ln\frac{2}{\alpha}}{2n}}\)</span>,于是:
+<span class="math display">\[
+P(\bar X-\sqrt{\frac{\ln(\frac{2}{\alpha})}{2n}}\leq p\leq \bar
+X+\sqrt{\frac{\ln(\frac{2}{\alpha})}{2n}})\geq 1-\alpha
+\]</span></p>
 
     </div>
 

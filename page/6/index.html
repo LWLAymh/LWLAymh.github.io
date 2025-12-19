@@ -492,7 +492,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-11-27 11:35:27" itemprop="dateModified" datetime="2025-11-27T11:35:27+08:00">2025-11-27</time>
+      <time title="修改时间：2025-12-02 14:50:28" itemprop="dateModified" datetime="2025-12-02T14:50:28+08:00">2025-12-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -644,6 +644,7 @@ k \geq 1 } \frac{ f^{ ( k ) } ( x_0 ) }{ k ! } ( x - x_0 )^k
 <p>现在考虑这个映射本身所组成的交换群<span class="math inline">\(\{X_a\}\)</span>,容易发现以下性质:</p>
 <ol type="1">
 <li><span class="math inline">\(X_aX_b=X_{a+b}\)</span>.</li>
+<li><span class="math inline">\(X_a(x+y)=X_a(x)X_a(y)\)</span>.</li>
 <li><span class="math inline">\(\bar X_a=X_{-a}\)</span>.</li>
 <li><span class="math inline">\(X_{a}(b)=X_{b}(a)\)</span>.</li>
 <li><span class="math inline">\(\sum_x
@@ -651,7 +652,7 @@ X_a(x)=\begin{cases}|G|&amp;a=0\\0&amp;\text{otherwise}\end{cases}\)</span></li>
 </ol>
 <p>考虑在上面的复内积<span class="math inline">\(\langle
 X_a,X_b\rangle=\sum_x X_a(x)\bar {X_b}(x)=\sum_x
-X_{a-b}(x)\)</span>.根据(3),这显然是一组正交基.从而任何一个<span class="math inline">\(f:G\to \mathbb{C}\)</span>都可以写作<span class="math inline">\(\sum \hat f(b)X_b\)</span>的形式,而且<span class="math inline">\(\hat f(b)=\frac{1}{n}\langle
+X_{a-b}(x)\)</span>.这显然是一组正交基.从而任何一个<span class="math inline">\(f:G\to \mathbb{C}\)</span>都可以写作<span class="math inline">\(\sum \hat f(b)X_b\)</span>的形式,而且<span class="math inline">\(\hat f(b)=\frac{1}{n}\langle
 f,X_b\rangle\)</span>,容易见到这里<span class="math inline">\(\hat
 f(b)\in \mathbb{C}\)</span>,从而其实<span class="math inline">\(\hat
 f\)</span>也是一个<span class="math inline">\(G\to
@@ -664,7 +665,14 @@ f\)</span>也是一个<span class="math inline">\(G\to
 &amp;=\sum_x \frac{1}{n}f(x)\sum_bX_{-(a+x)}(b)\\
 &amp;=f(-a)
 \end{aligned}
-\]</span> 接下来定义卷积<span class="math inline">\((f*g)(x)=\sum_{y}f(y)g(x-y)\)</span>.</p>
+\]</span> 于是我们见到下面两个过程:</p>
+<ol type="1">
+<li><span class="math inline">\(\langle f,X_a\rangle=n \hat
+f(a)\)</span>.</li>
+<li><span class="math inline">\(\langle\hat
+f,X_{-a}\rangle=f(a)\)</span>.</li>
+</ol>
+<p>接下来定义卷积<span class="math inline">\((f*g)(x)=\sum_{y}f(y)g(x-y)\)</span>.</p>
 <p>还是应该再思考一下两者的地位,见到:</p>
 <ol type="1">
 <li><span class="math inline">\(n\Vert \hat f\Vert^2=\Vert
@@ -683,9 +691,17 @@ f(x))^2\)</span>.</p>
 <p>对于(4): <span class="math display">\[
 \widehat{fg}(x)=\frac{1}{n}\langle fg,X_x\rangle
 \]</span></p>
-<h6><span id="example">Example</span></h6>
-<p>考虑Bool函数<span class="math inline">\(\{0,1\}^n\to
-\{0,1\}\)</span>.为了使用我们上面的技术,我们将其写作<span class="math inline">\(\mathbb{Z}_2^n\to \{1,-1\}\)</span>.</p>
+<p>对于(5): <span class="math display">\[
+\begin{aligned}
+\widehat{f*g}(x)&amp;=\frac{1}{n}\langle f*g,X_x\rangle\\
+&amp;=\frac{1}{n}\sum_{a}(f*g)(a)X_{-x}(a)\\
+&amp;=\frac{1}{n}\sum_{a}X_{-x}(a)\sum_{b}f(b)g(a-b)\\
+&amp;=\frac{1}{n}\sum_{a}\sum_{b}f(a)g(b)X_{-x}(a+b)\\
+&amp;=\frac{1}{n}\sum_{a}\sum_{b}f(a)g(b)X_{-x}(a)X_{-x}(b)\\
+&amp;=\frac{1}{n}n\hat f(x)n\hat g(x)\\
+&amp;=n \hat f(x)\hat g(x)
+\end{aligned}
+\]</span></p>
 <h2><span id="多项式">多项式</span></h2>
 <h3><span id="多项式基础">多项式基础</span></h3>
 <h4><span id="点值表示法和系数表示法">点值表示法和系数表示法</span></h4>
@@ -2036,6 +2052,13 @@ B } Mnq
       <span class="post-meta-item-text">发表于</span>
 
       <time title="创建时间：2025-06-23 00:00:25" itemprop="dateCreated datePublished" datetime="2025-06-23T00:00:25+08:00">2025-06-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-16 13:55:05" itemprop="dateModified" datetime="2025-12-16T13:55:05+08:00">2025-12-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
