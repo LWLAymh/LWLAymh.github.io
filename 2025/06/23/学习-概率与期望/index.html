@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lwlaymh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="离散概率 基本定义 概率空间\(\Omega\):在一个给定问题中可能发生的所有情况. 事件:\(\Omega\)的一个子集. 基本事件\(\omega\):\(\Omega\)中的单个元素,也可以看作集合大小为\(1\)的事件. 概率:若\(\omega \in \Omega\),我们称它发生的概率为\(\Pr ( \omega )\),有\(\Pr ( \omega ) \g">
+    <meta name="description" content="离散概率基本定义概率空间$\Omega$:在一个给定问题中可能发生的所有情况. 事件:$\Omega$的一个子集. 基本事件$\omega$:$\Omega$中的单个元素,也可以看作集合大小为$1$的事件. 概率:若$\omega \in \Omega$,我们称它发生的概率为$\Pr ( \omega )$,有$\Pr ( \omega ) \geq 0$且$\sum_{ \omega \in">
 <meta property="og:type" content="article">
 <meta property="og:title" content="概率与期望">
 <meta property="og:url" content="http://lwlaymh.github.io/2025/06/23/%E5%AD%A6%E4%B9%A0-%E6%A6%82%E7%8E%87%E4%B8%8E%E6%9C%9F%E6%9C%9B/index.html">
 <meta property="og:site_name" content="LWLAymh的备忘录">
-<meta property="og:description" content="离散概率 基本定义 概率空间\(\Omega\):在一个给定问题中可能发生的所有情况. 事件:\(\Omega\)的一个子集. 基本事件\(\omega\):\(\Omega\)中的单个元素,也可以看作集合大小为\(1\)的事件. 概率:若\(\omega \in \Omega\),我们称它发生的概率为\(\Pr ( \omega )\),有\(\Pr ( \omega ) \g">
+<meta property="og:description" content="离散概率基本定义概率空间$\Omega$:在一个给定问题中可能发生的所有情况. 事件:$\Omega$的一个子集. 基本事件$\omega$:$\Omega$中的单个元素,也可以看作集合大小为$1$的事件. 概率:若$\omega \in \Omega$,我们称它发生的概率为$\Pr ( \omega )$,有$\Pr ( \omega ) \geq 0$且$\sum_{ \omega \in">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-22T16:00:25.311Z">
 <meta property="article:modified_time" content="2025-12-26T01:23:52.463Z">
@@ -336,1420 +336,882 @@
     
     
     <div class="post-body" itemprop="articleBody"><span id="more"></span>
-<h2><span id="离散概率">离散概率</span></h2>
-<h3><span id="基本定义">基本定义</span></h3>
-<p>概率空间<span class="math inline">\(\Omega\)</span>:在一个给定问题中可能发生的所有情况.</p>
-<p>事件:<span class="math inline">\(\Omega\)</span>的一个子集.</p>
-<p>基本事件<span class="math inline">\(\omega\)</span>:<span class="math inline">\(\Omega\)</span>中的单个元素,也可以看作集合大小为<span class="math inline">\(1\)</span>的事件.</p>
-<p>概率:若<span class="math inline">\(\omega \in
-\Omega\)</span>,我们称它发生的概率为<span class="math inline">\(\Pr (
-\omega )\)</span>,有<span class="math inline">\(\Pr ( \omega ) \geq
-0\)</span>且<span class="math inline">\(\sum_{ \omega \in \Omega } \Pr (
-\omega ) = 1\)</span>.</p>
+<h2><span id="离散概率">离散概率</span></h2><h3><span id="基本定义">基本定义</span></h3><p>概率空间$\Omega$:在一个给定问题中可能发生的所有情况.</p>
+<p>事件:$\Omega$的一个子集.</p>
+<p>基本事件$\omega$:$\Omega$中的单个元素,也可以看作集合大小为$1$的事件.</p>
+<p>概率:若$\omega \in \Omega$,我们称它发生的概率为$\Pr ( \omega )$,有$\Pr ( \omega ) \geq 0$且$\sum_{ \omega \in \Omega } \Pr ( \omega ) = 1$.</p>
 <p>随机变量:在概率空间的基本事件上定义的函数.</p>
-<p>联合分布:如果两个随机变量<span class="math inline">\(X\)</span>和<span class="math inline">\(Y\)</span>定义在同一个概率空间<span class="math inline">\(\Omega\)</span>上,对于每一个在<span class="math inline">\(X\)</span>取值范围内的<span class="math inline">\(x\)</span>以及在<span class="math inline">\(Y\)</span>取值范围内的<span class="math inline">\(y\)</span>,我们称<span class="math inline">\(\Pr (
-X = x \land Y = y )\)</span>为它们的联合分布.</p>
-<p>独立:如果对于每一个在<span class="math inline">\(X\)</span>取值范围内的<span class="math inline">\(x\)</span>以及在<span class="math inline">\(Y\)</span>取值范围内的<span class="math inline">\(y\)</span>,<span class="math inline">\(\Pr ( X = x
-\land Y = y ) = \Pr ( X = x ) \times \Pr ( Y = y )\)</span>,我们称<span class="math inline">\(X\)</span>和<span class="math inline">\(Y\)</span>是独立的.</p>
-<p>期望(均值)<span class="math inline">\(E
-X\)</span>:我们设概率空间上的随机变量<span class="math inline">\(X\)</span>的期望<span class="math inline">\(EX =
-\sum_{ x \in X ( \Omega ) } x \times \Pr ( X = x ) = \sum_{ w \in \Omega
-} X ( \omega ) \Pr ( \omega )\)</span>.</p>
-<p>中位数:我们设概率空间上的随机变量<span class="math inline">\(X\)</span>的中位数为满足<span class="math inline">\(\Pr ( X \leq x ) \geq 0 . 5 \land \Pr ( X \geq x )
-\geq 0 . 5\)</span>的<span class="math inline">\(x \in X ( \Omega
-)\)</span>所组成的集合.</p>
-<p>众数:我们设概率空间上的随机变量<span class="math inline">\(X\)</span>的众数为满足<span class="math inline">\(\Pr ( X = x ) \geq \Pr ( X = x &#39; ) , \forall x
-&#39; \in X ( \Omega )\)</span>的<span class="math inline">\(x \in X (
-\Omega )\)</span>所组成的集合.</p>
-<p>方差<span class="math inline">\(VX\)</span>:我们设概率空间上的随机变量<span class="math inline">\(X\)</span>的方差<span class="math inline">\(VX = E
-( ( X - EX )^2 )\)</span>.</p>
-<p>标准差<span class="math inline">\(\sigma\)</span>:我们设概率空间上的随机变量<span class="math inline">\(X\)</span>的标准差<span class="math inline">\(\sigma = \sqrt{ VX }\)</span>.</p>
-<h3><span id="期望的简单运算">期望的简单运算</span></h3>
-<p>如果<span class="math inline">\(X ,
-Y\)</span>是定义在同一个概率空间上的两个随机变量,那么:</p>
-<ol type="1">
-<li><p><span class="math inline">\(E ( X + Y ) = EX +
-EY\)</span>.</p></li>
-<li><p><span class="math inline">\(E ( \alpha X ) = \alpha
-EX\)</span>.</p></li>
-<li><p>如果<span class="math inline">\(X\)</span>和<span class="math inline">\(Y\)</span>互相独立,那么<span class="math inline">\(E ( XY ) = ( EX ) ( EY )\)</span>.</p></li>
+<p>联合分布:如果两个随机变量$X$和$Y$定义在同一个概率空间$\Omega$上,对于每一个在$X$取值范围内的$x$以及在$Y$取值范围内的$y$,我们称$\Pr ( X = x \land Y = y )$为它们的联合分布.</p>
+<p>独立:如果对于每一个在$X$取值范围内的$x$以及在$Y$取值范围内的$y$,$\Pr ( X = x \land Y = y ) = \Pr ( X = x ) \times \Pr ( Y = y )$,我们称$X$和$Y$是独立的.</p>
+<p>期望(均值)$E X$:我们设概率空间上的随机变量$X$的期望$EX = \sum_{ x \in X ( \Omega ) } x \times \Pr ( X = x ) = \sum_{ w \in \Omega } X ( \omega ) \Pr ( \omega )$.</p>
+<p>中位数:我们设概率空间上的随机变量$X$的中位数为满足$\Pr ( X \leq x ) \geq 0 . 5 \land \Pr ( X \geq x ) \geq 0 . 5$的$x \in X ( \Omega )$所组成的集合.</p>
+<p>众数:我们设概率空间上的随机变量$X$的众数为满足$\Pr ( X = x ) \geq \Pr ( X = x ‘ ) , \forall x ‘ \in X ( \Omega )$的$x \in X ( \Omega )$所组成的集合.</p>
+<p>方差$VX$:我们设概率空间上的随机变量$X$的方差$VX = E ( ( X - EX )^2 )$.</p>
+<p>标准差$\sigma$:我们设概率空间上的随机变量$X$的标准差$\sigma = \sqrt{ VX }$.</p>
+<h3><span id="期望的简单运算">期望的简单运算</span></h3><p>如果$X , Y$是定义在同一个概率空间上的两个随机变量,那么:</p>
+<ol>
+<li><p>$E ( X + Y ) = EX + EY$.</p>
+</li>
+<li><p>$E ( \alpha X ) = \alpha EX$.</p>
+</li>
+<li><p>如果$X$和$Y$互相独立,那么$E ( XY ) = ( EX ) ( EY )$.</p>
+</li>
 </ol>
 <p>上述法则都可以通过期望的定义简单证明.</p>
-<p>此外(3)的逆命题不成立.考虑取<span class="math inline">\(X\)</span>分别以<span class="math inline">\(\frac{1}{2}\)</span>的概率选取<span class="math inline">\(-1\)</span>和<span class="math inline">\(1\)</span>,取<span class="math inline">\(Y=X^2\)</span>,则<span class="math inline">\(E(X)=E(XY)=0\)</span>.</p>
-<h3><span id="方差的简单运算">方差的简单运算</span></h3>
-<p>我们考虑方差的定义式:</p>
-<p><span class="math display">\[
+<p>此外(3)的逆命题不成立.考虑取$X$分别以$\frac{1}{2}$的概率选取$-1$和$1$,取$Y=X^2$,则$E(X)=E(XY)=0$.</p>
+<h3><span id="方差的简单运算">方差的简单运算</span></h3><p>我们考虑方差的定义式:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-E ( ( X - EX )^2 ) &amp; = E ( X^2 - 2 X ( EX ) + ( EX )^2 ) \\
-&amp; = E ( X^2 ) - 2 ( EX ) ( EX ) + ( EX )^2 \\
-&amp; = E ( X^2 ) - ( EX )^2
-\end{aligned}
-\]</span></p>
-<p>也即:方差等于随机变量平方的均值减均值的平方.</p>
-<p>当<span class="math inline">\(X\)</span>和<span class="math inline">\(Y\)</span>为独立的随机变量时,我们有:</p>
-<p><span class="math display">\[
+E ( ( X - EX )^2 ) & = E ( X^2 - 2 X ( EX ) + ( EX )^2 ) \\
+& = E ( X^2 ) - 2 ( EX ) ( EX ) + ( EX )^2 \\
+& = E ( X^2 ) - ( EX )^2
+\end{aligned}</script><p>也即:方差等于随机变量平方的均值减均值的平方.</p>
+<p>当$X$和$Y$为独立的随机变量时,我们有:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-V ( X + Y ) &amp; = E ( ( X + Y )^2 ) - ( EX + EY )^2 \\
-&amp; = E ( ( X + Y )^2 ) - ( EX )^2 - 2 ( EX ) ( EY ) - ( EY )^2
-\end{aligned}
-\]</span></p>
-<p>而又有:</p>
-<p><span class="math display">\[
+V ( X + Y ) & = E ( ( X + Y )^2 ) - ( EX + EY )^2 \\
+& = E ( ( X + Y )^2 ) - ( EX )^2 - 2 ( EX ) ( EY ) - ( EY )^2
+\end{aligned}</script><p>而又有:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-E ( ( X + Y )^2 ) &amp; = E ( X^2 + 2 XY + Y^2 ) \\
-&amp; = E ( X^2 ) + 2 ( EX ) ( EY ) + E ( Y^2 )
-\end{aligned}
-\]</span></p>
-<p>则:</p>
-<p><span class="math display">\[
+E ( ( X + Y )^2 ) & = E ( X^2 + 2 XY + Y^2 ) \\
+& = E ( X^2 ) + 2 ( EX ) ( EY ) + E ( Y^2 )
+\end{aligned}</script><p>则:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-V ( X + Y ) &amp; = E ( X^2 ) + 2 ( EX ) ( EY ) + E ( Y^2 ) - ( EX )^2 -
-2 ( EX ) ( EY ) - ( EY )^2 \\
-&amp; = VX + VY
-\end{aligned}
-\]</span></p>
-<p>即:独立随机变量之和的方差等于它们的方差之和.此外显然也有<span class="math inline">\(\mathrm{Var}(X-Y)=\mathrm{Var}(X)+\mathrm{Var}(Y)\)</span>.</p>
-<p>事实上,容易见到可以定义协方差<span class="math inline">\(\mathrm{Cov}(X,Y)=E(XY)-E(X)E(Y)\)</span>.容易见到以下性质:</p>
-<ol type="1">
-<li><span class="math inline">\(\mathrm{Cov}(X,X)=\mathrm{Var}(X)\)</span>.</li>
-<li><span class="math inline">\(\mathrm{Cov}(X,Y)=\mathrm{Cov}(Y,X)\)</span>.</li>
-<li><span class="math inline">\(\mathrm{Cov}(aX,bY)=ab\mathrm{Cov}(X,Y)\)</span>.</li>
-<li><span class="math inline">\(\mathrm{Cov}(X_1+X_2,Y)=\mathrm{Cov}(X_1,Y)+\mathrm{Cov}(X_2,Y)\)</span>.</li>
-<li>若<span class="math inline">\(X,Y\)</span>相互独立,则<span class="math inline">\(\mathrm{Cov}(X,Y)=0\)</span>.然而逆命题不成立.</li>
-<li><span class="math inline">\(\mathrm{Var}(\sum_{i}X_i)=\sum_{i}\sum_j\mathrm{Cov}(X_i,X_j)\)</span>.</li>
-<li><span class="math inline">\(\mathrm{Var}(X+Y)=\mathrm{Var}(X)+\mathrm{Var}(Y)+2\mathrm{Cov}(X,Y)\)</span>.</li>
+V ( X + Y ) & = E ( X^2 ) + 2 ( EX ) ( EY ) + E ( Y^2 ) - ( EX )^2 - 2 ( EX ) ( EY ) - ( EY )^2 \\
+& = VX + VY
+\end{aligned}</script><p>即:独立随机变量之和的方差等于它们的方差之和.此外显然也有$\mathrm{Var}(X-Y)=\mathrm{Var}(X)+\mathrm{Var}(Y)$.</p>
+<p>事实上,容易见到可以定义协方差$\mathrm{Cov}(X,Y)=E(XY)-E(X)E(Y)$.容易见到以下性质:</p>
+<ol>
+<li>$\mathrm{Cov}(X,X)=\mathrm{Var}(X)$.</li>
+<li>$\mathrm{Cov}(X,Y)=\mathrm{Cov}(Y,X)$.</li>
+<li>$\mathrm{Cov}(aX,bY)=ab\mathrm{Cov}(X,Y)$.</li>
+<li>$\mathrm{Cov}(X_1+X_2,Y)=\mathrm{Cov}(X_1,Y)+\mathrm{Cov}(X_2,Y)$.</li>
+<li>若$X,Y$相互独立,则$\mathrm{Cov}(X,Y)=0$.然而逆命题不成立.</li>
+<li>$\mathrm{Var}(\sum_{i}X_i)=\sum_{i}\sum_j\mathrm{Cov}(X_i,X_j)$.</li>
+<li>$\mathrm{Var}(X+Y)=\mathrm{Var}(X)+\mathrm{Var}(Y)+2\mathrm{Cov}(X,Y)$.</li>
 </ol>
-<h3><span id="随机抽样调查">随机抽样调查</span></h3>
-<p>如果我们随机取得了<span class="math inline">\(n\)</span>个值<span class="math inline">\(X_1 , X_2 , . . . ,
-X_n\)</span>,那么我们可以通过这些值来估计概率空间的期望和方差.</p>
-<p><span class="math inline">\(\hat EX = \cfrac{ \sum_{ i = 1 }^n X_i }{
-n }\)</span>.</p>
-<p><span class="math inline">\(\hat VX = \cfrac{ \sum_{ i = 1 }^n X_i^2
-}{ n - 1 } - \cfrac{ ( \sum_{ i = 1 }^n X_i )^2 }{ n ( n - 1 )
-}\)</span>.</p>
-<p>这里的<span class="math inline">\(\hat
-VX\)</span>似乎与定义不是那么相符.但是它拥有更好的性质:<span class="math inline">\(E ( \hat VX ) = VX\)</span>.</p>
+<h3><span id="随机抽样调查">随机抽样调查</span></h3><p>如果我们随机取得了$n$个值$X_1 , X_2 , . . . , X_n$,那么我们可以通过这些值来估计概率空间的期望和方差.</p>
+<p>$\hat EX = \cfrac{ \sum_{ i = 1 }^n X_i }{ n }$.</p>
+<p>$\hat VX = \cfrac{ \sum_{ i = 1 }^n X_i^2 }{ n - 1 } - \cfrac{ ( \sum_{ i = 1 }^n X_i )^2 }{ n ( n - 1 ) }$.</p>
+<p>这里的$\hat VX$似乎与定义不是那么相符.但是它拥有更好的性质:$E ( \hat VX ) = VX$.</p>
 <p>证明如下:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-E ( \hat VX ) &amp; = \cfrac{ 1 }{ n - 1 } E ( \sum_{ i = 1 }^n X_i^2 -
-\cfrac{ 1 }{ n } \sum_{ j = 1 }^n \sum_{ k = 1 }^n X_j X_k ) \\
-&amp; = \cfrac{ 1 }{ n - 1 } ( \sum_{ i = 1 }^n E ( X_i^2 ) - \cfrac{ 1
-}{ n } \sum_{ i = 1 }^n \sum_{ j = 1 }^n E ( X_i X_j ) ) \\
-&amp; = \cfrac{ 1 }{ n - 1 } ( \sum_{ i = 1 }^n E ( X^2 ) - \cfrac{ 1 }{
-n } \sum_{ i = 1 }^n \sum_{ j = 1 }^n ( ( EX )^2 [ j \ne k ] + E ( X^2 )
-[ j = k ] ) ) \\
-&amp; = \cfrac{ 1 }{ n - 1 } ( nE ( X^2 ) - \cfrac{ 1 }{ n } ( nE ( X^2
-) + n ( n - 1 ) ( EX )^2 ) ) \\
-&amp; = E ( X^2 ) - ( EX )^2 \\
-&amp; = VX
-\end{aligned}
-\]</span></p>
-<h3><span id="条件概率">条件概率</span></h3>
-<p>已知事件B发生时事件A发生的概率为<span class="math inline">\(P ( A | B
-) = \frac{ P ( AB ) }{ P ( B ) } \\\)</span>.</p>
-<h4><span id="贝叶斯公式">贝叶斯公式</span></h4>
-<p>贝叶斯公式:如果有<span class="math inline">\(\{ B_i
-\}\)</span>是样本空间的一个划分,即<span class="math inline">\(\forall i
-, j\)</span>,有<span class="math inline">\(B_i \cap B_j =
-\emptyset\)</span>,并且有<span class="math inline">\(\bigcup_{ i = 1 }^n
-B_i = \Omega\)</span>.则有<span class="math inline">\(P ( B_i | A ) =
-\frac{ P ( AB_i ) }{ P ( A ) } = \frac{ P ( AB_i ) }{ P ( A ) \sum P (
-B_j ) } = \frac{ P ( A B_i ) }{ \sum_{ j = 1 }^n P ( A B_j ) } = \frac{
-P ( A | B_i ) P ( B_i ) }{ \sum_{ j = 1 }^n P ( A | B_j ) P ( B_j ) }
-\\\)</span>.</p>
-<p>简化形式:<span class="math inline">\(P ( B | A ) = \frac{ P ( A | B )
-P ( B ) }{ P ( A ) } \\\)</span>.</p>
-<p>另外,我们考虑设<span class="math inline">\(O ( B ) = \cfrac{ P ( B )
-}{ P ( \lnot B ) }\)</span>,称<span class="math inline">\(\cfrac{ P ( B
-| E ) }{ P ( \lnot B | E ) }\)</span>为贝叶斯算子,则同理可得:</p>
-<p><span class="math display">\[
-O ( B | E ) = O ( B ) \cfrac{ P ( B | E ) }{ P ( \lnot B | E ) }
-\]</span></p>
-<p>这个公式更加精准地分开了先验概率和后验概率,也表现了贝叶斯算子对先验概率的改变.</p>
-<h3><span id="概率生成函数">概率生成函数</span></h3>
-<p>如果<span class="math inline">\(X\)</span>是定义在概率空间<span class="math inline">\(\Omega\)</span>上的随机变量,那么它的概率生成函数为<span class="math inline">\(G_X ( z ) = \sum_{ k \geq 0 } \Pr ( X = k ) z^k =
-E ( z^X )\)</span>.</p>
-<p>不难发现<span class="math inline">\(G_X ( z
-)\)</span>需要满足的条件:所有系数都非负并且<span class="math inline">\(G_X ( 1 ) = 1\)</span>.</p>
+E ( \hat VX ) & = \cfrac{ 1 }{ n - 1 } E ( \sum_{ i = 1 }^n X_i^2 - \cfrac{ 1 }{ n } \sum_{ j = 1 }^n \sum_{ k = 1 }^n X_j X_k ) \\
+& = \cfrac{ 1 }{ n - 1 } ( \sum_{ i = 1 }^n E ( X_i^2 ) - \cfrac{ 1 }{ n } \sum_{ i = 1 }^n \sum_{ j = 1 }^n E ( X_i X_j ) ) \\
+& = \cfrac{ 1 }{ n - 1 } ( \sum_{ i = 1 }^n E ( X^2 ) - \cfrac{ 1 }{ n } \sum_{ i = 1 }^n \sum_{ j = 1 }^n ( ( EX )^2 [ j \ne k ] + E ( X^2 ) [ j = k ] ) ) \\
+& = \cfrac{ 1 }{ n - 1 } ( nE ( X^2 ) - \cfrac{ 1 }{ n } ( nE ( X^2 ) + n ( n - 1 ) ( EX )^2 ) ) \\
+& = E ( X^2 ) - ( EX )^2 \\
+& = VX
+\end{aligned}</script><h3><span id="条件概率">条件概率</span></h3><p>已知事件B发生时事件A发生的概率为$P ( A | B ) = \frac{ P ( AB ) }{ P ( B ) } \\$.</p>
+<h4><span id="贝叶斯公式">贝叶斯公式</span></h4><p>贝叶斯公式:如果有$\{ B_i \}$是样本空间的一个划分,即$\forall i , j$,有$B_i \cap B_j = \emptyset$,并且有$\bigcup_{ i = 1 }^n B_i = \Omega$.则有$P ( B_i | A ) = \frac{ P ( AB_i ) }{ P ( A ) } = \frac{ P ( AB_i ) }{ P ( A ) \sum P ( B_j ) } = \frac{ P ( A B_i ) }{ \sum_{ j = 1 }^n P ( A B_j ) } = \frac{ P ( A | B_i ) P ( B_i ) }{ \sum_{ j = 1 }^n P ( A | B_j ) P ( B_j ) } \\$.</p>
+<p>简化形式:$P ( B | A ) = \frac{ P ( A | B ) P ( B ) }{ P ( A ) } \\$.</p>
+<p>另外,我们考虑设$O ( B ) = \cfrac{ P ( B ) }{ P ( \lnot B ) }$,称$\cfrac{ P ( B | E ) }{ P ( \lnot B | E ) }$为贝叶斯算子,则同理可得:</p>
+<script type="math/tex; mode=display">
+O ( B | E ) = O ( B ) \cfrac{ P ( B | E ) }{ P ( \lnot B | E ) }</script><p>这个公式更加精准地分开了先验概率和后验概率,也表现了贝叶斯算子对先验概率的改变.</p>
+<h3><span id="概率生成函数">概率生成函数</span></h3><p>如果$X$是定义在概率空间$\Omega$上的随机变量,那么它的概率生成函数为$G_X ( z ) = \sum_{ k \geq 0 } \Pr ( X = k ) z^k = E ( z^X )$.</p>
+<p>不难发现$G_X ( z )$需要满足的条件:所有系数都非负并且$G_X ( 1 ) = 1$.</p>
 <p>我们发现,当我们定义了概率生成函数后,期望和方差都可以使用它来表示:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-EX &amp; = G_X &#39; ( 1 ) \\
-E ( X^2 ) &amp; = G &#39; &#39;_X ( 1 ) + G_X &#39; ( 1 ) \\
-VX &amp; = G_X &#39; &#39; ( 1 ) + G_X &#39; ( 1 ) - ( G_X &#39; ( 1 )
-)^2
-\end{aligned}
-\]</span></p>
-<p>通常,我们也可以将方差和均值的定义扩展到任意函数上,于是我们定义:</p>
-<p><span class="math display">\[
+EX & = G_X ' ( 1 ) \\
+E ( X^2 ) & = G ' '_X ( 1 ) + G_X ' ( 1 ) \\
+VX & = G_X ' ' ( 1 ) + G_X ' ( 1 ) - ( G_X ' ( 1 ) )^2
+\end{aligned}</script><p>通常,我们也可以将方差和均值的定义扩展到任意函数上,于是我们定义:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-Mean ( G ) &amp; = G &#39; ( 1 ) \\
-Var ( G ) &amp; = G &#39; &#39; ( 1 ) + G &#39; ( 1 ) - ( G &#39; ( 1 )
-)^2
-\end{aligned}
-\]</span></p>
-<p>不过,求导的过程可能会有些麻烦,但我们可以直接使用泰勒定理:</p>
-<p><span class="math display">\[
-G ( 1 + t ) = \sum_{ i \geq 0 } \cfrac{ G^{ ( i ) } ( 1 ) }{ i ! } t^i
-\]</span></p>
-<p>另外,我们不难发现:<span class="math inline">\(G_{ X + Y } ( z ) = G_X
-( z ) G_Y ( z )\)</span>.</p>
+Mean ( G ) & = G ' ( 1 ) \\
+Var ( G ) & = G ' ' ( 1 ) + G ' ( 1 ) - ( G ' ( 1 ) )^2
+\end{aligned}</script><p>不过,求导的过程可能会有些麻烦,但我们可以直接使用泰勒定理:</p>
+<script type="math/tex; mode=display">
+G ( 1 + t ) = \sum_{ i \geq 0 } \cfrac{ G^{ ( i ) } ( 1 ) }{ i ! } t^i</script><p>另外,我们不难发现:$G_{ X + Y } ( z ) = G_X ( z ) G_Y ( z )$.</p>
 <p>根据前面的推导,我们有:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-Mean ( G_{ X + Y } ) &amp; = Mean ( G_X ) + Mean ( G_Y ) \\
-Var ( G_{ X + Y } ) &amp; = Var ( G_X ) + Var ( G_Y )
-\end{aligned}
-\]</span></p>
-<p>换句话说,若<span class="math inline">\(G_X ( 1 ) = 1 , G_Y ( 1 ) =
-1\)</span>,那么这个式子与直接对<span class="math inline">\(G_{ X + Y
-}\)</span>使用求导的那个公式是等价的.注意,这里并没有要求这些生成函数的系数是非负的.</p>
+Mean ( G_{ X + Y } ) & = Mean ( G_X ) + Mean ( G_Y ) \\
+Var ( G_{ X + Y } ) & = Var ( G_X ) + Var ( G_Y )
+\end{aligned}</script><p>换句话说,若$G_X ( 1 ) = 1 , G_Y ( 1 ) = 1$,那么这个式子与直接对$G_{ X + Y }$使用求导的那个公式是等价的.注意,这里并没有要求这些生成函数的系数是非负的.</p>
 <p>于是我们有了另一个法则:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-Mean ( G_X ) &amp; = Mean ( G_{ X + Y } ) - Mean ( G_Y ) \\
-Var ( G_X ) &amp; = Var ( G_{ X + Y } ) - Var ( G_Y )
-\end{aligned}
-\]</span></p>
-<h4><span id="example1">Example1</span></h4>
-<p>一枚硬币正面向上的概率为<span class="math inline">\(p\)</span>,反面向上的概率为<span class="math inline">\(q\)</span>,设硬币正面向上为H,反面向上为T,不断抛掷硬币直到抛掷出连续的THTTH为止,求期望次数.</p>
-<p>考虑设<span class="math inline">\(N\)</span>为所有不包含THTTH的硬币序列的生成函数,<span class="math inline">\(S\)</span>为所有只有结尾为THTTH的硬币序列的生成函数,令<span class="math inline">\(H = pz , T = qz\)</span>,<span class="math inline">\(1\)</span>为空集,我们显然有:</p>
-<p><span class="math display">\[
+Mean ( G_X ) & = Mean ( G_{ X + Y } ) - Mean ( G_Y ) \\
+Var ( G_X ) & = Var ( G_{ X + Y } ) - Var ( G_Y )
+\end{aligned}</script><h4><span id="example1">Example1</span></h4><p>一枚硬币正面向上的概率为$p$,反面向上的概率为$q$,设硬币正面向上为H,反面向上为T,不断抛掷硬币直到抛掷出连续的THTTH为止,求期望次数.</p>
+<p>考虑设$N$为所有不包含THTTH的硬币序列的生成函数,$S$为所有只有结尾为THTTH的硬币序列的生成函数,令$H = pz , T = qz$,$1$为空集,我们显然有:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-1 + N \times ( H + T ) &amp; = N + S \\
-N \times THTTH &amp; = S + S \times TTH
-\end{aligned}
-\]</span></p>
-<p>解方程即可.</p>
+1 + N \times ( H + T ) & = N + S \\
+N \times THTTH & = S + S \times TTH
+\end{aligned}</script><p>解方程即可.</p>
 <p>另外不难发现,这种方法取决于字符串的所有border,显然是通用方法.</p>
-<p>我们考虑扩展这个方法,设<span class="math inline">\(A\)</span>是我们要找到的字符串,<span class="math inline">\(m\)</span>是它的长度,令<span class="math inline">\(A^{ ( k ) }\)</span>表示<span class="math inline">\(A\)</span>字符串的前<span class="math inline">\(k\)</span>个字符所组成的字符串,<span class="math inline">\(A_{ ( k ) }\)</span>表示<span class="math inline">\(A\)</span>字符串的后<span class="math inline">\(k\)</span>个字符所组成的字符串.这样的形式与<span class="math inline">\(k\)</span>阶导的形式可能会起冲突,但至少在接下来我们的式子中不会出现导数<del>(好吧其实是因为《具体数学》上就这么写的我也懒得改了)</del>.</p>
+<p>我们考虑扩展这个方法,设$A$是我们要找到的字符串,$m$是它的长度,令$A^{ ( k ) }$表示$A$字符串的前$k$个字符所组成的字符串,$A_{ ( k ) }$表示$A$字符串的后$k$个字符所组成的字符串.这样的形式与$k$阶导的形式可能会起冲突,但至少在接下来我们的式子中不会出现导数<del>(好吧其实是因为《具体数学》上就这么写的我也懒得改了)</del>.</p>
 <p>我们的方程将会变为:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-1 + N ( H + T ) &amp; = N + S \\
-N \times A &amp; = S ( \sum_{ k = 0 }^{ m - 1 } A^{ ( k ) } [ A^{ ( m -
-k ) } = A_{ ( m - k ) } ] )
-\end{aligned}
-\]</span></p>
-<p>如果我们设<span class="math inline">\(\tilde{ A
-}\)</span>为将字符串<span class="math inline">\(A\)</span>中的H替换成<span class="math inline">\(\cfrac{ 1 }{ p } z\)</span>,T替换成<span class="math inline">\(\cfrac{ 1 }{ q }
-z\)</span>之后的值,那么显然有:</p>
-<p><span class="math display">\[
+1 + N ( H + T ) & = N + S \\
+N \times A & = S ( \sum_{ k = 0 }^{ m - 1 } A^{ ( k ) } [ A^{ ( m - k ) } = A_{ ( m - k ) } ] )
+\end{aligned}</script><p>如果我们设$\tilde{ A }$为将字符串$A$中的H替换成$\cfrac{ 1 }{ p } z$,T替换成$\cfrac{ 1 }{ q } z$之后的值,那么显然有:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-N \times A &amp; = A \times S \times ( \sum_{ k = 1 }^{ m } \tilde{ A
-}_{ ( k ) } [ A^{ ( k ) } = A_{ ( k ) } ] ) \\
-N &amp; = S \times ( \sum_{ k = 1 }^{ m } \tilde{ A }_{ ( k ) } [ A^{ (
-k ) } = A_{ ( k ) } ] ) \\
-\cfrac{ S - 1 }{ H + T - 1 } &amp; = S \times ( \sum_{ k = 1 }^{ m }
-\tilde{ A }_{ ( k ) } [ A^{ ( k ) } = A_{ ( k ) } ] ) \\
-S \times ( 1 + ( 1 - H - T ) \times ( \sum_{ k = 1 }^{ m } \tilde{ A }_{
-( k ) } [ A^{ ( k ) } &amp; = A_{ ( k ) } ] ) ) = 1
-\end{aligned}
-\]</span></p>
-<p>这显然是一个卷积的形式.</p>
-<p>令<span class="math inline">\(w = \sum_{ k = 1 }^{ m } \tilde{ A }_{
-( k ) } [ A^{ ( k ) } = A_{ ( k ) } ]\)</span>.</p>
-<p>令<span class="math inline">\(H ( z ) = 1\)</span>,<span class="math inline">\(F ( z ) = ( 1 + ( 1 - z ) \times w
-)\)</span>,<span class="math inline">\(G ( z ) = S\)</span>.</p>
-<p>那么我们显然可以直接求<span class="math inline">\(G ( z
-)\)</span>的期望和方差,事实上:</p>
-<p><span class="math display">\[
+N \times A & = A \times S \times ( \sum_{ k = 1 }^{ m } \tilde{ A }_{ ( k ) } [ A^{ ( k ) } = A_{ ( k ) } ] ) \\
+N & = S \times ( \sum_{ k = 1 }^{ m } \tilde{ A }_{ ( k ) } [ A^{ ( k ) } = A_{ ( k ) } ] ) \\
+\cfrac{ S - 1 }{ H + T - 1 } & = S \times ( \sum_{ k = 1 }^{ m } \tilde{ A }_{ ( k ) } [ A^{ ( k ) } = A_{ ( k ) } ] ) \\
+S \times ( 1 + ( 1 - H - T ) \times ( \sum_{ k = 1 }^{ m } \tilde{ A }_{ ( k ) } [ A^{ ( k ) } & = A_{ ( k ) } ] ) ) = 1
+\end{aligned}</script><p>这显然是一个卷积的形式.</p>
+<p>令$w = \sum_{ k = 1 }^{ m } \tilde{ A }_{ ( k ) } [ A^{ ( k ) } = A_{ ( k ) } ]$.</p>
+<p>令$H ( z ) = 1$,$F ( z ) = ( 1 + ( 1 - z ) \times w )$,$G ( z ) = S$.</p>
+<p>那么我们显然可以直接求$G ( z )$的期望和方差,事实上:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-EX &amp; = \sum_{ k = 1 }^{ m } \tilde{ A }_{ ( k ) } [ A^{ ( k ) } =
-A_{ ( k ) } ] \\
-VX &amp; = ( EX )^2 - \sum_{ k = 1 }^m ( 2 k - 1 ) \tilde{ A }_{ ( k ) }
-[ A^{ ( k ) } = A_{ ( k ) } ]
-\end{aligned}
-\]</span></p>
-<p>如果硬币是均匀的(<span class="math inline">\(p = q = \cfrac{ 1 }{ 2
-}\)</span>)我们引入另一个符号:我们设<span class="math inline">\(A : A =
-\sum_{ k = 1 }^m 2^{ k } [ A^{ ( k ) } = A_{ ( k ) }
-]\)</span>.那么显然期望需要的抛硬币次数就是<span class="math inline">\((
-A : A )\)</span>.</p>
-<h4><span id="example2penney游戏">Example2(Penney游戏)</span></h4>
-<p>一枚均匀硬币,设硬币正面向上为H,反面向上为T.不断扔硬币直到扔出连续的HHT或HTT为止,求最后以HHT结尾的概率.</p>
-<p>我们设<span class="math inline">\(S_A\)</span>为所有以HHT结尾的硬币序列的生成函数,设<span class="math inline">\(S_B\)</span>为所有以HTT结尾的硬币序列的生成函数.<span class="math inline">\(N\)</span>为其它的硬币序列的生成函数,令<span class="math inline">\(H = T = 0 . 5 z\)</span>.</p>
+EX & = \sum_{ k = 1 }^{ m } \tilde{ A }_{ ( k ) } [ A^{ ( k ) } = A_{ ( k ) } ] \\
+VX & = ( EX )^2 - \sum_{ k = 1 }^m ( 2 k - 1 ) \tilde{ A }_{ ( k ) } [ A^{ ( k ) } = A_{ ( k ) } ]
+\end{aligned}</script><p>如果硬币是均匀的($p = q = \cfrac{ 1 }{ 2 }$)我们引入另一个符号:我们设$A : A = \sum_{ k = 1 }^m 2^{ k } [ A^{ ( k ) } = A_{ ( k ) } ]$.那么显然期望需要的抛硬币次数就是$( A : A )$.</p>
+<h4><span id="example2penney游戏">Example2(Penney游戏)</span></h4><p>一枚均匀硬币,设硬币正面向上为H,反面向上为T.不断扔硬币直到扔出连续的HHT或HTT为止,求最后以HHT结尾的概率.</p>
+<p>我们设$S_A$为所有以HHT结尾的硬币序列的生成函数,设$S_B$为所有以HTT结尾的硬币序列的生成函数.$N$为其它的硬币序列的生成函数,令$H = T = 0 . 5 z$.</p>
 <p>我们显然有:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-1 + N ( H + T ) &amp; = N + S_A + S_B \\
-N \times HHT &amp; = S_A \\
-N \times HTT &amp; = S_A \times T + S_B
-\end{aligned}
-\]</span></p>
-<p>解方程并带入<span class="math inline">\(z =
-1\)</span>,可以有得知以HHT结尾的概率为<span class="math inline">\(\cfrac{ 2 }{ 3 }\)</span>.</p>
-<p>事实上,我们使用类似Example1的方法,设这两个硬币序列分别为<span class="math inline">\(A\)</span>和<span class="math inline">\(B\)</span>,那么可以求出:</p>
-<p><span class="math display">\[
-\cfrac{ S_A }{ S_B } = \cfrac{ B : B - B : A }{ A : A - A : B }
-\]</span></p>
-<h4><span id="example3sdoi2017-硬币游戏">Example3([SDOI2017] 硬币游戏)</span></h4>
-<p>是Example2的超级加强版.</p>
-<p>把上面的东西给形式化一下,不妨设<span class="math inline">\(g_i\)</span>表示进行了<span class="math inline">\(i\)</span>步还未结束的概率,<span class="math inline">\(f_{ k , i }\)</span>为进行了<span class="math inline">\(i\)</span>步恰好第<span class="math inline">\(k\)</span>个人胜利的概率,<span class="math inline">\(F , G\)</span>是它们的生成函数,我们自然有:</p>
-<ol type="1">
-<li><p><span class="math inline">\(1 + xG ( x ) = \sum_k F_k ( x ) + G (
-x )\)</span>.</p></li>
-<li><p><span class="math inline">\(( \frac{ 1 }{ 2 } x )^L G ( x ) =
-\sum_{ j = 1 }^n F_j ( x ) \sum_{ i = 0 }^{ L - 1 } ( \frac{ 1 }{ 2 } x
-)^i [ A_k^{ ( L - i ) } ={ A_j }_{ ( L - i ) } ]\)</span>.</p></li>
+1 + N ( H + T ) & = N + S_A + S_B \\
+N \times HHT & = S_A \\
+N \times HTT & = S_A \times T + S_B
+\end{aligned}</script><p>解方程并带入$z = 1$,可以有得知以HHT结尾的概率为$\cfrac{ 2 }{ 3 }$.</p>
+<p>事实上,我们使用类似Example1的方法,设这两个硬币序列分别为$A$和$B$,那么可以求出:</p>
+<script type="math/tex; mode=display">
+\cfrac{ S_A }{ S_B } = \cfrac{ B : B - B : A }{ A : A - A : B }</script><h4><span id="example3sdoi2017-硬币游戏">Example3([SDOI2017] 硬币游戏)</span></h4><p>是Example2的超级加强版.</p>
+<p>把上面的东西给形式化一下,不妨设$g_i$表示进行了$i$步还未结束的概率,$f_{ k , i }$为进行了$i$步恰好第$k$个人胜利的概率,$F , G$是它们的生成函数,我们自然有:</p>
+<ol>
+<li><p>$1 + xG ( x ) = \sum_k F_k ( x ) + G ( x )$.</p>
+</li>
+<li><p>$( \frac{ 1 }{ 2 } x )^L G ( x ) = \sum_{ j = 1 }^n F_j ( x ) \sum_{ i = 0 }^{ L - 1 } ( \frac{ 1 }{ 2 } x )^i [ A_k^{ ( L - i ) } ={ A_j }_{ ( L - i ) } ]$.</p>
+</li>
 </ol>
-<p>第一个式子的用处在于带入<span class="math inline">\(x =
-1\)</span>,发现<span class="math inline">\(\sum_{ k } F_k ( 1 ) =
-1\)</span>.</p>
+<p>第一个式子的用处在于带入$x = 1$,发现$\sum_{ k } F_k ( 1 ) = 1$.</p>
 <p>把(2)化简一下,有:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{aligned}
-x^L G ( x ) &amp; = \sum_{ j = 1 }^n F_j ( x ) \sum_{ i = 0 }^{ L - 1 }
-( \frac{ 1 }{ 2 } x )^{ i - L } [ A_k^{ ( L - i ) } ={ A_j }_{ ( L - i )
-} ] \\
-x^L G ( x ) &amp; = \sum_{ j = 1 }^n F_j ( x ) \sum_{ i = 1 }^{ L } (
-\frac{ 1 }{ 2 } x )^{ - i } [ A_k^{ ( i ) } ={ A_j }_{ ( i ) } ]
-\end{aligned}
-\]</span></p>
-<p>带入<span class="math inline">\(x = 1\)</span>,有:</p>
-<p><span class="math display">\[
-G ( 1 ) = \sum_{ j = 1 }^n F_j ( 1 ) \sum_{ i = 1 }^{ L } 2^i [ A_k^{ (
-i ) } ={ A_j }_{ ( i ) } ]
-\]</span></p>
-<p>不难发现对于不同的<span class="math inline">\(k\)</span>,(2)的右边不同,而左边一定相同,这样就给出了<span class="math inline">\(n\)</span>个等式,算上(1)一共有<span class="math inline">\(n + 1\)</span>个等式,可以算出<span class="math inline">\(G ( 1 ) , F_{ 1 \cdots n } ( 1 )\)</span>这<span class="math inline">\(n + 1\)</span>个未知数.</p>
-<h3><span id="二项式分布">二项式分布</span></h3>
-<p>现在有一个大小为<span class="math inline">\(n +
-1\)</span>的概率空间,其中<span class="math inline">\(\Pr ( \omega_k ) =
-\binom{ n }{ k } p^k q^{ n - k }
-\\\)</span>,我们把这样的概率序列称为二项式分布.</p>
-<p>如果我们令<span class="math inline">\(H ( z ) = q +
-pz\)</span>,不难发现二项式分布的生成函数为<span class="math inline">\(H
-( z )^n\)</span>.</p>
-<p>不难发现,满足二项式分布的随机变量的均值是<span class="math inline">\(np\)</span>,方差是<span class="math inline">\(npq\)</span>.</p>
-<p>与二项式分布相对应的还有负二项式分布,它的生成函数形如:<span class="math inline">\(G ( z )^n = ( \cfrac{ p }{ 1 - qz } )^n = \sum_{ k
-} \binom{ n + k - 1 }{ k } p^n q^k z^k\)</span>.</p>
-<p>我们考虑如何求<span class="math inline">\(G ( z
-)\)</span>的方差和均值,不妨设<span class="math inline">\(F ( z ) =
-\cfrac{ 1 - qz }{ p } = \cfrac{ 1 }{ p } - \cfrac{ q }{ p }
-z\)</span>,则<span class="math inline">\(G ( z )^n = F ( z )^{ - n
-}\)</span>.</p>
-<p>不难发现<span class="math inline">\(F ( z
-)\)</span>满足二项式分布.也就是说,以<span class="math inline">\(( n , p
-, q )\)</span>为参数的负二项式分布也就是以<span class="math inline">\((
-- n , - \cfrac{ q }{ p } , \cfrac{ 1 }{ p }
-)\)</span>为参数的二项式分布.</p>
-<h3><span id="模型">模型</span></h3>
-<h4><span id="树上随机游走">树上随机游走</span></h4>
-<p>随机游走指每次从相邻的点中随机选一个走过去，
-重复这样的过程若干次.</p>
-<h5><span id="example1">Example1</span></h5>
-<p>给一棵所有边长都为<span class="math inline">\(1\)</span>的<span class="math inline">\(n\)</span>个点的树,问所有点对<span class="math inline">\(( i , j ) ( 1 \leq i , j \leq n
-)\)</span>中,从<span class="math inline">\(i\)</span>走到<span class="math inline">\(j\)</span>的期望距离的最大值是多少.</p>
-<p>由于树上简单路径唯一,我们考虑设<span class="math inline">\(f_u\)</span>表示<span class="math inline">\(u\)</span>随机走到它父亲的期望,<span class="math inline">\(g_v\)</span>表示<span class="math inline">\(v\)</span>的父亲(假设是<span class="math inline">\(u\)</span>)走到<span class="math inline">\(v\)</span>的期望.</p>
-<p>对于<span class="math inline">\(f_u\)</span>,我们有:</p>
-<p><span class="math display">\[
+x^L G ( x ) & = \sum_{ j = 1 }^n F_j ( x ) \sum_{ i = 0 }^{ L - 1 } ( \frac{ 1 }{ 2 } x )^{ i - L } [ A_k^{ ( L - i ) } ={ A_j }_{ ( L - i ) } ] \\
+x^L G ( x ) & = \sum_{ j = 1 }^n F_j ( x ) \sum_{ i = 1 }^{ L } ( \frac{ 1 }{ 2 } x )^{ - i } [ A_k^{ ( i ) } ={ A_j }_{ ( i ) } ]
+\end{aligned}</script><p>带入$x = 1$,有:</p>
+<script type="math/tex; mode=display">
+G ( 1 ) = \sum_{ j = 1 }^n F_j ( 1 ) \sum_{ i = 1 }^{ L } 2^i [ A_k^{ ( i ) } ={ A_j }_{ ( i ) } ]</script><p>不难发现对于不同的$k$,(2)的右边不同,而左边一定相同,这样就给出了$n$个等式,算上(1)一共有$n + 1$个等式,可以算出$G ( 1 ) , F_{ 1 \cdots n } ( 1 )$这$n + 1$个未知数.</p>
+<h3><span id="二项式分布">二项式分布</span></h3><p>现在有一个大小为$n + 1$的概率空间,其中$\Pr ( \omega_k ) = \binom{ n }{ k } p^k q^{ n - k } \\$,我们把这样的概率序列称为二项式分布.</p>
+<p>如果我们令$H ( z ) = q + pz$,不难发现二项式分布的生成函数为$H ( z )^n$.</p>
+<p>不难发现,满足二项式分布的随机变量的均值是$np$,方差是$npq$.</p>
+<p>与二项式分布相对应的还有负二项式分布,它的生成函数形如:$G ( z )^n = ( \cfrac{ p }{ 1 - qz } )^n = \sum_{ k } \binom{ n + k - 1 }{ k } p^n q^k z^k$.</p>
+<p>我们考虑如何求$G ( z )$的方差和均值,不妨设$F ( z ) = \cfrac{ 1 - qz }{ p } = \cfrac{ 1 }{ p } - \cfrac{ q }{ p } z$,则$G ( z )^n = F ( z )^{ - n }$.</p>
+<p>不难发现$F ( z )$满足二项式分布.也就是说,以$( n , p , q )$为参数的负二项式分布也就是以$( - n , - \cfrac{ q }{ p } , \cfrac{ 1 }{ p } )$为参数的二项式分布.</p>
+<h3><span id="模型">模型</span></h3><h4><span id="树上随机游走">树上随机游走</span></h4><p>随机游走指每次从相邻的点中随机选一个走过去， 重复这样的过程若干次.</p>
+<h5><span id="example1">Example1</span></h5><p>给一棵所有边长都为$1$的$n$个点的树,问所有点对$( i , j ) ( 1 \leq i , j \leq n )$中,从$i$走到$j$的期望距离的最大值是多少.</p>
+<p>由于树上简单路径唯一,我们考虑设$f_u$表示$u$随机走到它父亲的期望,$g_v$表示$v$的父亲(假设是$u$)走到$v$的期望.</p>
+<p>对于$f_u$,我们有:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-f_u &amp; = \cfrac{ \sum_{ u \rightarrow v } ( f_v + f_u ) }{ \deg_u } +
-1 \\
-f_u &amp; = \deg_u + \sum_{ u \rightarrow v } f_v
-\end{aligned}
-\]</span></p>
-<p>对于<span class="math inline">\(g_v\)</span>,我们有:</p>
-<p><span class="math display">\[
+f_u & = \cfrac{ \sum_{ u \rightarrow v } ( f_v + f_u ) }{ \deg_u } + 1 \\
+f_u & = \deg_u + \sum_{ u \rightarrow v } f_v
+\end{aligned}</script><p>对于$g_v$,我们有:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-g_v &amp; = \cfrac{ g_u + g_v + \sum_{ u \rightarrow w , w \ne v } ( g_v
-+ f_w ) }{ \deg_u } + 1 \\
-g_v &amp; = g_u + \sum_{ u \rightarrow w , w \ne v } f_w + \deg_u
-\end{aligned}
-\]</span></p>
-<h5><span id="example2">Example2</span></h5>
-<p>给出一棵<span class="math inline">\(n\)</span>个节点的树,每个点有可能是黑白两种颜色的一种.</p>
-<p>现在从<span class="math inline">\(1\)</span>号点开始随机游走(即走这个点的每条出边的概率是相同的),每到一个点,如果这个点是黑点,或者这是白点并且这个点第一次经过,那么答案<span class="math inline">\(+ 1\)</span>.当走到度数为<span class="math inline">\(1\)</span>的节点时游走停止.</p>
+g_v & = \cfrac{ g_u + g_v + \sum_{ u \rightarrow w , w \ne v } ( g_v + f_w ) }{ \deg_u } + 1 \\
+g_v & = g_u + \sum_{ u \rightarrow w , w \ne v } f_w + \deg_u
+\end{aligned}</script><h5><span id="example2">Example2</span></h5><p>给出一棵$n$个节点的树,每个点有可能是黑白两种颜色的一种.</p>
+<p>现在从$1$号点开始随机游走(即走这个点的每条出边的概率是相同的),每到一个点,如果这个点是黑点,或者这是白点并且这个点第一次经过,那么答案$+ 1$.当走到度数为$1$的节点时游走停止.</p>
 <p>注意到黑白点对答案的贡献是互相独立的,所以分开讨论:</p>
-<p>如果只有黑点,那么显然答案就是路径的期望长度,我们设<span class="math inline">\(f_u\)</span>表示以<span class="math inline">\(u\)</span>为起点的路径的期望长度,不难注意到<span class="math inline">\(f_{ leaf } = 1\)</span>且<span class="math inline">\(f_u = 1 + \cfrac{ 1 }{ \deg_u } \sum_{ u
-\rightarrow v \lor v \rightarrow u }
-f_v\)</span>.这个dp转移显然是有后效性的,可以使用高斯消元做,但有一个经典做法:我们求得<span class="math inline">\(f_u = k_u f_{ fa } +
-b_u\)</span>,然后就可以采取带入化简的方法做了.</p>
-<p>如果只有白点,考虑每个点只会贡献一次,所以我们要求出的就是每个点被走到的概率.注意到一个点被走到一定是从它父亲走来的,于是我们需要求出<span class="math inline">\(g_v\)</span>表示从<span class="math inline">\(v\)</span>的父亲(假设是<span class="math inline">\(u\)</span>)走到<span class="math inline">\(v\)</span>的概率,再令<span class="math inline">\(f_u\)</span>表示从<span class="math inline">\(u\)</span>走到父亲的概率,类似Example1,我们有:</p>
-<p><span class="math display">\[
+<p>如果只有黑点,那么显然答案就是路径的期望长度,我们设$f_u$表示以$u$为起点的路径的期望长度,不难注意到$f_{ leaf } = 1$且$f_u = 1 + \cfrac{ 1 }{ \deg_u } \sum_{ u \rightarrow v \lor v \rightarrow u } f_v$.这个dp转移显然是有后效性的,可以使用高斯消元做,但有一个经典做法:我们求得$f_u = k_u f_{ fa } + b_u$,然后就可以采取带入化简的方法做了.</p>
+<p>如果只有白点,考虑每个点只会贡献一次,所以我们要求出的就是每个点被走到的概率.注意到一个点被走到一定是从它父亲走来的,于是我们需要求出$g_v$表示从$v$的父亲(假设是$u$)走到$v$的概率,再令$f_u$表示从$u$走到父亲的概率,类似Example1,我们有:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-f_u &amp; = \cfrac{ 1 }{ \deg_u } ( 1 + \sum_{ u \rightarrow v } f_v f_u
-) \\
-g_v &amp; = \cfrac{ 1 }{ \deg_u } ( 1 + g_v g_u + \sum_{ u \rightarrow w
-, w \ne v } f_w g_v )
-\end{aligned}
-\]</span></p>
-<p>最后把两部分答案合起来就好.</p>
-<h4><span id="计数与期望的转换">计数与期望的转换</span></h4>
-<h5><span id="examplecodechef-secplayer">Example(CodeChef Secplayer)</span></h5>
-<p>冷静一下,如果我们直接计数的话会发现巨大难做,因为项太多了,直接乘起来也太麻烦了.</p>
-<p>这启发我们:当我们注意到一个计数题的各种情况相乘很麻烦的时候,我们不妨只考虑一种情况并计算期望,然后拿期望和总数反推计数.注意到权值最小的人最危险,他不能和其他任何一个人匹配到,不然就死了.那不难求得此时他作为次大值存活的概率为<span class="math inline">\(\frac{ 1 }{ \binom{ n }{ 2 } }\)</span>.</p>
-<p>把所有人权值从大到小排序,设<span class="math inline">\(f_i\)</span>表示只考虑前<span class="math inline">\(i\)</span>个人的时候的期望,不难发现:<span class="math inline">\(f_{ i } = \frac{ 1 }{ \binom{ i }{ 2 } } v_i + ( 1
-- \frac{ 1 }{ \binom{ i }{ 2 } } ) f_{ i - 1 }\)</span>.</p>
-<h4><span id="一些小技巧">一些小技巧</span></h4>
-<h5><span id="example1cf865c">Example1(CF865C)</span></h5>
-<p>首先写出转移式子,但是存在后效性.如果我们设<span class="math inline">\(f_{ i , j }\)</span>表示过了<span class="math inline">\(i\)</span>关,花费为<span class="math inline">\(j\)</span>的期望,不难发现所有的<span class="math inline">\(f\)</span>都需要与<span class="math inline">\(f_{
-0 , 0 }\)</span>取<span class="math inline">\(\min\)</span>,这咋办?</p>
-<p>我们考虑二分这个<span class="math inline">\(f_{ 0 , 0
-}\)</span>,做的时候直接取<span class="math inline">\(\min\)</span>,这样最后还会求出一个<span class="math inline">\(f_{ 0 , 0
-}\)</span>,比较一下大小然后继续做二分.</p>
+f_u & = \cfrac{ 1 }{ \deg_u } ( 1 + \sum_{ u \rightarrow v } f_v f_u ) \\
+g_v & = \cfrac{ 1 }{ \deg_u } ( 1 + g_v g_u + \sum_{ u \rightarrow w , w \ne v } f_w g_v )
+\end{aligned}</script><p>最后把两部分答案合起来就好.</p>
+<h4><span id="计数与期望的转换">计数与期望的转换</span></h4><h5><span id="examplecodechef-secplayer">Example(CodeChef Secplayer)</span></h5><p>冷静一下,如果我们直接计数的话会发现巨大难做,因为项太多了,直接乘起来也太麻烦了.</p>
+<p>这启发我们:当我们注意到一个计数题的各种情况相乘很麻烦的时候,我们不妨只考虑一种情况并计算期望,然后拿期望和总数反推计数.注意到权值最小的人最危险,他不能和其他任何一个人匹配到,不然就死了.那不难求得此时他作为次大值存活的概率为$\frac{ 1 }{ \binom{ n }{ 2 } }$.</p>
+<p>把所有人权值从大到小排序,设$f_i$表示只考虑前$i$个人的时候的期望,不难发现:$f_{ i } = \frac{ 1 }{ \binom{ i }{ 2 } } v_i + ( 1 - \frac{ 1 }{ \binom{ i }{ 2 } } ) f_{ i - 1 }$.</p>
+<h4><span id="一些小技巧">一些小技巧</span></h4><h5><span id="example1cf865c">Example1(CF865C)</span></h5><p>首先写出转移式子,但是存在后效性.如果我们设$f_{ i , j }$表示过了$i$关,花费为$j$的期望,不难发现所有的$f$都需要与$f_{ 0 , 0 }$取$\min$,这咋办?</p>
+<p>我们考虑二分这个$f_{ 0 , 0 }$,做的时候直接取$\min$,这样最后还会求出一个$f_{ 0 , 0 }$,比较一下大小然后继续做二分.</p>
 <p>等一下,为撒子这样是收敛的呢?</p>
 <p>首先,根据这个题,期望肯定是存在的.</p>
-<p>我们注意到我们一开始二分的<span class="math inline">\(f_{ 0 , 0
-}\)</span>越大,最后的答案就越大,但是增长的一定会变慢.换句话说,最后的答案关于我们二分的值的关系应该是一个上凸的函数(增长的时候会被取<span class="math inline">\(\min\)</span>的另一项限制住,但原本应该是没被限制的),于是这个时候得到的答案如果比二分的答案更小,那我们就应该调小一点.</p>
+<p>我们注意到我们一开始二分的$f_{ 0 , 0 }$越大,最后的答案就越大,但是增长的一定会变慢.换句话说,最后的答案关于我们二分的值的关系应该是一个上凸的函数(增长的时候会被取$\min$的另一项限制住,但原本应该是没被限制的),于是这个时候得到的答案如果比二分的答案更小,那我们就应该调小一点.</p>
 <p>换句话说,当我们二分答案的时候,应该判断函数凸性.wqs二分也是这个道理:二分答案并判断答案是否满足条件.</p>
-<h5><span id="example2猎人杀">Example2(猎人杀)</span></h5>
-<p>先做一步转化:如果做期望的时候,会有一些操作变得不能做,那我们改为:先随便选,如果选到不合法的操作就跳过,概率和期望都不会变.</p>
+<h5><span id="example2猎人杀">Example2(猎人杀)</span></h5><p>先做一步转化:如果做期望的时候,会有一些操作变得不能做,那我们改为:先随便选,如果选到不合法的操作就跳过,概率和期望都不会变.</p>
 <p>offline</p>
-<h5><span id="example3agc019f">Example3(AGC019F)</span></h5>
-<p>人类智慧题…</p>
+<h5><span id="example3agc019f">Example3(AGC019F)</span></h5><p>人类智慧题…</p>
 <p>首先注意到策略显然是每次选剩下最多的答案.</p>
-<p>我们画一张<span class="math inline">\(n \times
-m\)</span>的图(假设<span class="math inline">\(n \geq
-m\)</span>),其中格点<span class="math inline">\(( a , b
-)\)</span>表示现在还剩<span class="math inline">\(a\)</span>个Yes,<span class="math inline">\(b\)</span>个No.我们再把我们的策略用图上的有向边表示.我们先考虑转化为计数问题,那答案显然就是所有从<span class="math inline">\(( n , m )\)</span>走到<span class="math inline">\(( 0 , 0
-)\)</span>的路径与我们图上有向边的交的大小总和.</p>
+<p>我们画一张$n \times m$的图(假设$n \geq m$),其中格点$( a , b )$表示现在还剩$a$个Yes,$b$个No.我们再把我们的策略用图上的有向边表示.我们先考虑转化为计数问题,那答案显然就是所有从$( n , m )$走到$( 0 , 0 )$的路径与我们图上有向边的交的大小总和.</p>
 <p>然后咧?</p>
-<p>我们注意到这张图长得太规律了,换句话说,如果我们把图的左半部分沿着直线<span class="math inline">\(y =
-x\)</span>翻折(路径也跟着翻折),注意到对着这张图做仍然是一样的!</p>
-<p>所以呢?由于从<span class="math inline">\(( n , m )\)</span>走到<span class="math inline">\(( 0 , 0 )\)</span>一定会经过<span class="math inline">\(n\)</span>条有向边,所以期望贡献一定要加上一个<span class="math inline">\(n\)</span>.而如果我走到了直线<span class="math inline">\(y = x\)</span>上,那接下来的贡献是<span class="math inline">\(\frac{ 1 }{ 2
-}\)</span>.我们只需要枚举一下走到了多少次即可.</p>
-<h2><span id="一些不等式">一些不等式</span></h2>
-<h3><span id="union-bound">Union Bound</span></h3>
-<p>即:<span class="math inline">\(\mathbb{P} [ \bigcup_i X_i ] \leq \sum
-\mathbb P [ X_i ]\)</span>,取等当且仅当所有<span class="math inline">\(X_i\)</span>互斥.</p>
-<h3><span id="markov-不等式">Markov 不等式</span></h3>
-<p>若<span class="math inline">\(X \geq 0\)</span>,则<span class="math inline">\(\mathbb{P} [ X \geq t \mathbb{ E } [ X ] ] \leq
-\frac{ 1 }{ t }\)</span>.</p>
-<p>显然,多的太多的话就会超过<span class="math inline">\(E\)</span>.</p>
-<h3><span id="chebyshev-不等式">Chebyshev 不等式</span></h3>
-<p>当<span class="math inline">\(\sigma(X)&gt;0\)</span>时,有 <span class="math display">\[
-\mathbb{P}(|X-\mathbb{E}(X)|\geq c\sdot \sigma(X))\leq \frac{1}{c^2}
-\]</span> 证明的话直接考虑设<span class="math inline">\(Y=(X-\mathbb
-E(X))^2\)</span>,用Markov不等式得到: <span class="math display">\[
+<p>我们注意到这张图长得太规律了,换句话说,如果我们把图的左半部分沿着直线$y = x$翻折(路径也跟着翻折),注意到对着这张图做仍然是一样的!</p>
+<p>所以呢?由于从$( n , m )$走到$( 0 , 0 )$一定会经过$n$条有向边,所以期望贡献一定要加上一个$n$.而如果我走到了直线$y = x$上,那接下来的贡献是$\frac{ 1 }{ 2 }$.我们只需要枚举一下走到了多少次即可.</p>
+<h2><span id="一些不等式">一些不等式</span></h2><h3><span id="union-bound">Union Bound</span></h3><p>即:$\mathbb{P} [ \bigcup_i X_i ] \leq \sum \mathbb P [ X_i ]$,取等当且仅当所有$X_i$互斥.</p>
+<h3><span id="markov-不等式">Markov 不等式</span></h3><p>若$X \geq 0$,则$\mathbb{P} [ X \geq t \mathbb{ E } [ X ] ] \leq \frac{ 1 }{ t }$.</p>
+<p>显然,多的太多的话就会超过$E$.</p>
+<h3><span id="chebyshev-不等式">Chebyshev 不等式</span></h3><p>当$\sigma(X)&gt;0$时,有</p>
+<script type="math/tex; mode=display">
+\mathbb{P}(|X-\mathbb{E}(X)|\geq c\sdot \sigma(X))\leq \frac{1}{c^2}</script><p>证明的话直接考虑设$Y=(X-\mathbb E(X))^2$,用Markov不等式得到:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-\mathbb{P}(Y\geq c^2\mathbb E(Y))&amp;\leq \frac{1}{c^2}\\
-\mathbb{P}((X-\mathbb E(X))^2\geq c^2\sigma^2(X))&amp;\leq
-\frac{1}{c^2}\\
-\mathbb{P}|(X-\mathbb E(X)|\geq c\sigma(X))&amp;\leq \frac{1}{c^2}\\
-\end{aligned}
-\]</span></p>
-<h2><span id="一些离散分布">一些离散分布</span></h2>
-<h3><span id="泊松分布">泊松分布</span></h3>
-<p>取二项分布的极限情况.设此时<span class="math inline">\(n=\lambda
-m\)</span>,每个东西有<span class="math inline">\(\frac{1}{m}\)</span>的概率选入,则对于一个固定的常数<span class="math inline">\(k\)</span>,当<span class="math inline">\(m\to
-\infty\)</span>的时候,<span class="math inline">\(P(X=k)=\frac{1}{k!}\lambda^k
-e^{-\lambda}\)</span>,记作<span class="math inline">\(X\sim
-\pi(\lambda)\)</span>.</p>
-<p>欸,虽然我们这里只考虑了<span class="math inline">\(k\)</span>某种程度上远小于<span class="math inline">\(m\)</span>的存在,但好在大的部分也不会有什么太大影响,因此:
-<span class="math display">\[
-\sum_k P(X=k)=1
-\]</span> 原因是<span class="math inline">\(e^{\lambda}=\sum_k
-\frac{\lambda^k}{k!}\)</span>.</p>
-<p>此时来看<span class="math inline">\(\mathbb
-E(X)\)</span>,留神到无非是上面那个东西转移了一下子,因此<span class="math inline">\(\mathbb{E}(X)=\lambda\)</span>.</p>
-<p>来看<span class="math inline">\(\mathbb{E}(X^2)\)</span>,自然有:
-<span class="math display">\[
+\mathbb{P}(Y\geq c^2\mathbb E(Y))&\leq \frac{1}{c^2}\\
+\mathbb{P}((X-\mathbb E(X))^2\geq c^2\sigma^2(X))&\leq \frac{1}{c^2}\\
+\mathbb{P}|(X-\mathbb E(X)|\geq c\sigma(X))&\leq \frac{1}{c^2}\\
+\end{aligned}</script><h2><span id="一些离散分布">一些离散分布</span></h2><h3><span id="泊松分布">泊松分布</span></h3><p>取二项分布的极限情况.设此时$n=\lambda m$,每个东西有$\frac{1}{m}$的概率选入,则对于一个固定的常数$k$,当$m\to \infty$的时候,$P(X=k)=\frac{1}{k!}\lambda^k e^{-\lambda}$,记作$X\sim \pi(\lambda)$.</p>
+<p>欸,虽然我们这里只考虑了$k$某种程度上远小于$m$的存在,但好在大的部分也不会有什么太大影响,因此:</p>
+<script type="math/tex; mode=display">
+\sum_k P(X=k)=1</script><p>原因是$e^{\lambda}=\sum_k \frac{\lambda^k}{k!}$.</p>
+<p>此时来看$\mathbb E(X)$,留神到无非是上面那个东西转移了一下子,因此$\mathbb{E}(X)=\lambda$.</p>
+<p>来看$\mathbb{E}(X^2)$,自然有:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-&amp;\sum_k \frac{1}{k!}\lambda^k e^{-\lambda}k^2\\
-=&amp;\sum_k \frac{1}{k!}\lambda^k e^{-\lambda}k(k-1)+\sum_k
-\frac{1}{k!}\lambda^k e^{-\lambda}k\\
-=&amp;\lambda^2+\lambda
-\end{aligned}
-\]</span> 所以<span class="math inline">\(\sigma^2(X)=\mathbb{E}(X^2)-(\mathbb
-E(X))^2=\lambda\)</span>.</p>
-<h3><span id="几何分布">几何分布</span></h3>
-<p>伯努利试验中首次发生结果<span class="math inline">\(A\)</span>的次数,记作<span class="math inline">\(X\sim \text{G}(p)\)</span>.</p>
-<p>显然<span class="math inline">\(P(X=k)=p(1-p)^{k-1}\)</span>,此外<span class="math inline">\(P(X&gt;n)=(1-p)^n\)</span>.</p>
-<p>设<span class="math inline">\(f(p)=\sum_{k\geq
-1}(1-p)^{k-1}\)</span>,则<span class="math inline">\(f(p)=\frac{1}{p}\)</span>,<span class="math inline">\(E(X)=-pf&#39;(p)=\frac{1}{p}\)</span>,<span class="math inline">\(\sigma^2(X)=\frac{1-p}{p^2}\)</span>.</p>
-<p>很重要的一个性质是无记忆性.即<span class="math inline">\(P(X&gt;m+n|X&gt;m)=P(X&gt;n)\)</span>.</p>
-<h3><span id="负二项分布">负二项分布</span></h3>
-<p>伯努利实验中结果<span class="math inline">\(A\)</span>发生<span class="math inline">\(r\)</span>次的重复次数.则<span class="math inline">\(P(X=k)=\binom{k-1}{r-1}p^r(1-p)^{k-r}\)</span>,记作<span class="math inline">\(X\sim \text{NB}(r,p)\)</span>.显然<span class="math inline">\(\text{NB}(1,p)\sim
-\text{G}(p)\)</span>.必然有<span class="math inline">\(E(X)=\frac{r}{p}\)</span>.</p>
-<p>首先要验证: <span class="math display">\[
+&\sum_k \frac{1}{k!}\lambda^k e^{-\lambda}k^2\\
+=&\sum_k \frac{1}{k!}\lambda^k e^{-\lambda}k(k-1)+\sum_k \frac{1}{k!}\lambda^k e^{-\lambda}k\\
+=&\lambda^2+\lambda
+\end{aligned}</script><p>所以$\sigma^2(X)=\mathbb{E}(X^2)-(\mathbb E(X))^2=\lambda$.</p>
+<h3><span id="几何分布">几何分布</span></h3><p>伯努利试验中首次发生结果$A$的次数,记作$X\sim \text{G}(p)$.</p>
+<p>显然$P(X=k)=p(1-p)^{k-1}$,此外$P(X&gt;n)=(1-p)^n$.</p>
+<p>设$f(p)=\sum_{k\geq 1}(1-p)^{k-1}$,则$f(p)=\frac{1}{p}$,$E(X)=-pf’(p)=\frac{1}{p}$,$\sigma^2(X)=\frac{1-p}{p^2}$.</p>
+<p>很重要的一个性质是无记忆性.即$P(X&gt;m+n|X&gt;m)=P(X&gt;n)$.</p>
+<h3><span id="负二项分布">负二项分布</span></h3><p>伯努利实验中结果$A$发生$r$次的重复次数.则$P(X=k)=\binom{k-1}{r-1}p^r(1-p)^{k-r}$,记作$X\sim \text{NB}(r,p)$.显然$\text{NB}(1,p)\sim \text{G}(p)$.必然有$E(X)=\frac{r}{p}$.</p>
+<p>首先要验证:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-\sum_{k\geq r}P(X=k)&amp;=\sum_{k\geq r}\binom{k-1}{r-1}p^r(1-p)^{k-r}\\
-&amp;=\sum_{l\geq 0}\binom{l+r-1}{r-1}p^r(1-p)^l\\
-&amp;=\sum_{l\geq 0}\binom{l+r-1}{l}p^r(1-p)^l
-\end{aligned}
-\]</span> 而: <span class="math display">\[
+\sum_{k\geq r}P(X=k)&=\sum_{k\geq r}\binom{k-1}{r-1}p^r(1-p)^{k-r}\\
+&=\sum_{l\geq 0}\binom{l+r-1}{r-1}p^r(1-p)^l\\
+&=\sum_{l\geq 0}\binom{l+r-1}{l}p^r(1-p)^l
+\end{aligned}</script><p>而:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-p^{-r}&amp;=(1-(1-p))^{-r}\\
-&amp;=\sum_{l\geq 0}\binom{-r}{l}(-1)^l(1-p)^{l}\\
-&amp;=\sum_{l\geq 0}\binom{l+r-1}{l}(1-p)^l
-\end{aligned}
-\]</span></p>
-<h2><span id="连续随机变量">连续随机变量</span></h2>
-<p>给定随机变量<span class="math inline">\(X\)</span>和实数<span class="math inline">\(x\)</span>,定义<span class="math inline">\(F(x)=P(X\leq x)\)</span>为随机变量<span class="math inline">\(X\)</span>的<strong>分布函数</strong>.</p>
+p^{-r}&=(1-(1-p))^{-r}\\
+&=\sum_{l\geq 0}\binom{-r}{l}(-1)^l(1-p)^{l}\\
+&=\sum_{l\geq 0}\binom{l+r-1}{l}(1-p)^l
+\end{aligned}</script><h2><span id="连续随机变量">连续随机变量</span></h2><p>给定随机变量$X$和实数$x$,定义$F(x)=P(X\leq x)$为随机变量$X$的<strong>分布函数</strong>.</p>
 <p>分布函数有如下性质:</p>
-<ol type="1">
-<li><strong>有界性</strong>:<span class="math inline">\(0\leq F(x)\leq
-1\)</span>,而且<span class="math inline">\(\lim_{x\to
--\infty}F(x)=0,\lim_{x\to +\infty}F(x)=1\)</span>.</li>
-<li><strong>单调性</strong>:<span class="math inline">\(F(x)\)</span>单调不减.</li>
-<li><strong>右连续</strong>:<span class="math inline">\(F(x_0+0)=F(x_0)\)</span>.</li>
+<ol>
+<li><strong>有界性</strong>:$0\leq F(x)\leq 1$,而且$\lim_{x\to -\infty}F(x)=0,\lim_{x\to +\infty}F(x)=1$.</li>
+<li><strong>单调性</strong>:$F(x)$单调不减.</li>
+<li><strong>右连续</strong>:$F(x_0+0)=F(x_0)$.</li>
 </ol>
-<p>如果存在一个<span class="math inline">\(f(x)\)</span>,使得<span class="math inline">\(F(x)=\int_{-\infty}^x
-f(x)\mathrm{d}x\)</span>,则称<span class="math inline">\(X\)</span>是<strong>连续随机变量</strong>,而<span class="math inline">\(f(x)\)</span>是其概率密度函数.它还应当满足以下性质:</p>
-<ol type="1">
-<li><strong>非负性</strong>:<span class="math inline">\(f(x)\geq
-0\)</span>.</li>
-<li><strong>正则性</strong>:<span class="math inline">\(\int_{-\infty}^{+\infty}f(t)\mathrm{d}t=1\)</span>.</li>
+<p>如果存在一个$f(x)$,使得$F(x)=\int_{-\infty}^x f(x)\mathrm{d}x$,则称$X$是<strong>连续随机变量</strong>,而$f(x)$是其概率密度函数.它还应当满足以下性质:</p>
+<ol>
+<li><strong>非负性</strong>:$f(x)\geq 0$.</li>
+<li><strong>正则性</strong>:$\int_{-\infty}^{+\infty}f(t)\mathrm{d}t=1$.</li>
 </ol>
-<p>对于连续随机变量.此时<span class="math inline">\(F\)</span>还满足左连续<span class="math inline">\(F(x_0-0)=F(x_0)\)</span>.</p>
-<p>由此还可以得出连续随机变量在任何一点处取值必然为零,因为<span class="math inline">\(P(a\leq X\leq a)=P(a&lt;X&lt;a)=0\)</span>.</p>
-<p>由此可以定义期望:当<span class="math inline">\(\int_{-\infty}^{+\infty}f(x)|x|\mathrm{d}x&lt;\infty\)</span>,则定义<span class="math inline">\(E(X)=\int_{-\infty}^{+\infty}xf(x)\mathrm{d}x\)</span>.注意这里要求的是绝对可积而不是可积.</p>
-<p>现在我们来搞定:<span class="math inline">\(P(X\leq
-E(X))&gt;0\)</span>.</p>
-<p>策略是反证:如果<span class="math inline">\(P(X\leq
-E(X))=0\)</span>.此时任取一个<span class="math inline">\(\epsilon&gt;0\)</span>使得<span class="math inline">\(P(X\leq E(X)+\epsilon)\leq
-\frac{1}{2}\)</span>.</p>
-<p>此时<span class="math inline">\(E(X)\geq P(X\geq
-E(X)+\epsilon)(E(X)+\epsilon)+P(X&lt;
-E(X)+\epsilon)E(X)&gt;E(X)\)</span>,这就矛盾了.</p>
-<p>接下来来做Markov不等式,对于非负随机变量<span class="math inline">\(X\)</span>,若<span class="math inline">\(E(X)&gt;
-0,a&gt;0\)</span>,则<span class="math inline">\(P(X\geq aE(X))\leq
-\frac{1}{a}\)</span>.原因是: <span class="math display">\[
+<p>对于连续随机变量.此时$F$还满足左连续$F(x_0-0)=F(x_0)$.</p>
+<p>由此还可以得出连续随机变量在任何一点处取值必然为零,因为$P(a\leq X\leq a)=P(a&lt;X&lt;a)=0$.</p>
+<p>由此可以定义期望:当$\int_{-\infty}^{+\infty}f(x)|x|\mathrm{d}x&lt;\infty$,则定义$E(X)=\int_{-\infty}^{+\infty}xf(x)\mathrm{d}x$.注意这里要求的是绝对可积而不是可积.</p>
+<p>现在我们来搞定:$P(X\leq E(X))&gt;0$.</p>
+<p>策略是反证:如果$P(X\leq E(X))=0$.此时任取一个$\epsilon&gt;0$使得$P(X\leq E(X)+\epsilon)\leq \frac{1}{2}$.</p>
+<p>此时$E(X)\geq P(X\geq E(X)+\epsilon)(E(X)+\epsilon)+P(X&lt; E(X)+\epsilon)E(X)&gt;E(X)$,这就矛盾了.</p>
+<p>接下来来做Markov不等式,对于非负随机变量$X$,若$E(X)&gt; 0,a&gt;0$,则$P(X\geq aE(X))\leq \frac{1}{a}$.原因是:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-E(X)&amp;=\int_{-\infty}^{+\infty}f(x)x\mathrm{d}x\\
-&amp;\geq \int_{aE(X)}^{+\infty}f(x)x\mathrm{d}x\\
-&amp;\geq \int_{aE(X)}^{+\infty}f(x)aE(X)\mathrm{d}x\\
-&amp;=aE(X)\int_{aE(X)}^{+\infty}f(x)\mathrm{d}x\\
-&amp;=aE(X)P(X\geq aE(X))
-\end{aligned}
-\]</span> 此时还可以定义<span class="math inline">\(\mathrm{Var}(X)=E((X-E(X))^2)=E(X^2)-E^2(X)\)</span>.</p>
+E(X)&=\int_{-\infty}^{+\infty}f(x)x\mathrm{d}x\\
+&\geq \int_{aE(X)}^{+\infty}f(x)x\mathrm{d}x\\
+&\geq \int_{aE(X)}^{+\infty}f(x)aE(X)\mathrm{d}x\\
+&=aE(X)\int_{aE(X)}^{+\infty}f(x)\mathrm{d}x\\
+&=aE(X)P(X\geq aE(X))
+\end{aligned}</script><p>此时还可以定义$\mathrm{Var}(X)=E((X-E(X))^2)=E(X^2)-E^2(X)$.</p>
 <p>Chebyshev不等式的证明只依赖于Markov不等式,因此在这里也能用.</p>
-<h3><span id="高斯分布">高斯分布</span></h3>
-<p>概率密度函数<span class="math inline">\(f(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}\)</span>.</p>
+<h3><span id="高斯分布">高斯分布</span></h3><p>概率密度函数$f(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$.</p>
 <p>除了上述已经提到的性质,它还满足:</p>
-<ol type="1">
-<li>对称性:<span class="math inline">\(f(x)=f(-x)\)</span>.</li>
-<li><span class="math inline">\(f(x)_{\max}=f(0)\)</span>.</li>
-<li><span class="math inline">\(\lim_{x\to -\infty}f(x)=\lim_{x\to
-+\infty}f(x)=0\)</span>.</li>
-<li><span class="math inline">\(E(X)=\int_{-\infty}^{+\infty}f(x)x\mathrm{d}x=0\)</span>.</li>
-<li><span class="math inline">\(E(X^2)=\int_{-\infty}^{+\infty}f(x)x^2\mathrm{d}x=1\)</span>.</li>
-<li><span class="math inline">\(\mathrm{Var}(X)=1\)</span>.</li>
+<ol>
+<li>对称性:$f(x)=f(-x)$.</li>
+<li>$f(x)_{\max}=f(0)$.</li>
+<li>$\lim_{x\to -\infty}f(x)=\lim_{x\to +\infty}f(x)=0$.</li>
+<li>$E(X)=\int_{-\infty}^{+\infty}f(x)x\mathrm{d}x=0$.</li>
+<li>$E(X^2)=\int_{-\infty}^{+\infty}f(x)x^2\mathrm{d}x=1$.</li>
+<li>$\mathrm{Var}(X)=1$.</li>
 </ol>
-<p>其中(5)的证明见: <span class="math display">\[
+<p>其中(5)的证明见:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-\int_{-\infty}^{+\infty}f(x)x^2\mathrm{d}x&amp;=\int_{-\infty}^{+\infty}\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}x^2\mathrm{d}x\\
-&amp;=\int_{-\infty}^{+\infty}\frac{1}{\sqrt{2\pi}}(-x)\mathrm{d}e^{-\frac{x^2}{2}}\\
-&amp;=\frac{1}{\sqrt{2\pi}}(-x)e^{-\frac{x^2}{2}}|_{-\infty}^{+\infty}+\int_{-\infty}^{+\infty}\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}\mathrm{d}x\\
-&amp;=1
-\end{aligned}
-\]</span> 还可以对此进行推广,考虑<span class="math inline">\(f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\)</span>,记<span class="math inline">\(X\sim N(\mu,\sigma^2)\)</span>.只需取<span class="math inline">\(y=\frac{x-\mu}{\sigma}\)</span>,就可以转换回标准正态分布,并且此时<span class="math inline">\(F_Y(y)=F_X(\sigma y+\mu)\)</span>.</p>
-<h3><span id="指数分布">指数分布</span></h3>
-<p>对于<span class="math inline">\(\lambda&gt;0\)</span>,定义概率密度函数<span class="math inline">\(f(x)=\begin{cases}\lambda e^{-\lambda x}&amp;x\geq
-0\\0&amp;x&lt;0\end{cases}\)</span>,记作<span class="math inline">\(X\sim
-\mathrm{EXP}(\lambda)\)</span>.其分布函数<span class="math inline">\(F(X)=\begin{cases}1-e^{-\lambda
-x}&amp;X&gt;0\\0&amp;X\leq 0\end{cases}\)</span>.</p>
-<p>它同样也有无记忆性.考虑<span class="math inline">\(P(X&gt;t)=e^{-\lambda t}\)</span>,从而<span class="math inline">\(P(X&gt;s+t|X&gt;s)=P(X&gt;t)\)</span>.</p>
-<h3><span id="伽马分布">伽马分布</span></h3>
-<p>对于<span class="math inline">\(\alpha&gt;0\)</span>,定义伽马函数<span class="math inline">\(\Gamma(\alpha)=\int_0^{+\infty}x^{\alpha-1}e^{-x}\mathrm{d}x\)</span>.我们见过很多次这个东西了,请看:</p>
-<ol type="1">
-<li><span class="math inline">\(\Gamma(1)=1\)</span>.</li>
-<li><span class="math inline">\(\Gamma(\frac{1}{2})=\sqrt{\pi}\)</span>.</li>
-<li><span class="math inline">\(\Gamma(\alpha+1)=\alpha\Gamma(\alpha)\)</span>.</li>
-<li><span class="math inline">\(\Gamma(n+1)=n!\)</span>.</li>
-<li><span class="math inline">\(\Gamma(n+\frac{1}{2})=\frac{(2n)!}{4^nn!}\sqrt
-\pi\)</span>.</li>
+\int_{-\infty}^{+\infty}f(x)x^2\mathrm{d}x&=\int_{-\infty}^{+\infty}\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}x^2\mathrm{d}x\\
+&=\int_{-\infty}^{+\infty}\frac{1}{\sqrt{2\pi}}(-x)\mathrm{d}e^{-\frac{x^2}{2}}\\
+&=\frac{1}{\sqrt{2\pi}}(-x)e^{-\frac{x^2}{2}}|_{-\infty}^{+\infty}+\int_{-\infty}^{+\infty}\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}\mathrm{d}x\\
+&=1
+\end{aligned}</script><p>还可以对此进行推广,考虑$f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$,记$X\sim N(\mu,\sigma^2)$.只需取$y=\frac{x-\mu}{\sigma}$,就可以转换回标准正态分布,并且此时$F_Y(y)=F_X(\sigma y+\mu)$.</p>
+<h3><span id="指数分布">指数分布</span></h3><p>对于$\lambda&gt;0$,定义概率密度函数$f(x)=\begin{cases}\lambda e^{-\lambda x}&amp;x\geq 0\\0&amp;x<0\end{cases}$,记作$x\sim \mathrm{exp}(\lambda)$.其分布函数$f(x)="\begin{cases}1-e^{-\lambda" x}&x>0\\0&amp;X\leq 0\end{cases}$.</0\end{cases}$,记作$x\sim></p>
+<p>它同样也有无记忆性.考虑$P(X&gt;t)=e^{-\lambda t}$,从而$P(X&gt;s+t|X&gt;s)=P(X&gt;t)$.</p>
+<h3><span id="伽马分布">伽马分布</span></h3><p>对于$\alpha&gt;0$,定义伽马函数$\Gamma(\alpha)=\int_0^{+\infty}x^{\alpha-1}e^{-x}\mathrm{d}x$.我们见过很多次这个东西了,请看:</p>
+<ol>
+<li>$\Gamma(1)=1$.</li>
+<li>$\Gamma(\frac{1}{2})=\sqrt{\pi}$.</li>
+<li>$\Gamma(\alpha+1)=\alpha\Gamma(\alpha)$.</li>
+<li>$\Gamma(n+1)=n!$.</li>
+<li>$\Gamma(n+\frac{1}{2})=\frac{(2n)!}{4^nn!}\sqrt \pi$.</li>
 </ol>
-<p>对于<span class="math inline">\(\lambda,\alpha&gt;0\)</span>,定义概率密度函数<span class="math inline">\(f(x)=\begin{cases}\frac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda
-x}&amp;x\geq 0\\0&amp;x&lt;0\end{cases}\)</span>,称此时<span class="math inline">\(x\)</span>符合伽马分布,记作<span class="math inline">\(X\sim \Gamma(\alpha,\lambda)\)</span>.</p>
-<p>先把正则性验证了吧,令<span class="math inline">\(y=\lambda
-x\)</span>,则<span class="math inline">\(f(x)=\frac{\lambda}{\Gamma(\alpha)}y^{\alpha-1}e^{-y}\)</span>,则<span class="math inline">\(f(x)\mathrm{d}x=\frac{1}{\Gamma(\alpha)}y^{\alpha-1}e^{-y}\mathrm{d}y\)</span>,于是搞定了.</p>
-<p>然后是其期望: <span class="math display">\[
+<p>对于$\lambda,\alpha&gt;0$,定义概率密度函数$f(x)=\begin{cases}\frac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda x}&amp;x\geq 0\\0&amp;x&lt;0\end{cases}$,称此时$x$符合伽马分布,记作$X\sim \Gamma(\alpha,\lambda)$.</p>
+<p>先把正则性验证了吧,令$y=\lambda x$,则$f(x)=\frac{\lambda}{\Gamma(\alpha)}y^{\alpha-1}e^{-y}$,则$f(x)\mathrm{d}x=\frac{1}{\Gamma(\alpha)}y^{\alpha-1}e^{-y}\mathrm{d}y$,于是搞定了.</p>
+<p>然后是其期望:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-E(X)&amp;=\int_{0}^{+\infty}xf(x)\mathrm{d}x\\&amp;=\int_0^{+\infty}\frac{1}{\Gamma(\alpha)}y^{\alpha}e^{-y}\frac{\mathrm{d}y}{\lambda}\\
-&amp;=\frac{\Gamma(\alpha+1)}{\Gamma(\alpha)\lambda}\\
-&amp;=\frac{\alpha}{\lambda}
-\end{aligned}
-\]</span> 类似地,<span class="math inline">\(\int_0^{+\infty}x^2f(x)\mathrm{d}x=\frac{\Gamma(\alpha+2)}{\Gamma(\alpha)\lambda^2}\)</span>,从而算出<span class="math inline">\(\mathrm{Var}(X)=\frac{\alpha}{\lambda^2}\)</span>.显然当<span class="math inline">\(X\sim \Gamma(\alpha,\lambda)\)</span>时，<span class="math inline">\(Y=kX\sim
-\Gamma(\alpha,\frac{\lambda}{k})\)</span>.</p>
-<p>当<span class="math inline">\(\alpha=1\)</span>的时候,我们得到了指数分布<span class="math inline">\(\Gamma(1,\lambda)\sim
-\mathrm{Exp}(\lambda)\)</span>.</p>
-<p>另一个特例是,<span class="math inline">\(\alpha=\frac{n}{2},\lambda=\frac{1}{2}\)</span>.此时我们称其为自由度为<span class="math inline">\(n\)</span>的卡方<span class="math inline">\(\chi^2\)</span>分布.记作<span class="math inline">\(\chi^2(n)\)</span>,其数学期望为<span class="math inline">\(n\)</span>,方差为<span class="math inline">\(2n\)</span>.当<span class="math inline">\(n=1\)</span>的时候,<span class="math inline">\(f(x)=\sqrt \frac{1}{2\pi
-x}e^{-\frac{x}{2}}\)</span>.</p>
-<h2><span id="多维离散随机变量">多维离散随机变量</span></h2>
-<h3><span id="重期望公式">重期望公式</span></h3>
-<p>考虑把<span class="math inline">\(E(X|Y)\)</span>视作一个<span class="math inline">\(g(Y)\)</span>,则<span class="math inline">\(E(E(X|Y))=E(X)\)</span>.原因是<span class="math inline">\(E(E(X|Y))=\sum_j P(Y=y_j)E(X|Y=y_j)\)</span>.</p>
-<h2><span id="多维连续随机变量">多维连续随机变量</span></h2>
-<p>设<span class="math inline">\(F(x,y)=P(X\leq x\land Y\leq
-y)\)</span>.应该有:</p>
+E(X)&=\int_{0}^{+\infty}xf(x)\mathrm{d}x\\&=\int_0^{+\infty}\frac{1}{\Gamma(\alpha)}y^{\alpha}e^{-y}\frac{\mathrm{d}y}{\lambda}\\
+&=\frac{\Gamma(\alpha+1)}{\Gamma(\alpha)\lambda}\\
+&=\frac{\alpha}{\lambda}
+\end{aligned}</script><p>类似地,$\int_0^{+\infty}x^2f(x)\mathrm{d}x=\frac{\Gamma(\alpha+2)}{\Gamma(\alpha)\lambda^2}$,从而算出$\mathrm{Var}(X)=\frac{\alpha}{\lambda^2}$.显然当$X\sim \Gamma(\alpha,\lambda)$时，$Y=kX\sim \Gamma(\alpha,\frac{\lambda}{k})$.</p>
+<p>当$\alpha=1$的时候,我们得到了指数分布$\Gamma(1,\lambda)\sim \mathrm{Exp}(\lambda)$.</p>
+<p>另一个特例是,$\alpha=\frac{n}{2},\lambda=\frac{1}{2}$.此时我们称其为自由度为$n$的卡方$\chi^2$分布.记作$\chi^2(n)$,其数学期望为$n$,方差为$2n$.当$n=1$的时候,$f(x)=\sqrt \frac{1}{2\pi x}e^{-\frac{x}{2}}$.</p>
+<h2><span id="多维离散随机变量">多维离散随机变量</span></h2><h3><span id="重期望公式">重期望公式</span></h3><p>考虑把$E(X|Y)$视作一个$g(Y)$,则$E(E(X|Y))=E(X)$.原因是$E(E(X|Y))=\sum_j P(Y=y_j)E(X|Y=y_j)$.</p>
+<h2><span id="多维连续随机变量">多维连续随机变量</span></h2><p>设$F(x,y)=P(X\leq x\land Y\leq y)$.应该有:</p>
 <p><strong>联合分布函数</strong>有如下性质:</p>
-<ol type="1">
-<li><strong>有界性</strong>:<span class="math inline">\(0\leq F(x,y)\leq
-1\)</span>,而且<span class="math inline">\(\lim_{x\to
--\infty}F(x,y)=\lim_{y\to -\infty}F(x,y)=0,\lim_{x,y\to
-+\infty}F(x,y)=1\)</span>.</li>
-<li><strong>单调性</strong>:当<span class="math inline">\(x_1\leq
-x_2\)</span>时,<span class="math inline">\(F(x_1,y)\leq
-F(x_2,y)\)</span>;当<span class="math inline">\(y_1\leq
-y_2\)</span>时,<span class="math inline">\(F(x,y_1)\leq
-F(x,y_2)\)</span>.</li>
-<li><strong>右连续</strong>:<span class="math inline">\(F(x_0+0,y)=F(x_0,y)\)</span>,<span class="math inline">\(F(x,y_0+0)=F(x,y_0)\)</span>.</li>
-<li><strong>非负性</strong>:<span class="math inline">\(P(a&lt;X\leq
-b,c&lt;Y\leq d)=F(b,d)-F(a,d)-F(b,c)+F(a,c)\geq 0\)</span>.</li>
+<ol>
+<li><strong>有界性</strong>:$0\leq F(x,y)\leq 1$,而且$\lim_{x\to -\infty}F(x,y)=\lim_{y\to -\infty}F(x,y)=0,\lim_{x,y\to +\infty}F(x,y)=1$.</li>
+<li><strong>单调性</strong>:当$x_1\leq x_2$时,$F(x_1,y)\leq F(x_2,y)$;当$y_1\leq y_2$时,$F(x,y_1)\leq F(x,y_2)$.</li>
+<li><strong>右连续</strong>:$F(x_0+0,y)=F(x_0,y)$,$F(x,y_0+0)=F(x,y_0)$.</li>
+<li><strong>非负性</strong>:$P(a&lt;X\leq b,c&lt;Y\leq d)=F(b,d)-F(a,d)-F(b,c)+F(a,c)\geq 0$.</li>
 </ol>
-<p>当<span class="math inline">\(F\)</span>连续时,如果能找到函数<span class="math inline">\(f\geq 0\)</span>满足<span class="math inline">\(F(x,y)=\int_{-\infty}^x\int_{-\infty}^y
-f(u,v)\mathrm{d}v\mathrm{d}u\)</span>,称<span class="math inline">\(f\)</span>为<strong>联合密度函数</strong>.</p>
-接下来来看条件分布函数和条件密度函数,当概率密度函数的确连续时,定义: $$
-<span class="math display">\[\begin{aligned}
-P(X\leq x|Y=y)&amp;=\lim_{\Delta\to +0}P(X\leq x|y\leq Y\leq y+\Delta)\\
-&amp;=\lim_{\Delta\to
-+0}\cfrac{\int_{-\infty}^x\int_{y}^{y+\Delta}f(u,v)\mathrm{d}v\mathrm{d}u}{\int_{y}^{y+\Delta}f_Y(v)\mathrm{d}v}\\
-&amp;=\lim_{\Delta\to
-+0}\cfrac{\int_{-\infty}^x(\frac{1}{\Delta}\int_{y}^{y+\Delta}f(u,v)\mathrm{d}v)\mathrm{d}u}{\frac{1}{\Delta}\int_{y}^{y+\Delta}f_Y(v)\mathrm{d}v}\\
-&amp;=\cfrac{\int_{-\infty}^xf(u,y)\mathrm{d}u}{f_Y(y)}\\
-&amp;=\int_{-\infty}^x\cfrac{f(u,y)}{f_Y(y)}\mathrm{d}u\\
+<p>当$F$连续时,如果能找到函数$f\geq 0$满足$F(x,y)=\int_{-\infty}^x\int_{-\infty}^y f(u,v)\mathrm{d}v\mathrm{d}u$,称$f$为<strong>联合密度函数</strong>.</p>
+<p>接下来来看条件分布函数和条件密度函数,当概率密度函数的确连续时,定义:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+P(X\leq x|Y=y)&=\lim_{\Delta\to +0}P(X\leq x|y\leq Y\leq y+\Delta)\\
+&=\lim_{\Delta\to +0}\cfrac{\int_{-\infty}^x\int_{y}^{y+\Delta}f(u,v)\mathrm{d}v\mathrm{d}u}{\int_{y}^{y+\Delta}f_Y(v)\mathrm{d}v}\\
+&=\lim_{\Delta\to +0}\cfrac{\int_{-\infty}^x(\frac{1}{\Delta}\int_{y}^{y+\Delta}f(u,v)\mathrm{d}v)\mathrm{d}u}{\frac{1}{\Delta}\int_{y}^{y+\Delta}f_Y(v)\mathrm{d}v}\\
+&=\cfrac{\int_{-\infty}^xf(u,y)\mathrm{d}u}{f_Y(y)}\\
+&=\int_{-\infty}^x\cfrac{f(u,y)}{f_Y(y)}\mathrm{d}u\\
 
-\end{aligned}\]</span>
-<p>$$ 其中<span class="math inline">\(f_Y(y)=\int_{-\infty}^{+\infty}f(u,y)\mathrm{d}u\)</span>.</p>
-<p>当<span class="math inline">\(\forall x,y\)</span>都有<span class="math inline">\(f(x,y)=f_X(x)f_Y(y)\)</span>,则称<span class="math inline">\(X,Y\)</span>相互独立.</p>
-<p>容易检验<span class="math inline">\(E(X+Y)=E(X)+E(Y)\)</span>,而且当<span class="math inline">\(X,Y\)</span>相互独立的时候,<span class="math inline">\(E(XY)=E(X)E(Y)\)</span>,于是自然也有<span class="math inline">\(\mathrm{Var}(X\pm
-Y)=\mathrm{Var}(X)+\mathrm{Var}(Y)\)</span>.</p>
-<h3><span id="二维正态分布">二维正态分布</span></h3>
-<p>即: <span class="math display">\[
-f(x,y)=\frac{\exp(-\frac{1}{2(1-\rho^2)}\left(\frac{(x-\mu_1)^2}{\sigma_1^2}+\frac{(y-\mu_2)^2}{\sigma_2^2}-\frac{2\rho(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2}\right))}{2\pi
-\sigma_1\sigma_2\sqrt{1-\rho^2}}
-\]</span> 现在来验证正则性,取<span class="math inline">\(u=\frac{\frac{x-\mu_1}{\sigma_1}-\rho
-\frac{y-\mu_2}{\sigma_2}}{\sqrt{1-\rho^2}},v=\frac{y-\mu_2}{\sigma_2}\)</span>.而<span class="math inline">\(\left|\frac{\partial(u,v)}{\partial(x,y)}\right|=\sigma_1\sigma_2\sqrt{1-\rho^2}\)</span>​.于是:
-<span class="math display">\[
+\end{aligned}</script><p>其中$f_Y(y)=\int_{-\infty}^{+\infty}f(u,y)\mathrm{d}u$.</p>
+<p>当$\forall x,y$都有$f(x,y)=f_X(x)f_Y(y)$,则称$X,Y$相互独立.</p>
+<p>容易检验$E(X+Y)=E(X)+E(Y)$,而且当$X,Y$相互独立的时候,$E(XY)=E(X)E(Y)$,于是自然也有$\mathrm{Var}(X\pm Y)=\mathrm{Var}(X)+\mathrm{Var}(Y)$.</p>
+<h3><span id="二维正态分布">二维正态分布</span></h3><p>即:</p>
+<script type="math/tex; mode=display">
+f(x,y)=\frac{\exp(-\frac{1}{2(1-\rho^2)}\left(\frac{(x-\mu_1)^2}{\sigma_1^2}+\frac{(y-\mu_2)^2}{\sigma_2^2}-\frac{2\rho(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2}\right))}{2\pi \sigma_1\sigma_2\sqrt{1-\rho^2}}</script><p>现在来验证正则性,取$u=\frac{\frac{x-\mu_1}{\sigma_1}-\rho \frac{y-\mu_2}{\sigma_2}}{\sqrt{1-\rho^2}},v=\frac{y-\mu_2}{\sigma_2}$.而$\left|\frac{\partial(u,v)}{\partial(x,y)}\right|=\sigma_1\sigma_2\sqrt{1-\rho^2}$​.于是:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-&amp;\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}f(x,y)\mathrm{d}x\mathrm{d}y\\
-=&amp;\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}\frac{1}{2\pi}\exp\left(-\frac{1}{2}(u^2+v^2)\right)\mathrm{d}u\mathrm{d}v\\
-=&amp;1
-\end{aligned}
-\]</span> 此外请看: <span class="math display">\[
+&\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}f(x,y)\mathrm{d}x\mathrm{d}y\\
+=&\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}\frac{1}{2\pi}\exp\left(-\frac{1}{2}(u^2+v^2)\right)\mathrm{d}u\mathrm{d}v\\
+=&1
+\end{aligned}</script><p>此外请看:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-f_X(x)&amp;=\int_{-\infty}^{+\infty}f(x,y)\mathrm{d}y\\
-&amp;=\sigma_2\sqrt{1-\rho^2}\int_{-\infty}^{+\infty}f(x,y)\mathrm{d}u\\
-&amp;=\frac{1}{\sigma_1\sqrt{2\pi}}\exp\left(-\frac{(x-\mu_1)^2}{2\sigma_1^2}\right)
-\end{aligned}
-\]</span> 于是当<span class="math inline">\(X,Y\sim
-N(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)\)</span>,则<span class="math inline">\(X\sim N(\mu_1,\sigma_1^2),Y\sim
-N(\mu_2,\sigma_2^2)\)</span>.</p>
-<p>此外: <span class="math display">\[
+f_X(x)&=\int_{-\infty}^{+\infty}f(x,y)\mathrm{d}y\\
+&=\sigma_2\sqrt{1-\rho^2}\int_{-\infty}^{+\infty}f(x,y)\mathrm{d}u\\
+&=\frac{1}{\sigma_1\sqrt{2\pi}}\exp\left(-\frac{(x-\mu_1)^2}{2\sigma_1^2}\right)
+\end{aligned}</script><p>于是当$X,Y\sim N(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)$,则$X\sim N(\mu_1,\sigma_1^2),Y\sim N(\mu_2,\sigma_2^2)$.</p>
+<p>此外:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-f(x|y)&amp;=\frac{f(x,y)}{f_Y(y)}\\
-&amp;=\frac{1}{\sigma_1\sqrt{2\pi}\sqrt{1-\rho^2}}\exp\left(-\frac{1}{2(1-\rho^2)}\left(\frac{x-\mu_1}{\sigma_1}-\rho\frac{y-\mu_2}{\sigma_2}\right)^2\right)
-\end{aligned}
-\]</span> 也就是说,当<span class="math inline">\(Y=y\)</span>时,<span class="math inline">\(X\sim
-N(\mu_1+\rho\frac{\sigma_1}{\sigma_2}(y-\mu_2),\sigma_1^2(1-\rho^2))\)</span>,容易见到相互独立当且仅当<span class="math inline">\(\rho=0\)</span>.</p>
-<h6><span id="example1">Example1</span></h6>
-<p>设<span class="math inline">\(n\times n\)</span>的矩阵<span class="math inline">\(A\)</span>中每个元素独立服从<span class="math inline">\(N(0,1)\)</span>.求<span class="math inline">\(E(\det
-A),E(\mathrm{trace}(A)),E(\mathrm{trace}(A^2))\)</span>.</p>
-<p>考虑<span class="math inline">\(\det
-A=\sum_{\sigma}\mathrm{sgn}(\sigma)\prod
-A_{i,\sigma(i)}\)</span>.直接套期望就知道<span class="math inline">\(E(\det A)=0\)</span>.</p>
-<p>显然<span class="math inline">\(E(\mathrm{trace}(A))=0\)</span>.</p>
-<p>而<span class="math inline">\(E(\mathrm{trace}(A^2))\)</span>中,每一个<span class="math inline">\((A^2)_{i,i}=\sum_{j}E(a_{i,j}a_{j,i})=1\)</span>,于是<span class="math inline">\(E(\mathrm{trace}(A^2))=n\)</span>.</p>
-<h3><span id="重期望公式">重期望公式</span></h3>
-<p>定义<span class="math inline">\(E(X|Y=y)=\int_{-\infty}^{+\infty}f(x|y)x\mathrm{d}x\)</span>.则<span class="math inline">\(E(E(X|Y))=E(X)\)</span>.</p>
-<h3><span id="协方差">协方差</span></h3>
-<p>和离散时的基本全部一样.其实早该看出来协方差就是一种双线性形式.</p>
-<h6><span id="example1">Example1</span></h6>
-<p>证明二维正态分布的<span class="math inline">\(\mathrm{Cov}(X,Y)=\sigma_1\sigma_2\rho\)</span>.</p>
-<p>容易见到: <span class="math display">\[
+f(x|y)&=\frac{f(x,y)}{f_Y(y)}\\
+&=\frac{1}{\sigma_1\sqrt{2\pi}\sqrt{1-\rho^2}}\exp\left(-\frac{1}{2(1-\rho^2)}\left(\frac{x-\mu_1}{\sigma_1}-\rho\frac{y-\mu_2}{\sigma_2}\right)^2\right)
+\end{aligned}</script><p>也就是说,当$Y=y$时,$X\sim N(\mu_1+\rho\frac{\sigma_1}{\sigma_2}(y-\mu_2),\sigma_1^2(1-\rho^2))$,容易见到相互独立当且仅当$\rho=0$.</p>
+<h6><span id="example1">Example1</span></h6><p>设$n\times n$的矩阵$A$中每个元素独立服从$N(0,1)$.求$E(\det A),E(\mathrm{trace}(A)),E(\mathrm{trace}(A^2))$.</p>
+<p>考虑$\det A=\sum_{\sigma}\mathrm{sgn}(\sigma)\prod A_{i,\sigma(i)}$.直接套期望就知道$E(\det A)=0$.</p>
+<p>显然$E(\mathrm{trace}(A))=0$.</p>
+<p>而$E(\mathrm{trace}(A^2))$中,每一个$(A^2)_{i,i}=\sum_{j}E(a_{i,j}a_{j,i})=1$,于是$E(\mathrm{trace}(A^2))=n$.</p>
+<h3><span id="重期望公式">重期望公式</span></h3><p>定义$E(X|Y=y)=\int_{-\infty}^{+\infty}f(x|y)x\mathrm{d}x$.则$E(E(X|Y))=E(X)$.</p>
+<h3><span id="协方差">协方差</span></h3><p>和离散时的基本全部一样.其实早该看出来协方差就是一种双线性形式.</p>
+<h6><span id="example1">Example1</span></h6><p>证明二维正态分布的$\mathrm{Cov}(X,Y)=\sigma_1\sigma_2\rho$.</p>
+<p>容易见到:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-\mathrm{Cov}(X,Y)&amp;=\int\int
-f(x,y)(x-\mu_1)(y-\mu_2)\mathrm{d}x\mathrm{d}y\\
-&amp;=\int\int\frac{1}{2\pi}\exp\left(-\frac{1}{2}(u^2+v^2)\right)\sigma_1\sigma_2v(u\sqrt{1-\rho^2}+\rho
-v)\mathrm{d}u\mathrm{d}v
-\end{aligned}
-\]</span> 然而: <span class="math display">\[
+\mathrm{Cov}(X,Y)&=\int\int f(x,y)(x-\mu_1)(y-\mu_2)\mathrm{d}x\mathrm{d}y\\
+&=\int\int\frac{1}{2\pi}\exp\left(-\frac{1}{2}(u^2+v^2)\right)\sigma_1\sigma_2v(u\sqrt{1-\rho^2}+\rho v)\mathrm{d}u\mathrm{d}v
+\end{aligned}</script><p>然而:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-\int\int\frac{1}{2\pi}\exp\left(-\frac{1}{2}(u^2+v^2)\right)uv\mathrm{d}u\mathrm{d}v&amp;=0\\
-\int\int\frac{1}{2\pi}\exp\left(-\frac{1}{2}(u^2+v^2)\right)v^2\mathrm{d}u\mathrm{d}v&amp;=1\\
-\end{aligned}
-\]</span> 带入得到结果.</p>
-<h4><span id="相关系数">相关系数</span></h4>
-<p>可以定义相关系数<span class="math inline">\(\mathrm{Corr}(X,Y)=\frac{\mathrm{Cov}(X,Y)}{\sigma(X)\sigma(Y)}\)</span>.一个很好玩的事是两个变量的任意线性变换<span class="math inline">\(X&#39;=aX+b\)</span>后,仍有: <span class="math display">\[
+\int\int\frac{1}{2\pi}\exp\left(-\frac{1}{2}(u^2+v^2)\right)uv\mathrm{d}u\mathrm{d}v&=0\\
+\int\int\frac{1}{2\pi}\exp\left(-\frac{1}{2}(u^2+v^2)\right)v^2\mathrm{d}u\mathrm{d}v&=1\\
+\end{aligned}</script><p>带入得到结果.</p>
+<h4><span id="相关系数">相关系数</span></h4><p>可以定义相关系数$\mathrm{Corr}(X,Y)=\frac{\mathrm{Cov}(X,Y)}{\sigma(X)\sigma(Y)}$.一个很好玩的事是两个变量的任意线性变换$X’=aX+b$后,仍有:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-\mathrm{Corr}(X&#39;,Y)=\frac{a\mathrm{Cov}(X,Y)}{|a|\sigma(X)\sigma(Y)}=\mathrm{sgn}(a)\frac{\mathrm{Cov}(X,Y)}{\sigma(X)\sigma(Y)}
-\end{aligned}
-\]</span> 一个显然结论是当标准化后即<span class="math inline">\(\tilde
-X=\frac{X-E(X)}{\sigma(X)}\)</span>后相关系数不变.</p>
+\mathrm{Corr}(X',Y)=\frac{a\mathrm{Cov}(X,Y)}{|a|\sigma(X)\sigma(Y)}=\mathrm{sgn}(a)\frac{\mathrm{Cov}(X,Y)}{\sigma(X)\sigma(Y)}
+\end{aligned}</script><p>一个显然结论是当标准化后即$\tilde X=\frac{X-E(X)}{\sigma(X)}$后相关系数不变.</p>
 <p>此外,我们可以证明以下性质:</p>
-<ol type="1">
-<li><span class="math inline">\(|\mathrm{Corr}(X,Y)|\leq
-1\)</span>.</li>
-<li>如果<span class="math inline">\(|\mathrm{Corr}(X,Y)|=1\)</span>等价于<span class="math inline">\(Y,X\)</span>存在关系<span class="math inline">\(a\ne 0\)</span>使得<span class="math inline">\(P(Y=aX+b)=1\)</span>.</li>
+<ol>
+<li>$|\mathrm{Corr}(X,Y)|\leq 1$.</li>
+<li>如果$|\mathrm{Corr}(X,Y)|=1$等价于$Y,X$存在关系$a\ne 0$使得$P(Y=aX+b)=1$.</li>
 </ol>
-<p>(1)(2)其实就是柯西不等式对吧,因为<span class="math inline">\(\mathrm{Cov}\)</span>其实是某种内积,所以当然有<span class="math inline">\(\frac{\mathrm{Cov}(X,Y)}{\sqrt{\mathrm{Cov}(X,X)\mathrm{Cov}(Y,Y)}}\in
-[-1,1]\)</span>.</p>
-<h4><span id="协方差矩阵">协方差矩阵</span></h4>
-<p>设随机变量<span class="math inline">\(X=(X_1,\cdots,X_n)\)</span>,定义<span class="math inline">\(E(X)=(E(X_1),\cdots,E(X_n))\)</span>为其<strong>数学期望向量</strong>,而<span class="math inline">\(\mathrm{Cov}(X)=E((X-E(X))(X-E(X))^t)\)</span>为<span class="math inline">\(X\)</span>的协方差矩阵.也就是<span class="math inline">\(\mathrm{Cov}(X)_{i,j}=\mathrm{Cov}(X_i,X_j)\)</span>.容易见到其半正定,原因是<span class="math inline">\(\alpha^t\mathrm{Cov}(X)\alpha=E((\alpha^t(X-E(X)))^2)\)</span>.</p>
-<p>事实上应该总有<span class="math inline">\(\mathrm{Cov}(AX)=A\mathrm{Cov}(X)A^t\)</span>,原因是:
-<span class="math display">\[
-\mathrm{Cov}(AX)=E((AX-E[AX])(AX-E[AX])^t)
-\]</span></p>
-<h6><span id="example1">Example1</span></h6>
-<p>求二维正态分布的协方差矩阵.</p>
-<p>显然为: <span class="math display">\[
+<p>(1)(2)其实就是柯西不等式对吧,因为$\mathrm{Cov}$其实是某种内积,所以当然有$\frac{\mathrm{Cov}(X,Y)}{\sqrt{\mathrm{Cov}(X,X)\mathrm{Cov}(Y,Y)}}\in [-1,1]$.</p>
+<h4><span id="协方差矩阵">协方差矩阵</span></h4><p>设随机变量$X=(X_1,\cdots,X_n)$,定义$E(X)=(E(X_1),\cdots,E(X_n))$为其<strong>数学期望向量</strong>,而$\mathrm{Cov}(X)=E((X-E(X))(X-E(X))^t)$为$X$的协方差矩阵.也就是$\mathrm{Cov}(X)_{i,j}=\mathrm{Cov}(X_i,X_j)$.容易见到其半正定,原因是$\alpha^t\mathrm{Cov}(X)\alpha=E((\alpha^t(X-E(X)))^2)$.</p>
+<p>事实上应该总有$\mathrm{Cov}(AX)=A\mathrm{Cov}(X)A^t$,原因是:</p>
+<script type="math/tex; mode=display">
+\mathrm{Cov}(AX)=E((AX-E[AX])(AX-E[AX])^t)</script><h6><span id="example1">Example1</span></h6><p>求二维正态分布的协方差矩阵.</p>
+<p>显然为:</p>
+<script type="math/tex; mode=display">
 B=\begin{bmatrix}
-\sigma_1^2&amp;\rho\sigma_1\sigma_2\\
-\rho\sigma_1\sigma_2&amp;\sigma_2^2
-\end{bmatrix}
-\]</span> 此外<span class="math inline">\(\det(B)=(1-\rho^2)\sigma_1^2\sigma_2^2\)</span>.其逆矩阵<span class="math inline">\(B^{-1}=\frac{1}{1-\rho^2}\begin{bmatrix}\frac{1}{\sigma_1^2}&amp;-\frac{\rho}{\sigma_1\sigma_2}\\-\frac{\rho}{\sigma_1\sigma_2}&amp;\frac{1}{\sigma_2^2}\end{bmatrix}\)</span>.</p>
-<p>此时见到: <span class="math display">\[
+\sigma_1^2&\rho\sigma_1\sigma_2\\
+\rho\sigma_1\sigma_2&\sigma_2^2
+\end{bmatrix}</script><p>此外$\det(B)=(1-\rho^2)\sigma_1^2\sigma_2^2$.其逆矩阵$B^{-1}=\frac{1}{1-\rho^2}\begin{bmatrix}\frac{1}{\sigma_1^2}&amp;-\frac{\rho}{\sigma_1\sigma_2}\-\frac{\rho}{\sigma_1\sigma_2}&amp;\frac{1}{\sigma_2^2}\end{bmatrix}$.</p>
+<p>此时见到:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-f(x_1,x_2)&amp;=\frac{\exp(-\frac{1}{2(1-\rho^2)}\left(\frac{(x_1-\mu_1)^2}{\sigma_1^2}+\frac{(x_2-\mu_2)^2}{\sigma_2^2}-\frac{2\rho(x_1-\mu_1)(x_2-\mu_2)}{\sigma_1\sigma_2}\right))}{2\pi
-\sigma_1\sigma_2\sqrt{1-\rho^2}}\\
-&amp;=\frac{1}{2\pi\sqrt {\det B}}\exp\left(-\frac{1}{2}(\vec x-\vec
-\mu)^TB^{-1}(\vec x-\vec \mu)\right)
-\end{aligned}
-\]</span> 从而容易推广到任意多维,只需定义: <span class="math display">\[
+f(x_1,x_2)&=\frac{\exp(-\frac{1}{2(1-\rho^2)}\left(\frac{(x_1-\mu_1)^2}{\sigma_1^2}+\frac{(x_2-\mu_2)^2}{\sigma_2^2}-\frac{2\rho(x_1-\mu_1)(x_2-\mu_2)}{\sigma_1\sigma_2}\right))}{2\pi \sigma_1\sigma_2\sqrt{1-\rho^2}}\\
+&=\frac{1}{2\pi\sqrt {\det B}}\exp\left(-\frac{1}{2}(\vec x-\vec \mu)^TB^{-1}(\vec x-\vec \mu)\right)
+\end{aligned}</script><p>从而容易推广到任意多维,只需定义:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
 f(\vec x)
-&amp;=\frac{1}{(2\pi)^{\frac{n}{2}}\sqrt {\det
-B}}\exp\left(-\frac{1}{2}(\vec x-\vec \mu)^TB^{-1}(\vec x-\vec
-\mu)\right)
-\end{aligned}
-\]</span></p>
-<h6><span id="example2">Example2</span></h6>
-<p>求证:当<span class="math inline">\(\vec X\sim N(\vec
-\mu,B)\)</span>,则<span class="math inline">\(\vec Y=A\vec X+\vec b\sim
-N(A\vec \mu+\vec b,ABA^t)\)</span>,其中<span class="math inline">\(A\)</span>必须行满秩.</p>
-<p>当<span class="math inline">\(A\)</span>是方阵的时候,直接可逆,于是:
-<span class="math display">\[
+&=\frac{1}{(2\pi)^{\frac{n}{2}}\sqrt {\det B}}\exp\left(-\frac{1}{2}(\vec x-\vec \mu)^TB^{-1}(\vec x-\vec \mu)\right)
+\end{aligned}</script><h6><span id="example2">Example2</span></h6><p>求证:当$\vec X\sim N(\vec \mu,B)$,则$\vec Y=A\vec X+\vec b\sim N(A\vec \mu+\vec b,ABA^t)$,其中$A$必须行满秩.</p>
+<p>当$A$是方阵的时候,直接可逆,于是:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-f_Y(y)&amp;=f_X(A^{-1}(y-b))|\frac{\partial x}{\partial y}|\\
-&amp;=f_X(A^{-1}(y-b))|\frac{\partial y}{\partial x}|^{-1}\\
-&amp;=f_X(A^{-1}(y-b))|\frac{1}{\det A}|\\
-&amp;=\frac{1}{(2\pi)^{\frac{n}{2}}\sqrt {\det
-ABA^{t}}}\exp\left(-\frac{1}{2}(A^{-1}(\vec y-\vec b)-\vec
-\mu)^TB^{-1}(A^{-1}(\vec y-\vec b)-\vec \mu)\right)\\
-&amp;=\frac{1}{(2\pi)^{\frac{n}{2}}\sqrt {\det
-ABA^{t}}}\exp\left(-\frac{1}{2}(\vec y-A\vec \mu-\vec
-b)^T(ABA^{T})^{-1}(A^{-1}(\vec y-A\vec \mu-\vec b)\right)
-\end{aligned}
-\]</span>
-此外,一般的多为高斯分布可以看作独立同分布标准正态分布线性变换后的结果,原因是当<span class="math inline">\(X\sim N(0,I),Y\sim N(\vec
-\mu,B)\)</span>,当然有<span class="math inline">\(Y=B^{\frac{1}{2}}X+\vec \mu\)</span>.</p>
-<p>特别地,把一个有一定信息关系的东西<span class="math inline">\(Y\)</span>变成<span class="math inline">\(X\)</span>也只需要<span class="math inline">\(X=B^{-\frac{1}{2}}(X-\vec \mu
-)\)</span>,这个过程一般叫<strong>白化</strong>.因为信息被缩简单了.</p>
-<p>然而,考虑如果<span class="math inline">\(X\sim
-N(0,I)\)</span>,如果<span class="math inline">\(Y=AX\)</span>,此时<span class="math inline">\(Y\)</span>的结果似乎只和<span class="math inline">\(AA^t\)</span>有关,而与<span class="math inline">\(A\)</span>竟然无关.特别地,如果<span class="math inline">\(A\)</span>是一个正交矩阵,则<span class="math inline">\(Y\)</span>干脆和<span class="math inline">\(X\)</span>服从同样的分布.</p>
-<p>这揭示了正态分布其实更关注于<strong>模长</strong>,换言之,当<span class="math inline">\(\vec \mu=0,B=I\)</span>的时候,<span class="math inline">\(f(\vec y)\)</span>其实是只和<span class="math inline">\(\vec
-y\)</span>的模长相关的.此时如果看它的等密度轮廓线其实是一圈又一圈的圆.而拉伸之后就成了某种一圈又一圈的椭圆(因为要拉伸呀).</p>
-<h3><span id="卷积">卷积</span></h3>
-<p>若<span class="math inline">\(X,Y\)</span>相互独立,考虑<span class="math inline">\(Z=X+Y\)</span>,则<span class="math inline">\(f_Z(z)=\int_{-\infty}^{+\infty}f_X(z-y)f_Y(y)\mathrm{d}y\)</span>.</p>
-<h2><span id="熵">熵</span></h2>
-<p>离散情况下将熵定义为<span class="math inline">\(H[X]=E(\log
-\frac{1}{P(X)})=\sum_{i}P_i\log \frac{1}{P_i}\)</span>.如果设<span class="math inline">\(|X|=|\{x|P(x)&gt;0\}|\)</span>,则容易见到<span class="math inline">\(0\leq H[X]\leq \log|X|\)</span>.</p>
-<p>接下来我们想定义条件熵,直观的理解是”去掉<span class="math inline">\(X\)</span>的信息后<span class="math inline">\(Y\)</span>还剩多少信息”: <span class="math display">\[
+f_Y(y)&=f_X(A^{-1}(y-b))|\frac{\partial x}{\partial y}|\\
+&=f_X(A^{-1}(y-b))|\frac{\partial y}{\partial x}|^{-1}\\
+&=f_X(A^{-1}(y-b))|\frac{1}{\det A}|\\
+&=\frac{1}{(2\pi)^{\frac{n}{2}}\sqrt {\det ABA^{t}}}\exp\left(-\frac{1}{2}(A^{-1}(\vec y-\vec b)-\vec \mu)^TB^{-1}(A^{-1}(\vec y-\vec b)-\vec \mu)\right)\\
+&=\frac{1}{(2\pi)^{\frac{n}{2}}\sqrt {\det ABA^{t}}}\exp\left(-\frac{1}{2}(\vec y-A\vec \mu-\vec b)^T(ABA^{T})^{-1}(A^{-1}(\vec y-A\vec \mu-\vec b)\right)
+\end{aligned}</script><p>此外,一般的多为高斯分布可以看作独立同分布标准正态分布线性变换后的结果,原因是当$X\sim N(0,I),Y\sim N(\vec \mu,B)$,当然有$Y=B^{\frac{1}{2}}X+\vec \mu$.</p>
+<p>特别地,把一个有一定信息关系的东西$Y$变成$X$也只需要$X=B^{-\frac{1}{2}}(X-\vec \mu )$,这个过程一般叫<strong>白化</strong>.因为信息被缩简单了.</p>
+<p>然而,考虑如果$X\sim N(0,I)$,如果$Y=AX$,此时$Y$的结果似乎只和$AA^t$有关,而与$A$竟然无关.特别地,如果$A$是一个正交矩阵,则$Y$干脆和$X$服从同样的分布.</p>
+<p>这揭示了正态分布其实更关注于<strong>模长</strong>,换言之,当$\vec \mu=0,B=I$的时候,$f(\vec y)$其实是只和$\vec y$的模长相关的.此时如果看它的等密度轮廓线其实是一圈又一圈的圆.而拉伸之后就成了某种一圈又一圈的椭圆(因为要拉伸呀).</p>
+<h3><span id="卷积">卷积</span></h3><p>若$X,Y$相互独立,考虑$Z=X+Y$,则$f_Z(z)=\int_{-\infty}^{+\infty}f_X(z-y)f_Y(y)\mathrm{d}y$.</p>
+<h2><span id="熵">熵</span></h2><p>离散情况下将熵定义为$H[X]=E(\log \frac{1}{P(X)})=\sum_{i}P_i\log \frac{1}{P_i}$.如果设$|X|=|\{x|P(x)&gt;0\}|$,则容易见到$0\leq H[X]\leq \log|X|$.</p>
+<p>接下来我们想定义条件熵,直观的理解是”去掉$X$的信息后$Y$还剩多少信息”:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-H[Y|X]&amp;=\sum_xH[Y|X=x]P[X=x]\\
-&amp;=\sum_x\sum_yP(Y=y|X=x)P[X=x]\lg\frac{1}{P(Y=y|X=x)}\\
-&amp;=\sum_{x,y}P(Y=y,X=x)\lg\frac{1}{P(Y=y|X=x)}\\
-&amp;=E(\lg\frac{1}{P(Y|X)})
-\end{aligned}
-\]</span></p>
-<p>首先检验<span class="math inline">\(f(x)=x\ln
-x\)</span>是下凸函数,原因是<span class="math inline">\(f&#39;(x)=1+\ln
-x\)</span>而<span class="math inline">\(f&#39;&#39;(x)=\frac{1}{x}&gt;0\)</span>.于是琴生不等式给出<span class="math inline">\(f(\frac{a+b}{2})\leq
-\frac{f(a)+f(b)}{2}\)</span>,或说<span class="math inline">\(E(f(X))\geq
-f(E(X))\)</span>.</p>
-<p>另外一个很重要的工具是对数求和不等式,对于任何非负实数<span class="math inline">\(a_1,\cdots,a_n\)</span>和正数<span class="math inline">\(b_1,\cdots,b_n\)</span>,记<span class="math inline">\(a=\sum_i a_i,b=\sum_i b_i\)</span>,则: <span class="math display">\[
-\sum_i a_i\log\frac{a_i}{b_i}\geq a\log \frac{a}{b}
-\]</span> 一个重要的性质是证明其是上凸函数,对于任意分布<span class="math inline">\(P,Q\)</span>和<span class="math inline">\(\lambda\in (0,1)\)</span>,都有: <span class="math display">\[
-H[\lambda P+(1-\lambda)Q]\geq \lambda H[P]+(1-\lambda)H[Q]
-\]</span> 原因是考虑: <span class="math display">\[
-f(\lambda p_i+(1-\lambda)q_i)\leq \lambda f(p_i)+(1-\lambda)f(q_i)
-\]</span> 可以见到以下性质:</p>
-<ol type="1">
-<li><span class="math inline">\(H[X,Y]=H[X]+H[Y|X]\)</span>.</li>
-<li><span class="math inline">\(H[X|Y]\leq H[X]\)</span>.</li>
-<li>作为(2)的推论,互信息<span class="math inline">\(I(X,Y)=H[X]+H[Y]-H[X,Y]=H[X]-H[X|Y]\geq
-0\)</span>.</li>
-<li>对于一个确定性函数<span class="math inline">\(g\)</span>,<span class="math inline">\(H[X]\geq H[g(X)]\)</span>.</li>
-<li><span class="math inline">\(I(X;YZ)=I(X;Z)+I(X;Y|Z)\)</span>.</li>
-<li><span class="math inline">\(I(X;Y\mid Z)\leq
-I(X;Y)+H(Z)\)</span>.</li>
-<li>当<span class="math inline">\(X,Y,Z\)</span>满足Markov规则,或者说<span class="math inline">\(P_{X,Y,Z}=P_XP_{Y|X}P_{Z|Y}\)</span>,或说<span class="math inline">\(P_{Z|Y}=P_{Z|XY}\)</span>,则<span class="math inline">\(I(X;Y)=I(X;Z)+I(X;Y|Z)\)</span>.这自然推出<span class="math inline">\(I(X;Y)\geq
-I(X;Z)\)</span>,也即这个过程中信息不会增多.</li>
+H[Y|X]&=\sum_xH[Y|X=x]P[X=x]\\
+&=\sum_x\sum_yP(Y=y|X=x)P[X=x]\lg\frac{1}{P(Y=y|X=x)}\\
+&=\sum_{x,y}P(Y=y,X=x)\lg\frac{1}{P(Y=y|X=x)}\\
+&=E(\lg\frac{1}{P(Y|X)})
+\end{aligned}</script><p>首先检验$f(x)=x\ln x$是下凸函数,原因是$f’(x)=1+\ln x$而$f’’(x)=\frac{1}{x}&gt;0$.于是琴生不等式给出$f(\frac{a+b}{2})\leq \frac{f(a)+f(b)}{2}$,或说$E(f(X))\geq f(E(X))$.</p>
+<p>另外一个很重要的工具是对数求和不等式,对于任何非负实数$a_1,\cdots,a_n$和正数$b_1,\cdots,b_n$,记$a=\sum_i a_i,b=\sum_i b_i$,则:</p>
+<script type="math/tex; mode=display">
+\sum_i a_i\log\frac{a_i}{b_i}\geq a\log \frac{a}{b}</script><p>一个重要的性质是证明其是上凸函数,对于任意分布$P,Q$和$\lambda\in (0,1)$,都有:</p>
+<script type="math/tex; mode=display">
+H[\lambda P+(1-\lambda)Q]\geq \lambda H[P]+(1-\lambda)H[Q]</script><p>原因是考虑:</p>
+<script type="math/tex; mode=display">
+f(\lambda p_i+(1-\lambda)q_i)\leq \lambda f(p_i)+(1-\lambda)f(q_i)</script><p>可以见到以下性质:</p>
+<ol>
+<li>$H[X,Y]=H[X]+H[Y|X]$.</li>
+<li>$H[X|Y]\leq H[X]$.</li>
+<li>作为(2)的推论,互信息$I(X,Y)=H[X]+H[Y]-H[X,Y]=H[X]-H[X|Y]\geq 0$.</li>
+<li>对于一个确定性函数$g$,$H[X]\geq H[g(X)]$.</li>
+<li>$I(X;YZ)=I(X;Z)+I(X;Y|Z)$.</li>
+<li>$I(X;Y\mid Z)\leq I(X;Y)+H(Z)$.</li>
+<li>当$X,Y,Z$满足Markov规则,或者说$P_{X,Y,Z}=P_XP_{Y|X}P_{Z|Y}$,或说$P_{Z|Y}=P_{Z|XY}$,则$I(X;Y)=I(X;Z)+I(X;Y|Z)$.这自然推出$I(X;Y)\geq I(X;Z)$,也即这个过程中信息不会增多.</li>
 </ol>
 <p>(1)是上述的一个显然推论.</p>
-<p>(2)的话考虑: <span class="math display">\[
+<p>(2)的话考虑:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-&amp;H[X]-H[X|Y]\\
-=&amp;\sum_x\left(P(X=x)\lg \frac{1}{P(X=x)}-\sum_y P(X=x,Y=y)\lg
-\frac{1}{P(X=x|Y=y)}\right)\\
-=&amp;\sum_x\left(\sum_y P(X=x,Y=y)\lg
-\frac{P(X=x|Y=y)}{P(X=x)}\right)\\
-=&amp;\sum_x\sum_y P(X=x,Y=y)\lg \frac{P(X=x,Y=y)}{P(X=x)P(Y=y)}\\
-\end{aligned}
-\]</span> 不妨令<span class="math inline">\(a_i=P(X=x,Y=y),b_i=P(X=x)P(Y=y)\)</span>.容易见到<span class="math inline">\(a=\sum_i a_i=1,b=\sum_i
-b_i=1\)</span>.于是上式变为: <span class="math display">\[
+&H[X]-H[X|Y]\\
+=&\sum_x\left(P(X=x)\lg \frac{1}{P(X=x)}-\sum_y P(X=x,Y=y)\lg \frac{1}{P(X=x|Y=y)}\right)\\
+=&\sum_x\left(\sum_y P(X=x,Y=y)\lg \frac{P(X=x|Y=y)}{P(X=x)}\right)\\
+=&\sum_x\sum_y P(X=x,Y=y)\lg \frac{P(X=x,Y=y)}{P(X=x)P(Y=y)}\\
+\end{aligned}</script><p>不妨令$a_i=P(X=x,Y=y),b_i=P(X=x)P(Y=y)$.容易见到$a=\sum_i a_i=1,b=\sum_i b_i=1$.于是上式变为:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-&amp;H[X]-H[X|Y]\\
-=&amp;\sum_i a_i\lg \frac{a_i}{b_i}\\
-=&amp;-\sum_i a_i\lg \frac{b_i}{a_i}\\
-\geq &amp;-\sum_i a_i (\frac{b_i}{a_i}-1)\\
-=&amp;-\sum_i (b_i-a_i)\\
-=&amp;0
-\end{aligned}
-\]</span> 对于(4),轻易地: <span class="math display">\[
+&H[X]-H[X|Y]\\
+=&\sum_i a_i\lg \frac{a_i}{b_i}\\
+=&-\sum_i a_i\lg \frac{b_i}{a_i}\\
+\geq &-\sum_i a_i (\frac{b_i}{a_i}-1)\\
+=&-\sum_i (b_i-a_i)\\
+=&0
+\end{aligned}</script><p>对于(4),轻易地:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-H[X,g(X)]&amp;=H[g(X)]+H[X|g(X)]\\
-H[X]&amp;=H[g(X)]+H[X|g(X)]
-\end{aligned}
-\]</span> 然而后者非负,于是显然.特别地,当<span class="math inline">\(g\)</span>是一个单射的时候,<span class="math inline">\(H[X]=H[g(X)]\)</span>.</p>
-<p>对于(5),留神到<span class="math inline">\(H[X]=I(X;Z)+H[X|Z]\)</span>,考虑: <span class="math display">\[
+H[X,g(X)]&=H[g(X)]+H[X|g(X)]\\
+H[X]&=H[g(X)]+H[X|g(X)]
+\end{aligned}</script><p>然而后者非负,于是显然.特别地,当$g$是一个单射的时候,$H[X]=H[g(X)]$.</p>
+<p>对于(5),留神到$H[X]=I(X;Z)+H[X|Z]$,考虑:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-I(X;YZ)&amp;=H[X]-H[X|YZ]\\
-&amp;=I(X;Z)+H[X|Z]-H[X|YZ]
-\end{aligned}
-\]</span> 然而<span class="math inline">\(I(X;Y\mid Z)=H[X|
-Z]-H[(X|Y)|Z]=H[X|Z]-H[X|YZ]\)</span>.</p>
-<p>对于(6),考虑: <span class="math display">\[
+I(X;YZ)&=H[X]-H[X|YZ]\\
+&=I(X;Z)+H[X|Z]-H[X|YZ]
+\end{aligned}</script><p>然而$I(X;Y\mid Z)=H[X| Z]-H[(X|Y)|Z]=H[X|Z]-H[X|YZ]$.</p>
+<p>对于(6),考虑:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-I(X;YZ)&amp;=I(X;Z)+I(X;Y\mid Z)\\
-&amp;=I(X;Y)+I(X;Z\mid Y)\\
-I(X;Y\mid Z)&amp;=I(X;Y)+I(X;Z\mid Y)-I(X;Z)\\
-\end{aligned}
-\]</span> 然而<span class="math inline">\(I(X;Z\mid
-Y)=H[Z|Y]-H[X|YZ]\leq H[Z]\)</span>,而<span class="math inline">\(I(X;Z)\geq 0\)</span>,于是显然.</p>
-<p>对于(7),考虑: <span class="math display">\[
+I(X;YZ)&=I(X;Z)+I(X;Y\mid Z)\\
+&=I(X;Y)+I(X;Z\mid Y)\\
+I(X;Y\mid Z)&=I(X;Y)+I(X;Z\mid Y)-I(X;Z)\\
+\end{aligned}</script><p>然而$I(X;Z\mid Y)=H[Z|Y]-H[X|YZ]\leq H[Z]$,而$I(X;Z)\geq 0$,于是显然.</p>
+<p>对于(7),考虑:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-I(X;YZ)&amp;=I(X;Y)+I(X;Z\mid Y)\\
-I(X;YZ)&amp;=I(X;Z)+I(X;Y\mid Z)\\
-\end{aligned}
-\]</span> 此外: <span class="math display">\[
+I(X;YZ)&=I(X;Y)+I(X;Z\mid Y)\\
+I(X;YZ)&=I(X;Z)+I(X;Y\mid Z)\\
+\end{aligned}</script><p>此外:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-I(X;Y)+I(X;Z\mid Y)&amp;=H[X]-H[X|Y]+H[Z|Y]-H[Z|YX]\\
-&amp;=H[X]-H[X|Y]+H[Z|Y]-H[Z|Y]\\
-&amp;=I(X;Y)
-\end{aligned}
-\]</span> 于是<span class="math inline">\(I(X;Z\mid
-Y)=0\)</span>,这就证毕.</p>
-<h3><span id="kl散度">KL散度</span></h3>
-<p>定义<span class="math inline">\(D(P||Q)=\sum_x P(x)\lg
-\frac{P(x)}{Q(x)}\)</span>.其中如果<span class="math inline">\(P(x)\ne
-0\)</span>而<span class="math inline">\(Q(x)=0\)</span>的情况出现,我们就说此时其为<span class="math inline">\(+\infty\)</span>.我们想要证明:<span class="math inline">\(D(P||Q)\geq 0\)</span>.考虑: <span class="math display">\[
+I(X;Y)+I(X;Z\mid Y)&=H[X]-H[X|Y]+H[Z|Y]-H[Z|YX]\\
+&=H[X]-H[X|Y]+H[Z|Y]-H[Z|Y]\\
+&=I(X;Y)
+\end{aligned}</script><p>于是$I(X;Z\mid Y)=0$,这就证毕.</p>
+<h3><span id="kl散度">KL散度</span></h3><p>定义$D(P||Q)=\sum_x P(x)\lg \frac{P(x)}{Q(x)}$.其中如果$P(x)\ne 0$而$Q(x)=0$的情况出现,我们就说此时其为$+\infty$.我们想要证明:$D(P||Q)\geq 0$.考虑:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-D(P||Q)&amp;=E_{x\sim Q}(\frac{P(X)}{Q(X)}\lg \frac{P(X)}{Q(X)})\\
-&amp;\geq f\left(E_{x\sim Q}(\frac{P(X)}{Q(X)})\right)\\
-&amp;=f(1)\\
-&amp;=0
-\end{aligned}
-\]</span> 从而这的确是某种衡量偏离程度的算子.</p>
-此外还应当定义条件KL散度.考察: $$
-<span class="math display">\[\begin{aligned}
-D(P_{X,Z}||Q_{X,Z})&amp;=\sum_{(x,z)} P_{X,Z}(x,z)\log
-\frac{P_{X,Z}(x,z)}{Q_{X,Z}(x,z)}\\
-&amp;=\sum_{(x,z)} P_{Z|X}(z|x)P_{X}(x)\log
-\frac{P_{Z|X}(z|x)P_{X}(x)}{Q_{Z|X}(z|x)Q_{X}(x)}\\
+D(P||Q)&=E_{x\sim Q}(\frac{P(X)}{Q(X)}\lg \frac{P(X)}{Q(X)})\\
+&\geq f\left(E_{x\sim Q}(\frac{P(X)}{Q(X)})\right)\\
+&=f(1)\\
+&=0
+\end{aligned}</script><p>从而这的确是某种衡量偏离程度的算子.</p>
+<p>此外还应当定义条件KL散度.考察:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+D(P_{X,Z}||Q_{X,Z})&=\sum_{(x,z)} P_{X,Z}(x,z)\log \frac{P_{X,Z}(x,z)}{Q_{X,Z}(x,z)}\\
+&=\sum_{(x,z)} P_{Z|X}(z|x)P_{X}(x)\log \frac{P_{Z|X}(z|x)P_{X}(x)}{Q_{Z|X}(z|x)Q_{X}(x)}\\
 
-&amp;=D(P_X||Q_X)+\sum_{(x,z)} P_{Z|X}(z|x)P_{X}(x)\log
-\frac{P_{Z|X}(z|x)}{Q_{Z|X}(z|x)}\\
-\end{aligned}\]</span>
-<p>$$ 将后面的部分定义为<span class="math inline">\(D(P_{Y|X}||Q_{Y|X}\mid
-P_X)\)</span>.顺便应该有<span class="math inline">\(D(P_{X,Z}||Q_{X,Z})\geq D(P_X||Q_X)\)</span>.</p>
-<p>此外还应当证明KL散度凸性.对于概率分布对<span class="math inline">\((P_1,Q_1),(P_2,Q_2)\)</span>,以及任意<span class="math inline">\(\theta\in [0,1]\)</span>,令<span class="math inline">\(P=\theta P_1+(1-\theta)P_2,Q=\theta
-Q_1+(1-\theta)Q_2\)</span>.下面我们证明下凸: <span class="math display">\[
-D(P||Q)\leq \theta D(P_1||Q_1)+(1-\theta)D(P_2||Q_2)
-\]</span></p>
-<p>此外,有趣的性质是证明<span class="math inline">\(I(X;Y)=D(P_{XY}||P_XP_Y)\)</span>,不过这个只需简单转化即可.</p>
-<p>另外,对任意<span class="math inline">\(P_X,Q_X\)</span>和kernel<span class="math inline">\(P_{Y|X}\)</span>,令<span class="math inline">\(P_Y=P_X\circ P_{Y|X}\)</span>,<span class="math inline">\(Q_Y=Q_X\circ P_{Y|X}\)</span>.
-散度的data-processing不等式给出:<span class="math inline">\(D(P_X||Q_X)\geq D(P_Y||Q_Y)\)</span>.</p>
-<h6><span id="example1">Example1</span></h6>
-<p>求证<span class="math inline">\(d(p||q)=D(\mathrm{Bern}(p)||\mathrm{Bern}(q))\geq
-(2\log e)(p-q)^2\)</span>.</p>
-<p>具体来说,<span class="math inline">\(d(p||q)=p\log
-\frac{p}{q}+(1-p)\log \frac{1-p}{1-q }\)</span>.</p>
-<h3><span id="编码">编码</span></h3>
-<h4><span id="一般无损编码">一般无损编码</span></h4>
-<p>考虑一个编码-解码过程,要求编码器Encode是一个到<span class="math inline">\(\{0,1\}^*\)</span>的单射,从而存在其的一个左逆Decode满足$((x))=x
-$.</p>
-<p>对于编码,我们非常在意的是它的长度.考虑设<span class="math inline">\(L(X)=\text{len}(\text{Encode}(X))\)</span>,我们下面将会估计<span class="math inline">\(E(L(X))\)</span>的大小.</p>
-<p>首先证明其下界,我们断言: <span class="math display">\[
-H(X)-H(L)\leq E[L(X)]
-\]</span> 由于<span class="math inline">\(H(X)-H(L)=H(X|L)\)</span>,因此其实只需要证明<span class="math inline">\(H(X|L)\leq
-E[L]\)</span>.由于该编码无损,不妨设<span class="math inline">\(n(l)\)</span>为满足<span class="math inline">\(L(x)=l\)</span>的数量,容易见到<span class="math inline">\(n(l)\leq 2^l\)</span>,立刻有<span class="math inline">\(H(X|L=l)=\log_2 n(l)\leq l\)</span>.于是: <span class="math display">\[
-H(X|L)=\sum_l P(L=l)H(X|L=l)\leq \sum_{l}P(L=l)l=E[L]
-\]</span> 此外我们还想要估计<span class="math inline">\(H(L)\)</span>具体有多大,事实上: <span class="math display">\[
-H(L)\leq \log_2(e(1+E[L]))
-\]</span> 下面来看一种比较优秀的编码方式.不妨假设<span class="math inline">\(P(x_1)\geq P(x_2)\geq
-\cdots\)</span>,于是自然有<span class="math inline">\(P(x_i)\geq
-\frac{1}{i}\)</span>.取码长<span class="math inline">\(L(x_i)=\lfloor
-\log_2i\rfloor\)</span>.其实就是按照出现的频率用小码,则: <span class="math display">\[
+&=D(P_X||Q_X)+\sum_{(x,z)} P_{Z|X}(z|x)P_{X}(x)\log \frac{P_{Z|X}(z|x)}{Q_{Z|X}(z|x)}\\
+\end{aligned}</script><p>将后面的部分定义为$D(P_{Y|X}||Q_{Y|X}\mid P_X)$.顺便应该有$D(P_{X,Z}||Q_{X,Z})\geq D(P_X||Q_X)$.</p>
+<p>此外还应当证明KL散度凸性.对于概率分布对$(P_1,Q_1),(P_2,Q_2)$,以及任意$\theta\in [0,1]$,令$P=\theta P_1+(1-\theta)P_2,Q=\theta Q_1+(1-\theta)Q_2$.下面我们证明下凸:</p>
+<script type="math/tex; mode=display">
+D(P||Q)\leq \theta D(P_1||Q_1)+(1-\theta)D(P_2||Q_2)</script><p>此外,有趣的性质是证明$I(X;Y)=D(P_{XY}||P_XP_Y)$,不过这个只需简单转化即可.</p>
+<p>另外,对任意$P_X,Q_X$和kernel$P_{Y|X}$,令$P_Y=P_X\circ P_{Y|X}$,$Q_Y=Q_X\circ P_{Y|X}$. 散度的data-processing不等式给出:$D(P_X||Q_X)\geq D(P_Y||Q_Y)$.</p>
+<h6><span id="example1">Example1</span></h6><p>求证$d(p||q)=D(\mathrm{Bern}(p)||\mathrm{Bern}(q))\geq (2\log e)(p-q)^2$.</p>
+<p>具体来说,$d(p||q)=p\log \frac{p}{q}+(1-p)\log \frac{1-p}{1-q }$.</p>
+<h3><span id="编码">编码</span></h3><h4><span id="一般无损编码">一般无损编码</span></h4><p>考虑一个编码-解码过程,要求编码器Encode是一个到$\{0,1\}^*$的单射,从而存在其的一个左逆Decode满足$\text{Decode}(\text{Encode}(x))=x $.</p>
+<p>对于编码,我们非常在意的是它的长度.考虑设$L(X)=\text{len}(\text{Encode}(X))$,我们下面将会估计$E(L(X))$的大小.</p>
+<p>首先证明其下界,我们断言:</p>
+<script type="math/tex; mode=display">
+H(X)-H(L)\leq E[L(X)]</script><p>由于$H(X)-H(L)=H(X|L)$,因此其实只需要证明$H(X|L)\leq E[L]$.由于该编码无损,不妨设$n(l)$为满足$L(x)=l$的数量,容易见到$n(l)\leq 2^l$,立刻有$H(X|L=l)=\log_2 n(l)\leq l$.于是:</p>
+<script type="math/tex; mode=display">
+H(X|L)=\sum_l P(L=l)H(X|L=l)\leq \sum_{l}P(L=l)l=E[L]</script><p>此外我们还想要估计$H(L)$具体有多大,事实上:</p>
+<script type="math/tex; mode=display">
+H(L)\leq \log_2(e(1+E[L]))</script><p>下面来看一种比较优秀的编码方式.不妨假设$P(x_1)\geq P(x_2)\geq \cdots$,于是自然有$P(x_i)\geq \frac{1}{i}$.取码长$L(x_i)=\lfloor \log_2i\rfloor$.其实就是按照出现的频率用小码,则:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-E[L(X)]&amp;=\sum_i P(x_i)\lfloor \log_2 i\rfloor\\
-&amp;\leq \sum_i P(x_i)\log_2 i\\
-&amp;\leq \sum_i P(x_i)\log_2 \frac{1}{P(x_i)}\\
-&amp;=H(X)
-\end{aligned}
-\]</span></p>
-<h4><span id="前缀码">前缀码</span></h4>
-<p>一个更合适的例子是前缀码,对于一个<span class="math inline">\(L(X)\)</span>函数,我们声称存在前缀码<span class="math inline">\(f\)</span>使得<span class="math inline">\(|f(x_i)|=L(x_i)\)</span>,当且仅当<span class="math inline">\(\sum_{x\in A}2^{-L(x)}\leq
-1\)</span>,原因是在二叉树上表示一下.</p>
-<p>众所周知Huffman编码是最优编码,现在我们来看它为什么优秀,我们说其满足<span class="math inline">\(H(X)\leq E[L(X)]\leq
-H(X)+1\)</span>,下面我们来证明这个结论.</p>
-<p>先证上界,由于Huffman编码是最优编码,我们只要选取任意一个编码,使得它的界<span class="math inline">\(\leq
-H(X)+1\)</span>即可.根据上面的引理,我们直接将<span class="math inline">\(x\)</span>映射到一个长度为<span class="math inline">\(\lceil \log
-\frac{1}{P(x)}\rceil\)</span>的前缀编码.此时: <span class="math display">\[
+E[L(X)]&=\sum_i P(x_i)\lfloor \log_2 i\rfloor\\
+&\leq \sum_i P(x_i)\log_2 i\\
+&\leq \sum_i P(x_i)\log_2 \frac{1}{P(x_i)}\\
+&=H(X)
+\end{aligned}</script><h4><span id="前缀码">前缀码</span></h4><p>一个更合适的例子是前缀码,对于一个$L(X)$函数,我们声称存在前缀码$f$使得$|f(x_i)|=L(x_i)$,当且仅当$\sum_{x\in A}2^{-L(x)}\leq 1$,原因是在二叉树上表示一下.</p>
+<p>众所周知Huffman编码是最优编码,现在我们来看它为什么优秀,我们说其满足$H(X)\leq E[L(X)]\leq H(X)+1$,下面我们来证明这个结论.</p>
+<p>先证上界,由于Huffman编码是最优编码,我们只要选取任意一个编码,使得它的界$\leq H(X)+1$即可.根据上面的引理,我们直接将$x$映射到一个长度为$\lceil \log \frac{1}{P(x)}\rceil$的前缀编码.此时:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-E(L(X))&amp;=\sum_{x}P(x)\lceil \log \frac{1}{P(x)}\rceil\\
-&amp;\leq \sum_{x}P(x)\left(\log \frac{1}{P(x)}+1\right)\\
-&amp;=H(X)+1
-\end{aligned}
-\]</span> 再来看下界.来证明任意前缀编码都会被这个下界控制住.</p>
-<p>对于一个前缀编码,实际上是把<span class="math inline">\(X\)</span>映射到了另一个<span class="math inline">\(Y\)</span>处.由于这是一个单射,所以有<span class="math inline">\(H(X)=H(Y)\)</span>.然而: <span class="math display">\[
+E(L(X))&=\sum_{x}P(x)\lceil \log \frac{1}{P(x)}\rceil\\
+&\leq \sum_{x}P(x)\left(\log \frac{1}{P(x)}+1\right)\\
+&=H(X)+1
+\end{aligned}</script><p>再来看下界.来证明任意前缀编码都会被这个下界控制住.</p>
+<p>对于一个前缀编码,实际上是把$X$映射到了另一个$Y$处.由于这是一个单射,所以有$H(X)=H(Y)$.然而:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-H(Y)&amp;=\sum_{t}H(Y_t|Y_{1}\cdots Y_{t-1})\\
-\end{aligned}
-\]</span> 来看一个特定的<span class="math inline">\(H(Y_t|Y_1\cdots
-Y_{t-1}=y_1\cdots y_{t-1})\)</span>,如果此时<span class="math inline">\(y_1\cdots y_{t-1}\)</span>已经能解码了,那<span class="math inline">\(Y_t\)</span>就一定是空白,因此此时熵为<span class="math inline">\(0\)</span>;反之,则<span class="math inline">\(Y_t\)</span>要么是<span class="math inline">\(0\)</span>要么是<span class="math inline">\(1\)</span>,伯努利分布的最大值只有<span class="math inline">\(\log_2
-2=1\)</span>.因此我们可以发现,对于一个特定的<span class="math inline">\(x\)</span>和对应的<span class="math inline">\(y_1\cdots y_k\)</span>,一定有<span class="math inline">\(H(Y_t|Y_1\cdots Y_{t-1}=y_1\cdots y_{t-1})\leq
-Pr[L(x)\geq t]\)</span>.</p>
-<p>所以实际上<span class="math inline">\(H(Y)\leq \sum_t Pr[L(X)\geq
-t]=E(L)\)</span>.</p>
-<h4><span id="几乎无损压缩">几乎无损压缩</span></h4>
-<p>对于独立同分布<span class="math inline">\(X^n\)</span>,如果满足:
-<span class="math display">\[
-Pr[\text{Decode}(\text{Encode}(X^n))=X^n]\geq 1-\epsilon,\epsilon\to 0
-\]</span> 则称其为几乎无损压缩.不妨记录<span class="math inline">\(\vec
-X\sim X^n\)</span>.</p>
-<p>现在我们来看做到几乎无损压缩需要怎么办.我们将说明几乎就一定需要<span class="math inline">\(nH(X)\)</span>左右的信息长度才足够.事实上:</p>
-<ol type="1">
-<li><span class="math inline">\(\forall
-\delta&gt;0\)</span>,存在编码方案使得<span class="math inline">\(L\leq
-n(H(X)+\delta)\)</span>,并且错误概率趋近于<span class="math inline">\(0\)</span>.</li>
-<li><span class="math inline">\(\forall \delta&gt;0\)</span>,如果<span class="math inline">\(L&lt;n(H(X)-\delta)\)</span>,则无论怎么编码,错误概率趋近于<span class="math inline">\(1\)</span>.</li>
+H(Y)&=\sum_{t}H(Y_t|Y_{1}\cdots Y_{t-1})\\
+\end{aligned}</script><p>来看一个特定的$H(Y_t|Y_1\cdots Y_{t-1}=y_1\cdots y_{t-1})$,如果此时$y_1\cdots y_{t-1}$已经能解码了,那$Y_t$就一定是空白,因此此时熵为$0$;反之,则$Y_t$要么是$0$要么是$1$,伯努利分布的最大值只有$\log_2 2=1$.因此我们可以发现,对于一个特定的$x$和对应的$y_1\cdots y_k$,一定有$H(Y_t|Y_1\cdots Y_{t-1}=y_1\cdots y_{t-1})\leq Pr[L(x)\geq t]$.</p>
+<p>所以实际上$H(Y)\leq \sum_t Pr[L(X)\geq t]=E(L)$.</p>
+<h4><span id="几乎无损压缩">几乎无损压缩</span></h4><p>对于独立同分布$X^n$,如果满足:</p>
+<script type="math/tex; mode=display">
+Pr[\text{Decode}(\text{Encode}(X^n))=X^n]\geq 1-\epsilon,\epsilon\to 0</script><p>则称其为几乎无损压缩.不妨记录$\vec X\sim X^n$.</p>
+<p>现在我们来看做到几乎无损压缩需要怎么办.我们将说明几乎就一定需要$nH(X)$左右的信息长度才足够.事实上:</p>
+<ol>
+<li>$\forall \delta&gt;0$,存在编码方案使得$L\leq n(H(X)+\delta)$,并且错误概率趋近于$0$.</li>
+<li>$\forall \delta&gt;0$,如果$L&lt;n(H(X)-\delta)$,则无论怎么编码,错误概率趋近于$1$.</li>
 </ol>
-<p>先来证明(1),考虑直接取<span class="math inline">\(L=n(H(X)+\delta)\)</span>,并且编码出现概率最大的前<span class="math inline">\(2^L\)</span>个元素,剩下的扔掉.不妨可以发现我们只会扔掉所有<span class="math inline">\(P(\vec X)\leq
-2^{-n(H(X)+\delta)}\)</span>的,原因是比这个阈值大的不可能超过<span class="math inline">\(2^L\)</span>个.然而留意到<span class="math inline">\(P(\vec X=(x_1,\cdots,x_n))=\prod_i
-P(X=x_i)\)</span>: <span class="math display">\[
+<p>先来证明(1),考虑直接取$L=n(H(X)+\delta)$,并且编码出现概率最大的前$2^L$个元素,剩下的扔掉.不妨可以发现我们只会扔掉所有$P(\vec X)\leq 2^{-n(H(X)+\delta)}$的,原因是比这个阈值大的不可能超过$2^L$个.然而留意到$P(\vec X=(x_1,\cdots,x_n))=\prod_i P(X=x_i)$:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-Pr[P(\vec X)\leq 2^{-n(H(X)+\delta)}]&amp;=Pr[-\log_2P(\vec X)\geq
-n(H(X)+\delta)]\\
-&amp;=Pr[-\sum_i\log_2P(X_i)\geq n(H(X)+\delta)]\\
-\end{aligned}
-\]</span> 可是<span class="math inline">\(\sum_i -\log_2
-P(X_i)\)</span>的期望恰好为<span class="math inline">\(H(X)\)</span>,因此根据Chernoff-Hoeffding
-Bound,这个错误概率<span class="math inline">\(\leq
-e^{-O(n\delta^2)}\)</span>.</p>
-<p>那么反过来的界怎么证明呢?此时最多可编码<span class="math inline">\(2^{n(H(X)-\delta)}\)</span>个元素.仍然用Chernoff
-Bound就可以搞定了.</p>
-<h4><span id="通用压缩">通用压缩</span></h4>
-<p>我们上面的所有讨论都基于已知分布的情况.如果我们不知道分布,又能做到多好的编码呢?</p>
-<p>当编码的时候不知道分布,但解码的时候知道分布的时候,事实上可以做到:<span class="math inline">\(\varlimsup_{n\to \infty}\frac{1}{n}E[L_n(X^n)]\leq
-H(X)+\epsilon\)</span>,其中<span class="math inline">\(\epsilon\)</span>可以任意小.</p>
-<p>这个怎么做呢?考虑一个暴力方法,我先随便将信息映射到<span class="math inline">\(\{0,1\}^L\)</span>.此时的Encode并非单射.解码的时候直接最大似然估计找最好的那个解码.</p>
-<p>假设<span class="math inline">\(x_i\to c_i\)</span>,并且<span class="math inline">\(P(x_1)\geq P(x_2)\geq
-\cdots\)</span>,取一个阈值<span class="math inline">\(M=2^{n(H(X)+\delta)}\)</span>,以及<span class="math inline">\(L=n(H(X)+2\delta)\)</span>现在来看失败概率也就是:
-<span class="math display">\[
+Pr[P(\vec X)\leq 2^{-n(H(X)+\delta)}]&=Pr[-\log_2P(\vec X)\geq n(H(X)+\delta)]\\
+&=Pr[-\sum_i\log_2P(X_i)\geq n(H(X)+\delta)]\\
+\end{aligned}</script><p>可是$\sum_i -\log_2 P(X_i)$的期望恰好为$H(X)$,因此根据Chernoff-Hoeffding  Bound,这个错误概率$\leq e^{-O(n\delta^2)}$.</p>
+<p>那么反过来的界怎么证明呢?此时最多可编码$2^{n(H(X)-\delta)}$个元素.仍然用Chernoff Bound就可以搞定了.</p>
+<h4><span id="通用压缩">通用压缩</span></h4><p>我们上面的所有讨论都基于已知分布的情况.如果我们不知道分布,又能做到多好的编码呢?</p>
+<p>当编码的时候不知道分布,但解码的时候知道分布的时候,事实上可以做到:$\varlimsup_{n\to \infty}\frac{1}{n}E[L_n(X^n)]\leq H(X)+\epsilon$,其中$\epsilon$可以任意小.</p>
+<p>这个怎么做呢?考虑一个暴力方法,我先随便将信息映射到$\{0,1\}^L$.此时的Encode并非单射.解码的时候直接最大似然估计找最好的那个解码.</p>
+<p>假设$x_i\to c_i$,并且$P(x_1)\geq P(x_2)\geq \cdots$,取一个阈值$M=2^{n(H(X)+\delta)}$,以及$L=n(H(X)+2\delta)$现在来看失败概率也就是:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-&amp;\sum_{i} P(x_i)Pr[c_i\in \{c_1,\cdots,c_{i-1}\}]\\
-=&amp;\sum_{i=1}^M P(x_i)Pr[c_i\in \{c_1,\cdots,c_{i-1}\}]+\sum_{i\geq
-M} P(x_i)Pr[c_i\in \{c_1,\cdots,c_{i-1}\}]\\
-\leq &amp;\sum_{i=1}^M P(x_i)\frac{M}{2^L}+2^{-O(n\delta^2)}\\
-\leq &amp;2^{-O(n\delta)}+2^{-O(n\delta^2)}\\
-\end{aligned}
-\]</span> 这个错误概率就很小了.</p>
-<h3><span id="信道编码">信道编码</span></h3>
-<p>定义<strong>信道</strong>为某种会”污染”信息的东西,或者干脆写称条件概率分布<span class="math inline">\(P_{Y|X}\)</span>.此外定义<strong>信道容量</strong><span class="math inline">\(C=\max_{P_X}I(X;Y)\)</span>,其中<span class="math inline">\((X,Y)\sim P_XP_{Y|X}\)</span>.</p>
-<p>现在我们考虑一个一般的信道编码,取<span class="math inline">\(W\to
-\vec X\in \mathcal{X}^L\to \vec Y\in \mathcal{Y}^L\to \hat
-W\)</span>.</p>
+&\sum_{i} P(x_i)Pr[c_i\in \{c_1,\cdots,c_{i-1}\}]\\
+=&\sum_{i=1}^M P(x_i)Pr[c_i\in \{c_1,\cdots,c_{i-1}\}]+\sum_{i\geq M} P(x_i)Pr[c_i\in \{c_1,\cdots,c_{i-1}\}]\\
+\leq &\sum_{i=1}^M P(x_i)\frac{M}{2^L}+2^{-O(n\delta^2)}\\
+\leq &2^{-O(n\delta)}+2^{-O(n\delta^2)}\\
+\end{aligned}</script><p>这个错误概率就很小了.</p>
+<h3><span id="信道编码">信道编码</span></h3><p>定义<strong>信道</strong>为某种会”污染”信息的东西,或者干脆写称条件概率分布$P_{Y|X}$.此外定义<strong>信道容量</strong>$C=\max_{P_X}I(X;Y)$,其中$(X,Y)\sim P_XP_{Y|X}$.</p>
+<p>现在我们考虑一个一般的信道编码,取$W\to \vec X\in \mathcal{X}^L\to \vec Y\in \mathcal{Y}^L\to \hat W$.</p>
 <p>现在我们来证明以下性质:</p>
-<ol type="1">
-<li><span class="math inline">\(I(\vec X;\vec Y)\leq L\sdot
-C\)</span></li>
-<li>data-processing不等式:<span class="math inline">\(I(W;\hat W)\leq
-I(\vec X;\vec Y)\)</span></li>
+<ol>
+<li>$I(\vec X;\vec Y)\leq L\sdot C$</li>
+<li>data-processing不等式:$I(W;\hat W)\leq I(\vec X;\vec Y)$</li>
 </ol>
-<p>对于(1),由于<span class="math inline">\(Y_i\)</span>独立地依赖于<span class="math inline">\(X_i\)</span>,考虑: <span class="math display">\[
+<p>对于(1),由于$Y_i$独立地依赖于$X_i$,考虑:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-I(\vec X;\vec Y)&amp;=\sum_i I(\vec X;Y_i\mid Y_1\cdots Y_{i-1})\\
-&amp;=\sum_i I(X_i;Y_i)\\
-&amp;\leq L\sdot C
-\end{aligned}
-\]</span> 至于(2),实际上是互信息的data-processing不等式.</p>
-<p>接下来我们要搞定传送速率的问题.不妨设<span class="math inline">\(n=H(W)\)</span>,现在我们将要证明: <span class="math display">\[
-n\leq\frac{LC+H(\epsilon)}{1-\epsilon}
-\]</span> 其中<span class="math inline">\(\epsilon\)</span>是可接受的最大错误概率,定义为<span class="math inline">\(\epsilon=\max_w Pr[\hat W\ne W|W=w]\)</span>.</p>
-<p>怎么证明呢?考虑取一个指示变量<span class="math inline">\(Z\)</span>,当<span class="math inline">\(\hat W\ne
-W\)</span>的时候<span class="math inline">\(Z=1\)</span>,否则<span class="math inline">\(Z=0\)</span>.不妨直接让<span class="math inline">\(Z\)</span>多错一点,到达<span class="math inline">\(Pr[Z=1|W=w]\equiv
-\epsilon\)</span>以方便我们下面的分析.这样的话<span class="math inline">\(Z\)</span>和<span class="math inline">\(W\)</span>就独立了.此时立刻见到: <span class="math display">\[
-(1-\epsilon)I(W;\hat W\mid Z=0)\leq I(W;\hat W\mid Z)\leq I(W;\hat
-W)+H(Z)
-\]</span> 而<span class="math inline">\(I(W;\hat W\mid
-Z=0)=I(W;W)=H(W)=n\)</span>.</p>
-<h2><span id="极限的情况">极限的情况</span></h2>
-<h3><span id="尾不等式">尾不等式</span></h3>
-<p>留神到如果事件在<span class="math inline">\(n\)</span>次中发生了<span class="math inline">\(n_a\)</span>次,其实是不能说<span class="math inline">\(\lim_{n\to
-\infty}\frac{n_a}{n}=P\)</span>的.因为后面总是会有微小的扰动.但似乎总能刻画这些微小扰动的代价.</p>
-<p>设<span class="math inline">\(f_n(A)=\frac{n_a}{n}\)</span>.如果我们能求出<span class="math inline">\(P(|f_n-p|\geq \epsilon)=P(|n_a-E(n_a)|\geq
-n\epsilon)\)</span>的上界,看上去就会非常优秀.进一步地:</p>
-<ol type="1">
-<li>尾不等式:给出<span class="math inline">\(P(X\geq
-k)\)</span>的上界.</li>
-<li>集中不等式:给出<span class="math inline">\(P(|X-E(X)|\geq
-k)\)</span>的上界.</li>
+I(\vec X;\vec Y)&=\sum_i I(\vec X;Y_i\mid Y_1\cdots Y_{i-1})\\
+&=\sum_i I(X_i;Y_i)\\
+&\leq L\sdot C
+\end{aligned}</script><p>至于(2),实际上是互信息的data-processing不等式.</p>
+<p>接下来我们要搞定传送速率的问题.不妨设$n=H(W)$,现在我们将要证明:</p>
+<script type="math/tex; mode=display">
+n\leq\frac{LC+H(\epsilon)}{1-\epsilon}</script><p>其中$\epsilon$是可接受的最大错误概率,定义为$\epsilon=\max_w Pr[\hat W\ne W|W=w]$.</p>
+<p>怎么证明呢?考虑取一个指示变量$Z$,当$\hat W\ne W$的时候$Z=1$,否则$Z=0$.不妨直接让$Z$多错一点,到达$Pr[Z=1|W=w]\equiv \epsilon$以方便我们下面的分析.这样的话$Z$和$W$就独立了.此时立刻见到:</p>
+<script type="math/tex; mode=display">
+(1-\epsilon)I(W;\hat W\mid Z=0)\leq I(W;\hat W\mid Z)\leq I(W;\hat W)+H(Z)</script><p>而$I(W;\hat W\mid Z=0)=I(W;W)=H(W)=n$.</p>
+<h2><span id="极限的情况">极限的情况</span></h2><h3><span id="尾不等式">尾不等式</span></h3><p>留神到如果事件在$n$次中发生了$n_a$次,其实是不能说$\lim_{n\to \infty}\frac{n_a}{n}=P$的.因为后面总是会有微小的扰动.但似乎总能刻画这些微小扰动的代价.</p>
+<p>设$f_n(A)=\frac{n_a}{n}$.如果我们能求出$P(|f_n-p|\geq \epsilon)=P(|n_a-E(n_a)|\geq n\epsilon)$的上界,看上去就会非常优秀.进一步地:</p>
+<ol>
+<li>尾不等式:给出$P(X\geq k)$的上界.</li>
+<li>集中不等式:给出$P(|X-E(X)|\geq k)$的上界.</li>
 </ol>
-<h6><span id="example1">Example1</span></h6>
-<p>对二项分布用Chebyshev不等式,轻易有: <span class="math display">\[
-P(|n_A-E(n_A)|\geq n\epsilon)\leq \frac{p(1-p)}{n\epsilon^2}
-\]</span> 这个估计有点菜,右侧是<span class="math inline">\(O(\frac{1}{n})\)</span>的,这个趋近也太慢了.</p>
+<h6><span id="example1">Example1</span></h6><p>对二项分布用Chebyshev不等式,轻易有:</p>
+<script type="math/tex; mode=display">
+P(|n_A-E(n_A)|\geq n\epsilon)\leq \frac{p(1-p)}{n\epsilon^2}</script><p>这个估计有点菜,右侧是$O(\frac{1}{n})$的,这个趋近也太慢了.</p>
 <p>考虑一下它为什么菜,问题在于Chebyshev不等式只用到了”两两独立”这件事,但是实际上二项分布更强一点,它其实是”互相独立”的.</p>
-<h4><span id="矩">矩</span></h4>
-<p>定义<span class="math inline">\(E(X^k)\)</span>为<span class="math inline">\(X\)</span>的<strong><span class="math inline">\(k\)</span>阶原点矩</strong>,而将<span class="math inline">\(E((X-E(X))^k)\)</span>称为<span class="math inline">\(X\)</span>的<strong><span class="math inline">\(k\)</span>阶中心距</strong>.则期望是其一阶原点矩而方差是二阶中心矩.</p>
-<p>对于随机变量<span class="math inline">\(X\)</span>,定义<span class="math inline">\(M_X(t)=E(e^{tX})\)</span>为<span class="math inline">\(X\)</span>的<strong>矩生成函数</strong>.考虑:
-<span class="math display">\[
+<h4><span id="矩">矩</span></h4><p>定义$E(X^k)$为$X$的<strong>$k$阶原点矩</strong>,而将$E((X-E(X))^k)$称为$X$的<strong>$k$阶中心距</strong>.则期望是其一阶原点矩而方差是二阶中心矩.</p>
+<p>对于随机变量$X$,定义$M_X(t)=E(e^{tX})$为$X$的<strong>矩生成函数</strong>.考虑:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-E(e^{Xt})&amp;=\sum_{k=0}^ne^{kt}P(X=k)\\
-&amp;=\sum_{k=0}^nP(X=k)\left(\sum_{j=0}^{+\infty}\frac{(kt)^j}{j!}\right)\\
-&amp;=\sum_{j=0}^{\infty}\frac{t^j}{j!}\sum_{k=0}^nP(X=k)k^j\\
-&amp;=\sum_{j=0}^\infty \frac{t^j}{j!}E(X^j)
-\end{aligned}
-\]</span></p>
-<h6><span id="example2">Example2</span></h6>
-<p>对<span class="math inline">\(X\sim B(n,p)\)</span>,求<span class="math inline">\(E((X-E(X))^4)\)</span>.</p>
-<p>考虑其矩生成函数: <span class="math display">\[
+E(e^{Xt})&=\sum_{k=0}^ne^{kt}P(X=k)\\
+&=\sum_{k=0}^nP(X=k)\left(\sum_{j=0}^{+\infty}\frac{(kt)^j}{j!}\right)\\
+&=\sum_{j=0}^{\infty}\frac{t^j}{j!}\sum_{k=0}^nP(X=k)k^j\\
+&=\sum_{j=0}^\infty \frac{t^j}{j!}E(X^j)
+\end{aligned}</script><h6><span id="example2">Example2</span></h6><p>对$X\sim B(n,p)$,求$E((X-E(X))^4)$.</p>
+<p>考虑其矩生成函数:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-E(e^{Xt})&amp;=\sum_{k=0}^ne^{kt}P(X=k)\\
-&amp;=\sum_{k=0}^ne^{kt}\binom{n}{k}p^k(1-p)^{n-k}\\
-&amp;=\sum_{k=0}^n\binom{n}{k}(pe^{t})^k(1-p)^{n-k}\\
-&amp;=(pe^t+(1-p))^n\\
-&amp;=(1+p(e^t-1))^n
-\end{aligned}
-\]</span> 令<span class="math inline">\(Y=X-E(X)\)</span>,则<span class="math inline">\(E(e^{Yt})=E(e^{Xt})e^{-tpn}\)</span>,现在我们可以对其求四次导数得到:
-<span class="math display">\[
-E((X-E(X))^4)=np(1-p)^4+n(1-p)p^4+3n(n-1)p^2(1-p^2)
-\]</span> 那这个有什么用呢?考虑对其用Markov不等式: <span class="math display">\[
-P((X-E(X))^4\geq (n\epsilon)^4)\leq
-\frac{O(n^2)}{(n\epsilon)^4}=O(\frac{1}{n^2\epsilon^4})
-\]</span> 这的确给出了一个更好的估计.</p>
+E(e^{Xt})&=\sum_{k=0}^ne^{kt}P(X=k)\\
+&=\sum_{k=0}^ne^{kt}\binom{n}{k}p^k(1-p)^{n-k}\\
+&=\sum_{k=0}^n\binom{n}{k}(pe^{t})^k(1-p)^{n-k}\\
+&=(pe^t+(1-p))^n\\
+&=(1+p(e^t-1))^n
+\end{aligned}</script><p>令$Y=X-E(X)$,则$E(e^{Yt})=E(e^{Xt})e^{-tpn}$,现在我们可以对其求四次导数得到:</p>
+<script type="math/tex; mode=display">
+E((X-E(X))^4)=np(1-p)^4+n(1-p)p^4+3n(n-1)p^2(1-p^2)</script><p>那这个有什么用呢?考虑对其用Markov不等式:</p>
+<script type="math/tex; mode=display">
+P((X-E(X))^4\geq (n\epsilon)^4)\leq \frac{O(n^2)}{(n\epsilon)^4}=O(\frac{1}{n^2\epsilon^4})</script><p>这的确给出了一个更好的估计.</p>
 <p>但是再做六阶矩好像也很痛苦,而且这只能给出一个多项式估计,但看着这个逼近速度就不太可能是多项式估计,那怎么办呢?</p>
-<h4><span id="chernoff-bound">Chernoff Bound</span></h4>
-<p>考虑直接对<span class="math inline">\(e^{tX}\)</span>用Markov不等式:</p>
-<ol type="1">
-<li>当<span class="math inline">\(t&gt;0\)</span>的时候,有<span class="math inline">\(P(X\geq k)\leq M_X(t)e^{-tk}\)</span>.</li>
-<li>当<span class="math inline">\(t&lt;0\)</span>的时候,有<span class="math inline">\(P(X\leq k)\leq M_X(t)e^{-tk}\)</span>.</li>
+<h4><span id="chernoff-bound">Chernoff Bound</span></h4><p>考虑直接对$e^{tX}$用Markov不等式:</p>
+<ol>
+<li>当$t&gt;0$的时候,有$P(X\geq k)\leq M_X(t)e^{-tk}$.</li>
+<li>当$t&lt;0$的时候,有$P(X\leq k)\leq M_X(t)e^{-tk}$.</li>
 </ol>
-<p>左侧没有<span class="math inline">\(t\)</span>而右侧有,那看上去只要找到能使右侧取到最小值的<span class="math inline">\(t\)</span>就万事大吉了.</p>
-<h6><span id="example1">Example1</span></h6>
-<p>当<span class="math inline">\(X\sim
-\pi(\lambda)\)</span>的时候,求<span class="math inline">\(P(X\geq
-x)\)</span>的上界.其中<span class="math inline">\(x&gt;\lambda\)</span>.</p>
-<p>先求此时的矩生成函数: <span class="math display">\[
+<p>左侧没有$t$而右侧有,那看上去只要找到能使右侧取到最小值的$t$就万事大吉了.</p>
+<h6><span id="example1">Example1</span></h6><p>当$X\sim \pi(\lambda)$的时候,求$P(X\geq x)$的上界.其中$x&gt;\lambda$.</p>
+<p>先求此时的矩生成函数:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-E(e^{Xt})&amp;=e^{-\lambda}\sum_{k\geq 0}\frac{\lambda^k}{k!}e^{kt}\\
-&amp;=e^{-\lambda}\sum_{k\geq 0}\frac{(\lambda e^t)^k}{k!}\\
-&amp;=e^{\lambda (e^t-1)}
-\end{aligned}
-\]</span> 当<span class="math inline">\(t&gt;0\)</span>的时候,我们想要优化<span class="math inline">\(e^{\lambda(e^t-1)-tx}\)</span>的最小值,直接对<span class="math inline">\(t\)</span>求导,发现当<span class="math inline">\(t=\ln\frac{x}{\lambda}\)</span>时最小.</p>
-<p>此时: <span class="math display">\[
-P(X\geq x)\leq \frac{e^{-\lambda}(e\lambda)^x}{x^x}
-\]</span></p>
-<h6><span id="example2">Example2</span></h6>
-<p>当<span class="math inline">\(X\sim N(\mu,\sigma^2)\)</span>,求<span class="math inline">\(P(X-E(X)\geq k\sigma)\)</span>的上界.</p>
-<p>还是求矩生成函数,考虑: <span class="math display">\[
-E(e^{tX})=\int_{-\infty}^{+\infty}\frac{1}{\sqrt
-{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}+tx}=e^{\mu
-t+\frac{\sigma^2t^2}{2}}
-\]</span> 从而: <span class="math display">\[
-P(X\geq k\sigma+\mu)\leq e^{\mu
-t+\frac{\sigma^2t^2}{2}}e^{-t(\mu+k\sigma)}=e^{\frac{\sigma^2t^2}{2}-k\sigma
-t}
-\]</span> 当<span class="math inline">\(t=\frac{k}{\sigma}\)</span>的时候取最小值,从而最后的界是<span class="math inline">\(e^{-\frac{k^2}{2}}\)</span>.</p>
-<h6><span id="example3">Example3</span></h6>
-<p>当<span class="math inline">\(X\sim B(n,p)\)</span>,求<span class="math inline">\(P(X-E(X)\geq n\epsilon)\)</span>的上界.</p>
-<p>考虑<span class="math inline">\(M_X(t)=(1-p+pe^t)^n\)</span>.</p>
-<p>然后需要一个Lemma,我们说<span class="math inline">\((1-p)e^{-tp}+pe^{t(1-p)}\leq
-e^{\frac{t^2}{8}}\)</span>,这个会在后面的Hoeffding引理证明.</p>
-<p>直接带入,右侧为: <span class="math display">\[
+E(e^{Xt})&=e^{-\lambda}\sum_{k\geq 0}\frac{\lambda^k}{k!}e^{kt}\\
+&=e^{-\lambda}\sum_{k\geq 0}\frac{(\lambda e^t)^k}{k!}\\
+&=e^{\lambda (e^t-1)}
+\end{aligned}</script><p>当$t&gt;0$的时候,我们想要优化$e^{\lambda(e^t-1)-tx}$的最小值,直接对$t$求导,发现当$t=\ln\frac{x}{\lambda}$时最小.</p>
+<p>此时:</p>
+<script type="math/tex; mode=display">
+P(X\geq x)\leq \frac{e^{-\lambda}(e\lambda)^x}{x^x}</script><h6><span id="example2">Example2</span></h6><p>当$X\sim N(\mu,\sigma^2)$,求$P(X-E(X)\geq k\sigma)$的上界.</p>
+<p>还是求矩生成函数,考虑:</p>
+<script type="math/tex; mode=display">
+E(e^{tX})=\int_{-\infty}^{+\infty}\frac{1}{\sqrt {2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}+tx}=e^{\mu t+\frac{\sigma^2t^2}{2}}</script><p>从而:</p>
+<script type="math/tex; mode=display">
+P(X\geq k\sigma+\mu)\leq e^{\mu t+\frac{\sigma^2t^2}{2}}e^{-t(\mu+k\sigma)}=e^{\frac{\sigma^2t^2}{2}-k\sigma t}</script><p>当$t=\frac{k}{\sigma}$的时候取最小值,从而最后的界是$e^{-\frac{k^2}{2}}$.</p>
+<h6><span id="example3">Example3</span></h6><p>当$X\sim B(n,p)$,求$P(X-E(X)\geq n\epsilon)$的上界.</p>
+<p>考虑$M_X(t)=(1-p+pe^t)^n$.</p>
+<p>然后需要一个Lemma,我们说$(1-p)e^{-tp}+pe^{t(1-p)}\leq e^{\frac{t^2}{8}}$,这个会在后面的Hoeffding引理证明.</p>
+<p>直接带入,右侧为:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-M_X(t)e^{-t(E(X)+n\epsilon)}&amp;=e^{-tn\epsilon}\left((1-p)e^{-tp}+pe^{t(1-p)}\right)^n\\
-&amp;\leq e^{-tn\epsilon+\frac{nt^2}{8}}
-\end{aligned}
-\]</span> 取<span class="math inline">\(t=4\epsilon\)</span>得到<span class="math inline">\(e^{-2n\epsilon^2}\)</span>的上界.</p>
-<p>此外取<span class="math inline">\(t=-4\epsilon\)</span>得到<span class="math inline">\(P(X-E(X)\leq -n\epsilon)\)</span>的上界为<span class="math inline">\(e^{-2n\epsilon^2}\)</span>.</p>
-<p>于是我们有<span class="math inline">\(P(|X-E(X)|\geq n\epsilon)\leq
-2e^{-2n\epsilon^2}\)</span>.</p>
-<h4><span id="hoeffding引理">Hoeffding引理</span></h4>
-<p>若实数随机变量<span class="math inline">\(a\leq X\leq
-b\)</span>,则<span class="math inline">\(M_{X-E(X)}(t)=E(e^{t(X-E(X))})\leq
-e^{\frac{t^2(b-a)^2}{8}}\)</span>.</p>
-<h6><span id="example1chernoff-hoeffding不等式">Example1(Chernoff-Hoeffding不等式)</span></h6>
-<p>若<span class="math inline">\(X=\sum_{i=1}^n X_i\)</span>,其中<span class="math inline">\(X_i\)</span>相互独立且<span class="math inline">\(a\leq X_i\leq b\)</span>.则(<span class="math inline">\(k&gt; 0\)</span>):</p>
-<ol type="1">
-<li><span class="math inline">\(P(X\geq E(X)+k)\leq
-e^{-\frac{2k^2}{n(b-a)^2}}\)</span>.</li>
-<li><span class="math inline">\(P(X\leq E(X)-k)\leq
-e^{-\frac{2k^2}{n(b-a)^2}}\)</span>.</li>
+M_X(t)e^{-t(E(X)+n\epsilon)}&=e^{-tn\epsilon}\left((1-p)e^{-tp}+pe^{t(1-p)}\right)^n\\
+&\leq e^{-tn\epsilon+\frac{nt^2}{8}}
+\end{aligned}</script><p>取$t=4\epsilon$得到$e^{-2n\epsilon^2}$的上界.</p>
+<p>此外取$t=-4\epsilon$得到$P(X-E(X)\leq -n\epsilon)$的上界为$e^{-2n\epsilon^2}$.</p>
+<p>于是我们有$P(|X-E(X)|\geq n\epsilon)\leq 2e^{-2n\epsilon^2}$.</p>
+<h4><span id="hoeffding引理">Hoeffding引理</span></h4><p>若实数随机变量$a\leq X\leq b$,则$M_{X-E(X)}(t)=E(e^{t(X-E(X))})\leq e^{\frac{t^2(b-a)^2}{8}}$.</p>
+<h6><span id="example1chernoff-hoeffding不等式">Example1(Chernoff-Hoeffding不等式)</span></h6><p>若$X=\sum_{i=1}^n X_i$,其中$X_i$相互独立且$a\leq X_i\leq b$.则($k&gt; 0$):</p>
+<ol>
+<li>$P(X\geq E(X)+k)\leq e^{-\frac{2k^2}{n(b-a)^2}}$.</li>
+<li>$P(X\leq E(X)-k)\leq e^{-\frac{2k^2}{n(b-a)^2}}$.</li>
 </ol>
-<p>怎么证明呢,考虑<span class="math inline">\(P(X\geq E(X)+k)\leq
-M_{X-E(X)}(t)e^{-tk}\)</span>.</p>
-<p>然而: <span class="math display">\[
+<p>怎么证明呢,考虑$P(X\geq E(X)+k)\leq M_{X-E(X)}(t)e^{-tk}$.</p>
+<p>然而:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-M_{X-E(X)}(t)&amp;=E(e^{t(X-E(X))})\\
-&amp;=E(\prod_i e^{t(X_i-E(X_i))})\\
-&amp;=\prod_i E(e^{t(X_i-E(X_i))})\\
-&amp;=\prod_i M_{X_i-E(X_i)}(t)\\
-&amp;\leq e^{n\frac{t^2(b-a)^2}{8}}
-\end{aligned}
-\]</span> 接下来对后面那个东西最优化,可以发现<span class="math inline">\(t=\frac{4k}{n(b-a)^2}\)</span>的时候足够优秀,这就证明了上面的不等式.</p>
-<h4><span id="sanov-bound">Sanov Bound</span></h4>
-<p>回忆到斯特林公式<span class="math inline">\(n!\sim \sqrt{2\pi
-n}(\frac{n}{e})^n\)</span>.</p>
-<p>先来看一个在二项分布上的版本,不妨设<span class="math inline">\(X_1,\cdots,X_n\sim
-\mathrm{Bern}(p)\)</span>,而<span class="math inline">\(q&gt;p\)</span>,我们断言: <span class="math display">\[
-\frac{1}{n+1}\exp(-nd(q||p))\leq Pr[\sum_i^n X_i\geq qn]\leq
-(n(1-q)+1)\exp(-nd(q||p))
-\]</span> 为此留神到<span class="math inline">\(Pr[\sum_i^n X_i\geq
-qn]=\sum_{t=qn}^n\binom{n}{t}p^t(1-p)^{n-t}\)</span>,容易证明当<span class="math inline">\(q&gt;p\)</span>的时候,<span class="math inline">\(\binom{n}{t}p^t(1-p)^{n-t}\)</span>单调下降.</p>
-<p>此时来看<span class="math inline">\(\binom{n}{qn}\)</span>的取值:
-<span class="math display">\[
+M_{X-E(X)}(t)&=E(e^{t(X-E(X))})\\
+&=E(\prod_i e^{t(X_i-E(X_i))})\\
+&=\prod_i E(e^{t(X_i-E(X_i))})\\
+&=\prod_i M_{X_i-E(X_i)}(t)\\
+&\leq e^{n\frac{t^2(b-a)^2}{8}}
+\end{aligned}</script><p>接下来对后面那个东西最优化,可以发现$t=\frac{4k}{n(b-a)^2}$的时候足够优秀,这就证明了上面的不等式.</p>
+<h4><span id="sanov-bound">Sanov Bound</span></h4><p>回忆到斯特林公式$n!\sim \sqrt{2\pi n}(\frac{n}{e})^n$.</p>
+<p>先来看一个在二项分布上的版本,不妨设$X_1,\cdots,X_n\sim \mathrm{Bern}(p)$,而$q&gt;p$,我们断言:</p>
+<script type="math/tex; mode=display">
+\frac{1}{n+1}\exp(-nd(q||p))\leq Pr[\sum_i^n X_i\geq qn]\leq (n(1-q)+1)\exp(-nd(q||p))</script><p>为此留神到$Pr[\sum_i^n X_i\geq qn]=\sum_{t=qn}^n\binom{n}{t}p^t(1-p)^{n-t}$,容易证明当$q&gt;p$的时候,$\binom{n}{t}p^t(1-p)^{n-t}$单调下降.</p>
+<p>此时来看$\binom{n}{qn}$的取值:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-1&amp;\geq \binom{n}{qn}q^{qn}(1-q)^{n-qn}\\
-\binom{n}{qn}&amp;\leq \frac{1}{q^{qn}(1-q)^{n-qn}}\\
-&amp;=\left((\frac{1}{q})^q(\frac{1}{1-q})^{1-q}\right)^n\\
-&amp;=\left(\exp(q\ln  \frac{1}{q}+(1-q)\ln \frac{1}{1-q})\right)^n\\
-&amp;=\exp(nh(q))
-\end{aligned}
-\]</span> 此外,我们知道<span class="math inline">\(\binom{n}{t}q^{t}(1-q)^{n-t}\)</span>在<span class="math inline">\(t=qn\)</span>处取最大值,从而$
-q<sup>{qn}(1-q)</sup>{n-qn}<span class="math inline">\(,于是给出\)</span>(nh(q))(nh(q))$.</p>
-<p>此时观察: <span class="math display">\[
+1&\geq \binom{n}{qn}q^{qn}(1-q)^{n-qn}\\
+\binom{n}{qn}&\leq \frac{1}{q^{qn}(1-q)^{n-qn}}\\
+&=\left((\frac{1}{q})^q(\frac{1}{1-q})^{1-q}\right)^n\\
+&=\left(\exp(q\ln  \frac{1}{q}+(1-q)\ln \frac{1}{1-q})\right)^n\\
+&=\exp(nh(q))
+\end{aligned}</script><p>此外,我们知道$\binom{n}{t}q^{t}(1-q)^{n-t}$在$t=qn$处取最大值,从而$ \binom{n}{qn}q^{qn}(1-q)^{n-qn}\geq \frac{1}{n+1}$,于是给出$\exp(nh(q))\geq \frac{1}{n+1}\exp(nh(q))$.</p>
+<p>此时观察:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-\exp(nh(q))p^{qn}(1-p)^{n-qn}&amp;=\exp(nh(q))\exp(n(q\ln p+(1-q)\ln
-(1-p)))\\
-&amp;=\exp(n(q\ln \frac{p}{q}+(1-q)\ln \frac{1-p}{1-q}))\\
-&amp;=\exp(-nd(q||p))
-\end{aligned}
-\]</span> 从而给出了上面的答案.</p>
-<p>现在来看一个一般的版本.对于一个可能的空间<span class="math inline">\(\Omega=\{v_1,\cdots
-v_L\}\)</span>,现在有一个分布<span class="math inline">\(P:\Omega\to
-[0,1]\)</span>,记录<span class="math inline">\(p_i=P(v_i)\)</span>.</p>
-<p>现在从<span class="math inline">\(P\)</span>中独立取样<span class="math inline">\(x_1,\cdots,x_n\)</span>.考虑对于一个特定的可重集合<span class="math inline">\(S\)</span>,求<span class="math inline">\(Pr[\{x_1,\cdots
-,x_n\}=S]\)</span>.回忆到可重集的定义为<span class="math inline">\(S:\Omega\to\mathbb{N}\)</span>,不妨干脆记录<span class="math inline">\(s_i=S(v_i)\)</span>.容易发现<span class="math inline">\(Pr[\{x_1,\cdots
-,x_n\}=S]=\binom{n}{s_1,\cdots,s_L}p_1^{s_1}\cdots
-p_L^{s_L}\)</span>.</p>
-<p>现在考虑一个新的分布<span class="math inline">\(Q:\Omega\to
-[0,1]\)</span>,其中<span class="math inline">\(q_i=\frac{s_i}{n}\)</span>,此时如果采样<span class="math inline">\(y_1,\cdots,y_n\sim Q\)</span>的时候,先来看看<span class="math inline">\(Pr[\{y_1,\cdots,y_n\}=S]\)</span>.</p>
-<p>容易见到<span class="math inline">\(|\Omega\to \mathbb N|\leq
-\frac{1}{(n+1)^{L-1}}\)</span>,从而见到以下简单估计(需要证明当前的情况的概率是所有情况中最大的):
-<span class="math display">\[
+\exp(nh(q))p^{qn}(1-p)^{n-qn}&=\exp(nh(q))\exp(n(q\ln p+(1-q)\ln (1-p)))\\
+&=\exp(n(q\ln \frac{p}{q}+(1-q)\ln \frac{1-p}{1-q}))\\
+&=\exp(-nd(q||p))
+\end{aligned}</script><p>从而给出了上面的答案.</p>
+<p>现在来看一个一般的版本.对于一个可能的空间$\Omega=\{v_1,\cdots v_L\}$,现在有一个分布$P:\Omega\to [0,1]$,记录$p_i=P(v_i)$.</p>
+<p>现在从$P$中独立取样$x_1,\cdots,x_n$.考虑对于一个特定的可重集合$S$,求$Pr[\{x_1,\cdots ,x_n\}=S]$.回忆到可重集的定义为$S:\Omega\to\mathbb{N}$,不妨干脆记录$s_i=S(v_i)$.容易发现$Pr[\{x_1,\cdots ,x_n\}=S]=\binom{n}{s_1,\cdots,s_L}p_1^{s_1}\cdots p_L^{s_L}$.</p>
+<p>现在考虑一个新的分布$Q:\Omega\to [0,1]$,其中$q_i=\frac{s_i}{n}$,此时如果采样$y_1,\cdots,y_n\sim Q$的时候,先来看看$Pr[\{y_1,\cdots,y_n\}=S]$.</p>
+<p>容易见到$|\Omega\to \mathbb N|\leq \frac{1}{(n+1)^{L-1}}$,从而见到以下简单估计(需要证明当前的情况的概率是所有情况中最大的):</p>
+<script type="math/tex; mode=display">
 \begin{gathered}
 \frac{1}{(n+1)^{L-1}}\leq Pr[\{y_1,\cdots,y_n\}=S]\leq 1\\
-\frac{1}{(n+1)^{L-1}}\leq \binom{n}{s_1,\cdots,s_L}\leq
-\left((\frac{1}{q_1})^{q_1}\cdots (\frac{1}{q_L})^{q_L}\right)^n\\
-\frac{\exp(nH(Q))}{(n+1)^{L-1}}\leq \binom{n}{s_1,\cdots,s_L}\leq
-\exp(nH(Q))\\
-\end{gathered}
-\]</span> 这给出了<span class="math inline">\(\binom{n}{s_1,\cdots,s_L}\)</span>的一个上下界.然而天然有:
-<span class="math display">\[
-p_1^{s_1}\cdots p_L^{s_L}=\exp(n\sum_i q_i\log
-p_i)=\exp(-nD(Q||P)-nH(Q))
-\]</span> 从而: <span class="math display">\[
-\frac{\exp(-nD(Q||P))}{(n+1)^{L-1}}\leq Pr[\{x_1,\cdots ,x_n\}=S] \leq
-\exp(-nD(Q||P))\\
-\]</span></p>
-<p>如果这里把<span class="math inline">\(\{x_1,\cdots
-,x_n\}=S\)</span>弱化到<span class="math inline">\(\{x_1,\cdots
-,x_n\}\in A\)</span>,则右边当然要补一个<span class="math inline">\(|A|\)</span>,当然显然<span class="math inline">\(|A|\leq (n+1)^{L-1}\)</span></p>
-<h3><span id="大数定律">大数定律</span></h3>
-<p>对于随机变量<span class="math inline">\(\{X_i\}\)</span>,对于任意<span class="math inline">\(\epsilon&gt;0\)</span>,如果: <span class="math display">\[
-\lim_{n\to \infty} P(|\frac{1}{n}\sum_i^n X_i-\frac{1}{n}\sum_i^n
-E(X_i)|&lt;\epsilon)=1
-\]</span> 则称它们满足大数定律.</p>
-<p>一般而言,对于一列随机变量<span class="math inline">\(\{Y_i\}\)</span>和一个随机变量<span class="math inline">\(Y\)</span>,如果<span class="math inline">\(\forall
-\epsilon&gt;0\)</span>,<span class="math inline">\(\lim_{n\to
-\infty}P(|Y_n-Y|&lt;\epsilon)=1\)</span>,则称其<strong>依概率收敛</strong>.</p>
-<h4><span id="markov大数定律">Markov大数定律</span></h4>
-<p>若<span class="math inline">\(\mathrm{Var}(\sum X_i)\sim
-o(n^2)\)</span>,则<span class="math inline">\(\{X_n\}\)</span>符合大数定律.</p>
-<p>策略是考虑<span class="math inline">\(\mathrm{Var}(\frac{\sum
-X_i}{n})=\frac{1}{n^2}\mathrm{Var}(\sum
-X_i)\)</span>.用Chebyshev不等式碾一下就好了.</p>
-<h4><span id="khinchin大数定律弱大数定律">Khinchin大数定律(弱大数定律)</span></h4>
-<p>设<span class="math inline">\(\{X_i\}\)</span>独立同分布,且数学期望<span class="math inline">\(\mu=E(X_i)\)</span>存在,则<span class="math inline">\(\{X_i\}\)</span>满足大数定律.</p>
-<h3><span id="特征函数">特征函数</span></h3>
-<p>对于随机变量<span class="math inline">\(X\)</span>,设<span class="math inline">\(\phi_X(t)=E(e^{itX})\)</span>为其特征函数.容易见到<span class="math inline">\(\phi_X(-it)=E(e^{tX})\)</span>.一些常见的特征函数:</p>
-<ol type="1">
-<li><span class="math inline">\(X\sim
-\pi(\lambda),M_X(t)=e^{\lambda(e^t-1)},\phi_X(t)=e^{\lambda(e^{it}-1)}\)</span>.</li>
-<li><span class="math inline">\(X\sim N(\mu,\sigma^2),M_X(t)=e^{\mu
-t+\frac{\sigma^2t^2}{2}},\phi_X(t)=e^{i\mu
-t-\frac{\sigma^2t^2}{2}}\)</span>.</li>
-<li><span class="math inline">\(X\sim
-B(n,p),M_X(t)=(1-p+pe^t)^n,\phi_X(t)=(1-p+pe^{it})^n\)</span>.</li>
-<li><span class="math inline">\(X\)</span>服从柯西分布,<span class="math inline">\(f(x)=\frac{1}{\pi(x^2+1)}\)</span>,则<span class="math inline">\(\phi_X(t)=e^{-|t|}\)</span>.</li>
+\frac{1}{(n+1)^{L-1}}\leq \binom{n}{s_1,\cdots,s_L}\leq \left((\frac{1}{q_1})^{q_1}\cdots (\frac{1}{q_L})^{q_L}\right)^n\\
+\frac{\exp(nH(Q))}{(n+1)^{L-1}}\leq \binom{n}{s_1,\cdots,s_L}\leq \exp(nH(Q))\\
+\end{gathered}</script><p>这给出了$\binom{n}{s_1,\cdots,s_L}$的一个上下界.然而天然有:</p>
+<script type="math/tex; mode=display">
+p_1^{s_1}\cdots p_L^{s_L}=\exp(n\sum_i q_i\log p_i)=\exp(-nD(Q||P)-nH(Q))</script><p>从而:</p>
+<script type="math/tex; mode=display">
+\frac{\exp(-nD(Q||P))}{(n+1)^{L-1}}\leq Pr[\{x_1,\cdots ,x_n\}=S] \leq \exp(-nD(Q||P))\\</script><p>如果这里把$\{x_1,\cdots ,x_n\}=S$弱化到$\{x_1,\cdots ,x_n\}\in A$,则右边当然要补一个$|A|$,当然显然$|A|\leq (n+1)^{L-1}$</p>
+<h3><span id="大数定律">大数定律</span></h3><p>对于随机变量$\{X_i\}$,对于任意$\epsilon&gt;0$,如果:</p>
+<script type="math/tex; mode=display">
+\lim_{n\to \infty} P(|\frac{1}{n}\sum_i^n X_i-\frac{1}{n}\sum_i^n E(X_i)|<\epsilon)=1</script><p>则称它们满足大数定律.</p>
+<p>一般而言,对于一列随机变量$\{Y_i\}$和一个随机变量$Y$,如果$\forall \epsilon&gt;0$,$\lim_{n\to \infty}P(|Y_n-Y|&lt;\epsilon)=1$,则称其<strong>依概率收敛</strong>.</p>
+<h4><span id="markov大数定律">Markov大数定律</span></h4><p>若$\mathrm{Var}(\sum X_i)\sim o(n^2)$,则$\{X_n\}$符合大数定律.</p>
+<p>策略是考虑$\mathrm{Var}(\frac{\sum X_i}{n})=\frac{1}{n^2}\mathrm{Var}(\sum X_i)$.用Chebyshev不等式碾一下就好了.</p>
+<h4><span id="khinchin大数定律弱大数定律">Khinchin大数定律(弱大数定律)</span></h4><p>设$\{X_i\}$独立同分布,且数学期望$\mu=E(X_i)$存在,则$\{X_i\}$满足大数定律.</p>
+<h3><span id="特征函数">特征函数</span></h3><p>对于随机变量$X$,设$\phi_X(t)=E(e^{itX})$为其特征函数.容易见到$\phi_X(-it)=E(e^{tX})$.一些常见的特征函数:</p>
+<ol>
+<li>$X\sim \pi(\lambda),M_X(t)=e^{\lambda(e^t-1)},\phi_X(t)=e^{\lambda(e^{it}-1)}$.</li>
+<li>$X\sim N(\mu,\sigma^2),M_X(t)=e^{\mu t+\frac{\sigma^2t^2}{2}},\phi_X(t)=e^{i\mu t-\frac{\sigma^2t^2}{2}}$.</li>
+<li>$X\sim B(n,p),M_X(t)=(1-p+pe^t)^n,\phi_X(t)=(1-p+pe^{it})^n$.</li>
+<li>$X$服从柯西分布,$f(x)=\frac{1}{\pi(x^2+1)}$,则$\phi_X(t)=e^{-|t|}$.</li>
 </ol>
 <p>随机变量的分布函数由其特征函数唯一确定.此外,依分布收敛等价于特征函数逐点收敛.</p>
-<p>依照上面的结论,就可以拿到<span class="math inline">\(X_n\sim
-\pi(n)\)</span>推出<span class="math inline">\(\frac{X_n-n}{\sqrt n}\to
-N(0,1)\)</span>,原因正是上面的依分布收敛的性质.</p>
-<h3><span id="中心极限定理">中心极限定理</span></h3>
-<p>先来看Lindeberg-Levy版本:</p>
-<p>设<span class="math inline">\(\{X_n\}\)</span>独立同分布,而且<span class="math inline">\(E(X_n)=\mu,\mathrm{Var}(X_n)=\sigma^2\)</span>,设<span class="math inline">\(Y_n=\sum_i^n X_i\)</span>,而<span class="math inline">\(\tilde{Y}_n=\frac{Y_n-E(Y_n)}{\sigma(Y_n)}=\frac{\sum_i^n
-(X_i-\mu)}{\sqrt n\sigma}\)</span>.</p>
-<p>我们断言<span class="math inline">\(\tilde
-Y_n\)</span>一定依分布收敛于<span class="math inline">\(Z\)</span>,其中<span class="math inline">\(Z\sim
-N(0,1)\)</span>.</p>
-<p>为什么呢?用泰勒展开考虑<span class="math inline">\(\Re
-\phi_{X_n-\mu}(t)=1-\frac{\sigma^2}{2}t^2+o(t^2)\)</span>.此时<span class="math inline">\(\Re \phi_{\tilde
-Y_n}(t)=(1-\frac{t^2}{2n}+o(\frac{t^2}{n}))^n\to
-e^{-\frac{t^2}{2}}\)</span>.</p>
+<p>依照上面的结论,就可以拿到$X_n\sim \pi(n)$推出$\frac{X_n-n}{\sqrt n}\to N(0,1)$,原因正是上面的依分布收敛的性质.</p>
+<h3><span id="中心极限定理">中心极限定理</span></h3><p>先来看Lindeberg-Levy版本:</p>
+<p>设$\{X_n\}$独立同分布,而且$E(X_n)=\mu,\mathrm{Var}(X_n)=\sigma^2$,设$Y_n=\sum_i^n X_i$,而$\tilde{Y}_n=\frac{Y_n-E(Y_n)}{\sigma(Y_n)}=\frac{\sum_i^n (X_i-\mu)}{\sqrt n\sigma}$.</p>
+<p>我们断言$\tilde Y_n$一定依分布收敛于$Z$,其中$Z\sim N(0,1)$.</p>
+<p>为什么呢?用泰勒展开考虑$\Re \phi_{X_n-\mu}(t)=1-\frac{\sigma^2}{2}t^2+o(t^2)$.此时$\Re \phi_{\tilde Y_n}(t)=(1-\frac{t^2}{2n}+o(\frac{t^2}{n}))^n\to e^{-\frac{t^2}{2}}$.</p>
 <p>现在来看一个强的版本:</p>
-<p>Berry-Esseen定理:在上述版本的基础上,如果<span class="math inline">\(E(|X_n-\mu|^3)\)</span>有限,则收敛速度有: <span class="math display">\[
-|P(\tilde Y_n\leq x)-P(Z\leq x)|\leq
-O(1)\frac{E(|X_n-\mu|^3)}{\sigma^3\sqrt{n}}
-\]</span></p>
-<h2><span id="概率方法">概率方法</span></h2>
-<h6><span id="example1">Example1</span></h6>
-<p>求证拉姆齐数<span class="math inline">\(R(k,k)&gt;2^{\frac{k-1}{2}}\)</span>.</p>
-<p>考虑一个随机图,任何两个点之间以<span class="math inline">\(\frac{1}{2}\)</span>概率连边,现在取点集的一个大小为<span class="math inline">\(k\)</span>的子集,它是一个完全图或者或独立集的概率都是<span class="math inline">\(2^{-\frac{k(k-1)}{2}}\)</span>,立刻见到这个图所有的期望大小为<span class="math inline">\(k\)</span>的完全图或独立集的期望为<span class="math inline">\(\binom{n}{k}2^{1-\frac{k(k-1)}{2}}\)</span>,如果这个东西<span class="math inline">\(&lt;1\)</span>,就证明总有一个图二者皆不存在.于是取<span class="math inline">\(n=2^{\frac{k-1}{2}}\)</span>,则: <span class="math display">\[
+<p>Berry-Esseen定理:在上述版本的基础上,如果$E(|X_n-\mu|^3)$有限,则收敛速度有:</p>
+<script type="math/tex; mode=display">
+|P(\tilde Y_n\leq x)-P(Z\leq x)|\leq O(1)\frac{E(|X_n-\mu|^3)}{\sigma^3\sqrt{n}}</script><h2><span id="概率方法">概率方法</span></h2><h6><span id="example1">Example1</span></h6><p>求证拉姆齐数$R(k,k)&gt;2^{\frac{k-1}{2}}$.</p>
+<p>考虑一个随机图,任何两个点之间以$\frac{1}{2}$概率连边,现在取点集的一个大小为$k$的子集,它是一个完全图或者或独立集的概率都是$2^{-\frac{k(k-1)}{2}}$,立刻见到这个图所有的期望大小为$k$的完全图或独立集的期望为$\binom{n}{k}2^{1-\frac{k(k-1)}{2}}$,如果这个东西$&lt;1$,就证明总有一个图二者皆不存在.于是取$n=2^{\frac{k-1}{2}}$,则:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-\binom{n}{k}2^{1-\frac{k(k-1)}{2}}&amp;&lt;
-\frac{n^k}{k!}2^{1-\frac{k(k-1)}{2}}\\
-&amp;=\frac{2}{k!}
-\end{aligned}
-\]</span></p>
-<h6><span id="example2">Example2</span></h6>
-<p>考虑一个大小为<span class="math inline">\(n\)</span>的集合<span class="math inline">\(X\)</span>的若干大小为<span class="math inline">\(k\)</span>的子集所组成的集合<span class="math inline">\(\Omega\)</span>,并且要求<span class="math inline">\(\forall S,T\in \Omega,S\cap T\ne
-\emptyset\)</span>.求证:<span class="math inline">\(|\Omega|\leq
-\binom{n-1}{k-1}\)</span>.</p>
+\binom{n}{k}2^{1-\frac{k(k-1)}{2}}&< \frac{n^k}{k!}2^{1-\frac{k(k-1)}{2}}\\
+&=\frac{2}{k!}
+\end{aligned}</script><h6><span id="example2">Example2</span></h6><p>考虑一个大小为$n$的集合$X$的若干大小为$k$的子集所组成的集合$\Omega$,并且要求$\forall S,T\in \Omega,S\cap T\ne \emptyset$.求证:$|\Omega|\leq \binom{n-1}{k-1}$.</p>
 <p>这个上界显然是容易达到的,只需要让所有子集都包含同一个元素即可.</p>
-<p>现在考虑随机一个置换<span class="math inline">\(\sigma\)</span>,选定<span class="math inline">\(A_i=[i,k+i-1]\)</span>,考虑<span class="math inline">\(Pr[\sigma(S)=A_i]=\frac{1}{\binom{n}{k}}\)</span>于是<span class="math inline">\(Pr[\sigma(S)\in
-\{A_0,\cdots,A_{n-1}\}]=\frac{n}{\binom{n}{k}}\)</span>.从而<span class="math inline">\(E(\sum_{S\in \Omega}[\sigma(S)\in
-\{A_0,\cdots,A_{n-1}\}])=\frac{n}{\binom{n}{k}}|\Omega|\)</span>.然而这个数必定小于等于<span class="math inline">\(k\)</span>,因为置换不会改变相交性,而如果要从<span class="math inline">\(\{A_0,\cdots,A_{n-1}\}\)</span>中选出若干个两两相交的,最多只能选出<span class="math inline">\(k\)</span>个.</p>
-<h6><span id="example3">Example3</span></h6>
-<p>取若干个集合<span class="math inline">\(A_1,\cdots,A_n\)</span>,<span class="math inline">\(B_1,\cdots,B_n\)</span>,要求<span class="math inline">\(|A_i|=k,|B_j|=l\)</span>,此外要求<span class="math inline">\(A_i\cap B_i=\emptyset\)</span>,而且当<span class="math inline">\(i\ne j\)</span>时,要求<span class="math inline">\(A_i\cap B_j\ne\emptyset\)</span>.求证<span class="math inline">\(n\leq \binom{k+l}{k}\)</span>.</p>
-<p>考虑取<span class="math inline">\(X=\bigcup_i(A_i\cup
-B_i)\)</span>,考虑在<span class="math inline">\(X\)</span>上随机一个序关系,并设事件<span class="math inline">\(E_i\)</span>为:<span class="math inline">\(A_i\)</span>中的所有元素都$$<span class="math inline">\(B_i\)</span>中的所有元素.但这个事不能发生两次,因为如果<span class="math inline">\(E_i\)</span>和<span class="math inline">\(E_j\)</span>都成立,如果<span class="math inline">\(A_i\cap B_j\ne \emptyset\)</span>,则<span class="math inline">\(A_j\cap
-B_i=\emptyset\)</span>,这就完蛋了.所以<span class="math inline">\(Pr[E_i]\leq \frac{1}{n}\)</span>.然而<span class="math inline">\(Pr[E_i]=\frac{1}{\binom{l+k}{k}}\)</span>,这就搞定了.</p>
-<h6><span id="example4">Example4</span></h6>
-<p>求证<span class="math inline">\(\forall k\geq 2\)</span>和<span class="math inline">\(\forall n\)</span>,总存在矩阵<span class="math inline">\(M\in \{0,1\}^{n\times n}\)</span>,使得:</p>
-<ol type="1">
-<li><span class="math inline">\(M\)</span>中<span class="math inline">\(1\)</span>的数量约为<span class="math inline">\(\Omega(n^{2-\frac{2}{k+1}})\)</span>.</li>
-<li>不存在<span class="math inline">\(k\times k\)</span>的全<span class="math inline">\(1\)</span>子矩阵.</li>
+<p>现在考虑随机一个置换$\sigma$,选定$A_i=[i,k+i-1]$,考虑$Pr[\sigma(S)=A_i]=\frac{1}{\binom{n}{k}}$于是$Pr[\sigma(S)\in \{A_0,\cdots,A_{n-1}\}]=\frac{n}{\binom{n}{k}}$.从而$E(\sum_{S\in \Omega}[\sigma(S)\in \{A_0,\cdots,A_{n-1}\}])=\frac{n}{\binom{n}{k}}|\Omega|$.然而这个数必定小于等于$k$,因为置换不会改变相交性,而如果要从$\{A_0,\cdots,A_{n-1}\}$中选出若干个两两相交的,最多只能选出$k$个.</p>
+<h6><span id="example3">Example3</span></h6><p>取若干个集合$A_1,\cdots,A_n$,$B_1,\cdots,B_n$,要求$|A_i|=k,|B_j|=l$,此外要求$A_i\cap B_i=\emptyset$,而且当$i\ne j$时,要求$A_i\cap B_j\ne\emptyset$.求证$n\leq \binom{k+l}{k}$.</p>
+<p>考虑取$X=\bigcup_i(A_i\cup B_i)$,考虑在$X$上随机一个序关系,并设事件$E_i$为:$A_i$中的所有元素都$\leq $$B_i$中的所有元素.但这个事不能发生两次,因为如果$E_i$和$E_j$都成立,如果$A_i\cap B_j\ne \emptyset$,则$A_j\cap B_i=\emptyset$,这就完蛋了.所以$Pr[E_i]\leq \frac{1}{n}$.然而$Pr[E_i]=\frac{1}{\binom{l+k}{k}}$,这就搞定了.</p>
+<h6><span id="example4">Example4</span></h6><p>求证$\forall k\geq 2$和$\forall n$,总存在矩阵$M\in \{0,1\}^{n\times n}$,使得:</p>
+<ol>
+<li>$M$中$1$的数量约为$\Omega(n^{2-\frac{2}{k+1}})$.</li>
+<li>不存在$k\times k$的全$1$子矩阵.</li>
 </ol>
-<p>考虑每一位置按照<span class="math inline">\(B(1,p)\)</span>随机,则全<span class="math inline">\(1\)</span>的<span class="math inline">\(k\times
-k\)</span>的子矩阵的期望个数为<span class="math inline">\(p^{k^2}\binom{n}{k}^2\)</span>.对于这些问题,我们强行删它们中的一个<span class="math inline">\(1\)</span>,在做完这些操作后,剩下的<span class="math inline">\(1\)</span>的个数的期望就会<span class="math inline">\(\geq
-pn^2-p^{k^2}\binom{n}{k}^2\)</span>,最终选定<span class="math inline">\(p=(\frac{n^2}{k^2n^{2k}})^{\frac{1}{k^2-1}}\)</span>.</p>
-<h6><span id="example5">Example5</span></h6>
-<p>求证:对于<span class="math inline">\(\forall
-k,l\)</span>,存在一个图,它的环的长度均<span class="math inline">\(\geq
-l\)</span>,但它的最小染色数<span class="math inline">\(\geq
-k\)</span>.</p>
-<p>考虑一个两个点之间以<span class="math inline">\(p\)</span>概率连边的随即图,存在一个长度为<span class="math inline">\(i\)</span>的环的概率为<span class="math inline">\(\frac{n^{\underline{i}}}{i}p^i\leq
-n^ip^i\)</span>.</p>
-<p>考虑每个染色都是一个独立集,因此必定有<span class="math inline">\(\chi(G)\alpha(G)\geq n\)</span>,其中<span class="math inline">\(\chi(G)\)</span>是染色数,<span class="math inline">\(\alpha(G)\)</span>是最大独立集大小.从而只需要让<span class="math inline">\(\alpha(G)\)</span>足够小就行.</p>
-<p>现在考虑<span class="math inline">\(Pr[\alpha(G)\geq a]\geq
-\binom{n}{a}(1-p)^{\frac{a(a-1)}{2}}\)</span>.然后倒腾倒腾吧,取<span class="math inline">\(p=n^{\frac{1}{2l}-1}\)</span>,懒得算了.</p>
-<h6><span id="example6">Example6</span></h6>
-<p>考虑一个有限集合<span class="math inline">\(B\subseteq
-\mathbb{Z}\setminus\{0\}\)</span>,求证存在一个<span class="math inline">\(A\subseteq B\)</span>,使得<span class="math inline">\(|A|\geq \frac{|B|}{3}\)</span>,并且满足<span class="math inline">\(\forall a_1,a_2\in A,a_1+a_2\notin A\)</span>.</p>
-<p>假如我们在一个环上做这件事,比如<span class="math inline">\(\mathbb{Z}_p\)</span>.当<span class="math inline">\(B=\mathbb{Z}_p\setminus\{0\}\)</span>,其中<span class="math inline">\(p=3k+2\)</span>的时候,此时可以选取<span class="math inline">\([k+1,2k+1]\)</span>中的元素,容易见到这占据了<span class="math inline">\(\geq
-\frac{|B|}{3}\)</span>.而如果不然,我们可以随机一个<span class="math inline">\(r\)</span>,使得<span class="math inline">\(B\to
-\mathbb{Z}_p\setminus\{0\},b\mapsto br\)</span>.此时落在<span class="math inline">\([k+1,2k+1]\)</span>的期望就已经<span class="math inline">\(\geq \frac{|B|}{3}\)</span>.<span class="math inline">\(p\)</span>取足够大能包住<span class="math inline">\(B\)</span>即可.</p>
-<h6><span id="example7">Example7</span></h6>
-<p>求证:存在一个竞赛图,其中的哈密顿路的数量<span class="math inline">\(\geq \frac{n!}{2^{n-1}}\)</span>.</p>
-<p>这个好像非常平凡,随机图上随机一个排列然后它是哈密顿路的概率就是<span class="math inline">\(2^{n-1}\)</span>.</p>
-<h6><span id="example8">Example8</span></h6>
-<p>我们称竞赛图的<span class="math inline">\(S_k\)</span>性质是,任何<span class="math inline">\(k\)</span>个点组成的子集,都存在一个点赢过了这<span class="math inline">\(k\)</span>个点.问是否总存在一个竞赛图满足<span class="math inline">\(S_k\)</span>性质.</p>
-<p>随机一个竞赛图,考虑其任何一个大小为<span class="math inline">\(k\)</span>的子集.对于外面一个点<span class="math inline">\(u\)</span>胜过了这<span class="math inline">\(k\)</span>个点的概率是<span class="math inline">\(2^{-k}\)</span>.外面一个点都没赢的概率是<span class="math inline">\((1-2^{-k})^{n-k}\)</span>.于是用Union
-Bound,存在一个问题的概率<span class="math inline">\(\leq
-\binom{n}{k}(1-2^{-k})^{n-k}\)</span>.显然<span class="math inline">\(n\to \infty\)</span>的时候这玩意趋近于<span class="math inline">\(0\)</span>,所以肯定能找到满足条件的.</p>
-<h6><span id="example9">Example9</span></h6>
-<p>考虑一系列向量<span class="math inline">\(\vec v_1,\cdots \vec v_n\in
-\{-1,1\}^l\)</span>,求证:</p>
-<ol type="1">
-<li><span class="math inline">\(\exists a_1,\cdots,a_n\in
-\{-1,1\}\)</span>,使得<span class="math inline">\(\Vert\sum a_i\vec
-l_i\Vert^2\geq nl\)</span>.</li>
-<li><span class="math inline">\(\exists a_1,\cdots,a_n\in
-\{-1,1\}\)</span>,使得<span class="math inline">\(\Vert\sum a_i\vec
-l_i\Vert^2\leq nl\)</span>.</li>
+<p>考虑每一位置按照$B(1,p)$随机,则全$1$的$k\times k$的子矩阵的期望个数为$p^{k^2}\binom{n}{k}^2$.对于这些问题,我们强行删它们中的一个$1$,在做完这些操作后,剩下的$1$的个数的期望就会$\geq pn^2-p^{k^2}\binom{n}{k}^2$,最终选定$p=(\frac{n^2}{k^2n^{2k}})^{\frac{1}{k^2-1}}$.</p>
+<h6><span id="example5">Example5</span></h6><p>求证:对于$\forall k,l$,存在一个图,它的环的长度均$\geq l$,但它的最小染色数$\geq k$.</p>
+<p>考虑一个两个点之间以$p$概率连边的随即图,存在一个长度为$i$的环的概率为$\frac{n^{\underline{i}}}{i}p^i\leq n^ip^i$.</p>
+<p>考虑每个染色都是一个独立集,因此必定有$\chi(G)\alpha(G)\geq n$,其中$\chi(G)$是染色数,$\alpha(G)$是最大独立集大小.从而只需要让$\alpha(G)$足够小就行.</p>
+<p>现在考虑$Pr[\alpha(G)\geq a]\geq \binom{n}{a}(1-p)^{\frac{a(a-1)}{2}}$.然后倒腾倒腾吧,取$p=n^{\frac{1}{2l}-1}$,懒得算了.</p>
+<h6><span id="example6">Example6</span></h6><p>考虑一个有限集合$B\subseteq \mathbb{Z}\setminus\{0\}$,求证存在一个$A\subseteq B$,使得$|A|\geq \frac{|B|}{3}$,并且满足$\forall a_1,a_2\in A,a_1+a_2\notin A$.</p>
+<p>假如我们在一个环上做这件事,比如$\mathbb{Z}_p$.当$B=\mathbb{Z}_p\setminus\{0\}$,其中$p=3k+2$的时候,此时可以选取$[k+1,2k+1]$中的元素,容易见到这占据了$\geq \frac{|B|}{3}$.而如果不然,我们可以随机一个$r$,使得$B\to \mathbb{Z}_p\setminus\{0\},b\mapsto br$.此时落在$[k+1,2k+1]$的期望就已经$\geq \frac{|B|}{3}$.$p$取足够大能包住$B$即可.</p>
+<h6><span id="example7">Example7</span></h6><p>求证:存在一个竞赛图,其中的哈密顿路的数量$\geq \frac{n!}{2^{n-1}}$.</p>
+<p>这个好像非常平凡,随机图上随机一个排列然后它是哈密顿路的概率就是$2^{n-1}$.</p>
+<h6><span id="example8">Example8</span></h6><p>我们称竞赛图的$S_k$性质是,任何$k$个点组成的子集,都存在一个点赢过了这$k$个点.问是否总存在一个竞赛图满足$S_k$性质.</p>
+<p>随机一个竞赛图,考虑其任何一个大小为$k$的子集.对于外面一个点$u$胜过了这$k$个点的概率是$2^{-k}$.外面一个点都没赢的概率是$(1-2^{-k})^{n-k}$.于是用Union Bound,存在一个问题的概率$\leq \binom{n}{k}(1-2^{-k})^{n-k}$.显然$n\to \infty$的时候这玩意趋近于$0$,所以肯定能找到满足条件的.</p>
+<h6><span id="example9">Example9</span></h6><p>考虑一系列向量$\vec v_1,\cdots \vec v_n\in \{-1,1\}^l$,求证:</p>
+<ol>
+<li>$\exists a_1,\cdots,a_n\in \{-1,1\}$,使得$\Vert\sum a_i\vec l_i\Vert^2\geq nl$.</li>
+<li>$\exists a_1,\cdots,a_n\in \{-1,1\}$,使得$\Vert\sum a_i\vec l_i\Vert^2\leq nl$.</li>
 </ol>
-<p>只要证明这玩意期望就是<span class="math inline">\(nl\)</span>即可,随机<span class="math inline">\(\{a_i\}\)</span>,容易见到<span class="math inline">\(E(a_i)=0,E(a_i^2)=1,E(a_ia_j)=E(a_i)E(a_j)=0\)</span>.带进去算一下.</p>
-<h6><span id="example10">Example10</span></h6>
-<p>求证:随机一个<span class="math inline">\(x\in[1,n]\)</span>,使得<span class="math inline">\(P(|v(x)-\ln\ln n|&gt;\lambda \sqrt{\ln\ln n})\leq
-\lambda^{-2}\)</span>.</p>
+<p>只要证明这玩意期望就是$nl$即可,随机$\{a_i\}$,容易见到$E(a_i)=0,E(a_i^2)=1,E(a_ia_j)=E(a_i)E(a_j)=0$.带进去算一下.</p>
+<h6><span id="example10">Example10</span></h6><p>求证:随机一个$x\in[1,n]$,使得$P(|v(x)-\ln\ln n|&gt;\lambda \sqrt{\ln\ln n})\leq \lambda^{-2}$.</p>
 <p>拆贡献用Chebyshev不等式硬估,懒得抄过程了.</p>
-<h6><span id="example11">Example11</span></h6>
-<p>考虑一个随机图<span class="math inline">\(G(n,m)\)</span>,也就是从<span class="math inline">\(\frac{n(n-1)}{2}\)</span>中随机<span class="math inline">\(m\)</span>条边留下.这上面可能有若干随着<span class="math inline">\(m\)</span>单调的性质,比如连通性之类的.我们下面证明:对于一个单调性质<span class="math inline">\(P\)</span>,存在一个函数<span class="math inline">\(m^*(n)\)</span>,使得:</p>
-<ol type="1">
-<li>当<span class="math inline">\(m(n)=\omega(m^*(n))\)</span>时,总有<span class="math inline">\(\lim_{n\to \infty}Pr_{G\sim G(n,m(n))}(G\in
-P)=1\)</span>.</li>
-<li>当<span class="math inline">\(m(n)=o(m^*(n))\)</span>时,总有<span class="math inline">\(\lim_{n\to \infty}Pr_{G\sim G(n,m(n))}(G\in
-P)=0\)</span>.</li>
+<h6><span id="example11">Example11</span></h6><p>考虑一个随机图$G(n,m)$,也就是从$\frac{n(n-1)}{2}$中随机$m$条边留下.这上面可能有若干随着$m$单调的性质,比如连通性之类的.我们下面证明:对于一个单调性质$P$,存在一个函数$m^*(n)$,使得:</p>
+<ol>
+<li>当$m(n)=\omega(m^*(n))$时,总有$\lim_{n\to \infty}Pr_{G\sim G(n,m(n))}(G\in P)=1$.</li>
+<li>当$m(n)=o(m^*(n))$时,总有$\lim_{n\to \infty}Pr_{G\sim G(n,m(n))}(G\in P)=0$.</li>
 </ol>
-<p>下面简单记<span class="math inline">\(Pr_{G\sim G(n,m)}(G\in
-P)=Pr_{n,m}\)</span>.</p>
-<p>现在考虑<span class="math inline">\(Pr_{n,mk}\)</span>,显然我们可以随机<span class="math inline">\(k\)</span>次,然后再把它们拼起来(虽然有重边,但是单调性质可以不管这个),从而<span class="math inline">\(1-Pr_{n,mk}\leq (1-Pr_{n,m})^k\)</span>.</p>
-<p>直接选取<span class="math inline">\(m^*(n)\)</span>为使得<span class="math inline">\(Pr_{n,m^*(n)}\geq
-\frac{1}{2}\)</span>的最小的解.则立刻就可以控制住.</p>
-<p>不过,部分的单调性质有更强的性质,即<span class="math inline">\(\forall
-\epsilon&gt;0\)</span>,当<span class="math inline">\(m(n)\geq(1+\epsilon)m^*(n)\)</span>的时候就可以控制住,当<span class="math inline">\(m(n)\leq
-(1-\epsilon)m^*(n)\)</span>也可以控制住.甚至更强地,对于有的性质,这个<span class="math inline">\(\epsilon\)</span>还可以换成<span class="math inline">\(\epsilon(n)=o(1)\)</span>.</p>
-<h6><span id="example12">Example12</span></h6>
-<p>现在来看连通性的性质,假设以<span class="math inline">\(\frac{\log
-n-\alpha(n)}{n}\)</span>的概率随机每条边,那么一个点成为孤点的概率就是<span class="math inline">\((1-\frac{\log n-\alpha(n)}{n})^{n-1}\approx
-\frac{1}{n}e^{\alpha(n)}\)</span>.从而孤立点个数(设为<span class="math inline">\(W\)</span>)的期望就是<span class="math inline">\(e^{\alpha(n)}\)</span>.</p>
-<p>接下来算<span class="math inline">\(\mathrm{Var}(W)\)</span>,拆开硬算算,得到<span class="math inline">\(\mathrm{Var}(W)=e^{\alpha(n)}+O(1)\)</span>.</p>
-<p>然而<span class="math inline">\(W\)</span>非负,从而: <span class="math display">\[
+<p>下面简单记$Pr_{G\sim G(n,m)}(G\in P)=Pr_{n,m}$.</p>
+<p>现在考虑$Pr_{n,mk}$,显然我们可以随机$k$次,然后再把它们拼起来(虽然有重边,但是单调性质可以不管这个),从而$1-Pr_{n,mk}\leq (1-Pr_{n,m})^k$.</p>
+<p>直接选取$m^<em>(n)$为使得$Pr_{n,m^</em>(n)}\geq \frac{1}{2}$的最小的解.则立刻就可以控制住.</p>
+<p>不过,部分的单调性质有更强的性质,即$\forall \epsilon&gt;0$,当$m(n)\geq(1+\epsilon)m^<em>(n)$的时候就可以控制住,当$m(n)\leq (1-\epsilon)m^</em>(n)$也可以控制住.甚至更强地,对于有的性质,这个$\epsilon$还可以换成$\epsilon(n)=o(1)$.</p>
+<h6><span id="example12">Example12</span></h6><p>现在来看连通性的性质,假设以$\frac{\log n-\alpha(n)}{n}$的概率随机每条边,那么一个点成为孤点的概率就是$(1-\frac{\log n-\alpha(n)}{n})^{n-1}\approx \frac{1}{n}e^{\alpha(n)}$.从而孤立点个数(设为$W$)的期望就是$e^{\alpha(n)}$.</p>
+<p>接下来算$\mathrm{Var}(W)$,拆开硬算算,得到$\mathrm{Var}(W)=e^{\alpha(n)}+O(1)$.</p>
+<p>然而$W$非负,从而:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-Pr[W=0]&amp;\leq Pr[|W-E|\geq E]\\
-&amp;\leq \frac{\mathrm{Var}(W)}{E^2(W)}\\
-&amp;\approx \frac{e^{\alpha(n)}+O(1)}{e^{2\alpha(n)}}
-\end{aligned}
-\]</span> 于是只要<span class="math inline">\(\alpha(n)\to\infty\)</span>就完蛋了,这个图甚至会出现孤点.</p>
-<p>现在假设以<span class="math inline">\(\frac{\log
-n+\alpha(n)}{n}\)</span>的概率随机每条边,和上面一样,由于期望足够小,用Markov不等式,我们可以证明此时孤立点消失了.</p>
-<p>然后需要把剩下的部分处理一下,存在一个大小为<span class="math inline">\(k\in
-[2,\frac{n}{2}]\)</span>的块与外界不连通的概率是<span class="math inline">\(\binom{n}{k}(1-p)^{k(n-k)}\)</span>,考虑<span class="math inline">\(1-p\leq e^{-p}\)</span>和<span class="math inline">\(\binom{n}{k}\leq
-(\frac{ne}{k})^k\)</span>,于是这个概率被<span class="math inline">\((\frac{ne}{k}e^{-p(n-k)})^k\)</span>限制住了.</p>
-<p>当<span class="math inline">\(k\in [2,\epsilon n]\)</span>的时候<span class="math inline">\(n-k=O(n)\)</span>,从而这个概率立刻被限制住.反之当<span class="math inline">\(k\in [\epsilon n,\frac{n}{2}]\)</span>的时候<span class="math inline">\(k(n-k)=O(n^2)\)</span>,但是组合数被压到了<span class="math inline">\((\frac{e}{\epsilon})^{O(n)}\)</span>,这就足够跑赢了.</p>
-<h2><span id="统计">统计</span></h2>
-<h3><span id="点估计">点估计</span></h3>
-<p>将只依赖于样本,不依赖于任何位置参数的函数称作<strong>统计量</strong>.例如:</p>
-<ol type="1">
-<li>样本均值<span class="math inline">\(\bar X=\frac{1}{n}\sum_{i=1}^n
-X_i\)</span>.</li>
-<li>样本方差<span class="math inline">\(S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\bar
-X)^2\)</span>.</li>
-<li>样本<span class="math inline">\(k\)</span>阶矩<span class="math inline">\(A_k=\frac{1}{n}\sum_{i=1}^n X_i^k\)</span>.</li>
-<li>样本<span class="math inline">\(k\)</span>阶中心矩<span class="math inline">\(B_k=\frac{1}{n}\sum_{i=1}^n(X_i-\bar
-X)^k\)</span>.</li>
+Pr[W=0]&\leq Pr[|W-E|\geq E]\\
+&\leq \frac{\mathrm{Var}(W)}{E^2(W)}\\
+&\approx \frac{e^{\alpha(n)}+O(1)}{e^{2\alpha(n)}}
+\end{aligned}</script><p>于是只要$\alpha(n)\to\infty$就完蛋了,这个图甚至会出现孤点.</p>
+<p>现在假设以$\frac{\log n+\alpha(n)}{n}$的概率随机每条边,和上面一样,由于期望足够小,用Markov不等式,我们可以证明此时孤立点消失了.</p>
+<p>然后需要把剩下的部分处理一下,存在一个大小为$k\in [2,\frac{n}{2}]$的块与外界不连通的概率是$\binom{n}{k}(1-p)^{k(n-k)}$,考虑$1-p\leq e^{-p}$和$\binom{n}{k}\leq (\frac{ne}{k})^k$,于是这个概率被$(\frac{ne}{k}e^{-p(n-k)})^k$限制住了.</p>
+<p>当$k\in [2,\epsilon n]$的时候$n-k=O(n)$,从而这个概率立刻被限制住.反之当$k\in [\epsilon n,\frac{n}{2}]$的时候$k(n-k)=O(n^2)$,但是组合数被压到了$(\frac{e}{\epsilon})^{O(n)}$,这就足够跑赢了.</p>
+<h2><span id="统计">统计</span></h2><h3><span id="点估计">点估计</span></h3><p>将只依赖于样本,不依赖于任何位置参数的函数称作<strong>统计量</strong>.例如:</p>
+<ol>
+<li>样本均值$\bar X=\frac{1}{n}\sum_{i=1}^n X_i$.</li>
+<li>样本方差$S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\bar X)^2$.</li>
+<li>样本$k$阶矩$A_k=\frac{1}{n}\sum_{i=1}^n X_i^k$.</li>
+<li>样本$k$阶中心矩$B_k=\frac{1}{n}\sum_{i=1}^n(X_i-\bar X)^k$.</li>
 </ol>
-<p>对于<span class="math inline">\(\theta\)</span>的估计量<span class="math inline">\(\hat
-\theta\)</span>,定义<strong>偏差</strong><span class="math inline">\(\mathrm{Bias}(\hat \theta)=E(\hat
-\theta)-\theta\)</span>.如果其等于<span class="math inline">\(0\)</span>,则称其是<strong>无偏</strong>的.如果<span class="math inline">\(\lim_{n\to \infty}\mathrm{Bias}(\hat
-\theta)=\theta\)</span>,则称<span class="math inline">\(\hat\theta\)</span>是<strong>渐进无偏</strong>的.</p>
-<p>此外定义<span class="math inline">\(\mathrm{MSE}(\hat
-\theta)=E\left((\hat\theta-\theta)^2\right)\)</span>.容易见到: <span class="math display">\[
+<p>对于$\theta$的估计量$\hat \theta$,定义<strong>偏差</strong>$\mathrm{Bias}(\hat \theta)=E(\hat \theta)-\theta$.如果其等于$0$,则称其是<strong>无偏</strong>的.如果$\lim_{n\to \infty}\mathrm{Bias}(\hat \theta)=\theta$,则称$\hat\theta$是<strong>渐进无偏</strong>的.</p>
+<p>此外定义$\mathrm{MSE}(\hat \theta)=E\left((\hat\theta-\theta)^2\right)$.容易见到:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-\mathrm{MSE}(\hat\theta)&amp;=E\left((\hat\theta-\theta)^2\right)\\
-&amp;=E\left((\hat\theta-E(\hat\theta)+E(\hat\theta)-\theta)^2\right)\\
-&amp;=E\left((\hat\theta-E(\hat\theta))^2\right)+\left(E(\hat\theta)-\theta\right)^2\\
-&amp;=\mathrm{Var}(\hat \theta)+\left(\mathrm{Bias}(\hat\theta)\right)^2
-\end{aligned}
-\]</span> 因此对于无偏估计的<span class="math inline">\(\mathrm{MSE}(\hat\theta)=\mathrm{Var}(\hat\theta)\)</span>.</p>
-<p>此外,如果估计量依概率收敛,或言<span class="math inline">\(\forall
-\epsilon&gt;0\)</span>,<span class="math inline">\(\lim_{n\to
-\infty}P\left(|\hat\theta_n-\theta|\geq
-\epsilon\right)=0\)</span>,则称<span class="math inline">\(\hat\theta_n\)</span>是<strong>一致估计量</strong>.</p>
-<p>我们有性质:如果<span class="math inline">\(\lim_{n\to
-\infty}\mathrm{MSE}(\hat\theta_n)\to 0\)</span>,则<span class="math inline">\(\hat\theta_n\)</span>为一致估计量.原因是: <span class="math display">\[
+\mathrm{MSE}(\hat\theta)&=E\left((\hat\theta-\theta)^2\right)\\
+&=E\left((\hat\theta-E(\hat\theta)+E(\hat\theta)-\theta)^2\right)\\
+&=E\left((\hat\theta-E(\hat\theta))^2\right)+\left(E(\hat\theta)-\theta\right)^2\\
+&=\mathrm{Var}(\hat \theta)+\left(\mathrm{Bias}(\hat\theta)\right)^2
+\end{aligned}</script><p>因此对于无偏估计的$\mathrm{MSE}(\hat\theta)=\mathrm{Var}(\hat\theta)$.</p>
+<p>此外,如果估计量依概率收敛,或言$\forall \epsilon&gt;0$,$\lim_{n\to \infty}P\left(|\hat\theta_n-\theta|\geq \epsilon\right)=0$,则称$\hat\theta_n$是<strong>一致估计量</strong>.</p>
+<p>我们有性质:如果$\lim_{n\to \infty}\mathrm{MSE}(\hat\theta_n)\to 0$,则$\hat\theta_n$为一致估计量.原因是:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-&amp;P\left(|\hat\theta_n-\theta|\geq \epsilon\right)\\
-=&amp;P\left((\hat\theta_n-\theta)^2\geq \epsilon^2\right)\\
-\leq &amp;\frac{\mathrm{MSE}(\hat\theta_n)}{\epsilon^2}
-\end{aligned}
-\]</span></p>
-<h6><span id="example1">Example1</span></h6>
-<p>假设<span class="math inline">\(E(X)\)</span>和<span class="math inline">\(\mathrm{Var}(X)\)</span>均存在,独立随机的样本序列<span class="math inline">\(X_1,\cdots,X_n\)</span>,现在考虑<span class="math inline">\(\hat\theta_A=\bar X\)</span>,<span class="math inline">\(\hat \theta_B=X_1\)</span>.</p>
-<p>显然它们都是<span class="math inline">\(E(X)\)</span>的无偏估计.然而<span class="math inline">\(\mathrm{MSE}(\hat\theta_A)=\frac{\mathrm{Var}(X)}{n}\)</span>,而<span class="math inline">\(\mathrm{MSE}(\hat\theta_B)=\mathrm{Var}(X)\)</span>.</p>
-<h6><span id="example2">Example2</span></h6>
-<p>假设已知<span class="math inline">\(X\sim
-U(0,\theta)\)</span>.考虑<span class="math inline">\(\hat\theta_A=2\bar
-X\)</span>和<span class="math inline">\(\hat\theta_B=\max_k\{X_k\}\)</span>.</p>
-<p>容易见到<span class="math inline">\(\hat\theta_A\)</span>无偏.现在来看<span class="math inline">\(\hat\theta_B\)</span>,自然地: <span class="math display">\[
+&P\left(|\hat\theta_n-\theta|\geq \epsilon\right)\\
+=&P\left((\hat\theta_n-\theta)^2\geq \epsilon^2\right)\\
+\leq &\frac{\mathrm{MSE}(\hat\theta_n)}{\epsilon^2}
+\end{aligned}</script><h6><span id="example1">Example1</span></h6><p>假设$E(X)$和$\mathrm{Var}(X)$均存在,独立随机的样本序列$X_1,\cdots,X_n$,现在考虑$\hat\theta_A=\bar X$,$\hat \theta_B=X_1$.</p>
+<p>显然它们都是$E(X)$的无偏估计.然而$\mathrm{MSE}(\hat\theta_A)=\frac{\mathrm{Var}(X)}{n}$,而$\mathrm{MSE}(\hat\theta_B)=\mathrm{Var}(X)$.</p>
+<h6><span id="example2">Example2</span></h6><p>假设已知$X\sim U(0,\theta)$.考虑$\hat\theta_A=2\bar X$和$\hat\theta_B=\max_k\{X_k\}$.</p>
+<p>容易见到$\hat\theta_A$无偏.现在来看$\hat\theta_B$,自然地:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-F_{\hat\theta_B}(x)&amp;=(F_X(x))^n\\&amp;=(\frac{x}{\theta})^n\\
-E(\hat\theta_B)&amp;=\int_0^{+\infty}(1-F_{\hat\theta_B}(x))\mathrm{d}x\\
-&amp;=\int_0^\theta(1-(\frac{x}{\theta})^n)\mathrm{d}x\\
-&amp;=\frac{n}{n+1}\theta
-\end{aligned}
-\]</span> 但至少<span class="math inline">\(\hat\theta_C=\frac{n+1}{n}\hat\theta_B\)</span>无偏.</p>
-<p>现在来看,容易见到<span class="math inline">\(\mathrm{MSE}(\hat\theta)=\frac{\theta^2}{3n}\)</span>.留神到:
-<span class="math display">\[
+F_{\hat\theta_B}(x)&=(F_X(x))^n\\&=(\frac{x}{\theta})^n\\
+E(\hat\theta_B)&=\int_0^{+\infty}(1-F_{\hat\theta_B}(x))\mathrm{d}x\\
+&=\int_0^\theta(1-(\frac{x}{\theta})^n)\mathrm{d}x\\
+&=\frac{n}{n+1}\theta
+\end{aligned}</script><p>但至少$\hat\theta_C=\frac{n+1}{n}\hat\theta_B$无偏.</p>
+<p>现在来看,容易见到$\mathrm{MSE}(\hat\theta)=\frac{\theta^2}{3n}$.留神到:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-E(\hat\theta_B^2)&amp;=\int_0^{\theta^2}\left(1-\frac{x^{\frac{n}{2}}}{\theta^n}\right)\mathrm{d}x\\
-&amp;=\theta^2-\frac{2}{n+2}\theta^2\\
-&amp;=\frac{n}{n+2}\theta^2
-\end{aligned}
-\]</span> 于是<span class="math inline">\(\mathrm{Var}(\hat\theta_C^2)=(\frac{n+1}{n})^2\mathrm{Var}(\hat\theta_B^2)=\frac{\theta^2}{n(n+2)}\)</span>.</p>
-<h6><span id="example3">Example3</span></h6>
-<p>考虑<span class="math inline">\(B_2\)</span>对<span class="math inline">\(\mathrm{Var}(X)\)</span>的估计,显然有<span class="math inline">\(B_2=\frac{1}{n}\sum_k X_k^2-(\bar
-X)^2\)</span>.也就是说<span class="math inline">\(E(B_2)=E(X^2)-E(\bar
-X^2)\)</span>.看上去欣欣向荣,然而: <span class="math display">\[
+E(\hat\theta_B^2)&=\int_0^{\theta^2}\left(1-\frac{x^{\frac{n}{2}}}{\theta^n}\right)\mathrm{d}x\\
+&=\theta^2-\frac{2}{n+2}\theta^2\\
+&=\frac{n}{n+2}\theta^2
+\end{aligned}</script><p>于是$\mathrm{Var}(\hat\theta_C^2)=(\frac{n+1}{n})^2\mathrm{Var}(\hat\theta_B^2)=\frac{\theta^2}{n(n+2)}$.</p>
+<h6><span id="example3">Example3</span></h6><p>考虑$B_2$对$\mathrm{Var}(X)$的估计,显然有$B_2=\frac{1}{n}\sum_k X_k^2-(\bar X)^2$.也就是说$E(B_2)=E(X^2)-E(\bar X^2)$.看上去欣欣向荣,然而:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-E(\bar X^2)&amp;=E((\bar X-E(\bar X)+E(\bar X))^2)\\
-&amp;=E((\bar X-E(\bar X))^2)+(E(\bar X))^2\\
-&amp;=(E(\bar X))^2+\frac{\mathrm{Var}(X)}{n}
-\end{aligned}
-\]</span> 这就出事了.</p>
-<h6><span id="example4正态分布">Example4(正态分布)</span></h6>
-<p>考虑估计一个正态分布<span class="math inline">\(X\sim
-N(\mu,\sigma^2)\)</span>.取<span class="math inline">\(\bar
-X\)</span>和<span class="math inline">\(S^2\)</span>作为其期望和方差的估计量.现在我们将展示一个非常厉害的结论,那就是<span class="math inline">\(\bar X\)</span>和<span class="math inline">\(S^2\)</span>实际上是独立的.</p>
-<p>考虑一个正交矩阵<span class="math inline">\(U\)</span>,其第一行每个元素限定为<span class="math inline">\(\frac{1}{\sqrt
-n}\)</span>,其余行任取.由于其正交性,这必然意味着其余行所有元素之和为<span class="math inline">\(0\)</span>.现在来取<span class="math inline">\(\vec Y=U\vec X\)</span>.从前的结论告知我们<span class="math inline">\(\vec Y\)</span>服从<span class="math inline">\(n\)</span>维高斯分布.而且:</p>
-<ol type="1">
-<li><span class="math inline">\(E(\vec Y)=(\sqrt
-n\mu,0,\cdots,0)\)</span>.</li>
-<li><span class="math inline">\(\mathrm{Cov}(\vec
-Y)=\sigma^2I\)</span>.</li>
-<li><span class="math inline">\(\sum_k Y_k^2=\sum_k X_k^2\)</span>.</li>
+E(\bar X^2)&=E((\bar X-E(\bar X)+E(\bar X))^2)\\
+&=E((\bar X-E(\bar X))^2)+(E(\bar X))^2\\
+&=(E(\bar X))^2+\frac{\mathrm{Var}(X)}{n}
+\end{aligned}</script><p>这就出事了.</p>
+<h6><span id="example4正态分布">Example4(正态分布)</span></h6><p>考虑估计一个正态分布$X\sim N(\mu,\sigma^2)$.取$\bar X$和$S^2$作为其期望和方差的估计量.现在我们将展示一个非常厉害的结论,那就是$\bar X$和$S^2$实际上是独立的.</p>
+<p>考虑一个正交矩阵$U$,其第一行每个元素限定为$\frac{1}{\sqrt n}$,其余行任取.由于其正交性,这必然意味着其余行所有元素之和为$0$.现在来取$\vec Y=U\vec X$.从前的结论告知我们$\vec Y$服从$n$维高斯分布.而且:</p>
+<ol>
+<li>$E(\vec Y)=(\sqrt n\mu,0,\cdots,0)$.</li>
+<li>$\mathrm{Cov}(\vec Y)=\sigma^2I$.</li>
+<li>$\sum_k Y_k^2=\sum_k X_k^2$.</li>
 </ol>
-<p>其中(1)是由于除第一行外,每一行的所有元素和为<span class="math inline">\(0\)</span>.(2)是因为原本的<span class="math inline">\(\vec
-X\)</span>的各个分量独立.(3)是因为正交变换保模长.</p>
-<p>此时必定有<span class="math inline">\(\bar X=\frac{Y_1}{\sqrt
-n}\)</span>,事实上还有: <span class="math display">\[
+<p>其中(1)是由于除第一行外,每一行的所有元素和为$0$.(2)是因为原本的$\vec X$的各个分量独立.(3)是因为正交变换保模长.</p>
+<p>此时必定有$\bar X=\frac{Y_1}{\sqrt n}$,事实上还有:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-(n-1)S^2&amp;=\sum_{i=1}^n(X_i-\bar X)^2\\
-&amp;=(\sum_k X_k^2)-n\bar X^2\\
-&amp;=\sum_{k=1}^nY_k^2-Y_1^2\\
-&amp;=\sum_{k=2}^nY_k^2
-\end{aligned}
-\]</span> 于是二者独立.还能得知<span class="math inline">\(\bar X\sim
-N(\mu,\frac{\sigma^2}{n})\)</span>,以及<span class="math inline">\(\frac{(n-1)S^2}{\sigma^2}\sim\chi^2(n-1)\)</span>.</p>
-<h4><span id="矩法">矩法</span></h4>
-<p>显然<span class="math inline">\(k\)</span>阶矩的估计总是无偏的.因此一个想法是将我们想要估计的量写成矩的函数,再分别估计矩(注意,这样做在该函数并非一次的时候当然未必无偏).</p>
-<h4><span id="最大似然估计">最大似然估计</span></h4>
-<p>尝试选择参数<span class="math inline">\(\theta\)</span>,使得<span class="math inline">\(L(\theta)=P(X_1=x_1,\cdots,X_n=x_n|\theta)\)</span>最大.</p>
-<p>如果样本干脆是均匀随机的,那就只需要最大化对数似然函数<span class="math inline">\(\ln L(\theta)=\sum_{i=1}^n \ln
-P(X_i=x_i|\theta)\)</span>.</p>
+(n-1)S^2&=\sum_{i=1}^n(X_i-\bar X)^2\\
+&=(\sum_k X_k^2)-n\bar X^2\\
+&=\sum_{k=1}^nY_k^2-Y_1^2\\
+&=\sum_{k=2}^nY_k^2
+\end{aligned}</script><p>于是二者独立.还能得知$\bar X\sim N(\mu,\frac{\sigma^2}{n})$,以及$\frac{(n-1)S^2}{\sigma^2}\sim\chi^2(n-1)$.</p>
+<h4><span id="矩法">矩法</span></h4><p>显然$k$阶矩的估计总是无偏的.因此一个想法是将我们想要估计的量写成矩的函数,再分别估计矩(注意,这样做在该函数并非一次的时候当然未必无偏).</p>
+<h4><span id="最大似然估计">最大似然估计</span></h4><p>尝试选择参数$\theta$,使得$L(\theta)=P(X_1=x_1,\cdots,X_n=x_n|\theta)$最大.</p>
+<p>如果样本干脆是均匀随机的,那就只需要最大化对数似然函数$\ln L(\theta)=\sum_{i=1}^n \ln P(X_i=x_i|\theta)$.</p>
 <p>这样做当然不可能是无偏的.</p>
-<h6><span id="example1">Example1</span></h6>
-<p>考虑一个均匀分布<span class="math inline">\(U(0,\theta)\)</span>,对其进行最大似然估计的结果是<span class="math inline">\(\hat\theta=\max\{x_1,\cdots,x_n\}\)</span>.</p>
-<h6><span id="example2">Example2</span></h6>
-<p>考虑一个分类函数<span class="math inline">\(f:X\to
-Y\)</span>.现在我们已经有其采样的一些结果<span class="math inline">\((x_i,y_i)\)</span>,想要去估计一个函数<span class="math inline">\(f_\theta\)</span>.根据上面说的,我们需要最小化<span class="math inline">\(\sum_{i=1}^n-\ln f_\theta(y_i|x_i)\)</span>.</p>
-<p>现在考虑一个标签分布<span class="math inline">\(g(y|x_i)=[y=y_i]\)</span>.我们来看交叉熵: <span class="math display">\[
+<h6><span id="example1">Example1</span></h6><p>考虑一个均匀分布$U(0,\theta)$,对其进行最大似然估计的结果是$\hat\theta=\max\{x_1,\cdots,x_n\}$.</p>
+<h6><span id="example2">Example2</span></h6><p>考虑一个分类函数$f:X\to Y$.现在我们已经有其采样的一些结果$(x_i,y_i)$,想要去估计一个函数$f_\theta$.根据上面说的,我们需要最小化$\sum_{i=1}^n-\ln f_\theta(y_i|x_i)$.</p>
+<p>现在考虑一个标签分布$g(y|x_i)=[y=y_i]$.我们来看交叉熵:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-H(g,f_\theta)&amp;=-\sum_{y}g(y|x_i)\ln f_\theta(y|x_i)\\
-&amp;=-\ln f_\theta(y_i|x_i)
-\end{aligned}
-\]</span></p>
-<h3><span id="区间估计">区间估计</span></h3>
-<p>我们想要更进一步,对于一个想要估计量<span class="math inline">\(\theta\)</span>,以及两个统计量<span class="math inline">\(\hat\theta_L\)</span>和<span class="math inline">\(\hat\theta_R\)</span>,如果必有<span class="math inline">\(P(\hat\theta_L\leq \theta\leq \hat\theta_U)\geq
-1-\alpha\)</span>,则称<span class="math inline">\([\hat\theta_L,\hat\theta_R]\)</span>为<span class="math inline">\(\theta\)</span>的<strong>置信水平</strong>为<span class="math inline">\(1-\alpha\)</span>的<strong>置信区间</strong>.类似还可以定义<strong>单侧置信下限</strong>和<strong>单侧置信上限</strong>.</p>
-<h6><span id="example1">Example1</span></h6>
-<p>对于一个<span class="math inline">\(X\sim
-N(\mu,\sigma^2)\)</span>,假设<span class="math inline">\(\sigma^2\)</span>已知,设计一个对<span class="math inline">\(\mu\)</span>的置信水平为<span class="math inline">\(1-\alpha\)</span>的估计.</p>
-<p>考虑<span class="math inline">\(\bar X\sim
-N(\mu,\frac{\sigma^2}{n})\)</span>.此时必定有<span class="math inline">\(\frac{\bar X-\mu}{\frac{\sigma}{\sqrt{n}}}\sim
-N(0,1)\)</span>.只需要取一组<span class="math inline">\(c,d\)</span>,使得<span class="math inline">\(P(c\leq \frac{\bar
-X-\mu}{\frac{\sigma}{\sqrt{n}}}\leq d)=1-\alpha\)</span>即可.</p>
-<p>现在取<span class="math inline">\(\Phi(x)=\int_{-\infty}^x\frac{1}{\sqrt{2\pi}}e^{-\frac{t^2}{2}}\mathrm{d}t\)</span>为其分布函数,取<span class="math inline">\(c=\Phi^{-1}(\frac{\alpha}{2}),d=\Phi^{-1}(1-\frac{\alpha}{2})\)</span>.留神到<span class="math inline">\(c+d=0\)</span>.化简就有: <span class="math display">\[
-P(\bar X-\frac{\Phi^{-1}(1-\frac{\alpha}{2})\sigma}{\sqrt n}\leq \mu\leq
-\bar X+\frac{\Phi^{-1}(1-\frac{\alpha}{2})\sigma}{\sqrt n})=1-\alpha
-\]</span> 不过这个估计因为要算<span class="math inline">\(\Phi^{-1}\)</span>,可能意义不是特别大.回忆到Chernoff
-Bound给出: <span class="math display">\[
-P(X-E(X)\geq k\sigma)\leq e^{-\frac{k^2}{2}}
-\]</span> 于是立刻有<span class="math inline">\(P(|\bar X-\mu|\geq
-\frac{k\sigma}{\sqrt n})\leq 2e^{-\frac{k^2}{2}}\)</span>.</p>
-<p>从而: <span class="math display">\[
-P(\bar X-\frac{\sigma\sqrt{2\ln(\frac{2}{\alpha})}}{\sqrt n}\leq \mu\leq
-\bar X+\frac{\sigma\sqrt{2\ln(\frac{2}{\alpha})}}{\sqrt n})\geq 1-\alpha
-\]</span>
-现在我们来干另一件事,众所周知,中心极限定理说大部分估计最后都会趋于一个正态分布.那么在此时,能否估计出<span class="math inline">\(P(\mu=\bar X)=O(\frac{1}{\sqrt n})\)</span>呢?</p>
-<p>考虑取<span class="math inline">\(\alpha=1-O(\frac{1}{\sqrt
-n})\)</span>,就可以发现这个时候的<span class="math inline">\(\mu\)</span>已经落在<span class="math inline">\(\bar X\pm O(1)\)</span>的区间内了.</p>
-<h6><span id="example2">Example2</span></h6>
-<p>考虑对<span class="math inline">\(X\sim B(1,p)\)</span>.设计<span class="math inline">\(p\)</span>的置信水平<span class="math inline">\(1-\alpha\)</span>的置信区间.</p>
-<p>直接考虑Chernoff Bound,给出<span class="math inline">\(P(|\bar
-X-p|&gt;\epsilon)\leq 2e^{-2n\epsilon^2}\)</span>.取<span class="math inline">\(\epsilon=\sqrt{\frac{\ln\frac{2}{\alpha}}{2n}}\)</span>,于是:
-<span class="math display">\[
-P(\bar X-\sqrt{\frac{\ln(\frac{2}{\alpha})}{2n}}\leq p\leq \bar
-X+\sqrt{\frac{\ln(\frac{2}{\alpha})}{2n}})\geq 1-\alpha
-\]</span></p>
-
+H(g,f_\theta)&=-\sum_{y}g(y|x_i)\ln f_\theta(y|x_i)\\
+&=-\ln f_\theta(y_i|x_i)
+\end{aligned}</script><h3><span id="区间估计">区间估计</span></h3><p>我们想要更进一步,对于一个想要估计量$\theta$,以及两个统计量$\hat\theta_L$和$\hat\theta_R$,如果必有$P(\hat\theta_L\leq \theta\leq \hat\theta_U)\geq 1-\alpha$,则称$[\hat\theta_L,\hat\theta_R]$为$\theta$的<strong>置信水平</strong>为$1-\alpha$的<strong>置信区间</strong>.类似还可以定义<strong>单侧置信下限</strong>和<strong>单侧置信上限</strong>.</p>
+<h6><span id="example1">Example1</span></h6><p>对于一个$X\sim N(\mu,\sigma^2)$,假设$\sigma^2$已知,设计一个对$\mu$的置信水平为$1-\alpha$的估计.</p>
+<p>考虑$\bar X\sim N(\mu,\frac{\sigma^2}{n})$.此时必定有$\frac{\bar X-\mu}{\frac{\sigma}{\sqrt{n}}}\sim N(0,1)$.只需要取一组$c,d$,使得$P(c\leq \frac{\bar X-\mu}{\frac{\sigma}{\sqrt{n}}}\leq d)=1-\alpha$即可.</p>
+<p>现在取$\Phi(x)=\int_{-\infty}^x\frac{1}{\sqrt{2\pi}}e^{-\frac{t^2}{2}}\mathrm{d}t$为其分布函数,取$c=\Phi^{-1}(\frac{\alpha}{2}),d=\Phi^{-1}(1-\frac{\alpha}{2})$.留神到$c+d=0$.化简就有:</p>
+<script type="math/tex; mode=display">
+P(\bar X-\frac{\Phi^{-1}(1-\frac{\alpha}{2})\sigma}{\sqrt n}\leq \mu\leq \bar X+\frac{\Phi^{-1}(1-\frac{\alpha}{2})\sigma}{\sqrt n})=1-\alpha</script><p>不过这个估计因为要算$\Phi^{-1}$,可能意义不是特别大.回忆到Chernoff Bound给出:</p>
+<script type="math/tex; mode=display">
+P(X-E(X)\geq k\sigma)\leq e^{-\frac{k^2}{2}}</script><p>于是立刻有$P(|\bar X-\mu|\geq \frac{k\sigma}{\sqrt n})\leq 2e^{-\frac{k^2}{2}}$.</p>
+<p>从而:</p>
+<script type="math/tex; mode=display">
+P(\bar X-\frac{\sigma\sqrt{2\ln(\frac{2}{\alpha})}}{\sqrt n}\leq \mu\leq \bar X+\frac{\sigma\sqrt{2\ln(\frac{2}{\alpha})}}{\sqrt n})\geq 1-\alpha</script><p>现在我们来干另一件事,众所周知,中心极限定理说大部分估计最后都会趋于一个正态分布.那么在此时,能否估计出$P(\mu=\bar X)=O(\frac{1}{\sqrt n})$呢?</p>
+<p>考虑取$\alpha=1-O(\frac{1}{\sqrt n})$,就可以发现这个时候的$\mu$已经落在$\bar X\pm O(1)$的区间内了.</p>
+<h6><span id="example2">Example2</span></h6><p>考虑对$X\sim B(1,p)$.设计$p$的置信水平$1-\alpha$的置信区间.</p>
+<p>直接考虑Chernoff Bound,给出$P(|\bar X-p|&gt;\epsilon)\leq 2e^{-2n\epsilon^2}$.取$\epsilon=\sqrt{\frac{\ln\frac{2}{\alpha}}{2n}}$,于是:</p>
+<script type="math/tex; mode=display">
+P(\bar X-\sqrt{\frac{\ln(\frac{2}{\alpha})}{2n}}\leq p\leq \bar X+\sqrt{\frac{\ln(\frac{2}{\alpha})}{2n}})\geq 1-\alpha</script>
     </div>
 
     
