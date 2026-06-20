@@ -334,36 +334,34 @@
           <!-- toc -->
 <ul>
 <li><a href="#前言">前言</a></li>
-<li><a href="#preliminaries-set-theory-and-categories">Preliminaries:
-Set theory and categories</a>
-<ul>
-<li><a href="#categories">Categories</a> * <a
-href="#example1">Example1</a> * <a href="#example2">Example2</a> * <a
-href="#example3slice-category">Example3(Slice Category)</a> * <a
-href="#example4coslice-category">Example4(Coslice Category)</a> * <a
-href="#example5">Example5</a></li>
-<li><a href="#morphism">Morphism</a> * <a
-href="#example1cartesian-product">Example1(Cartesian Product)</a> * <a
-href="#example2disjoint-union">Example2(Disjoint Union)</a> * <a
-href="#example3canonical-projection">Example3(Canonical Projection)</a>
-* <a href="#example4inclusion">Example4(Inclusion)</a>
-<ul>
+<li><a href="#preliminaries-set-theory-and-categories">Preliminaries: Set theory and categories</a><ul>
+<li><a href="#categories">Categories</a><pre><code>* [Example1](#example1)
+* [Example2](#example2)
+* [Example3(Slice Category)](#example3slice-category)
+* [Example4(Coslice Category)](#example4coslice-category)
+* [Example5](#example5)
+</code></pre></li>
+<li><a href="#morphism">Morphism</a><pre><code>* [Example1(Cartesian Product)](#example1cartesian-product)
+* [Example2(Disjoint Union)](#example2disjoint-union)
+* [Example3(Canonical Projection)](#example3canonical-projection)
+* [Example4(Inclusion)](#example4inclusion)
+</code></pre><ul>
 <li><a href="#canonical-decomposition">Canonical Decomposition</a></li>
-<li><a href="#initial-object-and-final-object">Initial Object and Final
-Object</a>
-<ul>
-<li><a href="#example1partially-ordered-set">Example1(Partially Ordered
-Set)</a></li>
+<li><a href="#initial-object-and-final-object">Initial Object and Final Object</a><ul>
+<li><a href="#example1partially-ordered-set">Example1(Partially Ordered Set)</a></li>
 <li><a href="#example2set">Example2(Set)</a></li>
-</ul></li>
-<li><a href="#universal-properties">Universal Properties</a>
-<ul>
+</ul>
+</li>
+<li><a href="#universal-properties">Universal Properties</a><ul>
 <li><a href="#example1quotient">Example1(Quotient)</a></li>
 <li><a href="#example2product">Example2(Product)</a></li>
 <li><a href="#example3coproduct">Example3(Coproduct)</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#groups-first-encounter">Groups, first encounter</a></li>
 </ul>
 <!-- tocstop -->
@@ -485,9 +483,7 @@ Set)</a></li>
 <hr>
 <p>莉娃丽尔喜欢北方，这不全是因为她喜欢雪。她喜欢北方的树和草、喜欢北方的空荡荡的街道、也喜欢在厚厚的棉被下抱紧自己的感觉。她到的这座小镇，她身边的亲人朋友从未到过。她早在来之前就听说，这座小镇里的人只有一种死法：在某个严寒的天气里，在火炉和棉被旁，忽然发现全身都萎缩下去了，包括那颗干瘪的心脏。</p>
 <p>莉娃丽尔不知道，自己是不是也有一颗和镇上的人一样干瘪的心脏。想到这，她不禁抬起手放在了胸口。可隔着厚厚的衣服，她什么也感觉不到。“也许真是这样，”她想，“自己真的有一颗同样干瘪的心脏，也许自己命中注定要来到这座小镇。”</p>
-<p>莉娃丽尔总是在幻想自己的死法，其中大多是自
-杀。虽然莉娃丽尔如今还没有自
-杀的意愿，可她总觉得无法预测未来的自己的想法，正如她也无法理解过去的自己的想法。她不喜欢上吊，因为她觉得那过于凄惨和无力；她曾经也不喜欢跳楼，因为那样太过血肉模糊（后来她听说有人跳楼后胸腔朝下，双手张开着拥抱大地，外部虽然还完好，可是胸腔内已经破裂了：那个人最后被自己的鲜血淹死了）；在诸多死法之中，她总觉得割腕是最美的，因为鲜血落在地上像开花一样，而且死前她也有充足的时间回忆自己的一生。她暗自对自己说：“如果未来真的要自己走向死亡，那就选择割腕吧。”</p>
+<p>莉娃丽尔总是在幻想自己的死法，其中大多是自 杀。虽然莉娃丽尔如今还没有自 杀的意愿，可她总觉得无法预测未来的自己的想法，正如她也无法理解过去的自己的想法。她不喜欢上吊，因为她觉得那过于凄惨和无力；她曾经也不喜欢跳楼，因为那样太过血肉模糊（后来她听说有人跳楼后胸腔朝下，双手张开着拥抱大地，外部虽然还完好，可是胸腔内已经破裂了：那个人最后被自己的鲜血淹死了）；在诸多死法之中，她总觉得割腕是最美的，因为鲜血落在地上像开花一样，而且死前她也有充足的时间回忆自己的一生。她暗自对自己说：“如果未来真的要自己走向死亡，那就选择割腕吧。”</p>
 <p>有的时候她会觉得自己很奇怪，也许这是因为她总把一切归结于命运的缘故。当她感到难过时，她甚至不会去尝试使自己开心起来，因为她总觉得自己不该干涉自己的情绪。“一个不会哭的人和一个不会笑的人同样可怜。”她总是这么对自己说。可有几次，当她遇到了某些应当让她难过的事，可她并不感到有多悲伤的时候，她却几乎在逼着自己难过。她起初并不明白自己为什么要这么做。也许是因为她错以为流的泪越多，就越可能得到上天的怜悯；也许是因为她把人生看成一场盛大的戏剧，而她要在其中的每个桥段都演出最精彩的效果。有时候她总觉得自己在欺骗自己，可她也看不透欺骗背后的真相。她看不透自己，正如同她看不透命运。</p>
 <p>她总是在揣摩命运，试图看出它想将她牵引至何处。她有的时候真的感觉到命运在牵引着她，可当她沿着走到最后，却发现那里什么都没有。所以她又不得不从那里走出，免不了重看一遍沿途的标记。当她写下这些标记的时候，总觉得一切情节都严丝合缝，总觉得神明就是这样安排的，而且如果真有神明，他也正该这样安排。可当她回过头来看这些标记，又不明白自己错在了哪里。她会想，是不是自己哪一步走错了，这才偏离了她原本应得的馈赠呢。有时候她真的会分析出什么，恍然大悟自己曾经的过错。可更多的时候，她只能一路无言地走回去，在心底默默委屈着命运的不公。</p>
 <p>现在，她也循着指引来到了这座小镇。原本她从未听说过这里，直到那天她看到了一本书，那里面描述了小镇的所有风土人情。她忽然觉得自己就该属于这里。她是在冬天出生的，而且在出生后，医生一度以为这个婴儿并没有心跳，直到她母亲将她抱在怀里，她那颗心脏才开始薄弱地跳动着。她觉得自己的出生和小镇上的人死去的方式惊人得一致，所以她猜测自己会在生日同一天死去，那当然也是个冬天，而且心脏也会薄弱地停止跳动。</p>
@@ -812,8 +808,7 @@ Set)</a></li>
           <!-- toc -->
 <ul>
 <li><a href="#前言">前言</a></li>
-<li><a href="#zfc公理体系">ZFC公理体系</a>
-<ul>
+<li><a href="#zfc公理体系">ZFC公理体系</a><ul>
 <li><a href="#存在公理exi">存在公理(Exi)</a></li>
 <li><a href="#外延公理ext">外延公理(Ext)</a></li>
 <li><a href="#分离公理模式sep">分离公理模式(Sep)</a></li>
@@ -825,28 +820,31 @@ Set)</a></li>
 <li><a href="#正则公理fnd">正则公理(Fnd)</a></li>
 <li><a href="#选择公理ac">选择公理(AC)</a></li>
 <li><a href="#集合的简单运算">集合的简单运算</a></li>
-</ul></li>
-<li><a href="#关系">关系</a>
-<ul>
+</ul>
+</li>
+<li><a href="#关系">关系</a><ul>
 <li><a href="#有序对">有序对</a></li>
 <li><a href="#笛卡尔积">笛卡尔积</a></li>
-<li><a href="#二元关系">二元关系</a></li>
+<li><a href="#二元关系">二元关系</a><ul>
 <li><a href="#函数关系">函数关系</a></li>
 <li><a href="#等价关系">等价关系</a></li>
 <li><a href="#序关系">序关系</a></li>
-</ul></li>
-<li><a href="#实数的构造">实数的构造</a>
-<ul>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#实数的构造">实数的构造</a><ul>
 <li><a href="#自然数">自然数</a></li>
 <li><a href="#递归定理">递归定理</a></li>
-<li><a href="#等势">等势</a>
-<ul>
+<li><a href="#等势">等势</a><ul>
 <li><a href="#cantor-bernstein定理">Cantor-Bernstein定理</a></li>
 <li><a href="#夹逼定理">夹逼定理</a></li>
 <li><a href="#幂集的大小">幂集的大小</a></li>
 <li><a href="#有穷与无穷">有穷与无穷</a></li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <!-- tocstop -->
           <!--noindex-->

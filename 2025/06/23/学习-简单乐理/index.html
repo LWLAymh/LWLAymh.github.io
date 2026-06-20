@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lwlaymh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="前言 这个博客是北京大学课程《音乐与数学》的相关笔记.然而我懒得画五线谱以及插入钢琴图片,所以这里我们只空谈理论. 本人在大学前并未学过相关乐理,所以下面的个人理解当然可能会出错. 泛音列 拍音理论 假设两个正弦单音的频率分别是\(\omega , \omega + \delta\),那么它们叠加后是: \[ \begin{aligned} &amp; \sin ( 2 \p">
+    <meta name="description" content="前言这个博客是北京大学课程《音乐与数学》的相关笔记.然而我懒得画五线谱以及插入钢琴图片,所以这里我们只空谈理论. 本人在大学前并未学过相关乐理,所以下面的个人理解当然可能会出错. 泛音列拍音理论假设两个正弦单音的频率分别是$\omega , \omega + \delta$,那么它们叠加后是:  \begin{aligned} &amp; \sin ( 2 \pi ( \omega + \delta )">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简单乐理">
 <meta property="og:url" content="http://lwlaymh.github.io/2025/06/23/%E5%AD%A6%E4%B9%A0-%E7%AE%80%E5%8D%95%E4%B9%90%E7%90%86/index.html">
 <meta property="og:site_name" content="LWLAymh的备忘录">
-<meta property="og:description" content="前言 这个博客是北京大学课程《音乐与数学》的相关笔记.然而我懒得画五线谱以及插入钢琴图片,所以这里我们只空谈理论. 本人在大学前并未学过相关乐理,所以下面的个人理解当然可能会出错. 泛音列 拍音理论 假设两个正弦单音的频率分别是\(\omega , \omega + \delta\),那么它们叠加后是: \[ \begin{aligned} &amp; \sin ( 2 \p">
+<meta property="og:description" content="前言这个博客是北京大学课程《音乐与数学》的相关笔记.然而我懒得画五线谱以及插入钢琴图片,所以这里我们只空谈理论. 本人在大学前并未学过相关乐理,所以下面的个人理解当然可能会出错. 泛音列拍音理论假设两个正弦单音的频率分别是$\omega , \omega + \delta$,那么它们叠加后是:  \begin{aligned} &amp; \sin ( 2 \pi ( \omega + \delta )">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://y.gtimg.cn/music/photo_new/T062M000004QlDkO0nCeWY.jpg?max_age=0">
 <meta property="og:image" content="https://img2022.cnblogs.com/blog/662544/202204/662544-20220411164109167-1657776014.png">
@@ -332,302 +332,228 @@
     
     
     <div class="post-body" itemprop="articleBody"><span id="more"></span>
-<h3><span id="前言">前言</span></h3>
-<p>这个博客是北京大学课程《音乐与数学》的相关笔记.然而我懒得画五线谱以及插入钢琴图片,所以这里我们只空谈理论.</p>
+<h3><span id="前言">前言</span></h3><p>这个博客是北京大学课程《音乐与数学》的相关笔记.然而我懒得画五线谱以及插入钢琴图片,所以这里我们只空谈理论.</p>
 <p>本人在大学前并未学过相关乐理,所以下面的个人理解当然可能会出错.</p>
-<h3><span id="泛音列">泛音列</span></h3>
-<h4><span id="拍音理论">拍音理论</span></h4>
-<p>假设两个正弦单音的频率分别是<span class="math inline">\(\omega ,
-\omega + \delta\)</span>,那么它们叠加后是:</p>
-<p><span class="math display">\[
+<h3><span id="泛音列">泛音列</span></h3><h4><span id="拍音理论">拍音理论</span></h4><p>假设两个正弦单音的频率分别是$\omega , \omega + \delta$,那么它们叠加后是:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-&amp; \sin ( 2 \pi ( \omega + \delta ) t ) + \sin ( 2 \pi \omega t ) \\
-= &amp; 2 \sin \left ( 2 \pi ( \omega + \frac{ \delta }{ 2 } ) t \right
-) \cos ( \pi \delta t )
-\end{aligned}
-\]</span></p>
-<p>注意到这个声音受到<span class="math inline">\(\cos ( \pi \delta t
-)\)</span>的控制.因此会以<span class="math inline">\(\frac{ \delta }{ 2
-}\)</span>的频率振动,由于<span class="math inline">\(\delta\)</span>应该远小于<span class="math inline">\(\omega\)</span>,这里就会产生<span class="math inline">\(\delta = | \omega_1 - \omega_2
-|\)</span>个拍音.</p>
-<h4><span id="mersenne定律">Mersenne定律</span></h4>
-<p>考虑弦乐的情况,将一根弦理想化后,可以只关注它的三个参数:</p>
-<ol type="1">
-<li><p>弦长<span class="math inline">\(L\)</span>.</p></li>
-<li><p>张力<span class="math inline">\(T\)</span>.</p></li>
-<li><p>线密度<span class="math inline">\(\rho\)</span>.</p></li>
+& \sin ( 2 \pi ( \omega + \delta ) t ) + \sin ( 2 \pi \omega t ) \\
+= & 2 \sin \left ( 2 \pi ( \omega + \frac{ \delta }{ 2 } ) t \right ) \cos ( \pi \delta t )
+\end{aligned}</script><p>注意到这个声音受到$\cos ( \pi \delta t )$的控制.因此会以$\frac{ \delta }{ 2 }$的频率振动,由于$\delta$应该远小于$\omega$,这里就会产生$\delta = | \omega_1 - \omega_2 |$个拍音.</p>
+<h4><span id="mersenne定律">Mersenne定律</span></h4><p>考虑弦乐的情况,将一根弦理想化后,可以只关注它的三个参数:</p>
+<ol>
+<li><p>弦长$L$.</p>
+</li>
+<li><p>张力$T$.</p>
+</li>
+<li><p>线密度$\rho$.</p>
+</li>
 </ol>
-<p>对于弦的振动解微分方程,这里我不是很想解了啊!所以我们直接放结论,对于弦上一个点<span class="math inline">\(u ( x , t )\)</span>,首先是一维振动方程:</p>
-<p><span class="math display">\[
-\frac{ \partial^2 u }{ \partial x^2 } = \frac{ \rho }{ T } \frac{
-\partial^2 u }{ \partial t^2 }
-\]</span></p>
-<p>最终得到的会是一个无穷级数,这个无穷级数的每一项都形如:</p>
-<p><span class="math display">\[
-u_n ( x , t ) = c_n \sin ( \omega_n t + \theta_n ) \sin ( \frac{ n \pi
-}{ L } x )
-\]</span></p>
-<p>其中第<span class="math inline">\(n\)</span>项的频率满足:</p>
-<p><span class="math display">\[
-f_n = \frac{ n }{ 2 L } \sqrt{ \frac{ T }{ \rho } }
-\]</span></p>
-<p>其中我们将<span class="math inline">\(f_1\)</span>称为<strong>基频</strong>,相应的声音称为<strong>基音</strong>,而将剩下的频率对应的声音统称为泛音,其中<span class="math inline">\(f_n , n \geq 2\)</span>对应的是第<span class="math inline">\(n - 1\)</span>泛音.</p>
-<p>特别地,如果我们干脆记<span class="math inline">\(f =
-f_1\)</span>,上述结果告诉我们弦的振动产生的一列频率是:</p>
-<p><span class="math display">\[
-f , 2 f , 3 f , \cdots
-\]</span></p>
-<p>这个序列通常被称为<strong>泛音列</strong>.</p>
-<p>特别地,上述的频率其实是固定了点来讨论的,实际上的泛音要更为复杂,会在一根弦上的不同位置处产生不同的加权.实际上对于不同的<span class="math inline">\(n\)</span>,它们的泛音列长这个样子:<img src="https://y.gtimg.cn/music/photo_new/T062M000004QlDkO0nCeWY.jpg?max_age=0"></p>
+<p>对于弦的振动解微分方程,这里我不是很想解了啊!所以我们直接放结论,对于弦上一个点$u ( x , t )$,首先是一维振动方程:</p>
+<script type="math/tex; mode=display">
+\frac{ \partial^2 u }{ \partial x^2 } = \frac{ \rho }{ T } \frac{ \partial^2 u }{ \partial t^2 }</script><p>最终得到的会是一个无穷级数,这个无穷级数的每一项都形如:</p>
+<script type="math/tex; mode=display">
+u_n ( x , t ) = c_n \sin ( \omega_n t + \theta_n ) \sin ( \frac{ n \pi }{ L } x )</script><p>其中第$n$项的频率满足:</p>
+<script type="math/tex; mode=display">
+f_n = \frac{ n }{ 2 L } \sqrt{ \frac{ T }{ \rho } }</script><p>其中我们将$f_1$称为<strong>基频</strong>,相应的声音称为<strong>基音</strong>,而将剩下的频率对应的声音统称为泛音,其中$f_n , n \geq 2$对应的是第$n - 1$泛音.</p>
+<p>特别地,如果我们干脆记$f = f_1$,上述结果告诉我们弦的振动产生的一列频率是:</p>
+<script type="math/tex; mode=display">
+f , 2 f , 3 f , \cdots</script><p>这个序列通常被称为<strong>泛音列</strong>.</p>
+<p>特别地,上述的频率其实是固定了点来讨论的,实际上的泛音要更为复杂,会在一根弦上的不同位置处产生不同的加权.实际上对于不同的$n$,它们的泛音列长这个样子:<img src="https://y.gtimg.cn/music/photo_new/T062M000004QlDkO0nCeWY.jpg?max_age=0" alt></p>
 <p>其中标注的点(波节)在振动中均是固定不变的.</p>
-<p>这其实是某些弦乐演奏中一些按弦技巧的基础.例如这里,如果我用手轻触中间点,我就可以消灭掉所有的<span class="math inline">\(f_{ 2 k + 1 }\)</span>,泛音列中只剩下<span class="math inline">\(2 f , 4 f ,
-\cdots\)</span>.我们后面会再提这个事,这意味着我弹出的音高了八度.那如果我按<span class="math inline">\(\frac{ 1 }{ 3
-}\)</span>处呢?那泛音列中就会只剩下<span class="math inline">\(3 f , 6 f
-, 9 f , \cdots\)</span>,也就是先高一个纯八度,再高一个纯五度.</p>
-<p>还有拨弦,如果我在中间拨弦会发生什么呢?由于我的拨动使得整个弦应该以中间为对称形成一个偶函数,中间的点一定在波动,因此泛音列中剩下的就会是<span class="math inline">\(f , 3 f , 5 f , \cdots\)</span>.</p>
-<h4><span id="管乐器">管乐器</span></h4>
-<p>管乐器中振动的变为空气柱,不过吧空气柱这个东西振动的时候会略微超出管口,因此会有管口矫正这个事存在.</p>
+<p>这其实是某些弦乐演奏中一些按弦技巧的基础.例如这里,如果我用手轻触中间点,我就可以消灭掉所有的$f_{ 2 k + 1 }$,泛音列中只剩下$2 f , 4 f , \cdots$.我们后面会再提这个事,这意味着我弹出的音高了八度.那如果我按$\frac{ 1 }{ 3 }$处呢?那泛音列中就会只剩下$3 f , 6 f , 9 f , \cdots$,也就是先高一个纯八度,再高一个纯五度.</p>
+<p>还有拨弦,如果我在中间拨弦会发生什么呢?由于我的拨动使得整个弦应该以中间为对称形成一个偶函数,中间的点一定在波动,因此泛音列中剩下的就会是$f , 3 f , 5 f , \cdots$.</p>
+<h4><span id="管乐器">管乐器</span></h4><p>管乐器中振动的变为空气柱,不过吧空气柱这个东西振动的时候会略微超出管口,因此会有管口矫正这个事存在.</p>
 <p>再就是,管乐器其实分为两种:开管(两面开口)和闭管(单面开口).而且不像琴弦的两端是固定的.一个自然的想法是,根据上面我们放的那张图,开口的那个位置一定要振动,而闭口的那个位置一定被卡住不动.这意味着开管和闭管的泛音列天然不同.具体来说:</p>
 <p>开管的泛音列:</p>
-<p><span class="math display">\[
-f , 2 f , 3 f , 4 f , \cdots
-\]</span></p>
-<p>闭管的泛音列:</p>
-<p><span class="math display">\[
-f , 3 f , 5 f , 7 f
-\]</span></p>
-<p>另外,相同长度的管,开管的基音比闭管高了一个八度.</p>
+<script type="math/tex; mode=display">
+f , 2 f , 3 f , 4 f , \cdots</script><p>闭管的泛音列:</p>
+<script type="math/tex; mode=display">
+f , 3 f , 5 f , 7 f</script><p>另外,相同长度的管,开管的基音比闭管高了一个八度.</p>
 <p>管乐器有一种演奏方式是超吹.简单来说,当你用力吹的时候,直觉上随着你用力越大,你吹出来的音的频率应该是连续的.但实际上听感更接近于离散的.这是因为从一开始整个泛音列就都是存在的,只是当气流加快的时候,后面的音在某种程度上被”加强”了,所以对于开管来说,你会先听到一个高八度的音,再听到一个高五度的音.</p>
-<h4><span id="泛音列重合理论">泛音列重合理论</span></h4>
-<p>既然如此,我们可以见到,当两个音的基频的比较为简单的时候,它们产生的泛音列重合程度就会较高.例如:</p>
-<p><span class="math display">\[
+<h4><span id="泛音列重合理论">泛音列重合理论</span></h4><p>既然如此,我们可以见到,当两个音的基频的比较为简单的时候,它们产生的泛音列重合程度就会较高.例如:</p>
+<script type="math/tex; mode=display">
 \begin{gathered}
 f , 2 f , 3 f , 4 f , \cdots \\
 2 f , 4 f , 6 f , 8 f , \cdots
-\end{gathered}
-\]</span></p>
-<p>或是:</p>
-<p><span class="math display">\[
+\end{gathered}</script><p>或是:</p>
+<script type="math/tex; mode=display">
 \begin{gathered}
 f , 2 f , 3 f , 4 f , \cdots \\
 \frac{ 3 }{ 2 } f , 3 f , \frac{ 9 }{ 2 } f , 6 f , \cdots
-\end{gathered}
-\]</span></p>
-<p>这从相当的程度解释了为什么理想的音程全都是简单整数比.</p>
-<h3><span id="律制">律制</span></h3>
-<p>要讲律制,首先要知道从经验上来讲,人耳对于音乐的听觉其实并非线性.换言之,当你听两个音的时候,你关注的可不是它们之间的频率差值,而可能更关注它们之间的频率比值.类似地,其实人听声压的时候靠的也是比值,例如<strong>分贝</strong>的定义是<span class="math inline">\(L_p = 20 \log_{ 10 } ( \frac{ p }{ p_0 }
-)\)</span>,其中<span class="math inline">\(p_0 = 20 \mu Pa\)</span>.</p>
-<h4><span id="音程">音程</span></h4>
-<p>我们称两个音级之间的距离为<strong>音程</strong>,其中高的音称为<strong>冠音</strong>,而低的音被称为<strong>根音</strong>,一个音程应该由两个参数决定:<strong>度数</strong>和<strong>半音数</strong>,简单来说,度数是跨越的音名数量,而半音数是跨越的半音数量.表格长这样:</p>
-<div class="line-block">度数 | 半音数 | 名称 |</div>
-<div class="line-block">—- | —— | —— |</div>
-<div class="line-block">一 | 0 | 纯一度 |</div>
-<div class="line-block">二 | 1 | 小二度 |</div>
-<div class="line-block">二 | 2 | 大二度 |</div>
-<div class="line-block">三 | 3 | 小三度 |</div>
-<div class="line-block">三 | 4 | 大三度 |</div>
-<div class="line-block">四 | 5 | 纯四度 |</div>
-<div class="line-block">四 | 6 | 增四度 |</div>
-<div class="line-block">五 | 6 | 减五度 |</div>
-<div class="line-block">五 | 7 | 纯五度 |</div>
-<div class="line-block">六 | 8 | 小六度 |</div>
-<div class="line-block">六 | 9 | 大六度 |</div>
-<div class="line-block">七 | 10 | 小七度 |</div>
-<div class="line-block">七 | 11 | 大七度 |</div>
-<div class="line-block">八 | 12 | 纯八度 |</div>
+\end{gathered}</script><p>这从相当的程度解释了为什么理想的音程全都是简单整数比.</p>
+<h3><span id="律制">律制</span></h3><p>要讲律制,首先要知道从经验上来讲,人耳对于音乐的听觉其实并非线性.换言之,当你听两个音的时候,你关注的可不是它们之间的频率差值,而可能更关注它们之间的频率比值.类似地,其实人听声压的时候靠的也是比值,例如<strong>分贝</strong>的定义是$L_p = 20 \log_{ 10 } ( \frac{ p }{ p_0 } )$,其中$p_0 = 20 \mu Pa$.</p>
+<h4><span id="音程">音程</span></h4><p>我们称两个音级之间的距离为<strong>音程</strong>,其中高的音称为<strong>冠音</strong>,而低的音被称为<strong>根音</strong>,一个音程应该由两个参数决定:<strong>度数</strong>和<strong>半音数</strong>,简单来说,度数是跨越的音名数量,而半音数是跨越的半音数量.表格长这样:</p>
+<p>| 度数 | 半音数 | 名称   |</p>
+<p>| —— | ——— | ——— |</p>
+<p>| 一   | 0      | 纯一度 |</p>
+<p>| 二   | 1      | 小二度 |</p>
+<p>| 二   | 2      | 大二度 |</p>
+<p>| 三   | 3      | 小三度 |</p>
+<p>| 三   | 4      | 大三度 |</p>
+<p>| 四   | 5      | 纯四度 |</p>
+<p>| 四   | 6      | 增四度 |</p>
+<p>| 五   | 6      | 减五度 |</p>
+<p>| 五   | 7      | 纯五度 |</p>
+<p>| 六   | 8      | 小六度 |</p>
+<p>| 六   | 9      | 大六度 |</p>
+<p>| 七   | 10     | 小七度 |</p>
+<p>| 七   | 11     | 大七度 |</p>
+<p>| 八   | 12     | 纯八度 |</p>
 <p>从这套理论出发,毕达哥拉斯说我们找一下最简整数比:注意到:</p>
-<div class="line-block">音程 | 频率比 |</div>
-<div class="line-block">—— | —— |</div>
-<div class="line-block">纯八度 | <span class="math inline">\(2 :
-1\)</span> |</div>
-<div class="line-block">纯五度 | <span class="math inline">\(3 :
-2\)</span> |</div>
-<div class="line-block">纯四度 | <span class="math inline">\(4 :
-3\)</span> |</div>
-<div class="line-block">大三度 | <span class="math inline">\(5 :
-4\)</span> |</div>
-<div class="line-block">小三度 | <span class="math inline">\(6 :
-5\)</span> |</div>
+<p>| 音程   | 频率比 |</p>
+<p>| ——— | ——— |</p>
+<p>| 纯八度 | $2 : 1$  |</p>
+<p>| 纯五度 | $3 : 2$  |</p>
+<p>| 纯四度 | $4 : 3$  |</p>
+<p>| 大三度 | $5 : 4$  |</p>
+<p>| 小三度 | $6 : 5$  |</p>
 <p>看上去太漂亮了对吧!但是就是这个规定出了大锅.</p>
-<h4><span id="五度相生律">五度相生律</span></h4>
-<p>中国的三分损益法和毕达哥拉斯的五度相生法其实是类似的东西,我们这里只考虑五度相生律.</p>
-<p>毕达哥拉斯学派说,我们这么干,规定<span class="math inline">\(C\)</span>的频率(当时其实不存在频率的概念,但我们这里就为了方便这么说了)为<span class="math inline">\(1\)</span>,然后每次向上升一个纯五度,如果超出去了呢,那就降一个八度降回来.回忆到纯五度是七个半音,这相当于求<span class="math inline">\(\{ 7 k \} \pmod{ 12
-}\)</span>这个数列对吧,简单数论知识告诉我们它必然能遍历<span class="math inline">\(12\)</span>种情况,具体而言:</p>
-$$
-<span class="math display">\[\begin{aligned}
-C \to &amp; &amp; G \to &amp; &amp; D \to &amp; &amp; A \to &amp; &amp;
-E \to &amp; &amp; B \to \\
-1 \to &amp; &amp; \frac{ 3 }{ 2 } \to &amp; &amp; \frac{ 3^2 }{ 2^3 }
-\to &amp; &amp; \frac{ 3^3 }{ 2^4 } \to &amp; &amp; \frac{ 3^4 }{ 2^6 }
-\to &amp; &amp; \frac{ 3^5 }{ 2^7 } \to \\
-\\
-\\
-\# F \to &amp; &amp; \# C \to &amp; &amp; \# G \to &amp; &amp; \# D \to
-&amp; &amp; \# A \to &amp; &amp; \# E \\
-\frac{ 3^6 }{ 2^9 } \to &amp; &amp; \frac{ 3^7 }{ 2^{ 11 } } \to &amp;
-&amp; \frac{ 3^8 }{ 2^{ 12 } } \to &amp; &amp; \frac{ 3^9 }{ 2^{ 14 } }
-\to &amp; &amp; \frac{ 3^{ 10 } }{ 2^{ 15 } } \to &amp; &amp; \frac{ 3^{
-11 } }{ 2^{ 17 } } \\
-
-\end{aligned}\]</span>
-<p>$$</p>
-<p>我们是拿纯八度和纯五度生成的所有的音,因此纯五度肯定是准的,那么与之对应的纯四度肯定是准的.但是看三度音程就会发现问题,例如大三度<span class="math inline">\(CE\)</span>的比是<span class="math inline">\(\frac{ 81 }{ 64 } &gt; \frac{ 80 }{ 64 } = \frac{
-5 }{ 4 }\)</span>.</p>
-<p>更难过的是就算我们按照纯八度和纯五度生成的,这个纯八度也有点难绷.具体而言这里的<span class="math inline">\(\# E \ne F\)</span>,你对着这个<span class="math inline">\(\# E\)</span>往上再升一个音得到的理应是<span class="math inline">\(C &#39; = \frac{ 3^{ 12 } }{ 2^{ 18 } } &gt;
-2\)</span>,具体来说<span class="math inline">\(\frac{ 3^{ 12 } }{ 2^{ 19
-} } \approx 1 .
-013643\)</span>,这就出事了,这个东西转一圈并没有转到理想的纯八度音阶上,这个问题在中国古代的三分损益上也体现了,那里的名字叫旋宫不归,这里的话则是将这个略大于<span class="math inline">\(1\)</span>的数叫做<strong>毕达哥拉斯音差</strong>.</p>
-<p>仔细分析一下就会发现这个问题几乎是不可避免的,因为你上升<span class="math inline">\(12\)</span>个纯五度,再下降<span class="math inline">\(7\)</span>个纯八度理应回到原点,可是:</p>
-<p><span class="math display">\[
-( \frac{ 3 }{ 2 } )^{ 12 } \times ( \frac{ 1 }{ 2 } )^7 &gt; 1
-\]</span></p>
-<p>这下这下了.</p>
-<h4><span id="纯律">纯律</span></h4>
-<p>其实我们刚才就能见到真正完美符合简单整数比的律根本调不出来.但是能不能让一些常用的音程(比如纯八度,纯五度,纯四度,大三度)尽可能准呢.这就是纯律在干的事.</p>
-<p>还是规定<span class="math inline">\(C\)</span>的频率为<span class="math inline">\(1\)</span>.接下来用正三和弦(一个大三度和一个小三度)<span class="math inline">\(I : C - E - G\)</span>,<span class="math inline">\(IV : F - A - C &#39;\)</span>,<span class="math inline">\(V : G - B - D &#39;\)</span>的比例是<span class="math inline">\(4 : 5 : 6\)</span>确定剩下的:</p>
-<p><span class="math display">\[
+<h4><span id="五度相生律">五度相生律</span></h4><p>中国的三分损益法和毕达哥拉斯的五度相生法其实是类似的东西,我们这里只考虑五度相生律.</p>
+<p>毕达哥拉斯学派说,我们这么干,规定$C$的频率(当时其实不存在频率的概念,但我们这里就为了方便这么说了)为$1$,然后每次向上升一个纯五度,如果超出去了呢,那就降一个八度降回来.回忆到纯五度是七个半音,这相当于求$\{ 7 k \} \pmod{ 12 }$这个数列对吧,简单数论知识告诉我们它必然能遍历$12$种情况,具体而言:</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-C &amp; &amp; D &amp; &amp; E &amp; &amp; F &amp; &amp; G &amp; &amp; A
-&amp; &amp; B &amp; &amp; C &#39; &amp; &amp; D &#39; \\
-1 &amp; &amp; \frac{ 9 }{ 8 } &amp; &amp; \frac{ 5 }{ 4 } &amp; &amp;
-\frac{ 4 }{ 3 } &amp; &amp; \frac{ 3 }{ 2 } &amp; &amp; \frac{ 5 }{ 3 }
-&amp; &amp; \frac{ 15 }{ 8 } &amp; &amp; 2 &amp; &amp; \frac{ 9 }{ 4 }
-\end{aligned}
-\]</span></p>
-<p>所以现在大三度和小三度都准了.但问题又来了:</p>
-<ol type="1">
-<li><p>五度音程<span class="math inline">\(D -
-A\)</span>不协和,比例为<span class="math inline">\(\frac{ 80 }{ 54 }
-&lt; \frac{ 81 }{ 54 } = \frac{ 3 }{ 2
-}\)</span>.这直接导致了转调会出错.</p></li>
-<li><p>有两种不同的大二度:音程<span class="math inline">\(C - D , F - G
-, A - B\)</span>的比例是<span class="math inline">\(\frac{ 9 }{ 8
-}\)</span>而音程<span class="math inline">\(D - E , G -
-A\)</span>的比例为<span class="math inline">\(\frac{ 10 }{ 9
-}\)</span>.</p></li>
-<li><p><strong>谐调音差</strong>:从<span class="math inline">\(C\)</span>出发升高四个纯五度,降低两个八度和一个大三度后,得到的是:<span class="math inline">\(( \frac{ 3 }{ 2 } )^4 \times ( \frac{ 1 }{ 2 } )^2
-\times \frac{ 4 }{ 5 } = \frac{ 81 }{ 80 } = 1 . 0125 &gt;
-1\)</span>.</p></li>
+C \to & & G \to & & D \to & & A \to & & E \to & & B \to \\
+1 \to & & \frac{ 3 }{ 2 } \to & & \frac{ 3^2 }{ 2^3 } \to & & \frac{ 3^3 }{ 2^4 } \to & & \frac{ 3^4 }{ 2^6 } \to & & \frac{ 3^5 }{ 2^7 } \to \\
+\\
+\\
+\# F \to & & \# C \to & & \# G \to & & \# D \to & & \# A \to & & \# E \\
+\frac{ 3^6 }{ 2^9 } \to & & \frac{ 3^7 }{ 2^{ 11 } } \to & & \frac{ 3^8 }{ 2^{ 12 } } \to & & \frac{ 3^9 }{ 2^{ 14 } } \to & & \frac{ 3^{ 10 } }{ 2^{ 15 } } \to & & \frac{ 3^{ 11 } }{ 2^{ 17 } } \\
+
+\end{aligned}</script><p>我们是拿纯八度和纯五度生成的所有的音,因此纯五度肯定是准的,那么与之对应的纯四度肯定是准的.但是看三度音程就会发现问题,例如大三度$CE$的比是$\frac{ 81 }{ 64 } &gt; \frac{ 80 }{ 64 } = \frac{ 5 }{ 4 }$.</p>
+<p>更难过的是就算我们按照纯八度和纯五度生成的,这个纯八度也有点难绷.具体而言这里的$# E \ne F$,你对着这个$# E$往上再升一个音得到的理应是$C ‘ = \frac{ 3^{ 12 } }{ 2^{ 18 } } &gt; 2$,具体来说$\frac{ 3^{ 12 } }{ 2^{ 19 } } \approx 1 . 013643$,这就出事了,这个东西转一圈并没有转到理想的纯八度音阶上,这个问题在中国古代的三分损益上也体现了,那里的名字叫旋宫不归,这里的话则是将这个略大于$1$的数叫做<strong>毕达哥拉斯音差</strong>.</p>
+<p>仔细分析一下就会发现这个问题几乎是不可避免的,因为你上升$12$个纯五度,再下降$7$个纯八度理应回到原点,可是:</p>
+<script type="math/tex; mode=display">
+( \frac{ 3 }{ 2 } )^{ 12 } \times ( \frac{ 1 }{ 2 } )^7 > 1</script><p>这下这下了.</p>
+<h4><span id="纯律">纯律</span></h4><p>其实我们刚才就能见到真正完美符合简单整数比的律根本调不出来.但是能不能让一些常用的音程(比如纯八度,纯五度,纯四度,大三度)尽可能准呢.这就是纯律在干的事.</p>
+<p>还是规定$C$的频率为$1$.接下来用正三和弦(一个大三度和一个小三度)$I : C - E - G$,$IV : F - A - C ‘$,$V : G - B - D ‘$的比例是$4 : 5 : 6$确定剩下的:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+C & & D & & E & & F & & G & & A & & B & & C ' & & D ' \\
+1 & & \frac{ 9 }{ 8 } & & \frac{ 5 }{ 4 } & & \frac{ 4 }{ 3 } & & \frac{ 3 }{ 2 } & & \frac{ 5 }{ 3 } & & \frac{ 15 }{ 8 } & & 2 & & \frac{ 9 }{ 4 }
+\end{aligned}</script><p>所以现在大三度和小三度都准了.但问题又来了:</p>
+<ol>
+<li><p>五度音程$D - A$不协和,比例为$\frac{ 80 }{ 54 } &lt; \frac{ 81 }{ 54 } = \frac{ 3 }{ 2 }$.这直接导致了转调会出错.</p>
+</li>
+<li><p>有两种不同的大二度:音程$C - D , F - G , A - B$的比例是$\frac{ 9 }{ 8 }$而音程$D - E , G - A$的比例为$\frac{ 10 }{ 9 }$.</p>
+</li>
+<li><p><strong>谐调音差</strong>:从$C$出发升高四个纯五度,降低两个八度和一个大三度后,得到的是:$( \frac{ 3 }{ 2 } )^4 \times ( \frac{ 1 }{ 2 } )^2 \times \frac{ 4 }{ 5 } = \frac{ 81 }{ 80 } = 1 . 0125 &gt; 1$.</p>
+</li>
 </ol>
-<h4><span id="十二平均律">十二平均律</span></h4>
-<p>既然我们一开始就说了律是根据比值来定的,为什么不直接简单一点,干脆用<span class="math inline">\(\sqrt[12]{ 2
-}\)</span>来平均律制呢?于是将近五百年前就有了朱载堉这位手开十二次根号的神人.这也是所有律法中几乎最简单的一种了,以至于我到这里发现没啥可写的了.</p>
+<h4><span id="十二平均律">十二平均律</span></h4><p>既然我们一开始就说了律是根据比值来定的,为什么不直接简单一点,干脆用$\sqrt[12]{ 2 }$来平均律制呢?于是将近五百年前就有了朱载堉这位手开十二次根号的神人.这也是所有律法中几乎最简单的一种了,以至于我到这里发现没啥可写的了.</p>
 <p>但它的问题也是最一眼能看出来的,那就是除了纯八度,全都不准.</p>
-<p>先在这里定义<strong>音分</strong>的概念,设两个声音的频率分别是<span class="math inline">\(f_1 , f_2\)</span>,则它们的音分数定义为<span class="math inline">\(1200 \log_2 ( \frac{ f_2 }{ f_1 }
-)\)</span>,容易见到十二平均律拿到的一个半音恰好是<span class="math inline">\(100\)</span>音分.</p>
+<p>先在这里定义<strong>音分</strong>的概念,设两个声音的频率分别是$f_1 , f_2$,则它们的音分数定义为$1200 \log_2 ( \frac{ f_2 }{ f_1 } )$,容易见到十二平均律拿到的一个半音恰好是$100$音分.</p>
 <p>用音分可以迅速确定一下,发现十二平均律这玩意准的离谱,虽然哪里都差一点,但哪里差的都不多.</p>
-<h3><span id="调式">调式</span></h3>
-<h4><span id="大小调">大小调</span></h4>
-<h5><span id="自然大调">自然大调</span></h5>
-<p>就是我们最常用的<span class="math inline">\(CDEFGABC
-&#39;\)</span>,用大二度和小二度组织调式.具体而言,以一个大二度分开了两组四声音阶(均为大大小),按顺序分别为:</p>
-<ol type="1">
-<li><p>主音</p></li>
-<li><p>上主音</p></li>
-<li><p>中音</p></li>
-<li><p>下属音</p></li>
-<li><p>属音</p></li>
-<li><p>下中音</p></li>
-<li><p>导音</p></li>
+<h3><span id="调式">调式</span></h3><h4><span id="大小调">大小调</span></h4><h5><span id="自然大调">自然大调</span></h5><p>就是我们最常用的$CDEFGABC ‘$,用大二度和小二度组织调式.具体而言,以一个大二度分开了两组四声音阶(均为大大小),按顺序分别为:</p>
+<ol>
+<li><p>主音</p>
+</li>
+<li><p>上主音</p>
+</li>
+<li><p>中音</p>
+</li>
+<li><p>下属音</p>
+</li>
+<li><p>属音</p>
+</li>
+<li><p>下中音</p>
+</li>
+<li><p>导音</p>
+</li>
 </ol>
-<p>用五度相生,下属音<span class="math inline">\(\rightarrow\)</span>主音<span class="math inline">\(\rightarrow\)</span>属音.</p>
-<h5><span id="自然小调">自然小调</span></h5>
-<p>以一个大二度分开了两组四声音阶(分别为大小大和小大大)</p>
-<p>以<span class="math inline">\(ABCDEFG\)</span>用的调子,然而这里的问题是<span class="math inline">\(G\)</span>作为导音却和<span class="math inline">\(A &#39;\)</span>差了个全音,导得不好.</p>
-<h5><span id="和声小调">和声小调</span></h5>
-<p>以一个大二度分开了两组四声音阶(分别为大小大和小增小)</p>
-<p>将自然小调的导音升高一个半音.用<span class="math inline">\(A , B , C
-, D , E , F , (^\# G )\)</span>.</p>
+<p>用五度相生,下属音$\rightarrow$主音$\rightarrow$属音.</p>
+<h5><span id="自然小调">自然小调</span></h5><p>以一个大二度分开了两组四声音阶(分别为大小大和小大大)</p>
+<p>以$ABCDEFG$用的调子,然而这里的问题是$G$作为导音却和$A ‘$差了个全音,导得不好.</p>
+<h5><span id="和声小调">和声小调</span></h5><p>以一个大二度分开了两组四声音阶(分别为大小大和小增小)</p>
+<p>将自然小调的导音升高一个半音.用$A , B , C , D , E , F , (^# G )$.</p>
 <p>但是这样出了个增二度.</p>
-<h5><span id="旋律小调">旋律小调</span></h5>
-<p>以一个大二度分开了两组四声音阶(分别为大小大和大大小)</p>
-<p>把下中音也升上去,这样差的就小,用<span class="math inline">\(A , B , C
-, D , E , (^\# F ) , (^\# G )\)</span>.</p>
+<h5><span id="旋律小调">旋律小调</span></h5><p>以一个大二度分开了两组四声音阶(分别为大小大和大大小)</p>
+<p>把下中音也升上去,这样差的就小,用$A , B , C , D , E , (^# F ) , (^# G )$.</p>
 <p>可以见到小调改音的主要目的是为了调导音的作用,这种作用只有在上行音阶的时候才是需要人为更改的,因此下行音阶不改音,与自然小调的下行音阶保持一致.</p>
-<h4><span id="升降号调">升降号调</span></h4>
-<p>以五度相生:</p>
-<p><span class="math display">\[
-C \to G \to D \to A \to E \to B \to (^\# F ) \to (^\# C )
-\]</span></p>
-<p>依次考虑它们为主调的自然大调音阶.</p>
-<p>大调音阶的前后是对称的全全半+全+全全半结构,跳一个五度刚好能从前半部分跳到后半部分,因此从<span class="math inline">\(C\)</span>开始每次往后跳一次都要在一个音阶上增一个升号.从<span class="math inline">\(C\)</span>大调提升到<span class="math inline">\(G\)</span>大调的时候就是将<span class="math inline">\(C\)</span>的下属音(也就是<span class="math inline">\(F\)</span>)升音.</p>
+<h4><span id="升降号调">升降号调</span></h4><p>以五度相生:</p>
+<script type="math/tex; mode=display">
+C \to G \to D \to A \to E \to B \to (^\# F ) \to (^\# C )</script><p>依次考虑它们为主调的自然大调音阶.</p>
+<p>大调音阶的前后是对称的全全半+全+全全半结构,跳一个五度刚好能从前半部分跳到后半部分,因此从$C$开始每次往后跳一次都要在一个音阶上增一个升号.从$C$大调提升到$G$大调的时候就是将$C$的下属音(也就是$F$)升音.</p>
 <p>对称地,反方向的五度相生:</p>
-<p><span class="math display">\[
-C \to F \to (^b B ) \to (^b E ) \to (^b A ) \to (^b D ) \to (^b G ) \to
-(^b C )
-\]</span></p>
-<p>那这个应该降什么呢?比如从<span class="math inline">\(C\)</span>大调提升到<span class="math inline">\(F\)</span>大调的时候就是将<span class="math inline">\(F\)</span>的下属音<span class="math inline">\(B\)</span>降一个音对吧.</p>
+<script type="math/tex; mode=display">
+C \to F \to (^b B ) \to (^b E ) \to (^b A ) \to (^b D ) \to (^b G ) \to (^b C )</script><p>那这个应该降什么呢?比如从$C$大调提升到$F$大调的时候就是将$F$的下属音$B$降一个音对吧.</p>
 <p>所以最后的结果就是:</p>
-<p><img src="https://img2022.cnblogs.com/blog/662544/202204/662544-20220411164109167-1657776014.png"></p>
+<p><img src="https://img2022.cnblogs.com/blog/662544/202204/662544-20220411164109167-1657776014.png" alt></p>
 <p>一个自然大调将主音向前挪小三度就得到了一个自然小调,它们称为一对<strong>关系大小调</strong>.</p>
 <p>具有相同主音的大小调被称为<strong>平行大小调</strong>.其实也就是名字精确到大小写是一样的.</p>
 <p>一个大调的下属音大调和属音大调以及对应的关系小调称为其<strong>近关系调</strong>.</p>
-<h3><span id="和弦">和弦</span></h3>
-<h4><span id="三和弦">三和弦</span></h4>
-<p>按照三度音程叠起来的三个音所构成的和弦被称为<strong>三和弦</strong>.其中最下面的音被称为<strong>根音</strong>,最上面的音被称为<strong>冠音</strong>或者<strong>五音</strong>,中间的被称为<strong>三音</strong>.</p>
+<h3><span id="和弦">和弦</span></h3><h4><span id="三和弦">三和弦</span></h4><p>按照三度音程叠起来的三个音所构成的和弦被称为<strong>三和弦</strong>.其中最下面的音被称为<strong>根音</strong>,最上面的音被称为<strong>冠音</strong>或者<strong>五音</strong>,中间的被称为<strong>三音</strong>.</p>
 <p>由于三度音程分大小,所以就有了四种不同的三和弦.</p>
-<ol type="1">
-<li><p>大三和弦:下面一个大三度,上面一个小三度,刚好形成<span class="math inline">\(4 : 5 : 6\)</span>的频率关系.</p></li>
-<li><p>小三和弦:下面一个小三度,上面一个大三度.</p></li>
-<li><p>减三和弦:两个小三度.</p></li>
-<li><p>增三和弦:两个大三度.</p></li>
+<ol>
+<li><p>大三和弦:下面一个大三度,上面一个小三度,刚好形成$4 : 5 : 6$的频率关系.</p>
+</li>
+<li><p>小三和弦:下面一个小三度,上面一个大三度.</p>
+</li>
+<li><p>减三和弦:两个小三度.</p>
+</li>
+<li><p>增三和弦:两个大三度.</p>
+</li>
 </ol>
-<h4><span id="七和弦">七和弦</span></h4>
-<p>按照三度音程叠四个音构成的和弦被称为<strong>七和弦</strong>.除去其中由三个大三度构成的(这样使得最上方的七音和最底下的根音形成了八度)以外,其余七种七和弦依照三和弦名称+七度音阶名称的原则命名,如下:</p>
-<ol type="1">
-<li><p>减减七和弦(减七和弦):小小小.</p></li>
-<li><p>减小七和弦(半减七和弦):小小大.</p></li>
-<li><p>小小七和弦(小七和弦):小大小.</p></li>
-<li><p>小大七和弦:小大大.</p></li>
-<li><p>大小七和弦(属七和弦):大小小.</p></li>
-<li><p>大大七和弦(大七和弦):大小大.</p></li>
-<li><p>增大七和弦:大大小.</p></li>
+<h4><span id="七和弦">七和弦</span></h4><p>按照三度音程叠四个音构成的和弦被称为<strong>七和弦</strong>.除去其中由三个大三度构成的(这样使得最上方的七音和最底下的根音形成了八度)以外,其余七种七和弦依照三和弦名称+七度音阶名称的原则命名,如下:</p>
+<ol>
+<li><p>减减七和弦(减七和弦):小小小.</p>
+</li>
+<li><p>减小七和弦(半减七和弦):小小大.</p>
+</li>
+<li><p>小小七和弦(小七和弦):小大小.</p>
+</li>
+<li><p>小大七和弦:小大大.</p>
+</li>
+<li><p>大小七和弦(属七和弦):大小小.</p>
+</li>
+<li><p>大大七和弦(大七和弦):大小大.</p>
+</li>
+<li><p>增大七和弦:大大小.</p>
+</li>
 </ol>
 <p>很遗憾的是七和弦全部包含至少一个不协和音程,所以它们全都是不协和和弦.</p>
-<h4><span id="和弦转位">和弦转位</span></h4>
-<p>以根音为低音的和弦为<strong>原位和弦</strong>,以三五七音为低音的则称为<strong>转位和弦</strong>.</p>
+<h4><span id="和弦转位">和弦转位</span></h4><p>以根音为低音的和弦为<strong>原位和弦</strong>,以三五七音为低音的则称为<strong>转位和弦</strong>.</p>
 <p>对于三和弦来说:</p>
-<ol type="1">
-<li><p>以三音作为低音的称为<strong>第一转位</strong>,也称作<strong>六和弦</strong>.</p></li>
-<li><p>以五音作为低音的称为<strong>第二转位</strong>,也称作<strong>四六和弦</strong>.</p></li>
+<ol>
+<li><p>以三音作为低音的称为<strong>第一转位</strong>,也称作<strong>六和弦</strong>.</p>
+</li>
+<li><p>以五音作为低音的称为<strong>第二转位</strong>,也称作<strong>四六和弦</strong>.</p>
+</li>
 </ol>
 <p>对于七和弦来说:</p>
-<ol type="1">
-<li><p>以三音作为低音的称为<strong>第一转位</strong>,也称作<strong>五六和弦</strong>.</p></li>
-<li><p>以五音作为低音的称为<strong>第二转位</strong>,也称作<strong>三四和弦</strong>.</p></li>
-<li><p>以七音作为低音的称为<strong>第三转位</strong>,也称作<strong>二和弦</strong>.</p></li>
+<ol>
+<li><p>以三音作为低音的称为<strong>第一转位</strong>,也称作<strong>五六和弦</strong>.</p>
+</li>
+<li><p>以五音作为低音的称为<strong>第二转位</strong>,也称作<strong>三四和弦</strong>.</p>
+</li>
+<li><p>以七音作为低音的称为<strong>第三转位</strong>,也称作<strong>二和弦</strong>.</p>
+</li>
 </ol>
-<h4><span id="和弦的调性">和弦的调性</span></h4>
-<p>在调式的主音,下属音,属音上的和弦分别被称为<strong>主和弦(I)</strong>,<strong>下属和弦(IV)</strong>,<strong>属和弦(V)</strong>,它们被统称为<strong>正和弦</strong>,在C大调中体现为<span class="math inline">\(C - E - G\)</span>,<span class="math inline">\(F -
-A - C &#39;\)</span>,<span class="math inline">\(G - B - D
-&#39;\)</span>.其中主和弦一般比较稳定,属和弦则比较飘渺,下属和弦往往则起到过度作用.</p>
+<h4><span id="和弦的调性">和弦的调性</span></h4><p>在调式的主音,下属音,属音上的和弦分别被称为<strong>主和弦(I)</strong>,<strong>下属和弦(IV)</strong>,<strong>属和弦(V)</strong>,它们被统称为<strong>正和弦</strong>,在C大调中体现为$C - E - G$,$F - A - C ‘$,$G - B - D ‘$.其中主和弦一般比较稳定,属和弦则比较飘渺,下属和弦往往则起到过度作用.</p>
 <p>一定范围内的和弦连接被称为<strong>和声进行</strong>,下面是三种基本形式:</p>
-<ol type="1">
-<li><p>正格进行:<span class="math inline">\(I \to V \to
-I\)</span>.</p></li>
-<li><p>变格进行:<span class="math inline">\(I \to IV \to
-I\)</span>.</p></li>
-<li><p>复式进行:<span class="math inline">\(I \to IV \to V \to
-I\)</span>.</p></li>
+<ol>
+<li><p>正格进行:$I \to V \to I$.</p>
+</li>
+<li><p>变格进行:$I \to IV \to I$.</p>
+</li>
+<li><p>复式进行:$I \to IV \to V \to I$.</p>
+</li>
 </ol>
 <p>对于大调来说,其不同的三和弦之间有更加复杂的关系.经验给出以下图表:</p>
-<p><span class="math display">\[
-\xymatrix{ &amp; &amp; &amp; &amp; I \\
-&amp; &amp; IV \ar[r] \ar[d] \ar[dr] \ar[rru] &amp; vii \degree \ar[ru]
-&amp; \\
-iii \ar[r] &amp; vi \ar[r] \ar[ru] &amp; ii \ar[r] \ar[ru] &amp; V
-\ar[ruu] &amp; }
-\]</span></p>
-<p>其中<span class="math inline">\(I\)</span>较为特殊,可以走向全部的和弦,这里略去不画.</p>
-<h4><span id="新黎曼理论">新黎曼理论</span></h4>
-<p>引入以下三种对三和弦的变换(均会使得大和弦变小和弦,小和弦变大和弦):</p>
-<ol type="1">
-<li><p>平行变换<span class="math inline">\(P\)</span>:保持纯五度音阶不变,将三音切换.</p></li>
-<li><p>关系变换<span class="math inline">\(R\)</span>:保持大三度音阶不变,补上剩下的一个(等价于大小调转换).</p></li>
-<li><p>导音变换<span class="math inline">\(L\)</span>:保持小三度音阶不变,补上剩下的一个.</p></li>
+<script type="math/tex; mode=display">
+\xymatrix{ & & & & I \\
+& & IV \ar[r] \ar[d] \ar[dr] \ar[rru] & vii \degree \ar[ru] & \\
+iii \ar[r] & vi \ar[r] \ar[ru] & ii \ar[r] \ar[ru] & V \ar[ruu] & }</script><p>其中$I$较为特殊,可以走向全部的和弦,这里略去不画.</p>
+<h4><span id="新黎曼理论">新黎曼理论</span></h4><p>引入以下三种对三和弦的变换(均会使得大和弦变小和弦,小和弦变大和弦):</p>
+<ol>
+<li><p>平行变换$P$:保持纯五度音阶不变,将三音切换.</p>
+</li>
+<li><p>关系变换$R$:保持大三度音阶不变,补上剩下的一个(等价于大小调转换).</p>
+</li>
+<li><p>导音变换$L$:保持小三度音阶不变,补上剩下的一个.</p>
+</li>
 </ol>
-<p>容易见到<span class="math inline">\(R \circ ( L \circ R )^3 =
-P\)</span>.</p>
+<p>容易见到$R \circ ( L \circ R )^3 = P$.</p>
 
     </div>
 
