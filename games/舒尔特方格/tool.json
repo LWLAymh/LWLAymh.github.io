@@ -1,6 +1,6 @@
 {
   "title": "舒尔特方格",
   "description": "可自定义 n×m，数字颜色/大小/方向随机，按顺序点完计时",
-  "order": 8,
-  "category": "工具"
+  "order": 5,
+  "category": "游戏"
 }

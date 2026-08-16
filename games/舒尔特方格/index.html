@@ -9,10 +9,10 @@
 <title>舒尔特方格 · LWLAymh的备忘录</title>
 <meta name="description" content="可自定义 n×m，数字颜色/大小/方向随机，按顺序点完计时">
 <meta name="author" content="LWLAymh">
-<link rel="canonical" href="https://LWLAymh.github.io/tools/%E8%88%92%E5%B0%94%E7%89%B9%E6%96%B9%E6%A0%BC/">
+<link rel="canonical" href="https://LWLAymh.github.io/games/%E8%88%92%E5%B0%94%E7%89%B9%E6%96%B9%E6%A0%BC/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="LWLAymh的备忘录">
-<meta property="og:url" content="https://LWLAymh.github.io/tools/%E8%88%92%E5%B0%94%E7%89%B9%E6%96%B9%E6%A0%BC/">
+<meta property="og:url" content="https://LWLAymh.github.io/games/%E8%88%92%E5%B0%94%E7%89%B9%E6%96%B9%E6%A0%BC/">
 <meta property="og:title" content="舒尔特方格 · LWLAymh的备忘录">
 <meta property="og:description" content="可自定义 n×m，数字颜色/大小/方向随机，按顺序点完计时">
 <link rel="icon" href="/images/favicon-32x32-next.png">
@@ -66,14 +66,14 @@
       </span>
     </a>
     <nav class="site-nav">
-      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link active" href="/tools.html">工具</a><a class="nav-link" href="/games.html">游戏</a><a class="nav-link" href="/links.html">友链</a>
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/tools.html">工具</a><a class="nav-link active" href="/games.html">游戏</a><a class="nav-link" href="/links.html">友链</a>
       <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题"></button>
     </nav>
   </div>
 </header>
 <main class="site-main">
 <div class="tool-page">
-  <a class="back" href="/tools.html">← 全部工具</a>
+  <a class="back" href="/games.html">← 全部游戏</a>
   <div class="card">
     <h1>舒尔特方格</h1>
     <p class="hint">从 1 开始按顺序点，直到 n×m。数字的颜色、大小、方向每次都会随机。</p>
@@ -117,7 +117,8 @@
   var wrongEl = document.getElementById('wrong');
   var bestEl = document.getElementById('best');
 
-  var COLORS = ['#3a7bd5', '#2e8b57', '#d9534f', '#6f42c1', '#c49b1d', '#2aa9a0', '#7a4a8f', '#e0863a', '#0f766e', '#db2777', '#2563eb', '#b45309'];
+  // 颜色少一点，重点放在“找数字”本身
+  var COLORS = ['#4a7db5', '#5d79b8', '#2aa9a0', '#8a6d8a'];
   var rows, cols, order, next, wrongCount, startTs, timerId, started, done;
 
   function safeGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }

@@ -34,9 +34,9 @@
   .tool-page label { display: flex; flex-direction: column; gap: 4px; font-size: .85rem; color: var(--text-muted); }
   .tool-page select, .tool-page input {
     padding: 9px 12px; border: 1px solid var(--border); border-radius: 9px;
-    background: var(--bg); color: var(--text); font-size: 1rem; outline: none; width: 150px;
+    background: var(--bg); color: var(--text); font-size: 1rem; outline: none;
   }
-  .tool-page select { width: auto; }
+  .tool-page input { width: 150px; }
   .tool-page input:focus, .tool-page select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
   .tool-page button {
     padding: 10px 18px; border: 0; border-radius: 9px; cursor: pointer; font-size: .95rem; color: #fff;
@@ -76,13 +76,17 @@
   <a class="back" href="/tools.html">← 全部工具</a>
   <div class="card">
     <h1>组合数计算器</h1>
-    <p class="hint">BigInt 精确计算，结果不会溢出；支持 C(n,m)、P(n,m)、n!。</p>
+    <p class="hint">BigInt 精确计算，结果不会溢出。</p>
     <div class="bar">
       <label>运算
         <select id="op">
-          <option value="C">组合数 C(n,m)</option>
-          <option value="P">排列数 P(n,m)</option>
-          <option value="!">阶乘 n!</option>
+          <option value="C">C(n, m)</option>
+          <option value="P">P(n, m)</option>
+          <option value="!">n!</option>
+          <option value="S2">S(n, m)（第二类斯特林数）</option>
+          <option value="S1">s(n, m)（第一类斯特林数·无符号）</option>
+          <option value="B">B(n)（贝尔数）</option>
+          <option value="Cat">Cat(n)（卡特兰数）</option>
         </select>
       </label>
       <label>n <input id="n" type="number" min="0" max="5000" value="10"></label>
@@ -90,10 +94,12 @@
       <button id="calc">计算</button>
     </div>
     <div class="examples">
-      <button data-n="100" data-m="50">C(100,50)</button>
-      <button data-n="26" data-m="13">C(26,13)</button>
-      <button data-n="10" data-m="10">P(10,10)</button>
-      <button data-n="20" data-m="0">20!</button>
+      <button data-op="C" data-n="100" data-m="50">C(100,50)</button>
+      <button data-op="P" data-n="10" data-m="10">P(10,10)</button>
+      <button data-op="S2" data-n="10" data-m="5">S(10,5)</button>
+      <button data-op="S1" data-n="10" data-m="5">s(10,5)</button>
+      <button data-op="B" data-n="15" data-m="0">B(15)</button>
+      <button data-op="Cat" data-n="20" data-m="0">Cat(20)</button>
     </div>
     <div class="out" id="out"></div>
     <p class="err" id="err"></p>
@@ -129,9 +135,7 @@
   function C(n, m) {
     m = Math.min(m, n - m);
     var res = 1n;
-    for (var i = 0n; i < BigInt(m); i++) {
-      res = res * (BigInt(n) - i) / (i + 1n);
-    }
+    for (var i = 0n; i < BigInt(m); i++) res = res * (BigInt(n) - i) / (i + 1n);
     return res;
   }
   function P(n, m) {
@@ -144,46 +148,89 @@
     for (var i = 2n; i <= BigInt(n); i++) res *= i;
     return res;
   }
+  function S2(n, m) {
+    var row = [1n];
+    for (var i = 1; i <= n; i++) {
+      var next = [0n];
+      for (var j = 1; j <= Math.min(i, m); j++) next[j] = (row[j] || 0n) * BigInt(j) + (row[j - 1] || 0n);
+      row = next;
+    }
+    return row[m] || 0n;
+  }
+  function S1(n, m) {
+    var row = [1n];
+    for (var i = 1; i <= n; i++) {
+      var next = [0n];
+      for (var j = 1; j <= Math.min(i, m); j++) next[j] = (row[j - 1] || 0n) + (row[j] || 0n) * BigInt(i - 1);
+      row = next;
+    }
+    return row[m] || 0n;
+  }
+  function Bell(n) {
+    var row = [1n];
+    for (var i = 1; i <= n; i++) {
+      var next = [row[row.length - 1]];
+      for (var j = 1; j <= i; j++) next[j] = next[j - 1] + (row[j - 1] || 0n);
+      row = next;
+    }
+    return row[0];
+  }
+  function Catalan(n) {
+    return C(2 * n, n) / BigInt(n + 1);
+  }
   function group(s) {
     return s.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
-
   function show(label, value) {
     outEl.innerHTML = '<div class="head">' + label + '</div><div class="value">' + group(value) + '</div>' +
       '<div class="head" style="margin-top:8px">十进制位数：' + value.length + '</div>';
   }
 
+  function needsM() { return ['C', 'P', 'S2', 'S1'].indexOf(opEl.value) >= 0; }
+
+  function maxN() {
+    var k = opEl.value;
+    if (k === 'S1' || k === 'S2' || k === 'B') return 400;
+    if (k === 'Cat') return 2500;
+    return 5000;
+  }
+
+  function updateM() {
+    mlabel.style.display = needsM() ? '' : 'none';
+    nEl.max = maxN();
+  }
+
   function calc() {
     errEl.textContent = '';
     outEl.innerHTML = '';
-    var n = readN(), m = readM();
-    if (!isFinite(n) || n < 0 || n > 5000) { errEl.textContent = 'n 需要在 0～5000 之间。'; return; }
-    var kind = opEl.value;
-    if (kind !== '!') {
+    var n = readN(), m = readM(), kind = opEl.value, limit = maxN();
+    if (!isFinite(n) || n < 0 || n > limit) { errEl.textContent = 'n 需要在 0～' + limit + ' 之间。'; return; }
+    if (needsM()) {
       if (!isFinite(m) || m < 0 || m > n) { errEl.textContent = 'm 需要在 0～n 之间。'; return; }
-      if (kind === 'C') show('C(' + n + ', ' + m + ') =', C(n, m).toString());
-      else show('P(' + n + ', ' + m + ') =', P(n, m).toString());
-    } else {
-      show(n + '! =', fact(n).toString());
     }
+    var val;
+    if (kind === 'C') { val = C(n, m); show('C(' + n + ', ' + m + ') =', val.toString()); }
+    else if (kind === 'P') { val = P(n, m); show('P(' + n + ', ' + m + ') =', val.toString()); }
+    else if (kind === '!') { val = fact(n); show(n + '! =', val.toString()); }
+    else if (kind === 'S2') { val = S2(n, m); show('S(' + n + ', ' + m + ') =', val.toString()); }
+    else if (kind === 'S1') { val = S1(n, m); show('s(' + n + ', ' + m + ') =', val.toString()); }
+    else if (kind === 'B') { val = Bell(n); show('B(' + n + ') =', val.toString()); }
+    else if (kind === 'Cat') { val = Catalan(n); show('Cat(' + n + ') =', val.toString()); }
   }
 
-  opEl.addEventListener('change', function () {
-    mlabel.style.display = opEl.value === '!' ? 'none' : '';
-    calc();
-  });
+  opEl.addEventListener('change', function () { updateM(); calc(); });
   document.getElementById('calc').addEventListener('click', calc);
   document.querySelectorAll('.examples button').forEach(function (b) {
     b.addEventListener('click', function () {
+      opEl.value = b.getAttribute('data-op');
       nEl.value = b.getAttribute('data-n');
       mEl.value = b.getAttribute('data-m');
-      var isFact = b.textContent.indexOf('!') >= 0;
-      opEl.value = isFact ? '!' : (b.textContent.indexOf('P(') >= 0 ? 'P' : 'C');
-      mlabel.style.display = opEl.value === '!' ? 'none' : '';
+      updateM();
       calc();
     });
   });
 
+  updateM();
   calc();
 })();
 </script>
