@@ -140,6 +140,15 @@
   .tool-page #panel-matrix .mat input { width: 68px; }
   .tool-page #panel-prime input { min-width: 220px; }
 
+  /* 矩阵面板排版：运算选择独占一行，维度和按钮第二行，结果可横向滚动 */
+  .tool-page #panel-matrix .bar { row-gap: 10px; }
+  .tool-page #panel-matrix .bar > label:first-child { flex: 1 1 100%; }
+  .tool-page #panel-matrix .bar > label:first-child select { width: 100%; }
+  .tool-page #panel-matrix .bar label { white-space: nowrap; }
+  .tool-page #panel-matrix .mats { max-width: 100%; overflow-x: auto; padding-bottom: 4px; }
+  .tool-page #panel-matrix .out { max-width: 100%; overflow-x: auto; }
+  .tool-page #panel-matrix table { margin-left: auto; margin-right: auto; }
+
 </style>
 </head>
 <body class="page-tool">
