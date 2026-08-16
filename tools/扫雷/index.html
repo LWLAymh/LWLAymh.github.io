@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<title>扫雷 · LWLAymh的备忘录</title>
+<meta name="description" content="经典扫雷，三级难度，支持插旗与快速展开">
+<meta name="author" content="LWLAymh">
+<link rel="canonical" href="https://LWLAymh.github.io/tools/%E6%89%AB%E9%9B%B7/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LWLAymh的备忘录">
+<meta property="og:url" content="https://LWLAymh.github.io/tools/%E6%89%AB%E9%9B%B7/">
+<meta property="og:title" content="扫雷 · LWLAymh的备忘录">
+<meta property="og:description" content="经典扫雷，三级难度，支持插旗与快速展开">
+<link rel="icon" href="/images/favicon-32x32-next.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon-next.png">
+<link rel="stylesheet" href="/style.css">
+
+<style>
+  .tool-page, .tool-page * { box-sizing: border-box; }
+  .tool-page { width: 100%; padding: 4px 0 8px; text-align: center; }
+  .tool-page .back { color: var(--text-muted); text-decoration: none; font-size: .9rem; }
+  .tool-page .back:hover { color: var(--accent); }
+  .tool-page .card {
+    margin-top: 10px; background: var(--bg-elevated); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow-sm);
+  }
+  .tool-page h1 { margin: 4px 0 4px; font-size: 1.5rem; font-family: var(--font-serif); }
+  .tool-page .hint { color: var(--text-muted); margin: 0 0 14px; font-size: .9rem; }
+  .tool-page .bar { display: flex; justify-content: center; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; font-size: .9rem; }
+  .tool-page select, .tool-page button.act {
+    padding: 7px 12px; border: 1px solid var(--border); border-radius: 9px;
+    background: var(--bg); color: var(--text); cursor: pointer; font-size: .9rem;
+  }
+  .tool-page select:focus, .tool-page button.act:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .tool-page button.act.primary { border: 0; color: #fff; background: linear-gradient(135deg, var(--accent), var(--accent-deep)); }
+  .tool-page .status { min-height: 22px; margin: 4px 0 10px; color: var(--text-muted); font-size: .9rem; }
+  .tool-page .board {
+    display: grid; gap: 3px; width: fit-content; margin: 0 auto;
+    user-select: none; -webkit-user-select: none;
+  }
+  .tool-page .cell {
+    width: 30px; height: 30px; border: 1px solid var(--border); border-radius: 5px;
+    background: var(--bg); color: var(--text); font-weight: 700; font-size: .9rem;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background .08s ease;
+  }
+  .tool-page .cell.open { background: var(--accent-soft); cursor: default; }
+  .tool-page .cell.mine { background: #d9534f; }
+  .tool-page .cell.flag { background: var(--accent-soft); }
+  .tool-page .cell.wrong { background: #f08a8a; }
+</style>
+</head>
+<body class="page-tool">
+<div class="progress-bar" id="progress-bar"></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="/">
+      <img class="header-avatar avatar" src="/images/头像1.jpg" alt="avatar" data-avatar>
+      <span class="brand-text">
+        <span class="brand-title">LWLAymh的备忘录</span>
+        <span class="brand-subtitle">混乱节拍拼凑出血肉喧嚷</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link active" href="/tools.html">工具</a><a class="nav-link" href="/links.html">友链</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题"></button>
+    </nav>
+  </div>
+</header>
+<main class="site-main">
+<div class="tool-page">
+  <a class="back" href="/tools.html">← 全部工具</a>
+  <div class="card">
+    <h1>扫雷</h1>
+    <p class="hint">左键翻开，右键插旗；数字上左键可快速展开。</p>
+    <div class="bar">
+      <label>难度
+        <select id="level">
+          <option value="9,10">初级 9×9（10 雷）</option>
+          <option value="16,40">中级 16×16（40 雷）</option>
+          <option value="20,80">高级 20×20（80 雷）</option>
+        </select>
+      </label>
+      <button class="act primary" id="restart">重新开始</button>
+      <span>💣 <b id="mines">10</b></span>
+      <span>⏱ <b id="timer">0</b>s</span>
+    </div>
+    <div class="status" id="status">点击格子开始</div>
+    <div class="board" id="board"></div>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-signature" id="footer-signature">不过是白日梦里一瞬息</div>
+  <div class="footer-copy">© 2026 LWLAymh · Powered by DeepSeek V4 Pro</div>
+</footer>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="打开侧边栏" title="侧边栏">☰</button>
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+  <div class="sidebar-inner"><div class="toc-title">联系我</div><div class="contact-item"><span class="contact-key">微信</span><span class="contact-val">LWLAymh</span></div><div class="contact-item"><span class="contact-key">邮箱</span><a class="contact-val" href="mailto:lwlaymh@outlook.com">lwlaymh@outlook.com</a></div><div class="contact-item"><span class="contact-key">GitHub</span><a class="contact-val" href="https://github.com/LWLAymh" target="_blank" rel="noopener">github.com/LWLAymh</a></div><div class="contact-item"><span class="contact-key">Luogu</span><a class="contact-val" href="https://www.luogu.com.cn/user/661076" target="_blank" rel="noopener">Luogu 博客</a></div></div>
+</aside>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script src="/main.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var boardEl = document.getElementById('board');
+  var levelEl = document.getElementById('level');
+  var restartEl = document.getElementById('restart');
+  var minesEl = document.getElementById('mines');
+  var timerEl = document.getElementById('timer');
+  var statusEl = document.getElementById('status');
+
+  var rows, cols, mineCount, cells, revealed, flags, started, over, timerId, seconds;
+
+  function parseLevel() {
+    var parts = levelEl.value.split(',').map(Number);
+    return { rows: parts[0], cols: parts[0], mines: parts[1] };
+  }
+
+  function newGame() {
+    var lv = parseLevel();
+    rows = lv.rows; cols = lv.cols; mineCount = lv.mines;
+    cells = [];
+    revealed = 0; flags = 0; over = false; started = false; seconds = 0;
+    clearInterval(timerId);
+    timerEl.textContent = 0;
+    minesEl.textContent = mineCount;
+    statusEl.textContent = '点击格子开始';
+    for (var i = 0; i < rows * cols; i++) {
+      cells.push({ mine: false, adj: 0, open: false, flag: false });
+    }
+    render();
+  }
+
+  function render() {
+    boardEl.style.gridTemplateColumns = 'repeat(' + cols + ', 30px)';
+    boardEl.innerHTML = '';
+    for (var i = 0; i < cells.length; i++) {
+      var b = document.createElement('button');
+      b.className = 'cell';
+      b.setAttribute('data-i', i);
+      var c = cells[i];
+      if (c.open) {
+        b.classList.add('open');
+        if (c.mine) b.classList.add('mine');
+        else if (c.adj) {
+          b.textContent = c.adj;
+          var colors = ['', '#3a7bd5', '#2e8b57', '#d9534f', '#6f42c1', '#c49b1d', '#2aa9a0', '#7a4a8f', '#8a6d3b'];
+          b.style.color = colors[c.adj] || '#555';
+        }
+      } else if (c.flag) {
+        b.classList.add('flag');
+        b.textContent = '🚩';
+      }
+      b.addEventListener('click', function (e) { reveal(Number(this.getAttribute('data-i')), true); });
+      b.addEventListener('contextmenu', function (e) { e.preventDefault(); toggleFlag(Number(this.getAttribute('data-i'))); });
+      boardEl.appendChild(b);
+    }
+  }
+
+  function plantMines(safe) {
+    var positions = [];
+    for (var i = 0; i < cells.length; i++) if (i !== safe) positions.push(i);
+    for (var k = positions.length - 1; k > 0; k--) {
+      var j = Math.floor(Math.random() * (k + 1));
+      var t = positions[k]; positions[k] = positions[j]; positions[j] = t;
+    }
+    for (var m = 0; m < mineCount; m++) cells[positions[m]].mine = true;
+    for (var i = 0; i < cells.length; i++) {
+      if (cells[i].mine) continue;
+      var r = Math.floor(i / cols), col = i % cols, n = 0;
+      for (var dr = -1; dr <= 1; dr++) for (var dc = -1; dc <= 1; dc++) {
+        var rr = r + dr, cc = col + dc;
+        if (rr >= 0 && rr < rows && cc >= 0 && cc < cols && cells[rr * cols + cc].mine) n++;
+      }
+      cells[i].adj = n;
+    }
+  }
+
+  function startTimer() {
+    timerId = setInterval(function () { seconds++; timerEl.textContent = seconds; }, 1000);
+  }
+
+  function reveal(i, byClick) {
+    if (over || cells[i].flag) return;
+    if (!started) {
+      started = true;
+      plantMines(i);
+      startTimer();
+    }
+    var c = cells[i];
+    if (c.open) {
+      if (byClick && c.adj > 0) chord(i);
+      return;
+    }
+    if (c.mine) {
+      c.open = true;
+      over = true;
+      clearInterval(timerId);
+      statusEl.textContent = '💥 踩雷了，重新开始吧';
+      cells.forEach(function (x, idx) { if (x.mine) { x.open = true; } });
+      render();
+      return;
+    }
+    c.open = true;
+    revealed++;
+    if (c.adj === 0) flood(i);
+    if (revealed === cells.length - mineCount) {
+      over = true;
+      clearInterval(timerId);
+      statusEl.textContent = '🎉 赢了！用时 ' + seconds + ' 秒';
+    }
+    render();
+  }
+
+  function flood(i) {
+    var r = Math.floor(i / cols), col = i % cols;
+    for (var dr = -1; dr <= 1; dr++) for (var dc = -1; dc <= 1; dc++) {
+      var rr = r + dr, cc = col + dc;
+      if (rr < 0 || rr >= rows || cc < 0 || cc >= cols) continue;
+      var idx = rr * cols + cc;
+      if (!cells[idx].open && !cells[idx].flag && !cells[idx].mine) {
+        cells[idx].open = true;
+        revealed++;
+        if (cells[idx].adj === 0) flood(idx);
+      }
+    }
+  }
+
+  function toggleFlag(i) {
+    if (over || cells[i].open) return;
+    cells[i].flag = !cells[i].flag;
+    flags += cells[i].flag ? 1 : -1;
+    minesEl.textContent = Math.max(0, mineCount - flags);
+    render();
+  }
+
+  function chord(i) {
+    var r = Math.floor(i / cols), col = i % cols, count = 0;
+    for (var dr = -1; dr <= 1; dr++) for (var dc = -1; dc <= 1; dc++) {
+      var rr = r + dr, cc = col + dc;
+      if (rr >= 0 && rr < rows && cc >= 0 && cc < cols && cells[rr * cols + cc].flag) count++;
+    }
+    if (count === cells[i].adj) {
+      for (dr = -1; dr <= 1; dr++) for (dc = -1; dc <= 1; dc++) {
+        rr = r + dr; cc = col + dc;
+        if (rr >= 0 && rr < rows && cc >= 0 && cc < cols && !cells[rr * cols + cc].open && !cells[rr * cols + cc].flag) reveal(rr * cols + cc, false);
+      }
+    }
+  }
+
+  restartEl.addEventListener('click', newGame);
+  levelEl.addEventListener('change', newGame);
+  newGame();
+})();
+</script>
+</body>
+</html>

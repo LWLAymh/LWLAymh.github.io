@@ -1,0 +1,5 @@
+{
+  "title": "组合数计算器",
+  "description": "C(n,m)、P(n,m)、n! 的 BigInt 精确计算，支持到 5000",
+  "order": 7
+}

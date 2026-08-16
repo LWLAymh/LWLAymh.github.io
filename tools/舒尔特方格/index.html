@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<title>舒尔特方格 · LWLAymh的备忘录</title>
+<meta name="description" content="可自定义 n×m，数字颜色/大小/方向随机，按顺序点完计时">
+<meta name="author" content="LWLAymh">
+<link rel="canonical" href="https://LWLAymh.github.io/tools/%E8%88%92%E5%B0%94%E7%89%B9%E6%96%B9%E6%A0%BC/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LWLAymh的备忘录">
+<meta property="og:url" content="https://LWLAymh.github.io/tools/%E8%88%92%E5%B0%94%E7%89%B9%E6%96%B9%E6%A0%BC/">
+<meta property="og:title" content="舒尔特方格 · LWLAymh的备忘录">
+<meta property="og:description" content="可自定义 n×m，数字颜色/大小/方向随机，按顺序点完计时">
+<link rel="icon" href="/images/favicon-32x32-next.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon-next.png">
+<link rel="stylesheet" href="/style.css">
+
+<style>
+  .tool-page, .tool-page * { box-sizing: border-box; }
+  .tool-page { width: 100%; padding: 4px 0 8px; text-align: center; }
+  .tool-page .back { color: var(--text-muted); text-decoration: none; font-size: .9rem; }
+  .tool-page .back:hover { color: var(--accent); }
+  .tool-page .card {
+    margin-top: 10px; background: var(--bg-elevated); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow-sm);
+  }
+  .tool-page h1 { margin: 4px 0 8px; font-size: 1.5rem; font-family: var(--font-serif); }
+  .tool-page .hint { color: var(--text-muted); margin: 0 0 14px; font-size: .9rem; }
+  .tool-page .bar { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; align-items: end; margin-bottom: 12px; }
+  .tool-page label { display: flex; flex-direction: column; gap: 4px; font-size: .85rem; color: var(--text-muted); }
+  .tool-page input { width: 90px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 9px; background: var(--bg); color: var(--text); font-size: 1rem; outline: none; }
+  .tool-page input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+  .tool-page button {
+    padding: 9px 18px; border: 0; border-radius: 9px; cursor: pointer; font-size: .95rem; color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  }
+  .tool-page .status { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; font-size: .9rem; color: var(--text-muted); }
+  .tool-page .status b { color: var(--accent); }
+  .tool-page .board-wrap { overflow-x: auto; padding: 4px; }
+  .tool-page .board { display: grid; gap: 6px; width: fit-content; margin: 0 auto; }
+  .tool-page .cell {
+    width: 54px; height: 54px; display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--border); border-radius: 10px; background: var(--bg);
+    cursor: pointer; user-select: none; -webkit-user-select: none;
+    transition: opacity .12s ease, transform .12s ease;
+  }
+  .tool-page .cell span { display: inline-block; font-weight: 700; }
+  .tool-page .cell.done { opacity: .18; cursor: default; }
+  .tool-page .cell.wrong { animation: shake .25s ease; border-color: #d9534f; background: rgba(217,83,79,.12); }
+  @keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+</style>
+</head>
+<body class="page-tool">
+<div class="progress-bar" id="progress-bar"></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="/">
+      <img class="header-avatar avatar" src="/images/头像1.jpg" alt="avatar" data-avatar>
+      <span class="brand-text">
+        <span class="brand-title">LWLAymh的备忘录</span>
+        <span class="brand-subtitle">混乱节拍拼凑出血肉喧嚷</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link active" href="/tools.html">工具</a><a class="nav-link" href="/links.html">友链</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题"></button>
+    </nav>
+  </div>
+</header>
+<main class="site-main">
+<div class="tool-page">
+  <a class="back" href="/tools.html">← 全部工具</a>
+  <div class="card">
+    <h1>舒尔特方格</h1>
+    <p class="hint">从 1 开始按顺序点，直到 n×m。数字的颜色、大小、方向每次都会随机。</p>
+    <div class="bar">
+      <label>行数 n <input id="rows" type="number" min="1" max="12" value="5"></label>
+      <label>列数 m <input id="cols" type="number" min="1" max="12" value="5"></label>
+      <button id="start">开始 / 重新开始</button>
+    </div>
+    <div class="status">
+      <span>下一个：<b id="next">1</b></span>
+      <span>用时：<b id="time">0.0</b>s</span>
+      <span>错误：<b id="wrong">0</b></span>
+      <span>本尺寸最佳：<b id="best">—</b></span>
+    </div>
+    <div class="board-wrap"><div class="board" id="board"></div></div>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-signature" id="footer-signature">不过是白日梦里一瞬息</div>
+  <div class="footer-copy">© 2026 LWLAymh · Powered by DeepSeek V4 Pro</div>
+</footer>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="打开侧边栏" title="侧边栏">☰</button>
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+  <div class="sidebar-inner"><div class="toc-title">联系我</div><div class="contact-item"><span class="contact-key">微信</span><span class="contact-val">LWLAymh</span></div><div class="contact-item"><span class="contact-key">邮箱</span><a class="contact-val" href="mailto:lwlaymh@outlook.com">lwlaymh@outlook.com</a></div><div class="contact-item"><span class="contact-key">GitHub</span><a class="contact-val" href="https://github.com/LWLAymh" target="_blank" rel="noopener">github.com/LWLAymh</a></div><div class="contact-item"><span class="contact-key">Luogu</span><a class="contact-val" href="https://www.luogu.com.cn/user/661076" target="_blank" rel="noopener">Luogu 博客</a></div></div>
+</aside>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script src="/main.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var rowsEl = document.getElementById('rows');
+  var colsEl = document.getElementById('cols');
+  var startEl = document.getElementById('start');
+  var boardEl = document.getElementById('board');
+  var nextEl = document.getElementById('next');
+  var timeEl = document.getElementById('time');
+  var wrongEl = document.getElementById('wrong');
+  var bestEl = document.getElementById('best');
+
+  var COLORS = ['#3a7bd5', '#2e8b57', '#d9534f', '#6f42c1', '#c49b1d', '#2aa9a0', '#7a4a8f', '#e0863a', '#0f766e', '#db2777', '#2563eb', '#b45309'];
+  var rows, cols, order, next, wrongCount, startTs, timerId, started, done;
+
+  function safeGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function safeSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+
+  function sizeKey() { return 'schulte-best-' + rows + 'x' + cols; }
+
+  function newGame() {
+    rows = Math.min(12, Math.max(1, parseInt(rowsEl.value, 10) || 5));
+    cols = Math.min(12, Math.max(1, parseInt(colsEl.value, 10) || 5));
+    rowsEl.value = rows; colsEl.value = cols;
+    var total = rows * cols;
+    order = [];
+    for (var i = 1; i <= total; i++) order.push(i);
+    for (var k = order.length - 1; k > 0; k--) {
+      var j = Math.floor(Math.random() * (k + 1));
+      var t = order[k]; order[k] = order[j]; order[j] = t;
+    }
+    next = 1;
+    wrongCount = 0;
+    done = false;
+    started = false;
+    clearInterval(timerId);
+    nextEl.textContent = next;
+    wrongEl.textContent = 0;
+    timeEl.textContent = '0.0';
+    bestEl.textContent = safeGet(sizeKey()) || '—';
+    render();
+  }
+
+  function render() {
+    boardEl.style.gridTemplateColumns = 'repeat(' + cols + ', 54px)';
+    boardEl.innerHTML = '';
+    for (var i = 0; i < order.length; i++) {
+      var cell = document.createElement('div');
+      cell.className = 'cell';
+      cell.setAttribute('data-n', order[i]);
+      var span = document.createElement('span');
+      span.textContent = order[i];
+      span.style.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+      span.style.fontSize = (16 + Math.floor(Math.random() * 18)) + 'px';
+      span.style.transform = 'rotate(' + (Math.floor(Math.random() * 61) - 30) + 'deg)';
+      cell.appendChild(span);
+      cell.addEventListener('click', function () { clickCell(this); });
+      boardEl.appendChild(cell);
+    }
+  }
+
+  function elapsed() { return ((Date.now() - startTs) / 1000).toFixed(1); }
+
+  function tick() { timeEl.textContent = elapsed(); }
+
+  function clickCell(cell) {
+    if (done) return;
+    var n = Number(cell.getAttribute('data-n'));
+    if (!started) { started = true; startTs = Date.now(); timerId = setInterval(tick, 100); }
+    if (n === next) {
+      cell.classList.add('done');
+      next++;
+      nextEl.textContent = next;
+      if (next > rows * cols) {
+        done = true;
+        clearInterval(timerId);
+        timeEl.textContent = elapsed();
+        var old = safeGet(sizeKey());
+        if (!old || parseFloat(old) > parseFloat(timeEl.textContent)) {
+          safeSet(sizeKey(), timeEl.textContent);
+          bestEl.textContent = timeEl.textContent + '（新纪录）';
+        } else {
+          bestEl.textContent = old;
+        }
+      }
+    } else {
+      wrongCount++;
+      wrongEl.textContent = wrongCount;
+      cell.classList.add('wrong');
+      setTimeout(function () { cell.classList.remove('wrong'); }, 260);
+    }
+  }
+
+  startEl.addEventListener('click', newGame);
+  newGame();
+})();
+</script>
+</body>
+</html>

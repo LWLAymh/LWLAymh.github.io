@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<title>俄罗斯方块 · LWLAymh的备忘录</title>
+<meta name="description" content="经典下落消除，支持下一个预览、等级加速与暂停">
+<meta name="author" content="LWLAymh">
+<link rel="canonical" href="https://LWLAymh.github.io/tools/%E4%BF%84%E7%BD%97%E6%96%AF%E6%96%B9%E5%9D%97/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LWLAymh的备忘录">
+<meta property="og:url" content="https://LWLAymh.github.io/tools/%E4%BF%84%E7%BD%97%E6%96%AF%E6%96%B9%E5%9D%97/">
+<meta property="og:title" content="俄罗斯方块 · LWLAymh的备忘录">
+<meta property="og:description" content="经典下落消除，支持下一个预览、等级加速与暂停">
+<link rel="icon" href="/images/favicon-32x32-next.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon-next.png">
+<link rel="stylesheet" href="/style.css">
+
+<style>
+  .tool-page, .tool-page * { box-sizing: border-box; }
+  .tool-page { width: 100%; padding: 4px 0 8px; text-align: center; }
+  .tool-page .back { color: var(--text-muted); text-decoration: none; font-size: .9rem; }
+  .tool-page .back:hover { color: var(--accent); }
+  .tool-page .card {
+    margin-top: 10px; background: var(--bg-elevated); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow-sm);
+  }
+  .tool-page h1 { margin: 4px 0 4px; font-size: 1.5rem; font-family: var(--font-serif); }
+  .tool-page .hint { color: var(--text-muted); margin: 0 0 14px; font-size: .9rem; }
+  .tool-page .wrap { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+  .tool-page .left { text-align: center; }
+  .tool-page .scores { display: flex; gap: 10px; justify-content: center; margin-bottom: 10px; font-size: .85rem; }
+  .tool-page .scores b { color: var(--accent); }
+  .tool-page canvas { border-radius: 10px; background: #14171d; display: block; }
+  .tool-page .side { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+  .tool-page .next-box { border: 1px solid var(--border); border-radius: 10px; background: var(--bg); padding: 10px; font-size: .85rem; color: var(--text-muted); }
+  .tool-page .controls { display: grid; grid-template-columns: repeat(3, 42px); gap: 6px; }
+  .tool-page .controls button {
+    height: 38px; border: 1px solid var(--border); border-radius: 9px; background: var(--bg);
+    color: var(--text); cursor: pointer; font-size: 1rem;
+  }
+  .tool-page .controls button:hover { color: var(--accent); border-color: var(--accent); }
+  .tool-page button.act { padding: 8px 16px; border: 0; border-radius: 9px; color: #fff; cursor: pointer;
+    background: linear-gradient(135deg, var(--accent), var(--accent-deep)); }
+</style>
+</head>
+<body class="page-tool">
+<div class="progress-bar" id="progress-bar"></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="/">
+      <img class="header-avatar avatar" src="/images/头像1.jpg" alt="avatar" data-avatar>
+      <span class="brand-text">
+        <span class="brand-title">LWLAymh的备忘录</span>
+        <span class="brand-subtitle">混乱节拍拼凑出血肉喧嚷</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link active" href="/tools.html">工具</a><a class="nav-link" href="/links.html">友链</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题"></button>
+    </nav>
+  </div>
+</header>
+<main class="site-main">
+<div class="tool-page">
+  <a class="back" href="/tools.html">← 全部工具</a>
+  <div class="card">
+    <h1>俄罗斯方块</h1>
+    <p class="hint">← → 移动，↑ 旋转，↓ 加速，空格直接落下；P 暂停。</p>
+    <div class="wrap">
+      <div class="left">
+        <div class="scores"><span>分数 <b id="score">0</b></span><span>等级 <b id="level">1</b></span><span>行数 <b id="lines">0</b></span><span>最高 <b id="best">0</b></span></div>
+        <div style="position:relative">
+          <canvas id="board" width="300" height="600"></canvas>
+          <div id="overlay" style="position:absolute;inset:0;display:none;flex-direction:column;gap:8px;align-items:center;justify-content:center;background:rgba(14,16,21,.72);color:#fff;border-radius:10px">
+            <span id="overlay-text">游戏结束</span>
+            <button class="act" id="restart">再来一局</button>
+          </div>
+        </div>
+      </div>
+      <div class="side">
+        <div class="next-box">下一个<canvas id="next" width="120" height="120"></canvas></div>
+        <button class="act" id="new-btn">新游戏</button>
+        <div class="controls">
+          <span></span><button data-a="rot">↑</button><span></span>
+          <button data-a="left">←</button><button data-a="down">↓</button><button data-a="right">→</button>
+          <span></span><button data-a="drop">⤓</button><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-signature" id="footer-signature">不过是白日梦里一瞬息</div>
+  <div class="footer-copy">© 2026 LWLAymh · Powered by DeepSeek V4 Pro</div>
+</footer>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="打开侧边栏" title="侧边栏">☰</button>
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+  <div class="sidebar-inner"><div class="toc-title">联系我</div><div class="contact-item"><span class="contact-key">微信</span><span class="contact-val">LWLAymh</span></div><div class="contact-item"><span class="contact-key">邮箱</span><a class="contact-val" href="mailto:lwlaymh@outlook.com">lwlaymh@outlook.com</a></div><div class="contact-item"><span class="contact-key">GitHub</span><a class="contact-val" href="https://github.com/LWLAymh" target="_blank" rel="noopener">github.com/LWLAymh</a></div><div class="contact-item"><span class="contact-key">Luogu</span><a class="contact-val" href="https://www.luogu.com.cn/user/661076" target="_blank" rel="noopener">Luogu 博客</a></div></div>
+</aside>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script src="/main.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var COLS = 10, ROWS = 20, CELL = 30;
+  var board = [], piece = null, next = null, score = 0, lines = 0, level = 1;
+  var timer = null, paused = false, over = false, best = 0;
+
+  var canvas = document.getElementById('board');
+  var ctx = canvas.getContext('2d');
+  var nextCanvas = document.getElementById('next');
+  var nctx = nextCanvas.getContext('2d');
+  var scoreEl = document.getElementById('score');
+  var levelEl = document.getElementById('level');
+  var linesEl = document.getElementById('lines');
+  var bestEl = document.getElementById('best');
+  var overlay = document.getElementById('overlay');
+  var overlayText = document.getElementById('overlay-text');
+
+  function safeGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function safeSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  best = parseInt(safeGet('tetris-best') || '0', 10) || 0;
+  bestEl.textContent = best;
+
+  var SHAPES = {
+    I: [[0,0,0,0],[1,1,1,1],[0,0,0,0],[0,0,0,0]],
+    J: [[1,0,0],[1,1,1],[0,0,0]],
+    L: [[0,0,1],[1,1,1],[0,0,0]],
+    O: [[1,1],[1,1]],
+    S: [[0,1,1],[1,1,0],[0,0,0]],
+    T: [[0,1,0],[1,1,1],[0,0,0]],
+    Z: [[1,1,0],[0,1,1],[0,0,0]],
+  };
+  var COLORS = { I:'#22c1c3', J:'#4a7db5', L:'#e0863a', O:'#e8c84c', S:'#58b368', T:'#9b6fd1', Z:'#e05d6f' };
+  var KEYS = ['I','J','L','O','S','T','Z'];
+
+  function emptyBoard() {
+    board = [];
+    for (var r = 0; r < ROWS; r++) board.push(new Array(COLS).fill(0));
+  }
+
+  function randPiece() {
+    var k = KEYS[Math.floor(Math.random() * KEYS.length)];
+    var m = SHAPES[k].map(function (row) { return row.slice(); });
+    return { type: k, m: m, x: Math.floor((COLS - m[0].length) / 2), y: 0 };
+  }
+
+  function rotate(m) {
+    var n = m.length;
+    var out = m.map(function (row) { return row.slice(); });
+    for (var r = 0; r < n; r++) for (var c = 0; c < n; c++) out[c][n - 1 - r] = m[r][c];
+    return out;
+  }
+
+  function collide(p, dx, dy, pm) {
+    for (var r = 0; r < pm.length; r++) {
+      for (var c = 0; c < pm[r].length; c++) {
+        if (!pm[r][c]) continue;
+        var x = p.x + c + dx, y = p.y + r + dy;
+        if (x < 0 || x >= COLS || y >= ROWS) return true;
+        if (y >= 0 && board[y][x]) return true;
+      }
+    }
+    return false;
+  }
+
+  function lock() {
+    for (var r = 0; r < piece.m.length; r++) for (var c = 0; c < piece.m[r].length; c++) {
+      if (!piece.m[r][c]) continue;
+      var y = piece.y + r, x = piece.x + c;
+      if (y < 0) { gameOver(); return; }
+      board[y][x] = piece.type;
+    }
+    var cleared = 0;
+    for (var row = ROWS - 1; row >= 0; row--) {
+      if (board[row].every(function (v) { return v !== 0; })) {
+        board.splice(row, 1);
+        board.unshift(new Array(COLS).fill(0));
+        cleared++;
+        row++;
+      }
+    }
+    if (cleared) {
+      var gains = [0, 100, 300, 500, 800];
+      score += gains[Math.min(cleared, 4)] * level;
+      lines += cleared;
+      level = Math.floor(lines / 10) + 1;
+      updateInfo();
+      restartTimer();
+    }
+    spawn();
+    draw();
+  }
+
+  function spawn() {
+    piece = next || randPiece();
+    next = randPiece();
+    if (collide(piece, 0, 0, piece.m)) gameOver();
+    drawNext();
+  }
+
+  function gameOver() {
+    over = true;
+    stopTimer();
+    if (score > best) { best = score; safeSet('tetris-best', String(best)); bestEl.textContent = best; }
+    overlayText.textContent = '游戏结束，得分 ' + score;
+    overlay.style.display = 'flex';
+  }
+
+  function start() {
+    emptyBoard();
+    score = 0; lines = 0; level = 1; over = false; paused = false;
+    overlay.style.display = 'none';
+    updateInfo();
+    next = null;
+    spawn();
+    draw();
+    restartTimer();
+  }
+
+  function interval() { return Math.max(80, 400 - (level - 1) * 30); }
+  function restartTimer() { stopTimer(); if (!over) timer = setInterval(tick, interval()); }
+  function stopTimer() { if (timer) { clearInterval(timer); timer = null; } }
+
+  function tick() {
+    if (paused || over) return;
+    if (!collide(piece, 0, 1, piece.m)) { piece.y++; draw(); }
+    else lock();
+  }
+
+  function updateInfo() {
+    scoreEl.textContent = score;
+    levelEl.textContent = level;
+    linesEl.textContent = lines;
+    if (score > best) { best = score; safeSet('tetris-best', String(best)); bestEl.textContent = best; }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = 'rgba(255,255,255,.04)';
+    for (var x = 1; x < COLS; x++) { ctx.beginPath(); ctx.moveTo(x * CELL, 0); ctx.lineTo(x * CELL, canvas.height); ctx.stroke(); }
+    for (var y = 1; y < ROWS; y++) { ctx.beginPath(); ctx.moveTo(0, y * CELL); ctx.lineTo(canvas.width, y * CELL); ctx.stroke(); }
+    function drawBlock(r, c, color) {
+      ctx.fillStyle = color;
+      ctx.fillRect(c * CELL + 1, r * CELL + 1, CELL - 2, CELL - 2);
+    }
+    for (var r = 0; r < ROWS; r++) for (var c = 0; c < COLS; c++) if (board[r][c]) drawBlock(r, c, COLORS[board[r][c]]);
+    if (piece && !over) for (r = 0; r < piece.m.length; r++) for (c = 0; c < piece.m[r].length; c++) {
+      if (piece.m[r][c]) {
+        var yy = piece.y + r;
+        if (yy >= 0) drawBlock(yy, piece.x + c, COLORS[piece.type]);
+      }
+    }
+  }
+
+  function drawNext() {
+    nctx.clearRect(0, 0, nextCanvas.width, nextCanvas.height);
+    if (!next) return;
+    var cell = 26;
+    var m = next.m;
+    var offX = (nextCanvas.width - m[0].length * cell) / 2;
+    var offY = (nextCanvas.height - m.length * cell) / 2;
+    for (var r = 0; r < m.length; r++) for (var c = 0; c < m[r].length; c++) {
+      if (m[r][c]) {
+        nctx.fillStyle = COLORS[next.type];
+        nctx.fillRect(offX + c * cell + 1, offY + r * cell + 1, cell - 2, cell - 2);
+      }
+    }
+  }
+
+  function action(a) {
+    if (over || paused) return;
+    if (a === 'left' && !collide(piece, -1, 0, piece.m)) piece.x--;
+    else if (a === 'right' && !collide(piece, 1, 0, piece.m)) piece.x++;
+    else if (a === 'down') { if (!collide(piece, 0, 1, piece.m)) piece.y++; }
+    else if (a === 'rot') { var rm = rotate(piece.m); if (!collide(piece, 0, 0, rm)) piece.m = rm; }
+    else if (a === 'drop') { while (!collide(piece, 0, 1, piece.m)) piece.y++; lock(); return; }
+    draw();
+  }
+
+  document.getElementById('new-btn').addEventListener('click', start);
+  document.getElementById('restart').addEventListener('click', start);
+  document.querySelectorAll('.controls button[data-a]').forEach(function (b) {
+    b.addEventListener('click', function () { action(b.getAttribute('data-a')); });
+  });
+  document.addEventListener('keydown', function (e) {
+    var k = e.key;
+    if (['ArrowLeft','ArrowRight','ArrowDown','ArrowUp',' '].indexOf(k) >= 0) e.preventDefault();
+    if (k === 'ArrowLeft' || k === 'a' || k === 'A') action('left');
+    else if (k === 'ArrowRight' || k === 'd' || k === 'D') action('right');
+    else if (k === 'ArrowDown' || k === 's' || k === 'S') action('down');
+    else if (k === 'ArrowUp' || k === 'w' || k === 'W') action('rot');
+    else if (k === ' ') action('drop');
+    else if (k === 'p' || k === 'P') {
+      paused = !paused;
+      overlayText.textContent = '已暂停';
+      overlay.style.display = paused ? 'flex' : 'none';
+    }
+  });
+
+  start();
+})();
+</script>
+</body>
+</html>

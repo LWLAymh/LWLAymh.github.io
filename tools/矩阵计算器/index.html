@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<title>矩阵计算器 · LWLAymh的备忘录</title>
+<meta name="description" content="矩阵乘加、转置、行列式与逆矩阵，全程精确分数运算">
+<meta name="author" content="LWLAymh">
+<link rel="canonical" href="https://LWLAymh.github.io/tools/%E7%9F%A9%E9%98%B5%E8%AE%A1%E7%AE%97%E5%99%A8/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LWLAymh的备忘录">
+<meta property="og:url" content="https://LWLAymh.github.io/tools/%E7%9F%A9%E9%98%B5%E8%AE%A1%E7%AE%97%E5%99%A8/">
+<meta property="og:title" content="矩阵计算器 · LWLAymh的备忘录">
+<meta property="og:description" content="矩阵乘加、转置、行列式与逆矩阵，全程精确分数运算">
+<link rel="icon" href="/images/favicon-32x32-next.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon-next.png">
+<link rel="stylesheet" href="/style.css">
+
+<style>
+  .tool-page, .tool-page * { box-sizing: border-box; }
+  .tool-page { width: 100%; padding: 4px 0 8px; }
+  .tool-page .back { color: var(--text-muted); text-decoration: none; font-size: .9rem; }
+  .tool-page .back:hover { color: var(--accent); }
+  .tool-page .card {
+    margin-top: 10px; background: var(--bg-elevated); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow-sm);
+  }
+  .tool-page h1 { margin: 4px 0 8px; font-size: 1.5rem; font-family: var(--font-serif); }
+  .tool-page .hint { color: var(--text-muted); margin: 0 0 16px; font-size: .9rem; }
+  .tool-page .bar { display: flex; gap: 10px; flex-wrap: wrap; align-items: end; margin-bottom: 14px; }
+  .tool-page label { display: flex; flex-direction: column; gap: 4px; font-size: .85rem; color: var(--text-muted); }
+  .tool-page select, .tool-page input {
+    padding: 8px 10px; border: 1px solid var(--border); border-radius: 9px;
+    background: var(--bg); color: var(--text); font-size: .95rem; outline: none;
+  }
+  .tool-page input:focus, .tool-page select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+  .tool-page button {
+    padding: 9px 16px; border: 0; border-radius: 9px; cursor: pointer; font-size: .95rem; color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  }
+  .tool-page button.ghost { border: 1px solid var(--border); color: var(--text); background: var(--bg); }
+  .tool-page .mats { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
+  .tool-page .mat { display: grid; gap: 6px; }
+  .tool-page .mat input { width: 70px; text-align: center; }
+  .tool-page .mat-title { font-size: .9rem; color: var(--text-muted); margin: 0 0 6px; }
+  .tool-page .out { margin-top: 18px; overflow-x: auto; }
+  .tool-page table { border-collapse: collapse; margin: 8px 0; }
+  .tool-page td {
+    min-width: 64px; padding: 7px 10px; text-align: center; font-size: .95rem;
+    border: 1px solid var(--border); background: var(--bg);
+  }
+  .tool-page .out-title { color: var(--text-muted); font-size: .9rem; margin: 0 0 4px; }
+  .tool-page .err { color: #d9534f; min-height: 20px; margin-top: 10px; font-size: .9rem; }
+</style>
+</head>
+<body class="page-tool">
+<div class="progress-bar" id="progress-bar"></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="/">
+      <img class="header-avatar avatar" src="/images/头像1.jpg" alt="avatar" data-avatar>
+      <span class="brand-text">
+        <span class="brand-title">LWLAymh的备忘录</span>
+        <span class="brand-subtitle">混乱节拍拼凑出血肉喧嚷</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link active" href="/tools.html">工具</a><a class="nav-link" href="/links.html">友链</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题"></button>
+    </nav>
+  </div>
+</header>
+<main class="site-main">
+<div class="tool-page">
+  <a class="back" href="/tools.html">← 全部工具</a>
+  <div class="card">
+    <h1>矩阵计算器</h1>
+    <p class="hint">支持分数输入（如 1/2、-3/4、0.5），结果以精确分数显示。</p>
+    <div class="bar">
+      <label>运算
+        <select id="op">
+          <option value="mul">矩阵乘法 A × B</option>
+          <option value="add">矩阵加法 A + B</option>
+          <option value="det">行列式 det(A)</option>
+          <option value="inv">逆矩阵 A⁻¹</option>
+          <option value="transpose">转置 Aᵀ</option>
+        </select>
+      </label>
+      <label id="d1l">A 行数 <input id="d1" type="number" min="1" max="6" value="2"></label>
+      <label id="d2l">A 列数 <input id="d2" type="number" min="1" max="6" value="2"></label>
+      <label id="d3l" style="display:none">B 列数 <input id="d3" type="number" min="1" max="6" value="2"></label>
+      <button id="gen">生成</button>
+      <button class="ghost" id="sample">随机示例</button>
+      <button class="ghost" id="calc">计算</button>
+    </div>
+    <div class="mats" id="mats"></div>
+    <div class="out" id="out"></div>
+    <p class="err" id="err"></p>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-signature" id="footer-signature">不过是白日梦里一瞬息</div>
+  <div class="footer-copy">© 2026 LWLAymh · Powered by DeepSeek V4 Pro</div>
+</footer>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="打开侧边栏" title="侧边栏">☰</button>
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+  <div class="sidebar-inner"><div class="toc-title">联系我</div><div class="contact-item"><span class="contact-key">微信</span><span class="contact-val">LWLAymh</span></div><div class="contact-item"><span class="contact-key">邮箱</span><a class="contact-val" href="mailto:lwlaymh@outlook.com">lwlaymh@outlook.com</a></div><div class="contact-item"><span class="contact-key">GitHub</span><a class="contact-val" href="https://github.com/LWLAymh" target="_blank" rel="noopener">github.com/LWLAymh</a></div><div class="contact-item"><span class="contact-key">Luogu</span><a class="contact-val" href="https://www.luogu.com.cn/user/661076" target="_blank" rel="noopener">Luogu 博客</a></div></div>
+</aside>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script src="/main.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var opEl = document.getElementById('op');
+  var d1El = document.getElementById('d1'), d2El = document.getElementById('d2'), d3El = document.getElementById('d3');
+  var d1l = document.getElementById('d1l'), d2l = document.getElementById('d2l'), d3l = document.getElementById('d3l');
+  var matsEl = document.getElementById('mats'), outEl = document.getElementById('out'), errEl = document.getElementById('err');
+
+  /* ---- 分数（BigInt） ---- */
+  function gcd(a, b) { a = a < 0n ? -a : a; b = b < 0n ? -b : b; while (b) { var t = a % b; a = b; b = t; } return a; }
+  function fr(n, d) {
+    if (d === 0n) throw new Error('除以 0');
+    if (d < 0n) { n = -n; d = -d; }
+    var g = gcd(n, d);
+    return { n: n / g, d: d / g };
+  }
+  function fadd(a, b) { return fr(a.n * b.d + b.n * a.d, a.d * b.d); }
+  function fsub(a, b) { return fr(a.n * b.d - b.n * a.d, a.d * b.d); }
+  function fmul(a, b) { return fr(a.n * b.n, a.d * b.d); }
+  function fdiv(a, b) { return fr(a.n * b.d, a.d * b.n); }
+  function fzero(a) { return a.n === 0n; }
+  function fstr(a) { return a.d === 1n ? String(a.n) : a.n + '/' + a.d; }
+
+  function parseFrac(s) {
+    var t = s.trim();
+    if (!t) return fr(0n, 1n);
+    var neg = false;
+    if (t[0] === '-') { neg = true; t = t.slice(1); }
+    else if (t[0] === '+') { t = t.slice(1); }
+    var n, d = 1n;
+    if (t.indexOf('/') >= 0) {
+      var p = t.split('/');
+      n = BigInt(p[0] || '0'); d = BigInt(p[1] || '1');
+    } else if (t.indexOf('.') >= 0) {
+      var q = t.split('.');
+      var dec = q[1] || '';
+      var scale = 10n ** BigInt(dec.length);
+      n = BigInt((q[0] || '0') + (dec || '0'));
+      d = scale;
+      if (neg) n = -n;
+      return fr(n, d);
+    } else {
+      n = BigInt(t || '0');
+    }
+    if (neg) n = -n;
+    return fr(n, d);
+  }
+
+  function opName() { return opEl.value; }
+  function dims() {
+    var a = { rows: clamp(d1El.value), cols: clamp(d2El.value) };
+    var kind = opName();
+    if (kind === 'det' || kind === 'inv') {
+      if (a.rows !== a.cols) throw new Error('行列式 / 逆矩阵要求方阵（行数 = 列数）。');
+    }
+    if (kind === 'add') {
+      // A 与 B 同型，B 行/列同 A
+    }
+    return a;
+  }
+  function clamp(v) { v = parseInt(v, 10); if (!isFinite(v) || v < 1) v = 1; if (v > 6) v = 6; return v; }
+
+  function updateLabels() {
+    var kind = opName();
+    if (kind === 'mul') {
+      d1l.childNodes[0].textContent = 'A 行数 ';
+      d2l.childNodes[0].textContent = 'A 列数 (= B 行数) ';
+      d2l.style.display = '';
+      d3l.style.display = '';
+    } else if (kind === 'add') {
+      d1l.childNodes[0].textContent = '行数 ';
+      d2l.childNodes[0].textContent = '列数 ';
+      d2l.style.display = '';
+      d3l.style.display = 'none';
+    } else if (kind === 'det' || kind === 'inv') {
+      d1l.childNodes[0].textContent = '阶数 n ';
+      d2l.style.display = 'none';
+      d3l.style.display = 'none';
+    } else {
+      d1l.childNodes[0].textContent = '行数 ';
+      d2l.childNodes[0].textContent = '列数 ';
+      d2l.style.display = '';
+      d3l.style.display = 'none';
+    }
+  }
+
+  function matrixInputs() {
+    var kind = opName();
+    var a = { rows: clamp(d1El.value), cols: (kind === 'det' || kind === 'inv') ? clamp(d1El.value) : clamp(d2El.value) };
+    matsEl.innerHTML = '';
+    var defs = [];
+    if (kind === 'add') {
+      defs.push({ name: 'A', rows: a.rows, cols: a.cols });
+      defs.push({ name: 'B', rows: a.rows, cols: a.cols });
+    } else if (kind === 'mul') {
+      defs.push({ name: 'A', rows: a.rows, cols: a.cols });
+      defs.push({ name: 'B', rows: a.cols, cols: clamp(d3El.value) });
+    } else {
+      defs.push({ name: 'A', rows: a.rows, cols: a.cols });
+    }
+    defs.forEach(function (def) {
+      var div = document.createElement('div');
+      div.className = 'mat';
+      var title = document.createElement('p');
+      title.className = 'mat-title';
+      title.textContent = def.name + '（' + def.rows + '×' + def.cols + '）';
+      div.appendChild(title);
+      div.style.gridTemplateColumns = 'repeat(' + def.cols + ', 70px)';
+      for (var r = 0; r < def.rows; r++) for (var c = 0; c < def.cols; c++) {
+        var input = document.createElement('input');
+        input.setAttribute('data-mat', def.name);
+        input.setAttribute('data-r', r);
+        input.setAttribute('data-c', c);
+        input.value = '0';
+        div.appendChild(input);
+      }
+      matsEl.appendChild(div);
+    });
+  }
+
+  function fillSample() {
+    matsEl.querySelectorAll('input').forEach(function (input) {
+      input.value = String(Math.floor(Math.random() * 7) - 3);
+    });
+  }
+
+  function readMatrix(name, rows, cols) {
+    var m = [];
+    for (var r = 0; r < rows; r++) {
+      var row = [];
+      for (var c = 0; c < cols; c++) {
+        var input = matsEl.querySelector('input[data-mat="' + name + '"][data-r="' + r + '"][data-c="' + c + '"]');
+        if (!input) throw new Error('找不到矩阵元素 ' + name);
+        row.push(parseFrac(input.value));
+      }
+      m.push(row);
+    }
+    return m;
+  }
+
+  function matrices() {
+    var kind = opName();
+    var rows = clamp(d1El.value), cols = (kind === 'det' || kind === 'inv') ? rows : clamp(d2El.value);
+    if (kind === 'add') return { A: readMatrix('A', rows, cols), B: readMatrix('B', rows, cols) };
+    if (kind === 'mul') return { A: readMatrix('A', rows, cols), B: readMatrix('B', cols, clamp(d3El.value)) };
+    return { A: readMatrix('A', rows, cols) };
+  }
+
+  function clone(M) { return M.map(function (row) { return row.slice(); }); }
+
+  function gaussInv(A) {
+    var n = A.length;
+    var M = [];
+    for (var r = 0; r < n; r++) {
+      M.push(A[r].slice());
+      for (var c = 0; c < n; c++) M[r].push(c === r ? fr(1n, 1n) : fr(0n, 1n));
+    }
+    for (var col = 0; col < n; col++) {
+      var piv = -1;
+      for (var i = col; i < n; i++) if (!fzero(M[i][col])) { piv = i; break; }
+      if (piv < 0) throw new Error('矩阵不可逆（列 ' + (col + 1) + ' 主元为 0）。');
+      if (piv !== col) { var tmp = M[col]; M[col] = M[piv]; M[piv] = tmp; }
+      var pv = M[col][col];
+      for (var rr = 0; rr < n; rr++) {
+        if (rr === col) continue;
+        var factor = fdiv(M[rr][col], pv);
+        for (var cc = 0; cc < 2 * n; cc++) M[rr][cc] = fsub(M[rr][cc], fmul(factor, M[col][cc]));
+      }
+    }
+    var inv = [];
+    for (rr = 0; rr < n; rr++) {
+      var diag = M[rr][rr];
+      inv.push([]);
+      for (var cc2 = n; cc2 < 2 * n; cc2++) inv[rr].push(fdiv(M[rr][cc2], diag));
+    }
+    return inv;
+  }
+
+  function det(A) {
+    var n = A.length, M = clone(A), sign = fr(1n, 1n), d = fr(1n, 1n);
+    for (var col = 0; col < n; col++) {
+      var piv = -1;
+      for (var i = col; i < n; i++) if (!fzero(M[i][col])) { piv = i; break; }
+      if (piv < 0) return fr(0n, 1n);
+      if (piv !== col) { var tmp = M[col]; M[col] = M[piv]; M[piv] = tmp; sign = fr(-sign.n, sign.d); }
+      for (var r = col + 1; r < n; r++) {
+        if (fzero(M[r][col])) continue;
+        var factor = fdiv(M[r][col], M[col][col]);
+        for (var c = col; c < n; c++) M[r][c] = fsub(M[r][c], fmul(factor, M[col][c]));
+      }
+    }
+    for (r = 0; r < n; r++) d = fmul(d, M[r][r]);
+    return fmul(sign, d);
+  }
+
+  function htmlTable(M) {
+    var s = '<table><tbody>';
+    M.forEach(function (row) {
+      s += '<tr>';
+      row.forEach(function (v) { s += '<td>' + fstr(v) + '</td>'; });
+      s += '</tr>';
+    });
+    return s + '</tbody></table>';
+  }
+
+  function calc() {
+    errEl.textContent = '';
+    outEl.innerHTML = '';
+    try {
+      var kind = opName();
+      var rows = clamp(d1El.value), cols = (kind === 'det' || kind === 'inv') ? rows : clamp(d2El.value);
+      var M = matrices();
+      if (kind === 'mul') {
+        var C = [];
+        for (var r = 0; r < M.A.length; r++) {
+          C.push([]);
+          for (var c = 0; c < M.B[0].length; c++) {
+            var sum = fr(0n, 1n);
+            for (var k = 0; k < M.A[0].length; k++) sum = fadd(sum, fmul(M.A[r][k], M.B[k][c]));
+            C[r].push(sum);
+          }
+        }
+        outEl.innerHTML = '<p class="out-title">A × B</p>' + htmlTable(C);
+      } else if (kind === 'add') {
+        var S = [];
+        for (r = 0; r < rows; r++) {
+          S.push([]);
+          for (c = 0; c < cols; c++) S[r].push(fadd(M.A[r][c], M.B[r][c]));
+        }
+        outEl.innerHTML = '<p class="out-title">A + B</p>' + htmlTable(S);
+      } else if (kind === 'transpose') {
+        var T = [];
+        for (c = 0; c < cols; c++) {
+          T.push([]);
+          for (r = 0; r < rows; r++) T[c].push(M.A[r][c]);
+        }
+        outEl.innerHTML = '<p class="out-title">Aᵀ</p>' + htmlTable(T);
+      } else if (kind === 'det') {
+        outEl.innerHTML = '<p class="out-title">det(A) =</p><table><tbody><tr><td>' + fstr(det(M.A)) + '</td></tr></tbody></table>';
+      } else if (kind === 'inv') {
+        outEl.innerHTML = '<p class="out-title">A⁻¹</p>' + htmlTable(gaussInv(M.A));
+      }
+    } catch (e) {
+      errEl.textContent = e.message;
+    }
+  }
+
+  opEl.addEventListener('change', function () { updateLabels(); matrixInputs(); });
+  document.getElementById('gen').addEventListener('click', matrixInputs);
+  document.getElementById('sample').addEventListener('click', fillSample);
+  document.getElementById('calc').addEventListener('click', calc);
+  updateLabels();
+  matrixInputs();
+})();
+</script>
+</body>
+</html>

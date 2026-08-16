@@ -41,15 +41,20 @@
   .tool-page .board-wrap { position: relative; width: 400px; max-width: 100%; margin: 0 auto; }
   .tool-page .board {
     position: relative; aspect-ratio: 1; width: 100%;
-    background: #14171d; border-radius: 12px; padding: 8px;
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+    background: #14171d; border-radius: 12px;
     touch-action: none;
   }
-  .tool-page .bg-cell { background: rgba(255,255,255,.05); border-radius: 8px; }
+  /* 数字块和背景格使用同一个 grid，尺寸天然一致 */
+  .tool-page #tiles {
+    position: absolute; inset: 8px;
+    display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 1fr);
+    gap: 8px;
+  }
+  .tool-page .cell { background: rgba(255,255,255,.05); border-radius: 8px; }
   .tool-page .tile {
-    position: absolute; z-index: 2; display: flex; align-items: center; justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     border-radius: 8px; font-weight: 700; color: #fff;
-    transition: left .12s ease, top .12s ease, transform .12s ease;
+    transition: transform .12s ease;
   }
   .tool-page .tile.new { animation: pop .18s ease; }
   @keyframes pop { 0% { transform: scale(.6); } 100% { transform: scale(1); } }
@@ -107,10 +112,6 @@
     </div>
     <div class="board-wrap">
       <div class="board" id="board">
-        <div class="bg-cell"></div><div class="bg-cell"></div><div class="bg-cell"></div><div class="bg-cell"></div>
-        <div class="bg-cell"></div><div class="bg-cell"></div><div class="bg-cell"></div><div class="bg-cell"></div>
-        <div class="bg-cell"></div><div class="bg-cell"></div><div class="bg-cell"></div><div class="bg-cell"></div>
-        <div class="bg-cell"></div><div class="bg-cell"></div><div class="bg-cell"></div><div class="bg-cell"></div>
         <div id="tiles"></div>
       </div>
       <div class="overlay" id="overlay">
@@ -179,17 +180,16 @@
   function render() {
     tilesEl.innerHTML = '';
     for (var i = 0; i < 16; i++) {
-      if (!board[i]) continue;
-      var tile = document.createElement('div');
-      tile.className = 'tile' + (newTiles.has(i) ? ' new' : '');
-      tile.setAttribute('data-v', board[i]);
-      tile.style.left = ((i % 4) * 25 + 1.5) + '%';
-      tile.style.top = (Math.floor(i / 4) * 25 + 1.5) + '%';
-      tile.style.width = '22%';
-      tile.style.height = '22%';
-      tile.style.fontSize = board[i] >= 1024 ? '1.3rem' : board[i] >= 128 ? '1.5rem' : '2rem';
-      tile.textContent = board[i];
-      tilesEl.appendChild(tile);
+      var el = document.createElement('div');
+      if (!board[i]) {
+        el.className = 'cell';
+      } else {
+        el.className = 'tile' + (newTiles.has(i) ? ' new' : '');
+        el.setAttribute('data-v', board[i]);
+        el.style.fontSize = board[i] >= 1024 ? '1.3rem' : board[i] >= 128 ? '1.5rem' : '2rem';
+        el.textContent = board[i];
+      }
+      tilesEl.appendChild(el);
     }
     newTiles.clear();
     scoreEl.textContent = score;
