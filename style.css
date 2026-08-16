@@ -183,8 +183,10 @@ body.has-bg::before {
   transition: color 0.15s, border-color 0.15s, background 0.15s;
 }
 .theme-toggle:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
-.theme-toggle::before { content: "🌙"; }
-[data-theme="dark"] .theme-toggle::before { content: "☀️"; }
+.theme-toggle .theme-icon { width: 16px; height: 16px; }
+.theme-toggle .sun-icon { display: none; }
+[data-theme="dark"] .theme-toggle .moon-icon { display: none; }
+[data-theme="dark"] .theme-toggle .sun-icon { display: block; }
 
 /* ---- 主体 ---- */
 .site-main { max-width: var(--maxw); margin: 0 auto; padding: 28px 20px 64px; min-height: 60vh; }
