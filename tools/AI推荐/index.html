@@ -239,8 +239,14 @@
     .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(function (doc) {
       tasteDoc = doc;
-      // 优先使用档案自带的 system_prompt，否则把整个 JSON 作为品味资料
-      taste = typeof doc.system_prompt === 'string' ? doc.system_prompt : JSON.stringify(doc, null, 2);
+      if (typeof doc.system_prompt === 'string') {
+        // system_prompt 里写着「依据附带的《品味档案》」，必须把档案正文一起附上
+        var archive = Object.assign({}, doc);
+        delete archive.system_prompt;
+        taste = doc.system_prompt + '\n\n<TASTE_ARCHIVE>\n' + JSON.stringify(archive, null, 2) + '\n</TASTE_ARCHIVE>';
+      } else {
+        taste = JSON.stringify(doc, null, 2);
+      }
       var date = doc.exported_at ? '，导出日期 ' + doc.exported_at : '';
       statusEl.textContent = 'taste-export 已加载（' + taste.length + ' 字符' + date + '）。';
     })
