@@ -7,14 +7,14 @@
 (function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 </script>
 <title>字符串 · LWLAymh的备忘录</title>
-<meta name="description" content="加密文章">
+<meta name="description" content="KMP Example1(zr23省选第一轮集训day5b) 必须提一下的是,能用KMP的前提是可以比较两个字符串是否相等,不一定是比较两个字母相等.只要能比较两个字符串是否相等,并且已知 能快速判断是否有 ,那么就可以使用KMP.并不要求">
 <meta name="author" content="LWLAymh">
 <link rel="canonical" href="https://LWLAymh.github.io/posts/%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="LWLAymh的备忘录">
 <meta property="og:url" content="https://LWLAymh.github.io/posts/%E5%AD%97%E7%AC%A6%E4%B8%B2.html">
 <meta property="og:title" content="字符串 · LWLAymh的备忘录">
-<meta property="og:description" content="加密文章">
+<meta property="og:description" content="KMP Example1(zr23省选第一轮集训day5b) 必须提一下的是,能用KMP的前提是可以比较两个字符串是否相等,不一定是比较两个字母相等.只要能比较两个字符串是否相等,并且已知 能快速判断是否有 ,那么就可以使用KMP.并不要求">
 <link rel="icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
 <link rel="apple-touch-icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
 <link rel="stylesheet" href="/style.css">
@@ -58,15 +58,225 @@ window.MathJax = {
       <a class="chip chip-cat" href="/categories.html#OI">OI</a>
     </div>
   </header>
-  <div class="encrypted" id="encrypted" data-salt="6f471de7b72ccbfdbc253eb75183014b" data-iv="049b6d598945b8827c67825a" data-cipher="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">
-  <div class="enc-prompt" id="enc-prompt">
-    <form id="enc-form" autocomplete="off">
-      <input type="password" id="enc-input" placeholder="此页面为加密页面，请输入密码" autocomplete="off">
-      <button type="submit">解锁</button>
-    </form>
-    <p class="enc-error" id="enc-error" hidden>密码错误，请重试</p>
-  </div>
-  <div class="enc-content" id="enc-content" hidden></div>
+  <div class="post-content"><h3 id="toc-0">KMP</h3>
+<h5 id="toc-1">Example1(zr23省选第一轮集训day5b)</h5>
+<p>必须提一下的是,能用KMP的前提是可以比较两个字符串是否相等,不一定是比较两个字母相等.只要能比较两个字符串是否相等,并且已知$A = B$能快速判断是否有$A + a = B + b$,那么就可以使用KMP.并不要求$A = B$并且$a = b$才有$A + a = B + b$.</p>
+<p>因此,我们取$p$的置换$q$,然后找到所有和$q$的大小关系一样的区间即可,要证明这是个等价关系,然后就可以上KMP了.</p>
+<h5 id="toc-2">Example2(NOI2014 动物园)</h5>
+<p>自然的想法是先求border数组,然后每次暴力跳border直到当前前后缀不重叠.根据border的定义显然是对的.但这样复杂度不对.</p>
+<p>另一个想法是我们能不能在做KMP的时候,直接判掉当前长度是否超过,如果超过就放弃呢?也不对,因为这样往前跳也会用到这个border数组,但往前跳有可能跳的很少.</p>
+<p>因此我们先求border,再第二遍做KMP,用另一个数组,但是往前跳的时候用border跳,其他情况正常做就行.</p>
+<h3 id="toc-3">border理论</h3>
+<h4 id="toc-4">定理</h4>
+<h5 id="toc-5">定理1</h5>
+<p>$s$的某个border长度为$k$等价于$| s | - k$是$s$的周期.</p>
+<p>证明显然.</p>
+<h5 id="toc-6">定理2(周期引理)</h5>
+<p>弱周期引理:如果$p , q$是$s$的周期且$p + q \leq | s |$,那么$\gcd ( p , q )$是$s$的周期.</p>
+<p>考虑分开两面证明,不妨设$p > q , r = p - q$,先证明$\forall i > q , s_i = s_{ i + r }$,事实上$s_i = s_{ i - q } = s_{ i - q + p } = s_{ i + r }$.再考虑证明$i \leq | s | - p , s_i = s_{ i + r }$,事实上$s_i = s_{ i + p } = s_{ i + p - q } = s_{ i + r }$.</p>
+<p>由于$p + q \leq | s |$,因此上面那个证明对所有$i$成立,由此得证.</p>
+<p>强周期引理:如果$p , q$是$s$的周期且$p + q - \gcd ( p , q ) \leq | s |$,那么$\gcd ( p , q )$是$s$的周期.</p>
+<p>这个有一个生成函数证明.简单来说我们不妨设长度为$p$的那个周期的生成函数为$P ( z )$,它是一个$p - 1$次的生成函数.同理定义$Q ( z )$.不妨设$S_p ( z ) = \frac{ P ( z ) }{ 1 - z^p }$,同理定义$S_q ( z )$.</p>
+<p>如果我们能说明$S_p ( z ) = S_q ( z )$,由于这两个都是无穷项,由欧几里得算法立刻得到$\gcd ( p , q )$是其周期.考虑:</p>
+<p>$$
+\begin{aligned}
+& S_p ( z ) - S_q ( z ) \\
+= & \frac{ P ( z ) }{ 1 - z^p } - \frac{ Q ( z ) }{ 1 - z^q } \\
+= & \frac{ 1 - z^g }{ ( 1 - z^p ) ( 1 - z^q ) } ( \frac{ 1 - z^q }{ 1 - z^g } P ( z ) - \frac{ 1 - z^p }{ 1 - z^g } Q ( z ) )
+\end{aligned}
+$$</p>
+<p>此时注意到括号里面的那个东西的次数有限,设其为$H ( z )$,不难发现$H ( z )$的次数是$p + q - g - 1$.若$H ( z ) \ne 0$,又因为$\frac{ 1 - z^g }{ ( 1 - z^p ) ( 1 - z^q ) }$的常数项不为$0$,因此$\exists 0 \leq k \leq p + q - g - 1 , [ z^k ] ( S_p ( z ) - S_q ( z ) ) \ne 0$,但根据假设,$\forall 0 \leq k \leq n - 1 \leq p + q - g - 1$,应该有$[ z^k ] ( S_p ( z ) - S_q ( z ) ) = 0$,因此$H ( z ) = 0$,因此$S_p ( z ) = S_q ( z )$.</p>
+<h5 id="toc-7">定理3</h5>
+<p>若$S$是$T$的前缀,且$T$有周期$a$,$S$有整周期$b$,$b | a , | S | \geq a$,则$T$有周期$b$.证明显然.</p>
+<h5 id="toc-8">定理4</h5>
+<p>若$2 | S | \geq | T |$,则$S$在$T$中的匹配位置必为等差序列.</p>
+<p>证明考虑WPL就行.</p>
+<h5 id="toc-9">定理5</h5>
+<p>$S$的长度大于等于$\frac{ n }{ 2 }$的border长度构成一个等差序列.</p>
+<p>不妨设最长的border长度为$n - p$,还有一个border长度是$n - q$,$q > p$,那么必有长度为$n - \gcd ( p , q )$的border.注意到$n - p$是最长的border,则$\gcd ( p , q ) \geq p$,$p | q$.</p>
+<h5 id="toc-10">定理6</h5>
+<p>一个串的所有border按照长度排序后,可以被划分成$O ( \log n )$个等差序列.</p>
+<p>首先,将该串的长度$\geq \frac{ n }{ 2 }$的border拿出作为一个等差序列.考虑这些中长度最小的$T$.</p>
+<p>再考虑最小循环节$d$,如果$d \leq \frac{ n }{ 4 }$,那么不断减小一定有$| T | \leq \frac{ 3 }{ 4 } n$.反之则最长border本身就$\leq \frac{ 3 }{ 4 } n$,于是剩下的border都是$T$的border.这样就证明了$O ( \log n )$,事实上更紧凑的界是$\lceil \log_2 | S | \rceil$,不会证.</p>
+<h4 id="toc-11">Example</h4>
+<h5 id="toc-12">Example1([POI2011]OKR-Periodicity)</h5>
+<p>注意到一个事实:如果这个字符串存在长度为$k$的周期,等价于存在长度为$len - k$的border,证明是显然的.</p>
+<p>考虑从小周期开始向大周期确定,首先可以用KMP求出所有前缀的最大border,然后就可以得到整个字符串的所有border.换句话说,我们实际上是在一步一步确定整个字符串的若干前缀的最大border.</p>
+<p>考虑border理论,设$q$为最小周期,如果$2 q < n$,也就是原串能写成$tt \cdots t '$的形式.我们不妨先求$tt '$对应的答案,然后在前面拼$t$.根据$\leq \frac{ n }{ 2 }$的border构成等差序列的结论,这样显然是正确的.</p>
+<p>如果$2 q \geq n$,此时必定有$s = tat$,其中$t$是border.考虑递归求解$t$,然后就只需要找到一个$a$满足条件,最小的$a$是全$0$,能放的话肯定放,不然我们就放一个$0 \cdots 01$.</p>
+<p>为什么这样一定是对的呢?我们考虑什么时候全$0$不合法:</p>
+<ol>
+<li>
+<p>新增一个长度$l$的border,$l \leq | t | + | a |$:考虑$l$的最后一段是一段全$0$,也就必然意味着$t$的最后一段是全$0$,这么不断推下去就可以说明整个序列都是全$0$,此时放上$0 \cdots 01$必定合法.</p>
+</li>
+<li>
+<p>新增一个长度$l$的border,$l > | t | + | a |$:不妨设当前的$l$是最大的那个(最小的无意义,因为需要保证$| l | > | t |$),此时最短周期必然是$d = 2 | t | + | a | - l$.由于$| t | + | a |$也是周期并且二者之和$\leq n$,因此必然有$d | ( | t | + | a | )$.把$ta$按照$d$长度划分.如果$d \geq | a |$必有该串是全$0$串,不然考虑此时$d = | b | + | a |$,$b$是$t$的一段后缀.考虑此时的周期必然$< | b | + | a |$,首先不可能等于,如果大于的话可以平移一格.不妨假设周期比$| b | - | a |$少了$w$,那么此时必定有$b$的前$w$个字符是$0$,但是由于$0 \cdots 01$后面第一个$b$也往前平移了$w$格,因此它的第$w$个字符必定是$1$,这就保证了$0 \cdots 0 1$必定合法.</p>
+</li>
+</ol>
+<h3 id="toc-13">SA</h3>
+<h5 id="toc-14">Example1</h5>
+<p>给定一个长度为$n$的字符串,要从中从左往右选出若干段不相交的子串,使得选出的这些串中,每个串都是上一个串的严格子串.求最多能选出多少段.$n \leq 5 \times 10^5$.</p>
+<p>不难发现一定有一组答案每段的长度是$k , k - 1 , \cdots , 2 , 1$,我们不妨把串反过来,这样就是$1 , 2 , \cdots , k - 1 , k$.这样就可以设计一个简单的dp是$f_{ i , j }$表示以$i$结尾,$i$这段长度为$j$是否可行,发现单调性后把dp状态扔进值里,$f_i$表示以$i$结尾的最大长度是多少,这样用SA做lcp就可以实现$O ( n^2 )$.仔细观察转移过程,我们可以二分答案,然后用主席树+SA判断答案是否可行.复杂度$O ( n \log^2 n )$.</p>
+<p>那么怎么优化呢?我们考虑类似height的证明:$f_i \leq f_{ i - 1 } + 1$,原因很简单,如果$f_i > f_{ i - 1 } + 1$,那么我们把$f_i$那个序列的末尾字符全部删掉,自然得到了一个以$i - 1$结尾,长度为$f_i - 1 > f_{ i - 1 }$的串,于是就可以类似height那样去掉二分,很厉害.</p>
+<h3 id="toc-15">ACAM</h3>
+<p>用于对于每个文本串的前缀,求出它以哪些模式串为后缀.</p>
+<h5 id="toc-16">Example1(uoj772企鹅游戏)</h5>
+<p>考虑一个暴力:建出$s$的AC自动机,然后我们记录fail树结构,然后把$t$放上去跑,每次暴力向上跳fail树上的匹配节点,这样的复杂度就是$O ( \sum 匹 配 节 点 个 数 )$.</p>
+<p>但是这个复杂度是正确的.</p>
+<p>为啥呢?首先对于任意节点,它在fail树上的祖先中匹配节点个数不可能超过$O ( \sqrt{ L } )$个,这是个自然根号,因此复杂度至少是$O ( L \sqrt{ L } )$.</p>
+<p>但还没完,考虑所有长度小于等于$B$的模式串,他们会被匹配$O ( B | t | )$次.对于所有长度大于$B$的模式串,考虑只有长度大于$B$的文本串会匹配到他们,于是复杂度$O ( \frac{ L^2 }{ B^2 } )$,$B = L^{ \frac{ 1 }{ 3 } }$得到$O ( L^{ \frac{ 4 }{ 3 } } )$.</p>
+<h5 id="toc-17">Example2(loj3396 novel)</h5>
+<p>offline.</p>
+<h3 id="toc-18">PAM</h3>
+<h4 id="toc-19">引理</h4>
+<ol>
+<li>本质不同回文串最多只有$n$个.</li>
+</ol>
+<p>证明:考虑类似manacher,每次将$S \rightarrow S + c$,新产生的回文串一定是$S + c$的最长回文后缀.</p>
+<h4 id="toc-20">算法</h4>
+<p>回文自动机由转移边和fail树构成,经过一条转移边的影响是在前后均添加一个该字符,一个状态在fail树上指向它的最长回文border.</p>
+<p>我们记录两个根:长度为$- 1$的奇根和长度为$0$的偶根,偶根的失配指针指向奇根.</p>
+<p>增量构造,每次加入个新字符,然后在fail树上跳祖先直到$s_i = s_{ i - len - 1 }$.</p>
+<p>继续跳这个节点,直到又遇到一个位置,那这个位置就是当前节点的fail指针所指向的点.这个操作是$O ( n )$的,因为这个fail指针只有一个永远不会访问,另外的都会访问至少一次,在访问的时候就会均摊掉求的时候往上跳的复杂度,因为深度直接减去这玩意了.</p>
+<h3 id="toc-21">SAM</h3>
+<ol>
+<li>
+<p>$endpos ( T )$表示子串$T$在$S$中出现位置的末尾集合,特别地,我们设$endpos ( \emptyset ) = \{ 1 , \cdots , | S | - 1 , | S | \}$.</p>
+</li>
+<li>
+<p>若两个不同的子串的$endpos$相等,则称它们为一个$endpos$等价类.</p>
+</li>
+</ol>
+<p>下面开始证明引理:</p>
+<h4 id="toc-22">引理</h4>
+<ol>
+<li>
+<p>字符串$s$的两个非空子串$u$和$w$的$endpos$相同(假设$| u | \leq | w |$),当且仅当字符串$u$在$s$中的每次出现,都是以$w$后缀的形式存在.</p>
+</li>
+<li>
+<p>字符串$s$的两个非空子串$u$和$w$的$endpos$集合的交为空(假设$| u | \leq | w |$),当且仅当字符串$u$不是$w$的后缀.</p>
+</li>
+<li>
+<p>字符串$s$的两个非空子串$u$和$w$的$endpos$集合的交为$endpos ( w )$(假设$| u | \leq | w |$),当且仅当字符串$u$是$w$的后缀.</p>
+</li>
+</ol>
+<p>证明都是显然的.</p>
+<ol start="4">
+<li>对于一个$endpos$等价类中的子串$u$,要么$u$是这个等价类中最短的子串,要么存在一个子串$w$且$| w | + 1 = | u |$,$w$是$u$的后缀</li>
+</ol>
+<p>由前面的引理,容易证明.</p>
+<ol start="5">
+<li>对于一个$endpos$等价类中最短的子串$w$,不妨设$v$是$w$去掉最前面的元素后得到的子串,那么$v$在另一个$endpos$等价类中,我们将$endpos ( w ) \rightarrow endpos ( v )$,记$link ( w ) = v$或$fa ( w ) = v$,这就是后缀链接link,这些关系构成树.</li>
+</ol>
+<p>首先除了$\emptyset$,每个$w$的出度都是$1$,而我们发现所有的子串都会以$\emptyset$作为祖先,这就证明了连通性.</p>
+<ol start="6">
+<li>$endpos$等价类的数量有$O ( n )$个.</li>
+</ol>
+<p>考虑后缀链接树,显然一个点的$endpos$集合包含它的所有儿子的$endpos$集合的并,并且它所有儿子的$endpos$集合两两无交,这等价于一个合并的过程.</p>
+<h4 id="toc-23">约定</h4>
+<ol>
+<li>
+<p>记$longest ( v )$为$v$这个$endpos$等价类中最长的一个字符串,记$len ( v )$为它的长度.类似地定义$shortest ( v )$和$minlen ( v )$,不难发现$minlen ( v ) = len ( fa ( v ) ) + 1$.每个节点的子串数量也就是$len ( v ) - len ( fa ( v ) )$.</p>
+</li>
+<li>
+<p>记$siz ( v )$为$v$这个$endpos$等价类的$endpos$集合的大小.</p>
+</li>
+</ol>
+<h4 id="toc-24">算法</h4>
+<p>先来捋一下整个过程:整个SAM分为两部分:</p>
+<p>第一部分:后缀链接树(parent tree).</p>
+<p>它的信息由下文中的fa记录.对于每一个节点:它对应一个endpos等价类,因此它拥有一个父亲节点,也就是后缀链接link指向的节点.同时它拥有一个len,表示这个endpos等价类中最长的子串的长度.</p>
+<p>第二部分:trie图.</p>
+<p>它的信息由下文中的son记录,表示一个endpos(设为x)通过一条trie边走到另一个endpos(设为y),不难发现x中的所有endpos+1所形成的集合包含y.我们注意这一点后,会发现只要从$\emptyset$所代表的节点不断地走trie边,最后走到的节点的对应长度的子串就是我们想要的子串.这也意味着我们要保证对应长度的子串一定在走到节点的子串集合中.另外有个结论是trie图的边数是$O ( n )$的.这必然要求走trie走到的那个节点的$len$的长度的区间包含了这个节点的$len$的长度的区间$+ 1$.</p>
+<p>也就是说,走trie边的过程是不断在字符串后面添加字符的过程,而走link的过程是不断在字符串前面删去字符串的过程(当然,反向link自然是不断在字符串前面加上另一个字符串集合的过程).</p>
+<p>下面给出构造代码.</p>
+<pre class="hljs"><code class="language-cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">SAM</span>{
+<span class="hljs-type">int</span> fa;
+<span class="hljs-type">int</span> son[<span class="hljs-number">27</span>];
+<span class="hljs-type">int</span> len,siz;
+}tr[MAXN&lt;&lt;<span class="hljs-number">1</span>|<span class="hljs-number">1</span>];
+<span class="hljs-type">int</span> cntp=<span class="hljs-number">1</span>,las=<span class="hljs-number">1</span>;
+<span class="hljs-type">int</span> End[MAXN];
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">add_c</span><span class="hljs-params">(<span class="hljs-type">int</span> c,<span class="hljs-type">int</span> i)</span></span>{
+<span class="hljs-type">int</span> x=++cntp;
+End[i]=x;tr[x].siz=<span class="hljs-number">1</span>;<span class="hljs-comment">//新建一个endpos={i}</span>
+<span class="hljs-comment">//End[i]存的是前缀[1,i]的结束位置,由于我们当前正在插入i,自然是x.</span>
+<span class="hljs-type">int</span> prex=las;
+las=cntp;
+<span class="hljs-comment">//las存储的是当前的终止节点,其实也就是End[i],我们每次要找到上一次的终止节点,根据它来操作.</span>
+tr[x].len=tr[prex].len<span class="hljs-number">+1</span>;
+<span class="hljs-keyword">for</span>(;prex&amp;&amp;tr[prex].son[c]==<span class="hljs-number">0</span>;prex=tr[prex].fa)tr[prex].son[c]=x;
+<span class="hljs-comment">//考虑当前的串:[1,i-1]+&#x27;c&#x27;,如果前面存在一个endpos集合包含[j,i-1](这个集合可能是空子串所在的集合)并且它存在一条&#x27;c&#x27;边,那么就存在这么一个子串[j,i-1]+&#x27;c&#x27;,它的endpos应该是{i}这个集合的祖先.</span>
+<span class="hljs-comment">//如果在判断[j,i-1]的时候,发现[j,i-1]+&#x27;c&#x27;在原串中不存在,那么我们就直接连过来.可以发现在这个跳跃的过程中就是不断探索当前x的shortest的过程.</span>
+<span class="hljs-keyword">if</span>(!prex){
+<span class="hljs-comment">//说明一直到最后都没有找到字母c,这也意味着c在前面根本没出现过,于是endpos={i}的等价类是[1,i],[2,i],...,[i,i],所以父亲设为1.</span>
+tr[x].fa=<span class="hljs-number">1</span>;
+<span class="hljs-keyword">return</span> ;
+}
+<span class="hljs-type">int</span> y=tr[prex].son[c];
+<span class="hljs-comment">//考虑这里的prex到底是什么意义,它意味着我们找到了一个最长的[j,i-1]的子串所在的endpos集合,并且[j,i-1]+&#x27;c&#x27;这个子串在原串存在,这也意味着[j,i-1]+&#x27;c&#x27;这个子串所在的endpos集合必然真包含{i},而这个子串的长度是tr[prex].len+1.</span>
+<span class="hljs-keyword">if</span>(tr[y].len==tr[prex].len<span class="hljs-number">+1</span>){
+<span class="hljs-comment">//如果y这个节点的长度恰好也是tr[prex].len+1,那么必然意味着[j,i]这个子串完全就在y这里,而[j-1,i]这些子串不在y这里,但被y表示的endpos集合包含.</span>
+tr[x].fa=y;
+}
+<span class="hljs-keyword">else</span> {
+<span class="hljs-comment">//反之,这里y这个节点的endpos集合就可以分成两部分了:第一部分的endpos集合在加入[j,i]这个子串后不变:因为它们的长度都大于tr[prex].len+1,它们必然不可能存在一个endpos是i.而第二部分,其实也只包含一个子串:就是长度等于tr[prex].len+1的子串,它的endpos集合必然是第一部分的endpos集合并上{i},根据我们上面所发现的parent tree的本质是合并endpos集合的性质,它应该是第一部分以及{i}的父亲(也就是这两部分合并的结果),我们把第二部分拿出来单独建点.</span>
+<span class="hljs-type">int</span> fay=++cntp;
+tr[fay]=tr[y];
+tr[fay].len=tr[prex].len<span class="hljs-number">+1</span>;
+tr[y].fa=tr[x].fa=fay;
+<span class="hljs-keyword">for</span>(;prex&amp;&amp;tr[prex].son[c]==y;prex=tr[prex].fa)tr[prex].son[c]=fay;
+<span class="hljs-comment">//注意单独建点后,原本指向y的trie边要改向.这是为什么呢?考虑当前这条边是什么意义:它必然指向一个endpos集合要包含{i}的点,因为这样才能保证trie图的性质.此时指向y的点就不能是包含{i-1}的点了.</span>
+}
+<span class="hljs-keyword">return</span> ;
+}
+<span class="hljs-type">int</span> que[MAXN&lt;&lt;<span class="hljs-number">1</span>],l,r;
+<span class="hljs-type">int</span> ind[MAXn&lt;&lt;<span class="hljs-number">1</span>];
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">work_siz</span><span class="hljs-params">()</span></span>{<span class="hljs-comment">//通过一次拓扑排序处理出siz</span>
+l=<span class="hljs-number">1</span>,r=<span class="hljs-number">0</span>;
+<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=cnt;++i){
+++ind[tr[i].fa];
+}
+<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=cnt;++i){
+<span class="hljs-keyword">if</span>(ind[i]==<span class="hljs-number">0</span>)que[++r]=i;
+}
+<span class="hljs-keyword">while</span>(l&lt;=r){
+<span class="hljs-type">int</span> x=que[l];++l;
+tr[tr[x].fa].siz+=tr[x].siz;
+--ind[tr[x].fa];
+<span class="hljs-keyword">if</span>(ind[tr[x].fa]==<span class="hljs-number">0</span>)que[++r]=tr[x].fa;
+}
+<span class="hljs-keyword">return</span> ;
+}</code></pre><p>其实还是省掉了很多说明:比如这里的复杂度证明以及边数证明,但是我们咕了吧.</p>
+<h4 id="toc-25">应用</h4>
+<h5 id="toc-26">检查字符串是否出现</h5>
+<p>从根开始跳trie边就行.</p>
+<h5 id="toc-27">不同子串个数</h5>
+<p>显然是$\sum len_i - len_{ fa_i }$.</p>
+<h4 id="toc-28">例题</h4>
+<h5 id="toc-29">Example1</h5>
+<p>给出一个长度为$n$的小写字母串,你需要计算有多少对非空字符串$( A , B )$满足:</p>
+<ol>
+<li>
+<p>$AB$是原串的子串.</p>
+</li>
+<li>
+<p>每次$A$在原串中作为子串出现后,要么紧跟着出现一个子串$B$,要么$A$后面放不下一个子串$B$.</p>
+</li>
+</ol>
+<p>两个字符串被认为是不同的当且仅当他们在某个位置上字母不同,$| S | \leq 2 \times 10^5$.</p>
+<p>首先,我们考虑确定$( AB , A )$这个二元组,对反串建立SAM,我们自然有:</p>
+<ol>
+<li>
+<p>$AB$的endpos集合是$A$的endpos集合的后缀.</p>
+</li>
+<li>
+<p>$A$的endpos集合中存在的最大的不存在于$AB$的endpos集合的endpos的大小小于$| AB |$.</p>
+</li>
+</ol>
+<p>看到这里你可能有疑问:为啥要建立反串.因为不建立反串的话$( AB , B )$的endpos可能根本没啥区别,这个很难处理$A$.SAM最强大的武器还是在于它能快速处理endpos.</p>
+<p>那么接下来我们要在SAM上判断这两件事,我们需要一些更方便判断的条件.首先一个自然的发现是,$A$的最大的endpos必然也是$AB$的最大的endpos,我们进行一个类似重链剖分的操作:将每个点的重儿子设为它所有儿子中最大的endpos最大的那个.不难发现此时的$A$与$AB$必然在同一条重链上,且$A$是$AB$的祖先.不过显然这并不能保证一定是后缀,我们开始补条件,直到补到它充要:另一个显然的条件是,设$mx_v$表示节点$v$的轻儿子中最大的endpos最大是多少,那么$A$与$AB$间的所有$mx$的最大值就是$A$的endpos集合中存在的最大的不存在于$AB$的endpos集合的endpos的大小,它需要小于$| AB |$.进一步发现这个数字必然需要小于$AB$的endpos的集合中最小的那个(不然就不是后缀),这被包含于小于$| AB |$这个条件.</p>
+<p>接下来就拆重链,写单调栈就行.</p>
 </div>
   <nav class="post-nav">
       <a class="post-nav-item" href="/posts/%E5%B9%B3%E9%82%91%E4%B8%80%E4%B8%AD%E9%9B%86%E8%AE%AD%E4%BD%9C%E4%B8%9A.html"><span>← 上一篇</span>平邑一中集训作业</a>
@@ -84,13 +294,12 @@ window.MathJax = {
 </footer>
 <button class="sidebar-toggle" id="sidebar-toggle" aria-label="打开侧边栏" title="侧边栏">☰</button>
 <aside class="sidebar" id="sidebar" aria-hidden="true">
-  <div class="sidebar-inner"><div class="toc-title">联系我</div><div class="contact-item"><span class="contact-key">微信</span><span class="contact-val">LWLAymh</span></div><div class="contact-item"><span class="contact-key">邮件</span><a class="contact-val" href="mailto:lwlaymh@outlook.com">邮件</a></div><div class="contact-item"><span class="contact-key">GitHub</span><a class="contact-val" href="https://github.com/LWLAymh" target="_blank" rel="noopener">GitHub</a></div><div class="contact-item"><span class="contact-key">洛谷</span><a class="contact-val" href="https://www.luogu.com.cn/user/661076" target="_blank" rel="noopener">洛谷</a></div></div>
+  <div class="sidebar-inner"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item" style="padding-left:0.00em"><a href="#toc-0">KMP</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-1">Example1(zr23省选第一轮集训day5b)</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-2">Example2(NOI2014 动物园)</a></li><li class="toc-item" style="padding-left:0.00em"><a href="#toc-3">border理论</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-4">定理</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-5">定理1</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-6">定理2(周期引理)</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-7">定理3</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-8">定理4</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-9">定理5</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-10">定理6</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-11">Example</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-12">Example1([POI2011]OKR-Periodicity)</a></li><li class="toc-item" style="padding-left:0.00em"><a href="#toc-13">SA</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-14">Example1</a></li><li class="toc-item" style="padding-left:0.00em"><a href="#toc-15">ACAM</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-16">Example1(uoj772企鹅游戏)</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-17">Example2(loj3396 novel)</a></li><li class="toc-item" style="padding-left:0.00em"><a href="#toc-18">PAM</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-19">引理</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-20">算法</a></li><li class="toc-item" style="padding-left:0.00em"><a href="#toc-21">SAM</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-22">引理</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-23">约定</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-24">算法</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-25">应用</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-26">检查字符串是否出现</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-27">不同子串个数</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-28">例题</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-29">Example1</a></li></ul></div>
 </aside>
 <div class="sidebar-overlay" id="sidebar-overlay"></div>
 <button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部">↑</button>
 <script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
 <script src="/main.js"></script>
 <script src="/comment.js"></script>
-<script src="/decrypt.js"></script>
 </body>
 </html>
