@@ -6,15 +6,15 @@
 <script>
 (function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 </script>
-<title>AI推荐 · LWLAymh的备忘录</title>
-<meta name="description" content="输入自己的 API Key，基于 taste-export 进行个性化推荐对话">
+<title>品味雷达 · LWLAymh的备忘录</title>
+<meta name="description" content="按博主的品味档案，为你推荐小说 / 影视 / 游戏">
 <meta name="author" content="LWLAymh">
-<link rel="canonical" href="https://LWLAymh.github.io/tools/AI%E6%8E%A8%E8%8D%90/">
+<link rel="canonical" href="https://LWLAymh.github.io/tools/%E5%93%81%E5%91%B3%E9%9B%B7%E8%BE%BE/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="LWLAymh的备忘录">
-<meta property="og:url" content="https://LWLAymh.github.io/tools/AI%E6%8E%A8%E8%8D%90/">
-<meta property="og:title" content="AI推荐 · LWLAymh的备忘录">
-<meta property="og:description" content="输入自己的 API Key，基于 taste-export 进行个性化推荐对话">
+<meta property="og:url" content="https://LWLAymh.github.io/tools/%E5%93%81%E5%91%B3%E9%9B%B7%E8%BE%BE/">
+<meta property="og:title" content="品味雷达 · LWLAymh的备忘录">
+<meta property="og:description" content="按博主的品味档案，为你推荐小说 / 影视 / 游戏">
 <link rel="icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
 <link rel="apple-touch-icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
 <link rel="stylesheet" href="/style.css">
@@ -88,8 +88,8 @@
 <div class="tool-page">
   <a class="back" href="/tools.html">← 全部工具</a>
   <div class="card">
-    <h1>AI推荐</h1>
-    <p class="hint">输入你自己的 API Key 和模型，聊天助手会根据我的 taste-export 做个性化推荐。</p>
+    <h1>品味雷达</h1>
+    <p class="hint">按照博主的品味档案，为你挑选小说 / 影视 / 游戏。输入你的 API Key 和模型后开始。</p>
 
     <div class="settings">
       <label>API Key
@@ -167,7 +167,7 @@
   var messages = [];
 
   var VISITOR_SYSTEM_PROMPT = [
-    '你是「AI推荐」助手，正在和一位普通访客对话。',
+    '你是「品味雷达」助手，正在和一位普通访客对话。',
     '',
     '下面 <TASTE_ARCHIVE> 是一份「博主的品味档案」，由博主本地 agent 导出，代表博主的偏好，而不是访客的偏好。',
     '你的任务：把这份档案当作推荐过滤器，帮访客从小说、电影/剧集、游戏等作品中找到符合这套品味的候选。',
@@ -175,12 +175,13 @@
     '角色与语气规则：',
     '1. 不要把访客当成档案本人：不要说「你喜欢《长日将尽》」「你读过……」「你爱……」这类话。',
     '2. 把档案和访客分开表述，例如：「按这份档案的偏好」「档案主人会喜欢这种克制叙事」「这套品味会命中……」；如果访客说自己也有类似偏好，再说「如果你也喜欢……」。',
-    '3. 先结合访客当前的问题（类型、题材、心情、篇幅、语言、平台等）再推荐；访客没给约束时，按档案推荐结构给 3~5 个候选，并在结尾问一句访客自己的限制。',
+    '3. 不要以「和你读过的相近」作为推荐理由——访客并没有读过档案里的那些作品。',
+    '4. 先结合访客当前的问题（类型、题材、心情、篇幅、语言、平台等）再推荐；访客没给约束时，按档案推荐结构给 3~5 个候选，并在结尾问一句访客自己的限制。',
     '',
     '推荐规则（对候选内容的约束）：',
-    '- 严格依据档案里的 likes / dislikes / hard_no / already_consumed / recommendation_style / examples；',
+    '- 严格依据档案里的 likes / dislikes / hard_no / recommendation_style / examples；',
     '- 命中雷点默认不推；同时命中喜欢和雷点时，默认不推，若推荐必须显式标出雷点并说明理由；',
-    '- already_consumed 是档案主人已经读过的作品，不要重复推荐；',
+    '- already_consumed 只是博主自己读过的记录，不是访客已读清单：不要把里面的作品排除，也不要说访客读过；可以推荐，并说明「档案主人已读过且喜欢」作为参照。',
     '- 每个候选说明匹配了哪个偏好（叙事手法、情感母题、氛围等），不说「口碑好/评分高/经典之作」这类套话；',
     '- 涉及自毁/暗色题材时，按档案的硬分界判断；',
     '- 每轮 3~5 个候选，标主推/拓展；不确定是否踩雷就直说；剧透先预警；游戏线索少时先问访客的类型/平台偏好。',
