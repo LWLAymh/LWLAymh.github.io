@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<title>被炮弹创飞了 · LWLAymh的备忘录</title>
+<meta name="description" content="高中物理的时候有这么一个题,然后今天刚好信物讲到了,顺手来总结一下. 先来个简单版本:我从一个点打炮弹,目标与我的距离为 ,且目标比我高 ,问以什么样的角度打出炮弹能使得击中目标并且初速度最小. 我们当然会第一反应认为这是一个很简单的问题,">
+<meta name="author" content="LWLAymh">
+<link rel="canonical" href="https://LWLAymh.github.io/posts/%E8%A2%AB%E7%82%AE%E5%BC%B9%E5%88%9B%E9%A3%9E%E4%BA%86.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="LWLAymh的备忘录">
+<meta property="og:url" content="https://LWLAymh.github.io/posts/%E8%A2%AB%E7%82%AE%E5%BC%B9%E5%88%9B%E9%A3%9E%E4%BA%86.html">
+<meta property="og:title" content="被炮弹创飞了 · LWLAymh的备忘录">
+<meta property="og:description" content="高中物理的时候有这么一个题,然后今天刚好信物讲到了,顺手来总结一下. 先来个简单版本:我从一个点打炮弹,目标与我的距离为 ,且目标比我高 ,问以什么样的角度打出炮弹能使得击中目标并且初速度最小. 我们当然会第一反应认为这是一个很简单的问题,">
+<link rel="icon" href="/images/favicon-32x32-next.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon-next.png">
+<link rel="stylesheet" href="/style.css">
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true
+  },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
+  startup: { ready: () => MathJax.startup.defaultReady() }
+};
+</script>
+<script id="MathJax-script" async src="/vendor/mathjax/tex-chtml-full.js"></script>
+
+</head>
+<body class="page-post">
+<div class="progress-bar" id="progress-bar"></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="/">
+      <img class="header-avatar avatar" src="/images/头像1.jpg" alt="avatar" data-avatar>
+      <span class="brand-text">
+        <span class="brand-title">LWLAymh的备忘录</span>
+        <span class="brand-subtitle">混乱节拍拼凑出血肉喧嚷</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/tools.html">工具</a><a class="nav-link" href="/links.html">友链</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题"></button>
+    </nav>
+  </div>
+</header>
+<main class="site-main">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">被炮弹创飞了</h1>
+    <div class="post-meta">
+      <time>2025-06-23</time>
+      <a class="chip chip-cat" href="/categories.html#%E8%A2%AB%E6%96%87%E5%8C%96%E8%AF%BE%E5%88%9B%E9%A3%9E%E4%BA%86">被文化课创飞了</a>
+    </div>
+  </header>
+  <div class="post-content"><p>高中物理的时候有这么一个题,然后今天刚好信物讲到了,顺手来总结一下.</p>
+<p>先来个简单版本:我从一个点打炮弹,目标与我的距离为$x$,且目标比我高$h$,问以什么样的角度打出炮弹能使得击中目标并且初速度最小.</p>
+<p>我们当然会第一反应认为这是一个很简单的问题,考虑$t = \frac{ x }{ v_0 \cos \theta }$,因为我们很容易写出方程:</p>
+<p>$$
+\begin{aligned}
+x \frac{ \sin \theta }{ \cos \theta } - \frac{ gx^2 }{ 2 v_0^2 \cos^2 \theta } & = h \\
+\frac{ 1 }{ v_0^2 } & = \frac{ 1 }{ gx^2 } ( x \sin ( 2 \theta ) - h \cos ( 2 \theta ) - h ) \\
+\frac{ 1 }{ v_0^2 } & = \frac{ 1 }{ gx^2 } ( \sqrt{ x^2 + h^2 } \sin ( 2 \theta - \varphi ) - h ) , \varphi = \arctan ( \frac{ h }{ x } )
+\end{aligned}
+$$</p>
+<p>只需要对后面那个东西用辅助角公式就可以了对吧,非常简单啊!</p>
+<p>然而,我们稍微改下题面:</p>
+<p>我从一个高度为$h$的点打炮弹,初速度确定为$v_0$,问以什么样的角度打炮弹能打得最远.</p>
+<p>这有啥区别啊,只需要改个正负号就行了是吧,让我们看看:</p>
+<p>$$
+\frac{ 1 }{ v_0^2 } = \frac{ 1 }{ gx^2 } ( x \sin ( 2 \theta ) + h \cos ( 2 \theta ) + h )
+$$</p>
+<p>这下发现问题了,这个$x$根本拿不出来啊.</p>
+<p>重新按部就班,发现只能用求根公式得到$x$的表达式,更进一步地,我们有:</p>
+<p>$$
+x = \frac{ v_0 \cos \theta ( v_0 \sin \theta + \sqrt{ v_0^2 \sin^2 \theta + 2 gh } ) }{ g }
+$$</p>
+<p>怎么办呢?yth老师给出了一个想法是使用柯西不等式,注意到:</p>
+<p>$$
+\begin{aligned}
+x & = \frac{ v_0 \cos \theta ( v_0 \sin \theta + \sqrt{ v_0^2 \sin^2 \theta + 2 gh } ) }{ g } \\
+& = \frac{ v_0 \sin \theta v_0 \cos \theta + v_0 \cos \theta \sqrt{ v_0^2 \sin^2 \theta + 2 gh } }{ g } \\
+& \leq \frac{ 1 }{ g } ( v_0 \sqrt{ v_0^2 + 2 gh } )
+\end{aligned}
+$$</p>
+<p>当且仅当$v_0^2 \cos^2 \theta = v_0 \sin \theta \sqrt{ v_0^2 \sin^2 \theta + 2 gh } , \frac{ 1 }{ \tan^2 \theta } = \frac{ 2 gh }{ v_0^2 } + 1$的时候取等.</p>
+<p>还有一种策略是考虑对隐函数求导然后令$\frac{ \text{ d } x }{ \text{ d } \theta } = 0$,这样得到情况会和我们一开始的初始问题得到的答案相等,也就是当$\tan ( 2 \theta ) = - \frac{ x }{ h }$的时候$x$会取极限.这也很好理解,因为我们如果当前的速度没有用到极限打到最远,总能调整使得得到一个更小的速度打到当前的距离,因此距离还有提高的空间.</p>
+<p>有没有更聪明一点的办法呢?</p>
+<p>我们注意到初速度是定值,根据机械能守恒定律,末速度的大小一定是个定值,我们考虑:</p>
+<p>$$
+\vec{ v } = \vec{ v }_0 + \Delta \vec{ v }
+$$</p>
+<p>通过机械能守恒定律可以算出$| \vec{ v } | = \sqrt{ v_0^2 + 2 gh }$.</p>
+<p>注意到$\vec{ v }$和$\vec{ v }_0$的水平方向分速度是相同的.然后有一个天才的想法是,考虑上述那个向量式的三角形法则,设那个三角形的面积为$S$,注意到$\Delta \vec{ v } = gt$,而$x = v_0 \cos \theta t = \frac{ 2 S }{ g } \leq \frac{ v_0 \sqrt{ v_0^2 + 2 gh } }{ g }$,也就是面积最大的时候应该是$\vec{ v }_0$和$\vec{ v }$夹角为$\frac{ \pi }{ 2 }$的时候.</p>
+<p>直接从形式上来看:</p>
+<p>$$
+\frac{ v_0 \sin \theta v_0 \cos \theta + v_0 \cos \theta \sqrt{ v_0^2 \sin^2 \theta + 2 gh } }{ g }
+$$</p>
+<p>我们知道正交分解的时候从结果上来说可以作分方向的动能定理,因此初速度是$( v_0 \cos \theta , v_0 \sin \theta )$,末速度是$( v_0 \cos \theta , - \sqrt{ v_0^2 \sin^2 \theta + 2 gh } ) )$,因此$x = \frac{ \vec{ v } \times \vec{ v }_0 }{ g }$.</p>
+<p>这个想法过于震惊了,以至于我在之后多次回忆起这个题,想去找到初速度与末速度叉积的物理意义.但直到如今我也没有完全理解这个做法.</p>
+<p>写到这发现没活整了,顺便在这写一下另一个斜抛题:</p>
+<p>抛射质量为$m$的小球,抛射倾角为$\theta$,初速度大小为$v_0$,所受空气阻力$\vec{ F }$与速度$\vec{ v }$的关系为$\vec{ F } = - k \vec{ v }$,其中$k$为固定系数,求小球在空气中运行的轨迹曲线.</p>
+<p>考虑$\frac{ \text{ d } \vec{ v } }{ \text{ d } t } = \vec{ a } = \frac{ \vec{ F } + \vec{ G } }{ m } = \frac{ 1 }{ m } ( - k \vec{ v } + m \vec{ g } )$.</p>
+<p>于是:</p>
+<p>$$
+\begin{aligned}
+\text{ d } \vec{ v } & = \frac{ 1 }{ m } ( - k \vec{ v } + m \vec{ g } ) \text{ d } t \\
+\int_{ \vec{ v }_0 }^{ \vec{ v } } \text{ d } \vec{ v } & = \int_{ 0 }^t \frac{ 1 }{ m } ( - k \vec{ v } + m \vec{ g } ) \text{ d } t \\
+\vec{ v } & = \frac{ - k \vec{ x } }{ m } + \vec{ g } t + \vec{ v }_0 \\
+\begin{cases}
+\frac{ \text{ d } x }{ \text{ d } t } = \frac{ - kx }{ m } + v_0 \cos \theta \\
+\frac{ \text{ d } y }{ \text{ d } t } = \frac{ - ky }{ m } + v_0 \sin \theta + gt
+\end{cases}
+\end{aligned}
+$$</p>
+<p>对于第一个式子,令$w = \frac{ - kx }{ m } + v_0 \cos \theta$我们有:</p>
+<p>$$
+\begin{aligned}
+\frac{ - m }{ k } \frac{ \text{ d } w }{ \text{ d } t } & = w \\
+\frac{ - m }{ k } \int_{ v_0 \cos \theta }^{ w } \frac{ \text{ d } w }{ w } & = \int_{ 0 }^t \text{ d } t \\
+\ln ( \frac{ \frac{ - kx }{ m } + v_0 \cos \theta }{ v_0 \cos \theta } ) & = \frac{ - k }{ m } t \\
+\frac{ - kx }{ mv_0 \cos \theta } + 1 & = e^{ \frac{ - k }{ m } t } \\
+x & = \frac{ mv_0 \cos \theta }{ k } ( 1 - e^{ - \frac{ k }{ m } t } )
+\end{aligned}
+$$</p>
+<p>同理解出$y = \frac{ m }{ k } ( ( v_0 \sin \theta + \frac{ mg }{ k } ) ( 1 - e^{ - \frac{ k }{ m } t } ) - gt )$.</p>
+<p>综上参数方程是:$\begin{cases}x = \frac{ mv_0 \cos \theta }{ k } ( 1 - e^{ - \frac{ k }{ m } t } ) \\ y = \frac{ m }{ k } ( ( v_0 \sin \theta + \frac{ mg }{ k } ) ( 1 - e^{ - \frac{ k }{ m } t } ) - gt )\end{cases}$.</p>
+<p>轨迹方程是:$y = ( v_0 \sin \theta + \frac{ mg }{ k } ) \frac{ x }{ v_0 \cos \theta } + \frac{ mg }{ k } \ln ( 1 - \frac{ kx }{ mv_0 \cos \theta } )$.</p>
+</div>
+  <nav class="post-nav">
+      <a class="post-nav-item" href="/posts/%E8%A2%AB%E8%9D%B4%E8%9D%B6%E5%88%9B%E9%A3%9E%E4%BA%86.html"><span>← 上一篇</span>被蝴蝶创飞了</a>
+      <a class="post-nav-item right" href="/posts/%E8%A2%AB%E7%81%AB%E8%BD%A6%E5%88%9B%E9%A3%9E%E4%BA%86.html"><span>下一篇 →</span>被火车创飞了</a>
+    </nav>
+  <section class="comments" id="comments">
+    <h2 class="comments-title">评论</h2>
+    <div id="waline"></div>
+  </section>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="footer-signature" id="footer-signature">不过是白日梦里一瞬息</div>
+  <div class="footer-copy">© 2026 LWLAymh · Powered by DeepSeek V4 Pro</div>
+</footer>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="打开侧边栏" title="侧边栏">☰</button>
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+  <div class="sidebar-inner"><div class="toc-title">联系我</div><div class="contact-item"><span class="contact-key">微信</span><span class="contact-val">LWLAymh</span></div><div class="contact-item"><span class="contact-key">邮箱</span><a class="contact-val" href="mailto:lwlaymh@outlook.com">lwlaymh@outlook.com</a></div><div class="contact-item"><span class="contact-key">GitHub</span><a class="contact-val" href="https://github.com/LWLAymh" target="_blank" rel="noopener">github.com/LWLAymh</a></div><div class="contact-item"><span class="contact-key">Luogu</span><a class="contact-val" href="https://www.luogu.com.cn/user/661076" target="_blank" rel="noopener">Luogu 博客</a></div></div>
+</aside>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script src="/main.js"></script>
+<script src="/comment.js"></script>
+</body>
+</html>

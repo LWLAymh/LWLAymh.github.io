@@ -1,0 +1,5 @@
+{
+  "title": "质因数分解",
+  "description": "大整数质因数分解，内置 Miller-Rabin 与 Pollard's rho 算法",
+  "order": 1
+}

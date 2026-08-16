@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<title>文化课数学导论 · LWLAymh的备忘录</title>
+<meta name="description" content="概统导论 习惯的更改 这一部分主要是和组合相关,文化课中的组合内容有一些很奇怪的形式,比如竞赛中为了避免巨量的字母符号所带来的丑陋形式,会将 写作 ,而文化课中不允许此类更改,再者文化课中将 称作二项式的第 项(从第 项开始编号),此等同样">
+<meta name="author" content="LWLAymh">
+<link rel="canonical" href="https://LWLAymh.github.io/posts/%E6%96%87%E5%8C%96%E8%AF%BE%E6%95%B0%E5%AD%A6%E5%AF%BC%E8%AE%BA.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="LWLAymh的备忘录">
+<meta property="og:url" content="https://LWLAymh.github.io/posts/%E6%96%87%E5%8C%96%E8%AF%BE%E6%95%B0%E5%AD%A6%E5%AF%BC%E8%AE%BA.html">
+<meta property="og:title" content="文化课数学导论 · LWLAymh的备忘录">
+<meta property="og:description" content="概统导论 习惯的更改 这一部分主要是和组合相关,文化课中的组合内容有一些很奇怪的形式,比如竞赛中为了避免巨量的字母符号所带来的丑陋形式,会将 写作 ,而文化课中不允许此类更改,再者文化课中将 称作二项式的第 项(从第 项开始编号),此等同样">
+<link rel="icon" href="/images/favicon-32x32-next.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon-next.png">
+<link rel="stylesheet" href="/style.css">
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true
+  },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
+  startup: { ready: () => MathJax.startup.defaultReady() }
+};
+</script>
+<script id="MathJax-script" async src="/vendor/mathjax/tex-chtml-full.js"></script>
+
+</head>
+<body class="page-post">
+<div class="progress-bar" id="progress-bar"></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="/">
+      <img class="header-avatar avatar" src="/images/头像1.jpg" alt="avatar" data-avatar>
+      <span class="brand-text">
+        <span class="brand-title">LWLAymh的备忘录</span>
+        <span class="brand-subtitle">混乱节拍拼凑出血肉喧嚷</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/tools.html">工具</a><a class="nav-link" href="/links.html">友链</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题"></button>
+    </nav>
+  </div>
+</header>
+<main class="site-main">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">文化课数学导论</h1>
+    <div class="post-meta">
+      <time>2025-06-23</time>
+      <a class="chip chip-cat" href="/categories.html#%E8%A2%AB%E6%96%87%E5%8C%96%E8%AF%BE%E5%88%9B%E9%A3%9E%E4%BA%86">被文化课创飞了</a>
+    </div>
+  </header>
+  <div class="post-content"><h2 id="toc-0">概统导论</h2>
+<h3 id="toc-1">习惯的更改</h3>
+<p>这一部分主要是和组合相关,文化课中的组合内容有一些很奇怪的形式,比如竞赛中为了避免巨量的字母符号所带来的丑陋形式,会将$C_{ n }^k$写作$\binom{ n }{ k }$,而文化课中不允许此类更改,再者文化课中将$C_{ n }^k a^{ n - k } b^k$称作二项式的第$k + 1$项(从第$1$项开始编号),此等同样是一个需要改正的习惯.</p>
+<h3 id="toc-2">从线性角度审视</h3>
+<p>首先我们有$E ( aX + b ) = aE ( X ) + b , D ( aX + b ) = a^2 D ( X )$.</p>
+<p>我们都知道期望满足线性可加,也就是$E ( X_1 + X_2 ) = E ( X_1 ) + E ( X_2 )$,这很好理解,因为期望从一开始定义就是所有情况下的答案的加和,因此根据我们的加法交换律和结合律就可以导出上面的式子.</p>
+<p>我们还知道期望的乘法在相互独立的条件下是可以直接乘的,也就是若$X_1$和$X_2$相互独立,$E ( X_1 X_2 ) = E ( X_1 ) E ( X_2 )$,同样是拆期望那个式子,使用乘法分配律得到.</p>
+<p>而方差在相互独立的条件下同样是线性可加的,也就是只要$X_1$和$X_2$相互独立,$D ( X_1 + X_2 ) = D ( X_1 ) + D ( X_2 )$.从形式上证明是好证明的,我们考虑:</p>
+<p>$$
+\begin{aligned}
+D ( X_1 + X_2 ) & = E ( ( X_1 + X_2 )^2 ) - E^2 ( X_1 + X_2 ) \\
+& = E ( X_1^2 ) + E ( 2 X_1 X_2 ) + E ( X_2^2 ) - E^2 ( X_1 + X_2 ) \\
+& = E ( X_1^2 ) + 2 E ( X_1 ) E ( X_2 ) + E ( X_2^2 ) - ( E ( X_1 ) + E ( X_2 ) )^2 \\
+& = E ( X_1^2 ) - E^2 ( X_1 ) + E ( X_2^2 ) - E^2 ( X_2 ) \\
+& = D ( X_1 ) + D ( X_2 )
+\end{aligned}
+$$</p>
+<p>或者你也可以卷积然后求导啊!</p>
+<p>如何从感性上理解这一点呢?很遗憾,笔者暂时没有想出从感性上理解的方式.从感觉上来讲,笔者比较相信这和独立变量以及正交性有关,查询相关资料得到了协方差的概念,也就是当两个变量独立的时候协方差为$0$,不然$D ( X_1 + X_2 )$要再加上两倍的协方差.笔者的能力也就到此了.</p>
+<p>对于数据统计部分,我们会发现它在做的其实都是一个套路:将数据放在均值的两侧,也就是减去均值,这样新的值的均值为$0$,并且缩放权值,使得方差恰好为$1$.这个做法在正态分布那里就已经展示了它的强大.这是下面概统的极重要的思想,似乎被称作&quot;标准化&quot;.如果我们痴迷于这个思想,就会发现概统的一切复杂的公式的目的只有两个:让误差均值为$0$的前提下,使得方差最小.</p>
+<h3 id="toc-3">分布列</h3>
+<h4 id="toc-4">两点分布</h4>
+<p>直接写的话也就是$P ( X ) = \begin{cases}p & X = 1 \\ 1 - p & X = 0 \\ 0 & other\end{cases}$,事实上这么写可能不太严谨,因为两点分布的$X = 1$和$X = 0$两个事件互为对立,但笔者仍然选择这种形式来写,因为看着舒服.</p>
+<p>考虑概率生成函数,自然是$G ( x ) = ( 1 - p ) + px$.由此式子轻松推得$E ( x ) = G ' ( 1 ) = p , D ( x ) = E ( x^2 ) - E^2 ( x ) = G ' ' ( 1 ) + G ' ( 1 ) - ( G ' ( 1 ) )^2 = p - p^2 = p ( 1 - p )$.</p>
+<p>这里非要炫技用一下概率生成函数是因为笔者快忘了这玩意怎么用了,这个东西在下面几乎不会再用到了.</p>
+<h4 id="toc-5">二项式分布</h4>
+<p>所谓$n$重伯努利试验,也就是$n$次两点分布的累计,满足$P ( X = k ) = C_{ n }^k ( 1 - p )^{ n - k } p^k$,我们关注两个事情,也就是二项式分布的$E ( X ) = np , D ( X ) = np ( 1 - p )$,也就是将两点分布的均值与方差给拆开单独累加了.</p>
+<h4 id="toc-6">超几何分布</h4>
+<p>所谓不放回取球,考虑目前有$N$个数字,有$M$个是$1$,剩下$N - M$个是$0$,取出$n$次,取出了$m$个$1$的概率.简单组合一下得到此概率为$\frac{ C_{ M }^m C_{ N - M }^{ n - m } }{ C_{ N }^n } \\$,注意这里必须保证$n \leq N$.</p>
+<p>由范德蒙德卷积得知,$\sum_{ m } C_{ M }^m C_{ N - M }^{ n - m } = C_{ N }^n$,因此该分布列所有情况之和为$1$.</p>
+<p>考虑其均值,从感性上讲必定是$\frac{ nM }{ N }$.</p>
+<p>从理性上讲,首先可以吸收恒等式+范德蒙德卷积,其次可以概率生成函数.</p>
+<p>结合来讲,考虑每一个事件:它必然形如$01101$之类的,表示每一次取出时拿到的球.不难发现对于事件的全集,我们交换前两个球,仍然唯一对应到了事件的全集.也就是说取出的顺序并不重要,第一次取得到$1$的概率,和第二次取得到$1$的概率完全相等,这必然意味着两次的期望相等.</p>
+<p>方差是$n \frac{ N ( N - M ) ( N - n ) }{ N^2 ( N - 1 ) }$,不太想管这个东西了.</p>
+<h4 id="toc-7">正态分布</h4>
+<p>前面的分布大都是离散的,而正态分布是连续函数,因此我们写$f ( x ) = \frac{ e^{ - \frac{ ( x - \mu )^2 }{ 2 \sigma^2 } } }{ \sigma \sqrt{ 2 \pi } } \\$,是不是看着非常震撼!其中的方差是$\sigma^2$,期望是$\mu$.本着闲着没事干的原则,我们来彻底冷静一下剖析整个正态分布函数:</p>
+<p>众所周知,标准正态分布满足$\sigma = 1 , \mu = 0$,此时的函数也就是$f ( x ) = \frac{ e^{ - \frac{ x^2 }{ 2 } } }{ \sqrt{ 2 \pi } }$.一个好奇是,你凭啥说所有情况下的概率之和为$1$,事实上这其实是因为$g ( x ) = e^{ - x^2 }$的积分是$\sqrt{ \pi }$,不会求这个积分.</p>
+<p>观察$g ( x ) = e^{ - x^2 }$这个函数,你会发现它其实是想要模拟一个钟形曲线,也就是中间部分要更高,两边要更低.如果只是这样,我们完全可以用函数$e^{ - | x | }$模拟,但这样的曲线并不圆滑,中间有个小突起,这是因为绝对值本身的分段函数性质,因此直接把上面那个东西换成平方得到一个更圆滑的曲线,如果想要这个曲线横向放缩,则对横坐标使用变换,这就是$\sigma$的由来,将$x \rightarrow \sigma x$,也就是在$x$那里除去一个$\sigma$.而对这个曲线进行横向移动,也就是将$x \rightarrow x - \mu$.</p>
+<p>这也就引出所谓的$3 \sigma$原则了,同样是积分.</p>
+<h3 id="toc-8">成对数据的统计</h3>
+<h4 id="toc-9">样本相关系数</h4>
+<p>对于若干数据$( x_i , y_i )$,我们先进行标准化,也就是减去均值后再除以方差,这样做使得$x , y$分别的均值为$0$,方差为$1$.下面默认已经标准化过了.</p>
+<p>不妨构造$n$维向量$\vec{ x } = ( x_1 , x_2 , \cdots , x_n ) , \vec{ y } = ( y_1 , y_2 , \cdots , y_n )$,考虑它们的点乘$\vec{ x } \cdot \vec{ y }$,不难发现由于方差为$1$,因此$| \vec{ x } | = | \vec{ y } | = \sqrt{ n }$,因此它们的点乘为$n \cos \theta$,设$r = \frac{ \vec{ x } \cdot \vec{ y } }{ n } = \cos \theta$.</p>
+<p>如果$\exists k$,$\forall i , y_i = kx_i$,此时必有$| r | = 1$,因此我们断言(为啥呢?其实是不太理解的啊)当$| r |$越靠近$1$的时候,$x , y$之间的线性关系越强.</p>
+<h4 id="toc-10">最小二乘法</h4>
+<p>我们在上面的角度审视中提出了一个观点:在满足均值为$0$的前提下,使得方差最小.由此我们审视所谓的一元线性回归方程:$Y = bx + a + e , E ( e ) = 0 , D ( e ) = \sigma^2$.</p>
+<p>现在我们要做的就是,已知若干组数据$( x_i , y_i )$,去构造一组$a , b$满足上面的条件.不妨令$e_i = y_i - ( bx_i + a )$,若$\sum e_i = 0$,必有$a = \bar{ y } - b \bar{ x }$,带入解得当$\sigma$最小的时候,$b = \frac{ \sum_{ i } ( x_i - \bar{ x } ) ( y_i - \bar{ y } ) }{ \sum_{ i } ( x_i - \bar{ x } )^2 } \\$.</p>
+<p>提出质疑:为啥这里不需要对数据进行标准化呢?</p>
+<p>因为标准化没有用,我们的目的是找到那个$b$使得$\sigma$最小,标准化说到底只是为了保证$\sigma = 1$的工具,没有必要在这里标准化.</p>
+<h4 id="toc-11">独立性检验</h4>
+<p>使用卡方分布,懒得去学细节了.</p>
+<p>独立性检验其实是依赖于这么一件事实:那就是如果两个事件独立,我们得知$P ( AB ) = P ( A ) P ( B )$,那么我们反推,如果我们在现实中的估计中,发现$P ( AB )$和$P ( A ) P ( B )$差的太大,那么我们就认定其没有独立性.</p>
+<p>接下来不妨设在测试过程中估算出:$P ( 00 ) = \frac{ a }{ n } , P ( 01 ) = \frac{ b }{ n } , P ( 10 ) = \frac{ c }{ n } , P ( 11 ) = \frac{ d }{ n }$.那么$P ( A = 0 ) P ( B = 0 ) = \frac{ ( a + b ) ( a + c ) }{ n^2 }$.我们计算它与$P ( 00 )$的差,平方后除以$P ( A = 0 ) P ( B = 0 )$然后做四遍求和化简,得到$\chi^2 = \frac{ n ( ad - bc )^2 }{ ( a + b ) ( a + c ) ( c + d ) ( b + d ) }$.</p>
+<p>这有什么用呢?通过牛逼数学家的计算,我们可以认为如果独立性成立,那么$P ( \chi^2 \geq x_\alpha ) = \alpha$.或者给出我们经验上的准则:</p>
+<p>选取一个较小的$\alpha$,并得知其对应的$x_\alpha$,如果$\chi^2 \geq x_\alpha$,推断独立性不成立,犯错的概率是$\alpha$.反之断言其独立性成立,犯错的概率不可知,肯定$\alpha$越大犯错的概率越小.</p>
+<h2 id="toc-12">函数导论</h2>
+<h3 id="toc-13">常用对数表</h3>
+<ol>
+<li>
+<p>$\ln 2 = 0 . 693$.</p>
+</li>
+<li>
+<p>$\ln 3 = 1 . 099$.</p>
+</li>
+<li>
+<p>$\ln 5 = 1 . 609$.</p>
+</li>
+<li>
+<p>$\ln 0 . 1 = - 2 . 303$.</p>
+</li>
+<li>
+<p>$\ln 0 . 5 = - 0 . 693$.</p>
+</li>
+</ol>
+<h3 id="toc-14">常用指数表</h3>
+<ol>
+<li>
+<p>$e = 2 . 718$.</p>
+</li>
+<li>
+<p>$e^2 = 7 . 389$.</p>
+</li>
+<li>
+<p>$e^3 = 20 . 086$.</p>
+</li>
+<li>
+<p>$e^5 = 148 . 413$.</p>
+</li>
+<li>
+<p>$e^{ 0 . 1 } = 1 . 105$.</p>
+</li>
+<li>
+<p>$e^{ 0 . 5 } = 1 . 649$.</p>
+</li>
+<li>
+<p>$e^\pi = 23 . 147$.</p>
+</li>
+</ol>
+<h3 id="toc-15">基本函数的图像及性质</h3>
+<h4 id="toc-16">$f(x)=xe^x$</h4>
+<h5 id="toc-17">图像</h5>
+<p><img src="/images/%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0%E7%9A%84%E5%9B%BE%E5%83%8F/xe%5Ex.png" alt="" loading="lazy" decoding="async"></p>
+<h5 id="toc-18">极值与极限</h5>
+<p>$f ' ( x ) = ( x + 1 ) e^x$,$x = - 1$的时候,取最小值$- \frac{ 1 }{ e }$.</p>
+<p>另外$\lim_{ x \rightarrow - \infty } f ( x ) = 0 \\$.</p>
+<hr>
+<h4 id="toc-19">$f(x)=x\ln x$</h4>
+<h5 id="toc-20">图像</h5>
+<p><img src="/images/%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0%E7%9A%84%E5%9B%BE%E5%83%8F/xlnx.png" alt="" loading="lazy" decoding="async"></p>
+<h5 id="toc-21">极值与极限</h5>
+<p>$f ' ( x ) = 1 + \ln x , x = \frac{ 1 }{ e }$的时候,有最小值$- \frac{ 1 }{ e }$.</p>
+<p>另外$\lim_{ x \rightarrow 0^{ + } } f ( x ) = 0 \\$.</p>
+<hr>
+<h4 id="toc-22">$f(x)=\frac{e^x}{x}$</h4>
+<h5 id="toc-23">图像</h5>
+<p><img src="/images/%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0%E7%9A%84%E5%9B%BE%E5%83%8F/e%5Exdivx.png" alt="" loading="lazy" decoding="async"></p>
+<h5 id="toc-24">极值与极限</h5>
+<p>$f ' ( x ) = \frac{ e^x ( x - 1 ) }{ x^2 } , x = 1$的时候,有极小值$e$.</p>
+<p>另外$\lim_{ x \rightarrow - \infty } f ( x ) = 0 \\$.</p>
+<hr>
+<h4 id="toc-25">$f(x)=\frac{\ln x}{x}$</h4>
+<h5 id="toc-26">图像</h5>
+<p><img src="/images/%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0%E7%9A%84%E5%9B%BE%E5%83%8F/lnxdivx.png" alt="" loading="lazy" decoding="async"></p>
+<h5 id="toc-27">极值与极限</h5>
+<p>$f ' ( x ) = \frac{ 1 - \ln x }{ x^2 } , x = e$的时候,有极大值$\frac{ 1 }{ e }$.</p>
+<p>另外$\lim_{ x \rightarrow + \infty } f ( x ) = 0 \\$.</p>
+<hr>
+<h4 id="toc-28">$f(x)=x-\ln x$</h4>
+<h5 id="toc-29">图像</h5>
+<p><img src="/images/%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0%E7%9A%84%E5%9B%BE%E5%83%8F/xminuslnx.png" alt="" loading="lazy" decoding="async"></p>
+<h5 id="toc-30">极值与极限</h5>
+<p>$f ' ( x ) = 1 - \frac{ 1 }{ x } , x = 1$的时候,有最小值$1$.</p>
+<hr>
+<h4 id="toc-31">$f(x)=\frac{x}{e^x}$</h4>
+<h5 id="toc-32">图像</h5>
+<p><img src="/images/%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0%E7%9A%84%E5%9B%BE%E5%83%8F/xdive%5Ex.png" alt="" loading="lazy" decoding="async"></p>
+<h5 id="toc-33">极值与极限</h5>
+<p>$f ' ( x ) = \frac{ 1 - x }{ e^x } , x = 1$的时候,有最大值$\frac{ 1 }{ e }$.</p>
+<p>另外$\lim_{ x \rightarrow + \infty } f ( x ) = 0 \\$.</p>
+<h3 id="toc-34">预处理函数</h3>
+<h4 id="toc-35">分离对数</h4>
+<h5 id="toc-36">Example</h5>
+<p>令$f ( x ) = ( 2 + x + ax^2 ) \ln ( x + 1 ) - 2 x$,已知$x = 0$是极大值点,求$a$.</p>
+<p>考虑分离对数后操作多项式,我们显然可找到$0 < t < 1 , 2 + t + at^2 > 0 , 2 - t + at^2 > 0$,下面只考虑$x \in [ - t , t ]$.此时$f ( x ) = ( 2 + x + ax^2 ) ( \ln ( x + 1 ) - \frac{ 2 x }{ 2 + x + ax^2 } )$.</p>
+<p>考虑令$g ( x ) = \ln ( x + 1 ) - \frac{ 2 x }{ 2 + x + ax^2 }$,由于$f ( 0 ) = 0$,只需证明$g ( x ) \leq 0 , x \in [ - t , t ]$即可.</p>
+<p>而:</p>
+<p>$$
+\begin{aligned}
+g ' ( x ) & = \frac{ 1 }{ x + 1 } - \frac{ 4 - 2 ax^2 }{ ( 2 + x + ax^2 )^2 } \\
+& = \frac{ x^2 ( a^2 x^2 + 4 ax + 6 a + 1 ) }{ ( x + 1 ) ( 2 + x + ax^2 ) } \\
+\text{ sign } ( g ' ( x ) ) & = \text{ sign } ( a^2 x^2 + 4 ax + 6 a + 1 )
+\end{aligned}
+$$</p>
+<p>则$a^2 0^2 + 4 a 0 + 6 a + 1 = 0$,$a = - \frac{ 1 }{ 6 }$.验证一下.</p>
+<h4 id="toc-37">消去指数</h4>
+<h5 id="toc-38">Example</h5>
+<p>令$f ( x ) = e^x - \ln ( x + 1 ) + ax^3 - x^2 - 1$,若$\forall x \in ( - 1 , 1 ) , f ( x ) \geq 0$,求$a$.</p>
+<p>$f ( 0 ) = 0$,于是上面的条件等价于$0$是$( - 1 , 1 )$的最小值点.</p>
+<p>考虑$f ' ( x ) = e^x - \frac{ 1 }{ x + 1 } + 3 ax^2 - 2 x$,则$f ' ( 0 ) = 0$恒成立.</p>
+<p>讨论$g ( x ) = 1 + e^{ - x } ( 3 ax^2 - 2 x - \frac{ 1 }{ x + 1 } )$的正负,看$g ' ( x ) = \frac{ x ( - 3 ax^3 + 2 x^2 + ( 9 a + 2 ) x + 6 a - 1 ) }{ ( x + 1 )^2 e^x }$.</p>
+<p>接下来的讨论是简单的.</p>
+<h3 id="toc-39">消元法</h3>
+<h4 id="toc-40">变化条件</h4>
+<h5 id="toc-41">Example</h5>
+<p>已知$x + 2 y = 1$,求$x^2 + y^2$的最小值.</p>
+<p>直接令$x = 1 - 2 y$,带入即可.</p>
+<h4 id="toc-42">变化所求</h4>
+<h5 id="toc-43">Example</h5>
+<p>已知$x^2 + y^3 = 2$,求$x + y$的最小值.</p>
+<p>这个的话不妨设其最小值为$C$,有$x + y \geq C$,移项得到$y \geq C - x$,两边三次方然后带入.</p>
+<h3 id="toc-44">换元法</h3>
+<h4 id="toc-45">普通参数方程</h4>
+<h5 id="toc-46">Example</h5>
+<p>已知$x^2 + y^2 - xy = 1$,求$x + y$的最小值.</p>
+<p>这个的话大概是这样,我们找到一个$t$,使得$x = f ( t ) , y = g ( t )$,然后换元.</p>
+<p>比如这个题,你就可以凑成$( x - \frac{ y }{ 2 } )^2 + ( \frac{ \sqrt{ 3 } }{ 2 } y )^2 = 1$,然后做三角换元.</p>
+<h4 id="toc-47">齐次化构造</h4>
+<h5 id="toc-48">Example1(对数平均不等式)</h5>
+<p>求证$\sqrt{ ab } < \frac{ a - b }{ \ln a - \ln b } < \frac{ a + b }{ 2 }$.</p>
+<p>两边证明方式类似,这里只证明右半边,下面的证明的每一步均为充要的,因而可以倒退.</p>
+<p>$$
+\begin{aligned}
+\frac{ a - b }{ \ln a - \ln b } & < \frac{ a + b }{ 2 } \\
+\frac{ a - b }{ a + b } & < \frac{ \ln \frac{ a }{ b } }{ 2 } \\
+\frac{ \frac{ a }{ b } - 1 }{ \frac{ a }{ b } + 1 } & < \frac{ \ln \frac{ a }{ b } }{ 2 }
+\end{aligned}
+$$</p>
+<p>换元,令$t = \frac{ a }{ b }$,然后下面大力求导.</p>
+<h5 id="toc-49">Example2</h5>
+<p>已知函数$f ( x ) = 3 \ln x - ax$,若$x_1 < x_2$是$f ( x )$的两个零点,求证$f ' ( \frac{ x_1 + 3 x_2 }{ 4 } ) < 0$.</p>
+<p>我们来分析已知,我们目前知道的是:</p>
+<p>$$
+\begin{cases}
+3 \ln x_1 = ax_1 \\
+3 \ln x_2 = ax_2
+\end{cases}
+$$</p>
+<p>我们想要知道的是:$\frac{ 12 }{ x_1 + 3 x_2 } < a$.</p>
+<p>这就是整个题全部的部分,和前面的函数其实一点关系都没太有.那么这个东西怎么搞呢?我们先把$a$给换掉,事实上我们根据前面的方程有$a = \frac{ 3 \ln \frac{ x_2 }{ x_1 } }{ x_2 - x_1 }$.</p>
+<p>于是我们只需要证明:$\frac{ x_1 + 3 x_2 }{ 4 } > \frac{ x_2 - x_1 }{ \ln \frac{ x_2 }{ x_1 } }$,这是一个很显然的齐次化形式.</p>
+<h5 id="toc-50">Example3</h5>
+<p>已知函数$f ( x ) = \ln x - ax$,其有两个零点$x_1 \ne x_2$,求证$x_1 x_2 > e^2$.</p>
+<p>同样分析已知,我们得到的是:</p>
+<p>$$
+\begin{cases}
+\ln x_1 = ax_1 \\
+\ln x_2 = ax_2
+\end{cases}
+$$</p>
+<p>通过简单线代知识我们知道,如果我们想把这两个条件同时用上,我们最好先相加再相减,这样这一步推下来就是充要的:</p>
+<p>$$
+\begin{cases}
+\ln x_2 - \ln x_1 = a ( x_2 - x_1 ) \\
+\ln x_2 + \ln x_1 = a ( x_2 + x_1 )
+\end{cases}
+$$</p>
+<p>这里先把所求变形一下,我们把它改成$\ln x_1 + \ln x_2 > 2$.</p>
+<p>发现了什么?这个东西等价于$a ( x_2 + x_1 ) > 2$,至此,我们用上了第二个式子,并且将其蕴含到了答案中.</p>
+<p>接下来用第一个式子代换$a$即可.</p>
+<h5 id="toc-51">Example4</h5>
+<p>已知$f ( x ) = x^2 + axe^x - ae^{ 2 x }$有三个不同的零点$x_1 < x_2 < x_3$,求$a$的范围,并求证$( 1 - \frac{ x_1 }{ e^{ x_1 } } )^2 ( 1 - \frac{ x_2 }{ e^{ x_2 } } ) ( 1 - \frac{ x_3 }{ e^{ x_3 } } ) = 1$.</p>
+<p>考虑两边同时除以$e^{ 2 x }$,这样得到$g ( x ) = ( \frac{ x }{ e^x } )^2 + a \frac{ x }{ e^x } - a$,令$t = \frac{ x }{ e^x }$得到$g ( t ) = t^2 + at - a = 0$.</p>
+<p>考察$g ( t ) = 0$的两根$t_1 < t_2$,根据韦达定理,首先需要满足$\Delta = a^2 + 4 a > 0 \Rightarrow a > 0$,然后$t_1 + t_2 = - a , t_1 t_2 = - a$.</p>
+<p>接下来考察函数$\frac{ x }{ e^x }$,这个函数图像我们很熟悉,如果想要最后有三个零点,又因为$t_1 , t_2$中必有一负,因此$t_2 \in ( 0 , \frac{ 1 }{ e } )$.由此立得$0 < a < \frac{ 1 }{ e ( e - 1 ) }$.</p>
+<p>接下来考虑后面那个东西,其实就是简单韦达定理,随便做做.</p>
+<h4 id="toc-52">同构化构造</h4>
+<h5 id="toc-53">Example1</h5>
+<p>若$x > 0$时,$ax ( e^{ ax } + 1 ) \geq 2 ( x^2 + 1 ) \ln x$恒成立,求$a$取值范围.</p>
+<p>一般这种题先判$a$的正负,注意到$x > 1$的时候右边恒大于$0$,因此$a > 0$.</p>
+<p>观察这个式子,发现形式似乎很相似,更进一步地,我们把常数$2$放进$\ln$,自然有:$ax ( e^{ ax } + 1 ) \geq ( x^2 + 1 ) \ln x^2$.</p>
+<p>考虑令$t_1 = ax , t_2 = \ln x^2$,则:</p>
+<p>$$
+t_1 ( e^{ t_1 } + 1 ) \geq t_2 ( e^{ t_2 } + 1 )
+$$</p>
+<p>接下来分析函数$f ( x ) = x ( e^x + 1 )$的单调性,就可以得到$a \geq \frac{ 2 }{ e }$.</p>
+<h3 id="toc-54">不等式相关</h3>
+<h4 id="toc-55">基本不等式相关</h4>
+<h5 id="toc-56">方程角度的审视</h5>
+<p>我们曾经下过这么一个论断:即对于有一个方程限制的双变量,求另一个式子的最值,我们是可以有一套机械化方法探路的.具体而言,这个方法基于大部分情况下,我们只需要两个二元方程就可以得到确定的(唯一或者唯二或者常数个)原本的两个变量的值.</p>
+<p>于是我们设一个常数来表示其中一个方程,另一个方程自然是题目给出的限制条件,我们只需要把所求转化为对于这个常数的限制就好了.</p>
+<p>如果我们再去仔细揣摩这个过程,我们会发现一些更有趣的事情:即只要我们能做到&quot;降次&quot;这件事,我们似乎一定存在方程的解.这可能类似于所谓的齐次化构造$\frac{ m }{ n } = k$.</p>
+<p>那这意味着什么呢?在绝大多数情况下我们拿到的方程都是非齐次的方程,这给了我们机会去降次.</p>
+<p>我们给出一个例题:</p>
+<h5 id="toc-57">Example</h5>
+<p>已知$n , m > 0 , 2 m + n = nm$,求$n + m + \sqrt{ n^2 + m^2 }$的最小值.</p>
+<p>这个题有一个方式是观察到$n , m , \sqrt{ n^2 + m^2 }$是直角三角形的三条边然后使用三角换元.但我们接下来会给出一个更加厉害的做法:</p>
+<p>我们想要知道它的最小值,就是想要证明下面这个不等式并且证明等号成立:</p>
+<p>$$
+\begin{aligned}
+n + m + \sqrt{ n^2 + m^2 } & \geq k \\
+\Leftarrow \sqrt{ n^2 + m^2 } & \geq k - n - m \\
+
+\end{aligned}
+$$</p>
+<p>如果$n + m \geq k$,那么不等式显然成立,下面只需要证明$n + m < k$的情况:</p>
+<p>$$
+\begin{aligned}
+\sqrt{ n^2 + m^2 } & \geq k - n - m \\
+\Leftarrow n^2 + m^2 & \geq ( k - ( n + m ) )^2 \\
+\Leftarrow k^2 + ( n + m )^2 - 2 k ( n + m ) & \leq n^2 + m^2 \\
+\Leftarrow k^2 + 2 nm - 2 k ( n + m ) & \leq 0 \\
+\Leftarrow k^2 + n ( 2 - 2 k ) + m ( 4 - 2 k ) & \leq 0 \\
+\Leftarrow k^2 & \leq n ( 2 k - 2 ) + m ( 2 k - 4 )
+\end{aligned}
+$$</p>
+<p>变形方程得到$\frac{ 2 }{ n } + \frac{ 1 }{ m } = 1$,使用这个式子来降次:</p>
+<p>$$
+\begin{aligned}
+n ( 2 k - 2 ) + m ( 2 k - 4 ) & = 6 k - 8 + \frac{ n }{ m } ( 2 k - 2 ) + \frac{ m }{ n } ( 4 k - 8 ) \\
+
+\end{aligned}
+$$</p>
+<p>要严谨一点的话我们需要证明$4 k - 8 \geq 0$,$k \geq 2$.这非常简单,因为$k \geq n + m > 3$.</p>
+<p>这就足够了么?不需要证明存在一个$w = \frac{ n }{ m }$使得带入到原方程中有解么?这个其实是显然易证的.</p>
+<p>那么:</p>
+<p>$$
+n ( 2 k - 2 ) + m ( 2 k - 4 ) \geq 6 k - 8 + 2 \sqrt{ 8 ( k - 1 ) ( k - 2 ) }
+$$</p>
+<p>这个等号可以取到,也就是说,只要满足:</p>
+<p>$$
+k^2 \leq 6 k - 8 + 2 \sqrt{ 8 ( k - 1 ) ( k - 2 ) }
+$$</p>
+<p>那么这个$k$就是一个下界,特别地,如果满足:</p>
+<p>$$
+k^2 = 6 k - 8 + 2 \sqrt{ 8 ( k - 1 ) ( k - 2 ) }
+$$</p>
+<p>那么这个$k$就是一个下确界,也就是我们想要求的最小值.</p>
+<p>事情还没有解决(即使这个时候你已经能猜到$k = 10$是一个解了),接下来我们必须求出一个$k$.</p>
+<p>$$
+\begin{aligned}
+k^2 & = 6 k - 8 + 2 \sqrt{ 8 ( k - 1 ) ( k - 2 ) } \\
+k^2 - 6 k + 8 & = 2 \sqrt{ 8 ( k - 1 ) ( k - 2 ) } \\
+( k - 4 ) ( k - 2 ) & = 2 \sqrt{ 8 ( k - 1 ) ( k - 2 ) } \\
+\sqrt{ k - 2 } & = \frac{ 2 \sqrt{ 8 ( k - 1 ) } }{ k - 4 }
+\end{aligned}
+$$</p>
+<p>我们看上去走投无路了对么?其实不然,你发现这个式子两边的次是不等的,我们可以使用它降次!换言之,把这个$\sqrt{ k - 2 }$带入到上面去!</p>
+<p>$$
+\begin{aligned}
+( k - 4 ) ( k - 2 ) & = 2 \sqrt{ 8 ( k - 1 ) } \frac{ 2 \sqrt{ 8 ( k - 1 ) } }{ k - 4 } \\
+( k - 4 ) ( k - 2 ) & = \frac{ 32 ( k - 1 ) }{ k - 4 } \\
+
+\end{aligned}
+$$</p>
+<p>我想你这个时候又会发现我们走投无路了,但稍微思考一下就会发现,这个方程一定没有常数项(或者说$k = 0$是这个方程的一个解).</p>
+<p>这样得到了一个二次方程,我们自然可以解出$k = 10$.</p>
+<h4 id="toc-58">泰勒展开</h4>
+<h5 id="toc-59">抽象函数的泰勒展开</h5>
+<p>$$
+\begin{aligned}
+f ( x ) & = \sum_{ k \geq 0 } \frac{ f^{ ( k ) } ( x_0 ) }{ k ! } ( x - x_0 )^k \\
+f ( x ) & = \sum_{ k \geq 0 } \frac{ f^{ ( k ) } ( 0 ) }{ k ! } x^k \\
+
+\end{aligned}
+$$</p>
+<h5 id="toc-60">常用泰勒展开公式</h5>
+<ol>
+<li>
+<p>$\frac{ 1 }{ 1 - x } = \sum_{ k \geq 0 } x^k = 1 + x + x^2 + \cdots \\$.</p>
+</li>
+<li>
+<p>$e^x = \sum_{ k \geq 0 } \frac{ x^k }{ k ! } = 1 + x + \frac{ 1 }{ 2 ! } x^2 + \cdots \\$.</p>
+</li>
+<li>
+<p>$\ln ( 1 + x ) = \sum_{ k \geq 1 } ( - 1 )^{ k - 1 } \frac{ x^k }{ k } = x - \frac{ 1 }{ 2 } x^2 + \frac{ 1 }{ 3 } x^3 + \cdots \\$.</p>
+</li>
+</ol>
+<h4 id="toc-61">极值点偏移</h4>
+<h5 id="toc-62">Example1</h5>
+<p>已知函数$f ( x ) = \ln x - ax$,其有两个零点$x_1 \ne x_2$,求证$x_1 x_2 > e^2$.</p>
+<p>极值点偏移的形式,应该是形如$g ( x ) = a$有两个解$x_1 , x_2$,然后使得$x_1 + x_2$满足一定条件.因此我们先变形条件:</p>
+<p>$$
+\begin{cases}
+\frac{ \ln x_1 }{ x_1 } = a \\
+\frac{ \ln x_2 }{ x_2 } = a
+\end{cases}
+$$</p>
+<p>也就是目前我们构造出了函数$g ( x ) = \frac{ \ln x }{ x }$,观察$g ( x )$图像立得$x_1 + x_2 > 2 e$.</p>
+<p>我们发现,$x_1 x_2 \leq \frac{ ( x_1 + x_2 )^2 }{ 4 }$,这个形式看上去非常正确!但是问题在于,我们好像不太能去变形不等式了,怎么办呢?</p>
+<p>考虑对着我们要证明的东西去搞,极值点偏移可以解决相加性问题,因此我们变形所求为$\ln x_1 + \ln x_2 < 2$,然后令$t_1 = \ln x_1 , t_2 = \ln x_2$,带入立有:</p>
+<p>$$
+\begin{cases}
+\frac{ t_1 }{ e^{ t_1 } } = a \\
+\frac{ t_2 }{ e^{ t_2 } } = a
+\end{cases}
+$$</p>
+<p>而$g ( x ) = \frac{ x }{ e^x }$恰好也是满足$x_1 + x_2 > 2$的这么一个函数!于是我们就解决了问题.</p>
+<h5 id="toc-63">Example2</h5>
+<p>$f ( x ) = x ( 1 - \ln x )$,$b \ln a - a \ln b = a - b$,求证$2 < \frac{ 1 }{ a } + \frac{ 1 }{ b } < e$.</p>
+<p>首先变形条件得到$b ( 1 + \ln a ) = a ( 1 + \ln b )$,得到$f ( \frac{ 1 }{ a } ) = f ( \frac{ 1 }{ b } )$,左半部分就是经典极值点偏移.</p>
+<p>那么右半部分怎么做呢?我们来考虑:</p>
+<p>$f ' ( x ) = - \ln x$,其在$( 0 , 1 ) \uparrow , ( 1 , + \infty ) \downarrow$,考察极值点偏移,我们想要证明$\frac{ 1 }{ b } < e - \frac{ 1 }{ a }$,我们就想办法把$\frac{ 1 }{ b }$和$e - \frac{ 1 }{ a }$扔到同一个区间里,而它们确实同在$( 1 , + \infty )$这个区间内.</p>
+<p>比较有启发性的是,你发现$\frac{ 1 }{ b } , e - \frac{ 1 }{ a }$和$\frac{ 1 }{ a } , e - \frac{ 1 }{ b }$这两对必有一对在同一个区间内部.</p>
+<p>现在我们就可以套路化了:</p>
+<p>$$
+\begin{aligned}
+\frac{ 1 }{ b } & < e - \frac{ 1 }{ a } \\
+f ( \frac{ 1 }{ a } ) & = f ( \frac{ 1 }{ b } ) > f ( e - \frac{ 1 }{ a } )
+\end{aligned}
+$$</p>
+<p>对着上面那个函数证明即可.</p>
+<h5 id="toc-64">Example3</h5>
+<p>$f ( x ) = e^{ x - 1 } - ax$在$( 0 , 2 )$有两个零点$x_1 , x_2$,求证$x_1 x_2 > \frac{ 1 }{ a }$.</p>
+<p>首先要证明$a$的范围啊,我们不加证明地给出:$a \in ( 1 , \frac{ e }{ 2 } )$,并且$( - \infty , 1 + \ln a ) \downarrow , ( 1 + \ln a , + \infty ) \uparrow$.</p>
+<p>这个其实差不多啊,简单来说就是首先列方程:</p>
+<p>$$
+\begin{cases}
+ax_1 = e^{ x_1 - 1 } \\
+ax_2 = e^{ x_2 - 1 }
+\end{cases}
+$$</p>
+<p>我们知道,一般双变量的问题加法会比较好做(原理是加法便于看单调区间),因此现在我们有两条路可走:要么变化所求,两边取$\ln$,要么变化已知.</p>
+<p>我们发现如果变化所求,我们还得对已知两边取$\ln$,这也太麻烦了,不如直接变化已知.具体地,我们把已知的式子相乘就可以得到$x_1 x_2$和$x_1 + x_2$之间的关系,带下来就可以了.然后观察单调区间做极值点偏移.最后的式子应该形如$0 < f ( 2 + \ln a - x_2 )$,也就是$0 < ae^{ 1 - x_2 } - a ( 2 + \ln a - x_2 )$.</p>
+<p>但是这样有一个问题,我们把$f$带进去,你会发现最后我们的式子同时带有$a , x_2$,这个就难做了,咋办呢?考虑拿$ax_2 = e^{ x_2 - 1 }$操作一下把$a$消掉就好了.</p>
+<h4 id="toc-65">切割线放缩</h4>
+<h5 id="toc-66">基本的切割线不等式</h5>
+<ol>
+<li>
+<p>$e^x \geq x + 1$.</p>
+</li>
+<li>
+<p>$\frac{ x - 1 }{ x } \leq \ln x \leq x - 1$.</p>
+</li>
+</ol>
+<p>乍一看非常平凡,事实上有一些不平凡的推论:</p>
+<ol start="3">
+<li>$\ln ( n + 1 ) < \sum_{ k = 1 }^n \frac{ 1 }{ k }$.</li>
+</ol>
+<p>考虑$\ln ( \frac{ n + 1 }{ n } ) < \frac{ 1 }{ n }$,左右两边分别求和得到上面的式子.</p>
+<ol start="4">
+<li>$\ln n > \sum_{ k = 2 }^n \frac{ 1 }{ k } , n > 1$.</li>
+</ol>
+<p>这个怎么证明呢?考虑左右取负,也就是需要证明$\ln \frac{ 1 }{ n } < - \sum_{ k = 2 }^n \frac{ 1 }{ k }$.</p>
+<p>考虑$\ln ( \frac{ n - 1 }{ n } ) \leq - \frac{ 1 }{ n }$,两边求和得到上式.</p>
+<ol start="5">
+<li>$\sum_{ k = 1 }^n ( \frac{ k }{ n } )^n < \frac{ e }{ e - 1 }$.</li>
+</ol>
+<p>考虑$n \ln ( \frac{ k }{ n } ) \leq k - n$,也就有$( \frac{ k }{ n } )^n \leq e^{ k - n }$,两边求和得到上式.</p>
+<h5 id="toc-67">一般的切割线放缩</h5>
+<h6 id="toc-68">Example1</h6>
+<p>设$f ( x ) = x \ln x$,若$f ( x ) = b$有两个实数根$x_1 , x_2 ( x_1 < x_2 )$,求证:$be + 1 < x_2 - x_1 < \frac{ e^{ - 3 } + 2 + 3 b }{ 2 }$.</p>
+<p>注意到$f ( x )$下凸,考虑求出两条切线,那么这两条切线与$y = b$的交点之差要大于等于$x_2 - x_1$,两条割线交点之差要小于等于$x_2 - x_1$.</p>
+<p>先求好求的割线,一般而言,我们考虑边界情况,也就是$b \rightarrow - \frac{ 1 }{ e }$的情况,为了让这种情况有解,我们的割线必过$( \frac{ 1 }{ e } , - \frac{ 1 }{ e } )$.</p>
+<p>考虑直接选取$( 0 , 0 )$和$( 1 , 0 )$作为另外两个点,这两条割线就是$x = - y$和$x = ( e - 1 ) y + 1$.做差立得上面的式子.</p>
+<p>那么后半边怎么证明呢?我们考虑一个想法是:这题既然出出来了,它必然不可能是虚的.因此我们要找的切点不可能过于离谱.</p>
+<p>另外一个事实是,我们考虑如果我们找到了一条切线,那么由于不等式的右边是定值,我们肯定想要让令一条切线稍微平均一下,使得$( x_2 - x_1 )_{ \max }$尽可能地小对吧!</p>
+<p>我们不妨设我们要找的两个切点,一个横坐标是$u$,另一个是$v$,其中$v < \frac{ 1 }{ e } < u$,那么两条切线分别是:</p>
+<p>$$
+\begin{cases}
+x = \frac{ y - f ( u ) }{ f ' ( u ) } + u \\
+x = \frac{ y - f ( v ) }{ f ' ( v ) } + v
+\end{cases}
+$$</p>
+<p>那么,现在我们要做的就是找到一组$( u , v )$,使得:</p>
+<p>$$
+\frac{ b - f ( u ) }{ f ' ( u ) } + u - \frac{ b - f ( v ) }{ f ' ( v ) } - v = \frac{ e^{ - 3 } + 2 + 3 b }{ 2 }
+$$</p>
+<p>感觉很难搞啊,我们不妨让$u = 1$,自然有:</p>
+<p>$$
+\frac{ ( f ' ( v ) - 1 ) b + f ( v ) - vf ' ( v ) }{ f ' ( v ) } = \frac{ e^{ - 3 } + 3 b }{ 2 }
+$$</p>
+<p>然后我们凑系数,上面的式子,我们大胆猜测:</p>
+<p>$$
+\begin{cases}
+\frac{ f ' ( v ) - 1 }{ f ' ( v ) } = \frac{ 3 }{ 2 } \\
+\frac{ f ( v ) - vf ' ( v ) }{ f ' ( v ) } = \frac{ e^{ - 3 } }{ 2 }
+\end{cases}
+$$</p>
+<p>考虑让$f ' ( v ) = - 2$,则$v = e^{ - 3 }$,带入发现正好适配.</p>
+<h4 id="toc-69">凹凸性反转</h4>
+<h5 id="toc-70">Example1</h5>
+<p>求证:$\forall x \in ( 0 , + \infty ) , \ln x + 1 > \frac{ 1 }{ e^{ x + 1 } } - \frac{ 2 }{ e^2 x }$.</p>
+<p>这个式子看上去就很震撼,那么我们该怎么处理呢?</p>
+<p>我们知道常数项在导数中是好处理的,而且我们通过强大的注意力,发现右边那个式子如果乘以$x$,他就是一个凸函数了,而左边也是有凹凸性的.</p>
+<p>因此我们变形为$x \ln x + x > \frac{ x }{ e^{ x + 1 } } - \frac{ 2 }{ e^2 }$,然后证明左边的最小值$\geq$右边的最大值.</p>
+<h4 id="toc-71">比较大小</h4>
+<p>接下来以一个题为例,介绍一下几种估算/严谨的比较大小方式.</p>
+<h5 id="toc-72">Example1</h5>
+<p>已知$a = 0 . 1 e^{ 0 . 1 } , b = \frac{ 1 }{ 9 } , c = - \ln 0 . 9$,求比较$a , b , c$的大小关系.</p>
+<h6 id="toc-73">二阶导数</h6>
+<p>我们上面声明过了二次导数可以判断极值类型,我们用这个方式来计算$a$和$c$的大小关系.</p>
+<p>构造函数$f ( x ) = xe^x + \ln ( 1 - x )$,则$f ( 0 . 1 ) > 0 \Rightarrow a > c$.</p>
+<p>考察$f ( 0 ) = 0$,$f ' ( 0 ) = 0$,$f ' ' ( 0 ) = 4 > 0$,则$f ( 0 ) = 0$是一个极小值点,并在接下来有着增大的趋势.因此我们可以估算$f ( 0 . 1 ) > 0$.</p>
+<h6 id="toc-74">估算定积分</h6>
+<p>考察$a$和$b$的大小关系,不妨设$f ( x ) = ( 1 - x ) e^{ 1 - x } - \frac{ 1 }{ 10 x }$,则$f ( 0 . 9 ) < 0 \Rightarrow b > a$.</p>
+<p>注意到$f ( 1 ) = - \frac{ 1 }{ 10 }$,$f ' ( 1 ) = - \frac{ 9 }{ 10 }$,考虑估算一下积分,那么$f ( 0 . 9 ) \approx f ( 1 ) - f ' ( 1 ) 0 . 1 = - \frac{ 1 }{ 100 } < 0$.</p>
+<p>你可能会觉得这个$- \frac{ 1 }{ 100 }$,是不是不太能那么肯定地估算啊.但是实际上,我们考察$f ' ( x ) = ( x - 2 ) e^{ 1 - x } + \frac{ 1 }{ 10 x^2 }$,这个东西在$[ 0 . 9 , 1 ]$上直觉上平均值是大于$- \frac{ 9 }{ 10 }$的,这样就有道理多了(真的么).</p>
+<h6 id="toc-75">泰勒展开</h6>
+<p>上面提过了,这里略过.</p>
+<h6 id="toc-76">正经做法</h6>
+<p>接下来开抄标答.</p>
+<p>令$f_a ( x ) = xe^x , f_b ( x ) = \frac{ x }{ 1 - x } , f_c ( x ) = - \ln ( 1 - x )$.</p>
+<p>这样当$x = 0 . 1$的时候所有的数字都被正确表示了.</p>
+<p>比较$a , b$:</p>
+<p>考虑它们都有乘除项,考虑使用对数把乘除改为加减,立有:</p>
+<p>$$
+\begin{aligned}
+y & = \ln ( a ) - \ln ( b ) = x + \ln ( 1 - x ) \\
+y ' & = 1 - \frac{ 1 }{ 1 - x } = \frac{ - x }{ 1 - x }
+\end{aligned}
+$$</p>
+<p>注意到$x = 0$的时候$y = 0$,又注意到其在$( 0 , 0 . 1 )$上单减,这样立有$a < b$.</p>
+<p>比较$a , c$:</p>
+<p>$$
+\begin{aligned}
+y & = a - c = xe^x + \ln ( 1 - x ) \\
+y ' & = ( x + 1 ) e^x - \frac{ 1 }{ 1 - x } = \frac{ ( 1 + x ) ( 1 - x ) e^x - 1 }{ 1 - x } \\
+
+\end{aligned}
+$$</p>
+<p>注意到$x = 0$的时候$y = 0$,又注意到其在$( 0 , 0 . 1 )$上单增,这样立有$a > c$.</p>
+<p>经验教训:在构造函数的时候,你一定要找一些简单一点的函数来构造,<strong>最好不要带有系数</strong>.</p>
+<h2 id="toc-77">数列导论</h2>
+<h3 id="toc-78">递归式的求解</h3>
+<h4 id="toc-79">特征根法</h4>
+<p>一个常系数的$k$阶线性递推关系形如:</p>
+<p>$$
+\begin{aligned}
+a_n & = P_n + \sum_{ i = 1 }^k c_i a_{ n - i } , n \geq k \\
+a_0 & = C_0 , a_1 = C_1 , . . . , a_{ k - 1 } = C_{ k - 1 }
+\end{aligned}
+$$</p>
+<p>当$P = 0$时,称作齐次线性递推.</p>
+<h5 id="toc-80">特征方程</h5>
+<p>我们称方程$r^k = \sum_{ i = 1 }^k c_i r^{ k - i }$是该递推关系的特征方程,方程的解叫做该递推关系的特征根.</p>
+<h5 id="toc-81">二阶线性齐次递推</h5>
+<p>若其特征方程有两个不同的根$r_1$和$r_2$,那么存在两个常数$\alpha_1$和$\alpha_2$,满足$a_n = \alpha_1 r_1^n + \alpha_2 r_2^n$.</p>
+<p>若其特征方程有两个相同的根$r$,那么存在两个常数$\alpha_1$和$\alpha_2$,满足$a_n = \alpha_1 r^n + \alpha_2 nr^n$.</p>
+<p>先考虑前者的证明,首先考虑对于$n = 0$或者$n = 1$的情况,我们考虑求出一组$\alpha_1$和$\alpha_2$来满足:</p>
+<p>$$
+\begin{aligned}
+C_0 & = \alpha_1 + \alpha_2 \\
+C_1 & = \alpha_1 r_1 + \alpha_2 r_2
+\end{aligned}
+$$</p>
+<p>若$r_1 \ne r_2$,可以解得:</p>
+<p>$$
+\begin{aligned}
+\alpha_1 & = \cfrac{ C_1 - C_0 r_2 }{ r_1 - r_2 } \\
+\alpha_2 & = C_0 - \alpha_1
+\end{aligned}
+$$</p>
+<p>接下来考虑数学归纳:</p>
+<p>$$
+\begin{aligned}
+a_n & = c_1 a_{ n - 1 } + c_2 a_{ n - 2 } \\
+& = c_1 ( \alpha_1 r_1^{ n - 1 } + \alpha_2 r_2^{ n - 1 } ) + c_2 ( \alpha_1 r_1^{ n - 2 } + \alpha_2 r_2^{ n - 2 } ) \\
+& = \alpha_1 ( c_1 r_1^{ n - 1 } + c_2 r_1^{ n - 2 } ) + \alpha_2 ( c_1 r_2^{ n - 1 } + c_2 r_2^{ n - 2 } ) \\
+& = \alpha_1 r_1^n + \alpha_2 r_2^n
+\end{aligned}
+$$</p>
+<p>接下来考虑后者,首先我们有$\Delta = c_1^2 + 4 c_2 = 0$,考虑初始条件:</p>
+<p>$$
+\begin{aligned}
+C_0 & = \alpha_1 \\
+C_1 & = \alpha_1 r + \alpha_2 r \\
+
+\end{aligned}
+$$</p>
+<p>接下来我们考虑数学归纳:</p>
+<p>$$
+\begin{aligned}
+a_n & = c_1 a_{ n - 1 } + c_2 a_{ n - 2 } \\
+& = c_1 ( \alpha_1 r^{ n - 1 } + \alpha_2 nr^{ n - 1 } - \alpha_2 r^{ n - 1 } ) + c_2 ( \alpha_1 r^{ n - 2 } + \alpha_2 nr^{ n - 2 } - 2 \alpha_2 r^{ n - 2 } ) \\
+& = a_n - c_1 \alpha_2 r^{ n - 1 } - 2 c_2 \alpha_2 r^{ n - 2 }
+\end{aligned}
+$$</p>
+<p>我们接下来只需证明$c_1 r + 2 c_2 = 0$即可.根据方程,不难发现$r = \cfrac{ c_1 }{ 2 }$,根据$\Delta = 0$,自然得证.</p>
+<h5 id="toc-82">更一般的情况</h5>
+<p>在上面做$k = 2$的时候,我们已经发现了这个问题的棘手.甚至动用了求根公式.那有没有什么办法能让这个方法拓展到更高维呢?我们引入线性代数.</p>
+<h6 id="toc-83">重定义向</h6>
+<p>由于《线性代数》一书的作者与笔者使用字母习惯略有差异,为了防止出错,下面一律使用原书的使用习惯,可能会与前面的定义不尽相同.</p>
+<p>给定$a_0 , . . . , a_n$,其中$a_0 \ne 0$,对于所有的$k \in \mathbb{ N }$,若有下列式子成立:</p>
+<p>$$
+a_0 y_{ k + n } + a_1 y_{ k + n - 1 } + \cdots + a_n y_k = z_k
+$$</p>
+<p>则称为一个$n$阶线性差分方程(或递归关系).为了简化,通常取$a_0 = 1$.若$\{ z_k \}$是零序列,则称其是一个齐次线性方程.</p>
+<h6 id="toc-84">引入矩阵</h6>
+<p>我们注意到,对于齐次差分方程而言,如果不给定$y_0 , \cdots y_{ n - 1 }$,只是构造一组满足条件的$y$的话,自然的想法是令$y_k = r^k$.其中$r$是辅助方程$a_0 r^{ n } + a_1 r^{ n - 1 } + \cdots + a_n = 0$的一个根.</p>
+<p>注意到如果我们将上面的内容看作是$T : \{ y_k \} \mapsto \{ z_k \}$这样一个映射,这显然是一个线性变换.这意味着齐次方程$a_0 y_{ k + n } + a_1 y_{ k + n - 1 } + \cdots + a_n y_k = 0$的解集就是$T$的核,设为$H$,不难发现只要给定$y_0 , \cdots y_{ n - 1 }$,这个解就唯一确定,将它们看作自由变量,这意味着$\dim H = n$.</p>
+<p>还没完,注意到我们解方程可以解出$n$个根,如果这$n$个根互不相同,这意味着它们必然线性无关.这样的话我们就可以轻松求得所有的解集,就算给定了$y_0 , \cdots y_{ n - 1 }$,我们也可以用解集的基通过线性组合拟合出来答案.</p>
+<p>至于如果这$n$个根有重根的话怎么办,我们发现这可能拟合失败.根据上面的经验,我们发现我们需要找到另外几组线性无关的$\mathbb{ R }^k$的向量来拟合.</p>
+<p>最后,如果对于非齐次线性递推的答案,可能就需要猜根了.总之需要猜出总共$n$个线性无关的根,然后拟合初值.我们如此做:对于一个出现了$m$次的根$r$,我们注意到$r^k , kr^k , \cdots , k^{ m - 1 } r^k$都是满足条件的解,且他们线性无关.这个结论是怎么得到的呢?</p>
+<p>首先,我们注意到如果初始条件成立,我们只要错位相减就可以做数学归纳,也就是说我们需要证明初始条件成立,下面以$kr^k$作为例子,即证明:</p>
+<p>$$
+a_0 nr^n + a_1 ( n - 1 ) r^{ n - 1 } + \cdots + a_1 r = 0
+$$</p>
+<p>是满足条件的.</p>
+<p>用一下简单的生成函数技巧,如果有两个$r$作为根,必然意味着原方程形如$( y - r )^2 P$,其中$P$是一个关于$y$的多项式.</p>
+<p>我们把它写开:$( y^2 - 2 ry + r^2 ) P = 0$,然后我们用$kr^k$去代替$r^k$,不难发现代替后右边还是个多项式,而左边变成了$0$,这意味着这个根一定可行.</p>
+<p>对于更高次的问题,只需要用二项式定理解决一下就行.</p>
+<p>不过!我们可以用导数解决这个问题:我们对原方程两边求导.</p>
+<p>$$
+\begin{aligned}
+a_0 r^{ n + k } + a_1 r^{ n + k - 1 } + \cdots + a_1 r^k & = 0 \\
+a_0 ( n + k ) r^{ n + k - 1 } + a_1 ( n + k - 1 ) r^{ n + k - 2 } + \cdots + a_1 kr^{ k - 1 } & = 0 \\
+a_0 ( n + k ) r^{ n + k } + a_1 ( n + k - 1 ) r^{ n + k - 1 } + \cdots + a_1 kr^{ k } & = 0 \\
+
+\end{aligned}
+$$</p>
+<p>这样我们就可以数学归纳解决.</p>
+<p>另外,我们注意一个问题:$( ( y - r )^2 P ) ' = ( y - r ) ( ( y - r ) P ) ' + ( y - r ) ' ( y - r ) P = ( y - r ) [ ( y - r ) ' P + ( ( y - r ) P ) ' ]$,$r$一定是这个方程的一个根,高次是同理的.</p>
+<h6 id="toc-85">再进一步</h6>
+<p>我们注意到齐次差分方程一定能写成$\vec{ x }_k = A \vec{ x }_{ k - 1 }$的形式.如果我们取$A$的特征向量的线性组合作为$\vec{ x }_0$,不难发现一定是满足条件的.</p>
+<p>更进一步,如果我们定义元素和为$1$的向量为概率向量,由概率向量组成的矩阵为概率矩阵,那么确定了初始向量的齐次差分方程最后一定会收敛到一个值.证明的话直接求通项然后去求极限即可.</p>
+<h6 id="toc-86">再再进一步</h6>
+<p>我们都知道矩阵加速:也就是$\vec{ x }_{ k + 1 } = A \vec{ x }$,$\vec{ x }_{ n } = A^n \vec{ x }_0$.而我们又知道CH定理:$p ( A ) = 0$,我们用多项式取膜,有$A^n = p ( A ) F ( A ) + G ( A ) = G ( A )$,这就是解.</p>
+<h3 id="toc-87">数列中的求和问题</h3>
+<h4 id="toc-88">和式的基本运算</h4>
+<p>分配律:$\\ \sum_{ i \in S } ca_i = c \sum_{ i \in S } a_i \\$.</p>
+<p>结合律:$\\ \sum_{ i \in S } ( a_i + b_i ) = \sum_{ i \in S } a_i + \sum_{ i \in S } b_i$.</p>
+<p>交换律:$\sum_{ i \in S } a_i = \sum_{ p ( i ) \in S } a_{ p ( i ) }$,其中$p$是$S$集合的重新排列.</p>
+<p>交换求和顺序:</p>
+<ol>
+<li>
+<p>$\sum_{ i } \sum_{ j } a_{ i , j } [ P ( i , j ) ] = \sum_{ j } \sum_{ i } a_{ i , j } [ P ( i , j ) ]$.</p>
+</li>
+<li>
+<p>$\sum_{ i = 1 }^n \sum_{ j = i }^n a_{ i , j } = \sum_{ j = 1 }^n \sum_{ i = 1 }^j a_{ i , j }$.</p>
+</li>
+</ol>
+<p>一般分配律:$\sum_{ i } \sum_{ j } a_{ i } b_j = ( \sum_{ i } a_i ) ( \sum_j b_j )$.</p>
+<h4 id="toc-89">交换顺序法</h4>
+<h6 id="toc-90">Example1(等差数列求和)</h6>
+<p>等差数列求和：</p>
+<p>$$
+\begin{aligned}
+S_n & = \sum_{ i = 0 }^n ( ai + b ) = \sum_{ i = 0 }^n ( a ( n - i ) + b ) \\
+2 S_n & = \sum_{ i = 0 }^n ( an + 2 b ) = an ( n + 1 ) + 2 b ( n + 1 ) \\
+S_n & = ( n + 1 ) ( \frac{ an }{ 2 } + b )
+\end{aligned}
+$$</p>
+<h6 id="toc-91">Example2(切比雪夫单调不等式)</h6>
+<p>令$S = \sum_{ 1 \leq i < j \leq n } ( a_j - a_i ) ( b_j - b_i ) = \sum_{ 1 \leq j < i \leq n } ( a_j - a_i ) ( b_j - b_i )$.</p>
+<p>考虑恒等式$[ 1 \leq j < i \leq n ] + [ 1 \leq i < j \leq n ] = [ 1 \leq j , i \leq n ] - [ 1 \leq i = j \leq n ]$.</p>
+<p>那么我们有:</p>
+<p>$$
+\begin{aligned}
+2 S & = \sum_{ 1 \leq i , j \leq n } ( a_j - a_i ) ( b_j - b_i ) - \sum_{ 1 \leq i = j \leq n } ( a_j - a_i ) ( b_j - b_i ) \\
+& = \sum_{ 1 \leq i , j \leq n } ( a_j - a_i ) ( b_j - b_i ) \\
+& = 2 n \sum_{ i = 1 }^n a_i b_i - 2 ( \sum_{ i = 1 }^n a_i ) ( \sum_{ j = 1 }^n b_j ) \\
+
+\end{aligned}
+$$</p>
+<p>又有$( \sum_{ i = 1 }^n a_i ) ( \sum_{ j = 1 }^n b_j ) = n \sum_{ i = 1 }^n a_i b_i - \sum_{ 1 \leq i < j \leq n } ( a_j - a_i ) ( b_j - b_i )$,显然有以下式子:</p>
+<p>$$
+\begin{aligned}
+( \sum_{ i = 1 }^n a_i ) ( \sum_{ j = 1 }^n b_j ) & \leq n \sum_{ i = 1 }^n a_i b_i , \forall i < j , a_i \leq a_j \land b_i \leq b_j \\
+( \sum_{ i = 1 }^n a_i ) ( \sum_{ j = 1 }^n b_j ) & \geq n \sum_{ i = 1 }^n a_i b_i , \forall i < j , a_i \leq a_j \land b_i \geq b_j \\
+
+\end{aligned}
+$$</p>
+<p>上式被称为切比雪夫单调不等式.</p>
+<h6 id="toc-92">Example3(拉格朗日恒等式)</h6>
+<p>即$\sum_{ 1 \leq j < k \leq n } ( a_j b_k - a_k b_j )^2 = ( \sum_{ i = 1 }^n a_i^2 ) ( \sum_{ i = 1 }^n b_i^2 ) - ( \sum_{ i = 1 }^n a_i b_i )^2 \\$.</p>
+<p>令$S_n = \sum_{ 1 \leq j < k \leq n } ( a_j b_k - a_k b_j )^2 \\$,有:</p>
+<p>$$
+\begin{aligned}
+2 S_n & = \sum_{ j = 1 }^n \sum_{ k = 1 }^n ( a_j b_k - a_k b_j )^2 \\
+& = \sum_{ j = 1 }^n \sum_{ k = 1 }^n ( a_j^2 b_k^2 - 2 a_j a_k b_j b_k - a_k^2 b_j^2 ) \\
+& = 2 ( \sum_{ i = 1 }^n a_i^2 ) ( \sum_{ i = 1 }^n b_i^2 ) - 2 ( \sum_{ i = 1 }^n a_i b_i )^2
+\end{aligned}
+$$</p>
+<h4 id="toc-93">扰动法</h4>
+<h6 id="toc-94">Example1(等比数列求和)</h6>
+<p>$$
+\begin{aligned}
+S_n & = \sum_{ i = 0 }^n ax^i \\
+& = a + \sum_{ i = 1 }^n ax^i \\
+& = a + x \sum_{ i = 0 }^{ n - 1 } ax^i \\
+& = a + xS_{ n - 1 }
+\end{aligned}
+$$</p>
+<p>而$S_{ n - 1 } + ax^n = S_n = a + xS_{ n - 1 }$,有$S_n + ax^{ n + 1 } = a + xS_n , S_n = a \frac{ x^{ n + 1 } - 1 }{ x - 1 }$，其中$x \ne 1$.</p>
+<h6 id="toc-95">Example2(平方和公式)</h6>
+<p>$S_n = \sum_{ i = 0 }^n i^2$.</p>
+<p>如果直接对该公式使用扰动法:</p>
+<p>$$
+\begin{aligned}
+S_n & = \sum_{ i = 0 }^{ n - 1 } i^2 + n^2 \\
+& = \sum_{ i = 1 }^n ( i - 1 )^2 + n^2 \\
+& = S_n - 2 \sum_{ i = 1 }^n i + n + n^2
+\end{aligned}
+$$</p>
+<p>我们无法得到$S_n$的封闭形式,但我们发现我们得到了$\sum_{ i = 1 }^n i$的封闭形式.</p>
+<p>那以此类推，我们设$W_n = \sum_{ i = 0 } i^3$</p>
+<p>$$
+\begin{aligned}
+W_n & = \sum_{ i = 0 }^{ n - 1 } i^3 + n^3 \\
+& = \sum_{ i = 1 }^n ( i - 1 )^3 + n^3 \\
+& = \sum_{ i = 1 }^n i^3 - 3 \sum_{ i = 1 }^n i^2 + 3 \sum_{ i = 1 }^n i - n + n^3 \\
+& = W_n - 3 S_n + 3 \frac{ n + n^2 }{ 2 } - n + n^3 \\
+S_n & = \frac{ n + n^2 }{ 2 } - \frac{ n - n^3 }{ 3 } \\
+& = \frac{ n + 3 n^2 + 2 n^3 }{ 6 } \\
+& = \frac{ n ( 1 + 3 n + 2 n^2 ) }{ 6 } \\
+& = \frac{ n ( 2 n + 1 ) ( n + 1 ) }{ 6 }
+\end{aligned}
+$$</p>
+<h4 id="toc-96">展开和收缩</h4>
+<h6 id="toc-97">Example1(平方和公式)</h6>
+<p>$$
+\begin{aligned}
+S_n & = \sum_{ k = 1 }^n k^2 \\
+& = \sum_{ k = 1 }^n \sum_{ i = 1 }^k k \\
+& = \sum_{ i = 1 }^n \sum_{ k = i }^n k \\
+& = \sum_{ i = 1 }^n \frac{ 1 }{ 2 } ( i + n ) ( n - i + 1 ) \\
+& = \sum_{ i = 1 }^n \frac{ 1 }{ 2 } ( in - i^2 + i + n^2 - ni + n ) \\
+& = \frac{ 1 }{ 2 } ( \sum_{ i = 1 }^n i - \sum_{ i = 1 }^n i^2 + n^3 + n^2 ) \\
+& = \frac{ 1 }{ 4 } n ( n + 1 ) - \frac{ 1 }{ 2 } S_n + \frac{ n^3 + n^2 }{ 2 }
+\end{aligned}
+$$</p>
+<p>整理得到$S_n$.</p>
+<h6 id="toc-98">Example2</h6>
+<p>求$\sum_{ i = 1 }^n i^3 \\$.</p>
+<p>$$
+\begin{aligned}
+S ( n ) & = \sum_{ i = 1 }^n i^3 \\
+& = \sum_{ i = 1 }^n \sum_{ j = 1 }^i i^2 \\
+& = \sum_{ j = 1 }^n \sum_{ i = j }^n i^2 \\
+& = \sum_{ j = 1 }^n ( \frac{ n ( n + 1 ) ( 2 n + 1 ) }{ 6 } - \frac{ ( j - 1 ) j ( 2 j - 1 ) }{ 6 } ) \\
+& = \frac{ n^2 ( n + 1 ) ( 2 n + 1 ) }{ 6 } - \frac{ 1 }{ 3 } S ( n ) + \frac{ n ( n + 1 ) ( 2 n + 1 ) }{ 12 } - \frac{ n ( n + 1 ) }{ 12 } \\
+S ( n ) & = \frac{ n^2 ( n + 1 )^2 }{ 4 }
+\end{aligned}
+$$</p>
+<h5 id="toc-99">Problme3</h5>
+<p>求$\sum_{ i = 1 }^n iq^i ( q \ne 1 )$.</p>
+<h5 id="toc-100">Solution3</h5>
+<p>$$
+\begin{aligned}
+\sum_{ i = 1 }^n iq^i & = \sum_{ j = 1 }^n \sum_{ i = j }^n q^i \\
+& = \sum_{ j = 1 }^n \frac{ q^j - q^{ n + 1 } }{ 1 - q } \\
+& = \frac{ 1 }{ q - 1 } \sum_{ j = 1 }^n ( q^{ n + 1 } - q^j ) \\
+& = \frac{ 1 }{ q - 1 } ( nq^{ n + 1 } - \frac{ q^{ n + 1 } - q }{ q - 1 } ) \\
+
+\end{aligned}
+$$</p>
+<h5 id="toc-101">ProblemEX2</h5>
+<p>求$\sum_{ i = 1 }^n ( ai + b ) q^{ i - 1 } ( q \ne 1 )$.</p>
+<h5 id="toc-102">SolutionEX2</h5>
+<p>令$A = \frac{ a }{ q - 1 } , B = \frac{ b - A }{ q - 1 }$,答案为$( An + B ) q^n - B$.</p>
+<h4 id="toc-103">有限微积分</h4>
+<h5 id="toc-104">移位算子</h5>
+<p>定义移位算子$E$，使得$Ef ( x ) = f ( x + 1 )$.</p>
+<h5 id="toc-105">差分算子</h5>
+<p>定义差分算子$\Delta f ( x ) = f ( x + 1 ) - f ( x )$，类似于无限微积分中的D算子.</p>
+<p>另外,不难发现有$\Delta = E - 1$.</p>
+<h5 id="toc-106">逆差分算子</h5>
+<p>定义逆差分算子$\Sigma$,可以得到有限微积分的基本定理:</p>
+<p>$g ( x ) = \Delta f ( x ) \Leftrightarrow \sum g ( x ) \delta x = f ( x ) + C \\$</p>
+<p>这里的$\Sigma$又被称为不定和式,是差分等于$g$的一个函数类.</p>
+<p>值得一提的是,这里的$C$与无限微积分中的$C$有一定区别,这里的$C$可以是满足$p ( x ) = p ( x + 1 )$的任意一个函数而不非得是常数函数.</p>
+<h5 id="toc-107">定和式</h5>
+<p>如果$g ( x ) = \Delta f ( x )$,那么有$\sum \nolimits_{ a }^b g ( x ) \delta x = f ( x ) |^{ b }_a = f ( b ) - f ( a ) \\$.</p>
+<p>值得一提的是,如果$a \leq b$,显然有$\sum \nolimits_{ a }^b g ( x ) \delta x = \sum_{ x = a }^{ b - 1 } g ( x ) \\$.</p>
+<p>但如果$a > b$,那么$\sum \nolimits_{ a }^b g ( x ) \delta x = - \sum \nolimits_b^a g ( x ) \delta x \\$.</p>
+<p>事实上,我们一定有:$\sum \nolimits_a^b g ( x ) \delta x + \sum \nolimits_b^c g ( x ) \delta x = \sum \nolimits_a^c g ( x ) \delta x \\$.</p>
+<h5 id="toc-108">一些基本的公式</h5>
+<p>类比无限微积分中的$D ( x^m ) = mx^{ m - 1 }$，有:</p>
+<p>\Delta(x<sup>{\underline{m}})=mx</sup>{\underline{m-1}}，\sum mx^{\underline{m-1}}\delta x=x^{\underline{m}}+C，m\ne 0\</p>
+<p>\</p>
+<p>类比无限微积分中的$D ( \ln x ) = \frac{ 1 }{ x }$，有:</p>
+<p>令H(x)=\sum_{i=1}<sup>x\frac{1}{i}\\Delta(H(x))=x</sup>{\underline{-1}}，\sum x^{\underline{-1}}\delta x =H(x)+C\</p>
+<p>\</p>
+<p>类比无限微积分中的$D ( e^x ) = e^x$,有:</p>
+<p>$\Delta ( 2^x ) = 2^x ， \sum 2^x \delta x = 2^x + C \\$</p>
+<p>$\Delta ( c^x ) = ( c - 1 ) c^x ， \sum c^x \delta x = \frac{ c^x }{ c - 1 } + C , c \ne 1 \\$</p>
+<p>$\Delta ( c^{ \underline{ x } } ) = \frac{ c^{ \underline{ x + 2 } } }{ c - x } , \sum \frac{ c^{ \underline{ x + 2 } } }{ c - x } \delta x = c^{ \underline{ x } } + C , c - x \ne 0 \\$.</p>
+<p>根据组合数公式,有:</p>
+<p>$\Delta ( \binom{ x }{ k } ) = \binom{ x }{ k - 1 } \\$.</p>
+<h6 id="toc-109">Example1</h6>
+<p>仍然考虑平方和公式：</p>
+<p>我们有:$k^2 = k^{ \underline{ 2 } } + k^{ \underline{ 1 } } \\$.</p>
+<p>那么:</p>
+<p>$$
+\begin{aligned}
+S_{ n - 1 } & = \sum_{ i = 0 }^{ n - 1 } i^2 \\
+& = \sum_{ i = 0 }^{ n - 1 } ( i^{ \underline{ 2 } } + i^{ \underline{ 1 } } ) \\
+& = \sum \nolimits_{ 0 }^n x^{ \underline{ 2 } } \delta x + \sum \nolimits_{ 0 }^n x^{ \underline{ 1 } } \delta x \\
+& = \frac{ n^\underline{ 3 } }{ 3 } + \frac{ n^{ \underline{ 2 } } }{ 2 }
+\end{aligned}
+$$</p>
+<p>整理即可得到封闭形式.</p>
+<p>值得一提的是:</p>
+<p>与前面的方法不同，这里没有使用三次的二项式公式，而是使用了二次的斯特林公式负责将一般幂转化为下降幂.</p>
+<h5 id="toc-110">分部求和法则(Abel求和法)</h5>
+<p>$$
+\begin{aligned}
+\Delta ( uv ) & = u ( x + 1 ) v ( x + 1 ) - u ( x ) v ( x ) \\
+& = u ( x + 1 ) v ( x + 1 ) - u ( x ) v ( x + 1 ) + u ( x ) v ( x + 1 ) - u ( x ) v ( x ) \\
+& = v ( x + 1 ) \Delta u + u ( x ) \Delta v = Ev \Delta u + u \Delta v \\
+
+\end{aligned}
+$$</p>
+<p>两边取不定和，即可得到分部求和法则:</p>
+<p>$\sum u \Delta v = uv - \sum Ev \Delta u \\$.</p>
+<p>分部求和用一般和式表达如下,下式又被称为Abel求和法:</p>
+<p>$\sum_{ i = l }^{ r - 1 } ( a_{ i + 1 } - a_i ) b_i = a_r b_r - a_l b_l - \sum_{ i = l }^{ r - 1 } a_{ i + 1 } ( b_{ i + 1 } - b_i ) \\$.</p>
+<h6 id="toc-111">Example1</h6>
+<p>求$\sum_{ k = 0 }^n k 2^k \\$.</p>
+<p>根据分部求和法则，我们有:</p>
+<p>$\sum x 2^x \delta x = x 2^x - \sum 2^{ x + 1 } \delta x = x 2^x - 2^{ x + 1 } + C \\$.</p>
+<p>改为定和式形式，显然有:</p>
+<p>$$
+\begin{aligned}
+& \sum_{ k = 0 }^n k 2^k \\
+= & \sum \nolimits_0^{ n + 1 } x 2^x \delta x \\
+= & ( n + 1 ) 2^{ n + 1 } - 2^{ n + 2 } + 2 \\
+= & ( n - 1 ) 2^{ n + 1 } + 2 \\
+
+\end{aligned}
+$$</p>
+<h6 id="toc-112">Example2</h6>
+<p>求$\sum_{ k = 0 }^{ n - 1 } kH_k \\$.</p>
+<p>令$u ( x ) = H_x , v ( x ) = \frac{ 1 }{ 2 } x^{ \underline{ 2 } } \\$.</p>
+<p>带入分部求和法则，显然有:</p>
+<p>$\sum xH_x \delta x = \frac{ x^\underline{ 2 } }{ 2 } H_x - \frac{ x^\underline{ 2 } }{ 4 } + C \\$.</p>
+<p>带入即可求出原式$= \frac{ n^\underline{ 2 } }{ 2 } ( H_n - \frac{ 1 }{ 2 } ) \\$.</p>
+<h6 id="toc-113">Example3</h6>
+<p>求$\sum_{ i = 1 }^n \frac{ 2 i + 1 }{ i ( i + 1 ) } \\$.</p>
+<p>令$u = ( 2 n + 1 ) , v = - \frac{ 1 }{ i }$,则$\Delta u = 2 , \Delta v = \frac{ 1 }{ i ( i + 1 ) }$.</p>
+<p>根据分部求和法则,有:</p>
+<p>$$
+\begin{aligned}
+\sum_{ i = 1 }^n \frac{ 2 i + 1 }{ i ( i + 1 ) } & = ( 2 n + 3 ) \times ( - \frac{ 1 }{ n + 1 } ) + 3 - \sum_{ i = 1 }^n ( - \frac{ 2 }{ i + 1 } ) \\
+& = - \frac{ 2 n + 3 }{ n + 1 } + 2 H_n + \frac{ n + 3 }{ n + 1 } \\
+& = 2 H_n - \frac{ n }{ n + 1 }
+\end{aligned}
+$$</p>
+<h6 id="toc-114">Example4</h6>
+<p>求$\sum_{ i = 0 }^{ n - 1 } \frac{ H_k }{ ( k + 1 ) ( k + 2 ) } \\$.</p>
+<p>令$u = H_n , v = - \frac{ 1 }{ n + 1 } , \Delta u = \frac{ 1 }{ n + 1 } , \Delta v = \frac{ 1 }{ ( n + 1 ) ( n + 2 ) } \\$.</p>
+<p>根据分部求和法则,有:</p>
+<p>$$
+\begin{aligned}
+\sum_{ i = 0 }^{ n - 1 } \frac{ H_k }{ ( k + 1 ) ( k + 2 ) } & = - \frac{ H_n }{ n + 1 } - \sum_{ i = 0 }^{ n - 1 } ( - \frac{ 1 }{ ( i + 2 ) ( i + 1 ) } ) \\
+& = - \frac{ H_n }{ n + 1 } + \sum_{ i = 0 }^{ n - 1 } ( \frac{ 1 }{ i + 1 } - \frac{ 1 }{ i + 2 } ) \\
+& = - \frac{ H_n }{ n + 1 } + H_n - ( H_n - 1 + \frac{ 1 }{ n + 1 } ) \\
+& = 1 - \frac{ H_n + 1 }{ n + 1 }
+\end{aligned}
+$$</p>
+<h3 id="toc-115">基础数论在数列中的应用</h3>
+<h5 id="toc-116">Example</h5>
+<p>令$A = \{ 2 n - 1 | n \in \mathbb{ N }_{ + } \} , B = \{ 3 n - 1 | n \in \mathbb{ N }_{ + } \}$.求$A \cap B$,以及$A \cup B$的最小的一百项之和.</p>
+<p>对于前者,我们知道:</p>
+<p>$$
+\begin{aligned}
+a & \in A \Leftrightarrow a \equiv - 1 \pmod{ 2 } \\
+b & \in B \Leftrightarrow b \equiv - 1 \pmod{ 6 } \\
+
+\end{aligned}
+$$</p>
+<p>所以$A \cap B = \{ 6 n - 1 | n \in \mathbb{ N }_{ + } \}$.</p>
+<p>而同理,$x \in A \cup B \Leftrightarrow x \equiv - 1 / - 2 / - 3 / - 5 \pmod{ 6 }$.于是后者是简单的.</p>
+<h3 id="toc-117">构造双射在数列中的应用</h3>
+<p>设$A = \{ x | x = 2 n - 1 , n \in \mathbb{ N }_+ \} , B = \{ x | x = 2^n , n \in \mathbb{ N }_+ \}$,现在将$A \cup B$中的元素排序并提取成一个数列$a$,求使得$S_n > 12 a_n$最小的正整数$n$.</p>
+<p>写出数列,它长这样:</p>
+<p>$$
+\begin{matrix}
+1 & 2 \\
+3 & 4 \\
+5 & 7 & 8 \\
+9 & 11 & 13 & 15 & 16 \\
+& & \cdots
+\end{matrix}
+$$</p>
+<p>不妨设$n$在第$r$行$c$列,显然$( r , c )$和$n$构成双射.</p>
+<p>那么我们现在无非有两个思路:要么找到一个方式使得对于给定的$n$能快速表达$( r , c )$,要么反之.显然反之比较简单.</p>
+<p>考虑设前$k$行共有$W_k$个数,不难发现$W_{ k + 1 } = W_k + 2^{ k - 1 } + 1 , W_k = 2^{ k - 1 } + k$.</p>
+<p>显然,对于$( r , c )$来说,它对应的$n$就是$W_{ r - 1 } + c$.</p>
+<p>令$SR_{ r }$为前$r$行数字之和,不难发现$SR_r = 2^{ r + 1 } - 2 + ( 2^{ r - 1 } )^2$.</p>
+<p>接下来考虑找到这个最小的$n$,显然$r \ne 1$,接下来只考虑$r \geq 2$的情况.</p>
+<p>那么我们可以轻松写出$S_n$和$a_n$的表达式,下面直接给出:</p>
+<p>$$
+\begin{aligned}
+S_n & = SR_{ r - 1 } + \sum_{ k = 1 }^c ( 2^{ r - 1 } + 2 k - 1 ) - [ c = 2^{ r - 2 } + 2 ] \\
+S_n & = 2^r - 2 + 4^{ r - 2 } + 2^{ r - 1 } c + c^2 - [ c = 2^{ r - 2 } + 1 ] \\
+a_n & = 2^{ r - 1 } + 2 c - 1 - [ c = 2^{ r - 2 } + 1 ]
+\end{aligned}
+$$</p>
+<p>讨论一下$[ c = 2^{ r - 2 } + 1 ]$这个判定式取$0$还是取$1$,这样就做完了.</p>
+<h3 id="toc-118">不等式放缩在数列中的应用</h3>
+<h2 id="toc-119">几何导论</h2>
+<h3 id="toc-120">三角相关</h3>
+<h4 id="toc-121">三角恒等变换</h4>
+<h5 id="toc-122">两角和差公式</h5>
+<p>$$
+\begin{aligned}
+\sin ( A + B ) & = \sin A \cos B + \sin B \cos A \\
+\sin ( A - B ) & = \sin A \cos B - \sin B \cos A \\
+\cos ( A + B ) & = \cos A \cos B - \sin A \sin B \\
+\cos ( A - B ) & = \cos A \cos B + \sin A \sin B \\
+\tan ( A + B ) & = \frac{ \tan A + \tan B }{ 1 - \tan A \tan B } \\
+\tan ( A - B ) & = \frac{ \tan A - \tan B }{ 1 + \tan A \tan B }
+\end{aligned}
+$$</p>
+<h5 id="toc-123">倍角公式</h5>
+<p>$$
+\begin{aligned}
+\tan ( 2 A ) & = \frac{ 2 \tan A }{ 1 - \tan^2 A } \\
+\sin ( 2 A ) & = 2 \sin A \cos A \\
+\cos ( 2 A ) & = \cos^2 A - \sin^2 A = 2 \cos^2 A - 1 = 1 - 2 \sin^2 A
+\end{aligned}
+$$</p>
+<h5 id="toc-124">半角公式</h5>
+<p>$$
+\begin{aligned}
+\sin ( \frac{ A }{ 2 } ) & = \pm \sqrt{ \frac{ 1 - \cos A }{ 2 } } \\
+\cos ( \frac{ A }{ 2 } ) & = \pm \sqrt{ \frac{ 1 + \cos A }{ 2 } } \\
+\tan ( \frac{ A }{ 2 } ) & = \frac{ \sin A }{ 1 + \cos A } = \frac{ 1 - \cos A }{ \sin A } = \pm \sqrt{ \frac{ 1 - \cos A }{ 1 + \cos A } }
+\end{aligned}
+$$</p>
+<h5 id="toc-125">和差化积</h5>
+<p>$$
+\begin{aligned}
+\sin A + \sin B & = 2 \sin ( \frac{ A + B }{ 2 } ) \cos ( \frac{ A - B }{ 2 } ) \\
+\sin A - \sin B & = 2 \cos ( \frac{ A + B }{ 2 } ) \sin ( \frac{ A - B }{ 2 } ) \\
+\cos A + \cos B & = 2 \cos ( \frac{ A + B }{ 2 } ) \cos ( \frac{ A - B }{ 2 } ) \\
+\cos A - \cos B & = - 2 \sin ( \frac{ A + B }{ 2 } ) \sin ( \frac{ A - B }{ 2 } ) \\
+\tan A + \tan B & = \frac{ \sin ( A + B ) }{ \cos A \cos B }
+\end{aligned}
+$$</p>
+<p>值得一提的是,如果你对和差化积特别熟悉,你不难发现下面这个式子:</p>
+<p>$$
+\sin^2 A - \sin^2 B = \sin ( A - B ) \sin ( A + B )
+$$</p>
+<p>如果细看会发现,这其实就是和差化积与二倍角公式并用得到的推论,但实际上用处远比和差化积要多.</p>
+<h5 id="toc-126">积化和差</h5>
+<p>$$
+\begin{aligned}
+\sin A \sin B & = - \frac{ 1 }{ 2 } [ \cos ( A + B ) - \cos ( A - B ) ] \\
+\cos A \cos B & = \frac{ 1 }{ 2 } [ \cos ( A + B ) + \cos ( A - B ) ] \\
+\sin A \cos B & = \frac{ 1 }{ 2 } [ \sin ( A + B ) + \sin ( A - B ) ] \\
+\cos A \sin B & = \frac{ 1 }{ 2 } [ \sin ( A + B ) - \sin ( A - B ) ]
+\end{aligned}
+$$</p>
+<h5 id="toc-127">万能公式</h5>
+<p>令$w = \tan \frac{ A }{ 2 }$,则:</p>
+<p>$$
+\begin{aligned}
+\sin A & = \frac{ 2 w }{ 1 + w^2 } \\
+\cos A & = \frac{ 1 - w^2 }{ 1 + w^2 } \\
+\tan A & = \frac{ 2 w }{ 1 - w^2 }
+\end{aligned}
+$$</p>
+<p>当然,这个所谓的万能公式其实一点用都没有,因为我们有更强大的公式:</p>
+<p>$$
+\begin{aligned}
+\cos ( x ) & = \frac{ e^{ ix } + e^{ - ix } }{ 2 } \\
+\sin ( x ) & = \frac{ e^{ ix } - e^{ - ix } }{ 2 i }
+\end{aligned}
+$$</p>
+<h5 id="toc-128">补充公式</h5>
+<p>$$
+\begin{aligned}
+1 + \sin A & = ( \sin \frac{ A }{ 2 } + \cos \frac{ A }{ 2 } )^2 \\
+1 - \sin A & = ( \sin \frac{ A }{ 2 } - \cos \frac{ A }{ 2 } )^2
+\end{aligned}
+$$</p>
+<h4 id="toc-129">周期函数与初等数论</h4>
+<p>我们知道,处理三角中的周期性问题时,需要设一些取值为整数的$k$来解决问题,这引发我们思考:是否可以将初等数论中的模法来解决这一类问题呢?</p>
+<h6 id="toc-130">Example1</h6>
+<p>已知函数$f ( x ) = \sin ( \omega x + \varphi ) , w > 0$,$f ( - \frac{ \pi }{ 6 } ) = 0 , f ( \frac{ \pi }{ 2 } ) = - 1$,求$w$和$\varphi$的表达式.</p>
+<p>正确做法应该是强设$k_1 , k_2$,但我们来使用模法.</p>
+<p>必须要注意的一点是,我们这里的$\omega$和$\varphi$都不是整数,这意味着我们必须时刻保证同余式子左侧是整数,也就是在操作的时候不可以使用任何逆元!换句话说,你两边同时做乘法的时候,只可以同时乘以整数,不可以同时乘以分数.</p>
+<p>不妨令$\frac{ \pi }{ 2 }$为单位$1$,我们必有以下式子:</p>
+<p>$$
+\begin{aligned}
+- \frac{ \omega }{ 3 } + \varphi & \equiv 0 \pmod{ 2 } \\
+\omega + \varphi & \equiv 3 \pmod{ 4 }
+\end{aligned}
+$$</p>
+<p>下面推导$\omega$,首先将上面两个式子直接相减,立有:</p>
+<p>$$
+\frac{ 4 }{ 3 } \omega \equiv 1 \pmod{ 2 }
+$$</p>
+<p>对于$\varphi$,考虑类似的做法,将第一个式子乘以$3$后与第二个式子相加,立有:</p>
+<p>$$
+4 \varphi \equiv 1 \pmod{ 2 }
+$$</p>
+<p>这样我们得到的必须满足的条件就有以下几条:</p>
+<p>$$
+\begin{aligned}
+\frac{ 4 }{ 3 } \omega & \equiv 1 \pmod{ 2 } \\
+4 \varphi & \equiv 1 \pmod{ 2 } \\
+\omega + \varphi & \equiv 3 \pmod{ 4 }
+\end{aligned}
+$$</p>
+<h3 id="toc-131">向量相关</h3>
+<h4 id="toc-132">旋转模型</h4>
+<p>自己瞎起的名字.</p>
+<h6 id="toc-133">Example1</h6>
+<p>已知$AB = 2 , AC = 1 , \angle A = \theta$,$BC$绕$B$点顺时针旋转$\frac{ \pi }{ 3 }$得到$BD$,求以$\theta$表示$S_{ \triangle CBD }$.</p>
+<p>先来说文化课做法,我们直接表示$S$,令$\alpha = \angle ABC$:</p>
+<p>$$
+\begin{aligned}
+S & = | BD | \sin ( \alpha + \frac{ \pi }{ 3 } ) \\
+
+\end{aligned}
+$$</p>
+<p>对于这个式子,我们发现如果我们能得到$| BD | \sin ( \alpha )$和$| BD | \cos ( \alpha )$就可以解决了对吧.</p>
+<p>这两个怎么求得呢?我们发现$BD$是$\alpha$的一条临边.观察正弦定理和余弦定理可知,正弦定理可以帮助我们求出$| BD | \sin \alpha$,余弦定理可以帮助我们求出$| BD | \cos \alpha$.</p>
+<p>然而,如果我们再冷静一下,会得到一个更厉害一点的做法:</p>
+<p>我们直接建系,立刻可以求出$\overrightarrow{ AB }$和$\overrightarrow{ BC }$的坐标表示,将$\overrightarrow{ BC }$用旋转矩阵转过去,拿叉积算一下两个向量所生成的三角形面积即可.</p>
+<p>如果要把这个做法对应到文化课可以拿到分的做法的话,首先叉积可以去掉,改为直接暴力算.至于旋转的话可能需要一些操作例如三角换元之类的.</p>
+<h4 id="toc-134">爪子模型</h4>
+<p>比起套模型,我们来总结一下向量中的两个做题法则:</p>
+<ol>
+<li>
+<p>如果存在两条不共线向量,已知它们的夹角以及边长,这个题至少可以通过设单位向量暴力运算解决.</p>
+</li>
+<li>
+<p>如果通篇题目不涉及边长,或者是涉及边长,但所求是角,将某个边长当作$1$是一定没有问题的,这样可以少掉一个未知量,为将来的做题提供更明确的道路.</p>
+</li>
+</ol>
+<p>直接来看题:</p>
+<h6 id="toc-135">Example1</h6>
+<p>$\triangle ABC$中,$b^2 = ac$,点$D$在$AC$上且满足$BD = b$,有$\overrightarrow{ AD } = 2 \overrightarrow{ DC }$,求$\cos \angle ABC$.</p>
+<p>这题通篇没有提到任何的边长,我们可以直接钦定$c = 1$,于是有$b^2 = a$.</p>
+<p>考虑我们要求$\cos \angle ABC$,而我们有一条很奇怪的边$BD$,似乎不满足任何性质,我们立刻想到要把它用$\angle ABC$的两条边向量表示,除此之外没有任何别的表示方式.</p>
+<p>后面就没有什么了,这题的难点在于后面的解方程过程,但只要你敢让$c = 1$,后面的解方程极其简单.</p>
+<h4 id="toc-136">奔驰定理及三角形四心</h4>
+<h5 id="toc-137">奔驰定理</h5>
+<p>对于$\triangle ABC$内一点$P$,立有$S_{ \triangle PBC } \overrightarrow{ PA } + S_{ \triangle PAC } \overrightarrow{ PB } + S_{ \triangle PAB } \overrightarrow{ PC } = \vec{ 0 }$.</p>
+<p>看到的证明都略麻烦,下面给出一个容易理解的证明.</p>
+<p>我们物理上学过拉密定理,其实也就是运用三角形法则以及正弦定理.利用拉密定理,令$a = PA , b = PB , c = PC$,我们要证奔驰定理,也就是要证明:</p>
+<p>$$
+\begin{aligned}
+bc \sin \alpha \overrightarrow{ PA } + ac \sin \beta \overrightarrow{ PB } + ab \sin \gamma \overrightarrow{ PC } & = \vec{ 0 } \\
+abc \sin \alpha \frac{ \overrightarrow{ PA } }{ a } + abc \sin \beta \frac{ \overrightarrow{ PB } }{ b } + abc \sin \gamma \frac{ \overrightarrow{ PC } }{ c } & = \vec{ 0 } \\
+\sin \alpha \frac{ \overrightarrow{ PA } }{ a } + \sin \beta \frac{ \overrightarrow{ PB } }{ b } + \sin \gamma \frac{ \overrightarrow{ PC } }{ c } & = \vec{ 0 } \\
+
+\end{aligned}
+$$</p>
+<p>考虑$| \frac{ \overrightarrow{ PA } }{ a } | = | \frac{ \overrightarrow{ PB } }{ b } | = | \frac{ \overrightarrow{ PC } }{ c } | = 1$,后者根据拉密定理显然成立.</p>
+<h5 id="toc-138">外心</h5>
+<p>有正弦定理,$| \overrightarrow{ OA } | = | \overrightarrow{ OB } | = | \overrightarrow{ OC } | = \frac{ a }{ 2 \sin A }$.</p>
+<p>考虑三个三角形的面积可以表示为$\frac{ r^2 }{ 2 } \sin \theta$,又考虑到圆中的$\theta$是圆心角是圆周角的两倍,立有$\sin ( 2 A ) \overrightarrow{ OA } + \sin ( 2 B ) \overrightarrow{ OB } + \sin ( 2 C ) \overrightarrow{ OC } = \vec{ 0 }$.</p>
+<p>下面给出一个例题:</p>
+<h6 id="toc-139">Example1</h6>
+<p>在$\triangle ABC$中,$AB = 2 , BC = \sqrt{ 10 } , AC = 3$,若$O$是其外心,且$\overrightarrow{ AO } = p \overrightarrow{ AB } + q \overrightarrow{ AC }$.</p>
+<p>先给出我一开始的想法:</p>
+<p>在没学奔驰定理之前,我们看到这个外心,第一反应肯定是使用$| OA | = | OB | = | OC |$,也就是这三个长度都是好求的.因此,我们考虑对上面的式子两边平方,得到一个关于$p , q$的方程.但是这样没有解决问题.</p>
+<p>考虑我们只用了$| OA |$,用上$| OB |$,这样的话我们两边同时加上$\overrightarrow{ BA }$,就可以得到$p , q$的另一个方程,可以解出两组解,直接舍也可以舍,不然的话根据$| OC |$也可以舍一个解.</p>
+<p>但是这样太蠢了啊,我们考虑直接凑奔驰定理:</p>
+<p>$$
+\begin{aligned}
+\overrightarrow{ AO } & = p \overrightarrow{ AB } + q \overrightarrow{ AC } \\
+\vec{ 0 } & = ( p + q - 1 ) \overrightarrow{ OA } + p \overrightarrow{ OB } + q \overrightarrow{ OC }
+\end{aligned}
+$$</p>
+<p>考察奔驰定理,立有$\frac{ p + q - 1 }{ \sin ( 2 A ) } = \frac{ p }{ \sin ( 2 B ) } = \frac{ q }{ \sin ( 2 C ) }$,简单题.</p>
+<h6 id="toc-140">Example2</h6>
+<p>已知相异两点$O , H$分别为$\triangle ABC$的外心和垂心,若$\overrightarrow{ OH } = m ( \overrightarrow{ OA } + \overrightarrow{ OB } + \overrightarrow{ OC } )$,求$m$.</p>
+<p>这题要用到的性质是,我们一定要知道$( \overrightarrow{ OB } + \overrightarrow{ OC } ) \cdot \overrightarrow{ BC } = 0$,这也是外心的一个很重要的性质.</p>
+<p>由此,我们让左边凑出$\overrightarrow{ AH }$,然后两边同时乘以$\overrightarrow{ BC }$就可以解决.注意到最后解方程的时候要么$m = 1$,要么三角形等边,但是我们声明过$O , H$相异两点.</p>
+<h5 id="toc-141">重心</h5>
+<p>首先重心将中线三等分,这个我竟然一直没细想过怎么证明啊,只是觉得倍长中线肯定能证明.</p>
+<p>事实上用不到那么麻烦,你直接连接两个中点,立有中位线,然后以重心为两个三角形的顶点,立有一组对顶角且对边平行的$1 : 2$的相似.</p>
+<p>又考察三条中线将整个三角形分成了六部分,这六部分的面积是相等的.</p>
+<p>为啥呢?因为你可以先把三角形分成三部分(也就是每个顶点连到重心),然后将这三部分内部的两个小三角形证明面积相等(因为此时重心是它的顶点,沿着中线连下去就还是这个三角形的中线),再利用上面的三等分结论就显然了啊.</p>
+<p>结合奔驰定理,立有若$O$是重心,则必有$\overrightarrow{ OA } + \overrightarrow{ OB } + \overrightarrow{ OC } = \vec{ 0 }$.</p>
+<p>然后听说有个物理理想实验的理解方式,大概是说这与力矩结合一下就可以得到这是他物理重心的结论,不会.</p>
+<h5 id="toc-142">垂心</h5>
+<p>若$O$是重心,立有$\overrightarrow{ OA } \cdot \overrightarrow{ BC } = 0$,将$\overrightarrow{ BC } = \overrightarrow{ BO } + \overrightarrow{ OC }$,立有$\overrightarrow{ OA } \cdot \overrightarrow{ OB } = \overrightarrow{ OA } \cdot \overrightarrow{ OC } = \overrightarrow{ OB } \cdot \overrightarrow{ OC }$.同时顺带证明了三条高交于一点.</p>
+<p>根据奔驰定理还有$\overrightarrow{ OA } \tan A + \overrightarrow{ OB } \tan B + \overrightarrow{ OC } \tan C = \vec{ 0 }$.</p>
+<h5 id="toc-143">内心</h5>
+<p>根据奔驰定理,立有$a \overrightarrow{ OA } + b \overrightarrow{ OB } + c \overrightarrow{ OC } = \vec{ 0 }$.</p>
+<h3 id="toc-144">立体几何相关</h3>
+<h4 id="toc-145">基本概念</h4>
+<h5 id="toc-146">直线</h5>
+<p>使用直线的方向向量$\vec{ s } = ( n , m , p )$和直线上一点$M_0 = ( x_0 , y_0 , z_0 )$.那么方程显然为:</p>
+<p>$$
+\frac{ x - x_0 }{ n } = \frac{ y - y_0 }{ m } = \frac{ z - z_0 }{ p }
+$$</p>
+<p>如果换元,我们还有参数方程:</p>
+<p>$$
+\begin{cases}
+x = x_0 + nt \\
+y = y_0 + mt \\
+z = z_0 + pt
+\end{cases}
+$$</p>
+<h5 id="toc-147">平面</h5>
+<p>使用平面上的一点$P_0 ( x_0 , y_0 , z_0 )$和该平面的法向量$\vec{ n }$来表示一个平面,不妨设$\vec{ n } = ( A , B , C )$,则该平面的方程显然为:</p>
+<p>$$
+A ( x - x_0 ) + B ( y - y_0 ) + C ( z - z_0 ) = 0
+$$</p>
+<p>如果我们令$D = - ( Ax_0 + By_0 + Cz_)$,那么平面方程为:</p>
+<p>$$
+Ax + By + Cz + D = 0
+$$</p>
+<h5 id="toc-148">夹角</h5>
+<h6 id="toc-149">两直线夹角.</h6>
+<p>直接求方向向量的夹角,然后取正值.</p>
+<p>对于方向向量分别是$\vec{ s_1 } = ( n_1 , m_1 , p_1 ) , \vec{ s_2 } = ( n_2 , m_2 , p_2 )$,也就有$\varphi = \arccos ( \frac{ | \vec{ s }_1 \cdot \vec{ s }_2 | }{ | \vec{ s }_1 | | \vec{ s }_2 | } ) \\$.</p>
+<h6 id="toc-150">直线与平面的夹角</h6>
+<p>同样使用向量,不妨设方向向量$\vec{ s } = ( n , m , p )$,法向量$\vec{ f } = ( a , b , c )$,那么$\varphi = \arcsin ( \frac{ | \vec{ s } \cdot \vec{ f } | }{ | \vec{ s } | | \vec{ f } | } )$.</p>
+<p>另外,由上面这个式子,不难得到一些特殊情况下的判定标准:</p>
+<ol>
+<li>
+<p>若直线与平面平行,则$am + bn + cp = 0$.</p>
+</li>
+<li>
+<p>若直线与平面垂直,则$\frac{ a }{ m } = \frac{ b }{ n } = \frac{ c }{ p }$.注意这里分母可能除以$0$,我们实际上应该是三个形如$a = mt$的参数方程,这里简化了.</p>
+</li>
+</ol>
+<h5 id="toc-151">交点</h5>
+<p>联立方程硬解.</p>
+<h4 id="toc-152">基本定理</h4>
+<p>参考:<a href="https://zhuanlan.zhihu.com/p/401766934" target="_blank" rel="noopener noreferrer">https://zhuanlan.zhihu.com/p/401766934</a></p>
+<h5 id="toc-153">三余弦定理(最小角定理)</h5>
+<p>这个定理说明直线与平面的夹角,是所有包含直线的平面与这个平面形成的夹角中最小的那一个.并且偏移量决定了差距.</p>
+<h5 id="toc-154">三正弦定理(最大角定理)</h5>
+<p>这个定理说明二面角是另一个平面上的直线与平面的夹角中最大的那个,并且偏移量决定了差距.</p>
+<h3 id="toc-155">圆锥曲线</h3>
+<h4 id="toc-156">约定</h4>
+<p>对于所有对称情况结论只讨论一种(其它情况可通过坐标变换得到),但是例题以及做题方法除外.</p>
+<p>大部分涉及斜率的存在性问题,统一不予考虑.如果遇到实际例题,只需特别处理那几个特殊情况即可($mx + ny = 1$需要判断过原点的直线,$y = kx + b$需要判断平行于$y$轴的直线),显然大部分情况下是平凡的.</p>
+<h4 id="toc-157">椭圆</h4>
+<h5 id="toc-158">定义</h5>
+<h6 id="toc-159">第一定义</h6>
+<p>平面内与两定点$F_1 , F_2$距离之和为常数($> | F_1 F_2 |$)的点轨迹.即:$\{ P \mid | F_1 P | + | F_2 P | = 2 a , F_1 ( - c , 0 ) , F_2 ( c , 0 ) \}$.</p>
+<h6 id="toc-160">第二定义</h6>
+<p>平面内一动点到定点与准线($x = \pm \frac{ a^2 }{ c }$)的距离比是常数$e = \frac{ c }{ a }$的点轨迹,即$\{ P \mid \frac{ | PF_1 | }{ d_1 } = \frac{ | PF_2 | }{ d_2 } = \frac{ c }{ a } = e , F_1 ( - c , 0 ) , F_2 ( c , 0 ) \}$.</p>
+<h6 id="toc-161">第三定义</h6>
+<p>平面内一动点到两定点$A_1 ( - a , 0 ) , A_2 ( a , 0 )$的斜率乘积等于定值$e^2 - 1$的轨迹称为椭圆.</p>
+<h5 id="toc-162">椭圆方程</h5>
+<h6 id="toc-163">标准方程</h6>
+<p>由定义不难得到椭圆的标准方程:$\frac{ x^2 }{ a^2 } + \frac{ y^2 }{ b^2 } = 1 ( b^2 = a^2 - c^2 , a > b > 0 )$.</p>
+<h6 id="toc-164">一般方程</h6>
+<p>$nx^2 + my^2 = 1 ( n , m \geq 0 )$,这样设的好处在于如果不知道焦点的位置,仍然可以设方程并进行代数运算,最后判断一下$n$和$m$的大小关系即可.</p>
+<h5 id="toc-165">椭圆重要元素</h5>
+<h6 id="toc-166">焦半径</h6>
+<p>若$P ( x_0 , y_0 )$,则$| PF_1 | = a + ex_0$,$| PF_2 | = a - ex_0$.</p>
+<h6 id="toc-167">焦点弦</h6>
+<p>过$F_1$的弦$| AB | = 2 a + e ( x_1 + x_2 )$.</p>
+<p>过$F_2$的弦$| AB | = 2 a - e ( x_1 + x_2 )$.</p>
+<p>注意到焦点弦最短时$x_1 = x_2$.</p>
+<h6 id="toc-168">焦点三角形</h6>
+<p>即$\bigtriangleup PF_1 F_2$,令$\theta = \angle F_1 PF_2$,有以下性质:</p>
+<ol>
+<li>
+<p>$C = 2 a + 2 c$.</p>
+</li>
+<li>
+<p>$S = b^2 \tan \frac{ \theta }{ 2 } = c | y_P |$.</p>
+</li>
+<li>
+<p>$\cos \theta \geq 1 - 2 e^2$(当$P$在短轴上取等).</p>
+</li>
+<li>
+<p>$| PF_1 | | PF_2 | = \frac{ 2 b^2 }{ 1 + \cos \theta }$.</p>
+</li>
+</ol>
+<h5 id="toc-169">Example</h5>
+<h6 id="toc-170">Example1</h6>
+<p>已知椭圆$\frac{ x^2 }{ a^2 } + \frac{ y^2 }{ b^2 } = 1$,$P$是椭圆上一点,$\angle F_1 PF_2$的角平分线交$x$轴于$Q ( \frac{ c }{ 4 } , 0 )$,求离心率取值范围.</p>
+<p>注意到$S_{ \bigtriangleup QPF_1 } = \frac{ 5 }{ 3 } S_{ \bigtriangleup QPF_2 }$,又有$Q$到$PF_1$和$PF_2$的距离相等,用等积法,显然$PF_1 = \frac{ 5 }{ 4 } a , PF_2 = \frac{ 3 }{ 4 } a$.</p>
+<p>然后用三角形不等式做差就行.$2 c > \frac{ 1 }{ 2 } a , \frac{ 1 }{ 4 } < e$</p>
+<h4 id="toc-171">双曲线</h4>
+<h5 id="toc-172">定义</h5>
+<h6 id="toc-173">第一定义</h6>
+<p>平面内与两定点$F_1 , F_2$距离之差为常数($> | F_1 F_2 |$)的点轨迹.即:$\{ P \mid | | F_1 P | - | F_2 P | | = 2 a , F_1 ( - c , 0 ) , F_2 ( c , 0 ) \}$.</p>
+<h6 id="toc-174">第二定义</h6>
+<p>平面内一动点到定点与准线($x = \pm \frac{ a^2 }{ c }$)的距离比是常数$e = \frac{ c }{ a }$的点轨迹,即$\{ P \mid \frac{ | PF_1 | }{ d_1 } = \frac{ | PF_2 | }{ d_2 } = \frac{ c }{ a } = e , F_1 ( - c , 0 ) , F_2 ( c , 0 ) \}$.</p>
+<h6 id="toc-175">第三定义</h6>
+<p>平面内一动点到两定点$A_1 ( - a , 0 ) , A_2 ( a , 0 )$的斜率乘积等于定值$e^2 - 1$的轨迹称为双曲线.</p>
+<h5 id="toc-176">双曲线重要元素</h5>
+<h6 id="toc-177">焦半径</h6>
+<p>若$P ( x_0 , y_0 ) , ( x_0 > 0 )$,则$| PF_1 | = a + ex_0$,$| PF_2 | = - a + ex_0$.</p>
+<h6 id="toc-178">渐近线</h6>
+<p>$y = \pm \frac{ b }{ a } x$.</p>
+<p>如果换个方向的双曲线,事实上就是把双曲线标准方程的等号右边写成$0$得到的两个直线方程.</p>
+<h6 id="toc-179">焦点三角形</h6>
+<p>即$\bigtriangleup PF_1 F_2$,令$\theta = \angle F_1 PF_2$,有以下性质:</p>
+<ol>
+<li>$S = \frac{ b^2 }{ \tan \frac{ \theta }{ 2 } }$.</li>
+</ol>
+<h4 id="toc-180">抛物线</h4>
+<h5 id="toc-181">定义</h5>
+<h6 id="toc-182">第一定义</h6>
+<p>平面内一动点到定点与准线的距离相等的点轨迹.</p>
+<h5 id="toc-183">抛物线重要元素</h5>
+<h6 id="toc-184">焦点弦</h6>
+<p><s>我曾经以为整理完二项式恒等式后再也不会有同样恐怖的结论群了</s></p>
+<p>直线$AB$为过$y^2 = 2 px ( p > 0 )$焦点的弦,$A ( x_1 , y_1 ) , B ( x_2 , y_2 )$,倾斜角为$\theta$,准线与$x$轴交点为$E ( - \frac{ p }{ 2 } , 0 )$,作$AA_1$,$BB_1$垂直于准线于$A_1 , B_1$,则:</p>
+<ol>
+<li>
+<p>$| AF | = x_1 + \frac{ p }{ 2 }$,$| BF | = x_2 + \frac{ p }{ 2 }$,$| AB | = x_1 + x_2 + p , \frac{ 1 }{ | FA | } + \frac{ 1 }{ | FB | } = \frac{ 2 }{ p }$.</p>
+</li>
+<li>
+<p>$| AF | = \frac{ p }{ 1 - \cos \theta } , | BF | = \frac{ p }{ 1 + \cos \theta } , | AB | = \frac{ 2 p }{ \sin^2 \theta }$.</p>
+</li>
+<li>
+<p>$x_1 x_2 = \frac{ p^2 }{ 4 }$,$y_1 y_2 = - p^2$.</p>
+</li>
+<li>
+<p>$S_{ \bigtriangleup AOB } = \frac{ p^2 }{ 2 \sin \theta }$.</p>
+</li>
+<li>
+<p>$k_{ AE } + k_{ BE } = 0$.</p>
+</li>
+<li>
+<p>$A , O , B_1$三点共线,$B , O , A_1$三点共线.</p>
+</li>
+<li>
+<p>以$AB$为直径的圆与抛物线的准线相切.</p>
+</li>
+<li>
+<p>以$A_1 B_1$为直径的圆与$AB$相切.</p>
+</li>
+<li>
+<p>以$AF$或$BF$为直径的圆与$y$轴相切.</p>
+</li>
+</ol>
+<h4 id="toc-185">通用解法</h4>
+<h5 id="toc-186">联立方程</h5>
+<h6 id="toc-187">点参</h6>
+<p>不设直线斜率,直接通过设点坐标并且导出直线斜率.</p>
+<p>这种做法通常要么不能做,要么能做并且非常简单,需要强大的构造能力.</p>
+<p><strong>弦长公式</strong></p>
+<p>已知直线$l$上有两点$N ( x_1 , y_1 ) , M ( x_2 , y_2 )$,这条直线的斜率为$k$,那么$| NM | = \sqrt{ 1 + k^2 } | x_1 - x_2 | = \sqrt{ 1 + \frac{ 1 }{ k^2 } } | y_1 - y_2 |$.</p>
+<p><strong>点差法</strong></p>
+<p>设圆锥曲线上两点$A ( x_1 , y_1 ) , B ( x_2 , y_2 )$,其中点$M ( x_0 , y_0 )$,有$2 x_0 = x_1 + x_2 , 2 y_0 = y_1 + y_2$.</p>
+<p>把这两个点带入圆锥曲线方程并做差,可以通过平方差公式消去几项.然后可以表示出直线斜率,大概做做.</p>
+<p><strong>垂径定理</strong></p>
+<p>已知直线$l$与曲线交于两点$N ( x_1 , y_1 ) , M ( x_2 , y_2 )$,这条直线的斜率为$k$,$MN$的中点为$P ( x_0 , y_0 )$,那么:</p>
+<ol>
+<li>
+<p>在椭圆$\frac{ x^2 }{ a^2 } + \frac{ y^2 }{ b^2 } = 1 ( a > b > 0 )$中,$k \frac{ y_0 }{ x_0 } = - \frac{ b^2 }{ a^2 } = e^2 - 1$.</p>
+</li>
+<li>
+<p>在双曲线$\frac{ x^2 }{ a^2 } - \frac{ y^2 }{ b^2 } = 1$中,$k \frac{ y_0 }{ x_0 } = \frac{ b^2 }{ a^2 } = e^2 - 1$.</p>
+</li>
+<li>
+<p>在抛物线$y^2 = 2 px ( p > 0 )$中,$k = \frac{ p }{ y_0 } = \frac{ x_0 }{ p }$.</p>
+</li>
+</ol>
+<h6 id="toc-188">小联立</h6>
+<p>如果题目中有两条直线,它们之间的斜率满足一定关系,那么可以通过把这两个直线的斜率都设出来,然后再添加一个方程来实现.</p>
+<p>这个方法的优点在于,有的时候分离出的方程会让原始式子简单很多.</p>
+<p>缺点在于,有的时候会让原始式子复杂很多.</p>
+<h6 id="toc-189">大联立</h6>
+<p>直接设主要直线的方程,然后其它直线均通过主要直线方程导出.</p>
+<p>最常用的方法.</p>
+<p><strong>齐次化</strong></p>
+<p>本质是平移坐标系.</p>
+<p>简单来说,如果图中有两条有公共点的直线$PA$,$PB$,我们可以将公共点$P$平移至原点,这样$PA$和$PB$的方程都方便表达.然后设$AB$的方程为$mx + ny = 1$(注意这个式子不能表示过原点的直线,需要特判).</p>
+<p>由于进行了平移,新得到的圆锥曲线方程可能存在一次项和零次项,我们将一次项乘以$mx + ny$,零次项乘以$( mx + ny )^2$,这样就得到了一个齐次式子.将两边同时除以$x^2$后就得到了一个和$k = \frac{ y }{ x }$有关的方程.</p>
+<p>换句话说,某种意义下,齐次化应该算是点参和大联立的结合体:大部分情况下,能用点参的条件是斜率可以用点坐标轻松表示,而如果点的坐标比较奇怪就没办法表示,而齐次化可以完美解决这个问题.</p>
+<p><strong>非对称性韦达定理</strong></p>
+<p>大概就是求出一个用一个方程的根表达的式子,然后需要继续化简.</p>
+<p>通常的做法是寻找方程的$x_1 x_2$和$x_1 + x_2$之间的关系来做.</p>
+<p>当然还有一种情况是问形如$\frac{ Ax_1 + Bx_2 }{ Cx_1 + Dx_2 }$是定值的问题,这个时候一定有$\frac{ A }{ C } = \frac{ B }{ D }$.</p>
+<p>还没完,非对称性韦达定理的应用巨多,例如令$w = \frac{ x_1 }{ x_2 }$,自然有$w + \frac{ 1 }{ w } + 2 = \frac{ ( x_1 + x_2 )^2 }{ x_1 x_2 }$.</p>
+<p>还比如有$y_2 = ny_1 + m$,我们可以用配凑技巧改写作$( y_2 + w ) = k ( y_1 + w )$,也就有$\frac{ y_2 + w }{ y_1 + w } = k$,类似上面的做法也可以求.</p>
+<p><strong>硬解定理</strong></p>
+<p>设直线$y = kx + \varphi$与曲线$\frac{ x^2 }{ m } + \frac{ y^2 }{ n } = 1$相交于$A ( x_1 , y_1 )$和$B ( x_2 , y_2 )$.</p>
+<p>那么联立方程是:$( n + mk^2 ) x^2 + 2 k \varphi mx + m ( \varphi^2 - n ) = 0$.</p>
+<p>判别式:$\Delta = 4 mn ( n + mk^2 - \varphi^2 )$.</p>
+<p>韦达定理:</p>
+<p>$$
+\begin{aligned}
+x_1 + x_2 & = \frac{ - 2 km \varphi }{ n + mk^2 } \\
+x_1 x_2 & = \frac{ m ( \varphi^2 - n ) }{ n + mk^2 } \\
+| x_1 - x_2 | & = \frac{ \sqrt{ \Delta } }{ n + mk^2 }
+\end{aligned}
+$$</p>
+<h6 id="toc-190">配凑法</h6>
+<p>参考:<a href="https://zhuanlan.zhihu.com/p/521025768" target="_blank" rel="noopener noreferrer">https://zhuanlan.zhihu.com/p/521025768</a>.</p>
+<p>先猜结论,再对着结论构造一个对称式子,从而声明这个式子就是答案.</p>
+<p>问题在于咋构造,通常前面的部分还是按部就班来.最后来一步&quot;注意到&quot;来机械降神.</p>
+<p>感觉没什么太大用,因为小题直接猜结论,大题按部就班不会太慢.</p>
+<h6 id="toc-191">应用</h6>
+<p><strong>Example1(大联立/点参)</strong></p>
+<p>已知抛物线$y^2 = 4 x$,若$A , B$位于抛物线上$x$轴上方不同的两点,直线$OA , OB$的斜率分别为$k_1 , k_2$,且满足$k_1 k_2 - 4 = 4 k_1 + 4 k_2$,求证:$AB$过定点,并求出$k_{ AB }$的取值范围.</p>
+<p>注意到$k_1$和$k_2$之间的关系很复杂,这个时候就别惦记你那小联立了,老老实实拿大联立做吧.</p>
+<p>设$AB : y = kx + b$,则$A ( x_1 , kx_1 + b ) , B ( x_2 , kx_2 + b )$,显然$k_1 = k + \frac{ b }{ x_1 } , k_2 = k + \frac{ b }{ x_2 }$.</p>
+<p>直接带入方程,有:</p>
+<p>$$
+\begin{aligned}
+( k + \frac{ b }{ x_1 } ) ( k + \frac{ b }{ x_2 } ) - 4 & = 4 ( 2 k + \frac{ b }{ x_1 } + \frac{ b }{ x_2 } ) \\
+k^2 + kb ( \frac{ 1 }{ x_1 } + \frac{ 1 }{ x_2 } ) + \frac{ b^2 }{ x_1 x_2 } - 4 & = 8 k + 4 b ( \frac{ 1 }{ x_1 } + \frac{ 1 }{ x_2 } ) \\
+
+\end{aligned}
+$$</p>
+<p>而直接大联立得到的式子是:</p>
+<p>$$
+\begin{aligned}
+k^2 x^2 + ( 2 kb - 4 ) x + b^2 & = 0 \\
+\Delta & = 16 - 16 kb > 0 , kb < 1 \\
+x_1 x_2 & = \frac{ b^2 }{ k^2 } , x_1 + x_2 = \frac{ 4 - 2 kb }{ k^2 } , \frac{ 1 }{ x_1 } + \frac{ 1 }{ x_2 } = \frac{ 4 - 2 kb }{ b^2 }
+\end{aligned}
+$$</p>
+<p>带入,得到$k - b = 4$,因此过定点$( - 1 , - 4 )$,与$kb < 1$联立得到$k < 2 + \sqrt{ 5 }$.</p>
+<p>还没完,这种题一定要检查一遍条件.注意到$AB$为$x$轴上方两点的性质没用到,这意味着$y_1 y_2 > 0 \land y_1 + y_2 > 0$,带入方程得到:</p>
+<p>$$
+\begin{aligned}
+b^2 + b ( \frac{ 4 - 2 kb }{ k } ) + b^2 & > 0 \\
+\frac{ 4 - 2 kb }{ k } + 2 b & > 0
+\end{aligned}
+$$</p>
+<p>化简得到$\begin{cases}b > 0 \\ k > 0\end{cases}$,解得$k > 4$,于是$k \in ( 4 , 2 + \sqrt{ 5 } )$.</p>
+<p>这啥暴力计算啊...没啥好方法嘛?</p>
+<p>首先显然的一点是:由于是在做抛物线,直线方程设成反式肯定会好算很多.<s>(整理到这里才意识到可以设反式,但是懒得改前面的内容了)</s></p>
+<p>看上去式子太复杂确实不太可能用小联立做.问题在于,$OA$和$OB$的斜率看上去都很好表示,为何不能用点参做呢?</p>
+<p>我们尝试直接用点参:</p>
+<p>$$
+\begin{aligned}
+k_{ OA } & = \frac{ y_1 }{ x_1 } , k_{ OB } = \frac{ y_2 }{ x_2 } \\
+\frac{ y_1 y_2 }{ x_1 x_2 } - 4 & = 4 ( \frac{ y_1 }{ x_1 } + \frac{ y_2 }{ x_2 } ) \\
+16 - 4 y_1 y_2 & = 16 ( y_1 + y_2 )
+\end{aligned}
+$$</p>
+<p>我们毫不费力就导出了用反式之后做的式子,这仿佛在预示我们点参是有用的,让我们继续:</p>
+<p>$$
+\begin{aligned}
+& AB : \\
+x - x_1 = & ( y - y_1 ) \frac{ x 1 - x_2 }{ y_1 - y_2 } \\
+x - \frac{ y_1^2 }{ 4 } = & ( y - y_1 ) \frac{ 1 }{ 4 } ( y_1 + y_2 ) \\
+x = & \frac{ y_1 + y_2 }{ 4 } y - \frac{ y_1 y_2 }{ 4 } \\
+x = & \frac{ y_1 + y_2 }{ 4 } y - 1 + ( y_1 + y_2 )
+\end{aligned}
+$$</p>
+<p>显然过定点$( - 1 , - 4 )$,并且通过$y_1$和$y_2$的关系也很好求斜率的范围.</p>
+<p>另外值得一提的是,通常情况下,不要用那个$\frac{ x - x_1 }{ x_1 - x_2 } = \frac{ y - y_1 }{ y_1 - y_2 }$的方程直接表示直线,你做抛物线的很重要的一个目标是通过消参来让式子变得更简洁,而不是去硬着头皮算,上面这个直线方程咋消参啊.</p>
+<p><strong>Example2(齐次化)</strong></p>
+<p>已知椭圆$\frac{ x^2 }{ 4 } + y^2 = 1$,$P , Q$在椭圆上,$A ( 2 , 0 )$,$k_{ AP } k_{ AQ } = \frac{ 1 }{ 20 }$,求证:$PQ$过定点.</p>
+<p>注意到$A ( 2 , 0 )$,设$P ( x_1 , y_1 ) , Q ( x_2 , y_2 )$,$PQ : m ( x - 2 ) + yn = 1$,那么我们要求的也就是$x - 2$和$y$之间的关系.</p>
+<p>第一步先要把椭圆方程配出来,显然$\frac{ x^2 }{ 4 } + y^2 = 1 \Rightarrow \frac{ ( x - 2 )^2 }{ 4 } + ( x - 2 ) + y^2 = 0$.</p>
+<p>显然?这咋配的啊.</p>
+<p>其实简单来说也就是令$x ' = x - 2 , y ' = y$,我们有$x = x ' + 2 , y = y '$,带入就可以得到关于$x ' , y '$的方程,然后再带回$x$和$y$就行.</p>
+<p>我们开始推导:</p>
+<p>$$
+\begin{aligned}
+\frac{ ( x - 2 )^2 }{ 4 } + ( x - 2 ) + y^2 = 0 \\
+( x - 2 )^2 + 4 ( x - 2 ) + 4 y^2 = 0 \\
+( x - 2 )^2 + 4 n ( x - 2 )^2 + 4 my ( x - 2 ) + 4 y^2 = 0 \\
+( 4 n + 1 ) ( x - 2 )^2 + 4 my ( x - 2 ) + 4 y^2 = 0 \\
+4 n + 1 + 4 m \frac{ y }{ x - 2 } + 4 ( \frac{ y }{ x - 2 } )^2 = 0 \\
+
+\end{aligned}
+$$</p>
+<p>令$k = \frac{ y }{ x - 2 }$,也就得到了$4 n + 1 + 4 mk + 4 k^2 = 0$.用一遍韦达定理,有:$k_1 k_2 = \frac{ 4 n + 1 }{ 4 } = \frac{ 1 }{ 20 } , n = - \frac{ 1 }{ 5 }$.</p>
+<p>也就有:$PQ : - \frac{ 1 }{ 5 } ( x - 2 ) + my = 1$,显然过定点$( - 3 , 0 )$.</p>
+<p><strong>Example3(小联立)</strong></p>
+<p>已知椭圆$\frac{ x^2 }{ 9 } + y^2 = 1$,$P , Q$是该椭圆上两动点,$M , N$分别为$P , Q$在$x$轴上的射影,而且$k_{ OP } k_{ OQ } = - 1$,记$S = S_{ \bigtriangleup OPM } + S_{ \bigtriangleup OQN }$,求$S$的最大值.</p>
+<p>出现了两条直线!提问:使用大联立还是小联立.</p>
+<p>考虑这么一个事实:大联立的用处应该体现在直线$PQ$很重要的时候,而这个题除了$P , Q$两点以外,和$PQ$半毛钱关系都没有.而且如果使用小联立,那么两个斜率之间的关系也很好表示,因此我们选择小联立.</p>
+<p>设$P ( x_1 , y_1 ) , Q ( x_2 , y_2 )$,$k = \frac{ y_1 }{ x_1 } , - \frac{ 1 }{ k } = \frac{ y_2 }{ x_2 }$:</p>
+<p>$$
+\begin{aligned}
+2 S & = | x_1 y_1 | + | x_2 y_2 | \\
+& = | x_1^2 k - \frac{ 1 }{ k } x_2^2 | \\
+
+\end{aligned}
+$$</p>
+<p>而联立方程,有:</p>
+<p>$$
+x_1^2 = \frac{ 1 }{ \frac{ 1 }{ 9 } + k } , x_2^2 = \frac{ 1 }{ \frac{ 1 }{ 9 } - \frac{ 1 }{ k } }
+$$</p>
+<p>代入计算即可求解.</p>
+<p>当然这个题斜率形式很好看,拿点参肯定也是可以做的,但是没啥必要,因为斜率关系很好看.</p>
+<p>等一下,大联立真的没啥希望嘛?</p>
+<p>确实没啥希望,因为直线$PQ$有两个未知量,我们还需要拿$k_{ OP } k_{ OQ } = - 1$限制它们的关系,不如直接小联立.</p>
+<p><strong>Example4(非对称性韦达定理)</strong></p>
+<p>已知椭圆$\frac{ x^2 }{ 2 } + y^2 = 1$,$F ( 1 , 0 )$,直线$l$过$F$且交椭圆于$A , B$两点.求问:$x$轴上是否存在异于$F$的一点$Q$,使得$\frac{ k_{ QA } }{ k_{ QB } }$是定值.</p>
+<p>直接设$AB : x = ky + 1$,$Q ( q , 0 )$.我们有:</p>
+<p>$$
+\begin{aligned}
+\frac{ k_{ QA } }{ k_{ QB } } & = \frac{ y_1 ( q - x_2 ) }{ y_2 ( q - x_1 ) } \\
+& = - \frac{ ky_1 y_2 + y_1 - qy_1 }{ ky_1 y_2 + y_2 - qy_2 }
+\end{aligned}
+$$</p>
+<p>坏了,这咋做.</p>
+<p>我们用一下韦达定理得到:</p>
+<p>$$
+\begin{aligned}
+( k^2 + 2 ) y^2 + 2 ky - 1 & = 0 \\
+\Delta & = 8 k^2 + 8 > 0 \\
+y_1 + y_2 & = - \frac{ 2 k }{ k^2 + 2 } \\
+y_1 y_2 & = - \frac{ 1 }{ k^2 + 2 } \\
+
+\end{aligned}
+$$</p>
+<p>注意到$\frac{ ( y_1 + y_2 ) }{ 2 } = k ( y_1 y_2 )$,代入,有:</p>
+<p>$$
+\begin{aligned}
+\frac{ k_{ QA } }{ k_{ QB } } & = - \frac{ y_1 + y_2 + 2 y_1 - 2 qy_1 }{ y_1 + y_2 + 2 y_2 - 2 qy_2 } \\
+& = - \frac{ ( 3 - 2 q ) y_1 + y_2 }{ ( 3 - 2 q ) y_2 + y_1 }
+\end{aligned}
+$$</p>
+<p>若是定值,那么就有:$\frac{ 3 - 2 q }{ 1 } = \frac{ 1 }{ 3 - 2 q }$,解得$q_1 = 1 ( F )$,$q_2 = 2 ( Q )$.</p>
+<p>所以$Q ( 2 , 0 )$.</p>
+<p><strong>Example5(配凑法)</strong></p>
+<p>已知椭圆$\frac{ x^2 }{ 4 } + \frac{ y^2 }{ 3 } = 1$,过$F ( - 1 , 0 )$的直线交椭圆于$M , N$两点,过$M$作直线$x = - 4$的垂线,垂足为$E$,求证:$EN$过定点.</p>
+<p>根据对称原理,显然这个定点一定在$x$轴上.</p>
+<p>我们先写大联立的式子:设$MN : x = - 1 + ky$,带入有$( 3 m^2 + 4 ) y^2 - 6 my - 9 = 0$.再设$M ( x_1 , y_1 ) , N ( x_2 , y_2 )$,自然有:</p>
+<p>$$
+\begin{cases}
+\Delta = 144 k^2 + 144 \\
+y_1 + y_2 = \frac{ 6 k }{ 3 k^2 + 4 } \\
+y_1 y_2 = \frac{ - 9 }{ 3 k^2 + 4 }
+\end{cases}
+$$</p>
+<p>接下来呢,我们想一下我们要求什么:我们要求出$EN$的表达式:形如$y - m = k ( x - n )$,然后声明$( n , m )$是定点.</p>
+<p>这又意味着啥呢,这意味着在这条直线上,除了那个定点以外,一定有$k = \frac{ y - m }{ x - n }$.而我们现在有两个点$E ( - 4 , y_1 )$和$N ( x_2 , y_2 )$,又猜出$m = 0$,也就是我们要找到一个$n$满足$\frac{ y_1 }{ - 4 - n } = \frac{ y_2 }{ x_2 - n }$.</p>
+<p>我们倒着推:</p>
+<p>$$
+\begin{aligned}
+\frac{ y_1 }{ - 4 - n } & = \frac{ y_2 }{ x_2 - n } \\
+\frac{ y_1 }{ - 4 - n } & = \frac{ y_2 }{ ky_2 - 1 - n }
+\end{aligned}
+$$</p>
+<p>这是啥,这是非对称性韦达定理.</p>
+<p>这一步已经可以暴力化简了.但那样还不如直接做呢.所以我们直接选择从非对称性韦达定理的角度推过来.</p>
+<p>观察韦达定理的关系式,我们有:</p>
+<p>$$
+\begin{aligned}
+ky_1 y_2 + \frac{ 3 }{ 2 } ( y_1 + y_2 ) & = 0 \\
+( x_2 + \frac{ 5 }{ 2 } ) y_1 & = - \frac{ 3 }{ 2 } y_2 \\
+y_1 & = \frac{ - 3 }{ 2 } \frac{ y_2 }{ x_2 + \frac{ 5 }{ 2 } } \\
+\frac{ y_1 }{ - \frac{ 3 }{ 2 } } & = \frac{ y_2 }{ x_2 + \frac{ 5 }{ 2 } } \\
+\frac{ y_1 }{ - 4 + \frac{ 5 }{ 2 } } & = \frac{ y_2 }{ x_2 + \frac{ 5 }{ 2 } } \\
+
+\end{aligned}
+$$</p>
+<p>做到这一步发现要做完了,不难发现$n = \frac{ 5 }{ 2 }$.</p>
+<p>等一下,最后咋就这么巧就凑出来了呢?</p>
+<p>因为你都确定了$m = 0$了,肯定是可以凑出来的,除非它真的不过定点.</p>
+<h5 id="toc-192">极点极线</h5>
+<h6 id="toc-193">定义</h6>
+<p><strong>几何定义</strong></p>
+<p><s>感觉这个定义大概率没啥用</s></p>
+<p>过不在二次曲线上的一点$P$作直线$l$交二次曲线于$M , N$两点(离$P$近的是$M$),则在$l$上有且只有一点$Q$,使得$| MQ | | NP | = | MP | | NQ |$(即$P , Q , M , N$构成一调和点列).当$l$绕着$P$旋转时,$Q$的轨迹是一条直线$p$(或一部分),这条直线$p$叫做点$P$关于二次曲线的极线,而$P$叫做$p$关于该曲线的极点.</p>
+<p>以椭圆为例子,接下来我们声明:$p : \frac{ x_0 x }{ a^2 } + \frac{ y_0 y }{ b^2 } = 1$.</p>
+<p>证明:我有一个绝妙的证法,可惜这里地方太小,写不下.</p>
+<p><strong>代数定义</strong></p>
+<p>对于不在二次曲线$C : Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0$上的一点$P ( x_0 , y_0 )$,我们称它的极线为$p : Axx_0 + B \frac{ x_0 y + y_0 x }{ 2 } + Cyy_0 + D \frac{ x + x_0 }{ 2 } + E \frac{ y + y_0 }{ 2 } + F = 0$.</p>
+<p>而对于在二次曲线上的点,我们也可以这么定义,不难发现此时极线就是过极点的切线.</p>
+<p>证明:我有一个绝妙的证法,可惜这里地方太小,写不下.</p>
+<h6 id="toc-194">基本性质</h6>
+<p><strong>性质1(配极原理)</strong></p>
+<p>对于同一条二次曲线$C$,如果点$P$的极线经过点$Q$,那么点$Q$的极线经过点$P$.</p>
+<p>证明:我有一个绝妙的证法,可惜这里地方太小,写不下.</p>
+<p><strong>性质2(配极原理推论)</strong></p>
+<p>两点连线的极点是这两点的极线的交点;两直线交点的极线是这两直线的极点的连线.</p>
+<p>证明:由性质1,显然.</p>
+<p><strong>性质3(极点与极线的位置关系)</strong></p>
+<p>ps:对于双曲线而言:我们所说的在内部指的是平面中被双曲线分为的三部分平面中对称的那两部分.抛物线类似.</p>
+<ol>
+<li>
+<p>设四边形$ABCD$(对边不平行)内接于二次曲线$C$,则对角线交点$P$的极线是两组对边交点的连线.反之同理,若$P$在二次曲线内部,那以这个点为对角线交点的内接四边形对边交点的连线就是它的极线.这告诉我们:若一个点在二次曲线内,那它的极线一定在二次曲线外.反之亦然成立.</p>
+</li>
+<li>
+<p>若一个点在二次曲线上,那它的极线就是过这个点的二次曲线的切线.</p>
+</li>
+<li>
+<p>若一个点在二次曲线外,那它的极线就是过这个点向二次曲线作两条切线,这两条切线与二次曲线的交点的连线.</p>
+</li>
+</ol>
+<p>证明:我有一个绝妙的证法,可惜这里地方太小,写不下.</p>
+<h6 id="toc-195">使用方法</h6>
+<p>通过极点极线猜结论,然后想办法证明结论.</p>
+<p><strong>Example1</strong></p>
+<p>已知$\frac{ \cos \theta }{ a } + \frac{ \sin \theta }{ b } = 1$,求证:$\frac{ 1 }{ a^2 } + \frac{ 1 }{ b^2 } \geq 1$.</p>
+<p>设直线$l : \frac{ x }{ a } + \frac{ y }{ b } = 1$,$M ( \cos \theta , \sin \theta )$,则$M$在$l$上.</p>
+<p>又注意到$M$显然是在单位圆上,而$l$是单位圆关于$P ( \frac{ 1 }{ a } , \frac{ 1 }{ b } )$的极点.又注意到$l$与单位圆至少有一个交点,因此$P$要么在圆上要么在圆外,得证.</p>
+<p><strong>Example2</strong></p>
+<p>已知椭圆$\frac{ x^2 }{ 4 } + \frac{ y^2 }{ 3 } = 1$,$A_1 ( - 2 , 0 ) , A_2 ( 2 , 0 ) , D ( \frac{ 1 }{ 2 } , 0 )$,过$D$的直线交椭圆于$P , Q$两点(不与$A_1 , A_2$重合).$A_1 P \cap A_2 Q = M$,$A_1 Q \cap A_2 P = N$,设$k_1 = k_{ A_1 P } , k_2 = k_{ A_1 Q }$.求证:$k_1 k_2$是定值,求出这个定值并求出$\bigtriangleup DMN$面积的最小值.</p>
+<p>一眼极点极线,通过极点极线知识不难得知$MN : x = 8$.</p>
+<p>我们先来看已知$MN : x = 8$之后怎么做:</p>
+<p>设$P ( x_1 , y_1 ) , Q ( x_2 , y_2 )$,再设$PQ : x = ky + \frac{ 1 }{ 2 }$,则:$k_1 k_2 = \frac{ y_1 }{ x_1 + 2 } \frac{ y_2 }{ x_2 + 2 }$,不难算出$k_1 k_2 = - \frac{ 9 }{ 20 }$.</p>
+<p>此时$S_{ \bigtriangleup DMN } = | MN | | 8 - \frac{ 1 }{ 2 } | \frac{ 1 }{ 2 }$.不难发现只需求出$| MN |_{ \min }$即可.而$MN \bot x$轴,所以$| MN | = | y_M - y_N |$.</p>
+<p>接下来咋做?第一问求得$k_1$和$k_2$的关系不能白求啊!</p>
+<p>我们有$A_1 P : x = - 2 + \frac{ 1 }{ k_1 } y , A_1 Q : x = - 2 + \frac{ 1 }{ k_2 } y$,带入$x = 8$,求得$y_M = 10 k_1 , y_N = 10 k_2$.</p>
+<p>于是$| MN | = 10 | k_1 - k_2 |$.注意到$k_1 > 0 \land - k_2 > 0 \land k_1 ( - k_2 ) = \frac{ 9 }{ 20 }$,显然可以用基本不等式计算,最后得到$S_{ \min } = \frac{ 45 \sqrt{ 5 } }{ 2 }$.</p>
+<p>好,问题就差一步极点极线的证明了.</p>
+<p>这个时候,我们先说出$A_1 Q : x = - 2 + \frac{ y_2 }{ x_2 + 2 } y , A_2 P : x = 2 + \frac{ y_1 }{ x_1 - 2 } y$,然后我们声明这两条直线的交点的横坐标一定是$8$,然后代入验证即可.</p>
+<p>好吧我也觉得很无赖,没办法.</p>
+<h5 id="toc-196">隐函数求导</h5>
+<p>大概是这样的:</p>
+<p>拿椭圆举例子,我们假设椭圆方程是$\frac{ x^2 }{ a^2 } + \frac{ y^2 }{ b^2 } = 1$.</p>
+<p>我们将$y$看作$x$的函数,对两边求导,自然得到:</p>
+<p>$$
+\frac{ 2 x }{ a^2 } + \frac{ 2 yy ' }{ b^2 } = 0
+$$</p>
+<p>这是个方程,你可以解得$y ' = - \frac{ b^2 x }{ a^2 y }$.而这就是椭圆过$( x , y )$这一点切线的斜率.用点斜式就可以得到方程.</p>
+<p>目前没发现这方法在除了推导切线方程以外有啥用.</p>
+<h5 id="toc-197">线性变换</h5>
+<p>大概率没啥用的方法,不过思想还是挺重要的.</p>
+<p><s>(好吧我特意写这么一栏只是因为我线代学魔怔了)</s></p>
+<p>简单来说就是把一般的图形变成特殊的图形,然后乱做.</p>
+<p>线性变换的问题在于角的变化有点随意.不过边长以及斜率的变化都可以控制.</p>
+<p><s>不过感觉只有椭圆是迫真有用的东西</s></p>
+<h6 id="toc-198">旋转矩阵</h6>
+<p>向量$\vec{ b } = ( x , y )$逆时针旋转$\theta$后得到的答案是$A \vec{ b }$,其中</p>
+<p>\cos\theta,-\sin\theta\</p>
+<p>\sin\theta,\cos\theta</p>
+<p>\end{bmatrix}</p>
+<p>你要不喜欢矩阵表示也不是不行,那向量$( x , y )$旋转$\theta$得到$( x ' , y ' )$,其中</p>
+<p>y'=xsin\theta+ycos\theta</p>
+<h6 id="toc-199">椭圆转化成圆</h6>
+<p>我们注意到圆的方程是$( x ' )^2 + ( y ' )^2 = 1$,而椭圆的方程形如$\frac{ x^2 }{ a^2 } + \frac{ y^2 }{ b^2 } = 1$.</p>
+<p>我们注意到上面的式子等价于:$( \frac{ x }{ a } )^2 + ( \frac{ y }{ b } )^2 = 1$.我们将原坐标系中的所有坐标$( x , y )$全部变成$( \frac{ x }{ a } , \frac{ y }{ b } )$之后,就得到了一个新的坐标系.在新的坐标系中,我们只需要对着圆做就行.</p>
+<p>换成线性代数语言,令$\vec{ f } = ( x , y )$满足椭圆方程,令$\vec{ g } = ( x ' , y ' )$满足圆的方程,自然有:</p>
+<p>$$
+\begin{aligned}
+\begin{bmatrix}
+\frac{ 1 }{ a } , 0 \\
+0 , \frac{ 1 }{ b }
+\end{bmatrix} \vec{ f } & = \vec{ g } \\
+
+\end{aligned}
+$$</p>
+<p>$$
+\begin{bmatrix}
+a , 0 \\
+0 ,{ b }
+\end{bmatrix} \vec{ g } = \vec{ f }
+$$</p>
+<h6 id="toc-200">双曲线转化为反比例函数</h6>
+<p>注意到反比例函数的方程是$x ' y ' = 1$,而双曲线的方程是$\frac{ x^2 }{ a^2 } - \frac{ y^2 }{ b^2 } = 1$.</p>
+<p>这个要硬配可能有些抽象.我们拿矩阵导一导.</p>
+<p>首先先转化为$x^2 - y^2 = 2$的形式,需要左乘矩阵$\begin{bmatrix}\frac{ \sqrt{ 2 } }{ a } , 0 \\ 0 , \frac{ \sqrt{ 2 } }{ b }\end{bmatrix}$.</p>
+<p>然后这个形式和我们所需要的反比例函数的形式只差一步旋转$\frac{ \pi }{ 4 }$了.旋转矩阵为</p>
+<p>\frac{1}{\sqrt{2}},-\frac{1}{\sqrt{2}}\</p>
+<p>\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}}</p>
+<p>\end{bmatrix}</p>
+<p>把两个东西乘起来得到矩阵</p>
+<p>\frac{1}{a},-\frac{1}{b}\</p>
+<p>\frac{1}{a},\frac{1}{b}</p>
+<p>\end{bmatrix}</p>
+<p>验证一下,我们有$x ' = \frac{ x }{ a } - \frac{ y }{ b } , y ' = \frac{ x }{ a } + \frac{ y }{ b }$.带入反比例函数的方程:</p>
+<p>$$
+x ' y ' = \frac{ x^2 }{ a^2 } - \frac{ y^2 }{ b^2 } = 1
+$$</p>
+<p>对着矩阵求逆一下得到:逆矩阵为</p>
+<p>\frac{a}{2},\frac{a}{2}\</p>
+<p>-\frac{b}{2},\frac{b}{2}</p>
+<p>\end{bmatrix}</p>
+<p>验证一下,我们有$x = \frac{ a }{ 2 } ( x ' + y ' ) , y = \frac{ b }{ 2 } ({ y ' - x ' } )$,带入双曲线方程得到:</p>
+<p>$$
+\begin{aligned}
+( \frac{ x }{ a } )^2 - ( \frac{ y }{ b } )^2 & = 1 \\
+( x ' + y ' )^2 - ( x ' - y ' )^2 & = 4 \\
+x ' y ' & = 1
+\end{aligned}
+$$</p>
+<p>要觉得矩阵部分比较魔怔也可以直接看上面的普通描述.</p>
+<h6 id="toc-201">抛物线转化为二次函数</h6>
+<p>这个比较简单,交换$x , y$即可,小问题.</p>
+<h5 id="toc-202">极坐标</h5>
+<p>平面内取一点$O$为极点,引一条射线$Ox$叫做极轴,再选定单位长度和单位角度以及角度正方向,就建立了一个极坐标系.</p>
+<p>对于平面上任意一点$M$,令$\rho = | OM |$,$\theta$为以$Ox$为始边,沿角度正方向(一般是逆时针方向)转到$OM$的夹角.那么我们称$( \rho , \theta )$为$M$的极坐标,其中$\rho$叫做极径,$\theta$叫做极角.</p>
+<p>$\rho$有可能取负,我们通常认为$( - \rho , \theta ) = ( \rho , \theta + \pi )$.</p>
+<p>通常情况下默认$0 \leq \theta < 2 \pi , \rho \geq 0$.如果遇到和直角坐标系结合的问题,通常默认原点为极点,$x$轴正半轴为极轴且二者单位长度相等.下文如无特殊说明均按此建立极坐标.</p>
+<p>注意到若$M$在直角坐标系中坐标为$( x , y )$,在极坐标中坐标为$( \rho , \theta )$,若$M \ne O$自然有:</p>
+<p>$$
+\begin{aligned}
+x & = \rho \cos \theta , y = \rho \sin \theta \\
+\rho^2 & = x^2 + y^2 , \theta = \begin{cases}
+\frac{ \pi }{ 2 } & x = 0 \land y > 0 \\
+\frac{ 3 \pi }{ 2 } & x = 0 \land y < 0 \\
+\arctan ( \frac{ y }{ x } ) & x \ne 0
+\end{cases}
+\end{aligned}
+$$</p>
+<p>看到这里,聪明的你可能已经发现了不对劲:那这玩意怎么做坐标系变换呢?这玩意难道能乱乘矩阵嘛?这俩项单位都不一样欸.</p>
+<p>别急,你注意到这个东西看上去不太能整什么抽象的坐标系,做的时候直接考虑转化为平面直角坐标系再做.</p>
+<h6 id="toc-203">圆的极坐标方程</h6>
+<p>显然是$\rho^2 = r^2$.</p>
+<p>另外,如果中心在$C ( \rho_0 , \theta_0 )$,半径为$r$的方程咋求呢?</p>
+<p>我们考虑本质是坐标系变换,想都别想先转平面直角坐标系,自然有:</p>
+<p>$$
+\begin{aligned}
+r^2 & = ( \rho \cos \theta - \rho_0 \cos \theta_0 )^2 + ( \rho \sin \theta - \rho_0 \sin \theta_0 ) \\
+r^2 & = \rho^2 + \rho_0^2 - 2 \rho \rho_0 \cos \theta \cos \theta_0 - 2 \rho \rho_0 \sin \theta \sin \theta_0 \\
+r^2 & = \rho^2 + \rho_0^2 - 2 \rho \rho_0 \cos ( \theta - \theta_0 )
+\end{aligned}
+$$</p>
+<p>另外由于$\cos \theta = \cos ( - \theta )$,这个公式应该不难背.</p>
+<h6 id="toc-204">直线的极坐标方程</h6>
+<p>过定点$( \rho_1 , \theta_1 )$,且倾斜角为$\alpha$:$\rho \sin ( \alpha - \theta ) = \rho_1 \sin ( \alpha - \theta_1 )$.</p>
+<p>这个咋推的呢,先换回平面直角坐标系,假设过定点$( x_1 , y_1 )$,倾斜角为$\alpha$,我们自然有$( x - x_1 ) \sin \alpha = ( y - y_1 ) \cos \alpha$.</p>
+<p>于是有:</p>
+<p>$$
+\begin{aligned}
+( x - x_1 ) \sin \alpha & = ( y - y_1 ) \cos \alpha \\
+( \rho \cos \theta - \rho_1 \cos \theta_1 ) \sin \alpha & = ( \rho \sin \theta - \rho_1 \sin \theta_1 ) \cos \alpha \\
+\rho \sin ( \alpha - \theta ) & = \rho_1 \sin ( \alpha - \theta_1 )
+\end{aligned}
+$$</p>
+<p>其实本质还是极坐标轴变换,因为过极点的直线是显然的.</p>
+<p>我们再来考虑一个:求过定点$( \rho_1 , \theta_1 )$和$( \rho_2 , \theta_2 )$的直线方程.</p>
+<p>同理的:</p>
+<p>$$
+\begin{aligned}
+( x - x_1 ) ( y_2 - y_1 ) & = ( y - y_1 ) ( x_2 - x_1 ) \\
+\\
+( \rho \cos \theta - \rho_1 \cos \theta_1 ) ( \rho_2 \sin \theta_2 - \rho_1 \sin \theta_1 ) \\
+& = ( \rho_2 \cos \theta_2 - \rho_1 \cos \theta_1 ) ( \rho \sin \theta - \rho_1 \sin \theta_1 ) \\
+\\
+\rho \rho_2 ( \cos \theta \sin \theta_2 - \cos \theta_2 \sin \theta ) \\
++ \rho \rho_1 ( - \cos \theta \sin \theta_1 + \sin \theta \cos \theta_1 ) \\
++ \rho_1 \rho_2 ( - \cos \theta_1 \sin \theta_2 + \cos \theta_2 \sin \theta_1 ) \\
+& = 0 \\
+\\
+\rho \rho_2 \sin ( \theta_2 - \theta ) + \rho \rho_1 \sin ( \theta - \theta_1 ) + \rho_1 \rho_2 \sin ( \theta_1 - \theta_2 ) & = 0
+\end{aligned}
+$$</p>
+<p>太丑了吧,甚至不对称?</p>
+<p>(网上的资料这一步可以继续往下化简,用一些三角函数知识).</p>
+<p>这个故事教给我们:极坐标系下是很难表示一些直线的.</p>
+<p>那表示曲线呢?</p>
+<h6 id="toc-205">圆锥曲线的极坐标方程</h6>
+<p>优美的来了!</p>
+<p>我们注意到圆锥曲线的一种定义是:到准线距离$d$和到定点距离$r$之比为常数的曲线.令$e = \frac{ r }{ d }$.</p>
+<p>假定定点为原点,极轴垂直于准线,$h$为定点到准线的距离,又设曲线上一点为$M ( \rho , \theta )$,自然有:$r = \rho , d = h + \rho \cos \theta$.</p>
+<p>于是有:</p>
+<p>$$
+\begin{aligned}
+e & = \frac{ \rho }{ h + \rho \cos \theta } \\
+he + e \rho \cos \theta & = \rho \\
+\rho & = \frac{ he }{ 1 - e \cos \theta }
+\end{aligned}
+$$</p>
+<p>值得一提的是这玩意不能将圆理解为$e = 0$的圆锥曲线.</p>
+<h5 id="toc-206">参数方程</h5>
+<p>在平面直角坐标系中,曲线上任意一点的坐标$x , y$都是某个变量$t$的函数$\begin{cases}x = f ( t ) \\ y = g ( t )\end{cases}$.</p>
+<h6 id="toc-207">圆的参数方程</h6>
+<p>$M ( r \cos \theta , r \sin \theta )$,其中$\theta$是$\angle OMx$.</p>
+<h6 id="toc-208">直线的参数方程</h6>
+<p>$M ( x_0 + t \cos \theta , y_0 + t \sin \theta )$,其中$\theta$是倾斜角,$t$是参数,$M_0 ( x_0 , y_0 )$.</p>
+<p>注意到$| M_0 M | = | t |$.事实上,设$\vec{ e } = ( \cos \theta , \sin \theta )$,也就是直线的单位方向向量,则$\overrightarrow{ M_0 M } = t \vec{ e }$.</p>
+<h6 id="toc-209">椭圆的参数方程</h6>
+<p>$M ( a \cos \theta , b \sin \theta )$,其中$\theta$称为$M$的离心角.</p>
+<p>值得注意的是,这里的$\theta$并非$\angle MOx$,而是将椭圆线性变换回圆后对应点的对应圆心角.</p>
+<p><strong>Example1</strong></p>
+<p>在椭圆$\frac{ x^2 }{ 9 } + \frac{ y^2 }{ 4 } = 1$上求一点$M$,使$M$到直线$x + 2 y - 10 = 0$的距离最小.</p>
+<p>直接令$M = ( 3 \cos \theta , 2 \sin \theta )$,则$d = \frac{ | 3 \cos \theta + 4 \sin \theta - 10 | }{ \sqrt{ 5 } } = | \sqrt{ 5 } \sin ( \theta + \varphi ) - 2 \sqrt{ 5 } |$,其中$\varphi = \arcsin \frac{ 3 }{ 5 }$.</p>
+<p>于是$d_{ \min } = \sqrt{ 5 }$,此时$\sin ( \theta + \varphi ) = 1 = \sin{ \frac{ \pi }{ 2 } }$,那么就有$\theta = \frac{ \pi }{ 2 } - \varphi$,$\sin \theta = \cos \varphi = \frac{ 4 }{ 5 } , \cos \theta = \sin \varphi = \frac{ 3 }{ 5 }$.</p>
+<p>则$M = ( \frac{ 9 }{ 5 } , \frac{ 8 }{ 5 } )$.</p>
+<p><strong>Example2</strong></p>
+<p>已知椭圆$\frac{ x^2 }{ 100 } + \frac{ y^2 }{ 64 } = 1$,有一内接矩阵$ABCD$($AB / / x , BC / / y$),求矩阵最大面积.</p>
+<p>直接令$A = ( 10 \cos \theta , 8 \sin \theta )$,则$S = 20 \cos \theta \times 16 \sin \theta = 160 \sin ( 2 \theta )$,$S_{ \max } = 160$.</p>
+<h6 id="toc-210">双曲线的参数方程</h6>
+<p>$M ( \frac{ a }{ \cos \theta } , b \tan \theta ) = M ( a \sec \theta , b \tan \theta )$,其中$\theta$称为$M$的离心角,通常规定$\theta \in [ 0 , 2 \pi ] \land \theta \ne \frac{ \pi }{ 2 } \land \theta \ne \frac{ 3 \pi }{ 2 }$.</p>
+<p>其实本质也就是三角恒等式$\sec^2 \theta = 1 + \tan^2 \theta$.</p>
+<p><strong>Example1</strong></p>
+<p>圆$O : x^2 + ( y - 2 )^2 = 1$上有一点$P$,双曲线$x^2 - y^2 = 1$上有一点$Q$,求$| PQ |_{ \min }$.</p>
+<p>设$Q ( \sec \theta , \tan \theta )$,则:</p>
+<p>$$
+\begin{aligned}
+| OQ |^2 & = \sec^2 \theta + ( \tan \theta - 2 )^2 \\
+& = \tan^2 \theta + 1 ( \tan \theta - 2 )^2 \\
+& = 2 ( \tan \theta - 1 )^2 + 3
+\end{aligned}
+$$</p>
+<p>$| OQ |_{ \min } = \sqrt{ 3 } , | PQ |_{ \min } = \sqrt{ 3 } - 1$.</p>
+<p><strong>Example2</strong></p>
+<p>求证:等轴双曲线平行于实轴的弦在两顶点所张的角均为直角.</p>
+<p>设$P ( a \sec \theta , a \tan \theta ) , Q ( - a \sec \theta , a \tan \theta )$,则$k_P = \frac{ a \tan \theta }{ a \sec \theta - a } , k_Q = \frac{ a \tan \theta }{ - a \sec \theta - a }$.注意到$k_P \cdot k_Q = - 1$.</p>
+<p><strong>Example3</strong></p>
+<p>已知双曲线$\frac{ x^2 }{ a^2 } - \frac{ y^2 }{ b^2 } = 1$,$A , B$是双曲线同支上相异两点,线段$AB$的垂直平分线与$x$轴相交于点$P ( x_0 , 0 )$,求证:$| x_0 | > \frac{ c^2 }{ a } = \frac{ a^2 + b^2 }{ a }$.</p>
+<p>设$A ( a \sec \alpha , b \tan \alpha ) , B ( a \sec \beta , b \tan \beta )$,则中点$M ( \frac{ a }{ 2 } ( \sec \alpha + \sec \beta ) , \frac{ b }{ 2 } ( \tan \alpha + \tan \beta ) )$.</p>
+<p>于是中垂线方程为$y - \frac{ b }{ 2 } ( \tan \alpha + \tan \beta ) ) = - \frac{ a ( \sec \alpha - \sec \beta ) }{ b ( \tan \alpha - \tan \beta ) } [ x - \frac{ a }{ 2 } ( \sec \alpha + \sec \beta ) ]$.</p>
+<p>代入$P ( x_0 , 0 )$,求得$x_0 = \frac{ c^2 }{ 2 a } ( \sec \alpha + \sec \beta )$.</p>
+<p>也就是要比较$| \sec \alpha + \sec \beta |$和$2$的大小关系,注意到$A , B$同支,所以$| \sec \alpha + \sec \beta | > 2$.</p>
+<h6 id="toc-211">抛物线的参数方程</h6>
+<p>$M ( \frac{ 2 p }{ \tan^2 \theta } , \frac{ 2 p }{ \tan \theta } )$,其中$\theta$称为$M$的离心角,意义是该点和原点所确定直线的斜率,注意这个参数方程不能表示抛物线顶点.</p>
+<p>事实上,我们可以有一个别的参数方程表达:$M ( 2 pk^2 , 2 pk )$,这个参数方程可以表示顶点.</p>
+<p><strong>Example1</strong></p>
+<p>若抛物线$\begin{cases}x = 2 pt^2 \\ y = 2 pt\end{cases}$上有不同两点$M_1 , M_2$,所对应的参数分别是$t_1 , t_2$,求直线$M_1 M_2$所在直线的斜率.</p>
+<p>$k_{ M_1 M_2 } = \frac{ 2 pt_1 - 2 pt_2 }{ 2 pt_1^2 - 2 pt_2^2 } = \frac{ 1 }{ t_1 + t_2 }$.</p>
+<p><strong>Example2</strong></p>
+<p>$A , B$是抛物线$y^2 = 2 px$上异于顶点的两动点,且$OA \bot OB$,$AB$上有一点$M$满足$OM \bot AB$,求$M$的轨迹方程.</p>
+<p>设$M ( x , y ) , A ( 2 pt_1^2 , 2 pt_1 ) , B ( 2 pt_2^2 , 2 pt_2 )$,注意到:</p>
+<p>$$
+\begin{aligned}
+\overrightarrow{ OM } & = ( x , y ) \\
+\overrightarrow{ OA } & = ( 2 pt_1^2 , 2 pt_1 ) \\
+\overrightarrow{ OB } & = ( 2 pt_2^2 , 2 pt_2 ) \\
+\overrightarrow{ AB } & = ( 2 p ( t_2^2 - t_1^2 ) , 2 p ( t_2 - t_1 ) )
+\end{aligned}
+$$</p>
+<p>因为$\overrightarrow{ OA } \bot \overrightarrow{ OB }$,所以$( 2 pt_1 t_2 )^2 + ( 2 p )^2 t_1 t_2 = 0$,$t_1 t_2 = - 1$.</p>
+<p>因为$\overrightarrow{ AB } \bot \overrightarrow{ OM }$,又有$k_{ AB } = \frac{ 1 }{ t_1 + t_2 }$,所以$k_{ OM } = - ( t_1 + t_2 )$,$\frac{ y }{ x } = - ( t_1 + t_2 )$.</p>
+<p>接下来咋做捏?注意到我们好像忘记了$ABM$三点共线的性质,拿向量做这个东西.</p>
+<p>$\overrightarrow{ AM } = ( x - 2 pt_1^2 , y - 2 pt_1 ) , \overrightarrow{ MB } = ( 2 pt_2^2 - x , 2 pt_2 - y )$.</p>
+<p>那么有$( x - 2 pt_1^2 ) ( 2 pt_2 - y ) = ( 2 pt_2^2 - x ) ( y - 2 pt_1 )$.</p>
+<p>化简得到$x^2 + y^2 - 2 px = 0 ( x \ne 0 )$.</p>
+<p>等一下,这咋想到的啊.</p>
+<p>首先注意到我们有两个点$A , B$,自然要设出它们的参数方程.然后呢?然后我们发现最后$M$一定和$t_1 , t_2$有关.但是我们要求的是$M$的方程,其中不能带有$t_1 , t_2$,因此考虑把$M$的坐标设出来,再用这个坐标表示$t_1 , t_2$,表示不出来表示$t_1 t_2 , t_1 + t_2$也可以,然后消掉即可.</p>
+<p>当然这题还有一个做法,注意到$M$一定在以$| OA |$为直径的圆上,$B$同理,这两个圆的方程分别为:</p>
+<p>$$
+\begin{aligned}
+x^2 + y^2 - 2 pt_1^2 x - 2 pt_1 y & = 0 \\
+x^2 + y^2 - 2 pt_2^2 x - 2 pt_2 y & = 0
+\end{aligned}
+$$</p>
+<p>也就是说,$t_1 , t_2$是同一个方程的两个根,根据韦达定理自然有$t_1 t_2 = \frac{ - ( x^2 + y^2 ) }{ 2 px } = - 1$,于是直接有$x^2 + y^2 - 2 px = 0$.</p>
+<p>还没完,注意到$O$一定是一个根,要去掉,所以答案就是$x^2 + y^2 - 2 px = 0 ( x \ne 0 )$.</p>
+<p><strong>Example3</strong></p>
+<p>已知$A , B , C$是抛物线$y^2 = 2 px ( p > 0 )$上的三个点,且$BC$与$x$轴垂直,直线$AB$和$AC$分别与抛物线的轴交于$D , E$两点,求证:抛物线的顶点平分$DE$.</p>
+<p>设$A ( 2 pt_1^2 , 2 pt_1 ) , B ( 2 pt_2^2 , 2 pt_2 ) , C ( 2 pt_2^2 , - 2 pt_2 )$,注意到$AB : y - 2 pt_1 = \frac{ 1 }{ t_1 + t_2 } ( x - 2 pt_1^2 )$,$AC : t - 2 pt_1 = \frac{ 1 }{ t_1 - t_2 } ( x - 2 pt_1^2 )$.</p>
+<p>可求得$D ( - 2 pt_1 t_2 , 0 ) , E ( 2 pt_1 t_2 , 0 )$,于是得证.</p>
+<h5 id="toc-212">蒙日圆</h5>
+<p>参考:<a href="https://zhuanlan.zhihu.com/p/591258689" target="_blank" rel="noopener noreferrer">https://zhuanlan.zhihu.com/p/591258689</a></p>
+<h6 id="toc-213">定义</h6>
+<p>过圆锥曲线外一点作两条互相垂直的切线,那么这一点的轨迹是一个圆,这个圆被称为蒙日圆,又叫外准圆.</p>
+<h6 id="toc-214">方程</h6>
+<p><strong>椭圆的蒙日圆方程</strong></p>
+<p>设椭圆为$\frac{ x^2 }{ a^2 } + \frac{ y^2 }{ b^2 } = 1$,其蒙日圆方程为$x^2 + y^2 = a^2 + b^2$.</p>
+<p>证明:直接设椭圆上一点就可以导出.</p>
+<p><strong>双曲线的蒙日圆方程</strong></p>
+<p>设双曲线为$\frac{ x^2 }{ a^2 } - \frac{ y^2 }{ b^2 } = 1$,其蒙日圆方程为$x^2 + y^2 = a^2 - b^2$.</p>
+<p>证明:其实注意到椭圆的证明中设$b$是复数也是成立的,自然得证双曲线.</p>
+<p>我知道你在想啥,你在想有没有可能一个点向双曲线能做出超过两条切线.事实上根据渐近线的原理这是不可能滴.</p>
+<p><strong>抛物线的蒙日圆方程</strong></p>
+<p>设抛物线$y^2 = 2 px$,其蒙日圆方程为$x = - \frac{ p }{ 2 }$.</p>
+<p>有一说一,直线是半径无穷大的圆.</p>
+</div>
+  <nav class="post-nav">
+      <a class="post-nav-item" href="/posts/%E8%A2%AB%E5%85%94%E5%AD%90%E5%88%9B%E9%A3%9E%E4%BA%86.html"><span>← 上一篇</span>被兔子创飞了</a>
+      <a class="post-nav-item right" href="/posts/%E8%AA%93.html"><span>下一篇 →</span>誓</a>
+    </nav>
+  <section class="comments" id="comments">
+    <h2 class="comments-title">评论</h2>
+    <div id="waline"></div>
+  </section>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="footer-signature" id="footer-signature">不过是白日梦里一瞬息</div>
+  <div class="footer-copy">© 2026 LWLAymh · Powered by DeepSeek V4 Pro</div>
+</footer>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="打开侧边栏" title="侧边栏">☰</button>
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+  <div class="sidebar-inner"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item" style="padding-left:0.00em"><a href="#toc-0">概统导论</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-1">习惯的更改</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-2">从线性角度审视</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-3">分布列</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-4">两点分布</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-5">二项式分布</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-6">超几何分布</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-7">正态分布</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-8">成对数据的统计</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-9">样本相关系数</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-10">最小二乘法</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-11">独立性检验</a></li><li class="toc-item" style="padding-left:0.00em"><a href="#toc-12">函数导论</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-13">常用对数表</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-14">常用指数表</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-15">基本函数的图像及性质</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-16">f(x)=xe^x</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-17">图像</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-18">极值与极限</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-19">f(x)=x\ln x</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-20">图像</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-21">极值与极限</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-22">f(x)=\frac{e^x}{x}</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-23">图像</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-24">极值与极限</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-25">f(x)=\frac{\ln x}{x}</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-26">图像</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-27">极值与极限</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-28">f(x)=x-\ln x</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-29">图像</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-30">极值与极限</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-31">f(x)=\frac{x}{e^x}</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-32">图像</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-33">极值与极限</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-34">预处理函数</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-35">分离对数</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-36">Example</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-37">消去指数</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-38">Example</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-39">消元法</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-40">变化条件</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-41">Example</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-42">变化所求</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-43">Example</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-44">换元法</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-45">普通参数方程</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-46">Example</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-47">齐次化构造</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-48">Example1(对数平均不等式)</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-49">Example2</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-50">Example3</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-51">Example4</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-52">同构化构造</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-53">Example1</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-54">不等式相关</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-55">基本不等式相关</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-56">方程角度的审视</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-57">Example</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-58">泰勒展开</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-59">抽象函数的泰勒展开</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-60">常用泰勒展开公式</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-61">极值点偏移</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-62">Example1</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-63">Example2</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-64">Example3</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-65">切割线放缩</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-66">基本的切割线不等式</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-67">一般的切割线放缩</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-68">Example1</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-69">凹凸性反转</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-70">Example1</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-71">比较大小</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-72">Example1</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-73">二阶导数</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-74">估算定积分</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-75">泰勒展开</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-76">正经做法</a></li><li class="toc-item" style="padding-left:0.00em"><a href="#toc-77">数列导论</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-78">递归式的求解</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-79">特征根法</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-80">特征方程</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-81">二阶线性齐次递推</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-82">更一般的情况</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-83">重定义向</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-84">引入矩阵</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-85">再进一步</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-86">再再进一步</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-87">数列中的求和问题</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-88">和式的基本运算</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-89">交换顺序法</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-90">Example1(等差数列求和)</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-91">Example2(切比雪夫单调不等式)</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-92">Example3(拉格朗日恒等式)</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-93">扰动法</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-94">Example1(等比数列求和)</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-95">Example2(平方和公式)</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-96">展开和收缩</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-97">Example1(平方和公式)</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-98">Example2</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-99">Problme3</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-100">Solution3</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-101">ProblemEX2</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-102">SolutionEX2</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-103">有限微积分</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-104">移位算子</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-105">差分算子</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-106">逆差分算子</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-107">定和式</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-108">一些基本的公式</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-109">Example1</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-110">分部求和法则(Abel求和法)</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-111">Example1</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-112">Example2</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-113">Example3</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-114">Example4</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-115">基础数论在数列中的应用</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-116">Example</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-117">构造双射在数列中的应用</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-118">不等式放缩在数列中的应用</a></li><li class="toc-item" style="padding-left:0.00em"><a href="#toc-119">几何导论</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-120">三角相关</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-121">三角恒等变换</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-122">两角和差公式</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-123">倍角公式</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-124">半角公式</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-125">和差化积</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-126">积化和差</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-127">万能公式</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-128">补充公式</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-129">周期函数与初等数论</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-130">Example1</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-131">向量相关</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-132">旋转模型</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-133">Example1</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-134">爪子模型</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-135">Example1</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-136">奔驰定理及三角形四心</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-137">奔驰定理</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-138">外心</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-139">Example1</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-140">Example2</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-141">重心</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-142">垂心</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-143">内心</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-144">立体几何相关</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-145">基本概念</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-146">直线</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-147">平面</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-148">夹角</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-149">两直线夹角.</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-150">直线与平面的夹角</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-151">交点</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-152">基本定理</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-153">三余弦定理(最小角定理)</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-154">三正弦定理(最大角定理)</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-155">圆锥曲线</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-156">约定</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-157">椭圆</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-158">定义</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-159">第一定义</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-160">第二定义</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-161">第三定义</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-162">椭圆方程</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-163">标准方程</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-164">一般方程</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-165">椭圆重要元素</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-166">焦半径</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-167">焦点弦</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-168">焦点三角形</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-169">Example</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-170">Example1</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-171">双曲线</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-172">定义</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-173">第一定义</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-174">第二定义</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-175">第三定义</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-176">双曲线重要元素</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-177">焦半径</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-178">渐近线</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-179">焦点三角形</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-180">抛物线</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-181">定义</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-182">第一定义</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-183">抛物线重要元素</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-184">焦点弦</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-185">通用解法</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-186">联立方程</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-187">点参</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-188">小联立</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-189">大联立</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-190">配凑法</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-191">应用</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-192">极点极线</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-193">定义</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-194">基本性质</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-195">使用方法</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-196">隐函数求导</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-197">线性变换</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-198">旋转矩阵</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-199">椭圆转化成圆</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-200">双曲线转化为反比例函数</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-201">抛物线转化为二次函数</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-202">极坐标</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-203">圆的极坐标方程</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-204">直线的极坐标方程</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-205">圆锥曲线的极坐标方程</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-206">参数方程</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-207">圆的参数方程</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-208">直线的参数方程</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-209">椭圆的参数方程</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-210">双曲线的参数方程</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-211">抛物线的参数方程</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-212">蒙日圆</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-213">定义</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-214">方程</a></li></ul></div>
+</aside>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script src="/main.js"></script>
+<script src="/comment.js"></script>
+</body>
+</html>

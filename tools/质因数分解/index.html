@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<title>质因数分解 · LWLAymh的备忘录</title>
+<meta name="description" content="大整数质因数分解，内置 Miller-Rabin 与 Pollard&#39;s rho 算法">
+<meta name="author" content="LWLAymh">
+<link rel="canonical" href="https://LWLAymh.github.io/tools/%E8%B4%A8%E5%9B%A0%E6%95%B0%E5%88%86%E8%A7%A3/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LWLAymh的备忘录">
+<meta property="og:url" content="https://LWLAymh.github.io/tools/%E8%B4%A8%E5%9B%A0%E6%95%B0%E5%88%86%E8%A7%A3/">
+<meta property="og:title" content="质因数分解 · LWLAymh的备忘录">
+<meta property="og:description" content="大整数质因数分解，内置 Miller-Rabin 与 Pollard&#39;s rho 算法">
+<link rel="icon" href="/images/favicon-32x32-next.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon-next.png">
+<link rel="stylesheet" href="/style.css">
+
+<style>
+  .tool-page, .tool-page * { box-sizing: border-box; }
+  .tool-page { width: 100%; padding: 4px 0 8px; }
+  .tool-page .back { color: var(--text-muted); text-decoration: none; font-size: .9rem; }
+  .tool-page .back:hover { color: var(--accent); }
+  .tool-page .card {
+    margin-top: 10px; background: var(--bg-elevated); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow-sm);
+  }
+  .tool-page h1 { margin: 4px 0 8px; font-size: 1.5rem; font-family: var(--font-serif); }
+  .tool-page .hint { color: var(--text-muted); margin: 0 0 18px; font-size: .9rem; }
+  .tool-page form { display: flex; gap: 10px; flex-wrap: wrap; }
+  .tool-page input {
+    flex: 1; min-width: 220px; padding: 11px 14px; font-size: 1rem;
+    border: 1px solid var(--border); border-radius: 10px; background: var(--bg); color: var(--text); outline: none;
+  }
+  .tool-page input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+  .tool-page button {
+    padding: 11px 22px; border: 0; border-radius: 10px; cursor: pointer; font-size: 1rem; color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  }
+  .tool-page button:hover { opacity: .92; }
+  .tool-page .examples { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tool-page .examples button { padding: 4px 12px; font-size: .8rem; background: var(--accent-soft); color: var(--accent); }
+  .tool-page .result { margin-top: 18px; min-height: 28px; font-size: 1.08rem; line-height: 1.8; overflow-wrap: anywhere; }
+  .tool-page .result .times { color: var(--text-muted); }
+  .tool-page .result sup { color: var(--accent); }
+  .tool-page .error { color: #d9534f; min-height: 22px; margin-top: 6px; font-size: .9rem; }
+  .tool-page .empty { color: var(--text-muted); }
+</style>
+</head>
+<body class="page-tool">
+<div class="progress-bar" id="progress-bar"></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="/">
+      <img class="header-avatar avatar" src="/images/头像1.jpg" alt="avatar" data-avatar>
+      <span class="brand-text">
+        <span class="brand-title">LWLAymh的备忘录</span>
+        <span class="brand-subtitle">混乱节拍拼凑出血肉喧嚷</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link active" href="/tools.html">工具</a><a class="nav-link" href="/links.html">友链</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题"></button>
+    </nav>
+  </div>
+</header>
+<main class="site-main">
+<div class="tool-page">
+  <a class="back" href="/tools.html">← 全部工具</a>
+  <div class="card">
+    <h1>质因数分解</h1>
+    <p class="hint">输入一个正整数，自动分解成质因数的乘积。</p>
+    <form id="form" autocomplete="off">
+      <input id="num" inputmode="numeric" placeholder="例如：123456789012345678" maxlength="24">
+      <button type="submit">分解</button>
+    </form>
+    <div class="examples">
+      <button type="button" data-n="123456789012345678">12…5678</button>
+      <button type="button" data-n="1000000007">1000000007</button>
+      <button type="button" data-n="999999999999999989">999…989</button>
+    </div>
+    <div class="result empty" id="result">结果会显示在这里</div>
+    <p class="error" id="error"></p>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-signature" id="footer-signature">不过是白日梦里一瞬息</div>
+  <div class="footer-copy">© 2026 LWLAymh · Powered by DeepSeek V4 Pro</div>
+</footer>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="打开侧边栏" title="侧边栏">☰</button>
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+  <div class="sidebar-inner"><div class="toc-title">联系我</div><div class="contact-item"><span class="contact-key">微信</span><span class="contact-val">LWLAymh</span></div><div class="contact-item"><span class="contact-key">邮箱</span><a class="contact-val" href="mailto:lwlaymh@outlook.com">lwlaymh@outlook.com</a></div><div class="contact-item"><span class="contact-key">GitHub</span><a class="contact-val" href="https://github.com/LWLAymh" target="_blank" rel="noopener">github.com/LWLAymh</a></div><div class="contact-item"><span class="contact-key">Luogu</span><a class="contact-val" href="https://www.luogu.com.cn/user/661076" target="_blank" rel="noopener">Luogu 博客</a></div></div>
+</aside>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script src="/main.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var form = document.getElementById('form');
+  var input = document.getElementById('num');
+  var result = document.getElementById('result');
+  var error = document.getElementById('error');
+
+  document.querySelectorAll('.examples button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      input.value = btn.getAttribute('data-n');
+      run();
+    });
+  });
+
+  function setError(msg) {
+    error.textContent = msg;
+    result.textContent = '';
+    result.classList.add('empty');
+  }
+
+  function modPow(a, b, m) {
+    var r = 1n;
+    a %= m;
+    while (b > 0n) {
+      if (b & 1n) r = (r * a) % m;
+      a = (a * a) % m;
+      b >>= 1n;
+    }
+    return r;
+  }
+
+  var MR_BASES = [2n, 325n, 9375n, 28178n, 450775n, 9780504n, 1795265022n];
+  function isPrime(n) {
+    if (n < 2n) return false;
+    var small = [2n, 3n, 5n, 7n, 11n, 13n, 17n, 19n, 23n, 29n, 31n, 37n];
+    for (var i = 0; i < small.length; i++) {
+      if (n === small[i]) return true;
+      if (n % small[i] === 0n) return false;
+    }
+    var d = n - 1n, r = 0n;
+    while ((d & 1n) === 0n) { d >>= 1n; r++; }
+    for (var j = 0; j < MR_BASES.length; j++) {
+      var a = MR_BASES[j] % n;
+      if (a === 0n) continue;
+      var x = modPow(a, d, n);
+      if (x === 1n || x === n - 1n) continue;
+      var ok = false;
+      for (var k = 0n; k < r - 1n; k++) {
+        x = (x * x) % n;
+        if (x === n - 1n) { ok = true; break; }
+      }
+      if (!ok) return false;
+    }
+    return true;
+  }
+
+  function gcd(a, b) {
+    while (b) { var t = a % b; a = b; b = t; }
+    return a;
+  }
+
+  function pollardRho(n) {
+    if ((n & 1n) === 0n) return 2n;
+    var c = 1n;
+    while (true) {
+      var x = 2n, y = 2n, d = 1n;
+      while (d === 1n) {
+        x = (x * x + c) % n;
+        y = (y * y + c) % n;
+        y = (y * y + c) % n;
+        var diff = x > y ? x - y : y - x;
+        d = gcd(diff, n);
+      }
+      if (d < n) return d;
+      c += 1n;
+      if (c > 30n) throw new Error('Pollard rho 分解失败');
+    }
+  }
+
+  function addFactor(map, p) {
+    map.set(p, (map.get(p) || 0n) + 1n);
+  }
+
+  function factor(n, map) {
+    if (n === 1n) return;
+    if (isPrime(n)) { addFactor(map, n); return; }
+    var d = pollardRho(n);
+    factor(d, map);
+    factor(n / d, map);
+  }
+
+  function format(map) {
+    var parts = [];
+    map.forEach(function (e, p) {
+      parts.push(e === 1n ? String(p) : String(p) + '<sup>' + e + '</sup>');
+    });
+    return parts.join('<span class="times"> × </span>');
+  }
+
+  function run() {
+    error.textContent = '';
+    var s = input.value.trim();
+    if (!/^\d+$/.test(s)) { setError('请输入正整数（只允许数字）。'); return; }
+    if (s.length > 24) { setError('数字太大（最多 24 位），换个小一点的试试。'); return; }
+    var n = BigInt(s);
+    if (n === 0n) { setError('0 没有质因数分解，请输入正整数。'); return; }
+    if (n === 1n) {
+      result.classList.remove('empty');
+      result.innerHTML = '1 既不是质数也不是合数。';
+      return;
+    }
+    try {
+      var map = new Map();
+      factor(n, map);
+      var sorted = Array.from(map.entries()).sort(function (a, b) { return a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0; });
+      result.classList.remove('empty');
+      result.innerHTML = '<b>' + n + '</b> = ' + format(new Map(sorted));
+    } catch (e) {
+      setError('分解失败：' + e.message);
+    }
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    run();
+  });
+})();
+</script>
+</body>
+</html>

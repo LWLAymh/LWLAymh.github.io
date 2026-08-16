@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<title>被豌豆创飞了 · LWLAymh的备忘录</title>
+<meta name="description" content="在YT2S 2021级生2课上有一个著名的open problem,也就是在计算自由交配的时候能否拆开考虑,下面我来尝试写一点自己的理解. 首先来看两个问题(前置条件均为孟德尔第二次杂交实验): 1. 将F2中双显性植株自由交配,求后代表现">
+<meta name="author" content="LWLAymh">
+<link rel="canonical" href="https://LWLAymh.github.io/posts/%E8%A2%AB%E8%B1%8C%E8%B1%86%E5%88%9B%E9%A3%9E%E4%BA%86.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="LWLAymh的备忘录">
+<meta property="og:url" content="https://LWLAymh.github.io/posts/%E8%A2%AB%E8%B1%8C%E8%B1%86%E5%88%9B%E9%A3%9E%E4%BA%86.html">
+<meta property="og:title" content="被豌豆创飞了 · LWLAymh的备忘录">
+<meta property="og:description" content="在YT2S 2021级生2课上有一个著名的open problem,也就是在计算自由交配的时候能否拆开考虑,下面我来尝试写一点自己的理解. 首先来看两个问题(前置条件均为孟德尔第二次杂交实验): 1. 将F2中双显性植株自由交配,求后代表现">
+<link rel="icon" href="/images/favicon-32x32-next.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon-next.png">
+<link rel="stylesheet" href="/style.css">
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true
+  },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
+  startup: { ready: () => MathJax.startup.defaultReady() }
+};
+</script>
+<script id="MathJax-script" async src="/vendor/mathjax/tex-chtml-full.js"></script>
+
+</head>
+<body class="page-post">
+<div class="progress-bar" id="progress-bar"></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="/">
+      <img class="header-avatar avatar" src="/images/头像1.jpg" alt="avatar" data-avatar>
+      <span class="brand-text">
+        <span class="brand-title">LWLAymh的备忘录</span>
+        <span class="brand-subtitle">混乱节拍拼凑出血肉喧嚷</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/tools.html">工具</a><a class="nav-link" href="/links.html">友链</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题"></button>
+    </nav>
+  </div>
+</header>
+<main class="site-main">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">被豌豆创飞了</h1>
+    <div class="post-meta">
+      <time>2025-06-23</time>
+      <a class="chip chip-cat" href="/categories.html#%E8%A2%AB%E6%96%87%E5%8C%96%E8%AF%BE%E5%88%9B%E9%A3%9E%E4%BA%86">被文化课创飞了</a>
+    </div>
+  </header>
+  <div class="post-content"><p>在YT2S 2021级生2课上有一个著名的open problem,也就是在计算自由交配的时候能否拆开考虑,下面我来尝试写一点自己的理解.</p>
+<p>首先来看两个问题(前置条件均为孟德尔第二次杂交实验):</p>
+<ol>
+<li>
+<p>将F2中双显性植株自由交配,求后代表现型及比例.</p>
+</li>
+<li>
+<p>将F2中单显性植株(包括两种单显性植株)自由交配,求后代表现型及比例.</p>
+</li>
+</ol>
+<p>为了方便笔者书写,不妨设这两对基因是$A / a$和$B / b$.</p>
+<p>先来看第一个问题,双显性植株中应该有:$\frac{ 1 }{ 9 } AABB , \frac{ 2 }{ 9 } AABb , \frac{ 2 }{ 9 } AaBB , \frac{ 4 }{ 9 } AaBb$.先让第一组基因自由交配,也就是只看$A / a$,我们有$\frac{ 1 }{ 3 } AA$和$\frac{ 2 }{ 3 } Aa$,产生$\frac{ 2 }{ 3 } A$和$\frac{ 1 }{ 3 } a$配子,得到$AA : Aa : aa = 4 : 4 : 1$,也就是$A \_ : aa = 8 : 1$.对另一对也这么考虑,最终得到$A \_ B \_ : A \_ bb : aaB \_ : aabb = 64 : 8 : 8 : 1$.</p>
+<p>非常合理且简洁对吧,但如果你同样拆开考虑第二个问题,会发现这么做是错误的.</p>
+<p>我们生物老师LL老师给出的解释是,单显性植株的个体是$A \_ bb$和$aaB \_$,它们的基因型并没有组合的非常彻底,也就是并没有出现$aabb$和$A \_ B \_$个体,导致不能乱拆开.</p>
+<p>而直觉上感觉这个东西和独立性有关对吧,我们来简单证明一下:</p>
+<p>约定$X$是$AA , Aa$或$aa$,$Y$则是$BB , Bb , bb$,那么:$P ( XY ) = P ( Y | X ) P ( X )$.如果可以拆开,那么$P ( XY ) = P ( X ) P ( Y )$,于是有:$P ( Y | X ) = P ( Y )$,也就是这两种基因型互相独立就行,老师说的对啊!</p>
+<p>如果只是这样就水了一篇博客非常无聊对吧,能不能证明一点更好玩的结论呢?</p>
+<p>考虑设产生四种配子$AB , Ab , aB , ab$的概率分别是$x , y , z , w$,其中$x + y + z + w = 1$.</p>
+<p>使用生成函数技巧,配子法给出的答案应该是:$( x \ AB + y \ Ab + z \ aB + w \ ab )^2$,而拆分再乘起来的答案应该是$( ( x + y ) A + ( z + w ) a )^2 ( ( x + z ) B + ( y + w ) b )^2$,其中$A , B , a , b$均为形式幂.</p>
+<p>如果两边相等,有:</p>
+<p>$$
+\begin{aligned}
+( x \ AB + y \ Ab + z \ aB + w \ ab )^2 & = ( ( x + y ) A + ( z + w ) a )^2 ( ( x + z ) B + ( y + w ) b )^2 \\
+( x + y + z + w ) ( x \ AB + y \ Ab + z \ aB + w \ ab ) & = ( ( x + y ) A + ( z + w ) a ) ( ( x + z ) B + ( y + w ) b ) \\
+
+\end{aligned}
+$$</p>
+<p>两边展开,就可以知道它的充分必要条件是$P ( ab ) = P ( a ) P ( b )$,也就是产生$a$和$b$的配子概率是独立的.</p>
+</div>
+  <nav class="post-nav">
+      <a class="post-nav-item" href="/posts/%E8%A2%AB%E8%BD%AE%E5%AD%90%E5%88%9B%E9%A3%9E%E4%BA%86.html"><span>← 上一篇</span>被轮子创飞了</a>
+      <a class="post-nav-item right" href="/posts/%E8%A2%AB%E8%9D%B4%E8%9D%B6%E5%88%9B%E9%A3%9E%E4%BA%86.html"><span>下一篇 →</span>被蝴蝶创飞了</a>
+    </nav>
+  <section class="comments" id="comments">
+    <h2 class="comments-title">评论</h2>
+    <div id="waline"></div>
+  </section>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="footer-signature" id="footer-signature">不过是白日梦里一瞬息</div>
+  <div class="footer-copy">© 2026 LWLAymh · Powered by DeepSeek V4 Pro</div>
+</footer>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="打开侧边栏" title="侧边栏">☰</button>
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+  <div class="sidebar-inner"><div class="toc-title">联系我</div><div class="contact-item"><span class="contact-key">微信</span><span class="contact-val">LWLAymh</span></div><div class="contact-item"><span class="contact-key">邮箱</span><a class="contact-val" href="mailto:lwlaymh@outlook.com">lwlaymh@outlook.com</a></div><div class="contact-item"><span class="contact-key">GitHub</span><a class="contact-val" href="https://github.com/LWLAymh" target="_blank" rel="noopener">github.com/LWLAymh</a></div><div class="contact-item"><span class="contact-key">Luogu</span><a class="contact-val" href="https://www.luogu.com.cn/user/661076" target="_blank" rel="noopener">Luogu 博客</a></div></div>
+</aside>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script src="/main.js"></script>
+<script src="/comment.js"></script>
+</body>
+</html>

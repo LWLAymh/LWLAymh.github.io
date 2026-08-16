@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<title>2048 · LWLAymh的备忘录</title>
+<meta name="description" content="经典数字合成游戏，方向键 / WASD / 手机滑动都能玩">
+<meta name="author" content="LWLAymh">
+<link rel="canonical" href="https://LWLAymh.github.io/tools/2048/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LWLAymh的备忘录">
+<meta property="og:url" content="https://LWLAymh.github.io/tools/2048/">
+<meta property="og:title" content="2048 · LWLAymh的备忘录">
+<meta property="og:description" content="经典数字合成游戏，方向键 / WASD / 手机滑动都能玩">
+<link rel="icon" href="/images/favicon-32x32-next.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon-next.png">
+<link rel="stylesheet" href="/style.css">
+
+<style>
+  .tool-page, .tool-page * { box-sizing: border-box; }
+  .tool-page { width: 100%; padding: 4px 0 8px; text-align: center; }
+  .tool-page .back { color: var(--text-muted); text-decoration: none; font-size: .9rem; }
+  .tool-page .back:hover { color: var(--accent); }
+  .tool-page .card {
+    margin-top: 10px; background: var(--bg-elevated); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow-sm);
+  }
+  .tool-page h1 { margin: 4px 0 4px; font-size: 1.5rem; font-family: var(--font-serif); }
+  .tool-page .hint { color: var(--text-muted); margin: 0 0 14px; font-size: .9rem; }
+  .tool-page .bar { display: flex; justify-content: center; gap: 12px; margin-bottom: 14px; align-items: center; flex-wrap: wrap; }
+  .tool-page .score-box { padding: 6px 16px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg); font-size: .85rem; }
+  .tool-page .score-box b { color: var(--accent); font-size: 1.05rem; }
+  .tool-page button.new {
+    padding: 8px 18px; border: 0; border-radius: 10px; cursor: pointer; color: #fff; font-size: .9rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  }
+  .tool-page button.new:hover { opacity: .92; }
+  .tool-page .board-wrap { position: relative; width: 400px; max-width: 100%; margin: 0 auto; }
+  .tool-page .board {
+    position: relative; aspect-ratio: 1; width: 100%;
+    background: #14171d; border-radius: 12px; padding: 8px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+    touch-action: none;
+  }
+  .tool-page .bg-cell { background: rgba(255,255,255,.05); border-radius: 8px; }
+  .tool-page .tile {
+    position: absolute; z-index: 2; display: flex; align-items: center; justify-content: center;
+    border-radius: 8px; font-weight: 700; color: #fff;
+    transition: left .12s ease, top .12s ease, transform .12s ease;
+  }
+  .tool-page .tile.new { animation: pop .18s ease; }
+  @keyframes pop { 0% { transform: scale(.6); } 100% { transform: scale(1); } }
+  .tool-page .tile[data-v="2"]    { background: #3c4657; color: #fff; }
+  .tool-page .tile[data-v="4"]    { background: #4a6d96; color: #fff; }
+  .tool-page .tile[data-v="8"]    { background: #4a7db5; color: #fff; }
+  .tool-page .tile[data-v="16"]   { background: #3a6594; color: #fff; }
+  .tool-page .tile[data-v="32"]   { background: #6f8fd1; color: #fff; }
+  .tool-page .tile[data-v="64"]   { background: #5d79b8; color: #fff; }
+  .tool-page .tile[data-v="128"]  { background: #86aedb; color: #17233a; }
+  .tool-page .tile[data-v="256"]  { background: #a7c7e8; color: #17233a; }
+  .tool-page .tile[data-v="512"]  { background: #c0d8f2; color: #17233a; }
+  .tool-page .tile[data-v="1024"] { background: #e8f1fa; color: #17233a; }
+  .tool-page .tile[data-v="2048"] { background: linear-gradient(135deg, #ffd66b, #ffb347); color: #3a2f00; }
+  .tool-page .tile[data-v="4096"], .tool-page .tile[data-v="8192"] { background: linear-gradient(135deg, #f08a8a, #d9534f); }
+  .tool-page .overlay {
+    position: absolute; inset: 8px; z-index: 5; display: flex; flex-direction: column; gap: 10px;
+    align-items: center; justify-content: center; background: rgba(14,16,21,.72);
+    color: #fff; border-radius: 10px; font-size: 1.2rem; backdrop-filter: blur(3px);
+  }
+  .tool-page .overlay[hidden] { display: none; }
+  .tool-page .overlay button {
+    padding: 8px 22px; border: 0; border-radius: 999px; cursor: pointer; font-size: .95rem; color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  }
+</style>
+</head>
+<body class="page-tool">
+<div class="progress-bar" id="progress-bar"></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="/">
+      <img class="header-avatar avatar" src="/images/头像1.jpg" alt="avatar" data-avatar>
+      <span class="brand-text">
+        <span class="brand-title">LWLAymh的备忘录</span>
+        <span class="brand-subtitle">混乱节拍拼凑出血肉喧嚷</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link active" href="/tools.html">工具</a><a class="nav-link" href="/links.html">友链</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题"></button>
+    </nav>
+  </div>
+</header>
+<main class="site-main">
+<div class="tool-page">
+  <a class="back" href="/tools.html">← 全部工具</a>
+  <div class="card">
+    <h1>2048</h1>
+    <p class="hint">方向键 / WASD 移动，手机可以滑动。合成 2048 就赢啦。</p>
+    <div class="bar">
+      <div class="score-box">得分 <b id="score">0</b></div>
+      <div class="score-box">最高 <b id="best">0</b></div>
+      <button class="new" id="new-btn">新游戏</button>
+    </div>
+    <div class="board-wrap">
+      <div class="board" id="board">
+        <div class="bg-cell"></div><div class="bg-cell"></div><div class="bg-cell"></div><div class="bg-cell"></div>
+        <div class="bg-cell"></div><div class="bg-cell"></div><div class="bg-cell"></div><div class="bg-cell"></div>
+        <div class="bg-cell"></div><div class="bg-cell"></div><div class="bg-cell"></div><div class="bg-cell"></div>
+        <div class="bg-cell"></div><div class="bg-cell"></div><div class="bg-cell"></div><div class="bg-cell"></div>
+        <div id="tiles"></div>
+      </div>
+      <div class="overlay" id="overlay">
+        <span id="overlay-text">游戏结束</span>
+        <button id="restart-btn">再来一局</button>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-signature" id="footer-signature">不过是白日梦里一瞬息</div>
+  <div class="footer-copy">© 2026 LWLAymh · Powered by DeepSeek V4 Pro</div>
+</footer>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="打开侧边栏" title="侧边栏">☰</button>
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+  <div class="sidebar-inner"><div class="toc-title">联系我</div><div class="contact-item"><span class="contact-key">微信</span><span class="contact-val">LWLAymh</span></div><div class="contact-item"><span class="contact-key">邮箱</span><a class="contact-val" href="mailto:lwlaymh@outlook.com">lwlaymh@outlook.com</a></div><div class="contact-item"><span class="contact-key">GitHub</span><a class="contact-val" href="https://github.com/LWLAymh" target="_blank" rel="noopener">github.com/LWLAymh</a></div><div class="contact-item"><span class="contact-key">Luogu</span><a class="contact-val" href="https://www.luogu.com.cn/user/661076" target="_blank" rel="noopener">Luogu 博客</a></div></div>
+</aside>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script src="/main.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var board = [];
+  var score = 0;
+  var over = false;
+  var won = false;
+  var boardEl = document.getElementById('board');
+  var tilesEl = document.getElementById('tiles');
+  var overlay = document.getElementById('overlay');
+  var overlayText = document.getElementById('overlay-text');
+  var scoreEl = document.getElementById('score');
+  var bestEl = document.getElementById('best');
+
+  function safeGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function safeSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+
+  var best = parseInt(safeGet('2048-best') || '0', 10) || 0;
+  bestEl.textContent = best;
+
+  function empty() { return new Array(16).fill(0); }
+  function zeros() { return board.reduce(function (n, v) { return n + (v === 0 ? 1 : 0); }, 0); }
+
+  function addTile() {
+    var n = zeros();
+    if (!n) return;
+    var at = Math.floor(Math.random() * n);
+    var val = Math.random() < 0.9 ? 2 : 4;
+    for (var i = 0; i < 16; i++) {
+      if (board[i] === 0) {
+        if (at === 0) {
+          board[i] = val;
+          markNew(i);
+          return;
+        }
+        at--;
+      }
+    }
+  }
+
+  var newTiles = new Set();
+  function markNew(i) { newTiles.add(i); }
+  function render() {
+    tilesEl.innerHTML = '';
+    for (var i = 0; i < 16; i++) {
+      if (!board[i]) continue;
+      var tile = document.createElement('div');
+      tile.className = 'tile' + (newTiles.has(i) ? ' new' : '');
+      tile.setAttribute('data-v', board[i]);
+      tile.style.left = ((i % 4) * 25 + 1.5) + '%';
+      tile.style.top = (Math.floor(i / 4) * 25 + 1.5) + '%';
+      tile.style.width = '22%';
+      tile.style.height = '22%';
+      tile.style.fontSize = board[i] >= 1024 ? '1.3rem' : board[i] >= 128 ? '1.5rem' : '2rem';
+      tile.textContent = board[i];
+      tilesEl.appendChild(tile);
+    }
+    newTiles.clear();
+    scoreEl.textContent = score;
+    if (score > best) { best = score; safeSet('2048-best', String(best)); bestEl.textContent = best; }
+  }
+
+  function reset() {
+    board = empty();
+    score = 0;
+    over = false;
+    won = false;
+    overlay.hidden = true;
+    addTile();
+    addTile();
+    render();
+  }
+
+  function slide(row) {
+    var arr = row.filter(function (v) { return v !== 0; });
+    var out = [];
+    for (var i = 0; i < arr.length; i++) {
+      if (i + 1 < arr.length && arr[i] === arr[i + 1]) {
+        var merged = arr[i] * 2;
+        out.push(merged);
+        score += merged;
+        if (merged === 2048) won = true;
+        i++;
+      } else {
+        out.push(arr[i]);
+      }
+    }
+    while (out.length < 4) out.push(0);
+    return out;
+  }
+
+  function getRow(r) { return board.slice(r * 4, r * 4 + 4); }
+  function setRow(r, row) { for (var i = 0; i < 4; i++) board[r * 4 + i] = row[i]; }
+  function getCol(c) { var a = []; for (var r = 0; r < 4; r++) a.push(board[r * 4 + c]); return a; }
+  function setCol(c, col) { for (var r = 0; r < 4; r++) board[r * 4 + c] = col[r]; }
+
+  function same(a, b) {
+    for (var i = 0; i < a.length; i++) if (a[i] !== b[i]) return false;
+    return true;
+  }
+
+  function move(dir) {
+    if (over) return;
+    var before = board.slice();
+    if (dir === 'left' || dir === 'right') {
+      for (var r = 0; r < 4; r++) {
+        var row = getRow(r);
+        if (dir === 'right') row = row.slice().reverse();
+        row = slide(row);
+        if (dir === 'right') row = row.reverse();
+        setRow(r, row);
+      }
+    } else {
+      for (var c = 0; c < 4; c++) {
+        var col = getCol(c);
+        if (dir === 'down') col = col.slice().reverse();
+        col = slide(col);
+        if (dir === 'down') col = col.reverse();
+        setCol(c, col);
+      }
+    }
+
+    if (!same(before, board)) {
+      addTile();
+      render();
+      checkEnd();
+    }
+  }
+
+  function canMove() {
+    if (zeros()) return true;
+    for (var r = 0; r < 4; r++) {
+      for (var c = 0; c < 4; c++) {
+        var v = board[r * 4 + c];
+        if (c < 3 && board[r * 4 + c + 1] === v) return true;
+        if (r < 3 && board[(r + 1) * 4 + c] === v) return true;
+      }
+    }
+    return false;
+  }
+
+  function checkEnd() {
+    if (won) {
+      over = true;
+      overlayText.textContent = '🎉 你赢了！得分 ' + score + '，再来一局挑战更高分。';
+      overlay.hidden = false;
+      return;
+    }
+    if (!canMove()) {
+      over = true;
+      overlayText.textContent = '游戏结束，得分 ' + score;
+      overlay.hidden = false;
+    }
+  }
+
+  document.getElementById('new-btn').addEventListener('click', reset);
+  document.getElementById('restart-btn').addEventListener('click', function () { overlay.hidden = true; reset(); });
+
+  document.addEventListener('keydown', function (e) {
+    var k = e.key;
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].indexOf(k) >= 0) e.preventDefault();
+    if (k === 'ArrowUp' || k === 'w' || k === 'W') move('up');
+    else if (k === 'ArrowDown' || k === 's' || k === 'S') move('down');
+    else if (k === 'ArrowLeft' || k === 'a' || k === 'A') move('left');
+    else if (k === 'ArrowRight' || k === 'd' || k === 'D') move('right');
+  });
+
+  var touch = null;
+  boardEl.addEventListener('touchstart', function (e) { touch = e.touches[0]; }, { passive: true });
+  boardEl.addEventListener('touchend', function (e) {
+    if (!touch) return;
+    var t = e.changedTouches[0];
+    var dx = t.clientX - touch.clientX, dy = t.clientY - touch.clientY;
+    if (Math.max(Math.abs(dx), Math.abs(dy)) > 24) {
+      move(Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? 'right' : 'left') : (dy > 0 ? 'down' : 'up'));
+    }
+    touch = null;
+  });
+
+  reset();
+})();
+</script>
+</body>
+</html>

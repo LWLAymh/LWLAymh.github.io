@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<title>随机算法 · LWLAymh的备忘录</title>
+<meta name="description" content="随机化算法 基本分析 Union Bound 即: ,取等当且仅当所有 互斥. Markov 不等式 若 ,则 . Example(Max Cut算法) 一个无向无权图,将点集划分成两个部分,使得跨越这两部分的边尽可能多. 直接随机划分,容">
+<meta name="author" content="LWLAymh">
+<link rel="canonical" href="https://LWLAymh.github.io/posts/%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="LWLAymh的备忘录">
+<meta property="og:url" content="https://LWLAymh.github.io/posts/%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html">
+<meta property="og:title" content="随机算法 · LWLAymh的备忘录">
+<meta property="og:description" content="随机化算法 基本分析 Union Bound 即: ,取等当且仅当所有 互斥. Markov 不等式 若 ,则 . Example(Max Cut算法) 一个无向无权图,将点集划分成两个部分,使得跨越这两部分的边尽可能多. 直接随机划分,容">
+<link rel="icon" href="/images/favicon-32x32-next.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon-next.png">
+<link rel="stylesheet" href="/style.css">
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true
+  },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
+  startup: { ready: () => MathJax.startup.defaultReady() }
+};
+</script>
+<script id="MathJax-script" async src="/vendor/mathjax/tex-chtml-full.js"></script>
+
+</head>
+<body class="page-post">
+<div class="progress-bar" id="progress-bar"></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="/">
+      <img class="header-avatar avatar" src="/images/头像1.jpg" alt="avatar" data-avatar>
+      <span class="brand-text">
+        <span class="brand-title">LWLAymh的备忘录</span>
+        <span class="brand-subtitle">混乱节拍拼凑出血肉喧嚷</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/tools.html">工具</a><a class="nav-link" href="/links.html">友链</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题"></button>
+    </nav>
+  </div>
+</header>
+<main class="site-main">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">随机算法</h1>
+    <div class="post-meta">
+      <time>2025-09-26</time>
+      <a class="chip chip-cat" href="/categories.html#%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B">大学课程</a>
+    </div>
+  </header>
+  <div class="post-content"><h2 id="toc-0">随机化算法</h2>
+<h3 id="toc-1">基本分析</h3>
+<h4 id="toc-2">Union Bound</h4>
+<p>即:$Pr [ \bigcup_i X_i ] \leq \sum Pr [ X_i ]$,取等当且仅当所有$X_i$互斥.</p>
+<h4 id="toc-3">Markov 不等式</h4>
+<p>若$X \geq 0$,则$Pr [ X \geq t \mathbb{ E } [ X ] ] \leq \frac{ 1 }{ t }$.</p>
+<h6 id="toc-4">Example(Max-Cut算法)</h6>
+<p>一个无向无权图,将点集划分成两个部分,使得跨越这两部分的边尽可能多.</p>
+<p>直接随机划分,容易见到每条边有$\frac{ 1 }{ 2 }$的概率是割边,因此期望自然是$\frac{ 1 }{ 2 } | E | \geq \frac{ 1 }{ 2 } | \text{ max - cut } |$.</p>
+<p>由此立即见到,$Pr [ | ans | \leq ( \frac{ 1 }{ 2 } - \epsilon ) | E | ] = Pr [ | E | - | ans | \geq ( \frac{ 1 }{ 2 } + \epsilon ) | E | ] \leq \frac{ 1 }{ 1 + 2 \epsilon }$.</p>
+<p>由于每次独立操作,因此如果有$P$的概率失败,那么运行$T$次后至少成功一次的概率应当为$1 - P^T$.从而$T = O ( \log_P{ \delta } ) = O ( \cfrac{ \ln \frac{ 1 }{ \delta } }{ \ln ( 1 +{ 2 \epsilon } ) } ) \approx O ( \cfrac{ \ln \frac{ 1 }{ \delta } }{ \epsilon } )$即可拿到$\delta$失败概率.</p>
+<h4 id="toc-5">Chernoff Bound</h4>
+<p>设$X_1 , \cdots , X_n \in [ 0 , 1 ]$是独立,同期望(期望为$\mu \geq t$)的随机变量,令$X = \frac{ \sum_k X_k }{ n }$,对于任何失败概率$\delta \in ( 0 , 1 )$,应当有:</p>
+<p>$$
+Pr \left [ | X - \mu | \geq \sqrt{ \cfrac{ \log ( 1 / \delta ) }{ nt } } \mu \right ] \leq \delta
+$$</p>
+<h6 id="toc-6">Example(Median Trick)</h6>
+<p>现在有一个黑盒能够以$p > \frac{ 1 }{ 2 }$的概率正确回答Yes或者No,问重复$T$选多少次能拿到$1 - \delta$的成功概率.</p>
+<p>考虑重复$T$次后应当有期望$pT$个正确答案,因此直接取中位数.称此算法为Median Trick.</p>
+<p>Chernoff Bound 告诉我们$T = O ( \log \frac{ 1 }{ \delta } )$足够.</p>
+<h4 id="toc-7">Hoeffding 不等式</h4>
+<p>设独立随机变量$x_1 , \cdots , x_m \in [ s , t ]$,令$X = \sum_i x_i$,则:</p>
+<p>$$
+Pr [ X - E [ X ] \geq z ] \leq 2 \exp \left ( - \cfrac{ 2 z^2 }{ m ( t - s )^2 } \right )
+$$</p>
+<h3 id="toc-8">编程中的随机性</h3>
+<p>一般采用伪随机,也即是给定初值$X_0$,通过某个确定性的函数来生成$X_{ n + 1 } = f ( X_n )$这样的.</p>
+<h3 id="toc-9">数值概率算法</h3>
+<p>即通过随机选取元素从而求得在数值上的近似解.较之于传统算法,其运行速度更快,而且随着运行时间的增加,近似解的精度也会提高.在不可能或不必要求出问题的精确解时,可以使用其得到相当满意的近似解,如随机撒点法(近似求难以计算的图形面积).</p>
+<h3 id="toc-10">Monte Carlo算法</h3>
+<p>总是能在确定的运行时间内出解,但是得到的解有一定概率是错的.通常出错的概率比较小,因此可以通过反复运行算法来得到可以接受的正确率.</p>
+<h5 id="toc-11">求解最优化问题的Monte Carlo算法</h5>
+<p>事实上,大部分最优化问题都可以转化为判定性问题:也就是判定一个解是否是最优解,因此我们接下来基本都是讨论的求解判定性问题的Monte Carlo算法.</p>
+<h5 id="toc-12">求解判定性问题的Monte Carlo算法</h5>
+<ol>
+<li>
+<p>假倾向的Monte Carlo算法:当这类算法的返回值为假的时候,结果一定正确,但返回值为真的时候则有一定概率错误.</p>
+</li>
+<li>
+<p>真倾向的Monte Carlo算法:当这类算法的返回值为真的时候,结果一定正确,但返回值为假的时候则有一定概率错误.</p>
+</li>
+<li>
+<p>产生双侧错误的Monte Carlo算法:无论返回值为什么都有概率出错.基本不会使用.</p>
+</li>
+</ol>
+<p>以下讨论的Monte Carlo算法均为产生单侧错误的Monte Carlo算法.</p>
+<h5 id="toc-13">正确率与复杂度</h5>
+<p>显然,如果我们有一个单词正确率为$p$,时间复杂度为$O ( f ( n ) )$的算法,我们运行其$k$次,则正确率为$1 - ( 1 - p )^k$,时间复杂度为$O ( kf ( n ) )$.</p>
+<h5 id="toc-14">算法设计思路1</h5>
+<p>我们来总结一下通常的Monte Carlo算法的设计思路:</p>
+<h6 id="toc-15">设计一个能解决问题的确定性算法</h6>
+<ol>
+<li>
+<p>这个算法需要枚举一些元素.</p>
+</li>
+<li>
+<p>设这个算法的复杂度为$O ( f ( n ) g ( n ) )$,其中$f ( n )$为枚举部分的复杂度,$g ( n )$为单词枚举中计算所需的复杂度.大部分情况下应保证$g ( n )$不会很大.</p>
+</li>
+</ol>
+<h6 id="toc-16">向算法引入随机化优化复杂度</h6>
+<ol>
+<li>
+<p>随机化寻找元素来降低复杂度.</p>
+</li>
+<li>
+<p>计算随机化情况下的正确率以及复杂度.</p>
+</li>
+</ol>
+<h5 id="toc-17">算法设计思路2</h5>
+<h6 id="toc-18">设计一个能解决问题的确定性算法</h6>
+<ol>
+<li>
+<p>这个算法需要用到一个或多个传入的元素.</p>
+</li>
+<li>
+<p>这个元素的值不应该依赖于输入数据.</p>
+</li>
+<li>
+<p>我们可以通过check这个元素来得到与答案有关的信息.</p>
+</li>
+</ol>
+<h6 id="toc-19">向算法引入随机化优化复杂度</h6>
+<ol>
+<li>
+<p>随机这个元素.</p>
+</li>
+<li>
+<p>计算随机化情况下的正确率以及复杂度</p>
+</li>
+</ol>
+<h5 id="toc-20">Example</h5>
+<h6 id="toc-21">Example 1(Millar-Rabin算法)</h6>
+<p>略</p>
+<h6 id="toc-22">Example2(CodeChef MSTONE)</h6>
+<p>平面上有$n$个互不重合的点,已知存在不超过$7$条直线可以覆盖全部的点,问在平面上作一条直线,最多能覆盖多少个点.$n \leq 10000$.</p>
+<p>考虑一个朴素的暴力:枚举两个点,确定一条直线,然后判断多少个点在这条直线上.但是这样复杂度是$O ( n^3 )$的.</p>
+<p>考虑加入随机化.我们不妨每次随机两个点,注意到存在七条直线覆盖全部的点,那覆盖点最多的直线覆盖的点数一定不少于$\lceil \frac{ n }{ 7 } \rceil$个点.换句话说,我们随机一个点,这个点在这条直线上的概率是$\frac{ 1 }{ 7 }$,因此随机两个点确定这条直线的概率为$\frac{ 1 }{ 49 }$.随机$1000$次,错误概率为$1 - ( \frac{ 48 }{ 49 } )^{ 1000 }$,是很小的.</p>
+<h6 id="toc-23">Example3(CF364D Ghd)</h6>
+<p>给定一个长度为$n$的序列,要求找出一个长度大于等于$\frac{ n }{ 2 }$的子序列,使这个子序列中所有数的$\gcd$最大,求最大的$\gcd$.$n \leq 10^6$,$a_i \leq 10^{ 12 }$.</p>
+<p>注意到我们随机一个数,这个数在最终答案中的概率是$\frac{ 1 }{ 2 }$.我们不妨直接随机这个数,然后枚举它的因子,判断每个因子在序列中的出现次数即可.但是这样单次复杂度$O ( n \sqrt{ a } )$,好像不太能过.</p>
+<p>冷静一下,我们不妨将这$\sqrt{ a }$个质因子全都存下来,然后将$n$个数也全都存下来,做狄利克雷后缀和即可.不过直接做可能还需要离散化/map,我们考虑先把所有数与我们随机到的那个数取一个$\gcd$,这样所有数就都是这个数的因子,可以使用大小因子分别编号来实现.</p>
+<h6 id="toc-24">Example4([POI2014]Couriers)</h6>
+<p>给定长度为$n$的序列$a$,有$m$次询问,每次给定一个区间$[ l , r ]$,问$a [ l , r ]$中是否存在出现次数严格大于其它所有数出现次数之和的数,如果存在请输出.$( n , m \leq 500000 , 1 \leq a_i \leq n )$.</p>
+<p>先存下来每个位置的数是第几次出现,我们就可以利用二分快速找到一个区间内某个数出现次数.接下来只需要随机化找这个区间内某个数并判断是否满足条件即可.</p>
+<h5 id="toc-25">Example5([NOI2013] 向量内积)</h5>
+<p>先考虑$k = 2$的情况:</p>
+<p>首先,我们自然可以枚举一个向量$A$并判断它与其它向量的内积,这样复杂度为$O ( n^2 d )$.</p>
+<p>冷静一下,这个过程其实就是一个矩阵乘法的过程:我们设$A = \begin{bmatrix}\vec{ a_1 } , \vec{ a_2 } , . . . , \vec{ a_n }\end{bmatrix}$,那我们要验证的无非是$B = AA^T$中是否存在一个不在主对角线上的元素$B_{ i , j }$在$\mod 2$意义下为$0$.</p>
+<p>这咋做啊?我们冷静一下,构造一个矩阵$C$,其中$C$的主对角线元素与$B$相同,而其他元素全是$1$.接下来我们要做的无非是找到$B$和$C$不同的地方.</p>
+<p>这咋办呢?我们考虑这么一点:如果$B = C$,那么对于任意一个$X_{ m \times n }$都应该满足$XB = XC$,取$m = 1$,我们的问题就转化为:是否能找到一个$X$,使得$XB \ne XC$?这显然可以随机化.计算前者的复杂度为$O ( nd )$,后者由于$C$很特殊,可以在$O ( n )$的时间内求出.这样我们就保证了算法复杂度上的合理性.</p>
+<p>接下来,我们要证明其正确率上的合理性.这个算法显然是单侧错误的Monte Carlo算法.问题在于正确率:</p>
+<p>令$D = B - C$,若返回相等但实际上不相等,则$D$中至少存在一个不为$0$的数字,假设$D_{ i , j } \ne 0$.我们令$E = X \times D$,那么只有当$E$是零向量时才会错误.而$E_j = \sum_{ k } X_k D_{ k , j }$,不难解得:$E_i = - \frac{ 1 }{ D_{ i , j } } \sum_{ k \ne i } X_k D_{ k , j }$,也就是说如果$X$的其它位置都确定了,那么$E$只有一种取值会返回错误.由于$k$一共就俩取值,所以正确率至少$\frac{ 1 }{ 2 }$.</p>
+<p>至于找到答案:我们找到一个不为$0$的$E_i$,那么一定存在一组解包含了第$i$个向量,只需枚举另一个向量检验就行,复杂度$O ( nd )$.</p>
+<p>$k = 3$的话,我们注意到$\mod 3$意义下,$1$和$2$的平方都是$1$.考虑$\sum_{ j } B_{ i , j }^2 X_j = \sum_{ j } B_{ i , j } X_j B_{ h , i }^T$,大概做做.</p>
+<h3 id="toc-26">Las Vegas算法(Sherwood算法)</h3>
+<p>总是能返回正确的结果,但是其运行时间不确定.对于一些平均时间复杂度优秀,但是最坏情况下复杂度较高的确定性算法,通过引入随机函数,尝试减小最坏情况的可能性,以在期望意义下达到优秀的时间复杂度.</p>
+<h5 id="toc-27">算法设计思路</h5>
+<h6 id="toc-28">设计一个能解决问题的确定性算法</h6>
+<ol>
+<li>
+<p>这个算法需要枚举全排列.</p>
+</li>
+<li>
+<p>通常,问题问的是要么只是可行解而不是最优解,要么最优方案特别多,总之要保证有用的排列个数不会太少</p>
+</li>
+</ol>
+<h6 id="toc-29">向算法引入随机化优化复杂度</h6>
+<ol>
+<li>
+<p>随机化寻找排列来降低复杂度.</p>
+</li>
+<li>
+<p>通常证明复杂度和正确率巨大麻烦,这里建议直接实践证明.</p>
+</li>
+</ol>
+<h5 id="toc-30">Example</h5>
+<h6 id="toc-31">快速排序算法</h6>
+<p>我们试图计算它的期望时间复杂度:</p>
+<p>不妨设$T ( n )$表示对长度为$n$的序列运行快速排序算法所需的期望时间,我们有:</p>
+<p>$$
+\begin{aligned}
+T ( 0 ) & = 0 \\
+T ( n ) & = n + \frac{ 1 }{ n } \sum_{ i = 0 }^{ n - 1 } ( T_i + T_{ n - i - 1 } )
+\end{aligned}
+$$</p>
+<p>做放缩(可能有些地方需要$+ 1$或者$- 1$或者加取整,但是问题不大,反正是期望):</p>
+<p>$$
+\begin{aligned}
+T ( n ) & = n + \frac{ 1 }{ n } \sum_{ i = 0 }^{ n - 1 } ( T_i + T_{ n - i - 1 } ) \\
+& = n + \frac{ 2 }{ n } \sum_{ i = \frac{ n }{ 2 } }^{ n - 1 } ( T_i + T_{ n - i - 1 } ) \\
+& = n + \frac{ 2 }{ n } \sum_{ i = \frac{ n }{ 2 } }^{ \frac{ 3 n }{ 4 } } ( T ( i ) + T ( n - i - 1 ) ) + \frac{ 2 }{ n } \sum_{ i = \frac{ 3 n }{ 4 } }^{ n } ( T ( i ) + T ( n - i - 1 ) )
+\end{aligned}
+$$</p>
+<p>由于$T ( n ) \geq n$,所以对于$\frac{ n }{ 2 } \leq i \leq j$,我们显然有:$T ( i ) + T ( n - i ) \leq T ( j ) + T ( n - j )$.</p>
+<p>因此:</p>
+<p>$$
+\begin{aligned}
+T ( n ) & \leq n + \frac{ 2 }{ n } \sum_{ i = \frac{ n }{ 2 } }^{ \frac{ 3 n }{ 4 } } ( T ( \frac{ 3 n }{ 4 } ) + T ( \frac{ n }{ 4 } ) ) + \frac{ 2 }{ n } \sum_{ i = \frac{ 3 n }{ 4 } }^{ n } ( T ( n - 1 ) + T ( 0 ) ) \\
+& \leq n + \frac{ 1 }{ 2 } ( T ( \frac{ 3 n }{ 4 } ) + T ( \frac{ n }{ 4 } ) + T ( n - 1 ) )
+\end{aligned}
+$$</p>
+<p>我们要证明$\exists c$,$T ( n ) \leq cn \log n$,考虑使用数学归纳法,则:</p>
+<p>$$
+\begin{aligned}
+T ( n ) & \leq n + \frac{ 1 }{ 2 } ( \frac{ 3 cn }{ 4 } \log ( \frac{ 3 n }{ 4 } ) + \frac{ cn }{ 4 } \log ( \frac{ n }{ 4 } ) + c ( n - 1 ) \log ( n - 1 ) ) \\
+& \leq n + c ( \frac{ 3 n }{ 8 } \log n - \frac{ 3 n }{ 8 } \log \frac{ 4 }{ 3 } + \frac{ n }{ 8 } \log n - \frac{ n }{ 4 } + \frac{ n }{ 2 } \log n ) \\
+& = cn \log n + n ( 1 - \frac{ 3 c }{ 8 } \log ( \frac{ 4 }{ 3 } ) - \frac{ c }{ 4 } )
+\end{aligned}
+$$</p>
+<p>于是显然存在,假设成立.</p>
+<h6 id="toc-32">一类由Monte Carlo算法改造而成的算法</h6>
+<p>对于一类一定有解的构造性问题,假设我们有一个正确率为$p$,时间复杂度为$O ( f ( n ) )$的产生单侧错误的Monte Carlo算法,我们时图将其改造为Las Vegas算法,我们现在想知道它的期望复杂度.</p>
+<p>设其期望运行$k$次,则:</p>
+<p>$$
+\begin{aligned}
+k & = \sum_{ i = 1 }^{ \infty } p ( 1 - p )^{ i - 1 } i \\
+( 1 - p ) k & = \sum_{ i = 1 }^{ \infty } p ( 1 - p )^i i \\
+pk & = \sum_{ i = 2 }^{ \infty } p ( 1 - p )^{ i - 1 } = p \sum_{ i = 0 }^{ \infty } ( 1 - p )^i \\
+k & = \frac{ 1 }{ p }
+\end{aligned}
+$$</p>
+<p>则期望复杂度为$O ( \frac{ f ( n ) }{ p } )$.</p>
+<h6 id="toc-33">Example3(CF329C Graph Reconstruction)</h6>
+<h6 id="toc-34">Example4([Petrozavodsk Summer-2015. Moscow IPT Contest B]Game With A Fairy)</h6>
+<p>首先注意到一个问题:操作能得到的信息太少了,应该是没有什么确定性算法.因此考虑随机化,那就肯定要先将整个序列random_shuffle一下.</p>
+<p>然后呢?我们考虑之后随机选取新序列的一个前缀询问,只要有大致的正确性/复杂性估计应该就是很正确的.</p>
+<p>这里有一种方式:考虑这个前缀中第一个有宝藏的位置$x_1$和第二个位置$x_2$,显然只要问到$[ x_1 , x_2 )$是正确的.</p>
+<p>考虑因为是随机,所以$x_1 \times 2 \leq x_2$的概率应当是不低的(事实上约为$\frac{ 1 }{ 2 }$),而此时的$[ x_1 , x_2 )$中必有一个位置是二的整数幂,因此我们查询一个等比数列:$1 , 2 , 4 , . . .$.每次random_shuffle后就查一次,就可以得到一个正确性较高的Las Vegas算法.</p>
+<h3 id="toc-35">爬山与模拟退火</h3>
+<h4 id="toc-36">爬山</h4>
+<p>也就是随机一个起始的解,然后走向与其相邻的较大的解.</p>
+<p>但是这样会卡在一个局部最优解上而得不到全局最优解.</p>
+<p>于是我们就有了模拟退火算法.</p>
+<h4 id="toc-37">模拟退火</h4>
+<p>简而言之,模拟退火就是以一定的概率跳到随机的不优秀的点,这样就避免卡在了局部最优解上.不妨设我们想找到最大解,如果要最小解那就稍微改改.</p>
+<p>下面给出这个概率的公式:</p>
+<p>$$
+P = \begin{cases}
+1 & E_{ t + 1 } > E_t \\
+e^{ \frac{ E_{ t + 1 } - E_t }{ T } } & E_{ t + 1 } \leq E_t
+\end{cases}
+$$</p>
+<p>具体流程是,先设定一个初始温度$T_0$,降温速度$k \in ( 0 , 1 )$,以及终止温度$T_k$,每次操作后让$T = kT$,直到其小于终止温度.</p>
+<h3 id="toc-38">数据随机下的性质</h3>
+<h4 id="toc-39">树</h4>
+<ol>
+<li>
+<p>随机树树高为$\sqrt{ n }$.</p>
+</li>
+<li>
+<p>点的度数期望为$\log n$.</p>
+</li>
+</ol>
+<h4 id="toc-40">数</h4>
+<ol>
+<li>数字的期望因数个数为$\log V$.</li>
+</ol>
+<h4 id="toc-41">序列</h4>
+<ol>
+<li>随机序列的LIS长度期望为$O ( \sqrt{ n } )$.</li>
+</ol>
+</div>
+  <nav class="post-nav">
+      <a class="post-nav-item" href="/posts/%E5%AD%AA%E7%94%9F.html"><span>← 上一篇</span>孪生</a>
+      <a class="post-nav-item right" href="/posts/%E9%9B%86%E5%90%88%E8%AE%BA.html"><span>下一篇 →</span>集合论</a>
+    </nav>
+  <section class="comments" id="comments">
+    <h2 class="comments-title">评论</h2>
+    <div id="waline"></div>
+  </section>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="footer-signature" id="footer-signature">不过是白日梦里一瞬息</div>
+  <div class="footer-copy">© 2026 LWLAymh · Powered by DeepSeek V4 Pro</div>
+</footer>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="打开侧边栏" title="侧边栏">☰</button>
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+  <div class="sidebar-inner"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item" style="padding-left:0.00em"><a href="#toc-0">随机化算法</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-1">基本分析</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-2">Union Bound</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-3">Markov 不等式</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-4">Example(Max-Cut算法)</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-5">Chernoff Bound</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-6">Example(Median Trick)</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-7">Hoeffding 不等式</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-8">编程中的随机性</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-9">数值概率算法</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-10">Monte Carlo算法</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-11">求解最优化问题的Monte Carlo算法</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-12">求解判定性问题的Monte Carlo算法</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-13">正确率与复杂度</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-14">算法设计思路1</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-15">设计一个能解决问题的确定性算法</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-16">向算法引入随机化优化复杂度</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-17">算法设计思路2</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-18">设计一个能解决问题的确定性算法</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-19">向算法引入随机化优化复杂度</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-20">Example</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-21">Example 1(Millar-Rabin算法)</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-22">Example2(CodeChef MSTONE)</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-23">Example3(CF364D Ghd)</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-24">Example4([POI2014]Couriers)</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-25">Example5([NOI2013] 向量内积)</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-26">Las Vegas算法(Sherwood算法)</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-27">算法设计思路</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-28">设计一个能解决问题的确定性算法</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-29">向算法引入随机化优化复杂度</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-30">Example</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-31">快速排序算法</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-32">一类由Monte Carlo算法改造而成的算法</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-33">Example3(CF329C Graph Reconstruction)</a></li><li class="toc-item" style="padding-left:4.60em"><a href="#toc-34">Example4([Petrozavodsk Summer-2015. Moscow IPT Contest B]Game With A Fairy)</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-35">爬山与模拟退火</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-36">爬山</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-37">模拟退火</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-38">数据随机下的性质</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-39">树</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-40">数</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-41">序列</a></li></ul></div>
+</aside>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script src="/main.js"></script>
+<script src="/comment.js"></script>
+</body>
+</html>

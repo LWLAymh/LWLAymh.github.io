@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<title>被地球创飞了 · LWLAymh的备忘录</title>
+<meta name="description" content="大家高中都学过开普勒三定律对吧!下面我们来证明它们是对的. 由于难度不太一样,我们微调一下顺序. 开普勒第二定律 根据角动量守恒,当然有 为定值.又根据机械能守恒,其在某一个点的机械能应该为 . 先考虑证明开普勒第二定律,取一段极小时间 ,">
+<meta name="author" content="LWLAymh">
+<link rel="canonical" href="https://LWLAymh.github.io/posts/%E8%A2%AB%E5%9C%B0%E7%90%83%E5%88%9B%E9%A3%9E%E4%BA%86.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="LWLAymh的备忘录">
+<meta property="og:url" content="https://LWLAymh.github.io/posts/%E8%A2%AB%E5%9C%B0%E7%90%83%E5%88%9B%E9%A3%9E%E4%BA%86.html">
+<meta property="og:title" content="被地球创飞了 · LWLAymh的备忘录">
+<meta property="og:description" content="大家高中都学过开普勒三定律对吧!下面我们来证明它们是对的. 由于难度不太一样,我们微调一下顺序. 开普勒第二定律 根据角动量守恒,当然有 为定值.又根据机械能守恒,其在某一个点的机械能应该为 . 先考虑证明开普勒第二定律,取一段极小时间 ,">
+<link rel="icon" href="/images/favicon-32x32-next.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon-next.png">
+<link rel="stylesheet" href="/style.css">
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true
+  },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
+  startup: { ready: () => MathJax.startup.defaultReady() }
+};
+</script>
+<script id="MathJax-script" async src="/vendor/mathjax/tex-chtml-full.js"></script>
+
+</head>
+<body class="page-post">
+<div class="progress-bar" id="progress-bar"></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="/">
+      <img class="header-avatar avatar" src="/images/头像1.jpg" alt="avatar" data-avatar>
+      <span class="brand-text">
+        <span class="brand-title">LWLAymh的备忘录</span>
+        <span class="brand-subtitle">混乱节拍拼凑出血肉喧嚷</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/tools.html">工具</a><a class="nav-link" href="/links.html">友链</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题"></button>
+    </nav>
+  </div>
+</header>
+<main class="site-main">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">被地球创飞了</h1>
+    <div class="post-meta">
+      <time>2025-06-23</time>
+      <a class="chip chip-cat" href="/categories.html#%E8%A2%AB%E6%96%87%E5%8C%96%E8%AF%BE%E5%88%9B%E9%A3%9E%E4%BA%86">被文化课创飞了</a>
+    </div>
+  </header>
+  <div class="post-content"><p>大家高中都学过开普勒三定律对吧!下面我们来证明它们是对的.</p>
+<p>由于难度不太一样,我们微调一下顺序.</p>
+<h3 id="toc-0">开普勒第二定律</h3>
+<p>根据角动量守恒,当然有$\vec{ r } \times \vec{ p } = C$为定值.又根据机械能守恒,其在某一个点的机械能应该为$- \frac{ GmM }{ r } + \frac{ p^2 }{ 2 m }$.</p>
+<p>先考虑证明开普勒第二定律,取一段极小时间$\text{ d } t$,考虑掠过的面积应该是$\text{ d } S = \frac{ 1 }{ 2 } \vec{ r } \times ( \vec{ r } + \text{ d } \vec{ r } ) = \frac{ 1 }{ 2 } \vec{ r } \times \text{ d } \vec{ r }$,于是掠面速度$V = \frac{ \text{ d } S }{ \text{ d } t } = \frac{ 1 }{ 2 m } \vec{ r } \times \vec{ p }$是一个常数.</p>
+<h3 id="toc-1">开普勒第三定律</h3>
+<p>那么$T = \frac{ S }{ V } = \frac{ 2 m \times ab \pi }{ \vec{ r } \times \vec{ p } } = mab \frac{ 2 \pi }{ C }$.</p>
+<p>那么$\frac{ T^2 }{ a^3 } = \frac{ 4 \pi^2 m^2 b^2 }{ aC^2 }$.</p>
+<p>根据机械能守恒,当然应该有在近日点和远日点机械能相等,那自然有:</p>
+<p>$$
+\begin{aligned}
+- \frac{ GmM }{ a + c } + \frac{ C^2 }{ 2 m ( a + c )^2 } & = - \frac{ GmM }{ a - c } + \frac{ C^2 }{ 2 m ( a - c )^2 } \\
+m^2 & = C^2 \frac{ a }{ b^2 GM }
+\end{aligned}
+$$</p>
+<p>带入得到$\frac{ T^2 }{ a^3 } = \frac{ 4 \pi^2 }{ GM }$是一个定值.</p>
+<h3 id="toc-2">开普勒第一定律</h3>
+<p>我们知道圆锥曲线的极坐标方程是:</p>
+<p>$$
+r ( \theta ) = \frac{ ep }{ 1 - e \cos \theta }
+$$</p>
+<p>其中$e$是离心率,$p$是准焦距(焦点到准线的距离).</p>
+<p>后面不会了,开摆!</p>
+</div>
+  <nav class="post-nav">
+      <a class="post-nav-item" href="/posts/%E8%A2%AB%E5%B0%8F%E8%88%B9%E5%88%9B%E9%A3%9E%E4%BA%86.html"><span>← 上一篇</span>被小船创飞了</a>
+      <a class="post-nav-item right" href="/posts/%E8%A2%AB%E5%85%94%E5%AD%90%E5%88%9B%E9%A3%9E%E4%BA%86.html"><span>下一篇 →</span>被兔子创飞了</a>
+    </nav>
+  <section class="comments" id="comments">
+    <h2 class="comments-title">评论</h2>
+    <div id="waline"></div>
+  </section>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="footer-signature" id="footer-signature">不过是白日梦里一瞬息</div>
+  <div class="footer-copy">© 2026 LWLAymh · Powered by DeepSeek V4 Pro</div>
+</footer>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="打开侧边栏" title="侧边栏">☰</button>
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+  <div class="sidebar-inner"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item" style="padding-left:0.00em"><a href="#toc-0">开普勒第二定律</a></li><li class="toc-item" style="padding-left:0.00em"><a href="#toc-1">开普勒第三定律</a></li><li class="toc-item" style="padding-left:0.00em"><a href="#toc-2">开普勒第一定律</a></li></ul></div>
+</aside>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script src="/main.js"></script>
+<script src="/comment.js"></script>
+</body>
+</html>

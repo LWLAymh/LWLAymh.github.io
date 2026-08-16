@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<title>被小船创飞了 · LWLAymh的备忘录</title>
+<meta name="description" content="众所周知,高中物理有一道很经典的分解速度的题: 物理老师在上课讲这个题的时候,将速度分解为两个正交的速度,这两个速度的矢量和就是原速度. 乍一看好像非常合理,然而随即大家可能就会见到这个题: 其中中间的物体下落的速度为 ,这个时候沿绳子分解">
+<meta name="author" content="LWLAymh">
+<link rel="canonical" href="https://LWLAymh.github.io/posts/%E8%A2%AB%E5%B0%8F%E8%88%B9%E5%88%9B%E9%A3%9E%E4%BA%86.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="LWLAymh的备忘录">
+<meta property="og:url" content="https://LWLAymh.github.io/posts/%E8%A2%AB%E5%B0%8F%E8%88%B9%E5%88%9B%E9%A3%9E%E4%BA%86.html">
+<meta property="og:title" content="被小船创飞了 · LWLAymh的备忘录">
+<meta property="og:description" content="众所周知,高中物理有一道很经典的分解速度的题: 物理老师在上课讲这个题的时候,将速度分解为两个正交的速度,这两个速度的矢量和就是原速度. 乍一看好像非常合理,然而随即大家可能就会见到这个题: 其中中间的物体下落的速度为 ,这个时候沿绳子分解">
+<link rel="icon" href="/images/favicon-32x32-next.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon-next.png">
+<link rel="stylesheet" href="/style.css">
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true
+  },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
+  startup: { ready: () => MathJax.startup.defaultReady() }
+};
+</script>
+<script id="MathJax-script" async src="/vendor/mathjax/tex-chtml-full.js"></script>
+
+</head>
+<body class="page-post">
+<div class="progress-bar" id="progress-bar"></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="/">
+      <img class="header-avatar avatar" src="/images/头像1.jpg" alt="avatar" data-avatar>
+      <span class="brand-text">
+        <span class="brand-title">LWLAymh的备忘录</span>
+        <span class="brand-subtitle">混乱节拍拼凑出血肉喧嚷</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/tools.html">工具</a><a class="nav-link" href="/links.html">友链</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题"></button>
+    </nav>
+  </div>
+</header>
+<main class="site-main">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">被小船创飞了</h1>
+    <div class="post-meta">
+      <time>2025-06-23</time>
+      <a class="chip chip-cat" href="/categories.html#%E8%A2%AB%E6%96%87%E5%8C%96%E8%AF%BE%E5%88%9B%E9%A3%9E%E4%BA%86">被文化课创飞了</a>
+    </div>
+  </header>
+  <div class="post-content"><p>众所周知,高中物理有一道很经典的分解速度的题:</p>
+<p><img src="/images/external/luogu-1t04v0mr.png" alt="" loading="lazy" decoding="async"></p>
+<p>物理老师在上课讲这个题的时候,将速度分解为两个正交的速度,这两个速度的矢量和就是原速度.</p>
+<p>乍一看好像非常合理,然而随即大家可能就会见到这个题:</p>
+<p><img src="/images/external/luogu-c3ajz7jb.png" alt="" loading="lazy" decoding="async"></p>
+<p>其中中间的物体下落的速度为$v$,这个时候沿绳子分解速度的时候,两个分速度应该均是$v \cos \theta$,而这个时候两个速度的矢量和并不是原速度啊!</p>
+<p>老师讲到这里的时候,往往会说这是因为:&quot;速度的分解和力的分解并不一样.&quot;但你可能会疑问:同样是矢量的分解,为什么会不一样呢?</p>
+<p>先提前给出我的思考:在这个滑轮组模型中,我们做的操作并不是将原速度分解为了这两个速度,这两个速度也并非由原速度一下分解出来的,而分别只是原速度分解出的速度的一部分.</p>
+<hr>
+<p>先看这个最经典的模型:</p>
+<p><img src="/images/external/luogu-1t04v0mr.png" alt="" loading="lazy" decoding="async"></p>
+<p>不妨设高度差为$h$,此时绳子长度为$L$,物体距离墙的距离为$x$.</p>
+<p>有勾股定理:</p>
+<p>$L^2 = h^2 + x^2$,注意到此时$h$是一个常量.</p>
+<p>两边对$t$求导,自然有:</p>
+<p>$$
+\begin{aligned}
+2 Lv_L & = 2 xv_x \\
+v_L & = \frac{ x }{ L } v_x = v_x \cos \theta
+\end{aligned}
+$$</p>
+<p>此时的另一个分速度自然是$v_h = v_x \sin \theta$.在物理课上,物理老师会这么解释这种分解:</p>
+<p>$v_L$这个速度提供了绳子缩短的速度,而$v_h$提供了绳子转动的速度.</p>
+<p>那么这个$v_h$听上去应该是此时绳子与物体接触点的转动的线速度对吧.也就是说角速度应该是$\omega = \frac{ v_h }{ L } = \frac{ h }{ L^2 } v_x$,令绳子与转轴夹角为$\alpha , \sin \alpha = \frac{ x }{ L }$而我们有:</p>
+<p>$$
+\begin{aligned}
+\omega & = \frac{ \text{ d } \alpha }{ \text{ d } t } \\
+& = \frac{ \text{ d } \alpha }{ \text{ d } \sin \alpha } \frac{ \text{ d } \sin \alpha }{ \text{ d } t } \\
+& = \frac{ 1 }{ \frac{ \text{ d } \sin \alpha }{ \text{ d } \alpha } } \frac{ \text{ d } \sin \alpha }{ \text{ d } t } \\
+& = \frac{ 1 }{ \cos \alpha } \frac{ v_x L - v_L x }{ L^2 } \\
+& = \frac{ h }{ L^2 } v_x
+\end{aligned}
+$$</p>
+<p>这就证明了$v_h$的确是线速度,这也与我们直观感受相当匹配.</p>
+<hr>
+<p>解释完上面这个分解的正确性,我们又要开始考虑了:那么为什么力和速度的分解不一样呢?</p>
+<p>有一个很形象的比喻,那就是如果两个人同时以速度$v$的速度拉一个物体,这个物体的速度是$v$;但如果两个人同时以力$F$拉一个物体,这个物体的受力是$2 F$.</p>
+<p>这是为什么呢?动量定理实际上将力在时间上的积累与动量等价起来了对吧,由于速度并非是动量,因此自然像力那样叠加.这么思考也许是正确的:两个受力均为$F$的物体的合力是$2 F$,两个速度均为$v$的物体合速度为$v$,两个动量均为$p$的速度相同的物体合动量为$2 p$.</p>
+<p>或者换而言之,力的作用之间是有牛顿第三定律作保证的,这就可以让力在物体间存在一种类似传递的效果.但是速度并没有这种效果,速度并非是外界对物体做出的改变,而是物体的性质本身.</p>
+<p>从这个角度,我们回到滑轮的那个题,我们就可以明白为什么要这么分解了:原因很简单,这两个沿绳的速度并不是一次分解分解出来的,而是让原本的速度先沿其中一个绳分解为两个速度,一个是沿绳的速度$v \cos \theta$,另一个是提供绳转动的线速度$v \sin \theta$.</p>
+<p>而速度是不能叠加的,因此右边也做这个操作,这就使得沿绳的分速度均为$v \cos \theta$.</p>
+<hr>
+<p>回看开头的那个滑轮题,这题其实还有个很好玩的地方:那就是C的动能最大点可不是C的受力平衡点:原因很简单,C的受力平衡点由于滑轮作用仍然存在角速度上的加速度.</p>
+</div>
+  <nav class="post-nav">
+      <a class="post-nav-item" href="/posts/%E8%A2%AB%E6%91%86%E7%90%83%E5%88%9B%E9%A3%9E%E4%BA%86.html"><span>← 上一篇</span>被摆球创飞了</a>
+      <a class="post-nav-item right" href="/posts/%E8%A2%AB%E5%9C%B0%E7%90%83%E5%88%9B%E9%A3%9E%E4%BA%86.html"><span>下一篇 →</span>被地球创飞了</a>
+    </nav>
+  <section class="comments" id="comments">
+    <h2 class="comments-title">评论</h2>
+    <div id="waline"></div>
+  </section>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="footer-signature" id="footer-signature">不过是白日梦里一瞬息</div>
+  <div class="footer-copy">© 2026 LWLAymh · Powered by DeepSeek V4 Pro</div>
+</footer>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="打开侧边栏" title="侧边栏">☰</button>
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+  <div class="sidebar-inner"><div class="toc-title">联系我</div><div class="contact-item"><span class="contact-key">微信</span><span class="contact-val">LWLAymh</span></div><div class="contact-item"><span class="contact-key">邮箱</span><a class="contact-val" href="mailto:lwlaymh@outlook.com">lwlaymh@outlook.com</a></div><div class="contact-item"><span class="contact-key">GitHub</span><a class="contact-val" href="https://github.com/LWLAymh" target="_blank" rel="noopener">github.com/LWLAymh</a></div><div class="contact-item"><span class="contact-key">Luogu</span><a class="contact-val" href="https://www.luogu.com.cn/user/661076" target="_blank" rel="noopener">Luogu 博客</a></div></div>
+</aside>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script src="/main.js"></script>
+<script src="/comment.js"></script>
+</body>
+</html>

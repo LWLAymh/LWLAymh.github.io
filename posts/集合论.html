@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<title>集合论 · LWLAymh的备忘录</title>
+<meta name="description" content="前言 本文是复旦大学出版社《集合论: 对无穷概念的探索》的笔记. ZFC公理体系 存在公理(Exi) 也即:这里总存在着一个集合.在最早的ZFC公理体系中,这条公理也被定义成:空集是存在的.然而空集定理要比这条更强一些,我们会在后面证明空集">
+<meta name="author" content="LWLAymh">
+<link rel="canonical" href="https://LWLAymh.github.io/posts/%E9%9B%86%E5%90%88%E8%AE%BA.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="LWLAymh的备忘录">
+<meta property="og:url" content="https://LWLAymh.github.io/posts/%E9%9B%86%E5%90%88%E8%AE%BA.html">
+<meta property="og:title" content="集合论 · LWLAymh的备忘录">
+<meta property="og:description" content="前言 本文是复旦大学出版社《集合论: 对无穷概念的探索》的笔记. ZFC公理体系 存在公理(Exi) 也即:这里总存在着一个集合.在最早的ZFC公理体系中,这条公理也被定义成:空集是存在的.然而空集定理要比这条更强一些,我们会在后面证明空集">
+<link rel="icon" href="/images/favicon-32x32-next.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon-next.png">
+<link rel="stylesheet" href="/style.css">
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true
+  },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
+  startup: { ready: () => MathJax.startup.defaultReady() }
+};
+</script>
+<script id="MathJax-script" async src="/vendor/mathjax/tex-chtml-full.js"></script>
+
+</head>
+<body class="page-post">
+<div class="progress-bar" id="progress-bar"></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="/">
+      <img class="header-avatar avatar" src="/images/头像1.jpg" alt="avatar" data-avatar>
+      <span class="brand-text">
+        <span class="brand-title">LWLAymh的备忘录</span>
+        <span class="brand-subtitle">混乱节拍拼凑出血肉喧嚷</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/tools.html">工具</a><a class="nav-link" href="/links.html">友链</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题"></button>
+    </nav>
+  </div>
+</header>
+<main class="site-main">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">集合论</h1>
+    <div class="post-meta">
+      <time>2025-10-09</time>
+      <a class="chip chip-cat" href="/categories.html#%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B">大学课程</a>
+    </div>
+  </header>
+  <div class="post-content"><h3 id="toc-0">前言</h3>
+<p>本文是复旦大学出版社《集合论: 对无穷概念的探索》的笔记.</p>
+<h3 id="toc-1">ZFC公理体系</h3>
+<h4 id="toc-2">存在公理(Exi)</h4>
+<p>$$
+\exists x(x=x)
+$$</p>
+<p>也即:这里总存在着一个集合.在最早的ZFC公理体系中,这条公理也被定义成:空集是存在的.然而空集定理要比这条更强一些,我们会在后面证明空集的存在性.</p>
+<h4 id="toc-3">外延公理(Ext)</h4>
+<p>$$
+\forall X\forall Y\forall u(u\in X\Leftrightarrow u\in Y)\Leftrightarrow X=Y
+$$</p>
+<p>也即:两个有相同元素的集合相等.如果补充$\subseteq,\supseteq$的定义,这里也可以写作:
+$$
+\forall X\forall Y((X\subseteq Y)\land (Y\subseteq X))\Leftrightarrow X=Y
+$$</p>
+<h4 id="toc-4">分离公理模式(Sep)</h4>
+<p>令$\varphi(u)$为条件,则:
+$$
+\forall X\exists Y\forall u(u\in Y\Leftrightarrow u\in X\land \varphi(u))
+$$
+也即:我们可以将一个集合中满足条件$\varphi(u)$的元素取出组合成一个新的集合.分离公理有的时候又被叫做<strong>概括公理</strong>或者<strong>子集公理</strong>.</p>
+<p>分离公理是对<strong>概括原则</strong>(即:对于任意条件$\psi(u)$,概括原则试图定义集合$Y=\{x|\psi(u\}$)的限制.由分离公理模式以罗素悖论可以立刻导出不存在&quot;所有集合组成的集合&quot;.</p>
+<p>现在我们试图用分离公理模式来定义<strong>空集</strong>,一个较为显然的办法是考虑定义$\emptyset=\{x|x\ne x\}$,可正如我们刚刚所说的,这种集合并不合法:我们总需要指定一个$X$才能定义$\emptyset=\{x\in X|x\ne x\}$,如若在这里指定一个$X$就会有非典范的争议(虽然我们的确可以用存在公理声明存在这样的集合).因此不妨采取以下策略:</p>
+<p>考虑如果$\varphi(u)\Rightarrow u\in X$,则$\{u\in X|\varphi(u)\}$可以自然定义为$\{u|\varphi(u)\}$,此时可见这个集合并不依赖于$X$:事实上$\forall X'$如若有$\varphi(u)\Rightarrow u\in X'$则$\{u\in X|\varphi(u)\}=\{u\in X'|\varphi(u)\}$.而$\forall X,x\ne x\Rightarrow x\in X$总是真的,又根据存在公理,至少存在这样一个$X$,而对于所有的$X$,定义出来的$\emptyset=\{x|x\ne x\}$都是同一集合,这就搞定了.</p>
+<p>从上面的讨论也可以见到:$\{u|\varphi(u)\}$是一个集合当且仅当$\exists X(\varphi(u)\Rightarrow u\in X)$.不然,我们将$\{u|\varphi(u)\}$成为一个<strong>类</strong>.当然所有的集合都是类,而类不一定是集合,并非集合的类被称作<strong>真类</strong>.</p>
+<p>今后用到的不加说明均表示集合,有些特殊的类会用黑体大写字母表示,例如所有集合组成的类记作$\mathbf{V}=\{x|x=x\}$,将罗素类记作$\mathbf{R}=\{x|x\notin x\}$.</p>
+<p>分离公理可以定义集合的交和差,不必过多赘述.值得一提的是集合内所有元素(也是集合)的交,被定义为<strong>任意交</strong>:对任意集合$X\ne \emptyset$,$\bigcap X=\{u|\forall Y(Y\in X\Rightarrow u\in Y)\}$也是集合,这里要求$X\ne \emptyset$的原因当然是我们定义需要$\exists Y$.</p>
+<h4 id="toc-5">配对公理(Pai)</h4>
+<p>$$
+\forall a\forall b\exists c\forall x(x\in c\Leftrightarrow x=a\lor x=b)
+$$</p>
+<p>即:对任意$a,b$存在一个集合只以$a,b$为元素.配对公理的显然推论是单点集$\{a\}=\{a,a\}$是集合.</p>
+<h4 id="toc-6">并集公理(Uni)</h4>
+<p>$$
+\forall X\exists Y\forall u(u\in Y\Leftrightarrow \exists z(z\in X\land u\in z))
+$$</p>
+<p>也即:对任意集合$X$,可以将它的所有元素(当然也是集合了)全都并起来,根据外延公理,这样的$Y$是唯一的,称作$X$的<strong>并</strong>,记作$\bigcup X$.特别地定义$X\cup Y=\bigcup\{X,Y\}$.</p>
+<h4 id="toc-7">幂集公理(Pow)</h4>
+<p>$$
+\forall X\exists Y\forall u(u\in Y\Leftrightarrow u\subseteq X)
+$$</p>
+<p>也就是一个集合的所有子集可以组成一个新的集合,称作$X$的幂集,记作$\mathcal{P}(X)$,也有记作$2^X$的.</p>
+<h4 id="toc-8">无穷公理(Inf)</h4>
+<p>对任意集合$x$,我们将集合$x\cup \{x\}$称作$x$的<strong>后继</strong>,一般记作$S(x)$,则:
+$$
+\exists X(\emptyset\in X\land \forall x(x\in X\Rightarrow S(x)\in X))
+$$
+或言之我们承认下述元素可以在一起组成一个集合:
+$$
+\emptyset,\{\emptyset\},\{\emptyset,\{\emptyset\}\},\{\emptyset,\{\emptyset\},\{\emptyset,\{\emptyset\}\}\}
+$$
+无穷公理彻底保证了我们可以制造出无穷集合(或言:$\mathbb{N}$),但初看的疑问一定是为何不直接定义以下元素组成的集合存在:
+$$
+\emptyset,\{\emptyset\},\{\emptyset,\{\emptyset\}\},\{\emptyset,\{\emptyset\},\{\{\emptyset\}\}\}
+$$
+首要的原因就是这样做无法递归,你怎么在最后声明&quot;嵌套若干次集合&quot;这个操作.另一个原因是序关系的定义对后继定义有很大的依赖性,我们将在后面讲到.</p>
+<h4 id="toc-9">替换公理模式(Rep)</h4>
+<p>给定公式$\psi(x,y)$,并且对任意$x$,都有唯一的$y$使得$\psi(x,y)$成立(注意其实这里并不一定是函数),则:
+$$
+\forall A\forall x\in A\exists!y \psi(x,y)\Rightarrow \exists B\forall x\in A\exists y\in B\psi(x,y)
+$$
+也即:任何集合在一个formula下的像仍然是一个集合.</p>
+<p>替换公理模式极其地强,我们后面会再讨论这个问题.</p>
+<h4 id="toc-10">正则公理(Fnd)</h4>
+<p>$$
+\forall x(x\ne \emptyset \Rightarrow \exists y(y\in x\land x\cap y=\emptyset))
+$$</p>
+<p>这一则公理的形式与上面的构造性或存在性公理不同,它给予了集合一种更好的性质,并以此断定某些东西并不是集合.有的时候也称其为<strong>基础公理</strong>.它实际上断言的是$x$上总有一个以$\in$关系限制住的&quot;极小元&quot;$y$,也就是说,$x$里再没有其它元素属于$y$了.</p>
+<p>正则公理的一则推论是任意集合$x$都不属于自身.考虑反证:假设有一个集合$x\in x$,取$I=\{x\}$,则正则公理施加在$I$上必然导出$I\cap x=\empty$,然而$I\cap x=x\ne \empty$,这就矛盾了.</p>
+<p>正则公理的另一则推论是不存在<strong>无穷下降链</strong>$\{x_0,x_1,\cdots,x_n,x_{n+1},\cdots\}$,其中$\forall n,x_{n+1}\in x_n$.证明非常简单,因为这里面压根不存在极小元.</p>
+<p>然而,不存在无穷下降链并不意味着不存在无穷上升链.只需看$\mathbb{N}$即可发现一个显然的无穷上升链.笔者认为可以理解为:如果$A$是集合,总可以通过之前的公理在有限次&quot;拆包&quot;后判定$A$是集合.因此正则公理实际上是一个对于判定性的公理.</p>
+<h4 id="toc-11">选择公理(AC)</h4>
+<p>$$
+\begin{aligned}
+&\forall X[\emptyset\notin X\land \forall x\in X\forall y\in X(x\cap y=\emptyset)]\\
+\to&\exists S\forall x\in X\exists!y(S\cap x=\{y\})
+\end{aligned}
+$$</p>
+<p>也即:对于任意集合$X$,如果它满足:</p>
+<ol>
+<li>$\emptyset\notin X$.</li>
+<li>$X$中的元素两两不交.</li>
+</ol>
+<p>则存在集合$S$(当然未必唯一),对任意$x\in X$,$S\cap x$是单点集合.换言之:可以从一个集合内的每个元素(当然也作为一个集合)中取出一个代表元.</p>
+<p>选择公理极其吊诡的地方恰在于其构造集合$S$的方式不是唯一的,也未必存在典范的构造方式.</p>
+<h4 id="toc-12">集合的简单运算</h4>
+<p>定义$X$和$Y$的<strong>对称差</strong>为$X\triangle Y=(X-Y)\cup(Y-X)$.</p>
+<p>对任意集合$X,Y,Z$,除去常见结合律与交换律,有:</p>
+<ol>
+<li><strong>分配律</strong>:$X\cap (Y\cup Z)=(X\cap Y)\cup (X\cap Z)$.</li>
+<li><strong>分配律</strong>:$X\cup (Y\cap Z)=(X\cup Y)\cap (X\cup Z)$.</li>
+<li><strong>德摩根律</strong>:$X-(Y\cup Z)=(X-Y)\cap(X-Z)$.</li>
+<li><strong>德摩根律</strong>:$X-(Y\cap Z)=(X-Y)\cup(X-Z)$.</li>
+</ol>
+<h3 id="toc-13">关系</h3>
+<p>ZFC公理体系已然奠定了现代数学的地基,因此相当一部分数学家相信任何数学理论都在某种意义上是关于集合的理论,并着手重建有关数学的一切.</p>
+<h5 id="toc-14">有序对</h5>
+<p>二元关系的要素是成对出现的有顺序的对象,或称<strong>有序对</strong>,定义为$(a,b)=\{\{a\},\{a,b\}\}$,可以由配对公理得知这仍然是一个集合.容易用外延公理得到$(a,b)=(a',b')\Leftrightarrow a=a'\land b=b'$.</p>
+<h5 id="toc-15">笛卡尔积</h5>
+<p>令$X,Y$为集合,定义其<strong>笛卡尔积</strong>为$X\times Y=\{(x,y)|x\in X\land y\in Y\}$.验证笛卡尔积的结果是集合的策略也比较简单,例如可以先用替换公里模式拿到$\{(x,\emptyset)\}$和$\{(\emptyset,y)\}$,并起来之后用幂集公理和分离公理.总之都是抽象废话,不再赘述了.</p>
+<p>容易推广到$n$个集合的笛卡尔积$X_1\times X_2\times \cdots\times X_n$</p>
+<h5 id="toc-16">二元关系</h5>
+<p>定义一个集合$R$称作<strong>二元关系</strong>,如果存在集合$X,Y,R\subseteq X\times Y$.用$R(x,y)$表示$(x,y)\in R$,称$x$和$y$有关系$R$,有时也习惯性写作$xRy$.</p>
+<p>引入以下定义:</p>
+<ol>
+<li>$R$的<strong>定义域</strong>定义为$\mathrm{dom}(R)=\{x|\exists y R(x,y)\}$.</li>
+<li>$R$的<strong>值域</strong>定义为$\mathrm{ran}(R)=\{y|\exists x R(x,y)\}$.</li>
+<li>如果$R\subseteq X^2$,则称$R$是$X$上的二元关系.</li>
+<li>集合$A$在$R$下的<strong>像</strong>定义为:$R[A]=\{y\in \mathrm{ran}(R)|\exists x\in A(R(x,y))\}$.</li>
+<li>集合$B$在$R$下的<strong>逆像</strong>定义为:$R^{-1}[B]=\{x\in \mathrm{dom}(R)|\exists y\in B(R(x,y))\}$.</li>
+<li>$R$的<strong>逆</strong>定义为$R^{-1}=\{(y,x)|(x,y)\in R\}$.</li>
+<li>二元关系$R$和$S$的<strong>复合</strong>定义为$S\circ R=\{(x,z)|\exists y((x,y)\in R\land (y,z)\in S)\}$.</li>
+</ol>
+<p>用分离公理模式得知$\mathrm{dom}(R)$和$\mathrm{ran}(R)$当然都是集合.</p>
+<h4 id="toc-17">函数关系</h4>
+<p>函数是一种特殊的二元关系.如果二元关系$f$满足:
+$$
+(x,y)\in f\land (x,z)\in f\Rightarrow y=z
+$$
+则称$f$是一个<strong>函数</strong>,其中$y$称作$f$在$x$处的值,记作$f(x)=y$或者$f:x\mapsto y$.如果$\mathrm{dom}(f)=X,\mathrm{ran}(f)\subseteq Y$,则称$f$是从$X$到$Y$的函数,记作$f:X\to Y$.显然任何集合都有到自身的函数<strong>等同函数</strong>$\mathrm{id}_X:X\to X,x\mapsto x$.</p>
+<p>函数的外延性从而自然被外延公理导出,也即$f=g$当且仅当$\mathrm{dom}(f)=\mathrm{dom}(g)\land \forall x\in \mathrm{dom}(f)(f(x)=g(x))$.引出以下定义:</p>
+<ol>
+<li><strong>单射</strong>:$\forall x_1,x_2\in X$,如果$x_1\ne x_2$,则$f(x_1)\ne f(x_2)$.</li>
+<li><strong>满射</strong>:$\mathrm{ran}(f)=Y$.</li>
+<li><strong>双射</strong>:既是单射,又是满射.</li>
+</ol>
+<p>设$f : A \rightarrow B , g : B \rightarrow A$,那么:</p>
+<ol>
+<li>
+<p>如果$g \circ f = \mathrm{id}_A$,称$g$是$f$的一个<strong>左逆</strong>,不难发现$f$存在左逆当且仅当$f$是单射(依靠定义).</p>
+</li>
+<li>
+<p>如果$f \circ g = \mathrm{id}_B$,称$g$是$f$的一个<strong>右逆</strong>,不难发现$f$存在右逆当且仅当$f$是满射(需要选择公理).</p>
+</li>
+<li>
+<p>如果$g$既是$f$的左逆又是$f$的右逆,则称$g$为$f$的<strong>逆</strong>,不难发现$f$存在逆当且仅当$f$是双射,并且逆唯一.</p>
+</li>
+</ol>
+<p>还有以下定义:</p>
+<ol>
+<li>对任意函数$f$和集合$A$,$f|_A=\{(x,y)\in f|x\in A\}$是一个函数,称为$f$在$A$上的<strong>限制</strong>.</li>
+<li>如果$g=f|_A$,则称$f$是$g$的<strong>扩张</strong>.</li>
+<li>定义函数$f,g$是相容的,如果$\forall x\in \mathrm{dom}(f)\cap \mathrm{dom}(g),f(x)=g(x)$.容易证明此时$f\cup g$是函数.</li>
+<li>函数的集合$\mathcal{F}$称为<strong>相容的系统</strong>,如果其中任何两个函数都是相容的.容易证明此时$\bigcup \mathcal{F}$也是函数.</li>
+<li>令$X,Y$都是集合,则$X$到$Y$的所有函数组成的集合定义为$Y^X=\{f|f:X\to Y\}$.容易检验这也是个集合(幂集打开再筛掉就行)</li>
+<li>此外,由柯里化过程,容易发现$(X^{Y})^Z\cong X^{Y\times Z}$.</li>
+</ol>
+<h4 id="toc-18">等价关系</h4>
+<p>令$R\subseteq X^2$为二元关系,若$R$有以下性质:</p>
+<ol>
+<li><strong>自反性</strong>:$\forall x\in X,R(x,x)$.</li>
+<li><strong>对称性</strong>:$\forall x,y\in X,R(x,y)\Leftrightarrow R(y,x)$.</li>
+<li><strong>传递性</strong>:$\forall x,y,z\in X,R(x,y)\land R(y,z)\Rightarrow R(x,z)$.</li>
+</ol>
+<p>则称其是一个<strong>等价关系</strong>,习惯上用$\sim$表示.此时对每一$x\in X$,与$x$等价的元素构成了$X$的一个子集,这些子集把$X$分成互不相交的若干部分,一般将$x\in X$关于$\sim$的<strong>等价类</strong>记作$[x]_\sim=\{t\in X|t\sim x\}$,或者简写为$[x]$.等价类显然是集合.容易证明$\forall x,y\in X,[x]=[y]\lor [x]\cap [y]=\emptyset$.</p>
+<p>接下来定义<strong>商集</strong>为$X/\sim=\{[x]_\sim|x\in X\}$.</p>
+<p>对于一个集合$X$,$S\subseteq 2^X$,如果$S$满足:</p>
+<ol>
+<li>$\forall a,b\in S,a\ne b\Rightarrow a\cap b=\emptyset$.</li>
+<li>$\bigcup S=X$.</li>
+</ol>
+<p>则称$S$是$X$的<strong>划分</strong>.显然商集是一个划分.反之由划分也可以确定一个等价关系$\sim_S=\{(x,y)\in X\times X|\exists c\in S(x\in c\land y\in c)\}$.</p>
+<h4 id="toc-19">序关系</h4>
+<p>对于$R\subseteq X^2$是二元关系,如果其满足:</p>
+<ol>
+<li>自反性.</li>
+<li><strong>反对称性</strong>:$\forall x,y\in X,R(x,y)\land R(y,x)\Rightarrow x=y$.</li>
+<li>传递性.</li>
+</ol>
+<p>就称其是$X$上的<strong>偏序关系</strong>,一般干脆记作$\leq$,若同时无法取等则自然地记作$<$.此时称$X$为<strong>偏序集</strong>.如果它还满足:</p>
+<ol start="4">
+<li><strong>连接性</strong>:对所有的$x,y\in X,x\leq y\lor y\leq x$.</li>
+</ol>
+<p>则称$\leq$是$X$上的<strong>全序关系</strong>.此时称$X$为<strong>全序集</strong>.</p>
+<p>再引入以下定义:</p>
+<ol>
+<li>如果$a\in X$,$\forall x\in X$,$a$都不大于$x$,或者说$\forall x\in X(\lnot(a>x))$,则称$a$为$X$的<strong>极小元</strong>.同理可以定义<strong>极大元</strong>.</li>
+<li>如果$a\in X$,$\forall x\in X$,$a$都小于$x$,或者说$\forall x\in X(a\leq x)$,则称$a$是$X$的<strong>最小元</strong>.同理可以定义<strong>最大元</strong>.</li>
+<li>如果$X_0\subseteq X,\exists a\in X,\forall x\in X_0,a\geq x$.称$a$为$X_0$在$X$中的<strong>上界</strong>.如果$X_0$在$X$中的所有上界的集合由最小元$a_0$则称其为<strong>上确界</strong>.记作$\sup(X_0)$.同理定义<strong>下界</strong>和<strong>下确界</strong>$\inf(X_0)$.</li>
+</ol>
+<p>容易见到以下性质:</p>
+<ol>
+<li>全序集中极小元等价于最小元,极大元等价于最大元.</li>
+<li>偏序集如果有最大或最小元,则它们是唯一的.</li>
+<li>集合$X_0$的上确界如果存在,它可能不属于$X_0$;如果它属于$X_0$,则一定是$X_0$的最大元.</li>
+</ol>
+<h3 id="toc-20">实数的构造</h3>
+<h4 id="toc-21">自然数</h4>
+<p>早在无穷公里处我们就定义了自然数,策略是:
+$$
+\begin{aligned}
+0&=\emptyset\\
+1&=\{\emptyset\}=S(0)\\
+2&=\{\emptyset,\{\emptyset\}\}=S(1)\\
+3&=\{\emptyset,\{\emptyset\},\{\emptyset,\{\emptyset\}\}\}=S(2)\\
+\cdots&=\cdots
+\end{aligned}
+$$
+如果一个集合$X$满足$\emptyset\in X\land \forall x(x\in X\Rightarrow S(x)\in X)$则称其为<strong>归纳集</strong>(从而无穷公理等价于:存在一个归纳集),容易见到用自然数表示的元素在所有归纳集中都会出现,因此自然数是最小的归纳集,有人会如此定义:$\mathbb{N}=\{n|\forall X(X\text{ is a inductive set}\Rightarrow n\in X)\}$.这里可以看到一个很好的性质就是,我们可以认为$\mathbb{N}=+\infty$.</p>
+<p>如果$M$是自然数的某个子集,并且$M$是归纳集而且$0\in M$,立刻就可以见到$M=\mathbb{N}$.这就是所谓<strong>归纳原理</strong>或者<strong>数学归纳</strong>,意为:
+$$
+\begin{aligned}
+&M\subseteq \mathbb{N}\land 0\in M\land \forall x(x\in M\to S(x)\in M)\\
+\Rightarrow &N=M
+\end{aligned}
+$$
+容易见到$\mathbb{N}$上的另一个好性质是$0\in 1\in 2\in\cdots$,因此干脆将$\in$作为一种序关系,对于自然数$k,n,m$,立刻见到:</p>
+<ol>
+<li>$n\subset n+1,n\in n+1$.</li>
+<li>$x\in n\Rightarrow x\in \mathbb{N}$.</li>
+<li>$k\in m\land m\in n\Rightarrow k\in n$.</li>
+<li>$m\in n\Leftrightarrow m\subset n$.</li>
+</ol>
+<p>可以见到这是一个全序关系.不妨定义$m\in n$为$m< n$.既然是良序,还可以拿出<strong>第二归纳原理</strong>:如果$\forall k<n$都有$\varphi(k)$可以推出$\varphi(n)$,并且$\varphi(0)$,则$\varphi$对所有的$n$成立.</p>
+<h4 id="toc-22">递归定理</h4>
+<p>对任意集合$A$,$\forall a\in A$,以及任意函数$g:A\times \mathbb{N}\to A$,存在唯一的函数$f:\mathbb{N}\to A$满足:</p>
+<ol>
+<li>$f(0)=a$.</li>
+<li>$\forall n\in \mathbb{N},f(n+1)=g(f(n),n)$.</li>
+</ol>
+<p>为证明此,先引入定义<strong>序列</strong>是以自然数$n$(如果你稍加思考会意识到,这里的$n$实际上是$0,1,\cdots,n-1$组成的集合)或自然数集合$\mathbb{N}$(其实就是无穷对吧)为定义域的函数.如果定义域是$n\in \mathbb{N}$则称其为长度为$n$的<strong>有穷序列</strong>.特别地定义域为$0$的序列为<strong>空序列</strong>,而定义域为$\mathbb{N}$的序列称为<strong>无穷序列</strong>.</p>
+<p>从而我们可以自然地定义一个由集合$A$中的元素组成的长度为$n$的序列是一个由$n$到$A$的函数$s:n\to A$(再次强调这里的$n$是一个集合),注意到所有这样的序列组成的集合是$A^n$.</p>
+<p>现在我们着手证明<strong>递归定理</strong>.</p>
+<p>先证明存在性.处理无穷的强大武器其实是并集公理.考虑取序列$t:(m+1)\to A$,如果$t_0=a$而对所有的$k<m,t_{k+1}=g(t_k,k)$,则称$t$是基于$a,g$的$m$<strong>近似</strong>.接下来取所有的近似$t$组成集合$\mathcal{F}=\{t\in 2^{\mathbb{N}\times A}|t\text{ is m-approxity}\}$,令$f=\bigcup \mathcal{F}$.</p>
+<p>接下来应当证明以下事实:</p>
+<ol>
+<li>$f$是函数.</li>
+<li>$\mathrm{dom}(f)=\mathbb{N},\mathrm{ran}(f)\subseteq A$.</li>
+<li>$f(0)=a$.</li>
+<li>$\forall n\in \mathbb{N},f(n+1)=g(f(n),n)$.</li>
+</ol>
+<p>为证明(1),只需证明$\mathcal{F}$是相容的函数系统即可.也就是$\forall t,u\in \mathcal{F},\mathrm{dom}(t)=n,\mathrm{dom}(u)=m$,不妨假设$n<m$,现在我们需要证明$\forall k<n,t_k=u_k$.</p>
+<p>首先显然$t_0=u_0=a$,从定义得知如果$t_k=u_k$可以得知$t_{k+1}=g(t_k,k)=g(u_k,k)=u_{k+1}$,归纳就证明成功了.</p>
+<p>为证明(2),首先显然$\mathrm{dom}(f)\subseteq \mathbb{N}$,只需证明$\mathrm{dom}(f)\supseteq \mathbb{N}$即可.为证明此,需要证明$\forall n\in \mathbb{N}$,都存在一个$n-$近似$t$.首先存在$0$近似,此后只需数学归纳和并集原理就可以得到总存在$n$近似,这就搞定了.</p>
+<p>其次要证明$\mathrm{ran}(f)\subseteq A$.这个是显然的.</p>
+<p>(3)也是数学归纳,不必赘述.</p>
+<p>于是我们搞定了存在性,接下来只需要简述唯一性即可.如果还存在另一个$h:\mathbb{N}\to A$也满足条件,只需归纳法可以证明二者相等.</p>
+<p>只需柯里化就可以拿到带参数的版本:</p>
+<p>令$a:P\to A$和$g:P\times A\times \mathbb{N}\to A$为函数,存在唯一的函数$f:P\times \mathbb{N}\to A$满足:</p>
+<ol>
+<li>$\forall p\in P,f(p,0)=a(p)$.</li>
+<li>$\forall n\in \mathbb{N},p\in P,f(p,n+1)=g(p,f(p,n),n)$.</li>
+</ol>
+<p>原因自然是考虑$a\in A^P$,因此拿到了$G:A^P\times \mathbb{N}\to A^P$和唯一的函数$F:\mathbb{N}\to A^P$即可.不必过多赘述.</p>
+<p>递归定理可以自然地定义自然数上的加法和乘法.</p>
+<h4 id="toc-23">等势</h4>
+<p>如果存在一个以集合$X$为定义域,集合$Y$为值域的双射,就称集合$X$和$Y$是<strong>等势的</strong>,记作$|X|=|Y|$.如果存在集合$X$到$Y$的单射,就称$X$的势小于等于$Y$的势,记作$|X|\leq |Y|$.既然用此符号,重要的问题在于$\leq$符号是否是一个序关系,其判定中最重要的问题由下述定理给出:</p>
+<h5 id="toc-24">Cantor-Bernstein定理</h5>
+<p>如果$| A | \leq | B | \land | B | \leq | A |$,则$| A | = | B |$.</p>
+<p>不妨设两个单射$f : A \rightarrow B , g : B \rightarrow A$我们考虑一个感性的做法:考虑将这个东西画成二分图,然后要找它的完美匹配.我们不妨先把不同的连通块拆开,你会发现大部分的图都可以用$f , f^{ - 1 }$来构造双射,只有一种除外:那就是以一个$B$中节点开始不断延伸的无限的,我们在这里使用$g , g^{ - 1 }$来构造即可.</p>
+<p>如果要把上面的东西写成形式化的东西,我们可以这么写:取$C_0 = B \setminus f ( A )$,$C_n = f ( g ( C_{ n - 1 } ) )$,那么对于$C = \cup_{ n \geq 0 } C_n$,使用$g , g^{ - 1 }$构造双射,剩下的使用$f , f^{ - 1 }$构造双射.</p>
+<p>容易证明Cantor-Bernstein定理与以下定理等价:</p>
+<h5 id="toc-25">夹逼定理</h5>
+<p>$$
+(A'\subseteq B\subseteq A)\land (|A'|=|A|)\Rightarrow |B|=|A|
+$$</p>
+<p>考虑Cantor-Bernstein定理应该与夹逼定理等价,必要性显然,充分性的话考虑单射$f:X\to Y,g:Y\to X$,则显然有$g(Y)\subseteq X,f(X)\subseteq Y$从而导出$g(f(X))\subseteq g(Y)\subseteq X$.然而单射显然有$|g(f(X))|=|X|,|g(Y)|=|Y|$.这样就可以证明Cantor-Bernstein定理.</p>
+<p>证明大同小异,目的是找出以$A$中元素起点的无穷链,并将剩下的部分直接建立对应.</p>
+<p>考虑令$h:A\to A'$为双射.直接取$C_0=A\setminus B,C_{n+1}=h(C_n)$,最后取$C=\bigcup_{n\geq 0}C_n$.立刻见到$h(C)=\bigcup_{n=1}^\infty C_n=C-C_0\subseteq C$.</p>
+<p>下面构造双射$H:A\to B$:
+$$
+H(x)=\begin{cases}h(x)&x\in C\\x&x\in A\setminus C\end{cases}
+$$
+由于$C,A\setminus C$这两部分互不干扰,因此显然是单射.接下来需要证明其满性,由于$A-B\subseteq C$,从而$A-C\subseteq B$,因而考虑:
+$$
+\begin{aligned}
+\mathrm{ran}(H)&=(C-(A-B))\cup (A-C)\\
+&=(C\cup(A-C))-((A-B)-(A-C))\\
+&=A-(A-B)\\
+&=B
+\end{aligned}
+$$
+这就搞定了.</p>
+<h5 id="toc-26">幂集的大小</h5>
+<p>求证:$|2^S|>|S|$.</p>
+<p>首先容易证明$|2^S|\geq |S|$,现在要证明它们的确不相同.考虑罗素悖论,假设存在一个双射$f:S\to 2^S$,取出$T=\{a\in S|a\notin f(a)\}$,然后看其原像$b=f^{-1}(T)$.此时,如果$b\in f(b)=T$,则其应该满足$b\notin f(b)$;反之,如果$b\notin f(b)=T$,则它又该满足$b\in T$,从而导出矛盾.</p>
+<h5 id="toc-27">有穷与无穷</h5>
+<p>根据上述讨论,我们可以将$|n|$自然地记作$n$.</p>
+<p>引入以下定义:</p>
+<ol>
+<li>若$\exists n\in \mathbb{N},|X|=n$,就称$X$为<strong>有穷的</strong>.</li>
+<li>若$\forall n\in \mathbb{N},|X|\ne n$,就称$X$为<strong>无穷的</strong>.</li>
+<li>若$|X|=|\mathbb{N}|$,就称$X$是<strong>可数的</strong>或者<strong>可数无穷的</strong>.</li>
+</ol>
+<p>见到以下结论:</p>
+<ol>
+<li><strong>鸽笼原理</strong>:若$n\in \mathbb{N}$,则不存在$n$到它的真子集$X\subsetneq n$上的双射.从而导出如果$n\not \equiv m$,则$|n|\ne |m|$.从而导出对任意有穷集合$X$,不存在$X$到$X$的真子集的双射.</li>
+<li>每一无穷集合都有一个可数子集.</li>
+<li>两个可数集合的并是可数集合.</li>
+<li>作为(3)的推论,有穷个可数集合的并是可数的.</li>
+<li>作为(4)的强化,可数个可数集合的并是可数的.</li>
+<li>如果$A,B$是可数的,则$A\times B$是可数的.</li>
+<li>作为(6)的强化,可数个可数集合的笛卡尔积是可数的.</li>
+<li>作为(7)的推论,$\bigcup_{n\in \mathbb{N}}\mathbb{N}^n$是可数的.</li>
+<li>作为(8)的推论如果$A$是可数的,则其有穷子集组成的集合$X=\{x\subseteq A|\exists n,|x|=n\}$是可数的.</li>
+</ol>
+<p>从(1)开始,反证法自然是好做的.</p>
+<p>(2)是选择公理的推论,只需递归使用选择函数每次从之前的集合中删掉已经取出的代表元的并取出新的代表元即可.</p>
+<p>(3)(4)(5)(6)(7)(8)(9)都是对角线证明法,不必赘述(顺便一提这里还有另一种方法,就是考虑用$2^m(2n+1)$来表示有序对$(n,m)$).</p>
+<p>如果避开将自然数引入势的定义,先承认选择公理,则也可以途径下述方法,我们声称以下命题等价:</p>
+<ol>
+<li>集合$X$是有穷的.</li>
+<li>存在$X$上的全序$\leq$满足$X$的每一非空子集在$\leq $下有最大元和最小元.</li>
+<li>$X$的每一非空子集族都有$\subseteq $关系下的极大元.</li>
+<li>$X$是<strong>戴德金有穷</strong>的:不存在$X$到其真子集的一一映射.</li>
+</ol>
+<p>(1)推(2)是显然的,因为只需规定其对集合$n$的映射作为全序关系即可,可以轻松得出其子集的最大元(射出的自然数的并)和最小元(射出的自然数的交).</p>
+<p>事实上有穷集合的任意全序关系下,任意非空子集都有最大元和最小元.方法是逐个比较过去找就可以了.</p>
+<p>(2)推(1)的话考虑$X$有最小元$x_0$,$X-\{x_0\}$有最小元$x_1$,以此类推.不断做此操作,做到第$m+1$步的时候,我们已经取出了$\{x_0,\cdots,x_m\}$.如果这个操作无法在有限步内结束,意味着子集$\{x_0,\cdots\}$不存在最大元,这样就矛盾了.</p>
+<p>(1)推(3)</p>
+<p>我们还想证明下面两条结论(承认选择公理):</p>
+<ol>
+<li>任何两个集合$S,T$,总有$|S|\leq |T|\lor |T|\leq |S|$.</li>
+<li>任何无穷集合$S$,总有$|S|=|S\times S|$.</li>
+</ol>
+</div>
+  <nav class="post-nav">
+      <a class="post-nav-item" href="/posts/%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95.html"><span>← 上一篇</span>随机算法</a>
+      <a class="post-nav-item right" href="/posts/%E4%B8%80%E4%B8%AA%E4%B8%AA%E6%85%A2%E6%85%A2%E6%9A%97%E6%B7%A1.html"><span>下一篇 →</span>一个个慢慢暗淡</a>
+    </nav>
+  <section class="comments" id="comments">
+    <h2 class="comments-title">评论</h2>
+    <div id="waline"></div>
+  </section>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="footer-signature" id="footer-signature">不过是白日梦里一瞬息</div>
+  <div class="footer-copy">© 2026 LWLAymh · Powered by DeepSeek V4 Pro</div>
+</footer>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="打开侧边栏" title="侧边栏">☰</button>
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+  <div class="sidebar-inner"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item" style="padding-left:0.00em"><a href="#toc-0">前言</a></li><li class="toc-item" style="padding-left:0.00em"><a href="#toc-1">ZFC公理体系</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-2">存在公理(Exi)</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-3">外延公理(Ext)</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-4">分离公理模式(Sep)</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-5">配对公理(Pai)</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-6">并集公理(Uni)</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-7">幂集公理(Pow)</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-8">无穷公理(Inf)</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-9">替换公理模式(Rep)</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-10">正则公理(Fnd)</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-11">选择公理(AC)</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-12">集合的简单运算</a></li><li class="toc-item" style="padding-left:0.00em"><a href="#toc-13">关系</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-14">有序对</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-15">笛卡尔积</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-16">二元关系</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-17">函数关系</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-18">等价关系</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-19">序关系</a></li><li class="toc-item" style="padding-left:0.00em"><a href="#toc-20">实数的构造</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-21">自然数</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-22">递归定理</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-23">等势</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-24">Cantor-Bernstein定理</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-25">夹逼定理</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-26">幂集的大小</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-27">有穷与无穷</a></li></ul></div>
+</aside>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script src="/main.js"></script>
+<script src="/comment.js"></script>
+</body>
+</html>

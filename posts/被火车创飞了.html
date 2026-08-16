@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<title>被火车创飞了 · LWLAymh的备忘录</title>
+<meta name="description" content="为啥这篇文章总是传不上去??? 为啥这篇文章总是传不上去??? 事情是这样的,几天前,我们班被出了这么一道物理思考题(为表述方便略有简化). 有一辆以 行驶的质量超级大的火车,上面站了一个质量为 的人随火车一起运动.突然，这个人相对于火车以">
+<meta name="author" content="LWLAymh">
+<link rel="canonical" href="https://LWLAymh.github.io/posts/%E8%A2%AB%E7%81%AB%E8%BD%A6%E5%88%9B%E9%A3%9E%E4%BA%86.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="LWLAymh的备忘录">
+<meta property="og:url" content="https://LWLAymh.github.io/posts/%E8%A2%AB%E7%81%AB%E8%BD%A6%E5%88%9B%E9%A3%9E%E4%BA%86.html">
+<meta property="og:title" content="被火车创飞了 · LWLAymh的备忘录">
+<meta property="og:description" content="为啥这篇文章总是传不上去??? 为啥这篇文章总是传不上去??? 事情是这样的,几天前,我们班被出了这么一道物理思考题(为表述方便略有简化). 有一辆以 行驶的质量超级大的火车,上面站了一个质量为 的人随火车一起运动.突然，这个人相对于火车以">
+<link rel="icon" href="/images/favicon-32x32-next.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon-next.png">
+<link rel="stylesheet" href="/style.css">
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true
+  },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
+  startup: { ready: () => MathJax.startup.defaultReady() }
+};
+</script>
+<script id="MathJax-script" async src="/vendor/mathjax/tex-chtml-full.js"></script>
+
+</head>
+<body class="page-post">
+<div class="progress-bar" id="progress-bar"></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="/">
+      <img class="header-avatar avatar" src="/images/头像1.jpg" alt="avatar" data-avatar>
+      <span class="brand-text">
+        <span class="brand-title">LWLAymh的备忘录</span>
+        <span class="brand-subtitle">混乱节拍拼凑出血肉喧嚷</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/tools.html">工具</a><a class="nav-link" href="/links.html">友链</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题"></button>
+    </nav>
+  </div>
+</header>
+<main class="site-main">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">被火车创飞了</h1>
+    <div class="post-meta">
+      <time>2025-06-23</time>
+      <a class="chip chip-cat" href="/categories.html#%E8%A2%AB%E6%96%87%E5%8C%96%E8%AF%BE%E5%88%9B%E9%A3%9E%E4%BA%86">被文化课创飞了</a>
+    </div>
+  </header>
+  <div class="post-content"><p>为啥这篇文章总是传不上去???</p>
+<p>为啥这篇文章总是传不上去???</p>
+<p>事情是这样的,几天前,我们班被出了这么一道物理思考题(为表述方便略有简化).</p>
+<p>有一辆以$v_0$行驶的质量超级大的火车,上面站了一个质量为$m$的人随火车一起运动.突然，这个人相对于火车以$\Delta v$的速度向前平跳(也就是说此时他相对于地面的速度为$v_0 + \Delta v$),求这个人做这个起跳需要多少能量.</p>
+<p>注意这里火车质量很大,所以火车在此人跳跃过程中始终以$v_0$速度前进.</p>
+<p>我看到这个题觉得很简单啊,肯定是$\frac{ m }{ 2 } ( ( v_0 + \Delta v )^2 - v_0^2 )$.然后发现答案竟然是$\frac{ m }{ 2 } ( \Delta v )^2$.</p>
+<p>下面是我们物理课代表给出的解释:</p>
+<p>虽然人的动能变化确实是$\frac{ m }{ 2 } ( ( v_0 + \Delta v )^2 - v_0^2 )$,但是在他起跳的过程中,火车对他是有一个力的.而且,因为火车在运动,所以虽然起跳的时候人相对于火车没有运动,但这个力的作用点相对于地面竟然是运动着的!</p>
+<p>因此,不妨设这个力为$F$,注意这里的$F$不一定是常数,而是一个关于时间$t$的函数,我们自然有:$W = \int_{ t_0 }^{ t_1 } Fx \text{ d } t$,注意到作用点的速度恒为$v_0$,因此$W = v_0 \int_{ t_0 }^{ t_1 } F \text{ d } t = v_0 \Delta p = v_0 \Delta vm$,把这个加上后恰好得出答案.</p>
+<p>这时我意识到这个事情其实就等价于任何惯性参考系参考下能量都是守恒的.所以我们直接以火车为参考系,立即得出答案.</p>
+<p>但是为啥呢?而且我总觉得上面那个力的分析非常诡异,因为我总感觉起跳是瞬间的,这个力理论上不应该做功啊.</p>
+<p>通过在网上海量搜索后,我大概找到了这么两种理解方式啊.</p>
+<p>第一种是,我们冷静一下.如果没有外力干扰,那么火车其实<strong>并不能匀速前进</strong>.设火车质量为$M$,当人的速度为$v_0 + \Delta v$的时候,根据动量守恒,火车的速度应该为$v_0 - \frac{ m }{ M } \Delta v$.</p>
+<p>注意这个时候不能以火车为参考系了,因为火车不再是惯性参考系了,所以我们加入一个以$v_0$匀速前进的青蛙作为新的参考系.不难发现在青蛙参考系和在地面参考系下,火车和人的系统的动能增量是相等的,都是$\frac{ 1 }{ 2 } ( m ( \Delta v )^2 + M ( \frac{ m }{ M } \Delta v )^2 )$.</p>
+<p>然后,因为火车质量非常非常非常大,我们注意到$\lim_{ M \rightarrow + \infty } \frac{ m }{ M } \Delta v = 0$,完活.</p>
+<p>但是这个过程别说还是进行了近似估计了,就是和现实也不符啊.你火车肯定要有动力来源使得其能进行匀速直线运动.但是这个理解方式的优越性在于,它试图将火车和人视作一个系统来观察,这个角度下我们完全不要去管二者分别的动能了,而是直接分析系统动能.</p>
+<p>所以我反思了一下为什么我觉得一开始的那个做法很奇怪,我注意到对人做功的力同时一定对火车作负功,那么也就是一定还有一个对火车作正功的外力,这个力同时也是整个系统的外力.</p>
+<p>对这个施加在火车上的外力进行完全一样的分析,就可以得到相同的答案.</p>
+<p>或者更一般地,我们来证明惯性参考系下的所需要的能量恒定:</p>
+<p>我们已知:</p>
+<p>$$
+\int_{ t_0 }^{ t_1 } Fv \ \text{ d } t = \frac{ m }{ 2 } ( v_1^2 - v_0^2 ) + \Delta E
+$$</p>
+<p>要证:</p>
+<p>$$
+\int_{ t_0 }^{ t_1 } F ( v - v_w ) \ \text{ d } t = \frac{ m }{ 2 } ( ( v_1 - v_w )^2 - ( v_0 - v_w )^2 ) + \Delta E
+$$</p>
+<p>而注意到:</p>
+<p>$$
+\int_{ t_0 }^{ t_1 } F ( v - v_w ) \ \text{ d } t = \int_{ t_0 }^{ t_1 } F ( v ) \ \text{ d } t - \int_{ t_0 }^{ t_1 } Fv_w \ \text{ d } t = \frac{ m }{ 2 } ( v_1^2 - v_0^2 ) - v_w m ( v_1 - v_0 ) + \Delta E
+$$</p>
+<p>这就证明了该结论!</p>
+<p><s>不过这个做法虽然相当理性但是一点都不直观啊,为什么两个平方竟然可以在这里线性加减,我其实还是没找到更加易于理解的方式啊,如果有大佬知道可以联系我一下qwq</s></p>
+<p>哦哦我突然瞎想出了一个相当简洁的方式啊,就是我们不难注意到只要满足动量守恒以及做功的方程$W = Fx$,我们很自然可以推导出动能差的表达式,而这两个基础的表达式都是线性的,因此动能差也一定与选取哪个惯性参考系无关!</p>
+<p>换句话说,这个动能差的表达式中的平方是我们积分积出来的,但是积分是可以加减的!</p>
+<hr>
+<p>在大半夜和Querainy 和Minuses 深入交流之后,我发现上面的过程还是太感性理解了,我们来添加一些细节.</p>
+<p>首先,Minuses 提供了在宏观下动量定理和牛二等价的证明(他原本的形式用的全是向量,但是我比较懒,所以换成一维情况了):</p>
+<p>$$
+F \ \text{ d } t = m \ \text{ d } v
+$$</p>
+<p>$$
+F = \frac{ \text{ d } v }{ \text{ d } t } m = am
+$$</p>
+<p>然后,他又提供了只要有牛顿第二定律和$W = Fx$的定义,我们就可以推导惯性参考系下动能定理的证明:</p>
+<p>$$
+F = m \frac{ \text{ d } v }{ \text{ d } t }
+$$</p>
+<p>$$
+F \text{ d } x = m \frac{ \text{ d } v }{ \text{ d } t } \text{ d } x = mv \ \text{ d } v
+$$</p>
+<p>$$
+W = \int_{ t_0 }^{ t_1 } F \text{ d } x = m \int_{ t_0 }^{ t_1 } v \text{ d } v = \frac{ 1 }{ 2 } m ( v_1^2 - v_0^2 )
+$$</p>
+<p>Minuses 无敌,可让天下一先.</p>
+<hr>
+<p>Querainy提出我之前的说法是错误的,因为在不同参考系下牛顿第二定律的确不会有影响,但是$W = Fx$是受到了影响的.例如在上面的例子中,如果以火车为参考系,那么火车与人之间的力对人是没有做功的.但是以地面为参考系,那么这个力因为作用点在变所以是做功了的.</p>
+<p>然而这个做功的改变在上面的积分形式中就可以发现,由于速度的改变导致平方项不能完美消除,因此这个做功的改变会抵消切换参考系(伽利略变换)带来的<strong>动能形式的改变</strong>.</p>
+<p>这个自我修正bug看上去相当诡异,但是一想到动能定理本身就是从$W = Fx$和牛顿第二定律推导出来的,因此有自洽性也非常合理.</p>
+<p>追根溯源看上面整个问题,我们会发现,如果我们换参考系然后看动能,动能的变化量的确是不一样的.</p>
+<p>但是问题在于,我们在意的不是动能的变化量,而是我引起这个变化需要外加多少能量.如果我引起这个变化所需要外加的能量不变,那么就仍然满足能量守恒定律.</p>
+<p>如果我们换参考系,动能的变化量改变,但是同时原本不做功的力也会随之进行做功.事实上由于力的作用点最多只在一个惯性参考系下才是静止的,因此换参考系几乎一定会引起力的做功.</p>
+<hr>
+<p>所以我们其实还可以再举一个类似的例子:</p>
+<p>考虑一个劲度系数为$k$的弹簧连在地上,上面放了一个重物$M$,我们来观察一下这个东西.</p>
+<p>不妨取<strong>重物放上弹簧后的平衡位置</strong>为重力势能和弹性势能的零点,设弹簧原长位置相对于此位置距离为$x_0$,此时当然有$kx_0 = Mg$那考虑系统的弹性势能:</p>
+<p>$$
+E_{ p 1 } = \frac{ k }{ 2 } ( x - x_0 )^2 - \frac{ k }{ 2 } ( x_0 )^2 = \frac{ k }{ 2 } x^2 - kx_0 x
+$$</p>
+<p>重力势能:</p>
+<p>$$
+E_{ p 2 } = Mgx
+$$</p>
+<p>那么总势能当然是:</p>
+<p>$$
+E_p = \frac{ 1 }{ 2 } kx^2 - kx_0 x + Mgx = \frac{ 1 }{ 2 } kx^2
+$$</p>
+<hr>
+<p>时隔不知道多长时间,现在我们来证明柯尼希定理:质点系在参考系$A$中的总动能等于质点系在质心系中的动能与质心在参考系$A$中的动能之和.</p>
+<p>不妨设质心系下质点系的总动能为$E_{ kS }$,参考系$A$下的总动能为$E_{ kA }$,质心相对于$A$参考系的速度为$\vec{ v }_C$,我们当然有:</p>
+<p>$$
+\begin{aligned}
+E_{ kS } & = \frac{ k }{ 2 } \sum m_i ( \vec{ v }_i - \vec{ v }_C )^2 \\
+& = E_{ kA } + \frac{ k }{ 2 } ( M \sum ( \vec{ v }_C )^2 - 2 \sum m_i \vec{ v }_i \vec{ v }_C ) \\
+& = E_{ kA } + \frac{ k }{ 2 } ( M \sum ( \vec{ v }_C )^2 - 2 ( \vec{ v }_C )^2 \sum m_i ) \\
+& = E_{ kA } - \frac{ k }{ 2 } M ( \vec{ v }_C )^2
+\end{aligned}
+$$</p>
+<p>那这就给出了一个更强的结论,而且这里的质心参考系甚至不需要是惯性系.</p>
+</div>
+  <nav class="post-nav">
+      <a class="post-nav-item" href="/posts/%E8%A2%AB%E7%82%AE%E5%BC%B9%E5%88%9B%E9%A3%9E%E4%BA%86.html"><span>← 上一篇</span>被炮弹创飞了</a>
+      <a class="post-nav-item right" href="/posts/%E8%A2%AB%E6%91%86%E7%90%83%E5%88%9B%E9%A3%9E%E4%BA%86.html"><span>下一篇 →</span>被摆球创飞了</a>
+    </nav>
+  <section class="comments" id="comments">
+    <h2 class="comments-title">评论</h2>
+    <div id="waline"></div>
+  </section>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="footer-signature" id="footer-signature">不过是白日梦里一瞬息</div>
+  <div class="footer-copy">© 2026 LWLAymh · Powered by DeepSeek V4 Pro</div>
+</footer>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="打开侧边栏" title="侧边栏">☰</button>
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+  <div class="sidebar-inner"><div class="toc-title">联系我</div><div class="contact-item"><span class="contact-key">微信</span><span class="contact-val">LWLAymh</span></div><div class="contact-item"><span class="contact-key">邮箱</span><a class="contact-val" href="mailto:lwlaymh@outlook.com">lwlaymh@outlook.com</a></div><div class="contact-item"><span class="contact-key">GitHub</span><a class="contact-val" href="https://github.com/LWLAymh" target="_blank" rel="noopener">github.com/LWLAymh</a></div><div class="contact-item"><span class="contact-key">Luogu</span><a class="contact-val" href="https://www.luogu.com.cn/user/661076" target="_blank" rel="noopener">Luogu 博客</a></div></div>
+</aside>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script src="/main.js"></script>
+<script src="/comment.js"></script>
+</body>
+</html>
