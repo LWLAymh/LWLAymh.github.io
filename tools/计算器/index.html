@@ -6,20 +6,62 @@
 <script>
 (function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 </script>
-<title>矩阵计算器 · LWLAymh的备忘录</title>
-<meta name="description" content="矩阵乘加、转置、行列式与逆矩阵，全程精确分数运算">
+<title>计算器 · LWLAymh的备忘录</title>
+<meta name="description" content="质因数分解 / 矩阵 / 组合数">
 <meta name="author" content="LWLAymh">
-<link rel="canonical" href="https://LWLAymh.github.io/tools/%E7%9F%A9%E9%98%B5%E8%AE%A1%E7%AE%97%E5%99%A8/">
+<link rel="canonical" href="https://LWLAymh.github.io/tools/%E8%AE%A1%E7%AE%97%E5%99%A8/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="LWLAymh的备忘录">
-<meta property="og:url" content="https://LWLAymh.github.io/tools/%E7%9F%A9%E9%98%B5%E8%AE%A1%E7%AE%97%E5%99%A8/">
-<meta property="og:title" content="矩阵计算器 · LWLAymh的备忘录">
-<meta property="og:description" content="矩阵乘加、转置、行列式与逆矩阵，全程精确分数运算">
-<link rel="icon" href="/images/favicon-32x32-next.png">
-<link rel="apple-touch-icon" href="/images/apple-touch-icon-next.png">
+<meta property="og:url" content="https://LWLAymh.github.io/tools/%E8%AE%A1%E7%AE%97%E5%99%A8/">
+<meta property="og:title" content="计算器 · LWLAymh的备忘录">
+<meta property="og:description" content="质因数分解 / 矩阵 / 组合数">
+<link rel="icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg">
+<link rel="apple-touch-icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg">
 <link rel="stylesheet" href="/style.css">
 
 <style>
+
+  .tool-page .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0 18px; }
+  .tool-page .tab-btn {
+    padding: 8px 16px; border: 1px solid var(--border); border-radius: 999px;
+    background: var(--bg); color: var(--text-muted); cursor: pointer; font-size: .9rem;
+  }
+  .tool-page .tab-btn.active { color: #fff; border-color: transparent;
+    background: linear-gradient(135deg, var(--accent), var(--accent-deep)); }
+  .tool-page .calc-panel { display: none; }
+  .tool-page .calc-panel.active { display: block; }
+
+
+  .tool-page, .tool-page * { box-sizing: border-box; }
+  .tool-page { width: 100%; padding: 4px 0 8px; }
+  .tool-page .back { color: var(--text-muted); text-decoration: none; font-size: .9rem; }
+  .tool-page .back:hover { color: var(--accent); }
+  .tool-page .card {
+    margin-top: 10px; background: var(--bg-elevated); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow-sm);
+  }
+  .tool-page h1 { margin: 4px 0 8px; font-size: 1.5rem; font-family: var(--font-serif); }
+  .tool-page .hint { color: var(--text-muted); margin: 0 0 18px; font-size: .9rem; }
+  .tool-page form { display: flex; gap: 10px; flex-wrap: wrap; }
+  .tool-page input {
+    flex: 1; min-width: 220px; padding: 11px 14px; font-size: 1rem;
+    border: 1px solid var(--border); border-radius: 10px; background: var(--bg); color: var(--text); outline: none;
+  }
+  .tool-page input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+  .tool-page button {
+    padding: 11px 22px; border: 0; border-radius: 10px; cursor: pointer; font-size: 1rem; color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  }
+  .tool-page button:hover { opacity: .92; }
+  .tool-page .examples { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tool-page .examples button { padding: 4px 12px; font-size: .8rem; background: var(--accent-soft); color: var(--accent); }
+  .tool-page .result { margin-top: 18px; min-height: 28px; font-size: 1.08rem; line-height: 1.8; overflow-wrap: anywhere; }
+  .tool-page .result .times { color: var(--text-muted); }
+  .tool-page .result sup { color: var(--accent); }
+  .tool-page .error { color: #d9534f; min-height: 22px; margin-top: 6px; font-size: .9rem; }
+  .tool-page .empty { color: var(--text-muted); }
+
+
   .tool-page, .tool-page * { box-sizing: border-box; }
   .tool-page { width: 100%; padding: 4px 0 8px; }
   .tool-page .back { color: var(--text-muted); text-decoration: none; font-size: .9rem; }
@@ -58,6 +100,46 @@
     border: 1px solid var(--border); background: var(--bg-elevated);
   }
   .tool-page .err { color: #d9534f; min-height: 20px; margin-top: 10px; font-size: .9rem; }
+
+
+  .tool-page, .tool-page * { box-sizing: border-box; }
+  .tool-page { width: 100%; padding: 4px 0 8px; }
+  .tool-page .back { color: var(--text-muted); text-decoration: none; font-size: .9rem; }
+  .tool-page .back:hover { color: var(--accent); }
+  .tool-page .card {
+    margin-top: 10px; background: var(--bg-elevated); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow-sm);
+  }
+  .tool-page h1 { margin: 4px 0 8px; font-size: 1.5rem; font-family: var(--font-serif); }
+  .tool-page .hint { color: var(--text-muted); margin: 0 0 16px; font-size: .9rem; }
+  .tool-page .bar { display: flex; gap: 10px; flex-wrap: wrap; align-items: end; margin-bottom: 12px; }
+  .tool-page label { display: flex; flex-direction: column; gap: 4px; font-size: .85rem; color: var(--text-muted); }
+  .tool-page select, .tool-page input {
+    padding: 9px 12px; border: 1px solid var(--border); border-radius: 9px;
+    background: var(--bg); color: var(--text); font-size: 1rem; outline: none;
+  }
+  .tool-page input { width: 150px; }
+  .tool-page input:focus, .tool-page select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+  .tool-page button {
+    padding: 10px 18px; border: 0; border-radius: 9px; cursor: pointer; font-size: .95rem; color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  }
+  .tool-page button.ghost { border: 1px solid var(--border); color: var(--text); background: var(--bg); }
+  .tool-page .examples { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .tool-page .examples button { padding: 4px 12px; font-size: .8rem; background: var(--accent-soft); color: var(--accent); }
+  .tool-page .out { margin-top: 8px; }
+  .tool-page .out .head { color: var(--text-muted); font-size: .9rem; margin-bottom: 6px; }
+  .tool-page .out .value {
+    background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px;
+    font-size: 1rem; line-height: 1.7; overflow-wrap: anywhere; max-height: 300px; overflow: auto;
+  }
+  .tool-page .err { color: #d9534f; min-height: 20px; margin-top: 10px; font-size: .9rem; }
+
+  /* 合并后按面板微调输入框宽度，避免样式互相覆盖 */
+  .tool-page #panel-matrix input { width: 76px; }
+  .tool-page #panel-matrix .mat input { width: 68px; }
+  .tool-page #panel-prime input { min-width: 220px; }
+
 </style>
 </head>
 <body class="page-tool">
@@ -81,11 +163,27 @@
 <div class="tool-page">
   <a class="back" href="/tools.html">← 全部工具</a>
   <div class="card">
-    <h1>矩阵计算器</h1>
-    <p class="hint">支持分数输入（如 1/2、-3/4、0.5），结果以精确分数显示。</p>
-    <div class="bar">
+    <h1>计算器</h1>
+    <p class="hint">质因数分解 / 矩阵 / 组合数，一个页面切换使用。</p>
+    <div class="tabs">
+      <button class="tab-btn active" data-panel="prime">质因数分解</button>
+      <button class="tab-btn" data-panel="matrix">矩阵计算</button>
+      <button class="tab-btn" data-panel="comb">组合数</button>
+    </div>
+    <div class="calc-panel active" id="panel-prime"><form id="prime-form" autocomplete="off">
+      <input id="prime-num" inputmode="numeric" placeholder="例如：123456789012345678" maxlength="24">
+      <button type="submit">分解</button>
+    </form>
+    <div class="examples prime-examples">
+      <button type="button" data-n="123456789012345678">12…5678</button>
+      <button type="button" data-n="1000000007">1000000007</button>
+      <button type="button" data-n="999999999999999989">999…989</button>
+    </div>
+    <div class="result empty" id="prime-result">结果会显示在这里</div>
+    <p class="error" id="prime-error"></p></div>
+    <div class="calc-panel" id="panel-matrix"><div class="bar">
       <label>运算
-        <select id="op">
+        <select id="m-op">
           <option value="mul">A × B</option>
           <option value="add">A + B</option>
           <option value="transpose">Aᵀ</option>
@@ -96,16 +194,42 @@
           <option value="jordan">Jordan 标准型</option>
         </select>
       </label>
-      <label id="d1l">A 行数 <input id="d1" type="number" min="1" max="6" value="2"></label>
-      <label id="d2l">A 列数 <input id="d2" type="number" min="1" max="6" value="2"></label>
-      <label id="d3l" style="display:none">B 列数 <input id="d3" type="number" min="1" max="6" value="2"></label>
-      <button id="gen">生成</button>
-      <button class="ghost" id="sample">随机示例</button>
-      <button class="ghost" id="calc">计算</button>
+      <label id="m-d1l">A 行数 <input id="m-d1" type="number" min="1" max="6" value="2"></label>
+      <label id="m-d2l">A 列数 <input id="m-d2" type="number" min="1" max="6" value="2"></label>
+      <label id="m-d3l" style="display:none">B 列数 <input id="m-d3" type="number" min="1" max="6" value="2"></label>
+      <button id="m-gen">生成</button>
+      <button class="ghost" id="m-sample">随机示例</button>
+      <button class="ghost" id="m-calc">计算</button>
     </div>
-    <div class="mats" id="mats"></div>
-    <div class="out" id="out"></div>
-    <p class="err" id="err"></p>
+    <div class="mats" id="m-mats"></div>
+    <div class="out" id="m-out"></div>
+    <p class="err" id="m-err"></p></div>
+    <div class="calc-panel" id="panel-comb"><div class="bar">
+      <label>运算
+        <select id="c-op">
+          <option value="C">C(n, m)</option>
+          <option value="P">P(n, m)</option>
+          <option value="!">n!</option>
+          <option value="S2">S(n, m)（第二类斯特林数）</option>
+          <option value="S1">s(n, m)（第一类斯特林数·无符号）</option>
+          <option value="B">B(n)（贝尔数）</option>
+          <option value="Cat">Cat(n)（卡特兰数）</option>
+        </select>
+      </label>
+      <label>n <input id="c-n" type="number" min="0" max="5000" value="10"></label>
+      <label id="c-mlabel">m <input id="c-m" type="number" min="0" max="5000" value="5"></label>
+      <button id="c-calc">计算</button>
+    </div>
+    <div class="examples comb-examples">
+      <button data-op="C" data-n="100" data-m="50">C(100,50)</button>
+      <button data-op="P" data-n="10" data-m="10">P(10,10)</button>
+      <button data-op="S2" data-n="10" data-m="5">S(10,5)</button>
+      <button data-op="S1" data-n="10" data-m="5">s(10,5)</button>
+      <button data-op="B" data-n="15" data-m="0">B(15)</button>
+      <button data-op="Cat" data-n="20" data-m="0">Cat(20)</button>
+    </div>
+    <div class="out" id="c-out"></div>
+    <p class="err" id="c-err"></p></div>
   </div>
 </div>
 </main>
@@ -124,11 +248,158 @@
 <script>
 (function () {
   'use strict';
+  var tabs = document.querySelectorAll('.tab-btn');
+  tabs.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      tabs.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      document.querySelectorAll('.calc-panel').forEach(function (p) { p.classList.remove('active'); });
+      document.getElementById('panel-' + btn.getAttribute('data-panel')).classList.add('active');
+    });
+  });
+})();
+</script>
+<script>
 
-  var opEl = document.getElementById('op');
-  var d1El = document.getElementById('d1'), d2El = document.getElementById('d2'), d3El = document.getElementById('d3');
-  var d1l = document.getElementById('d1l'), d2l = document.getElementById('d2l'), d3l = document.getElementById('d3l');
-  var matsEl = document.getElementById('mats'), outEl = document.getElementById('out'), errEl = document.getElementById('err');
+(function () {
+  'use strict';
+
+  var form = document.getElementById('prime-form');
+  var input = document.getElementById('prime-num');
+  var result = document.getElementById('prime-result');
+  var error = document.getElementById('prime-error');
+
+  document.querySelectorAll('.prime-examples button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      input.value = btn.getAttribute('data-n');
+      run();
+    });
+  });
+
+  function setError(msg) {
+    error.textContent = msg;
+    result.textContent = '';
+    result.classList.add('empty');
+  }
+
+  function modPow(a, b, m) {
+    var r = 1n;
+    a %= m;
+    while (b > 0n) {
+      if (b & 1n) r = (r * a) % m;
+      a = (a * a) % m;
+      b >>= 1n;
+    }
+    return r;
+  }
+
+  var MR_BASES = [2n, 325n, 9375n, 28178n, 450775n, 9780504n, 1795265022n];
+  function isPrime(n) {
+    if (n < 2n) return false;
+    var small = [2n, 3n, 5n, 7n, 11n, 13n, 17n, 19n, 23n, 29n, 31n, 37n];
+    for (var i = 0; i < small.length; i++) {
+      if (n === small[i]) return true;
+      if (n % small[i] === 0n) return false;
+    }
+    var d = n - 1n, r = 0n;
+    while ((d & 1n) === 0n) { d >>= 1n; r++; }
+    for (var j = 0; j < MR_BASES.length; j++) {
+      var a = MR_BASES[j] % n;
+      if (a === 0n) continue;
+      var x = modPow(a, d, n);
+      if (x === 1n || x === n - 1n) continue;
+      var ok = false;
+      for (var k = 0n; k < r - 1n; k++) {
+        x = (x * x) % n;
+        if (x === n - 1n) { ok = true; break; }
+      }
+      if (!ok) return false;
+    }
+    return true;
+  }
+
+  function gcd(a, b) {
+    while (b) { var t = a % b; a = b; b = t; }
+    return a;
+  }
+
+  function pollardRho(n) {
+    if ((n & 1n) === 0n) return 2n;
+    var c = 1n;
+    while (true) {
+      var x = 2n, y = 2n, d = 1n;
+      while (d === 1n) {
+        x = (x * x + c) % n;
+        y = (y * y + c) % n;
+        y = (y * y + c) % n;
+        var diff = x > y ? x - y : y - x;
+        d = gcd(diff, n);
+      }
+      if (d < n) return d;
+      c += 1n;
+      if (c > 30n) throw new Error('Pollard rho 分解失败');
+    }
+  }
+
+  function addFactor(map, p) {
+    map.set(p, (map.get(p) || 0n) + 1n);
+  }
+
+  function factor(n, map) {
+    if (n === 1n) return;
+    if (isPrime(n)) { addFactor(map, n); return; }
+    var d = pollardRho(n);
+    factor(d, map);
+    factor(n / d, map);
+  }
+
+  function format(map) {
+    var parts = [];
+    map.forEach(function (e, p) {
+      parts.push(e === 1n ? String(p) : String(p) + '<sup>' + e + '</sup>');
+    });
+    return parts.join('<span class="times"> × </span>');
+  }
+
+  function run() {
+    error.textContent = '';
+    var s = input.value.trim();
+    if (!/^\d+$/.test(s)) { setError('请输入正整数（只允许数字）。'); return; }
+    if (s.length > 24) { setError('数字太大（最多 24 位），换个小一点的试试。'); return; }
+    var n = BigInt(s);
+    if (n === 0n) { setError('0 没有质因数分解，请输入正整数。'); return; }
+    if (n === 1n) {
+      result.classList.remove('empty');
+      result.innerHTML = '1 既不是质数也不是合数。';
+      return;
+    }
+    try {
+      var map = new Map();
+      factor(n, map);
+      var sorted = Array.from(map.entries()).sort(function (a, b) { return a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0; });
+      result.classList.remove('empty');
+      result.innerHTML = '<b>' + n + '</b> = ' + format(new Map(sorted));
+    } catch (e) {
+      setError('分解失败：' + e.message);
+    }
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    run();
+  });
+})();
+
+</script>
+<script>
+
+(function () {
+  'use strict';
+
+  var opEl = document.getElementById('m-op');
+  var d1El = document.getElementById('m-d1'), d2El = document.getElementById('m-d2'), d3El = document.getElementById('m-d3');
+  var d1l = document.getElementById('m-d1l'), d2l = document.getElementById('m-d2l'), d3l = document.getElementById('m-d3l');
+  var matsEl = document.getElementById('m-mats'), outEl = document.getElementById('m-out'), errEl = document.getElementById('m-err');
   var SQUARE = ['det', 'inv', 'charpoly', 'eigen', 'jordan'];
 
   /* ---------- 分数 ---------- */
@@ -522,7 +793,7 @@
       } else if (kind === 'jordan') {
         var blocks = jordanForm(M.A);
         if (!blocks) {
-          outEl.innerHTML = '<p class="err">特征多项式在有理数范围内不能完全分解，无法得到有理 Jordan 标准型。</p>';
+          outEl.innerHTML = '<p class="m-err">特征多项式在有理数范围内不能完全分解，无法得到有理 Jordan 标准型。</p>';
         } else {
           outEl.innerHTML = '<p class="out-title">Jordan 标准型（对角块）</p>';
           blocks.forEach(function (block, i) {
@@ -564,12 +835,131 @@
   }
 
   opEl.addEventListener('change', function () { updateLabels(); matrixInputs(); });
-  document.getElementById('gen').addEventListener('click', matrixInputs);
-  document.getElementById('sample').addEventListener('click', fillSample);
-  document.getElementById('calc').addEventListener('click', calc);
+  document.getElementById('m-gen').addEventListener('click', matrixInputs);
+  document.getElementById('m-sample').addEventListener('click', fillSample);
+  document.getElementById('m-calc').addEventListener('click', calc);
   updateLabels();
   matrixInputs();
 })();
+
+</script>
+<script>
+
+(function () {
+  'use strict';
+
+  var opEl = document.getElementById('c-op');
+  var nEl = document.getElementById('c-n');
+  var mEl = document.getElementById('c-m');
+  var mlabel = document.getElementById('c-mlabel');
+  var outEl = document.getElementById('c-out');
+  var errEl = document.getElementById('c-err');
+
+  function readN() { return parseInt(nEl.value, 10); }
+  function readM() { return parseInt(mEl.value, 10); }
+
+  function C(n, m) {
+    m = Math.min(m, n - m);
+    var res = 1n;
+    for (var i = 0n; i < BigInt(m); i++) res = res * (BigInt(n) - i) / (i + 1n);
+    return res;
+  }
+  function P(n, m) {
+    var res = 1n;
+    for (var i = 0; i < m; i++) res *= BigInt(n - i);
+    return res;
+  }
+  function fact(n) {
+    var res = 1n;
+    for (var i = 2n; i <= BigInt(n); i++) res *= i;
+    return res;
+  }
+  function S2(n, m) {
+    var row = [1n];
+    for (var i = 1; i <= n; i++) {
+      var next = [0n];
+      for (var j = 1; j <= Math.min(i, m); j++) next[j] = (row[j] || 0n) * BigInt(j) + (row[j - 1] || 0n);
+      row = next;
+    }
+    return row[m] || 0n;
+  }
+  function S1(n, m) {
+    var row = [1n];
+    for (var i = 1; i <= n; i++) {
+      var next = [0n];
+      for (var j = 1; j <= Math.min(i, m); j++) next[j] = (row[j - 1] || 0n) + (row[j] || 0n) * BigInt(i - 1);
+      row = next;
+    }
+    return row[m] || 0n;
+  }
+  function Bell(n) {
+    var row = [1n];
+    for (var i = 1; i <= n; i++) {
+      var next = [row[row.length - 1]];
+      for (var j = 1; j <= i; j++) next[j] = next[j - 1] + (row[j - 1] || 0n);
+      row = next;
+    }
+    return row[0];
+  }
+  function Catalan(n) {
+    return C(2 * n, n) / BigInt(n + 1);
+  }
+  function group(s) {
+    return s.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+  function show(label, value) {
+    outEl.innerHTML = '<div class="head">' + label + '</div><div class="value">' + group(value) + '</div>' +
+      '<div class="head" style="margin-top:8px">十进制位数：' + value.length + '</div>';
+  }
+
+  function needsM() { return ['C', 'P', 'S2', 'S1'].indexOf(opEl.value) >= 0; }
+
+  function maxN() {
+    var k = opEl.value;
+    if (k === 'S1' || k === 'S2' || k === 'B') return 400;
+    if (k === 'Cat') return 2500;
+    return 5000;
+  }
+
+  function updateM() {
+    mlabel.style.display = needsM() ? '' : 'none';
+    nEl.max = maxN();
+  }
+
+  function calc() {
+    errEl.textContent = '';
+    outEl.innerHTML = '';
+    var n = readN(), m = readM(), kind = opEl.value, limit = maxN();
+    if (!isFinite(n) || n < 0 || n > limit) { errEl.textContent = 'n 需要在 0～' + limit + ' 之间。'; return; }
+    if (needsM()) {
+      if (!isFinite(m) || m < 0 || m > n) { errEl.textContent = 'm 需要在 0～n 之间。'; return; }
+    }
+    var val;
+    if (kind === 'C') { val = C(n, m); show('C(' + n + ', ' + m + ') =', val.toString()); }
+    else if (kind === 'P') { val = P(n, m); show('P(' + n + ', ' + m + ') =', val.toString()); }
+    else if (kind === '!') { val = fact(n); show(n + '! =', val.toString()); }
+    else if (kind === 'S2') { val = S2(n, m); show('S(' + n + ', ' + m + ') =', val.toString()); }
+    else if (kind === 'S1') { val = S1(n, m); show('s(' + n + ', ' + m + ') =', val.toString()); }
+    else if (kind === 'B') { val = Bell(n); show('B(' + n + ') =', val.toString()); }
+    else if (kind === 'Cat') { val = Catalan(n); show('Cat(' + n + ') =', val.toString()); }
+  }
+
+  opEl.addEventListener('change', function () { updateM(); calc(); });
+  document.getElementById('c-calc').addEventListener('click', calc);
+  document.querySelectorAll('.comb-examples button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      opEl.value = b.getAttribute('data-op');
+      nEl.value = b.getAttribute('data-n');
+      mEl.value = b.getAttribute('data-m');
+      updateM();
+      calc();
+    });
+  });
+
+  updateM();
+  calc();
+})();
+
 </script>
 </body>
 </html>
