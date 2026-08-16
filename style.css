@@ -120,14 +120,22 @@ a:hover { text-decoration: underline; }
 
 img { max-width: 100%; height: auto; }
 
-/* 背景接口：body 有背景图时显示 */
+/* 背景接口：用独立的 fixed 图层承载背景图。
+   之前把 background-attachment:fixed 放在 body 上，iOS/Safari 不支持，
+   会把图按整页滚动高度来 cover，手机端就只剩一个被放大的局部。 */
 body.has-bg {
-  background-image: var(--bg-image);
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
+  background: var(--bg);
 }
 body.has-bg::before {
+  content: "";
+  position: fixed; inset: 0;
+  z-index: -2;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+body.has-bg::after {
   content: "";
   position: fixed; inset: 0;
   background: color-mix(in srgb, var(--bg) var(--bg-overlay, 88%), transparent);
@@ -286,6 +294,22 @@ mark { background: #ffd66b; color: #3a2f00; border-radius: 2px; padding: 0 2px; 
   outline: 2px solid var(--accent); outline-offset: 2px;
 }
 .post-card .chip { position: relative; z-index: 2; }
+
+/* 首页专用分类文章：整篇展开显示 */
+.home-full-post {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  margin: 8px 0 16px;
+  box-shadow: var(--shadow-sm);
+}
+.home-full-post .post-header { margin-bottom: 0; }
+.home-full-post .post-title { margin: 0 0 6px; }
+.home-full-post .post-content { margin-top: 6px; }
+@media (max-width: 640px) {
+  .home-full-post { padding: 18px 16px; }
+}
 .post-card-meta {
   display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
   font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;
