@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<title>AI推荐 · LWLAymh的备忘录</title>
+<meta name="description" content="输入自己的 API Key，基于 taste-export 进行个性化推荐对话">
+<meta name="author" content="LWLAymh">
+<link rel="canonical" href="https://LWLAymh.github.io/tools/AI%E6%8E%A8%E8%8D%90/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LWLAymh的备忘录">
+<meta property="og:url" content="https://LWLAymh.github.io/tools/AI%E6%8E%A8%E8%8D%90/">
+<meta property="og:title" content="AI推荐 · LWLAymh的备忘录">
+<meta property="og:description" content="输入自己的 API Key，基于 taste-export 进行个性化推荐对话">
+<link rel="icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
+<link rel="apple-touch-icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
+<link rel="stylesheet" href="/style.css">
+
+<style>
+  .tool-page, .tool-page * { box-sizing: border-box; }
+  .tool-page { width: 100%; padding: 4px 0 8px; }
+  .tool-page .back { color: var(--text-muted); text-decoration: none; font-size: .9rem; }
+  .tool-page .back:hover { color: var(--accent); }
+  .tool-page .card {
+    margin-top: 10px; background: var(--bg-elevated); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow-sm);
+  }
+  .tool-page h1 { margin: 4px 0 8px; font-size: 1.5rem; font-family: var(--font-serif); }
+  .tool-page .hint { color: var(--text-muted); margin: 0 0 16px; font-size: .9rem; }
+  .tool-page .settings {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 14px;
+  }
+  .tool-page label { display: flex; flex-direction: column; gap: 5px; font-size: .85rem; color: var(--text-muted); }
+  .tool-page input, .tool-page select {
+    width: 100%; padding: 9px 11px; border: 1px solid var(--border); border-radius: 9px;
+    background: var(--bg-elevated); color: var(--text); font-size: .95rem; outline: none;
+  }
+  .tool-page input:focus, .tool-page select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+  .tool-page .save-key { display: flex; align-items: center; gap: 7px; font-size: .82rem; color: var(--text-muted); }
+  .tool-page .save-key input { width: auto; accent-color: var(--accent); }
+  .tool-page .key-note { font-size: .78rem; color: var(--text-faint); line-height: 1.5; }
+  .tool-page .status { margin: 10px 0 4px; min-height: 20px; font-size: .85rem; color: var(--text-muted); }
+  .tool-page .chat {
+    margin-top: 14px; height: 420px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;
+    padding: 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 12px;
+  }
+  .tool-page .msg { max-width: 82%; padding: 10px 13px; border-radius: 12px; line-height: 1.65; font-size: .95rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .tool-page .msg.user { align-self: flex-end; background: linear-gradient(135deg, var(--accent), var(--accent-deep)); color: #fff; border-bottom-right-radius: 4px; }
+  .tool-page .msg.assistant { align-self: flex-start; background: var(--bg-elevated); border: 1px solid var(--border); border-bottom-left-radius: 4px; }
+  .tool-page .msg.error { align-self: center; background: rgba(217,83,79,.1); color: #d9534f; border: 1px solid rgba(217,83,79,.3); }
+  .tool-page .input-row { display: flex; gap: 8px; margin-top: 10px; }
+  .tool-page .input-row textarea {
+    flex: 1; resize: none; height: 74px; padding: 10px 12px;
+    border: 1px solid var(--border); border-radius: 10px; background: var(--bg-elevated);
+    color: var(--text); font-size: .95rem; outline: none; font-family: inherit;
+  }
+  .tool-page .input-row textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+  .tool-page button {
+    padding: 10px 20px; border: 0; border-radius: 10px; cursor: pointer; font-size: .95rem; color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  }
+  .tool-page button:disabled { opacity: .55; cursor: not-allowed; }
+  .tool-page button.ghost { border: 1px solid var(--border); color: var(--text); background: var(--bg-elevated); }
+</style>
+</head>
+<body class="page-tool">
+<div class="progress-bar" id="progress-bar"></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="/">
+      <img class="header-avatar avatar" src="/images/头像1.jpg" alt="avatar" data-avatar>
+      <span class="brand-text">
+        <span class="brand-title">LWLAymh的备忘录</span>
+        <span class="brand-subtitle">混乱节拍拼凑出血肉喧嚷</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link active" href="/tools.html">工具</a><a class="nav-link" href="/games.html">游戏</a><a class="nav-link" href="/links.html">友链</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题"></button>
+    </nav>
+  </div>
+</header>
+<main class="site-main">
+<div class="tool-page">
+  <a class="back" href="/tools.html">← 全部工具</a>
+  <div class="card">
+    <h1>AI推荐</h1>
+    <p class="hint">输入你自己的 API Key 和模型，聊天助手会根据我的 taste-export 做个性化推荐。</p>
+
+    <div class="settings">
+      <label>API Key
+        <input id="api-key" type="password" autocomplete="off" placeholder="sk-...">
+        <small class="key-note">你的 Key 只保存在本机浏览器，并且只发送给你填写的 Base URL 所指向的 API 服务商；本站不会读取、记录或转发它。</small>
+      </label>
+      <label class="save-key"><input id="save-key" type="checkbox"> 用 Cookie 记住 30 天（仅本机，可随时取消）</label>
+      <label>模型
+        <input id="model" list="model-list" value="deepseek-chat">
+        <datalist id="model-list">
+          <option value="gpt-4o-mini"></option>
+          <option value="gpt-4o"></option>
+          <option value="deepseek-chat"></option>
+          <option value="deepseek-reasoner"></option>
+          <option value="moonshot-v1-8k"></option>
+          <option value="moonshot-v1-32k"></option>
+        </datalist>
+      </label>
+      <label>Base URL
+        <input id="base-url" list="base-list" value="https://api.deepseek.com/v1">
+        <datalist id="base-list">
+          <option value="https://api.openai.com/v1"></option>
+          <option value="https://api.deepseek.com/v1"></option>
+          <option value="https://api.moonshot.cn/v1"></option>
+        </datalist>
+      </label>
+      <label>温度
+        <input id="temperature" type="number" min="0" max="2" step="0.1" value="0.7">
+      </label>
+    </div>
+
+    <p class="status" id="status">正在读取 taste-export…</p>
+
+    <div class="chat" id="chat"></div>
+
+    <div class="input-row">
+      <textarea id="input" placeholder="想让我推荐点什么？例如：推荐三首适合深夜听的歌"></textarea>
+      <button id="send">发送</button>
+      <button class="ghost" id="clear">清空</button>
+    </div>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-signature" id="footer-signature">不过是白日梦里一瞬息</div>
+  <div class="footer-copy">© 2026 LWLAymh · Powered by DeepSeek V4 Pro</div>
+</footer>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="打开侧边栏" title="侧边栏">☰</button>
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+  <div class="sidebar-inner"><div class="toc-title">联系我</div><div class="contact-item"><span class="contact-key">微信</span><span class="contact-val">LWLAymh</span></div><div class="contact-item"><span class="contact-key">邮件</span><a class="contact-val" href="mailto:lwlaymh@outlook.com">邮件</a></div><div class="contact-item"><span class="contact-key">GitHub</span><a class="contact-val" href="https://github.com/LWLAymh" target="_blank" rel="noopener">GitHub</a></div><div class="contact-item"><span class="contact-key">洛谷</span><a class="contact-val" href="https://www.luogu.com.cn/user/661076" target="_blank" rel="noopener">洛谷</a></div></div>
+</aside>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script src="/main.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var apiKeyEl = document.getElementById('api-key');
+  var saveKeyEl = document.getElementById('save-key');
+  var modelEl = document.getElementById('model');
+  var baseEl = document.getElementById('base-url');
+  var tempEl = document.getElementById('temperature');
+  var statusEl = document.getElementById('status');
+  var chatEl = document.getElementById('chat');
+  var inputEl = document.getElementById('input');
+  var sendEl = document.getElementById('send');
+  var clearEl = document.getElementById('clear');
+
+  var LS = { base: 'ai-recommend-base', model: 'ai-recommend-model', temp: 'ai-recommend-temp', ctx: 'ai-recommend-context' };
+  var KEY_COOKIE = 'ai-recommend-key';
+  var taste = null;
+  var busy = false;
+  var messages = [];
+
+  function safeGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function safeSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function safeDel(k) { try { localStorage.removeItem(k); } catch (e) {} }
+
+  /* ---- Cookie：只保存 API Key；Secure 在 https 下自动开启，SameSite=Strict ---- */
+  function setCookie(name, value, days) {
+    var secure = location.protocol === 'https:' ? '; Secure' : '';
+    document.cookie = name + '=' + encodeURIComponent(value) +
+      '; Path=/; Max-Age=' + (days * 86400) + '; SameSite=Strict' + secure;
+  }
+  function getCookie(name) {
+    var prefix = name + '=';
+    return document.cookie.split(';').map(function (s) { return s.trim(); })
+      .filter(function (s) { return s.indexOf(prefix) === 0; })
+      .map(function (s) { return decodeURIComponent(s.slice(prefix.length)); })[0] || null;
+  }
+  function delCookie(name) {
+    setCookie(name, '', -1);
+  }
+
+  function loadSettings() {
+    var savedBase = safeGet(LS.base); if (savedBase) baseEl.value = savedBase;
+    var savedModel = safeGet(LS.model); if (savedModel) modelEl.value = savedModel;
+    var savedTemp = safeGet(LS.temp); if (savedTemp) tempEl.value = savedTemp;
+    var savedKey = getCookie(KEY_COOKIE);
+    if (savedKey) { apiKeyEl.value = savedKey; saveKeyEl.checked = true; }
+    restoreContext();
+  }
+
+  function persistSettings() {
+    safeSet(LS.base, baseEl.value.trim());
+    safeSet(LS.model, modelEl.value.trim());
+    safeSet(LS.temp, tempEl.value);
+    if (saveKeyEl.checked && apiKeyEl.value.trim()) setCookie(KEY_COOKIE, apiKeyEl.value.trim(), 30);
+    else delCookie(KEY_COOKIE);
+  }
+
+  function saveContext() {
+    safeSet(LS.ctx, JSON.stringify(messages.slice(-40))); // 只保留最近 40 条，避免 localStorage 撑爆
+  }
+  function restoreContext() {
+    var raw = safeGet(LS.ctx);
+    if (!raw) return;
+    try {
+      var arr = JSON.parse(raw);
+      if (Array.isArray(arr)) {
+        arr.forEach(function (m) {
+          if (m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string') {
+            messages.push(m);
+            addMessage(m.role, m.content);
+          }
+        });
+        if (messages.length) addMessage('assistant', '—— 已恢复上次对话，继续输入即可。');
+      }
+    } catch (e) {}
+  }
+
+  [baseEl, modelEl, tempEl].forEach(function (el) {
+    el.addEventListener('change', persistSettings);
+  });
+  apiKeyEl.addEventListener('change', persistSettings);
+  saveKeyEl.addEventListener('change', function () {
+    persistSettings();
+    statusEl.textContent = saveKeyEl.checked
+      ? 'API Key 已保存到本机 Cookie（30 天）。'
+      : 'API Key 已从 Cookie 删除，只在本次会话内存中保留。';
+  });
+
+  var tasteDoc = null;
+  fetch('./taste-export.json')
+    .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(function (doc) {
+      tasteDoc = doc;
+      // 优先使用档案自带的 system_prompt，否则把整个 JSON 作为品味资料
+      taste = typeof doc.system_prompt === 'string' ? doc.system_prompt : JSON.stringify(doc, null, 2);
+      var date = doc.exported_at ? '，导出日期 ' + doc.exported_at : '';
+      statusEl.textContent = 'taste-export 已加载（' + taste.length + ' 字符' + date + '）。';
+    })
+    .catch(function (e) {
+      taste = null;
+      statusEl.textContent = 'taste-export.json 加载失败：' + e.message + '，请确认 tools/AI推荐/taste-export.json 存在且是合法 JSON。';
+    });
+
+  function systemPrompt() {
+    if (taste) return taste;
+    return '你是“AI推荐”对话助手。用户向你输入自己的 API 后与你交互，请你根据下面的品味档案做个性化推荐。\n\n' +
+      '<TASTE>\n（taste-export 未加载）\n</TASTE>';
+  }
+
+  function addMessage(role, text) {
+    var div = document.createElement('div');
+    div.className = 'msg ' + role;
+    div.textContent = text;
+    chatEl.appendChild(div);
+    chatEl.scrollTop = chatEl.scrollHeight;
+    return div;
+  }
+
+  function finishLoading(el, text, role) {
+    if (role === 'error') {
+      el.className = 'msg error';
+    } else {
+      el.className = 'msg assistant';
+    }
+    el.textContent = text;
+    chatEl.scrollTop = chatEl.scrollHeight;
+  }
+
+  async function callAPI() {
+    var key = apiKeyEl.value.trim();
+    var model = modelEl.value.trim();
+    var base = baseEl.value.trim().replace(/\/+$/, '');
+    var temp = parseFloat(tempEl.value);
+    if (!key) throw new Error('请先填写 API Key。');
+    if (!model) throw new Error('请填写模型名称。');
+    if (!base) throw new Error('请填写 Base URL。');
+    var isLocalhost = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?(\/|$)/i.test(base);
+    if (!/^https:\/\//i.test(base) && !isLocalhost) {
+      throw new Error('Base URL 必须使用 HTTPS（localhost 除外），否则 API Key 可能以明文传输。');
+    }
+    if (!isFinite(temp)) throw new Error('温度参数无效。');
+
+    var payloadMessages = [{ role: 'system', content: systemPrompt() }].concat(messages);
+    var res = await fetch(base + '/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + key,
+      },
+      body: JSON.stringify({ model: model, messages: payloadMessages, temperature: temp }),
+    });
+    if (!res.ok) {
+      var errText = await res.text();
+      throw new Error('API 返回 ' + res.status + '：' + errText.slice(0, 300));
+    }
+    var data = await res.json();
+    var content = (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) || '';
+    if (!content) throw new Error('API 返回里没有内容，请检查模型名称与 Base URL。');
+    return content;
+  }
+
+  sendEl.addEventListener('click', function () {
+    if (busy) return;
+    var q = inputEl.value.trim();
+    if (!q) return;
+    addMessage('user', q);
+    inputEl.value = '';
+    messages.push({ role: 'user', content: q });
+    saveContext();
+    var loading = addMessage('assistant', '思考中…');
+    busy = true;
+    sendEl.disabled = true;
+    callAPI()
+      .then(function (text) {
+        messages.push({ role: 'assistant', content: text });
+        saveContext();
+        finishLoading(loading, text, 'assistant');
+      })
+      .catch(function (e) {
+        finishLoading(loading, '请求失败：' + e.message + '\n\n提示：如果报 CORS / 网络错误，说明该 API 不允许浏览器直接调用；请换一个允许浏览器 CORS 的 Base URL。', 'error');
+      })
+      .finally(function () {
+        busy = false;
+        sendEl.disabled = false;
+        chatEl.scrollTop = chatEl.scrollHeight;
+      });
+  });
+
+  inputEl.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendEl.click(); }
+  });
+
+  clearEl.addEventListener('click', function () {
+    messages = [];
+    chatEl.innerHTML = '';
+    safeDel(LS.ctx);
+  });
+
+  loadSettings();
+})();
+</script>
+</body>
+</html>

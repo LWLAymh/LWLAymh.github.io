@@ -1,0 +1,6 @@
+{
+  "title": "AI推荐",
+  "description": "输入自己的 API Key，基于 taste-export 进行个性化推荐对话",
+  "order": 2,
+  "category": "工具"
+}
