@@ -260,6 +260,7 @@ mark { background: #ffd66b; color: #3a2f00; border-radius: 2px; padding: 0 2px; 
 /* ---- 文章卡片 ---- */
 .post-list { display: flex; flex-direction: column; gap: 16px; margin-top: 8px; }
 .post-card {
+  position: relative;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -274,7 +275,17 @@ mark { background: #ffd66b; color: #3a2f00; border-radius: 2px; padding: 0 2px; 
 }
 .post-card-title { margin: 0 0 6px; font-size: 1.18rem; line-height: 1.42; font-weight: 600; font-family: var(--font-serif); }
 .post-card-title a { color: var(--text); }
-.post-card-title a:hover { color: var(--accent); text-decoration: none; }
+.post-card-title a:hover,
+.post-card:hover .post-card-title a { color: var(--accent); text-decoration: none; }
+/* 标题链接铺满整张卡片：空白、日期、摘要都可点；chips 抬高为独立按钮 */
+.post-card-title a::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; border-radius: var(--radius);
+}
+.post-card-title a:focus-visible { outline: none; }
+.post-card-title a:focus-visible::after {
+  outline: 2px solid var(--accent); outline-offset: 2px;
+}
+.post-card .chip { position: relative; z-index: 2; }
 .post-card-meta {
   display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
   font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;
@@ -319,21 +330,32 @@ mark { background: #ffd66b; color: #3a2f00; border-radius: 2px; padding: 0 2px; 
 }
 .post-content h1, .post-content h2, .post-content h3,
 .post-content h4, .post-content h5, .post-content h6 {
-  line-height: 1.42; margin: 1.6em 0 0.6em; font-weight: 700;
+  line-height: 1.42; margin: 1.6em 0 0.6em;
   scroll-margin-top: 80px;
 }
+/* 标题层级拉开：字号每级相差约 0.12rem，h3 以下用字重与颜色再作区分 */
+.post-content h1 { font-size: 1.5rem; font-weight: 700; }
 .post-content h2 {
-  position: relative; font-size: 1.38rem;
+  position: relative; font-size: 1.38rem; font-weight: 700;
   padding-bottom: 0.38em; border-bottom: 1px solid var(--border);
 }
 .post-content h2::after {
   content: ""; position: absolute; left: 0; bottom: -1px;
   width: 34px; height: 2px; border-radius: 2px; background: var(--accent);
 }
-.post-content h3 { font-size: 1.18rem; }
-.post-content h4 { font-size: 1.16rem; }
-.post-content h5 { font-size: 1.1rem; }
-.post-content h6 { font-size: 1.05rem; }
+.post-content h3 {
+  font-size: 1.24rem; font-weight: 700;
+  padding-left: 0.5em; border-left: 3px solid var(--accent);
+}
+.post-content h4 { font-size: 1.1rem; font-weight: 600; }
+.post-content h5 {
+  font-size: 1rem; font-weight: 600;
+  color: color-mix(in srgb, var(--text) 82%, var(--text-muted));
+}
+.post-content h6 {
+  font-size: 0.9rem; font-weight: 600;
+  color: var(--text-muted); letter-spacing: 0.02em;
+}
 .post-content p { margin: 0.9em 0; }
 .post-content a { border-bottom: 1px solid color-mix(in srgb, var(--accent) 42%, transparent); }
 .post-content a:hover { border-bottom-color: var(--accent); text-decoration: none; }
@@ -372,6 +394,7 @@ mark { background: #ffd66b; color: #3a2f00; border-radius: 2px; padding: 0 2px; 
 .post-content pre {
   background: var(--code-bg); border: 1px solid var(--border); border-radius: 10px;
   padding: 14px 16px; overflow-x: auto; line-height: 1.58; box-shadow: var(--shadow-sm);
+  white-space: pre; tab-size: 4;
 }
 .post-content pre code { background: transparent; padding: 0; font-size: 0.86rem; }
 
@@ -430,6 +453,8 @@ mjx-container[display="true"] + br { display: none; }
 }
 .contact-key { color: var(--text-faint); white-space: nowrap; }
 .contact-val { color: var(--text); word-break: break-all; text-align: right; }
+.contact-link { color: var(--text); text-decoration: none; }
+.contact-link:hover { color: var(--accent); background: var(--accent-soft); }
 
 /* ---- 上一篇 / 下一篇 ---- */
 .post-nav {
@@ -515,6 +540,16 @@ mjx-container[display="true"] + br { display: none; }
 .post-link-list li a { color: var(--text); }
 .post-link-list li a:hover { color: var(--accent); text-decoration: none; }
 .post-link-list time { color: var(--text-faint); font-size: 0.8rem; white-space: nowrap; }
+
+/* ---- 嵌套子分类 ---- */
+.post-link-list li.cat-branch { display: block; padding: 4px 0 2px; border-bottom: 0; }
+.cat-branch-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+  padding: 8px 2px 4px; font-size: 0.95rem; font-weight: 600;
+}
+.cat-branch-head .cat-count { color: var(--text-faint); font-size: 0.78rem; font-weight: 400; }
+.post-link-list .cat-nested { padding-left: 1.5rem; }
+.cat-nested .cat-branch-head { font-size: 0.9rem; font-weight: 500; }
 
 /* ---- 关于页 ---- */
 .about-head { display: flex; gap: 22px; align-items: center; margin: 16px 0 28px; flex-wrap: wrap; }

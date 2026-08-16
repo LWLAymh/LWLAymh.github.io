@@ -18,19 +18,1161 @@
 <link rel="icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
 <link rel="apple-touch-icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
 <link rel="stylesheet" href="/style.css">
-<script>
-window.MathJax = {
-  tex: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\\[','\\]']],
-    processEscapes: true
-  },
-  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
-  startup: { ready: () => MathJax.startup.defaultReady() }
-};
-</script>
-<script id="MathJax-script" async src="/vendor/mathjax/tex-chtml-full.js"></script>
 
+<style id="MJX-CHTML-prerender">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+_::-webkit-full-page-media, _:future, :root mjx-container {
+  will-change: opacity;
+}
+
+mjx-math {
+  display: inline-block;
+  text-align: left;
+  line-height: 0;
+  text-indent: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  font-size-adjust: none;
+  letter-spacing: normal;
+  border-collapse: collapse;
+  word-wrap: normal;
+  word-spacing: normal;
+  white-space: nowrap;
+  direction: ltr;
+  padding: 1px 0;
+}
+
+mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="CHTML"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="CHTML"][display="true"] mjx-math {
+  padding: 0;
+}
+
+mjx-container[jax="CHTML"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="CHTML"][justify="right"] {
+  text-align: right;
+}
+
+mjx-mfrac {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-frac {
+  display: inline-block;
+  vertical-align: 0.17em;
+  padding: 0 .22em;
+}
+
+mjx-frac[type="d"] {
+  vertical-align: .04em;
+}
+
+mjx-frac[delims] {
+  padding: 0 .1em;
+}
+
+mjx-frac[atop] {
+  padding: 0 .12em;
+}
+
+mjx-frac[atop][delims] {
+  padding: 0;
+}
+
+mjx-dtable {
+  display: inline-table;
+  width: 100%;
+}
+
+mjx-dtable > * {
+  font-size: 2000%;
+}
+
+mjx-dbox {
+  display: block;
+  font-size: 5%;
+}
+
+mjx-num {
+  display: block;
+  text-align: center;
+}
+
+mjx-den {
+  display: block;
+  text-align: center;
+}
+
+mjx-mfrac[bevelled] > mjx-num {
+  display: inline-block;
+}
+
+mjx-mfrac[bevelled] > mjx-den {
+  display: inline-block;
+}
+
+mjx-den[align="right"], mjx-num[align="right"] {
+  text-align: right;
+}
+
+mjx-den[align="left"], mjx-num[align="left"] {
+  text-align: left;
+}
+
+mjx-nstrut {
+  display: inline-block;
+  height: .054em;
+  width: 0;
+  vertical-align: -.054em;
+}
+
+mjx-nstrut[type="d"] {
+  height: .217em;
+  vertical-align: -.217em;
+}
+
+mjx-dstrut {
+  display: inline-block;
+  height: .505em;
+  width: 0;
+}
+
+mjx-dstrut[type="d"] {
+  height: .726em;
+}
+
+mjx-line {
+  display: block;
+  box-sizing: border-box;
+  min-height: 1px;
+  height: .06em;
+  border-top: .06em solid;
+  margin: .06em -.1em;
+  overflow: hidden;
+}
+
+mjx-line[type="d"] {
+  margin: .18em -.1em;
+}
+
+mjx-mrow {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mi {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c {
+  display: inline-block;
+}
+
+mjx-utext {
+  display: inline-block;
+  padding: .75em 0 .2em 0;
+}
+
+mjx-mo {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-stretchy-h {
+  display: inline-table;
+  width: 100%;
+}
+
+mjx-stretchy-h > * {
+  display: table-cell;
+  width: 0;
+}
+
+mjx-stretchy-h > * > mjx-c {
+  display: inline-block;
+  transform: scalex(1.0000001);
+}
+
+mjx-stretchy-h > * > mjx-c::before {
+  display: inline-block;
+  width: initial;
+}
+
+mjx-stretchy-h > mjx-ext {
+  /* IE */ overflow: hidden;
+  /* others */ overflow: clip visible;
+  width: 100%;
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c::before {
+  transform: scalex(500);
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c {
+  width: 0;
+}
+
+mjx-stretchy-h > mjx-beg > mjx-c {
+  margin-right: -.1em;
+}
+
+mjx-stretchy-h > mjx-end > mjx-c {
+  margin-left: -.1em;
+}
+
+mjx-stretchy-v {
+  display: inline-block;
+}
+
+mjx-stretchy-v > * {
+  display: block;
+}
+
+mjx-stretchy-v > mjx-beg {
+  height: 0;
+}
+
+mjx-stretchy-v > mjx-end > mjx-c {
+  display: block;
+}
+
+mjx-stretchy-v > * > mjx-c {
+  transform: scaley(1.0000001);
+  transform-origin: left center;
+  overflow: hidden;
+}
+
+mjx-stretchy-v > mjx-ext {
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  border: 0px solid transparent;
+  /* IE */ overflow: hidden;
+  /* others */ overflow: visible clip;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c::before {
+  width: initial;
+  box-sizing: border-box;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c {
+  transform: scaleY(500) translateY(.075em);
+  overflow: visible;
+}
+
+mjx-mark {
+  display: inline-block;
+  height: 0px;
+}
+
+mjx-msub {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mn {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mtable {
+  display: inline-block;
+  text-align: center;
+  vertical-align: .25em;
+  position: relative;
+  box-sizing: border-box;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+mjx-mstyle[size="s"] mjx-mtable {
+  vertical-align: .354em;
+}
+
+mjx-labels {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+mjx-table {
+  display: inline-block;
+  vertical-align: -.5ex;
+  box-sizing: border-box;
+}
+
+mjx-table > mjx-itable {
+  vertical-align: middle;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+mjx-labels > mjx-itable {
+  position: absolute;
+  top: 0;
+}
+
+mjx-mtable[justify="left"] {
+  text-align: left;
+}
+
+mjx-mtable[justify="right"] {
+  text-align: right;
+}
+
+mjx-mtable[justify="left"][side="left"] {
+  padding-right: 0 ! important;
+}
+
+mjx-mtable[justify="left"][side="right"] {
+  padding-left: 0 ! important;
+}
+
+mjx-mtable[justify="right"][side="left"] {
+  padding-right: 0 ! important;
+}
+
+mjx-mtable[justify="right"][side="right"] {
+  padding-left: 0 ! important;
+}
+
+mjx-mtable[align] {
+  vertical-align: baseline;
+}
+
+mjx-mtable[align="top"] > mjx-table {
+  vertical-align: top;
+}
+
+mjx-mtable[align="bottom"] > mjx-table {
+  vertical-align: bottom;
+}
+
+mjx-mtable[side="right"] mjx-labels {
+  min-width: 100%;
+}
+
+mjx-mtr {
+  display: table-row;
+  text-align: left;
+}
+
+mjx-mtr[rowalign="top"] > mjx-mtd {
+  vertical-align: top;
+}
+
+mjx-mtr[rowalign="center"] > mjx-mtd {
+  vertical-align: middle;
+}
+
+mjx-mtr[rowalign="bottom"] > mjx-mtd {
+  vertical-align: bottom;
+}
+
+mjx-mtr[rowalign="baseline"] > mjx-mtd {
+  vertical-align: baseline;
+}
+
+mjx-mtr[rowalign="axis"] > mjx-mtd {
+  vertical-align: .25em;
+}
+
+mjx-mtd {
+  display: table-cell;
+  text-align: center;
+  padding: .215em .4em;
+}
+
+mjx-mtd:first-child {
+  padding-left: 0;
+}
+
+mjx-mtd:last-child {
+  padding-right: 0;
+}
+
+mjx-mtable > * > mjx-itable > *:first-child > mjx-mtd {
+  padding-top: 0;
+}
+
+mjx-mtable > * > mjx-itable > *:last-child > mjx-mtd {
+  padding-bottom: 0;
+}
+
+mjx-tstrut {
+  display: inline-block;
+  height: 1em;
+  vertical-align: -.25em;
+}
+
+mjx-labels[align="left"] > mjx-mtr > mjx-mtd {
+  text-align: left;
+}
+
+mjx-labels[align="right"] > mjx-mtr > mjx-mtd {
+  text-align: right;
+}
+
+mjx-mtd[extra] {
+  padding: 0;
+}
+
+mjx-mtd[rowalign="top"] {
+  vertical-align: top;
+}
+
+mjx-mtd[rowalign="center"] {
+  vertical-align: middle;
+}
+
+mjx-mtd[rowalign="bottom"] {
+  vertical-align: bottom;
+}
+
+mjx-mtd[rowalign="baseline"] {
+  vertical-align: baseline;
+}
+
+mjx-mtd[rowalign="axis"] {
+  vertical-align: .25em;
+}
+
+mjx-TeXAtom {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mover {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mover:not([limits="false"]) {
+  padding-top: .1em;
+}
+
+mjx-mover:not([limits="false"]) > * {
+  display: block;
+  text-align: left;
+}
+
+mjx-munderover {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-munderover:not([limits="false"]) {
+  padding-top: .1em;
+}
+
+mjx-munderover:not([limits="false"]) > * {
+  display: block;
+}
+
+mjx-msubsup {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-script {
+  display: inline-block;
+  padding-right: .05em;
+  padding-left: .033em;
+}
+
+mjx-script > mjx-spacer {
+  display: block;
+}
+
+mjx-mspace {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("/vendor/mathjax/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
+}
+
+mjx-stretchy-v.mjx-c7B mjx-beg mjx-c::before {
+  content: "\23A7";
+  padding: 0.899em 0.889em 0.01em 0;
+}
+
+mjx-stretchy-v.mjx-c7B mjx-ext mjx-c::before {
+  content: "\23AA";
+  width: 0.889em;
+}
+
+mjx-stretchy-v.mjx-c7B mjx-end mjx-c::before {
+  content: "\23A9";
+  padding: 0.01em 0.889em 0.899em 0;
+}
+
+mjx-stretchy-v.mjx-c7B mjx-mid mjx-c::before {
+  content: "\23A8";
+  padding: 1.16em 0.889em 0.66em 0;
+}
+
+mjx-stretchy-v.mjx-c7B > mjx-mid {
+  margin-top: -0.91em;
+  margin-bottom: -0.91em;
+}
+
+mjx-stretchy-v.mjx-c7B > mjx-end {
+  margin-top: -0.909em;
+}
+
+mjx-stretchy-v.mjx-c7B > mjx-ext {
+  height: 50%;
+  border-top-width: 0.879em;
+  border-bottom-width: 0.879em;
+}
+
+mjx-stretchy-h.mjx-c2192 mjx-ext mjx-c::before {
+  content: "\2212";
+  padding: 0.583em 0 0.082em 0;
+}
+
+mjx-stretchy-h.mjx-c2192 mjx-end mjx-c::before {
+  content: "\2192";
+  padding: 0.583em 0 0.082em 0;
+}
+
+mjx-c.mjx-c1D465.TEX-I::before {
+  padding: 0.442em 0.572em 0.011em 0;
+  content: "x";
+}
+
+mjx-c.mjx-c2212::before {
+  padding: 0.583em 0.778em 0.082em 0;
+  content: "\2212";
+}
+
+mjx-c.mjx-c30::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "0";
+}
+
+mjx-c.mjx-c1D45B.TEX-I::before {
+  padding: 0.442em 0.6em 0.011em 0;
+  content: "n";
+}
+
+mjx-c.mjx-c3D::before {
+  padding: 0.583em 0.778em 0.082em 0;
+  content: "=";
+}
+
+mjx-c.mjx-c1D466.TEX-I::before {
+  padding: 0.442em 0.49em 0.205em 0;
+  content: "y";
+}
+
+mjx-c.mjx-c1D45A.TEX-I::before {
+  padding: 0.442em 0.878em 0.011em 0;
+  content: "m";
+}
+
+mjx-c.mjx-c1D467.TEX-I::before {
+  padding: 0.442em 0.465em 0.011em 0;
+  content: "z";
+}
+
+mjx-c.mjx-c1D45D.TEX-I::before {
+  padding: 0.442em 0.503em 0.194em 0;
+  content: "p";
+}
+
+mjx-c.mjx-c2B::before {
+  padding: 0.583em 0.778em 0.082em 0;
+  content: "+";
+}
+
+mjx-c.mjx-c1D461.TEX-I::before {
+  padding: 0.626em 0.361em 0.011em 0;
+  content: "t";
+}
+
+mjx-c.mjx-c1D434.TEX-I::before {
+  padding: 0.716em 0.75em 0 0;
+  content: "A";
+}
+
+mjx-c.mjx-c28::before {
+  padding: 0.75em 0.389em 0.25em 0;
+  content: "(";
+}
+
+mjx-c.mjx-c29::before {
+  padding: 0.75em 0.389em 0.25em 0;
+  content: ")";
+}
+
+mjx-c.mjx-c1D435.TEX-I::before {
+  padding: 0.683em 0.759em 0 0;
+  content: "B";
+}
+
+mjx-c.mjx-c1D436.TEX-I::before {
+  padding: 0.705em 0.76em 0.022em 0;
+  content: "C";
+}
+
+mjx-c.mjx-c1D437.TEX-I::before {
+  padding: 0.683em 0.828em 0 0;
+  content: "D";
+}
+
+mjx-c.mjx-c20D7.TEX-V::before {
+  padding: 0.714em 0.5em 0 0;
+  content: "\2192";
+}
+
+mjx-c.mjx-c1D44E.TEX-I::before {
+  padding: 0.441em 0.529em 0.01em 0;
+  content: "a";
+}
+
+mjx-c.mjx-c22C5::before {
+  padding: 0.31em 0.278em 0 0;
+  content: "\22C5";
+}
+
+mjx-c.mjx-c1D44F.TEX-I::before {
+  padding: 0.694em 0.429em 0.011em 0;
+  content: "b";
+}
+
+mjx-c.mjx-c7C::before {
+  padding: 0.75em 0.278em 0.249em 0;
+  content: "|";
+}
+
+mjx-c.mjx-c63::before {
+  padding: 0.448em 0.444em 0.011em 0;
+  content: "c";
+}
+
+mjx-c.mjx-c6F::before {
+  padding: 0.448em 0.5em 0.01em 0;
+  content: "o";
+}
+
+mjx-c.mjx-c73::before {
+  padding: 0.448em 0.394em 0.011em 0;
+  content: "s";
+}
+
+mjx-c.mjx-c2061::before {
+  padding: 0 0 0 0;
+  content: "";
+}
+
+mjx-c.mjx-c1D703.TEX-I::before {
+  padding: 0.705em 0.469em 0.01em 0;
+  content: "\3B8";
+}
+
+mjx-c.mjx-c22A5::before {
+  padding: 0.668em 0.778em 0 0;
+  content: "\22A5";
+}
+
+mjx-c.mjx-c3E::before {
+  padding: 0.54em 0.778em 0.04em 0;
+  content: ">";
+}
+
+mjx-c.mjx-c39::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "9";
+}
+
+mjx-c.mjx-cB0::before {
+  padding: 0.715em 0.5em 0 0;
+  content: "\B0";
+}
+
+mjx-c.mjx-c3C::before {
+  padding: 0.54em 0.778em 0.04em 0;
+  content: "<";
+}
+
+mjx-c.mjx-cD7::before {
+  padding: 0.491em 0.778em 0 0;
+  content: "\D7";
+}
+
+mjx-c.mjx-c2C::before {
+  padding: 0.121em 0.278em 0.194em 0;
+  content: ",";
+}
+
+mjx-c.mjx-c5B.TEX-S3::before {
+  padding: 1.45em 0.528em 0.949em 0;
+  content: "[";
+}
+
+mjx-c.mjx-c69::before {
+  padding: 0.669em 0.278em 0 0;
+  content: "i";
+}
+
+mjx-c.mjx-c6E::before {
+  padding: 0.442em 0.556em 0 0;
+  content: "n";
+}
+
+mjx-c.mjx-c5D.TEX-S3::before {
+  padding: 1.45em 0.528em 0.949em 0;
+  content: "]";
+}
+
+mjx-c.mjx-c1D43F.TEX-I::before {
+  padding: 0.683em 0.681em 0 0;
+  content: "L";
+}
+
+mjx-c.mjx-c31::before {
+  padding: 0.666em 0.5em 0 0;
+  content: "1";
+}
+
+mjx-c.mjx-c32::before {
+  padding: 0.666em 0.5em 0 0;
+  content: "2";
+}
+
+mjx-c.mjx-c1D459.TEX-I::before {
+  padding: 0.694em 0.298em 0.011em 0;
+  content: "l";
+}
+
+mjx-c.mjx-c1D460.TEX-I::before {
+  padding: 0.442em 0.469em 0.01em 0;
+  content: "s";
+}
+
+mjx-c.mjx-c1D45F.TEX-I::before {
+  padding: 0.442em 0.451em 0.011em 0;
+  content: "r";
+}
+
+mjx-c.mjx-c1D442.TEX-I::before {
+  padding: 0.704em 0.763em 0.022em 0;
+  content: "O";
+}
+
+mjx-c.mjx-c1D446.TEX-I::before {
+  padding: 0.705em 0.645em 0.022em 0;
+  content: "S";
+}
+
+mjx-c.mjx-c2211.TEX-S1::before {
+  padding: 0.75em 1.056em 0.25em 0;
+  content: "\2211";
+}
+
+mjx-c.mjx-c1D456.TEX-I::before {
+  padding: 0.661em 0.345em 0.011em 0;
+  content: "i";
+}
+
+mjx-c.mjx-c1D443.TEX-I::before {
+  padding: 0.683em 0.751em 0 0;
+  content: "P";
+}
+
+mjx-c.mjx-c7B::before {
+  padding: 0.75em 0.5em 0.25em 0;
+  content: "{";
+}
+
+mjx-c.mjx-c2223::before {
+  padding: 0.75em 0.278em 0.249em 0;
+  content: "\2223";
+}
+
+mjx-c.mjx-c2208::before {
+  padding: 0.54em 0.667em 0.04em 0;
+  content: "\2208";
+}
+
+mjx-c.mjx-c7D::before {
+  padding: 0.75em 0.5em 0.25em 0;
+  content: "}";
+}
+
+mjx-c.mjx-c1D450.TEX-I::before {
+  padding: 0.442em 0.433em 0.011em 0;
+  content: "c";
+}
+
+mjx-c.mjx-c2265::before {
+  padding: 0.636em 0.778em 0.138em 0;
+  content: "\2265";
+}
+
+mjx-c.mjx-c1D440.TEX-I::before {
+  padding: 0.683em 1.051em 0 0;
+  content: "M";
+}
+
+mjx-c.mjx-c1D711.TEX-I::before {
+  padding: 0.442em 0.654em 0.218em 0;
+  content: "\3C6";
+}
+
+mjx-c.mjx-c61::before {
+  padding: 0.448em 0.5em 0.011em 0;
+  content: "a";
+}
+
+mjx-c.mjx-c72::before {
+  padding: 0.442em 0.392em 0 0;
+  content: "r";
+}
+
+mjx-c.mjx-c1D453.TEX-I::before {
+  padding: 0.705em 0.55em 0.205em 0;
+  content: "f";
+}
+</style>
 </head>
 <body class="page-post">
 <div class="progress-bar" id="progress-bar"></div>
@@ -69,159 +1211,159 @@ window.MathJax = {
 <pre class="hljs"><code class="language-cpp"><span class="hljs-type">const</span> <span class="hljs-type">double</span> eps=<span class="hljs-number">1e-10</span></code></pre><p>浮点数计算存在误差,因此大部分时候不能直接进行大小是否相等的判断,我们需要通过规定精度来减少这种误差.</p>
 <h4 id="toc-3">sign</h4>
 <pre class="hljs"><code class="language-cpp"><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">int</span> <span class="hljs-title">sign</span><span class="hljs-params">(<span class="hljs-type">double</span> x)</span></span>{
-<span class="hljs-keyword">if</span>(x&lt;eps&amp;&amp;-x&lt;eps)<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-<span class="hljs-keyword">if</span>(x&gt;eps)<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
-<span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    <span class="hljs-keyword">if</span>(x&lt;eps&amp;&amp;-x&lt;eps)<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">if</span>(x&gt;eps)<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
 }</code></pre><p>用于判断一个浮点数是正数还是负数.</p>
 <h4 id="toc-4">myabs</h4>
 <pre class="hljs"><code class="language-cpp"><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">double</span> <span class="hljs-title">myabs</span><span class="hljs-params">(<span class="hljs-type">double</span> x)</span></span>{
-<span class="hljs-keyword">if</span>(<span class="hljs-built_in">sign</span>(x)==<span class="hljs-number">-1</span>)<span class="hljs-keyword">return</span> -x;
-<span class="hljs-keyword">return</span> x;
+    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">sign</span>(x)==<span class="hljs-number">-1</span>)<span class="hljs-keyword">return</span> -x;
+    <span class="hljs-keyword">return</span> x;
 }</code></pre><p>用来求绝对值.</p>
 <h4 id="toc-5">mysqr</h4>
 <pre class="hljs"><code class="language-cpp"><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">double</span> <span class="hljs-title">mysqr</span><span class="hljs-params">(<span class="hljs-type">double</span> x)</span></span>{
-<span class="hljs-keyword">return</span> x*x;
+    <span class="hljs-keyword">return</span> x*x;
 }</code></pre><p>用来求平方.</p>
 <h4 id="toc-6">Point/Vector</h4>
 <pre class="hljs"><code class="language-cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Point</span>{
-<span class="hljs-type">double</span> x,y;
-<span class="hljs-built_in">Point</span>(<span class="hljs-type">double</span> X,<span class="hljs-type">double</span> Y){
-x=X;y=Y;
-}
-<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">double</span> <span class="hljs-title">len</span><span class="hljs-params">()</span></span>{<span class="hljs-comment">//判断到原点的距离</span>
-<span class="hljs-keyword">return</span> std::<span class="hljs-built_in">sqrt</span>(x*x+y*y);
-}
-<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">int</span> <span class="hljs-title">que</span><span class="hljs-params">()</span></span>{<span class="hljs-comment">//判断点的象限</span>
-<span class="hljs-keyword">if</span>(<span class="hljs-built_in">sign</span>(x)== <span class="hljs-number">1</span>&amp;&amp;<span class="hljs-built_in">sign</span>(y)== <span class="hljs-number">1</span>)<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
-<span class="hljs-keyword">if</span>(<span class="hljs-built_in">sign</span>(x)==<span class="hljs-number">-1</span>&amp;&amp;<span class="hljs-built_in">sign</span>(y)== <span class="hljs-number">1</span>)<span class="hljs-keyword">return</span> <span class="hljs-number">2</span>;
-<span class="hljs-keyword">if</span>(<span class="hljs-built_in">sign</span>(x)==<span class="hljs-number">-1</span>&amp;&amp;<span class="hljs-built_in">sign</span>(y)==<span class="hljs-number">-1</span>)<span class="hljs-keyword">return</span> <span class="hljs-number">3</span>;
-<span class="hljs-keyword">return</span> <span class="hljs-number">4</span>;
-}
+    <span class="hljs-type">double</span> x,y;
+    <span class="hljs-built_in">Point</span>(<span class="hljs-type">double</span> X,<span class="hljs-type">double</span> Y){
+        x=X;y=Y;
+    }
+    <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">double</span> <span class="hljs-title">len</span><span class="hljs-params">()</span></span>{<span class="hljs-comment">//判断到原点的距离</span>
+        <span class="hljs-keyword">return</span> std::<span class="hljs-built_in">sqrt</span>(x*x+y*y);
+    }
+    <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">int</span> <span class="hljs-title">que</span><span class="hljs-params">()</span></span>{<span class="hljs-comment">//判断点的象限</span>
+        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">sign</span>(x)== <span class="hljs-number">1</span>&amp;&amp;<span class="hljs-built_in">sign</span>(y)== <span class="hljs-number">1</span>)<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">sign</span>(x)==<span class="hljs-number">-1</span>&amp;&amp;<span class="hljs-built_in">sign</span>(y)== <span class="hljs-number">1</span>)<span class="hljs-keyword">return</span> <span class="hljs-number">2</span>;
+        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">sign</span>(x)==<span class="hljs-number">-1</span>&amp;&amp;<span class="hljs-built_in">sign</span>(y)==<span class="hljs-number">-1</span>)<span class="hljs-keyword">return</span> <span class="hljs-number">3</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-number">4</span>;
+    }
 };
 <span class="hljs-keyword">inline</span> Point <span class="hljs-keyword">operator</span> +(<span class="hljs-type">const</span> Point &amp;A,<span class="hljs-type">const</span> Point &amp;B){
-<span class="hljs-keyword">return</span> <span class="hljs-built_in">Point</span>(A.x+B.x,A.y+B.y);
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Point</span>(A.x+B.x,A.y+B.y);
 }
 <span class="hljs-keyword">inline</span> Point <span class="hljs-keyword">operator</span> -(<span class="hljs-type">const</span> Point &amp;A,<span class="hljs-type">const</span> Point &amp;B){
-<span class="hljs-keyword">return</span> <span class="hljs-built_in">Point</span>(A.x-B.x,A.y-B.y);
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Point</span>(A.x-B.x,A.y-B.y);
 }
 <span class="hljs-keyword">inline</span> Point <span class="hljs-keyword">operator</span> *(<span class="hljs-type">const</span> <span class="hljs-type">double</span> &amp;c,<span class="hljs-type">const</span> Point &amp;A){
-<span class="hljs-keyword">return</span> <span class="hljs-built_in">Point</span>(c*A.x,c*A.y);
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Point</span>(c*A.x,c*A.y);
 }
 <span class="hljs-keyword">inline</span> Point <span class="hljs-keyword">operator</span> *(<span class="hljs-type">const</span> Point &amp;A,<span class="hljs-type">const</span> <span class="hljs-type">double</span> &amp;c){
-<span class="hljs-keyword">return</span> <span class="hljs-built_in">Point</span>(c*A.x,c*A.y);
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Point</span>(c*A.x,c*A.y);
 }
 <span class="hljs-keyword">inline</span> Point <span class="hljs-keyword">operator</span> /(<span class="hljs-type">const</span> Point &amp;A,<span class="hljs-type">const</span> <span class="hljs-type">double</span> &amp;c){
-<span class="hljs-keyword">return</span> <span class="hljs-built_in">Point</span>(A.x/c,A.y/c);
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Point</span>(A.x/c,A.y/c);
 }
 <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">double</span> <span class="hljs-title">dist</span><span class="hljs-params">(<span class="hljs-type">const</span> Point &amp;A,<span class="hljs-type">const</span> Point &amp;B)</span></span>{
-<span class="hljs-keyword">return</span> std::<span class="hljs-built_in">sqrt</span>(<span class="hljs-built_in">mysqr</span>(A.x-B.x)+<span class="hljs-built_in">mysqr</span>(A.y-B.y));
+    <span class="hljs-keyword">return</span> std::<span class="hljs-built_in">sqrt</span>(<span class="hljs-built_in">mysqr</span>(A.x-B.x)+<span class="hljs-built_in">mysqr</span>(A.y-B.y));
 }</code></pre><p>存储基本的点的信息.也可以看作一个二维向量.</p>
 <h4 id="toc-7">向量内积</h4>
 <pre class="hljs"><code class="language-cpp"><span class="hljs-keyword">inline</span> <span class="hljs-type">double</span> <span class="hljs-keyword">operator</span> *(<span class="hljs-type">const</span> Point &amp;A,<span class="hljs-type">const</span> Point &amp;B){
-<span class="hljs-keyword">return</span> A.x*B.x+A.y*B.y;
-}</code></pre><p>也就是$\vec{ a } \cdot \vec{ b } = | \vec{ a } | | \vec{ b } | \cos \theta = x_a x_b + y_a y_b$.也就等于$\vec{ a }$在$b$上的投影与$\vec{ b }$的模长的乘积.</p>
+    <span class="hljs-keyword">return</span> A.x*B.x+A.y*B.y;
+}</code></pre><p>也就是<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base style="padding-top: 0.001em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c22C5"></mjx-c></mjx-mo><mjx-TeXAtom space="3" texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.214em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base style="padding-top: 0.001em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.214em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo><mjx-mi class="mjx-n" space="2"><mjx-c class="mjx-c63"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c73"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D703 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msub space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math></mjx-container>.也就等于<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base style="padding-top: 0.001em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math></mjx-container>在<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>上的投影与<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.214em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math></mjx-container>的模长的乘积.</p>
 <p>内积可以用来判断夹角:</p>
 <ol>
 <li>
-<p>如果$\vec{ a } \cdot \vec{ b } = 0$,则说明$\vec{ a } \bot \vec{ b }$.</p>
+<p>如果<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base style="padding-top: 0.001em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c22C5"></mjx-c></mjx-mo><mjx-TeXAtom space="3" texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.214em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math></mjx-container>,则说明<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base style="padding-top: 0.001em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A5"></mjx-c></mjx-mi><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.214em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math></mjx-container>.</p>
 </li>
 <li>
-<p>如果$\vec{ a } \cdot \vec{ b } > 0$,则说明$\vec{ a }$和$\vec{ b }$正方向的夹角小于$90 \degree$.</p>
+<p>如果<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base style="padding-top: 0.001em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c22C5"></mjx-c></mjx-mo><mjx-TeXAtom space="3" texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.214em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math></mjx-container>,则说明<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base style="padding-top: 0.001em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math></mjx-container>和<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.214em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math></mjx-container>正方向的夹角小于<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mi class="mjx-n MathML-Unit"><mjx-c class="mjx-cB0"></mjx-c></mjx-mi></mjx-math></mjx-container>.</p>
 </li>
 <li>
-<p>如果$\vec{ a } \cdot \vec{ b } < 0$,则说明$\vec{ a }$和$\vec{ b }$正方向的夹角大于$90 \degree$.</p>
+<p>如果<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base style="padding-top: 0.001em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c22C5"></mjx-c></mjx-mo><mjx-TeXAtom space="3" texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.214em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math></mjx-container>,则说明<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base style="padding-top: 0.001em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math></mjx-container>和<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.214em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math></mjx-container>正方向的夹角大于<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mi class="mjx-n MathML-Unit"><mjx-c class="mjx-cB0"></mjx-c></mjx-mi></mjx-math></mjx-container>.</p>
 </li>
 </ol>
 <p>两个向量同时旋转相同角度,其内积结果不变.</p>
 <h4 id="toc-8">向量叉积</h4>
 <pre class="hljs"><code class="language-cpp"><span class="hljs-type">double</span> <span class="hljs-keyword">operator</span> ^(<span class="hljs-type">const</span> Point &amp;A,<span class="hljs-type">const</span> Point &amp;B){
-<span class="hljs-keyword">return</span> A.x*B.y-B.x*A.y;
-}</code></pre><p>也就是$\vec{ a } \times \vec{ b } = x_a y_b - y_a x_b$.也就等于$\vec{ a } , \vec{ b }$两个向量张成的平行四边形(有向)的面积.</p>
+    <span class="hljs-keyword">return</span> A.x*B.y-B.x*A.y;
+}</code></pre><p>也就是<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base style="padding-top: 0.001em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cD7"></mjx-c></mjx-mo><mjx-TeXAtom space="3" texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.214em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msub space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math></mjx-container>.也就等于<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base style="padding-top: 0.001em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-TeXAtom space="2" texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.214em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math></mjx-container>两个向量张成的平行四边形(有向)的面积.</p>
 <p>叉积可以用来判断方向:</p>
 <ol>
 <li>
-<p>如果$\vec{ a } \times \vec{ b } = 0$,说明二者共线.</p>
+<p>如果<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base style="padding-top: 0.001em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cD7"></mjx-c></mjx-mo><mjx-TeXAtom space="3" texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.214em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math></mjx-container>,说明二者共线.</p>
 </li>
 <li>
-<p>如果$\vec{ a } \times \vec{ b } < 0$,说明从$\vec{ a }$到$\vec{ b }$的方向是顺时针.</p>
+<p>如果<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base style="padding-top: 0.001em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cD7"></mjx-c></mjx-mo><mjx-TeXAtom space="3" texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.214em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math></mjx-container>,说明从<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base style="padding-top: 0.001em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math></mjx-container>到<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.214em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math></mjx-container>的方向是顺时针.</p>
 </li>
 <li>
-<p>如果$\vec{ a } \times \vec{ b } > 0$,说明从$\vec{ a }$到$\vec{ b }$的方向是逆时针.</p>
+<p>如果<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base style="padding-top: 0.001em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cD7"></mjx-c></mjx-mo><mjx-TeXAtom space="3" texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.214em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math></mjx-container>,说明从<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base style="padding-top: 0.001em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math></mjx-container>到<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.214em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math></mjx-container>的方向是逆时针.</p>
 </li>
 </ol>
 <h4 id="toc-9">向量旋转</h4>
 <pre class="hljs"><code class="language-cpp"><span class="hljs-comment">//插入Point内部</span>
 <span class="hljs-function"><span class="hljs-keyword">inline</span> Point <span class="hljs-title">rotate</span><span class="hljs-params">(<span class="hljs-type">double</span> theta)</span></span>{
-<span class="hljs-type">double</span> st=std::<span class="hljs-built_in">sin</span>(theta),<span class="hljs-type">double</span> ct=std::<span class="hljs-built_in">cos</span>(theta);
-<span class="hljs-keyword">return</span> <span class="hljs-built_in">Point</span>(x*ct-A.y*st,A.x*st+A.y*ct);
-}</code></pre><p>也就是将这个竖向量乘左乘旋转矩阵$\begin{bmatrix}\cos \theta & - \sin \theta \\ \sin \theta & \cos \theta\end{bmatrix}$.</p>
+    <span class="hljs-type">double</span> st=std::<span class="hljs-built_in">sin</span>(theta),<span class="hljs-type">double</span> ct=std::<span class="hljs-built_in">cos</span>(theta);
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Point</span>(x*ct-A.y*st,A.x*st+A.y*ct);
+}</code></pre><p>也就是将这个竖向量乘左乘旋转矩阵<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mrow><mjx-mo class="mjx-s3"><mjx-c class="mjx-c5B TEX-S3"></mjx-c></mjx-mo><mjx-mtable style="min-width: 5.782em;"><mjx-table><mjx-itable><mjx-mtr><mjx-mtd style="padding-right: 0.5em; padding-bottom: 0.2em;"><mjx-mi class="mjx-n"><mjx-c class="mjx-c63"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c73"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D703 TEX-I"></mjx-c></mjx-mi><mjx-tstrut></mjx-tstrut></mjx-mtd><mjx-mtd style="padding-left: 0.5em; padding-bottom: 0.2em;"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-n" space="2"><mjx-c class="mjx-c73"></mjx-c><mjx-c class="mjx-c69"></mjx-c><mjx-c class="mjx-c6E"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D703 TEX-I"></mjx-c></mjx-mi><mjx-tstrut></mjx-tstrut></mjx-mtd></mjx-mtr><mjx-mtr><mjx-mtd style="padding-right: 0.5em; padding-top: 0.2em;"><mjx-mi class="mjx-n"><mjx-c class="mjx-c73"></mjx-c><mjx-c class="mjx-c69"></mjx-c><mjx-c class="mjx-c6E"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D703 TEX-I"></mjx-c></mjx-mi><mjx-tstrut></mjx-tstrut></mjx-mtd><mjx-mtd style="padding-left: 0.5em; padding-top: 0.2em;"><mjx-mi class="mjx-n"><mjx-c class="mjx-c63"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c73"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D703 TEX-I"></mjx-c></mjx-mi><mjx-tstrut></mjx-tstrut></mjx-mtd></mjx-mtr></mjx-itable></mjx-table></mjx-mtable><mjx-mo class="mjx-s3"><mjx-c class="mjx-c5D TEX-S3"></mjx-c></mjx-mo></mjx-mrow></mjx-math></mjx-container>.</p>
 <h4 id="toc-10">Line</h4>
 <pre class="hljs"><code class="language-cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Line</span>{
-Point a,b;
-<span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">len</span><span class="hljs-params">()</span></span>{
-<span class="hljs-keyword">return</span> <span class="hljs-built_in">dist</span>(a,b);<span class="hljs-comment">//计算线段长度,直线和射线基本没用</span>
-}
+    Point a,b;
+    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">len</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">dist</span>(a,b);<span class="hljs-comment">//计算线段长度,直线和射线基本没用</span>
+    }
 };
 <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">onl0</span><span class="hljs-params">(<span class="hljs-type">const</span> Point &amp;A,<span class="hljs-type">const</span> Line &amp;L)</span></span>{
-<span class="hljs-keyword">return</span> <span class="hljs-built_in">sign</span>((A-L.a)^(A-L.b))==<span class="hljs-number">0</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sign</span>((A-L.a)^(A-L.b))==<span class="hljs-number">0</span>;
 }<span class="hljs-comment">//判断点是否在直线上</span>
 <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">onl2</span><span class="hljs-params">(<span class="hljs-type">const</span> Point &amp;A,<span class="hljs-type">const</span> Line &amp;L)</span></span>{
-<span class="hljs-keyword">return</span> (<span class="hljs-built_in">sign</span>((A-L.a)^(A-L.b))==<span class="hljs-number">0</span>)&amp;&amp;
-(<span class="hljs-built_in">sign</span>(A.x-std::<span class="hljs-built_in">min</span>(L.a.x,L.b.x))&gt;=<span class="hljs-number">0</span>)&amp;&amp;
-(<span class="hljs-built_in">sign</span>(A.x-std::<span class="hljs-built_in">max</span>(L.a.x,L.b.x))&gt;=<span class="hljs-number">0</span>)&amp;&amp;
-(<span class="hljs-built_in">sign</span>(A.y-std::<span class="hljs-built_in">min</span>(L.a.y,L.b.y))&gt;=<span class="hljs-number">0</span>)&amp;&amp;
-(<span class="hljs-built_in">sign</span>(A.y-std::<span class="hljs-built_in">max</span>(L.a.y,L.b.y))&lt;=<span class="hljs-number">0</span>);
+    <span class="hljs-keyword">return</span> (<span class="hljs-built_in">sign</span>((A-L.a)^(A-L.b))==<span class="hljs-number">0</span>)&amp;&amp;
+    (<span class="hljs-built_in">sign</span>(A.x-std::<span class="hljs-built_in">min</span>(L.a.x,L.b.x))&gt;=<span class="hljs-number">0</span>)&amp;&amp;
+    (<span class="hljs-built_in">sign</span>(A.x-std::<span class="hljs-built_in">max</span>(L.a.x,L.b.x))&gt;=<span class="hljs-number">0</span>)&amp;&amp;
+    (<span class="hljs-built_in">sign</span>(A.y-std::<span class="hljs-built_in">min</span>(L.a.y,L.b.y))&gt;=<span class="hljs-number">0</span>)&amp;&amp;
+    (<span class="hljs-built_in">sign</span>(A.y-std::<span class="hljs-built_in">max</span>(L.a.y,L.b.y))&lt;=<span class="hljs-number">0</span>);
 
 }<span class="hljs-comment">//判断点是否在线段上</span></code></pre><p>用来维护直线/射线/线段的基本信息.</p>
 <h4 id="toc-11">判断线段相交</h4>
 <pre class="hljs"><code class="language-cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isinter</span><span class="hljs-params">(<span class="hljs-type">const</span> Line &amp;L1,<span class="hljs-type">const</span> Line &amp;L2)</span></span>{
-<span class="hljs-keyword">if</span>(std::<span class="hljs-built_in">max</span>(L1.a.x,L1.b.x)&lt;std::<span class="hljs-built_in">min</span>(L2.a.x,L2.b.x))<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-<span class="hljs-keyword">if</span>(std::<span class="hljs-built_in">max</span>(L2.a.x,L2.b.x)&lt;std::<span class="hljs-built_in">min</span>(L1.a.x,L1.b.x))<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-<span class="hljs-keyword">if</span>(std::<span class="hljs-built_in">max</span>(L1.a.y,L1.b.y)&lt;std::<span class="hljs-built_in">min</span>(L2.a.y,L2.b.y))<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-<span class="hljs-keyword">if</span>(std::<span class="hljs-built_in">max</span>(L2.a.y,L2.b.y)&lt;std::<span class="hljs-built_in">min</span>(L1.a.y,L1.b.y))<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-<span class="hljs-keyword">if</span>(((L1.a-L2.b)^(L2.a-L2.b))*((L1.b-L2.b)^(L2.a-L2.b))&lt;<span class="hljs-number">0</span>)<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-<span class="hljs-keyword">if</span>(((L2.a-L1.b)^(L1.a-L1.b))*((L2.b-L1.b)^(L1.a-L1.b))&lt;<span class="hljs-number">0</span>)<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">if</span>(std::<span class="hljs-built_in">max</span>(L1.a.x,L1.b.x)&lt;std::<span class="hljs-built_in">min</span>(L2.a.x,L2.b.x))<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">if</span>(std::<span class="hljs-built_in">max</span>(L2.a.x,L2.b.x)&lt;std::<span class="hljs-built_in">min</span>(L1.a.x,L1.b.x))<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">if</span>(std::<span class="hljs-built_in">max</span>(L1.a.y,L1.b.y)&lt;std::<span class="hljs-built_in">min</span>(L2.a.y,L2.b.y))<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">if</span>(std::<span class="hljs-built_in">max</span>(L2.a.y,L2.b.y)&lt;std::<span class="hljs-built_in">min</span>(L1.a.y,L1.b.y))<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">if</span>(((L1.a-L2.b)^(L2.a-L2.b))*((L1.b-L2.b)^(L2.a-L2.b))&lt;<span class="hljs-number">0</span>)<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">if</span>(((L2.a-L1.b)^(L1.a-L1.b))*((L2.b-L1.b)^(L1.a-L1.b))&lt;<span class="hljs-number">0</span>)<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
 }</code></pre><p>前四行被称为快速排斥实验,后两行被称为跨立实验,也就是相交的两线段,对于其中一个线段而言,它的两个端点必然在另一个线段的两侧.但我们注意到共线线段也会通过跨立实验,因此拿快速排斥实验来判掉这种情况.</p>
 <p>注意,线段交点不同于直线交点,两条共线的交点是有可能在端点上的.这个需要特判一下.</p>
 <p>当然一般判断线段是否相交可以直接求直线交点,然后判断在不在线段上.</p>
 <h4 id="toc-12">求直线交点</h4>
 <pre class="hljs"><code class="language-cpp"><span class="hljs-function">Point <span class="hljs-title">inter</span><span class="hljs-params">(<span class="hljs-type">const</span> Line &amp;L1,<span class="hljs-type">const</span> Line &amp;L2)</span></span>{
-<span class="hljs-type">double</span> ls=(L1.b-L1.a)^(L2.a-L1.a);
-<span class="hljs-type">double</span> rs=(L1.b-L1.a)^(L2.b-L1.a);
-<span class="hljs-keyword">return</span> L2.a+(L2.b-L2.a)*ls/(ls-rs);
-}</code></pre><p>原理在于,画一下$x_{ L_1 } , x_{ L_2 } , y_{ L_1 } , y_{ L_2 }$围成的四边形,计算面积后用等高不等底计算.注意$ls$和$rs$所代表的面积一正一负(不一定谁是正),因此需要减一下.</p>
+    <span class="hljs-type">double</span> ls=(L1.b-L1.a)^(L2.a-L1.a);
+    <span class="hljs-type">double</span> rs=(L1.b-L1.a)^(L2.b-L1.a);
+    <span class="hljs-keyword">return</span> L2.a+(L2.b-L2.a)*ls/(ls-rs);
+}</code></pre><p>原理在于,画一下<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-TeXAtom></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-TeXAtom></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-TeXAtom></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-TeXAtom></mjx-script></mjx-msub></mjx-math></mjx-container>围成的四边形,计算面积后用等高不等底计算.注意<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>和<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>所代表的面积一正一负(不一定谁是正),因此需要减一下.</p>
 <h4 id="toc-13">点到线的最短距离</h4>
 <pre class="hljs"><code class="language-cpp"><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">double</span> <span class="hljs-title">disl0</span><span class="hljs-params">(<span class="hljs-type">const</span> Point &amp;A,<span class="hljs-type">const</span> Line &amp;L)</span></span>{
-<span class="hljs-keyword">return</span> <span class="hljs-built_in">myabs</span>(((L.a-A)^(L.b-A))/<span class="hljs-built_in">dis</span>(L.a,L.b));
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">myabs</span>(((L.a-A)^(L.b-A))/<span class="hljs-built_in">dis</span>(L.a,L.b));
 }
 <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">double</span> <span class="hljs-title">disl2</span><span class="hljs-params">(<span class="hljs-type">const</span> Point &amp;A,<span class="hljs-type">const</span> Line &amp;L)</span></span>{
-<span class="hljs-keyword">if</span>(<span class="hljs-built_in">sign</span>((A-L.a)*(L.b-L.a))&lt;<span class="hljs-number">0</span>)<span class="hljs-keyword">return</span> <span class="hljs-built_in">dist</span>(A,L.a);
-<span class="hljs-keyword">if</span>(<span class="hljs-built_in">sign</span>((A-L.b)*(L.a-L.b))&lt;<span class="hljs-number">0</span>)<span class="hljs-keyword">return</span> <span class="hljs-built_in">dist</span>(A,L.b);
-<span class="hljs-keyword">return</span> <span class="hljs-built_in">disl0</span>(A,L);
+    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">sign</span>((A-L.a)*(L.b-L.a))&lt;<span class="hljs-number">0</span>)<span class="hljs-keyword">return</span> <span class="hljs-built_in">dist</span>(A,L.a);
+    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">sign</span>((A-L.b)*(L.a-L.b))&lt;<span class="hljs-number">0</span>)<span class="hljs-keyword">return</span> <span class="hljs-built_in">dist</span>(A,L.b);
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">disl0</span>(A,L);
 }</code></pre><p>直线好做,直接算垂线段长度,用面积除以底长.</p>
 <p>线段用点积判一下夹角即可.</p>
 <h4 id="toc-14">凸多边形面积</h4>
-<p>利用叉乘,任取平面上一点$O$,则$S = \frac{ 1 }{ 2 } \sum_{ i = 1 }^n \overrightarrow{ OP_i } \times \overrightarrow{ OP_{ i + 1 } }$.证明的话考虑分$O$在内部和$O$在外部两种情况分类讨论.注意此时的$P$必须逆时针排列.</p>
-<p>另外有皮克定理:在一个平面直角坐标系内,以整点为顶点的简单多边形(任两边不交叉),它内部整点数为$a$,它的边上(包括顶点)的整点数为$b$,则它的面积$S = a + \frac{ b }{ 2 } - 1$.</p>
+<p>利用叉乘,任取平面上一点<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D442 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>,则<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D446 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mfrac space="4"><mjx-frac><mjx-num><mjx-nstrut></mjx-nstrut><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-num><mjx-dbox><mjx-dtable><mjx-line></mjx-line><mjx-row><mjx-den><mjx-dstrut></mjx-dstrut><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac><mjx-munderover space="2" limits="false"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c2211 TEX-S1"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.285em; margin-left: 0;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-spacer style="margin-top: 0.284em;"></mjx-spacer><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-munderover><mjx-mover space="2"><mjx-over style="padding-bottom: 0.105em;"><mjx-mo class="mjx-n"><mjx-stretchy-h style="width: 1.732em;" class="mjx-c2192"><mjx-ext><mjx-c></mjx-c></mjx-ext><mjx-end><mjx-c></mjx-c></mjx-end></mjx-stretchy-h></mjx-mo></mjx-over><mjx-base><mjx-mrow><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D442 TEX-I"></mjx-c></mjx-mi><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.109em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-mrow></mjx-base></mjx-mover><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cD7"></mjx-c></mjx-mo><mjx-mover space="3"><mjx-over style="padding-bottom: 0.105em;"><mjx-mo class="mjx-n"><mjx-stretchy-h style="width: 2.636em;" class="mjx-c2192"><mjx-ext><mjx-c></mjx-c></mjx-ext><mjx-end><mjx-c></mjx-c></mjx-end></mjx-stretchy-h></mjx-mo></mjx-over><mjx-base><mjx-mrow><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D442 TEX-I"></mjx-c></mjx-mi><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.109em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msub></mjx-mrow></mjx-base></mjx-mover></mjx-math></mjx-container>.证明的话考虑分<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D442 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>在内部和<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D442 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>在外部两种情况分类讨论.注意此时的<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>必须逆时针排列.</p>
+<p>另外有皮克定理:在一个平面直角坐标系内,以整点为顶点的简单多边形(任两边不交叉),它内部整点数为<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>,它的边上(包括顶点)的整点数为<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>,则它的面积<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D446 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mfrac space="3"><mjx-frac><mjx-num><mjx-nstrut></mjx-nstrut><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-num><mjx-dbox><mjx-dtable><mjx-line></mjx-line><mjx-row><mjx-den><mjx-dstrut></mjx-dstrut><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math></mjx-container>.</p>
 <h3 id="toc-15">基本算法</h3>
 <h4 id="toc-16">排序算法</h4>
 <h5 id="toc-17">极角排序</h5>
-<p>定义原点$O$并建立坐标系,所有点按照和$O$所连直线与$x$轴正方向的夹角排序.</p>
+<p>定义原点<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D442 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>并建立坐标系,所有点按照和<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D442 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>所连直线与<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>轴正方向的夹角排序.</p>
 <p>极角排序通常使用叉乘来实现,因为叉乘可以快速计算两个向量的方向.但是注意到需要先判断象限,再判断叉乘.</p>
 <pre class="hljs"><code class="language-cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">cmp</span><span class="hljs-params">(Point A,Point B)</span></span>{<span class="hljs-comment">//判断A能否在B前面</span>
-A=A-O,B=B-O;<span class="hljs-comment">//O=(0,0)的时候可以省略</span>
-<span class="hljs-keyword">if</span>(A.<span class="hljs-built_in">qua</span>()!=B.<span class="hljs-built_in">qua</span>()){
-<span class="hljs-keyword">return</span> A.<span class="hljs-built_in">qua</span>()&lt;B.<span class="hljs-built_in">qua</span>();
-}
-<span class="hljs-keyword">if</span>(<span class="hljs-built_in">sign</span>(A^B)==<span class="hljs-number">0</span>)<span class="hljs-keyword">return</span> A.x&lt;B.x;
-<span class="hljs-keyword">return</span> <span class="hljs-built_in">sign</span>(B^A)==<span class="hljs-number">1</span>;
+    A=A-O,B=B-O;<span class="hljs-comment">//O=(0,0)的时候可以省略</span>
+    <span class="hljs-keyword">if</span>(A.<span class="hljs-built_in">qua</span>()!=B.<span class="hljs-built_in">qua</span>()){
+        <span class="hljs-keyword">return</span> A.<span class="hljs-built_in">qua</span>()&lt;B.<span class="hljs-built_in">qua</span>();
+    }
+    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">sign</span>(A^B)==<span class="hljs-number">0</span>)<span class="hljs-keyword">return</span> A.x&lt;B.x;
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sign</span>(B^A)==<span class="hljs-number">1</span>;
 }</code></pre>
 <h5 id="toc-18">水平序排序</h5>
 <pre class="hljs"><code class="language-cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">cmp</span><span class="hljs-params">(Point A,Point B)</span></span>{
-<span class="hljs-keyword">if</span>(<span class="hljs-built_in">sign</span>(A.x-B.x)==<span class="hljs-number">0</span>)<span class="hljs-keyword">return</span> <span class="hljs-built_in">sign</span>(A.y-B.y)==<span class="hljs-number">-1</span>;
-<span class="hljs-keyword">return</span> <span class="hljs-built_in">sign</span>(A.x-B.x)==<span class="hljs-number">-1</span>;
-}</code></pre><p>也就是$x$相同比$y$,否则比$x$.</p>
+    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">sign</span>(A.x-B.x)==<span class="hljs-number">0</span>)<span class="hljs-keyword">return</span> <span class="hljs-built_in">sign</span>(A.y-B.y)==<span class="hljs-number">-1</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sign</span>(A.x-B.x)==<span class="hljs-number">-1</span>;
+}</code></pre><p>也就是<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>相同比<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>,否则比<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>.</p>
 <h4 id="toc-19">二维凸包</h4>
 <h5 id="toc-20">定义</h5>
 <p>包住平面上某个点集的周长最小的简单多边形,一定是凸多边形.</p>
@@ -229,11 +1371,11 @@ A=A-O,B=B-O;<span class="hljs-comment">//O=(0,0)的时候可以省略</span>
 <p>用水平序排序,然后从左往右扫一遍得到上凸壳,从右往左扫一遍得到下凸壳.</p>
 <p>用一下以下函数:</p>
 <pre class="hljs"><code class="language-cpp"><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span> <span class="hljs-title">anticlock</span><span class="hljs-params">(<span class="hljs-type">const</span> Point &amp;A,<span class="hljs-type">const</span> Point &amp;B,<span class="hljs-type">const</span> Point &amp;C)</span></span>{
-<span class="hljs-keyword">return</span> <span class="hljs-built_in">sign</span>((A-B)^(B-C))==<span class="hljs-number">-1</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sign</span>((A-B)^(B-C))==<span class="hljs-number">-1</span>;
 }
 <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span> <span class="hljs-title">isline</span><span class="hljs-params">(<span class="hljs-type">const</span> Point &amp;A,<span class="hljs-type">const</span> Point &amp;B,<span class="hljs-type">const</span> Point &amp;C)</span></span>{
-<span class="hljs-keyword">return</span> <span class="hljs-built_in">sign</span>((A-B)^(B-C))==<span class="hljs-number">0</span>;
-}</code></pre><p>前者判断是否$ABC$三点是一个上凸的(注意$ABC$三点横坐标应该不降).后者判断三点共线.</p>
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sign</span>((A-B)^(B-C))==<span class="hljs-number">0</span>;
+}</code></pre><p>前者判断是否<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>三点是一个上凸的(注意<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>三点横坐标应该不降).后者判断三点共线.</p>
 <h4 id="toc-22">旋转卡壳</h4>
 <h5 id="toc-23">定义</h5>
 <p>定义凸包上的对踵点对,也就是拿两条平行直线卡着凸包转,这两条直线会卡住凸包的两个点,这些点对组成的集合就是对踵点对集合.</p>
@@ -242,14 +1384,14 @@ A=A-O,B=B-O;<span class="hljs-comment">//O=(0,0)的时候可以省略</span>
 <h4 id="toc-25">闵可夫斯基和</h4>
 <p>一般只讨论凸包的闵可夫斯基和.</p>
 <h5 id="toc-26">定义</h5>
-<p>两个区域$A , B$的闵可夫斯基和定义为$\{ a + b \mid a \in A , b \in B \}$.</p>
+<p>两个区域<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>的闵可夫斯基和定义为<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mo class="mjx-n"><mjx-c class="mjx-c7B"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2223"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2208"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2208"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c7D"></mjx-c></mjx-mo></mjx-math></mjx-container>.</p>
 <h5 id="toc-27">实现</h5>
-<p>事实上,新的区域所形成的凸包,一定是原本$A , B$的凸包的边按照某种顺序连接起来得到的结果.</p>
-<p>我们考虑旋转一下$A , B$,使得$B$有一条边成为最右边的直上直下的一条边,然后考虑答案区域的最右边的边,这条边一定是$B$这个边加上$A$的最右边的点.这样这条边必定还在最终的凸包上.就算$A$最右边的是一条边,你也会发现最终的凸包最右边也一定是由$A$的这条边和$B$的这条边拼起来的.</p>
+<p>事实上,新的区域所形成的凸包,一定是原本<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>的凸包的边按照某种顺序连接起来得到的结果.</p>
+<p>我们考虑旋转一下<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>,使得<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>有一条边成为最右边的直上直下的一条边,然后考虑答案区域的最右边的边,这条边一定是<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>这个边加上<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>的最右边的点.这样这条边必定还在最终的凸包上.就算<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>最右边的是一条边,你也会发现最终的凸包最右边也一定是由<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>的这条边和<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>的这条边拼起来的.</p>
 <p>显然,逆时针转一遍整个凸壳,将每条边改为向量(按照逆时针转的方向)然后极角排序,最后顺次链接就是答案.</p>
 <h4 id="toc-28">半平面交</h4>
 <h5 id="toc-29">定义</h5>
-<p>定义半平面为满足$ax + by + c > 0$或$ax + by + c \geq 0$的点对$( x , y )$组成的集合,感性理解就是一条直线的一侧.</p>
+<p>定义半平面为满足<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math></mjx-container>或<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2265"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math></mjx-container>的点对<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math></mjx-container>组成的集合,感性理解就是一条直线的一侧.</p>
 <h5 id="toc-30">实现</h5>
 <p>首先直线不好描述左右侧,我们把直线改成向量,这样方便描述左右侧.并不妨假设所有的向量所表示的半平面在向量的左侧.如果两条向量方向相同,则取更靠左的那一条,也就是所在直线截距更大的那个,另一个直接删了就是了.当然你不想删可以把那个废物放前面,这样根据下面的操作过程中它会被弹掉.</p>
 <p>我们这么实现:按照上面的顺序一个一个插入,维护一个单调队列.如果前两条向量的交点不在当前这条向量的控制范围,不难发现上一条向量是废物,弹掉它.这样做到最后,队首和队尾可能都有一些废物向量,把它们判掉弹掉即可.</p>
@@ -257,40 +1399,28 @@ A=A-O,B=B-O;<span class="hljs-comment">//O=(0,0)的时候可以省略</span>
 <p>这一部分知识点比较困难,而几乎用不到,因此只讲简单知识点,就当是高中立体几何知识补档!</p>
 <h3 id="toc-32">基本概念</h3>
 <h4 id="toc-33">直线</h4>
-<p>使用直线的方向向量$\vec{ s } = ( n , m , p )$和直线上一点$M_0 = ( x_0 , y_0 , z_0 )$.那么方程显然为:</p>
-<p>$$
-\frac{ x - x_0 }{ n } = \frac{ y - y_0 }{ m } = \frac{ z - z_0 }{ p }
-$$</p>
+<p>使用直线的方向向量<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.29em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math></mjx-container>和直线上一点<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D440 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.081em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D467 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math></mjx-container>.那么方程显然为:</p>
+<p><mjx-container class="MathJax" jax="CHTML" display="true"><mjx-math display="true" style="margin-left: 0; margin-right: 0;" class=" MJX-TEX"><mjx-mfrac><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-mrow><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-mrow></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mfrac space="4"><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-mrow><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-mrow></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mfrac space="4"><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-mrow><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D467 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D467 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-mrow></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-math></mjx-container></p>
 <p>如果换元,我们还有参数方程:</p>
-<p>$$
-\begin{cases}
-x = x_0 + nt \\
-y = y_0 + mt \\
-z = z_0 + pt
-\end{cases}
-$$</p>
+<p><mjx-container class="MathJax" jax="CHTML" display="true"><mjx-math display="true" style="margin-left: 0; margin-right: 0;" class=" MJX-TEX"><mjx-mrow><mjx-mo class="mjx-n"><mjx-stretchy-v style="height: 3.4em; vertical-align: -1.45em;" class="mjx-c7B"><mjx-beg><mjx-c></mjx-c></mjx-beg><mjx-ext><mjx-c></mjx-c></mjx-ext><mjx-mid><mjx-c></mjx-c></mjx-mid><mjx-ext><mjx-c></mjx-c></mjx-ext><mjx-end><mjx-c></mjx-c></mjx-end><mjx-mark></mjx-mark></mjx-stretchy-v></mjx-mo><mjx-mtable style="min-width: 5.212em;"><mjx-table><mjx-itable><mjx-mtr><mjx-mtd style="text-align: left; padding-bottom: 0.1em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msub space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-tstrut></mjx-tstrut></mjx-mtd></mjx-mtr><mjx-mtr><mjx-mtd style="text-align: left; padding-top: 0.1em; padding-bottom: 0.1em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msub space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-tstrut></mjx-tstrut></mjx-mtd></mjx-mtr><mjx-mtr><mjx-mtd style="text-align: left; padding-top: 0.1em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D467 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msub space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D467 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-tstrut></mjx-tstrut></mjx-mtd></mjx-mtr></mjx-itable></mjx-table></mjx-mtable><mjx-mo class="mjx-n" style="vertical-align: 0.25em;"></mjx-mo></mjx-mrow></mjx-math></mjx-container></p>
 <h4 id="toc-34">平面</h4>
-<p>使用平面上的一点$P_0 ( x_0 , y_0 , z_0 )$和该平面的法向量$\vec{ n }$来表示一个平面,不妨设$\vec{ n } = ( A , B , C )$,则该平面的方程显然为:</p>
-<p>$$
-A ( x - x_0 ) + B ( y - y_0 ) + C ( z - z_0 ) = 0
-$$</p>
-<p>如果我们令$D = - ( Ax_0 + By_0 + Cz_)$,那么平面方程为:</p>
-<p>$$
-Ax + By + Cz + D = 0
-$$</p>
+<p>使用平面上的一点<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.109em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D467 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math></mjx-container>和该平面的法向量<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.3em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math></mjx-container>来表示一个平面,不妨设<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.3em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math></mjx-container>,则该平面的方程显然为:</p>
+<p><mjx-container class="MathJax" jax="CHTML" display="true"><mjx-math display="true" style="margin-left: 0; margin-right: 0;" class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D467 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D467 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math></mjx-container></p>
+<p>如果我们令<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D437 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D467 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.177em;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-script></mjx-msub></mjx-math></mjx-container>,那么平面方程为:</p>
+<p><mjx-container class="MathJax" jax="CHTML" display="true"><mjx-math display="true" style="margin-left: 0; margin-right: 0;" class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D467 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D437 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math></mjx-container></p>
 <h4 id="toc-35">夹角</h4>
 <h5 id="toc-36">两直线夹角.</h5>
 <p>直接求方向向量的夹角,然后取正值.</p>
-<p>对于方向向量分别是$\vec{ s_1 } = ( n_1 , m_1 , p_1 ) , \vec{ s_2 } = ( n_2 , m_2 , p_2 )$,也就有$\varphi = \arccos ( \frac{ | \vec{ s }_1 \cdot \vec{ s }_2 | }{ | \vec{ s }_1 | | \vec{ s }_2 | } ) \\$.</p>
+<p>对于方向向量分别是<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.453em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-TeXAtom space="2" texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.453em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math></mjx-container>,也就有<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D711 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-n" space="4"><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c63"></mjx-c><mjx-c class="mjx-c63"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c73"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mfrac><mjx-frac><mjx-num><mjx-nstrut></mjx-nstrut><mjx-mrow size="s"><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.29em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c22C5"></mjx-c></mjx-mo><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.29em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo></mjx-mrow></mjx-num><mjx-dbox><mjx-dtable><mjx-line></mjx-line><mjx-row><mjx-den><mjx-dstrut></mjx-dstrut><mjx-mrow size="s"><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.29em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.29em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo></mjx-mrow></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mspace></mjx-mspace></mjx-math></mjx-container>.</p>
 <h5 id="toc-37">直线与平面的夹角</h5>
-<p>同样使用向量,不妨设方向向量$\vec{ s } = ( n , m , p )$,法向量$\vec{ f } = ( a , b , c )$,那么$\varphi = \arcsin ( \frac{ | \vec{ s } \cdot \vec{ f } | }{ | \vec{ s } | | \vec{ f } | } )$.</p>
+<p>同样使用向量,不妨设方向向量<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.29em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math></mjx-container>,法向量<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.457em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math></mjx-container>,那么<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D711 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-n" space="4"><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c63"></mjx-c><mjx-c class="mjx-c73"></mjx-c><mjx-c class="mjx-c69"></mjx-c><mjx-c class="mjx-c6E"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mfrac><mjx-frac><mjx-num><mjx-nstrut></mjx-nstrut><mjx-mrow size="s"><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.29em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c22C5"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.457em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo></mjx-mrow></mjx-num><mjx-dbox><mjx-dtable><mjx-line></mjx-line><mjx-row><mjx-den><mjx-dstrut></mjx-dstrut><mjx-mrow size="s"><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.29em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.457em; margin-bottom: -0.516em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c20D7 TEX-V"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo></mjx-mrow></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math></mjx-container>.</p>
 <p>另外,由上面这个式子,不难得到一些特殊情况下的判定标准:</p>
 <ol>
 <li>
-<p>若直线与平面平行,则$am + bn + cp = 0$.</p>
+<p>若直线与平面平行,则<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math></mjx-container>.</p>
 </li>
 <li>
-<p>若直线与平面垂直,则$\frac{ a }{ m } = \frac{ b }{ n } = \frac{ c }{ p }$.注意这里分母可能除以$0$,我们实际上应该是三个形如$a = mt$的参数方程,这里简化了.</p>
+<p>若直线与平面垂直,则<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mfrac><mjx-frac><mjx-num><mjx-nstrut></mjx-nstrut><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-num><mjx-dbox><mjx-dtable><mjx-line></mjx-line><mjx-row><mjx-den><mjx-dstrut></mjx-dstrut><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mfrac space="4"><mjx-frac><mjx-num><mjx-nstrut></mjx-nstrut><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-num><mjx-dbox><mjx-dtable><mjx-line></mjx-line><mjx-row><mjx-den><mjx-dstrut></mjx-dstrut><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mfrac space="4"><mjx-frac><mjx-num><mjx-nstrut></mjx-nstrut><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi></mjx-num><mjx-dbox><mjx-dtable><mjx-line></mjx-line><mjx-row><mjx-den><mjx-dstrut></mjx-dstrut><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-math></mjx-container>.注意这里分母可能除以<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math></mjx-container>,我们实际上应该是三个形如<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>的参数方程,这里简化了.</p>
 </li>
 </ol>
 <h4 id="toc-38">交点</h4>
