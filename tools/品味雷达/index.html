@@ -18,6 +18,8 @@
 <link rel="icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
 <link rel="apple-touch-icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
 <link rel="stylesheet" href="/style.css">
+<link rel="preconnect" href="https://my-repository-jade-beta-79.vercel.app" crossorigin>
+<link rel="preload" as="image" href="/images/background8.jpg">
 
 <style>
   .tool-page, .tool-page * { box-sizing: border-box; }
@@ -138,16 +140,16 @@
 </main>
 <footer class="site-footer">
   <div class="footer-signature" id="footer-signature">不过是白日梦里一瞬息</div>
-  <div class="footer-copy">© 2026 LWLAymh · Powered by DeepSeek V4 Pro</div>
+  <div class="footer-copy">© 2026 LWLAymh</div>
 </footer>
-<button class="sidebar-toggle" id="sidebar-toggle" aria-label="打开侧边栏" title="侧边栏">☰</button>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="打开侧边栏" title="侧边栏"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 <aside class="sidebar" id="sidebar" aria-hidden="true">
-  <div class="sidebar-inner"><div class="toc-title">联系我</div><div class="contact-item"><span class="contact-key">微信</span><span class="contact-val">LWLAymh</span></div><a class="contact-item contact-link" href="mailto:lwlaymh@outlook.com">邮件</a><a class="contact-item contact-link" href="https://github.com/LWLAymh" target="_blank" rel="noopener">GitHub</a><a class="contact-item contact-link" href="https://www.luogu.com.cn/user/661076" target="_blank" rel="noopener">洛谷</a></div>
+  <div class="sidebar-inner"><div class="toc-title">联系我</div><span class="contact-item contact-text">微信：LWLAymh</span><a class="contact-item contact-link" href="mailto:lwlaymh@outlook.com">邮件</a><a class="contact-item contact-link" href="https://github.com/LWLAymh" target="_blank" rel="noopener">GitHub</a><a class="contact-item contact-link" href="https://www.luogu.com.cn/user/661076" target="_blank" rel="noopener">洛谷</a></div>
 </aside>
 <div class="sidebar-overlay" id="sidebar-overlay"></div>
-<button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部">↑</button>
+<button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 <script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
-<script src="/main.js"></script>
+<script src="/main.js" defer></script>
 <script>
 (function () {
   'use strict';
@@ -163,8 +165,9 @@
   var sendEl = document.getElementById('send');
   var clearEl = document.getElementById('clear');
 
-  var LS = { base: 'ai-recommend-base', model: 'ai-recommend-model', temp: 'ai-recommend-temp', ctx: 'ai-recommend-context' };
-  var KEY_COOKIE = 'ai-recommend-key';
+  var LS = { base: 'taste-radar-base', model: 'taste-radar-model', temp: 'taste-radar-temp', ctx: 'taste-radar-context' };
+  var KEY_COOKIE = 'taste-radar-key';
+  var LEGACY_KEY_COOKIE = 'ai-recommend-key';
   var taste = null;
   var busy = false;
   var messages = [];
@@ -196,11 +199,12 @@
   function safeSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
   function safeDel(k) { try { localStorage.removeItem(k); } catch (e) {} }
 
-  /* ---- Cookie：只保存 API Key；Secure 在 https 下自动开启，SameSite=Strict ---- */
-  function setCookie(name, value, days) {
+  /* ---- Cookie：只保存 API Key；作用域收窄到 /tools/，Secure 在 https 下自动开启，SameSite=Strict ---- */
+  var KEY_COOKIE_PATH = '/tools/';
+  function setCookie(name, value, days, path) {
     var secure = location.protocol === 'https:' ? '; Secure' : '';
     document.cookie = name + '=' + encodeURIComponent(value) +
-      '; Path=/; Max-Age=' + (days * 86400) + '; SameSite=Strict' + secure;
+      '; Path=' + (path || KEY_COOKIE_PATH) + '; Max-Age=' + (days * 86400) + '; SameSite=Strict' + secure;
   }
   function getCookie(name) {
     var prefix = name + '=';
@@ -208,11 +212,22 @@
       .filter(function (s) { return s.indexOf(prefix) === 0; })
       .map(function (s) { return decodeURIComponent(s.slice(prefix.length)); })[0] || null;
   }
-  function delCookie(name) {
-    setCookie(name, '', -1);
+  function delCookie(name, path) {
+    setCookie(name, '', -1, path);
+  }
+
+  /* 旧版本曾把 Key 存在 Path=/ 的 ai-recommend-key 里：迁移到新 Cookie 后清除旧值。 */
+  function migrateLegacyKey() {
+    var legacy = getCookie(LEGACY_KEY_COOKIE);
+    if (legacy && !getCookie(KEY_COOKIE)) setCookie(KEY_COOKIE, legacy, 30);
+    if (legacy) {
+      var secure = location.protocol === 'https:' ? '; Secure' : '';
+      document.cookie = LEGACY_KEY_COOKIE + '=; Path=/; Max-Age=0; SameSite=Strict' + secure;
+    }
   }
 
   function loadSettings() {
+    migrateLegacyKey();
     var savedBase = safeGet(LS.base); if (savedBase) baseEl.value = savedBase;
     var savedModel = safeGet(LS.model); if (savedModel) modelEl.value = savedModel;
     var savedTemp = safeGet(LS.temp); if (savedTemp) tempEl.value = savedTemp;
@@ -265,21 +280,24 @@
     .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(function (doc) {
       tasteDoc = doc;
-      // 档案是「博主的品味」，而使用者是访客：不要把访客当成档案本人
-      var archive = Object.assign({}, doc);
-      delete archive.system_prompt; // 档案里的旧 system_prompt 是“对档案本人说话”，弃用
+      // 档案是「博主的品味」，而使用者是访客：不要把访客当成档案本人。
+      // 只把白名单字段放进系统提示词，避免档案里夹带其它指令字段。
+      var ARCHIVE_FIELDS = ['schema', 'exported_at', 'privacy', 'identity', 'recommend_for',
+        'likes', 'dislikes', 'already_consumed', 'recommendation_style', 'examples'];
+      var archive = {};
+      ARCHIVE_FIELDS.forEach(function (k) { if (doc[k] !== undefined) archive[k] = doc[k]; });
       taste = VISITOR_SYSTEM_PROMPT + '\n\n<TASTE_ARCHIVE>\n' + JSON.stringify(archive, null, 2) + '\n</TASTE_ARCHIVE>';
       var date = doc.exported_at ? '，导出日期 ' + doc.exported_at : '';
       statusEl.textContent = 'taste-export 已加载（' + taste.length + ' 字符' + date + '）。';
     })
     .catch(function (e) {
       taste = null;
-      statusEl.textContent = 'taste-export.json 加载失败：' + e.message + '，请确认 tools/AI推荐/taste-export.json 存在且是合法 JSON。';
+      statusEl.textContent = 'taste-export.json 加载失败：' + e.message + '，请确认 tools/品味雷达/taste-export.json 存在且是合法 JSON。';
     });
 
   function systemPrompt() {
     if (taste) return taste;
-    return '你是“AI推荐”对话助手。用户向你输入自己的 API 后与你交互，请你根据下面的品味档案做个性化推荐。\n\n' +
+    return '你是「品味雷达」助手。用户向你输入自己的 API 后与你交互，请根据下面的品味档案做个性化推荐。\n\n' +
       '<TASTE>\n（taste-export 未加载）\n</TASTE>';
   }
 

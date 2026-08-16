@@ -96,26 +96,47 @@
     document.head.appendChild(s);
   }
 
-  var css = document.createElement('link');
-  css.rel = 'stylesheet';
-  css.href = '/vendor/waline/waline.css';
-  document.head.appendChild(css);
+  var loadStarted = false;
+  function start() {
+    if (loadStarted) return;
+    loadStarted = true;
 
-  var tries = 0;
-  load(
-    '/vendor/waline/waline.umd.js',
-    function () { initWaline(); },
-    function () { scriptFailed = true; el.innerHTML = '<p class="empty">评论组件加载失败，请检查网络后刷新重试。</p>'; }
-  );
+    var css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = '/vendor/waline/waline.css';
+    document.head.appendChild(css);
 
-  // 兜底轮询：脚本 onload 之后调用是 no-op（started 已置位），不会重复初始化
-  var poll = setInterval(function () {
-    if (scriptFailed) { clearInterval(poll); return; }
-    if (initWaline() || ++tries > 40) {
-      clearInterval(poll);
-      if (!started && !scriptFailed) {
-        el.innerHTML = '<p class="empty">评论组件加载超时，请检查网络后刷新重试。</p>';
+    var tries = 0;
+    load(
+      '/vendor/waline/waline.umd.js',
+      function () { initWaline(); },
+      function () { scriptFailed = true; el.innerHTML = '<p class="empty">评论组件加载失败，请检查网络后刷新重试。</p>'; }
+    );
+
+    // 兜底轮询：脚本 onload 之后调用是 no-op（started 已置位），不会重复初始化
+    var poll = setInterval(function () {
+      if (scriptFailed) { clearInterval(poll); return; }
+      if (initWaline() || ++tries > 40) {
+        clearInterval(poll);
+        if (!started && !scriptFailed) {
+          el.innerHTML = '<p class="empty">评论组件加载超时，请检查网络后刷新重试。</p>';
+        }
       }
-    }
-  }, 250);
+    }, 250);
+  }
+
+  // 评论区接近视口时才加载 257KB 的 Waline 脚本，避免文章页首屏开销
+  if (window.IntersectionObserver) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          observer.disconnect();
+          start();
+        }
+      });
+    }, { rootMargin: '600px 0px' });
+    observer.observe(el);
+  } else {
+    start();
+  }
 })();

@@ -18,6 +18,8 @@
 <link rel="icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
 <link rel="apple-touch-icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
 <link rel="stylesheet" href="/style.css">
+<link rel="preconnect" href="https://my-repository-jade-beta-79.vercel.app" crossorigin>
+<link rel="preload" as="image" href="/images/background8.jpg">
 
 <style>
   .tool-page, .tool-page * { box-sizing: border-box; }
@@ -75,7 +77,7 @@
 </header>
 <main class="site-main">
 <div class="tool-page">
-  <a class="back" href="/games.html">← 全部工具</a>
+  <a class="back" href="/games.html">← 全部游戏</a>
   <div class="card">
     <h1>贪吃蛇</h1>
     <p class="hint">方向键 / WASD 控制，空格暂停；也可以点下面的按钮。</p>
@@ -88,26 +90,26 @@
       </div>
     </div>
     <div class="controls">
-      <button data-dir="up">↑</button>
-      <button data-dir="left">←</button>
-      <button data-dir="down">↓</button>
-      <button data-dir="right">→</button>
+      <button data-dir="up" aria-label="向上" title="向上">↑</button>
+      <button data-dir="left" aria-label="向左" title="向左">←</button>
+      <button data-dir="down" aria-label="向下" title="向下">↓</button>
+      <button data-dir="right" aria-label="向右" title="向右">→</button>
     </div>
   </div>
 </div>
 </main>
 <footer class="site-footer">
   <div class="footer-signature" id="footer-signature">不过是白日梦里一瞬息</div>
-  <div class="footer-copy">© 2026 LWLAymh · Powered by DeepSeek V4 Pro</div>
+  <div class="footer-copy">© 2026 LWLAymh</div>
 </footer>
-<button class="sidebar-toggle" id="sidebar-toggle" aria-label="打开侧边栏" title="侧边栏">☰</button>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="打开侧边栏" title="侧边栏"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 <aside class="sidebar" id="sidebar" aria-hidden="true">
-  <div class="sidebar-inner"><div class="toc-title">联系我</div><div class="contact-item"><span class="contact-key">微信</span><span class="contact-val">LWLAymh</span></div><a class="contact-item contact-link" href="mailto:lwlaymh@outlook.com">邮件</a><a class="contact-item contact-link" href="https://github.com/LWLAymh" target="_blank" rel="noopener">GitHub</a><a class="contact-item contact-link" href="https://www.luogu.com.cn/user/661076" target="_blank" rel="noopener">洛谷</a></div>
+  <div class="sidebar-inner"><div class="toc-title">联系我</div><span class="contact-item contact-text">微信：LWLAymh</span><a class="contact-item contact-link" href="mailto:lwlaymh@outlook.com">邮件</a><a class="contact-item contact-link" href="https://github.com/LWLAymh" target="_blank" rel="noopener">GitHub</a><a class="contact-item contact-link" href="https://www.luogu.com.cn/user/661076" target="_blank" rel="noopener">洛谷</a></div>
 </aside>
 <div class="sidebar-overlay" id="sidebar-overlay"></div>
-<button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部">↑</button>
+<button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 <script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
-<script src="/main.js"></script>
+<script src="/main.js" defer></script>
 <script>
 (function () {
   'use strict';

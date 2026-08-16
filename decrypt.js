@@ -47,6 +47,8 @@
     e.preventDefault();
     var pw = input.value;
     decrypt(pw).then(function (html) {
+      input.value = '';
+      error.hidden = true;
       content.innerHTML = html;
       content.hidden = false;
       prompt.hidden = true;

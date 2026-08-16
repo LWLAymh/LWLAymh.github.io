@@ -70,14 +70,15 @@
 
   /* ---- 阅读进度条 ---- */
   var bar = document.getElementById('progress-bar');
+  var updateProgress = function () {
+    if (!bar) return;
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? (h.scrollTop / max) * 100 : 0;
+    bar.style.width = p + '%';
+  };
   if (bar) {
-    function updateProgress() {
-      var h = document.documentElement;
-      var max = h.scrollHeight - h.clientHeight;
-      var p = max > 0 ? (h.scrollTop / max) * 100 : 0;
-      bar.style.width = p + '%';
-    }
-    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('scroll', scheduleScrollWork, { passive: true });
     updateProgress();
   }
 
@@ -89,6 +90,7 @@
     var dataPromise = null;
     var hitLinks = [];
     var activeIndex = -1;
+    var searchTimer = null;
 
     function esc(s) {
       return s.replace(/[&<>"']/g, function (c) {
@@ -155,10 +157,13 @@
     });
 
     input.addEventListener('input', function () {
+      clearTimeout(searchTimer);
       var q = input.value.trim();
       if (!q) { closeResults(); return; }
-      if (data) { renderResults(q); return; }
-      loadData().then(function () { renderResults(input.value.trim()); });
+      searchTimer = setTimeout(function () {
+        if (data) { renderResults(input.value.trim()); return; }
+        loadData().then(function () { renderResults(input.value.trim()); });
+      }, 150);
     });
 
     input.addEventListener('keydown', function (e) {
@@ -192,40 +197,62 @@
     if (e.key === 'Escape') setSidebar(false);
   });
 
-  /* ---- 目录滚动定位（scroll-spy） ---- */
+  /* ---- 目录滚动定位（scroll-spy，缓存位置 + rAF 节流） ---- */
+  var tocSections = [];
+  var measureSections = function () {
+    tocSections.forEach(function (s) {
+      s.top = s.el.getBoundingClientRect().top + window.scrollY;
+    });
+  };
+  var spy = function () {
+    if (!tocSections.length) return;
+    var pos = window.scrollY + 120;
+    var current = tocSections[0];
+    for (var i = 0; i < tocSections.length; i++) {
+      if (tocSections[i].top <= pos) current = tocSections[i];
+      else break;
+    }
+    tocSections.forEach(function (s) { s.link.classList.remove('active'); });
+    if (current) current.link.classList.add('active');
+  };
   var tocLinks = document.querySelectorAll('.toc-list a');
   if (tocLinks.length) {
-    var sections = [];
     tocLinks.forEach(function (a) {
       var el = document.getElementById(a.getAttribute('href').slice(1));
-      if (el) sections.push({ link: a, el: el });
+      if (el) tocSections.push({ link: a, el: el, top: 0 });
     });
-    function spy() {
-      var pos = window.scrollY + 120;
-      var current = sections[0];
-      for (var i = 0; i < sections.length; i++) {
-        var top = sections[i].el.getBoundingClientRect().top + window.scrollY;
-        if (top <= pos) current = sections[i];
-        else break;
-      }
-      tocLinks.forEach(function (a) { a.classList.remove('active'); });
-      if (current) current.link.classList.add('active');
-    }
-    window.addEventListener('scroll', spy, { passive: true });
+    measureSections();
+    window.addEventListener('resize', measureSections, { passive: true });
+    window.addEventListener('scroll', scheduleScrollWork, { passive: true });
     spy();
   }
 
   /* ---- 回到顶部 ---- */
   var backTop = document.getElementById('back-top');
+  var updateBackTop = function () {
+    if (!backTop) return;
+    if (window.scrollY > 400) backTop.classList.add('show');
+    else backTop.classList.remove('show');
+  };
   if (backTop) {
-    function updateBackTop() {
-      if (window.scrollY > 400) backTop.classList.add('show');
-      else backTop.classList.remove('show');
-    }
-    window.addEventListener('scroll', updateBackTop, { passive: true });
+    window.addEventListener('scroll', scheduleScrollWork, { passive: true });
     updateBackTop();
     backTop.addEventListener('click', function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* 滚动处理统一走 rAF：进度条写宽、scroll-spy、回顶按钮共用一个回调，
+     避免同一帧里读布局/写样式交叉造成 layout thrash。 */
+  var scrollPending = false;
+  function scheduleScrollWork() {
+    if (scrollPending) return;
+    scrollPending = true;
+    requestAnimationFrame(function () {
+      updateProgress();
+      spy();
+      updateBackTop();
+      scrollPending = false;
     });
   }
 })();

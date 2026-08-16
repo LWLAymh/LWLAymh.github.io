@@ -73,6 +73,8 @@
     var pw = input.value;
     error.hidden = true;
     decrypt(pw).then(function (payload) {
+      input.value = '';
+      error.hidden = true;
       var split = splitScripts(payload);
       content.innerHTML = split.html;
       content.hidden = false;
