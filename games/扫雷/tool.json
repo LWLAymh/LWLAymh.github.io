@@ -1,5 +1,6 @@
 {
   "title": "扫雷",
   "description": "经典扫雷，三级难度，支持插旗与快速展开",
-  "order": 4
+  "order": 4,
+  "category": "游戏"
 }

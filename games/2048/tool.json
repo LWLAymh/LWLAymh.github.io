@@ -1,5 +1,6 @@
 {
   "title": "2048",
   "description": "经典数字合成游戏，方向键 / WASD / 手机滑动都能玩",
-  "order": 3
+  "order": 3,
+  "category": "游戏"
 }
