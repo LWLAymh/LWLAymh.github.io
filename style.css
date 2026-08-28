@@ -637,6 +637,10 @@ mjx-container[display="true"] + br { display: none; }
   display: block; box-shadow: 0 0 0 2px var(--bg-elevated), 0 0 0 3px var(--border);
 }
 .friend-name { color: var(--text); font-weight: 600; font-family: var(--font-serif); }
+.friend-note {
+  text-align: center; margin: 18px 0 0;
+  color: var(--text-faint); font-size: 0.82rem;
+}
 
 /* ---- 工具 ---- */
 .tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
