@@ -625,12 +625,17 @@ mjx-container[display="true"] + br { display: none; }
 /* ---- 友链 ---- */
 .friend-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
 .friend-card {
-  display: flex; align-items: center; justify-content: center; min-height: 62px;
-  padding: 14px 16px;
+  display: flex; align-items: center; justify-content: flex-start; gap: 12px; min-height: 62px;
+  padding: 12px 16px;
   background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px;
   transition: transform 0.16s, box-shadow 0.16s, border-color 0.16s;
 }
 .friend-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: var(--accent); text-decoration: none; }
+.friend-avatar-box { display: inline-flex; flex: 0 0 auto; }
+.friend-avatar, .friend-avatar-box .pixel-avatar {
+  width: 42px; height: 42px; border-radius: 10px; object-fit: cover;
+  display: block; box-shadow: 0 0 0 2px var(--bg-elevated), 0 0 0 3px var(--border);
+}
 .friend-name { color: var(--text); font-weight: 600; font-family: var(--font-serif); }
 
 /* ---- 工具 ---- */
@@ -737,6 +742,24 @@ mjx-container[display="true"] + br { display: none; }
 .post-content .footnotes-sep { margin: 2em 0 1em; }
 .post-content .footnotes-list { font-size: 0.92em; padding-left: 1.4em; }
 .post-content .footnote-item p { margin: 0.4em 0; }
+
+/* ---- 论文引用（ACM 风格） ---- */
+.post-content .acm-cites {
+  list-style: none; margin: 1.2em 0; padding: 0;
+  counter-reset: acm;
+}
+.post-content .acm-cites li {
+  counter-increment: acm;
+  display: flex; gap: 10px; padding: 12px 2px;
+  border-bottom: 1px dashed var(--border);
+  line-height: 1.7; font-size: 0.94rem;
+}
+.post-content .acm-cites li:last-child { border-bottom: 0; }
+.post-content .acm-cites .cite-num {
+  flex: 0 0 auto; font-weight: 600; color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.post-content .acm-cites a { border-bottom: 1px solid color-mix(in srgb, var(--accent) 36%, transparent); }
 
 /* ---- 回到顶部 ---- */
 .back-top {
