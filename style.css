@@ -355,6 +355,9 @@ mark { background: #ffd66b; color: #3a2f00; border-radius: 2px; padding: 0 2px; 
 .post-content {
   font-size: 1rem; margin-top: 20px;
   overflow-wrap: break-word;
+  /* 长文首屏优化：离屏内容先不排版，滚动到附近再渲染（移动端尤其有效） */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
 }
 .post-content h1, .post-content h2, .post-content h3,
 .post-content h4, .post-content h5, .post-content h6 {
