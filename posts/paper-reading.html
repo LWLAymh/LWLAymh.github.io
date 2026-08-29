@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<title>Paper Reading · LWLAymh的备忘录</title>
+<meta name="description" content="[1] MapReduce: Simplified Data Processing on Large Clusters . USENIX OSDI 2004 , 2004. https://www.usenix.org/conference">
+<meta name="author" content="LWLAymh">
+<link rel="canonical" href="https://LWLAymh.github.io/posts/paper-reading.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="LWLAymh的备忘录">
+<meta property="og:url" content="https://LWLAymh.github.io/posts/paper-reading.html">
+<meta property="og:title" content="Paper Reading · LWLAymh的备忘录">
+<meta property="og:description" content="[1] MapReduce: Simplified Data Processing on Large Clusters . USENIX OSDI 2004 , 2004. https://www.usenix.org/conference">
+<link rel="icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
+<link rel="apple-touch-icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
+<link rel="stylesheet" href="/style.css">
+<link rel="preconnect" href="https://my-repository-jade-beta-79.vercel.app" crossorigin>
+<link rel="preload" as="image" href="/images/background8.jpg">
+
+
+</head>
+<body class="page-post">
+<div class="progress-bar" id="progress-bar"></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="/">
+      <img class="header-avatar avatar" src="/images/头像1.jpg" alt="avatar" data-avatar>
+      <span class="brand-text">
+        <span class="brand-title">LWLAymh的备忘录</span>
+        <span class="brand-subtitle">混乱节拍拼凑出血肉喧嚷</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/tools.html">工具</a><a class="nav-link" href="/games.html">游戏</a><a class="nav-link" href="/links.html">友链</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题">
+        <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+<main class="site-main">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Paper Reading</h1>
+    <div class="post-meta">
+      <time>2026-08-17</time>
+      <a class="chip chip-cat" href="/categories.html#paper-reading" title="paper-reading">paper-reading</a>
+    </div>
+  </header>
+  <div class="post-content"><ol class="acm-cites"><li class="acm-cite"><span class="cite-num">[1]</span> <strong>MapReduce: Simplified Data Processing on Large Clusters</strong>. <strong>USENIX OSDI 2004</strong>, 2004. <a href="https://www.usenix.org/conference/osdi04/mapreduce-simplified-data-processing-large-clusters" target="_blank" rel="noopener">https://www.usenix.org/conference/osdi04/mapreduce-simplified-data-processing-large-clusters</a><div class="paper-tags"><span class="tag-chip" title="Systems">Sys</span></div></li>
+<li class="acm-cite"><span class="cite-num">[2]</span> Richard J. Lipton <strong>Reduction</strong>. 1975. In <strong>Communications of the ACM</strong>. Association for Computing Machinery (ACM), 717-721. <a href="https://doi.org/10.1145/361227.361234" target="_blank" rel="noopener">https://doi.org/10.1145/361227.361234</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages &amp; Formal Methods">PL-FM</span></div></li>
+<li class="acm-cite"><span class="cite-num">[3]</span> Stephen Brookes <strong>Variables as Resource for Shared-Memory Programs: Semantics and Soundness</strong>. 2006. In <strong>Electronic Notes in Theoretical Computer Science</strong>. Elsevier BV, 123-150. <a href="https://doi.org/10.1016/j.entcs.2006.04.008" target="_blank" rel="noopener">https://doi.org/10.1016/j.entcs.2006.04.008</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages &amp; Concurrent Separation Logic">PL-CSL</span></div></li>
+<li class="acm-cite"><span class="cite-num">[4]</span> Maurice P. Herlihy, Jeannette M. Wing <strong>Linearizability: a correctness condition for concurrent objects</strong>. 1990. In <strong>ACM Transactions on Programming Languages and Systems</strong>. Association for Computing Machinery (ACM), 463-492. <a href="https://doi.org/10.1145/78969.78972" target="_blank" rel="noopener">https://doi.org/10.1145/78969.78972</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages &amp; Formal Methods">PL-FM</span></div></li>
+<li class="acm-cite"><span class="cite-num">[5]</span> Thibault Dardinier, Peter Müller <strong>Hyper Hoare Logic: (Dis-)Proving Program Hyperproperties</strong>. 2024. In <strong>Proceedings of the ACM on Programming Languages</strong>. Association for Computing Machinery (ACM), 1485-1509. <a href="https://doi.org/10.1145/3656437" target="_blank" rel="noopener">https://doi.org/10.1145/3656437</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages &amp; Formal Methods">PL-FM</span></div></li>
+<li class="acm-cite"><span class="cite-num">[6]</span> <strong>DOI 10.4230/LIPIcs.DISC.2019.2</strong>. <a href="https://doi.org/10.4230/LIPIcs.DISC.2019.2" target="_blank" rel="noopener">https://doi.org/10.4230/LIPIcs.DISC.2019.2</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages &amp; Formal Methods">PL-FM</span></div></li>
+<li class="acm-cite"><span class="cite-num">[7]</span> Thomas Kœhler, Andrés Goens, Siddharth Bhat, Tobias Grosser, Phil Trinder, Michel Steuwer <strong>Guided Equality Saturation</strong>. 2024. In <strong>Proceedings of the ACM on Programming Languages</strong>. Association for Computing Machinery (ACM), 1727-1758. <a href="https://doi.org/10.1145/3632900" target="_blank" rel="noopener">https://doi.org/10.1145/3632900</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages &amp; Egraph">PL-Egraph</span></div></li>
+<li class="acm-cite"><span class="cite-num">[8]</span> Greg Nelson, Derek C. Oppen <strong>Fast Decision Procedures Based on Congruence Closure</strong>. 1980. In <strong>Journal of the ACM</strong>. Association for Computing Machinery (ACM), 356-364. <a href="https://doi.org/10.1145/322186.322198" target="_blank" rel="noopener">https://doi.org/10.1145/322186.322198</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages &amp; Formal Methods">PL-FM</span></div></li>
+<li class="acm-cite"><span class="cite-num">[9]</span> Peter W. O’Hearn <strong>Resources, concurrency, and local reasoning</strong>. 2007. In <strong>Theoretical Computer Science</strong>. Elsevier BV, 271-307. <a href="https://doi.org/10.1016/j.tcs.2006.12.035" target="_blank" rel="noopener">https://doi.org/10.1016/j.tcs.2006.12.035</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages &amp; Concurrent Separation Logic">PL-CSL</span></div></li>
+<li class="acm-cite"><span class="cite-num">[10]</span> Ivana Filipović, Peter O’Hearn, Noam Rinetzky, Hongseok Yang <strong>Abstraction for concurrent objects</strong>. 2010. In <strong>Theoretical Computer Science</strong>. Elsevier BV, 4379-4398. <a href="https://doi.org/10.1016/j.tcs.2010.09.021" target="_blank" rel="noopener">https://doi.org/10.1016/j.tcs.2010.09.021</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages &amp; Concurrent Separation Logic">PL-CSL</span></div></li>
+<li class="acm-cite"><span class="cite-num">[11]</span> Nir Hemed, Noam Rinetzky <strong>Brief announcement</strong>. 2014. In <strong>Proceedings of the 2014 ACM symposium on Principles of distributed computing</strong>. ACM, 209-211. <a href="https://doi.org/10.1145/2611462.2611513" target="_blank" rel="noopener">https://doi.org/10.1145/2611462.2611513</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages &amp; Formal Methods">PL-FM</span></div></li>
+<li class="acm-cite"><span class="cite-num">[12]</span> <strong>An explanation of forwards/backwards simulation</strong>. <strong>博客笔记</strong>, 2005. <a href="https://maartenfokkinga.github.io/utwente/mmf2005e.pdf" target="_blank" rel="noopener">https://maartenfokkinga.github.io/utwente/mmf2005e.pdf</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages &amp; Formal Methods">PL-FM</span></div></li>
+<li class="acm-cite"><span class="cite-num">[13]</span> Ralf Jung, David Swasey, Filip Sieczkowski, Kasper Svendsen, Aaron Turon, Lars Birkedal, Derek Dreyer <strong>Iris</strong>. 2015. In <strong>Proceedings of the 42nd Annual ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages</strong>. ACM, 637-650. <a href="https://doi.org/10.1145/2676726.2676980" target="_blank" rel="noopener">https://doi.org/10.1145/2676726.2676980</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages / CSL / Iris">PL-CSL-Iris</span></div></li>
+<li class="acm-cite"><span class="cite-num">[14]</span> Simon Friis Vindum, Dan Frumin, Lars Birkedal <strong>Mechanized verification of a fine-grained concurrent queue from meta’s folly library</strong>. 2022. In <strong>Proceedings of the 11th ACM SIGPLAN International Conference on Certified Programs and Proofs</strong>. ACM, 100-115. <a href="https://doi.org/10.1145/3497775.3503689" target="_blank" rel="noopener">https://doi.org/10.1145/3497775.3503689</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages / Formal Methods / Iris">PL-FM-Iris</span></div></li>
+<li class="acm-cite"><span class="cite-num">[15]</span> Alexey Gotsman, Josh Berdine, Byron Cook, Noam Rinetzky, Mooly Sagiv <strong>Local Reasoning for Storable Locks and Threads</strong>. In <strong>Lecture Notes in Computer Science</strong>. Springer Berlin Heidelberg, 19-37. <a href="https://doi.org/10.1007/978-3-540-76637-7_3" target="_blank" rel="noopener">https://doi.org/10.1007/978-3-540-76637-7_3</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages &amp; Concurrent Separation Logic">PL-CSL</span></div></li>
+<li class="acm-cite"><span class="cite-num">[16]</span> Eugene W. Stark <strong>A proof technique for rely/guarantee properties</strong>. 1985. In <strong>Lecture Notes in Computer Science</strong>. Springer Berlin Heidelberg, 369-391. <a href="https://doi.org/10.1007/3-540-16042-6_21" target="_blank" rel="noopener">https://doi.org/10.1007/3-540-16042-6_21</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages &amp; Formal Methods">PL-FM</span></div></li>
+<li class="acm-cite"><span class="cite-num">[17]</span> <strong>基于交互式定理证明的并发程序验证工作综述</strong>. <strong>软件学报</strong>, 2024. <a href="https://jos.org.cn/jos/article/abstract/7138" target="_blank" rel="noopener">https://jos.org.cn/jos/article/abstract/7138</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages &amp; Formal Methods">PL-FM</span></div></li>
+<li class="acm-cite"><span class="cite-num">[18]</span> Aaron J. Turon, Jacob Thamsborg, Amal Ahmed, Lars Birkedal, Derek Dreyer <strong>Logical relations for fine-grained concurrency</strong>. 2013. In <strong>ACM SIGPLAN Notices</strong>. Association for Computing Machinery (ACM), 343-356. <a href="https://doi.org/10.1145/2480359.2429111" target="_blank" rel="noopener">https://doi.org/10.1145/2480359.2429111</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages &amp; Iris">PL-Iris</span></div></li>
+<li class="acm-cite"><span class="cite-num">[19]</span> Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin <strong>Attention Is All You Need</strong>. 2017. arXiv preprint arXiv:1706.03762. <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener">https://arxiv.org/abs/1706.03762</a><div class="paper-tags"><span class="tag-chip" title="Machine Learning">ML</span></div></li>
+<li class="acm-cite"><span class="cite-num">[20]</span> Tianqi Chen, Bing Xu, Chiyuan Zhang, Carlos Guestrin <strong>Training Deep Nets with Sublinear Memory Cost</strong>. 2016. arXiv preprint arXiv:1604.06174. <a href="https://arxiv.org/abs/1604.06174" target="_blank" rel="noopener">https://arxiv.org/abs/1604.06174</a><div class="paper-tags"><span class="tag-chip" title="Machine Learning">ML</span></div></li>
+<li class="acm-cite"><span class="cite-num">[21]</span> Yanping Huang, Youlong Cheng, Ankur Bapna, Orhan Firat, Mia Xu Chen, Dehao Chen, HyoukJoong Lee, Jiquan Ngiam, et al. <strong>GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism</strong>. 2018. arXiv preprint arXiv:1811.06965. <a href="https://arxiv.org/abs/1811.06965" target="_blank" rel="noopener">https://arxiv.org/abs/1811.06965</a><div class="paper-tags"><span class="tag-chip" title="Machine Learning &amp; AI Infrastructure">ML-AI Infra</span></div></li>
+<li class="acm-cite"><span class="cite-num">[22]</span> Mohammad Shoeybi, Mostofa Patwary, Raul Puri, Patrick LeGresley, Jared Casper, Bryan Catanzaro <strong>Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism</strong>. 2019. arXiv preprint arXiv:1909.08053. <a href="https://arxiv.org/abs/1909.08053" target="_blank" rel="noopener">https://arxiv.org/abs/1909.08053</a><div class="paper-tags"><span class="tag-chip" title="Machine Learning &amp; AI Infrastructure">ML-AI Infra</span></div></li>
+<li class="acm-cite"><span class="cite-num">[23]</span> Jason Ansel, Edward Yang, Horace He, Natalia Gimelshein, Animesh Jain, Michael Voznesensky, Bin Bao, Peter Bell, et al. <strong>PyTorch 2: Faster Machine Learning Through Dynamic Python Bytecode Transformation and Graph Compilation</strong>. 2024. In <strong>Proceedings of the 29th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 2</strong>. ACM, 929-947. <a href="https://doi.org/10.1145/3620665.3640366" target="_blank" rel="noopener">https://doi.org/10.1145/3620665.3640366</a><div class="paper-tags"><span class="tag-chip" title="Machine Learning / AI Infrastructure Compilation">ML-AI Infra-Compile</span></div></li>
+<li class="acm-cite"><span class="cite-num">[24]</span> Tri Dao, Dan Fu, Stefano Ermon, Atri Rudra, Christopher Ré <strong>FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness</strong>. 2022. In <strong>Advances in Neural Information Processing Systems 35</strong>. Neural Information Processing Systems Foundation, Inc. (NeurIPS), 16344-16359. <a href="https://doi.org/10.52202/068431-1189" target="_blank" rel="noopener">https://doi.org/10.52202/068431-1189</a><div class="paper-tags"><span class="tag-chip" title="Machine Learning &amp; AI Infrastructure">ML-AI Infra</span></div></li>
+<li class="acm-cite"><span class="cite-num">[25]</span> Yuchen Jiang, Jie Zhu, Xintian Han, Hui Lu, Kunmin Bai, Mingyu Yang, Shikang Wu, Ruihao Zhang, et al. <strong>TokenMixer-Large: Scaling Up Large Ranking Models in Industrial Recommenders</strong>. 2026. In <strong>Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2</strong>. ACM, 7489-7500. <a href="https://doi.org/10.1145/3770855.3818494" target="_blank" rel="noopener">https://doi.org/10.1145/3770855.3818494</a><div class="paper-tags"><span class="tag-chip" title="Machine Learning &amp; AI Infrastructure">ML-AI Infra</span></div></li>
+<li class="acm-cite"><span class="cite-num">[26]</span> <strong>Compiling machine learning programs via high-level tracing</strong>. <strong>ML Systems 2018</strong>, 2018. <a href="https://cs.stanford.edu/~rfrostig/pubs/jax-mlsys2018.pdf" target="_blank" rel="noopener">https://cs.stanford.edu/~rfrostig/pubs/jax-mlsys2018.pdf</a><div class="paper-tags"><span class="tag-chip" title="Machine Learning / AI Infrastructure Compilation">ML-AI Infra-Compile</span></div></li>
+<li class="acm-cite"><span class="cite-num">[27]</span> <strong>Dex: array programming with typed indices</strong>. <strong>Dex 论文</strong>, 2021. <div class="paper-tags"><span class="tag-chip" title="Programming Languages &amp; Machine Learning">PL-ML</span></div></li>
+<li class="acm-cite"><span class="cite-num">[28]</span> Zhiying Xu, Francis Y. Yan, Rachee Singh, Justin T. Chiu, Alexander M. Rush, Minlan Yu <strong>Teal: Learning-Accelerated Optimization of WAN Traffic Engineering</strong>. 2023. In <strong>Proceedings of the ACM SIGCOMM 2023 Conference</strong>. ACM, 378-393. <a href="https://doi.org/10.1145/3603269.3604857" target="_blank" rel="noopener">https://doi.org/10.1145/3603269.3604857</a><div class="paper-tags"><span class="tag-chip" title="Systems &amp; AI Infrastructure">Sys-AI Infra</span></div></li>
+<li class="acm-cite"><span class="cite-num">[29]</span> <strong>DOTE: Rethinking (Predictive) WAN Traffic Engineering</strong>. <strong>USENIX NSDI 2023</strong>, 2023. <a href="https://www.usenix.org/conference/nsdi23/presentation/perry" target="_blank" rel="noopener">https://www.usenix.org/conference/nsdi23/presentation/perry</a><div class="paper-tags"><span class="tag-chip" title="Systems &amp; AI Infrastructure">Sys-AI Infra</span></div></li>
+<li class="acm-cite"><span class="cite-num">[30]</span> Abd AlRhman AlQiam, Yuanjun Yao, Zhaodong Wang, Satyajeet Singh Ahuja, Ying Zhang, Sanjay G. Rao, Bruno Ribeiro, Mohit Tawarmalani <strong>Transferable Neural WAN TE for Changing Topologies</strong>. 2024. In <strong>Proceedings of the ACM SIGCOMM 2024 Conference</strong>. ACM, 86-102. <a href="https://doi.org/10.1145/3651890.3672237" target="_blank" rel="noopener">https://doi.org/10.1145/3651890.3672237</a><div class="paper-tags"><span class="tag-chip" title="Systems / Machine Learning / AI Infrastructure">Sys-ML-AI Infra</span></div></li>
+<li class="acm-cite"><span class="cite-num">[31]</span> Ximeng Liu, Zhuoran Liu, Yingming Mao, Yatao Li, Shizhen Zhao, Xinbing Wang <strong>Geminet: Learning the Duality-based Iterative Process for Lightweight Traffic Engineering in Changing Topologies</strong>. 2025. arXiv preprint arXiv:2506.23640. <a href="https://arxiv.org/abs/2506.23640" target="_blank" rel="noopener">https://arxiv.org/abs/2506.23640</a><div class="paper-tags"><span class="tag-chip" title="Systems / Machine Learning / AI Infrastructure">Sys-ML-AI Infra</span></div></li>
+<li class="acm-cite"><span class="cite-num">[32]</span> Max Willsey, Chandrakana Nandi, Yisu Remy Wang, Oliver Flatt, Zachary Tatlock, Pavel Panchekha <strong>egg: Fast and extensible equality saturation</strong>. 2021. In <strong>Proceedings of the ACM on Programming Languages</strong>. Association for Computing Machinery (ACM), 1-29. <a href="https://doi.org/10.1145/3434304" target="_blank" rel="noopener">https://doi.org/10.1145/3434304</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages &amp; Egraph">PL-Egraph</span></div></li></ol></div>
+  <nav class="post-nav">
+      <a class="post-nav-item" href="/posts/%E8%B4%AA%E5%BF%83%E4%B8%8E%E6%9E%84%E9%80%A0.html"><span>← 上一篇</span>贪心与构造</a>
+      <span></span>
+    </nav>
+  <section class="comments" id="comments">
+    <h2 class="comments-title">评论</h2>
+    <div id="waline"></div>
+  </section>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="footer-signature" id="footer-signature">不过是白日梦里一瞬息</div>
+  <div class="footer-copy">© 2026 LWLAymh</div>
+</footer>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="打开侧边栏" title="侧边栏"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+  <div class="sidebar-inner"><div class="toc-title">联系我</div><span class="contact-item contact-text">微信：LWLAymh</span><a class="contact-item contact-link" href="mailto:lwlaymh@outlook.com">邮件</a><a class="contact-item contact-link" href="https://github.com/LWLAymh" target="_blank" rel="noopener">GitHub</a><a class="contact-item contact-link" href="https://www.luogu.com.cn/user/661076" target="_blank" rel="noopener">洛谷</a></div>
+</aside>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script src="/main.js" defer></script>
+<script src="/comment.js" defer></script>
+</body>
+</html>

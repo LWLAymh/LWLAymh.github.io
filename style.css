@@ -754,16 +754,23 @@ mjx-container[display="true"] + br { display: none; }
 }
 .post-content .acm-cites li {
   counter-increment: acm;
-  display: flex; gap: 10px; padding: 12px 2px;
+  display: block;
+  padding: 12px 2px;
   border-bottom: 1px dashed var(--border);
   line-height: 1.7; font-size: 0.94rem;
 }
 .post-content .acm-cites li:last-child { border-bottom: 0; }
 .post-content .acm-cites .cite-num {
-  flex: 0 0 auto; font-weight: 600; color: var(--accent);
-  font-variant-numeric: tabular-nums;
+  display: inline-block; font-weight: 600; color: var(--accent);
+  font-variant-numeric: tabular-nums; min-width: 2.2em; margin-right: 4px;
 }
 .post-content .acm-cites a { border-bottom: 1px solid color-mix(in srgb, var(--accent) 36%, transparent); }
+.post-content .paper-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.post-content .tag-chip {
+  font-size: 0.72rem; padding: 1px 9px; border-radius: 999px;
+  background: var(--chip-bg); color: var(--text-muted);
+  border: 1px solid transparent; line-height: 1.6;
+}
 
 /* ---- 回到顶部 ---- */
 .back-top {
