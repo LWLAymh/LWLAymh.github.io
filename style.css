@@ -611,7 +611,11 @@ mjx-container[display="true"] + br { display: none; }
   padding: 14px 2px; border-bottom: 1px solid var(--border); flex-wrap: wrap;
 }
 .file-info { display: flex; gap: 12px; align-items: center; }
-.file-name { font-weight: 600; display: inline-flex; align-items: center; gap: 7px; }
+.file-name {
+  font-weight: 600; display: inline-flex; align-items: center; gap: 7px;
+  color: var(--text); text-decoration: none;
+}
+.file-name:hover { color: var(--accent); text-decoration: none; }
 .file-icon { width: 17px; height: 17px; color: var(--text-muted); flex: 0 0 auto; }
 .file-size { color: var(--text-faint); font-size: 0.82rem; }
 .file-actions { display: flex; gap: 8px; }
