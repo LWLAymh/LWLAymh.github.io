@@ -503,6 +503,39 @@ mjx-container[display="true"] + br { display: none; }
 .toc-item a:hover { color: var(--accent); background: var(--bg-soft); text-decoration: none; }
 .toc-item a.active { color: var(--accent); background: var(--accent-soft); border-left-color: var(--accent); font-weight: 600; }
 
+/* 可折叠树形目录 */
+.toc-list .toc-children { list-style: none; margin: 0; padding-left: 1.1em; }
+.toc-branch { margin: 2px 0; }
+.toc-row {
+  display: flex; align-items: center; gap: 2px;
+  border-radius: 7px;
+  transition: background 0.15s;
+}
+.toc-row a {
+  flex: 1; display: block; padding: 4px 6px; border-radius: 7px;
+  font-size: 0.9rem; color: var(--text-muted);
+  border-left: 2px solid transparent;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+.toc-row a:hover { color: var(--accent); background: var(--bg-soft); text-decoration: none; }
+.toc-row a.active { color: var(--accent); background: var(--accent-soft); border-left-color: var(--accent); font-weight: 600; }
+.toc-toggle {
+  width: 18px; height: 18px; flex: 0 0 auto;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 0; background: transparent; color: var(--text-faint);
+  cursor: pointer; border-radius: 5px; padding: 0;
+  transition: color 0.15s, background 0.15s;
+}
+.toc-toggle:hover { color: var(--accent); background: var(--bg-soft); }
+.toc-toggle::before {
+  content: ""; width: 6px; height: 6px;
+  border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: rotate(45deg); transition: transform 0.2s ease;
+}
+.toc-branch.collapsed > .toc-row .toc-toggle::before { transform: rotate(-45deg); }
+.toc-toggle-spacer { width: 18px; flex: 0 0 auto; }
+.toc-branch.collapsed > .toc-children { display: none; }
+
 /* 联系方式侧边栏 */
 .contact-item {
   display: flex; justify-content: space-between; gap: 12px;

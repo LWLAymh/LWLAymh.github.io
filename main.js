@@ -197,19 +197,36 @@
     if (e.key === 'Escape') setSidebar(false);
   });
 
+  /* ---- 树形目录折叠 / 展开 ---- */
+  document.addEventListener('click', function (e) {
+    var toggle = e.target.closest('.toc-toggle');
+    if (!toggle) return;
+    var branch = toggle.closest('.toc-branch');
+    if (!branch) return;
+    var collapsed = branch.classList.toggle('collapsed');
+    toggle.setAttribute('aria-expanded', String(!collapsed));
+    if (typeof measureSections === 'function') {
+      measureSections();
+      spy();
+    }
+  });
+
   /* ---- 目录滚动定位（scroll-spy，缓存位置 + rAF 节流） ---- */
   var tocSections = [];
   var measureSections = function () {
     tocSections.forEach(function (s) {
-      s.top = s.el.getBoundingClientRect().top + window.scrollY;
+      s.top = s.el.offsetParent
+        ? s.el.getBoundingClientRect().top + window.scrollY
+        : Infinity;
     });
   };
   var spy = function () {
-    if (!tocSections.length) return;
+    var visible = tocSections.filter(function (s) { return s.el.offsetParent !== null; });
+    if (!visible.length) return;
     var pos = window.scrollY + 120;
-    var current = tocSections[0];
-    for (var i = 0; i < tocSections.length; i++) {
-      if (tocSections[i].top <= pos) current = tocSections[i];
+    var current = visible[0];
+    for (var i = 0; i < visible.length; i++) {
+      if (visible[i].top <= pos) current = visible[i];
       else break;
     }
     tocSections.forEach(function (s) { s.link.classList.remove('active'); });

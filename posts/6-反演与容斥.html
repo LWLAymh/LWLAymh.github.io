@@ -1859,8 +1859,278 @@ mjx-c.mjx-c2061::before {
 <aside class="sidebar" id="sidebar" aria-hidden="true">
   <div class="sidebar-inner">
     <details class="sidebar-tree" open>
-      <summary class="sidebar-tree-title">LWLAymh的备忘录</summary>
-      <div class="sidebar-tree-body"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item" style="padding-left:0.00em"><a href="#toc-0">反演</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-1">子集反演</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-2">Example1(2019zrpzt七连day1D)</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-3">Example2(有标号DAG计数)</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-4">二项式反演</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-5">Example1(错排问题)</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-6">Example2(CF1750G)</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-7">Example3(CF1228E)</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-8">斯特林反演</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-9">莫比乌斯反演</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-10">Example1</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-11">Example2</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-12">增加枚举量</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-13">交换枚举顺序</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-14">分离无关变量</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-15">Example3</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-16">Example4</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-17">换元</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-18">Example5([UR #5]怎样跑得更快)</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-19">Example6([CF1566H]Xor-quiz)</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-20">多重子集反演</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-21">单位根反演(离散傅里叶变换)</a></li><li class="toc-item" style="padding-left:1.15em"><a href="#toc-22">一般情况</a></li><li class="toc-item" style="padding-left:0.00em"><a href="#toc-23">容斥</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-24">一般形式</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-25">Example1(不定方程非负整数解计数)</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-26">Example2(错排问题)</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-27">Example3(bzoj3622已经没有什么好害怕的了)</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-28">Example4(HAOI2008硬币购物)</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-29">Example5</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-30">Example6</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-31">Example7(AGC058D)</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-32">Example8(AGC035F)</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-33">Example9</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-34">Example10([AGC036F] Square Constraints)</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-35">Example11([23省选第一轮集训day4]C带劲的旅行)</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-36">Example12</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-37">Min-Max容斥</a></li><li class="toc-item" style="padding-left:3.45em"><a href="#toc-38">Example1([23省选10连测 day6]A)</a></li><li class="toc-item" style="padding-left:2.30em"><a href="#toc-39">反射容斥</a></li></ul></div>
+      <summary class="sidebar-tree-title">反演与容斥</summary>
+      <div class="sidebar-tree-body"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item"><a href="/posts/6-%E5%8F%8D%E6%BC%94%E4%B8%8E%E5%AE%B9%E6%96%A5.html">反演与容斥</a></li><li class="toc-branch">
+      <div class="toc-row">
+        <button class="toc-toggle" type="button" aria-expanded="true" aria-label="折叠/展开" title="折叠/展开"></button>
+        <a href="#toc-0">反演</a>
+      </div>
+      <ul class="toc-children"><li class="toc-branch">
+      <div class="toc-row">
+        <button class="toc-toggle" type="button" aria-expanded="true" aria-label="折叠/展开" title="折叠/展开"></button>
+        <a href="#toc-1">子集反演</a>
+      </div>
+      <ul class="toc-children"><li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-2">Example1(2019zrpzt七连day1D)</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-3">Example2(有标号DAG计数)</a>
+      </div>
+      
+    </li></ul>
+    </li>
+<li class="toc-branch">
+      <div class="toc-row">
+        <button class="toc-toggle" type="button" aria-expanded="true" aria-label="折叠/展开" title="折叠/展开"></button>
+        <a href="#toc-4">二项式反演</a>
+      </div>
+      <ul class="toc-children"><li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-5">Example1(错排问题)</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-6">Example2(CF1750G)</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-7">Example3(CF1228E)</a>
+      </div>
+      
+    </li></ul>
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-8">斯特林反演</a>
+      </div>
+      
+    </li>
+<li class="toc-branch">
+      <div class="toc-row">
+        <button class="toc-toggle" type="button" aria-expanded="true" aria-label="折叠/展开" title="折叠/展开"></button>
+        <a href="#toc-9">莫比乌斯反演</a>
+      </div>
+      <ul class="toc-children"><li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-10">Example1</a>
+      </div>
+      
+    </li>
+<li class="toc-branch">
+      <div class="toc-row">
+        <button class="toc-toggle" type="button" aria-expanded="true" aria-label="折叠/展开" title="折叠/展开"></button>
+        <a href="#toc-11">Example2</a>
+      </div>
+      <ul class="toc-children"><li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-12">增加枚举量</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-13">交换枚举顺序</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-14">分离无关变量</a>
+      </div>
+      
+    </li></ul>
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-15">Example3</a>
+      </div>
+      
+    </li>
+<li class="toc-branch">
+      <div class="toc-row">
+        <button class="toc-toggle" type="button" aria-expanded="true" aria-label="折叠/展开" title="折叠/展开"></button>
+        <a href="#toc-16">Example4</a>
+      </div>
+      <ul class="toc-children"><li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-17">换元</a>
+      </div>
+      
+    </li></ul>
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-18">Example5([UR #5]怎样跑得更快)</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-19">Example6([CF1566H]Xor-quiz)</a>
+      </div>
+      
+    </li></ul>
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-20">多重子集反演</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-21">单位根反演(离散傅里叶变换)</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-22">一般情况</a>
+      </div>
+      
+    </li></ul>
+    </li>
+<li class="toc-branch">
+      <div class="toc-row">
+        <button class="toc-toggle" type="button" aria-expanded="true" aria-label="折叠/展开" title="折叠/展开"></button>
+        <a href="#toc-23">容斥</a>
+      </div>
+      <ul class="toc-children"><li class="toc-branch">
+      <div class="toc-row">
+        <button class="toc-toggle" type="button" aria-expanded="true" aria-label="折叠/展开" title="折叠/展开"></button>
+        <a href="#toc-24">一般形式</a>
+      </div>
+      <ul class="toc-children"><li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-25">Example1(不定方程非负整数解计数)</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-26">Example2(错排问题)</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-27">Example3(bzoj3622已经没有什么好害怕的了)</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-28">Example4(HAOI2008硬币购物)</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-29">Example5</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-30">Example6</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-31">Example7(AGC058D)</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-32">Example8(AGC035F)</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-33">Example9</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-34">Example10([AGC036F] Square Constraints)</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-35">Example11([23省选第一轮集训day4]C带劲的旅行)</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-36">Example12</a>
+      </div>
+      
+    </li></ul>
+    </li>
+<li class="toc-branch">
+      <div class="toc-row">
+        <button class="toc-toggle" type="button" aria-expanded="true" aria-label="折叠/展开" title="折叠/展开"></button>
+        <a href="#toc-37">Min-Max容斥</a>
+      </div>
+      <ul class="toc-children"><li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-38">Example1([23省选10连测 day6]A)</a>
+      </div>
+      
+    </li></ul>
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-39">反射容斥</a>
+      </div>
+      
+    </li></ul>
+    </li></ul></div>
     </details>
   </div>
 </aside>
