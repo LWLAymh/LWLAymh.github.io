@@ -4,6 +4,16 @@
    亮 / 暗主题通过 CSS 变量切换，body[data-theme="dark"] 覆盖。
    ========================================================================== */
 
+/* 柳建毛草（Liu Jian Mao Cao）：免费开源（OFL）行草书，笔触轻盈、连笔多，适合作带梦幻感的页脚签名。
+   已子集化到 GB2312 常用汉字 + 拉丁字母 + CJK 标点，覆盖任意常见中文签名，改签名无需重建。 */
+@font-face {
+  font-family: "Liu Jian Mao Cao";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/liujianmaocao/LiuJianMaoCao.woff2") format("woff2");
+}
+
 :root {
   --bg: #f7f9fc;
   --bg-elevated: #ffffff;
@@ -205,7 +215,7 @@ body.has-bg::after {
 }
 .footer-signature {
   font-size: 1.05rem; color: var(--text); margin-bottom: 8px;
-  font-family: var(--font-serif); font-style: italic; letter-spacing: 1px;
+  font-family: "Liu Jian Mao Cao", var(--font-serif); letter-spacing: 1px;
 }
 .footer-copy { font-size: 0.8rem; color: var(--text-faint); }
 
