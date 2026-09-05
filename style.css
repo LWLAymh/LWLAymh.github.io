@@ -466,30 +466,6 @@ mjx-container[display="true"] + br { display: none; }
 }
 .sidebar.open { left: 0; }
 
-/* 侧边栏可折叠根节点：最顶层是博客标题 */
-.sidebar-tree {
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--bg-elevated);
-  overflow: hidden;
-}
-.sidebar-tree summary {
-  display: flex; align-items: center; justify-content: space-between; gap: 10px;
-  padding: 12px 14px; cursor: pointer; user-select: none;
-  font-family: var(--font-serif); font-weight: 700; color: var(--text);
-  list-style: none;
-}
-.sidebar-tree summary::-webkit-details-marker { display: none; }
-.sidebar-tree summary::after {
-  content: ""; width: 8px; height: 8px; flex: 0 0 auto;
-  border-right: 2px solid var(--text-muted); border-bottom: 2px solid var(--text-muted);
-  transform: rotate(45deg); transition: transform 0.2s ease;
-}
-.sidebar-tree[open] summary::after { transform: rotate(225deg); }
-.sidebar-tree summary:hover { color: var(--accent); }
-.sidebar-tree summary:hover::after { border-color: var(--accent); }
-.sidebar-tree-body { padding: 0 14px 14px; }
-
 .sidebar-overlay {
   position: fixed; inset: 0; background: rgba(0, 0, 0, 0.35); z-index: 80;
   opacity: 0; pointer-events: none; transition: opacity 0.28s ease;
@@ -544,17 +520,27 @@ mjx-container[display="true"] + br { display: none; }
 .toc-toggle-spacer { width: 18px; flex: 0 0 auto; }
 .toc-branch.collapsed > .toc-children { display: none; }
 
-/* 联系方式侧边栏 */
-.contact-item {
-  display: flex; justify-content: space-between; gap: 12px;
-  padding: 10px 12px; margin-bottom: 8px; font-size: 0.92rem;
-  background: var(--bg-soft); border-radius: 10px;
+/* 联系我卡片（非博文页侧边栏）：始终展开，独立卡片，与博文页目录树区分 */
+.contact-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-elevated);
+  padding: 14px;
 }
+.contact-card-title {
+  font-family: var(--font-serif); font-weight: 700; color: var(--text);
+  font-size: 1rem; margin-bottom: 4px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.contact-item {
+  display: flex; justify-content: space-between; gap: 12px; align-items: baseline;
+  padding: 10px 2px; font-size: 0.92rem;
+}
+.contact-item + .contact-item { border-top: 1px solid var(--border); }
 .contact-key { color: var(--text-faint); white-space: nowrap; }
 .contact-val { color: var(--text); word-break: break-all; text-align: right; }
 .contact-link { color: var(--text); text-decoration: none; }
-.contact-link:hover { color: var(--accent); background: var(--accent-soft); }
-.contact-text { color: var(--text); }
+.contact-link:hover { color: var(--accent); }
 
 /* ---- 上一篇 / 下一篇 ---- */
 .post-nav {
