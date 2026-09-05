@@ -4,17 +4,6 @@
    亮 / 暗主题通过 CSS 变量切换，body[data-theme="dark"] 覆盖。
    ========================================================================== */
 
-/* 霞鹜文楷（LXGW WenKai）：自托管开源楷体 web 字体（OFL 许可，可自托管/商用）。
-   用它统一全平台（含 iOS / 移动端）的书法字体显示，替代只在 Windows 上才有的「华文行楷」。
-   已子集化到 GB2312 常用汉字 + 拉丁字母 + CJK 标点，覆盖任意常见中文签名，改签名无需重建。 */
-@font-face {
-  font-family: "LXGW WenKai";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/fonts/lxgwwenkai/LXGWWenKai-Regular.woff2") format("woff2");
-}
-
 :root {
   --bg: #f7f9fc;
   --bg-elevated: #ffffff;
@@ -54,8 +43,6 @@
     "HarmonyOS Sans SC", "Huawei Sans", sans-serif;
   --font-serif: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, "Times New Roman",
     "Songti SC", "STSong", "SimSun", "HarmonyOS Serif SC", serif;
-  --font-kai: "LXGW WenKai", "华文行楷", "STXingkai", "Kaiti SC", "Kaiti TC", "Hanzipen SC",
-    "华为行楷", "华文楷体", "Huawei Xingkai", "KaiTi", "楷体", "STKaiti", cursive;
 }
 
 [data-theme="dark"] {
@@ -218,7 +205,7 @@ body.has-bg::after {
 }
 .footer-signature {
   font-size: 1.05rem; color: var(--text); margin-bottom: 8px;
-  font-family: var(--font-kai); letter-spacing: 1px;
+  font-family: var(--font-serif); font-style: italic; letter-spacing: 1px;
 }
 .footer-copy { font-size: 0.8rem; color: var(--text-faint); }
 
