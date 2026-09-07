@@ -1,10 +1,122 @@
 [
   {
-    "name": "ICS26-Slides",
-    "title": "ICS 26 Slides",
-    "description": "北京大学 ICS 小班课 Slidev 课件：数据表示、机器语言、处理器体系结构、存储层次、链接、系统 I/O、虚拟内存、网络、并发与同步。",
-    "cover": "/slides/ICS26-Slides/00-Introduction/cover.jpg",
+    "name": "00-Introduction",
+    "path": "ICS26/00-Introduction",
+    "group": "ICS26",
+    "title": "00 课程介绍",
+    "description": "课程介绍、Lab 与课程规划",
+    "cover": "",
+    "order": 0,
+    "url": "/slides/ICS26/00-Introduction/"
+  },
+  {
+    "name": "01-Data-Representation",
+    "path": "ICS26/01-Data-Representation",
+    "group": "ICS26",
+    "title": "01 数据表示",
+    "description": "数据表示与 Datalab",
+    "cover": "",
     "order": 1,
-    "url": "/slides/ICS26-Slides/"
+    "url": "/slides/ICS26/01-Data-Representation/"
+  },
+  {
+    "name": "02-Machine-Prog",
+    "path": "ICS26/02-Machine-Prog",
+    "group": "ICS26",
+    "title": "02 机器语言",
+    "description": "机器语言、栈帧与 Bomb/Attack Lab",
+    "cover": "",
+    "order": 2,
+    "url": "/slides/ICS26/02-Machine-Prog/"
+  },
+  {
+    "name": "03-Arch1",
+    "path": "ICS26/03-Arch1",
+    "group": "ICS26",
+    "title": "03 处理器体系结构 1",
+    "description": "顺序处理器 Y86",
+    "cover": "",
+    "order": 3,
+    "url": "/slides/ICS26/03-Arch1/"
+  },
+  {
+    "name": "04-Arch2-Hierarchy",
+    "path": "ICS26/04-Arch2-Hierarchy",
+    "group": "ICS26",
+    "title": "04 处理器体系结构 2 / 存储器层次",
+    "description": "流水线与存储层次",
+    "cover": "",
+    "order": 4,
+    "url": "/slides/ICS26/04-Arch2-Hierarchy/"
+  },
+  {
+    "name": "05-Cache-ProgOptim",
+    "path": "ICS26/05-Cache-ProgOptim",
+    "group": "ICS26",
+    "title": "05 高速缓存与程序优化",
+    "description": "Cache 与性能优化",
+    "cover": "",
+    "order": 5,
+    "url": "/slides/ICS26/05-Cache-ProgOptim/"
+  },
+  {
+    "name": "06-Linking-ECF",
+    "path": "ICS26/06-Linking-ECF",
+    "group": "ICS26",
+    "title": "06 链接与异常控制流",
+    "description": "链接、进程、信号与 Shell Lab",
+    "cover": "",
+    "order": 6,
+    "url": "/slides/ICS26/06-Linking-ECF/"
+  },
+  {
+    "name": "07-SysIO",
+    "path": "ICS26/07-SysIO",
+    "group": "ICS26",
+    "title": "07 系统级 I/O",
+    "description": "文件与系统调用",
+    "cover": "",
+    "order": 7,
+    "url": "/slides/ICS26/07-SysIO/"
+  },
+  {
+    "name": "08-VM",
+    "path": "ICS26/08-VM",
+    "group": "ICS26",
+    "title": "08 虚拟内存",
+    "description": "虚拟内存与 Malloc Lab",
+    "cover": "",
+    "order": 8,
+    "url": "/slides/ICS26/08-VM/"
+  },
+  {
+    "name": "09-Network",
+    "path": "ICS26/09-Network",
+    "group": "ICS26",
+    "title": "09 网络",
+    "description": "网络编程与 Proxy Lab",
+    "cover": "",
+    "order": 9,
+    "url": "/slides/ICS26/09-Network/"
+  },
+  {
+    "name": "10-CONC",
+    "path": "ICS26/10-CONC",
+    "group": "ICS26",
+    "title": "10 并发",
+    "description": "并发编程",
+    "cover": "",
+    "order": 10,
+    "url": "/slides/ICS26/10-CONC/"
+  },
+  {
+    "name": "11-SYNC",
+    "path": "ICS26/11-SYNC",
+    "group": "ICS26",
+    "title": "11 同步",
+    "description": "同步与线程安全",
+    "cover": "",
+    "order": 11,
+    "url": "/slides/ICS26/11-SYNC/"
   }
 ]
