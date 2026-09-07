@@ -1,9 +1,10 @@
 [
   {
-    "name": "slidev-demo-starter",
-    "title": "Slidev 挂载演示",
-    "description": "演示如何把 Slidev 幻灯发布到博客 /slides/ 目录，独立整屏、可全屏。",
+    "name": "ICS26-Slides",
+    "title": "ICS 26 Slides",
+    "description": "北京大学 ICS 小班课 Slidev 课件：数据表示、机器语言、处理器体系结构、存储层次、链接、系统 I/O、虚拟内存、网络、并发与同步。",
+    "cover": "/slides/ICS26-Slides/00-Introduction/cover.jpg",
     "order": 1,
-    "url": "/slides/slidev-demo-starter/"
+    "url": "/slides/ICS26-Slides/"
   }
 ]
