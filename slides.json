@@ -1,0 +1,9 @@
+[
+  {
+    "name": "slidev-demo-starter",
+    "title": "Slidev 挂载演示",
+    "description": "演示如何把 Slidev 幻灯发布到博客 /slides/ 目录，独立整屏、可全屏。",
+    "order": 1,
+    "url": "/slides/slidev-demo-starter/"
+  }
+]

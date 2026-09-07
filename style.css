@@ -725,6 +725,11 @@ mjx-container[display="true"] + br { display: none; }
 }
 .tool-name { color: var(--text); font-weight: 600; font-family: var(--font-serif); font-size: 1.05rem; }
 
+/* ---- 幻灯（Slidev）卡片：标题 + 描述纵向排列 ---- */
+.slide-card { flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 4px; }
+.slide-card .tool-name { font-size: 1.1rem; }
+.slide-desc { color: var(--text-faint); font-size: 0.82rem; line-height: 1.5; }
+
 .empty { color: var(--text-muted); text-align: center; }
 
 /* ---- 加密文章 ---- */
