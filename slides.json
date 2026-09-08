@@ -1,122 +1,119 @@
 [
   {
+    "name": "Index",
+    "path": "ICS26",
+    "group": "ICS26",
+    "title": "ICS26 总览",
+    "description": "所有章节的目录页",
+    "order": -1,
+    "url": "https://LWLAymh.github.io/ICS26-Slides/"
+  },
+  {
     "name": "00-Introduction",
-    "path": "ICS26/00-Introduction",
+    "path": "ICS26/00",
     "group": "ICS26",
     "title": "00 课程介绍",
     "description": "课程介绍、Lab 与课程规划",
-    "cover": "",
     "order": 0,
-    "url": "/slides/ICS26/00-Introduction/"
+    "url": "https://LWLAymh.github.io/ICS26-Slides/00/"
   },
   {
     "name": "01-Data-Representation",
-    "path": "ICS26/01-Data-Representation",
+    "path": "ICS26/01",
     "group": "ICS26",
     "title": "01 数据表示",
     "description": "数据表示与 Datalab",
-    "cover": "",
     "order": 1,
-    "url": "/slides/ICS26/01-Data-Representation/"
+    "url": "https://LWLAymh.github.io/ICS26-Slides/01/"
   },
   {
     "name": "02-Machine-Prog",
-    "path": "ICS26/02-Machine-Prog",
+    "path": "ICS26/02",
     "group": "ICS26",
     "title": "02 机器语言",
     "description": "机器语言、栈帧与 Bomb/Attack Lab",
-    "cover": "",
     "order": 2,
-    "url": "/slides/ICS26/02-Machine-Prog/"
+    "url": "https://LWLAymh.github.io/ICS26-Slides/02/"
   },
   {
     "name": "03-Arch1",
-    "path": "ICS26/03-Arch1",
+    "path": "ICS26/03",
     "group": "ICS26",
     "title": "03 处理器体系结构 1",
     "description": "顺序处理器 Y86",
-    "cover": "",
     "order": 3,
-    "url": "/slides/ICS26/03-Arch1/"
+    "url": "https://LWLAymh.github.io/ICS26-Slides/03/"
   },
   {
     "name": "04-Arch2-Hierarchy",
-    "path": "ICS26/04-Arch2-Hierarchy",
+    "path": "ICS26/04",
     "group": "ICS26",
     "title": "04 处理器体系结构 2 / 存储器层次",
     "description": "流水线与存储层次",
-    "cover": "",
     "order": 4,
-    "url": "/slides/ICS26/04-Arch2-Hierarchy/"
+    "url": "https://LWLAymh.github.io/ICS26-Slides/04/"
   },
   {
     "name": "05-Cache-ProgOptim",
-    "path": "ICS26/05-Cache-ProgOptim",
+    "path": "ICS26/05",
     "group": "ICS26",
     "title": "05 高速缓存与程序优化",
     "description": "Cache 与性能优化",
-    "cover": "",
     "order": 5,
-    "url": "/slides/ICS26/05-Cache-ProgOptim/"
+    "url": "https://LWLAymh.github.io/ICS26-Slides/05/"
   },
   {
     "name": "06-Linking-ECF",
-    "path": "ICS26/06-Linking-ECF",
+    "path": "ICS26/06",
     "group": "ICS26",
     "title": "06 链接与异常控制流",
     "description": "链接、进程、信号与 Shell Lab",
-    "cover": "",
     "order": 6,
-    "url": "/slides/ICS26/06-Linking-ECF/"
+    "url": "https://LWLAymh.github.io/ICS26-Slides/06/"
   },
   {
     "name": "07-SysIO",
-    "path": "ICS26/07-SysIO",
+    "path": "ICS26/07",
     "group": "ICS26",
     "title": "07 系统级 I/O",
     "description": "文件与系统调用",
-    "cover": "",
     "order": 7,
-    "url": "/slides/ICS26/07-SysIO/"
+    "url": "https://LWLAymh.github.io/ICS26-Slides/07/"
   },
   {
     "name": "08-VM",
-    "path": "ICS26/08-VM",
+    "path": "ICS26/08",
     "group": "ICS26",
     "title": "08 虚拟内存",
     "description": "虚拟内存与 Malloc Lab",
-    "cover": "",
     "order": 8,
-    "url": "/slides/ICS26/08-VM/"
+    "url": "https://LWLAymh.github.io/ICS26-Slides/08/"
   },
   {
     "name": "09-Network",
-    "path": "ICS26/09-Network",
+    "path": "ICS26/09",
     "group": "ICS26",
     "title": "09 网络",
     "description": "网络编程与 Proxy Lab",
-    "cover": "",
     "order": 9,
-    "url": "/slides/ICS26/09-Network/"
+    "url": "https://LWLAymh.github.io/ICS26-Slides/09/"
   },
   {
     "name": "10-CONC",
-    "path": "ICS26/10-CONC",
+    "path": "ICS26/10",
     "group": "ICS26",
     "title": "10 并发",
     "description": "并发编程",
-    "cover": "",
     "order": 10,
-    "url": "/slides/ICS26/10-CONC/"
+    "url": "https://LWLAymh.github.io/ICS26-Slides/10/"
   },
   {
     "name": "11-SYNC",
-    "path": "ICS26/11-SYNC",
+    "path": "ICS26/11",
     "group": "ICS26",
     "title": "11 同步",
     "description": "同步与线程安全",
-    "cover": "",
     "order": 11,
-    "url": "/slides/ICS26/11-SYNC/"
+    "url": "https://LWLAymh.github.io/ICS26-Slides/11/"
   }
 ]
