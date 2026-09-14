@@ -893,6 +893,20 @@ mjx-container[display="true"] + br { display: none; }
   color: #b3261e; border-color: rgba(179, 38, 30, 0.35);
   background: rgba(179, 38, 30, 0.08);
 }
+.post-content .paper-rating.rating-reading {
+  color: var(--accent); border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  background: var(--accent-soft);
+}
+
+/* ---- Textbook Reading：用同一套卡片样式，只是条目更简洁 ---- */
+.post-content .empty code {
+  padding: 1px 6px; font-size: 0.85em; border-radius: 6px;
+  background: var(--bg-soft); border: 1px solid var(--border);
+}
+.post-content .acm-cites .acm-cite-content a { white-space: nowrap; }
+@media (max-width: 640px) {
+  .post-content .acm-cites .acm-cite-content a { white-space: normal; word-break: break-all; }
+}
 @media (max-width: 640px) {
   .post-content .acm-cites li { padding: 14px; }
   .post-content .paper-rating { font-size: 0.68rem; padding: 2px 8px; }
