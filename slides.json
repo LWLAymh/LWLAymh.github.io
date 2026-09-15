@@ -36,84 +36,66 @@
     "url": "https://LWLAymh.github.io/ICS26-Slides/02/"
   },
   {
-    "name": "03-Arch1",
+    "name": "03-Arch",
     "path": "ICS26/03",
     "group": "ICS26",
-    "title": "03 处理器体系结构 1",
-    "description": "顺序处理器 Y86",
+    "title": "03 处理器体系结构",
+    "description": "Y86 顺序实现与流水线",
     "order": 3,
     "url": "https://LWLAymh.github.io/ICS26-Slides/03/"
   },
   {
-    "name": "04-Arch2-Hierarchy",
+    "name": "04-Memory-Hierarchy",
     "path": "ICS26/04",
     "group": "ICS26",
-    "title": "04 处理器体系结构 2 / 存储器层次",
-    "description": "流水线与存储层次",
+    "title": "04 存储器层次结构",
+    "description": "高速缓存与程序优化",
     "order": 4,
     "url": "https://LWLAymh.github.io/ICS26-Slides/04/"
   },
   {
-    "name": "05-Cache-ProgOptim",
+    "name": "05-Compilation",
     "path": "ICS26/05",
     "group": "ICS26",
-    "title": "05 高速缓存与程序优化",
-    "description": "Cache 与性能优化",
+    "title": "05 编译与优化",
+    "description": "编译、汇编与链接",
     "order": 5,
     "url": "https://LWLAymh.github.io/ICS26-Slides/05/"
   },
   {
-    "name": "06-Linking-ECF",
+    "name": "06-ECF-and-SysIO",
     "path": "ICS26/06",
     "group": "ICS26",
-    "title": "06 链接与异常控制流",
-    "description": "链接、进程、信号与 Shell Lab",
+    "title": "06 异常控制流与系统级 I/O",
+    "description": "进程、信号、Shell Lab 与系统调用",
     "order": 6,
     "url": "https://LWLAymh.github.io/ICS26-Slides/06/"
   },
   {
-    "name": "07-SysIO",
+    "name": "07-Virtual-Memory",
     "path": "ICS26/07",
     "group": "ICS26",
-    "title": "07 系统级 I/O",
-    "description": "文件与系统调用",
+    "title": "07 虚拟内存",
+    "description": "虚拟内存与 Malloc Lab",
     "order": 7,
     "url": "https://LWLAymh.github.io/ICS26-Slides/07/"
   },
   {
-    "name": "08-VM",
+    "name": "08-Network",
     "path": "ICS26/08",
     "group": "ICS26",
-    "title": "08 虚拟内存",
-    "description": "虚拟内存与 Malloc Lab",
+    "title": "08 网络",
+    "description": "网络编程与 Proxy Lab",
     "order": 8,
     "url": "https://LWLAymh.github.io/ICS26-Slides/08/"
   },
   {
-    "name": "09-Network",
+    "name": "09-Concurrency",
     "path": "ICS26/09",
     "group": "ICS26",
-    "title": "09 网络",
-    "description": "网络编程与 Proxy Lab",
+    "title": "09 并发与同步",
+    "description": "并发编程、同步与线程安全",
     "order": 9,
     "url": "https://LWLAymh.github.io/ICS26-Slides/09/"
-  },
-  {
-    "name": "10-CONC",
-    "path": "ICS26/10",
-    "group": "ICS26",
-    "title": "10 并发",
-    "description": "并发编程",
-    "order": 10,
-    "url": "https://LWLAymh.github.io/ICS26-Slides/10/"
-  },
-  {
-    "name": "11-SYNC",
-    "path": "ICS26/11",
-    "group": "ICS26",
-    "title": "11 同步",
-    "description": "同步与线程安全",
-    "order": 11,
-    "url": "https://LWLAymh.github.io/ICS26-Slides/11/"
   }
 ]
