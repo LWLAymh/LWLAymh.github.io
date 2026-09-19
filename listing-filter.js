@@ -1,11 +1,14 @@
 /* ==========================================================================
    榜单（listing）筛选：层级标签树 + 评分。
    - 只在本页含 [data-listing]（榜单页）时生效，脚本由榜单渲染器按需引入。
-   - 标签按 `-` 分层渲染成目录树（PL → PL-FM → PL-FM-CSL → PL-FM-CSL-Iris）：
+   - 标签按 `-` 分层渲染成目录树（PL → PL-FM → PL-FM-CSL → PL-FM-CSL-Iris），
      每一项前面有复选框，勾上层会把下层全部勾上，取消上层会把下层全部取消；
-     下层只勾了一部分时，上层显示半选（mixed）。
-   - 内部只维护「已勾选的标签」这一个集合，级联与半选都是它推出来的。
-   - 有子节点的行可以折叠；每个 [data-listing] 独立初始化，同页多个榜单互不干扰；
+     下层只勾了一部分时上层显示半选（mixed）。父级可折叠，默认全部折叠。
+   - 默认「全部勾上」= 没有筛选，页面就是全部条目；取消任何一项才开始筛。
+     底部两个按钮：「全选」恢复默认（全部勾上），「全部取消」清空所有勾选；
+     当前状态下没有意义的那一个会自动禁用。
+   - 没有打标签 / 没写评分的条目不受对应筛选影响，始终显示。
+   - 每个 [data-listing] 独立初始化，同页多个榜单互不干扰；
      同一容器被重复初始化（同一脚本被引入多次）会直接跳过。
    - 按钮从条目的 data-tags / data-rating 现场汇总，静态 HTML 里没有筛选文案。
    ========================================================================== */
@@ -112,9 +115,12 @@
       });
     });
 
-    /* ---- 状态：已勾选的标签 + 折叠的行 ---- */
-    var checked = {};   // 标签 -> true
-    var collapsed = {}; // 路径 -> true
+    /* ---- 状态：默认全选 + 目录树默认折叠 ---- */
+    var checked = {};   // 标签 -> true（默认全部勾上）
+    allTags.forEach(function (tag) { checked[tag] = true; });
+    var ratingOn = {};  // 评分 -> true（默认全部勾上）
+    ratingValues.forEach(function (rating) { ratingOn[rating] = true; });
+    var collapsed = {}; // 路径 -> true（默认有子节点的都折叠）
     var rows = {};      // 路径 -> { row, check, mark, caret }
 
     function stateOf(node) {
@@ -130,6 +136,13 @@
         if (on) checked[t] = true;
         else delete checked[t];
       });
+    }
+
+    function tagsUnfiltered() {
+      return allTags.every(function (t) { return checked[t]; });
+    }
+    function ratingsUnfiltered() {
+      return ratingValues.every(function (r) { return ratingOn[r]; });
     }
 
     /* ---- 搭界面 ---- */
@@ -157,27 +170,48 @@
       return group;
     }
 
-    var ratingChips = [];
-    function makeRatingChip(value, count) {
-      var chip = document.createElement('button');
-      chip.type = 'button';
-      chip.className = 'filter-chip';
-      chip.setAttribute('data-filter-kind', 'rating');
-      chip.setAttribute('data-filter-value', value);
-      chip.setAttribute('aria-pressed', 'false');
-      chip.appendChild(document.createTextNode(value + ' '));
+    /** 复选框行：目录树的节点与评分都用它，交互和样式保持一致。 */
+    function makeCheck(kind, value, labelText, count) {
+      var check = document.createElement('button');
+      check.type = 'button';
+      check.className = 'tag-check' + (kind === 'rating' ? ' rating-check' : '');
+      check.setAttribute('role', 'checkbox');
+      check.setAttribute('data-filter-kind', kind);
+      check.setAttribute('data-filter-value', value);
+      var boxEl = document.createElement('span');
+      boxEl.className = 'tag-check-box';
+      var mark = document.createElement('span');
+      mark.className = 'tag-check-mark';
+      boxEl.appendChild(mark);
+      var label = document.createElement('span');
+      label.className = 'tag-check-label';
+      label.textContent = labelText;
       var num = document.createElement('span');
-      num.className = 'filter-chip-count';
+      num.className = 'tag-check-count';
       num.textContent = String(count);
-      chip.appendChild(num);
-      chip.addEventListener('click', function () {
-        var on = !chip.classList.contains('is-active');
-        chip.classList.toggle('is-active', on);
-        chip.setAttribute('aria-pressed', on ? 'true' : 'false');
-        apply();
+      check.appendChild(boxEl);
+      check.appendChild(label);
+      check.appendChild(num);
+      check.listeners = { mark: mark, label: label, count: num };
+      return check;
+    }
+
+    var ratingChecks = ratingValues.map(function (rating) {
+      var check = makeCheck('rating', rating, rating, ratingCounts[rating]);
+      check.title = rating;
+      check.addEventListener('click', function () {
+        var on = check.getAttribute('aria-checked') !== 'true';
+        ratingOn[rating] = on;
+        if (!on) delete ratingOn[rating];
+        refresh();
       });
-      ratingChips.push(chip);
-      return chip;
+      return check;
+    });
+    if (ratingChecks.length) {
+      var ratingWrap = document.createElement('div');
+      ratingWrap.className = 'listing-filter-ratings';
+      ratingChecks.forEach(function (check) { ratingWrap.appendChild(check); });
+      addGroup('评分', ratingWrap);
     }
 
     var treeHtml = null;
@@ -197,11 +231,13 @@
         var row = document.createElement('div');
         row.className = 'tag-tree-node' + (node.depth ? ' depth-' + Math.min(node.depth, 4) : '');
 
+        if (node.hasChildren) collapsed[node.path] = true; // 默认折叠
+
         var caret = document.createElement('button');
         caret.type = 'button';
         caret.className = 'tag-caret' + (node.hasChildren ? '' : ' is-leaf');
-        caret.setAttribute('aria-expanded', 'true');
-        caret.textContent = node.hasChildren ? '▾' : '·';
+        caret.setAttribute('aria-expanded', collapsed[node.path] ? 'false' : 'true');
+        caret.textContent = node.hasChildren ? (collapsed[node.path] ? '▸' : '▾') : '·';
         caret.addEventListener('click', function () {
           if (!node.hasChildren) return;
           if (collapsed[node.path]) delete collapsed[node.path];
@@ -211,27 +247,9 @@
           renderTree();
         });
 
-        var check = document.createElement('button');
-        check.type = 'button';
-        check.className = 'tag-check';
-        check.setAttribute('role', 'checkbox');
-        check.setAttribute('data-filter-value', node.path);
-        var box_ = document.createElement('span');
-        box_.className = 'tag-check-box';
-        var mark = document.createElement('span');
-        mark.className = 'tag-check-mark';
-        box_.appendChild(mark);
-        var label = document.createElement('span');
-        label.className = 'tag-tree-label';
-        label.textContent = node.name;
-        var count = document.createElement('span');
-        count.className = 'tag-tree-count';
-        count.textContent = String(node.count);
-        check.appendChild(box_);
-        check.appendChild(label);
-        check.appendChild(count);
-        var full = node.path + (tagLabels[node.path] && tagLabels[node.path] !== node.path ? ' · ' + tagLabels[node.path] : '');
-        check.title = full;
+        var check = makeCheck('tag', node.path, node.name, node.count);
+        var label = tagLabels[node.path];
+        check.title = node.path + (label && label !== node.path ? ' · ' + label : '');
         check.addEventListener('click', function () {
           toggleNode(node);
           refresh();
@@ -240,37 +258,36 @@
         row.appendChild(caret);
         row.appendChild(check);
         treeHtml.appendChild(row);
-        rows[node.path] = { row: row, check: check, mark: mark, caret: caret };
+        rows[node.path] = { row: row, check: check, mark: check.listeners.mark, caret: caret };
       });
       addGroup('标签', treeHtml);
-    }
-    if (ratingValues.length) {
-      var ratingWrap = document.createElement('span');
-      ratingWrap.className = 'listing-filter-ratings';
-      ratingValues.forEach(function (rating) {
-        ratingWrap.appendChild(makeRatingChip(rating, ratingCounts[rating]));
-      });
-      addGroup('评分', ratingWrap);
+      renderTree(); // 默认折叠：先把各父级的后代行收起来
     }
 
     var actions = document.createElement('div');
     actions.className = 'listing-filter-group';
-    var reset = document.createElement('button');
-    reset.type = 'button';
-    reset.className = 'filter-chip filter-reset';
-    reset.textContent = '清除筛选';
-    reset.hidden = true;
-    reset.addEventListener('click', function () {
-      tagNodes.forEach(function (node) {
-        node.tokens.forEach(function (t) { delete checked[t]; });
-      });
-      ratingChips.forEach(function (chip) {
-        chip.classList.remove('is-active');
-        chip.setAttribute('aria-pressed', 'false');
-      });
+    var selectAll = document.createElement('button');
+    selectAll.type = 'button';
+    selectAll.className = 'filter-chip filter-select-all';
+    selectAll.textContent = '全选';
+    selectAll.addEventListener('click', function () {
+      allTags.forEach(function (t) { checked[t] = true; });
+      ratingValues.forEach(function (rating) { ratingOn[rating] = true; });
       refresh();
     });
-    actions.appendChild(reset);
+
+    var clearAll = document.createElement('button');
+    clearAll.type = 'button';
+    clearAll.className = 'filter-chip filter-reset';
+    clearAll.textContent = '全部取消';
+    clearAll.addEventListener('click', function () {
+      allTags.forEach(function (t) { delete checked[t]; });
+      ratingValues.forEach(function (rating) { delete ratingOn[rating]; });
+      refresh();
+    });
+
+    actions.appendChild(selectAll);
+    actions.appendChild(clearAll);
     box.appendChild(actions);
 
     var empty = document.createElement('p');
@@ -281,21 +298,26 @@
 
     /* ---- 应用筛选 ---- */
     function apply() {
-      var tagActive = Object.keys(checked).length > 0;
-      var ratings = ratingChips
-        .filter(function (chip) { return chip.classList.contains('is-active'); })
-        .map(function (chip) { return chip.getAttribute('data-filter-value'); });
-      var active = tagActive || ratings.length > 0;
+      var tagFiltered = !tagsUnfiltered();
+      var ratingFiltered = !ratingsUnfiltered();
+      var active = tagFiltered || ratingFiltered;
       var shown = 0;
       items.forEach(function (item) {
-        var ok = !tagActive || tagsOf(item).some(function (t) { return checked[t]; });
-        if (ok && ratings.length) ok = ratings.indexOf(ratingOf(item)) >= 0;
+        var tags = tagsOf(item);
+        var rating = ratingOf(item);
+        // 没打标签 / 没写评分的条目不受对应筛选影响
+        var ok = !(tagFiltered && tags.length) || tags.some(function (t) { return checked[t]; });
+        if (ok && ratingFiltered && rating) ok = !!ratingOn[rating];
         item.hidden = !ok;
         if (ok) shown++;
       });
       empty.hidden = shown > 0;
       status.textContent = active ? '显示 ' + shown + ' / ' + total + ' 条' : '共 ' + total + ' 条';
-      reset.hidden = !active;
+      // 没有筛选 = 全部勾上 ->「全选」无事可做；一项都没勾 ->「全部取消」无事可做
+      var anyOn = allTags.some(function (t) { return checked[t]; })
+        || ratingValues.some(function (rating) { return ratingOn[rating]; });
+      selectAll.disabled = !active;
+      clearAll.disabled = !anyOn;
       box.hidden = false;
     }
 
@@ -303,8 +325,14 @@
       tagNodes.forEach(function (node) {
         var state = stateOf(node);
         var row = rows[node.path];
-        row.check.setAttribute('aria-checked', state);
+        // aria-checked 只接受 "true" / "false" / "mixed"
+        row.check.setAttribute('aria-checked', state === 'checked' ? 'true' : state === 'mixed' ? 'mixed' : 'false');
         row.mark.textContent = state === 'mixed' ? '–' : '✓';
+      });
+      ratingChecks.forEach(function (check) {
+        var on = !!ratingOn[check.getAttribute('data-filter-value')];
+        check.setAttribute('aria-checked', on ? 'true' : 'false');
+        check.listeners.mark.textContent = '✓';
       });
       apply();
     }
