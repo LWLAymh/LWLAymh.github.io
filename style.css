@@ -725,7 +725,7 @@ mjx-container[display="true"] + br { display: none; }
 }
 .tool-name { color: var(--text); font-weight: 600; font-family: var(--font-serif); font-size: 1.05rem; }
 
-/* ---- 幻灯（Slidev）列表页：与文件页一致 ---- */
+/* ---- 文件页的 ICS26Slides 栏目（幻灯外链）：与文件列表一致 ---- */
 .slides-section { margin: 28px 0; scroll-margin-top: 80px; }
 .slide-name { font-weight: 600; }
 .slide-item .file-name:hover { color: var(--accent); text-decoration: none; }
