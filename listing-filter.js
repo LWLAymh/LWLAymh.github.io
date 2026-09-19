@@ -1,13 +1,13 @@
 /* ==========================================================================
-   榜单（listing）筛选：按层级标签 / 评分筛选条目。
+   榜单（listing）筛选：层级标签树 + 评分。
    - 只在本页含 [data-listing]（榜单页）时生效，脚本由榜单渲染器按需引入。
-   - 标签是 `-` 分隔的层级链（PL → PL-FM → PL-FM-CSL → PL-FM-CSL-Iris）：
-     每一级都会生成一个按钮，点大标签命中整条子树，点小标签只看那一片；
-     父级前缀淡显 + 缩进，层级一眼可见。
-   - 每个 [data-listing] 独立初始化，所以同一页放多个榜单也互不干扰；
+   - 标签按 `-` 分层渲染成目录树（PL → PL-FM → PL-FM-CSL → PL-FM-CSL-Iris）：
+     每一项前面有复选框，勾上层会把下层全部勾上，取消上层会把下层全部取消；
+     下层只勾了一部分时，上层显示半选（mixed）。
+   - 内部只维护「已勾选的标签」这一个集合，级联与半选都是它推出来的。
+   - 有子节点的行可以折叠；每个 [data-listing] 独立初始化，同页多个榜单互不干扰；
      同一容器被重复初始化（同一脚本被引入多次）会直接跳过。
    - 按钮从条目的 data-tags / data-rating 现场汇总，静态 HTML 里没有筛选文案。
-   - 标签同类多选是「或」（互不为祖先/后代），标签与评分之间是「与」；再点一次取消。
    ========================================================================== */
 (function () {
   'use strict';
@@ -29,7 +29,7 @@
 
     var total = items.length;
 
-    /* ---- 汇总筛选项（值 -> 条目数）---- */
+    /* ---- 汇总筛选项 ---- */
     function tagsOf(item) {
       var raw = item.getAttribute('data-tags');
       return raw ? raw.split('|') : [];
@@ -48,6 +48,7 @@
       if (rating) ratingCounts[rating] = (ratingCounts[rating] || 0) + 1;
     });
 
+    var allTags = Object.keys(tagCounts);
     var ratingValues = Object.keys(ratingCounts).sort(function (a, b) {
       var ia = RATING_ORDER.indexOf(a);
       var ib = RATING_ORDER.indexOf(b);
@@ -55,11 +56,11 @@
     });
 
     /* 既没有标签也没有评分就没有可筛的东西，保持隐藏（不改变页面） */
-    if (!Object.keys(tagCounts).length && !ratingValues.length) return;
+    if (!allTags.length && !ratingValues.length) return;
 
-    /* ---- 标签层级树：PL → PL-FM → PL-FM-CSL，父节点也成为一个按钮 ---- */
-    var tagRoot = { path: '', name: '', children: {}, count: 0 };
-    Object.keys(tagCounts).forEach(function (tag) {
+    /* ---- 标签层级树：PL → PL-FM → PL-FM-CSL，父节点也是一个可勾选的项 ---- */
+    var tagRoot = { path: '', children: {}, count: 0 };
+    allTags.forEach(function (tag) {
       var node = tagRoot;
       var path = '';
       tag.split(TAG_SEP).forEach(function (part, i) {
@@ -84,13 +85,22 @@
       });
     });
     var tagNodes = [];
-    (function flatten(node, depth) {
+    (function flatten(node, depth, ancestors) {
       Object.keys(node.children).sort(function (a, b) { return a.localeCompare(b); }).forEach(function (key) {
         var child = node.children[key];
-        tagNodes.push({ path: child.path, name: child.name, depth: depth, count: child.count });
-        flatten(child, depth + 1);
+        tagNodes.push({
+          path: child.path,
+          name: child.name,
+          depth: depth,
+          count: child.count,
+          ancestors: ancestors,
+          hasChildren: Object.keys(child.children).length > 0,
+          // 这个节点代表的所有标签（自己 + 全部后代）
+          tokens: allTags.filter(function (t) { return inSubtree(t, child.path); }),
+        });
+        flatten(child, depth + 1, ancestors.concat(child.path));
       });
-    })(tagRoot, 0);
+    })(tagRoot, 0, []);
 
     /* 条目上已经渲染了 .tag-chip（title 里是标签全称），直接借来当提示 */
     var tagLabels = {};
@@ -102,29 +112,27 @@
       });
     });
 
-    /* ---- 搭界面 ---- */
-    function makeChip(kind, value, count, prefixText) {
-      var chip = document.createElement('button');
-      chip.type = 'button';
-      chip.className = 'filter-chip';
-      chip.setAttribute('data-filter-kind', kind);
-      chip.setAttribute('data-filter-value', value);
-      chip.setAttribute('aria-pressed', 'false');
-      if (prefixText) {
-        var prefix = document.createElement('span');
-        prefix.className = 'filter-chip-prefix';
-        prefix.textContent = prefixText;
-        chip.appendChild(prefix);
-      }
-      chip.appendChild(document.createTextNode(value.slice(prefixText ? prefixText.length : 0) + ' '));
-      var num = document.createElement('span');
-      num.className = 'filter-chip-count';
-      num.textContent = String(count);
-      chip.appendChild(num);
-      return chip;
+    /* ---- 状态：已勾选的标签 + 折叠的行 ---- */
+    var checked = {};   // 标签 -> true
+    var collapsed = {}; // 路径 -> true
+    var rows = {};      // 路径 -> { row, check, mark, caret }
+
+    function stateOf(node) {
+      var inside = 0;
+      node.tokens.forEach(function (t) { if (checked[t]) inside++; });
+      if (!inside) return 'unchecked';
+      return inside === node.tokens.length ? 'checked' : 'mixed';
     }
 
-    var chips = [];
+    function toggleNode(node) {
+      var on = stateOf(node) !== 'checked';
+      node.tokens.forEach(function (t) {
+        if (on) checked[t] = true;
+        else delete checked[t];
+      });
+    }
+
+    /* ---- 搭界面 ---- */
     var head = document.createElement('div');
     head.className = 'listing-filter-head';
     var title = document.createElement('span');
@@ -136,32 +144,114 @@
     head.appendChild(status);
     box.appendChild(head);
 
-    function addGroup(label, groupChips) {
-      if (!groupChips.length) return;
+    function addGroup(label, content) {
+      if (!content) return null;
       var group = document.createElement('div');
       group.className = 'listing-filter-group';
       var name = document.createElement('span');
       name.className = 'listing-filter-label';
       name.textContent = label;
       group.appendChild(name);
-      groupChips.forEach(function (chip) {
-        chips.push(chip);
-        group.appendChild(chip);
-      });
+      group.appendChild(content);
       box.appendChild(group);
+      return group;
     }
 
-    addGroup('标签', tagNodes.map(function (node) {
-      var prefix = node.path.slice(0, node.path.length - node.name.length);
-      var chip = makeChip('tag', node.path, node.count, prefix);
-      if (node.depth) chip.classList.add('depth-' + Math.min(node.depth, 4));
-      var label = tagLabels[node.path];
-      chip.title = node.path + (label && label !== node.path ? ' · ' + label : '');
+    var ratingChips = [];
+    function makeRatingChip(value, count) {
+      var chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'filter-chip';
+      chip.setAttribute('data-filter-kind', 'rating');
+      chip.setAttribute('data-filter-value', value);
+      chip.setAttribute('aria-pressed', 'false');
+      chip.appendChild(document.createTextNode(value + ' '));
+      var num = document.createElement('span');
+      num.className = 'filter-chip-count';
+      num.textContent = String(count);
+      chip.appendChild(num);
+      chip.addEventListener('click', function () {
+        var on = !chip.classList.contains('is-active');
+        chip.classList.toggle('is-active', on);
+        chip.setAttribute('aria-pressed', on ? 'true' : 'false');
+        apply();
+      });
+      ratingChips.push(chip);
       return chip;
-    }));
-    addGroup('评分', ratingValues.map(function (rating) {
-      return makeChip('rating', rating, ratingCounts[rating]);
-    }));
+    }
+
+    var treeHtml = null;
+    if (tagNodes.length) {
+      treeHtml = document.createElement('div');
+      treeHtml.className = 'tag-tree';
+
+      function renderTree() {
+        tagNodes.forEach(function (node) {
+          var row = rows[node.path];
+          if (!row) return;
+          row.row.hidden = node.ancestors.some(function (p) { return collapsed[p]; });
+        });
+      }
+
+      tagNodes.forEach(function (node) {
+        var row = document.createElement('div');
+        row.className = 'tag-tree-node' + (node.depth ? ' depth-' + Math.min(node.depth, 4) : '');
+
+        var caret = document.createElement('button');
+        caret.type = 'button';
+        caret.className = 'tag-caret' + (node.hasChildren ? '' : ' is-leaf');
+        caret.setAttribute('aria-expanded', 'true');
+        caret.textContent = node.hasChildren ? '▾' : '·';
+        caret.addEventListener('click', function () {
+          if (!node.hasChildren) return;
+          if (collapsed[node.path]) delete collapsed[node.path];
+          else collapsed[node.path] = true;
+          caret.textContent = collapsed[node.path] ? '▸' : '▾';
+          caret.setAttribute('aria-expanded', collapsed[node.path] ? 'false' : 'true');
+          renderTree();
+        });
+
+        var check = document.createElement('button');
+        check.type = 'button';
+        check.className = 'tag-check';
+        check.setAttribute('role', 'checkbox');
+        check.setAttribute('data-filter-value', node.path);
+        var box_ = document.createElement('span');
+        box_.className = 'tag-check-box';
+        var mark = document.createElement('span');
+        mark.className = 'tag-check-mark';
+        box_.appendChild(mark);
+        var label = document.createElement('span');
+        label.className = 'tag-tree-label';
+        label.textContent = node.name;
+        var count = document.createElement('span');
+        count.className = 'tag-tree-count';
+        count.textContent = String(node.count);
+        check.appendChild(box_);
+        check.appendChild(label);
+        check.appendChild(count);
+        var full = node.path + (tagLabels[node.path] && tagLabels[node.path] !== node.path ? ' · ' + tagLabels[node.path] : '');
+        check.title = full;
+        check.addEventListener('click', function () {
+          toggleNode(node);
+          refresh();
+        });
+
+        row.appendChild(caret);
+        row.appendChild(check);
+        treeHtml.appendChild(row);
+        rows[node.path] = { row: row, check: check, mark: mark, caret: caret };
+      });
+      addGroup('标签', treeHtml);
+    }
+    if (ratingValues.length) {
+      var ratingWrap = document.createElement('span');
+      ratingWrap.className = 'listing-filter-ratings';
+      ratingValues.forEach(function (rating) {
+        ratingWrap.appendChild(makeRatingChip(rating, ratingCounts[rating]));
+      });
+      addGroup('评分', ratingWrap);
+    }
 
     var actions = document.createElement('div');
     actions.className = 'listing-filter-group';
@@ -170,6 +260,16 @@
     reset.className = 'filter-chip filter-reset';
     reset.textContent = '清除筛选';
     reset.hidden = true;
+    reset.addEventListener('click', function () {
+      tagNodes.forEach(function (node) {
+        node.tokens.forEach(function (t) { delete checked[t]; });
+      });
+      ratingChips.forEach(function (chip) {
+        chip.classList.remove('is-active');
+        chip.setAttribute('aria-pressed', 'false');
+      });
+      refresh();
+    });
     actions.appendChild(reset);
     box.appendChild(actions);
 
@@ -179,53 +279,17 @@
     empty.hidden = true;
     root.appendChild(empty);
 
-    /* ---- 筛选 ---- */
-    function setActive(chip, on) {
-      chip.classList.toggle('is-active', on);
-      chip.setAttribute('aria-pressed', on ? 'true' : 'false');
-    }
-
-    /** 同一条层级链上只保留一个选择：点 PL-FM 就自动放下 PL 与 PL-FM-CSL。 */
-    function clearRelatedTags(chip) {
-      var value = chip.getAttribute('data-filter-value');
-      chips.forEach(function (other) {
-        if (other === chip || other.getAttribute('data-filter-kind') !== 'tag') return;
-        var v = other.getAttribute('data-filter-value');
-        if (inSubtree(value, v) || inSubtree(v, value)) setActive(other, false);
-      });
-    }
-
-    function selection() {
-      var picked = {};
-      chips.forEach(function (chip) {
-        if (!chip.classList.contains('is-active')) return;
-        var kind = chip.getAttribute('data-filter-kind');
-        (picked[kind] || (picked[kind] = [])).push(chip.getAttribute('data-filter-value'));
-      });
-      return picked;
-    }
-
-    function tagHit(tags, picked) {
-      return picked.some(function (value) {
-        return tags.some(function (tag) {
-          return inSubtree(tag, value);
-        });
-      });
-    }
-
-    function matches(item, picked) {
-      return Object.keys(picked).every(function (kind) {
-        if (kind === 'rating') return picked.rating.indexOf(ratingOf(item)) >= 0;
-        return tagHit(tagsOf(item), picked[kind]);
-      });
-    }
-
+    /* ---- 应用筛选 ---- */
     function apply() {
-      var picked = selection();
-      var active = Object.keys(picked).length > 0;
+      var tagActive = Object.keys(checked).length > 0;
+      var ratings = ratingChips
+        .filter(function (chip) { return chip.classList.contains('is-active'); })
+        .map(function (chip) { return chip.getAttribute('data-filter-value'); });
+      var active = tagActive || ratings.length > 0;
       var shown = 0;
       items.forEach(function (item) {
-        var ok = matches(item, picked);
+        var ok = !tagActive || tagsOf(item).some(function (t) { return checked[t]; });
+        if (ok && ratings.length) ok = ratings.indexOf(ratingOf(item)) >= 0;
         item.hidden = !ok;
         if (ok) shown++;
       });
@@ -235,21 +299,17 @@
       box.hidden = false;
     }
 
-    chips.forEach(function (chip) {
-      chip.addEventListener('click', function () {
-        var on = !chip.classList.contains('is-active');
-        setActive(chip, on);
-        if (on && chip.getAttribute('data-filter-kind') === 'tag') clearRelatedTags(chip);
-        apply();
+    function refresh() {
+      tagNodes.forEach(function (node) {
+        var state = stateOf(node);
+        var row = rows[node.path];
+        row.check.setAttribute('aria-checked', state);
+        row.mark.textContent = state === 'mixed' ? '–' : '✓';
       });
-    });
-
-    reset.addEventListener('click', function () {
-      chips.forEach(function (chip) { setActive(chip, false); });
       apply();
-    });
+    }
 
-    apply();
+    refresh();
   }
 
   Array.prototype.forEach.call(document.querySelectorAll('[data-listing]'), initListing);
