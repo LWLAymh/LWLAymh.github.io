@@ -220,7 +220,7 @@
     setSidebar(!sidebar.classList.contains('open'));
   });
   if (sidebar) sidebar.addEventListener('click', function (e) {
-    if (e.target.closest('.sidebar-nav .nav-link')) setSidebar(false);
+    if (e.target.closest('.sidebar-nav .nav-link, .sidebar-category-post')) setSidebar(false);
   });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') setSidebar(false);
