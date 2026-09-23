@@ -134,10 +134,30 @@
     function renderResults(q) {
       if (!q || !data) { closeResults(); return; }
       var ql = q.toLowerCase();
-      var hits = data.filter(function (p) {
-        var hay = (p.title + ' ' + (p.category || '') + ' ' + p.excerpt + ' ' + p.text).toLowerCase();
-        return hay.indexOf(ql) >= 0;
-      }).slice(0, 12);
+      var hits = data.map(function (p, order) {
+        var title = p.title.toLowerCase();
+        var category = (p.category || '').toLowerCase();
+        var excerpt = (p.excerpt || '').toLowerCase();
+        var text = (p.text || '').toLowerCase();
+        var titleAt = title.indexOf(ql);
+        var categoryAt = category.indexOf(ql);
+        var excerptAt = excerpt.indexOf(ql);
+        var textAt = text.indexOf(ql);
+        var score = 0;
+
+        // 标题命中的优先级必须高于分类、摘要和正文；同一层级中越靠前越相关。
+        if (titleAt >= 0) score += (title === ql ? 14000 : titleAt === 0 ? 12000 : 10000) - titleAt;
+        if (categoryAt >= 0) score += 3000 - Math.min(categoryAt, 500);
+        if (excerptAt >= 0) score += 1200 - Math.min(excerptAt, 500);
+        if (textAt >= 0) score += 500 - Math.min(textAt, 400);
+        return { post: p, score: score, order: order };
+      }).filter(function (hit) {
+        return hit.score > 0;
+      }).sort(function (a, b) {
+        return b.score - a.score || a.order - b.order;
+      }).slice(0, 12).map(function (hit) {
+        return hit.post;
+      });
 
       results.innerHTML = hits.map(function (p) {
         var catStr = p.category ? esc(p.category) : '';
@@ -180,22 +200,162 @@
     });
   }
 
+  /* ---- 分类页：折叠、展开与即时筛选 ---- */
+  var categoryFilter = document.getElementById('category-filter');
+  var categoryExpand = document.getElementById('category-expand');
+  if (categoryFilter) {
+    var categoryStatus = document.getElementById('category-filter-status');
+    var categorySections = Array.prototype.slice.call(document.querySelectorAll('.cat-section'));
+    var rootCategoryDetails = Array.prototype.slice.call(document.querySelectorAll('.cat-details'));
+    var allCategoryDetails = Array.prototype.slice.call(document.querySelectorAll('.cat-details, .cat-branch-details'));
+
+    function updateCategoryExpandLabel() {
+      if (!categoryExpand) return;
+      var hasOpen = allCategoryDetails.some(function (detail) { return detail.open; });
+      categoryExpand.textContent = hasOpen ? '全部折叠' : '全部展开';
+    }
+
+    function rememberCategoryState() {
+      allCategoryDetails.forEach(function (detail) {
+        if (!detail.hasAttribute('data-open-before-filter')) {
+          detail.setAttribute('data-open-before-filter', detail.open ? '1' : '0');
+        }
+      });
+    }
+
+    function restoreCategoryState() {
+      allCategoryDetails.forEach(function (detail) {
+        if (!detail.hasAttribute('data-open-before-filter')) return;
+        detail.open = detail.getAttribute('data-open-before-filter') === '1';
+        detail.removeAttribute('data-open-before-filter');
+      });
+    }
+
+    function filterCategories() {
+      var q = categoryFilter.value.trim().toLowerCase();
+      if (!q) {
+        document.querySelectorAll('.cat-post-item, .cat-branch, .cat-section').forEach(function (el) { el.hidden = false; });
+        restoreCategoryState();
+        if (categoryStatus) categoryStatus.textContent = '';
+        updateCategoryExpandLabel();
+        return;
+      }
+
+      rememberCategoryState();
+      var visiblePosts = 0;
+      document.querySelectorAll('.cat-post-item').forEach(function (item) {
+        var visible = item.textContent.toLowerCase().indexOf(q) >= 0;
+        item.hidden = !visible;
+        if (visible) visiblePosts++;
+      });
+
+      var branches = Array.prototype.slice.call(document.querySelectorAll('.cat-branch')).reverse();
+      branches.forEach(function (branch) {
+        var ownName = branch.querySelector(':scope > .cat-branch-details > .cat-branch-head .cat-branch-name');
+        var ownMatch = ownName && ownName.textContent.toLowerCase().indexOf(q) >= 0;
+        if (ownMatch) {
+          branch.querySelectorAll('.cat-post-item, .cat-branch').forEach(function (el) { el.hidden = false; });
+        }
+        var hasVisibleChild = Array.prototype.some.call(
+          branch.querySelectorAll(':scope > .cat-branch-details > .cat-nested > .cat-post-item, :scope > .cat-branch-details > .cat-nested > .cat-branch'),
+          function (el) { return !el.hidden; }
+        );
+        branch.hidden = !(ownMatch || hasVisibleChild);
+        if (!branch.hidden) branch.querySelector(':scope > .cat-branch-details').open = true;
+      });
+
+      categorySections.forEach(function (section) {
+        var heading = section.querySelector(':scope > .cat-details > .cat-heading');
+        var headingMatch = heading && heading.textContent.toLowerCase().indexOf(q) >= 0;
+        if (headingMatch) {
+          section.querySelectorAll('.cat-post-item, .cat-branch').forEach(function (el) { el.hidden = false; });
+        }
+        var hasVisible = Array.prototype.some.call(section.querySelectorAll('.cat-post-item, .cat-branch'), function (el) {
+          return !el.hidden;
+        });
+        section.hidden = !(headingMatch || hasVisible);
+        if (!section.hidden) section.querySelector('.cat-details').open = true;
+      });
+
+      visiblePosts = document.querySelectorAll('.cat-post-item:not([hidden])').length;
+      if (categoryStatus) categoryStatus.textContent = visiblePosts ? '找到 ' + visiblePosts + ' 篇文章' : '没有匹配的分类或文章';
+      updateCategoryExpandLabel();
+    }
+
+    if (window.matchMedia && window.matchMedia('(max-width: 600px)').matches && !window.location.hash) {
+      rootCategoryDetails.forEach(function (detail, index) { detail.open = index === 0; });
+    }
+    if (window.location.hash) {
+      var hashTarget = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+      if (hashTarget) {
+        var hashDetails = hashTarget.querySelector('.cat-details');
+        if (hashDetails) hashDetails.open = true;
+      }
+    }
+
+    categoryFilter.addEventListener('input', filterCategories);
+    allCategoryDetails.forEach(function (detail) { detail.addEventListener('toggle', updateCategoryExpandLabel); });
+    if (categoryExpand) categoryExpand.addEventListener('click', function () {
+      var shouldOpen = !allCategoryDetails.some(function (detail) { return detail.open; });
+      allCategoryDetails.forEach(function (detail) { detail.open = shouldOpen; });
+      updateCategoryExpandLabel();
+    });
+    updateCategoryExpandLabel();
+  }
+
   /* ---- 侧边栏开关 ---- */
   var sidebar = document.getElementById('sidebar');
   var sidebarOverlay = document.getElementById('sidebar-overlay');
   var sidebarToggle = document.getElementById('sidebar-toggle');
+  var headerMenuToggle = document.getElementById('header-menu-toggle');
   function setSidebar(open) {
     if (sidebar) sidebar.classList.toggle('open', open);
     if (sidebarOverlay) sidebarOverlay.classList.toggle('open', open);
     if (sidebar) sidebar.setAttribute('aria-hidden', String(!open));
+    if (sidebarToggle) sidebarToggle.setAttribute('aria-expanded', String(open));
+    if (headerMenuToggle) headerMenuToggle.setAttribute('aria-expanded', String(open));
   }
   if (sidebarToggle) sidebarToggle.addEventListener('click', function () {
     setSidebar(!sidebar.classList.contains('open'));
   });
   if (sidebarOverlay) sidebarOverlay.addEventListener('click', function () { setSidebar(false); });
+  if (headerMenuToggle) headerMenuToggle.addEventListener('click', function () {
+    setSidebar(!sidebar.classList.contains('open'));
+  });
+  if (sidebar) sidebar.addEventListener('click', function (e) {
+    if (e.target.closest('.sidebar-nav .nav-link')) setSidebar(false);
+  });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') setSidebar(false);
   });
+
+  /* ---- 导航自适应：只有真实放不下一行时才收进侧边栏 ---- */
+  var headerInner = document.querySelector('.header-inner');
+  var siteBrand = document.querySelector('.site-brand');
+  var siteNav = document.getElementById('site-nav');
+  var themeToggle = document.getElementById('theme-toggle');
+  var navMeasurePending = false;
+  function syncAdaptiveNav() {
+    navMeasurePending = false;
+    if (!headerInner || !siteBrand || !siteNav || !themeToggle) return;
+    document.documentElement.classList.add('nav-measuring');
+    var style = window.getComputedStyle(headerInner);
+    var available = headerInner.clientWidth - parseFloat(style.paddingLeft || 0) - parseFloat(style.paddingRight || 0);
+    var required = siteBrand.offsetWidth + siteNav.scrollWidth + themeToggle.offsetWidth + 36;
+    document.documentElement.classList.remove('nav-measuring');
+    document.documentElement.classList.toggle('nav-collapsed', required > available);
+  }
+  function scheduleAdaptiveNav() {
+    if (navMeasurePending) return;
+    navMeasurePending = true;
+    requestAnimationFrame(syncAdaptiveNav);
+  }
+  if (headerInner && siteNav) {
+    syncAdaptiveNav();
+    if (window.ResizeObserver) new ResizeObserver(scheduleAdaptiveNav).observe(headerInner);
+    else window.addEventListener('resize', scheduleAdaptiveNav, { passive: true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(scheduleAdaptiveNav);
+  }
 
   /* ---- 树形目录折叠 / 展开 ---- */
   document.addEventListener('click', function (e) {

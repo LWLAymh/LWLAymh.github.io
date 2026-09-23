@@ -52,7 +52,7 @@
       content.innerHTML = html;
       content.hidden = false;
       prompt.hidden = true;
-      if (window.MathJax && window.MathJax.typesetPromise) {
+      if (!window.LWL_LAZY_MATH && window.MathJax && window.MathJax.typesetPromise) {
         MathJax.typesetPromise([content]).catch(function () {});
       }
       document.dispatchEvent(new CustomEvent('lwl:decrypted'));
