@@ -538,30 +538,43 @@ mjx-container[display="true"] + br { display: none; }
 .toc-toggle-spacer { width: 18px; flex: 0 0 auto; }
 .toc-branch.collapsed > .toc-children { display: none; }
 
-/* 联系我卡片（非博文页侧边栏）：始终展开，独立卡片，与博文页目录树区分 */
-.contact-card {
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--bg-elevated);
-  padding: 14px;
+/* 非博文页侧边栏：从“关于我”提炼出的窄栏个人名片 */
+.sidebar-profile { color: var(--text); }
+.sidebar-profile-head { display: flex; align-items: center; gap: 12px; }
+.sidebar-profile-avatar {
+  width: 58px; height: 58px; flex: 0 0 auto; border-radius: 50%; object-fit: cover;
+  box-shadow: 0 0 0 2px var(--bg-elevated), 0 0 0 3px var(--border);
 }
-.contact-card-title {
-  font-family: var(--font-display); font-weight: 700; color: var(--text);
-  font-size: 1rem; margin-bottom: 4px; padding-bottom: 10px;
-  border-bottom: 1px solid var(--border);
+.sidebar-profile-identity { min-width: 0; }
+.sidebar-profile-name {
+  font-family: var(--font-display); font-size: 1.08rem; font-weight: 700;
+  line-height: 1.35; overflow-wrap: anywhere;
 }
-.contact-item {
-  display: flex; justify-content: space-between; gap: 12px; align-items: baseline;
-  padding: 10px 2px; font-size: 0.92rem;
+.sidebar-profile-nicks { margin-top: 3px; color: var(--text-muted); font-size: 0.8rem; }
+.sidebar-profile-intro {
+  margin: 16px 0 0; padding: 10px 12px;
+  border-left: 2px solid var(--accent); border-radius: 0 8px 8px 0;
+  background: var(--bg-soft); color: var(--text-muted);
+  font-family: var(--font-display); font-size: 0.86rem; line-height: 1.65;
 }
-.contact-item + .contact-item { border-top: 1px solid var(--border); }
-.contact-key { color: var(--text-faint); white-space: nowrap; }
-.contact-val { color: var(--text); word-break: break-all; text-align: right; }
-.contact-link { color: var(--text); text-decoration: none; }
-.contact-link:hover { color: var(--accent); }
-.contact-link-list { display: flex; flex-wrap: wrap; gap: 8px 16px; padding: 10px 2px 2px; border-top: 1px solid var(--border); }
-.contact-link-list .contact-link { font-size: 0.92rem; }
-.contact-card-title + .contact-link-list { border-top: 0; }
+.sidebar-profile-section { margin-top: 18px; }
+.sidebar-profile-section-title {
+  margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border);
+  color: var(--text); font-family: var(--font-display); font-size: 0.92rem; font-weight: 700;
+}
+.sidebar-profile-interests { display: flex; flex-wrap: wrap; gap: 6px; }
+.sidebar-profile-interests span {
+  padding: 3px 9px; border: 1px solid var(--border); border-radius: 999px;
+  background: var(--bg-soft); color: var(--text-muted); font-size: 0.75rem; line-height: 1.5;
+}
+.sidebar-profile-contact-row {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  padding: 7px 2px; color: var(--text-muted); font-size: 0.86rem;
+}
+.sidebar-profile-contact-row + .sidebar-profile-contact-row { border-top: 1px solid var(--border); }
+.sidebar-profile-contact-row strong { color: var(--text); font-weight: 500; word-break: break-all; text-align: right; }
+.sidebar-profile-contact-row a { color: var(--text); text-decoration: none; }
+.sidebar-profile-contact-row a:hover { color: var(--accent); }
 
 /* ---- 上一篇 / 下一篇 ---- */
 .post-nav {
