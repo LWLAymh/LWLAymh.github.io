@@ -62,4 +62,12 @@
       input.focus();
     });
   });
+
+  // 表单没有可见按钮：明确用回车触发，避免依赖浏览器的隐式提交差异。
+  input.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter') return;
+    e.preventDefault();
+    if (form.requestSubmit) form.requestSubmit();
+    else form.dispatchEvent(new Event('submit', { cancelable: true }));
+  });
 })();

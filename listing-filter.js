@@ -30,6 +30,10 @@
     if (!box || !items.length) return;
     root.setAttribute('data-listing-ready', '1');
 
+    // 榜单正文只保留条目，筛选控件使用同一个节点移入侧边栏。
+    var sidebarHost = document.querySelector('[data-listing-filter-host]');
+    if (sidebarHost) sidebarHost.appendChild(box);
+
     var total = items.length;
 
     /* ---- 汇总筛选项 ---- */
