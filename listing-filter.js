@@ -265,7 +265,7 @@
     }
 
     var actions = document.createElement('div');
-    actions.className = 'listing-filter-group';
+    actions.className = 'listing-filter-actions';
     var selectAll = document.createElement('button');
     selectAll.type = 'button';
     selectAll.className = 'filter-chip filter-select-all';
