@@ -438,19 +438,29 @@ mark { background: #ffd66b; color: #3a2f00; border-radius: 2px; padding: 0 2px; 
 .post-content hr { border: 0; border-top: 1px solid var(--hr-color); margin: 2em 0; }
 .post-content img { border-radius: 10px; box-shadow: var(--shadow-sm); }
 .post-content table {
-  border-collapse: separate; border-spacing: 0; width: 100%; margin: 1.2em 0;
-  display: block; overflow-x: auto; border: 1px solid var(--border);
-  border-radius: 10px;
+  border-collapse: collapse; border-spacing: 0; width: 100%; margin: 1.35em 0;
+  border: 0; border-top: 2px solid color-mix(in srgb, var(--accent) 66%, var(--border));
+  background: color-mix(in srgb, var(--bg-elevated) 90%, var(--bg-soft));
 }
-.post-content th, .post-content td { padding: 8px 13px; text-align: left; }
-.post-content th { background: var(--bg-soft); font-weight: 600; }
-.post-content th + th, .post-content td + td { border-left: 1px solid var(--border); }
-.post-content tr + tr th, .post-content tr + tr td { border-top: 1px solid var(--border); }
+.post-content th, .post-content td {
+  padding: 10px 14px; text-align: left;
+  border: 0; border-bottom: 1px solid var(--border);
+}
+.post-content th {
+  background: color-mix(in srgb, var(--bg-soft) 78%, var(--bg-elevated));
+  font-weight: 650; color: var(--text);
+}
 .post-content tbody td {
-  background: color-mix(in srgb, var(--bg-elevated) 88%, var(--bg-soft));
+  background: transparent;
 }
 .post-content tbody tr:nth-child(even) td {
-  background: color-mix(in srgb, var(--bg-elevated) 62%, var(--bg-soft));
+  background: color-mix(in srgb, var(--bg-soft) 34%, transparent);
+}
+@media (max-width: 680px) {
+  .post-content table {
+    display: block; overflow-x: auto;
+    white-space: nowrap;
+  }
 }
 
 /* 代码 */
