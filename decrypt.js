@@ -51,7 +51,7 @@
       error.hidden = true;
       content.innerHTML = html;
       content.hidden = false;
-      prompt.hidden = true;
+      prompt.remove();
       if (!window.LWL_LAZY_MATH && window.MathJax && window.MathJax.typesetPromise) {
         MathJax.typesetPromise([content]).catch(function () {});
       }

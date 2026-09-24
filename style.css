@@ -828,6 +828,7 @@ mjx-container[display="true"] + br { display: none; }
   display: grid; grid-template-columns: 32px minmax(0, 1fr); column-gap: 14px;
   border: 0; border-radius: 0; background: transparent; box-shadow: none;
 }
+.enc-prompt[hidden] { display: none; }
 .enc-lock {
   display: flex; align-items: center; justify-content: center;
   width: 32px; height: 32px; margin-top: 1px;

@@ -78,7 +78,7 @@
       var split = splitScripts(payload);
       content.innerHTML = split.html;
       content.hidden = false;
-      prompt.hidden = true;
+      prompt.remove();
       runScripts(content, split.scripts);
 
       if (window.MathJax && window.MathJax.typesetPromise) {
