@@ -439,24 +439,27 @@ mark { background: #ffd66b; color: #3a2f00; border-radius: 2px; padding: 0 2px; 
 .post-content img { border-radius: 10px; box-shadow: var(--shadow-sm); }
 .post-content table {
   border-collapse: collapse; border-spacing: 0; width: 100%; margin: 1.35em 0;
-  border: 0; border-top: 1px solid color-mix(in srgb, var(--accent) 52%, var(--border));
-  background: color-mix(in srgb, var(--bg-elevated) 62%, transparent);
-  -webkit-backdrop-filter: blur(8px) saturate(112%);
-  backdrop-filter: blur(8px) saturate(112%);
+  border: 0; background: transparent;
 }
 .post-content th, .post-content td {
   padding: 10px 14px; text-align: left;
-  border: 0; border-bottom: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  border: 0; background: transparent;
 }
-.post-content th {
-  background: color-mix(in srgb, var(--bg-soft) 58%, transparent);
-  font-weight: 650; color: var(--text);
+.post-content thead tr {
+  background:
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--border) 70%, transparent) 14px, color-mix(in srgb, var(--border) 70%, transparent) calc(100% - 14px), transparent) bottom / 100% 1px no-repeat,
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--bg-soft) 58%, transparent) 14px, color-mix(in srgb, var(--bg-soft) 58%, transparent) calc(100% - 14px), transparent);
 }
-.post-content tbody td {
-  background: transparent;
+.post-content th { font-weight: 650; color: var(--text); }
+.post-content tbody tr {
+  background:
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--border) 62%, transparent) 14px, color-mix(in srgb, var(--border) 62%, transparent) calc(100% - 14px), transparent) bottom / 100% 1px no-repeat,
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--bg-elevated) 58%, transparent) 14px, color-mix(in srgb, var(--bg-elevated) 58%, transparent) calc(100% - 14px), transparent);
 }
-.post-content tbody tr:nth-child(even) td {
-  background: color-mix(in srgb, var(--bg-soft) 24%, transparent);
+.post-content tbody tr:nth-child(even) {
+  background:
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--border) 62%, transparent) 14px, color-mix(in srgb, var(--border) 62%, transparent) calc(100% - 14px), transparent) bottom / 100% 1px no-repeat,
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--bg-soft) 34%, transparent) 14px, color-mix(in srgb, var(--bg-soft) 34%, transparent) calc(100% - 14px), transparent);
 }
 @media (max-width: 680px) {
   .post-content table {
