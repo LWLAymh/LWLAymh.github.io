@@ -650,7 +650,12 @@ mjx-container[display="true"] + br { display: none; }
 .page-head p { color: var(--text-muted); margin: 0; }
 
 /* ---- 分类区块 ---- */
+.category-columns {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start; gap: 0 46px;
+}
 .cat-section { margin: 28px 0; scroll-margin-top: 80px; }
+.category-columns > .cat-section { margin-top: 0; }
 .cat-heading {
   font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; margin: 0 0 8px;
   padding-bottom: 8px; border-bottom: 1px solid var(--border);
@@ -710,6 +715,7 @@ mjx-container[display="true"] + br { display: none; }
 .about-item p { margin: 4px 0 0; color: var(--text-muted); font-family: var(--font-reading); font-size: 0.9rem; }
 
 /* ---- 文件页 ---- */
+.page-files .site-main { max-width: 680px; }
 .file-list { list-style: none; padding: 0; margin: 0; }
 .file-item {
   display: flex; justify-content: space-between; align-items: center; gap: 16px;
@@ -738,6 +744,7 @@ mjx-container[display="true"] + br { display: none; }
 .file-branch .cat-branch-head .cat-branch-name { font-weight: 600; }
 
 /* ---- 友链 ---- */
+.page-links .site-main { max-width: 680px; }
 .friend-list { margin-top: 8px; border-top: 1px solid var(--hr-color); }
 .friend-row {
   display: grid; grid-template-columns: 44px minmax(0, 1fr) 22px;
@@ -881,6 +888,12 @@ mjx-container[display="true"] + br { display: none; }
   .friend-main { width: 100%; }
   .friend-description { max-width: 100%; font-size: 0.72rem; }
   .friend-domain { max-width: 100%; font-size: 0.66rem; }
+}
+
+@media (max-width: 860px) {
+  .category-columns { grid-template-columns: 1fr; }
+  .category-columns > .cat-section { margin: 22px 0; }
+  .category-columns > .cat-section:first-child { margin-top: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
