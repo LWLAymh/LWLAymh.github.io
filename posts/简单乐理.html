@@ -1330,30 +1330,118 @@ mjx-c.mjx-c2218::before {
 <p>要讲律制,首先要知道从经验上来讲,人耳对于音乐的听觉其实并非线性.换言之,当你听两个音的时候,你关注的可不是它们之间的频率差值,而可能更关注它们之间的频率比值.类似地,其实人听声压的时候靠的也是比值,例如<strong>分贝</strong>的定义是<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-msub space="2"><mjx-mi class="mjx-n"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.241em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mfrac><mjx-frac><mjx-num><mjx-nstrut></mjx-nstrut><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-num><mjx-dbox><mjx-dtable><mjx-line></mjx-line><mjx-row><mjx-den><mjx-dstrut></mjx-dstrut><mjx-msub size="s"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math></mjx-container>,其中<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>.</p>
 <h4 id="toc-7">音程</h4>
 <p>我们称两个音级之间的距离为<strong>音程</strong>,其中高的音称为<strong>冠音</strong>,而低的音被称为<strong>根音</strong>,一个音程应该由两个参数决定:<strong>度数</strong>和<strong>半音数</strong>,简单来说,度数是跨越的音名数量,而半音数是跨越的半音数量.表格长这样:</p>
-<p>| 度数 | 半音数 | 名称   |</p>
-<p>| ---- | ------ | ------ |</p>
-<p>| 一   | 0      | 纯一度 |</p>
-<p>| 二   | 1      | 小二度 |</p>
-<p>| 二   | 2      | 大二度 |</p>
-<p>| 三   | 3      | 小三度 |</p>
-<p>| 三   | 4      | 大三度 |</p>
-<p>| 四   | 5      | 纯四度 |</p>
-<p>| 四   | 6      | 增四度 |</p>
-<p>| 五   | 6      | 减五度 |</p>
-<p>| 五   | 7      | 纯五度 |</p>
-<p>| 六   | 8      | 小六度 |</p>
-<p>| 六   | 9      | 大六度 |</p>
-<p>| 七   | 10     | 小七度 |</p>
-<p>| 七   | 11     | 大七度 |</p>
-<p>| 八   | 12     | 纯八度 |</p>
+<table>
+<thead>
+<tr>
+<th>度数</th>
+<th>半音数</th>
+<th>名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一</td>
+<td>0</td>
+<td>纯一度</td>
+</tr>
+<tr>
+<td>二</td>
+<td>1</td>
+<td>小二度</td>
+</tr>
+<tr>
+<td>二</td>
+<td>2</td>
+<td>大二度</td>
+</tr>
+<tr>
+<td>三</td>
+<td>3</td>
+<td>小三度</td>
+</tr>
+<tr>
+<td>三</td>
+<td>4</td>
+<td>大三度</td>
+</tr>
+<tr>
+<td>四</td>
+<td>5</td>
+<td>纯四度</td>
+</tr>
+<tr>
+<td>四</td>
+<td>6</td>
+<td>增四度</td>
+</tr>
+<tr>
+<td>五</td>
+<td>6</td>
+<td>减五度</td>
+</tr>
+<tr>
+<td>五</td>
+<td>7</td>
+<td>纯五度</td>
+</tr>
+<tr>
+<td>六</td>
+<td>8</td>
+<td>小六度</td>
+</tr>
+<tr>
+<td>六</td>
+<td>9</td>
+<td>大六度</td>
+</tr>
+<tr>
+<td>七</td>
+<td>10</td>
+<td>小七度</td>
+</tr>
+<tr>
+<td>七</td>
+<td>11</td>
+<td>大七度</td>
+</tr>
+<tr>
+<td>八</td>
+<td>12</td>
+<td>纯八度</td>
+</tr>
+</tbody>
+</table>
 <p>从这套理论出发,毕达哥拉斯说我们找一下最简整数比:注意到:</p>
-<p>| 音程   | 频率比 |</p>
-<p>| ------ | ------ |</p>
-<p>| 纯八度 | <mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3A"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math></mjx-container>  |</p>
-<p>| 纯五度 | <mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3A"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-math></mjx-container>  |</p>
-<p>| 纯四度 | <mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3A"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math></mjx-container>  |</p>
-<p>| 大三度 | <mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3A"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-math></mjx-container>  |</p>
-<p>| 小三度 | <mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3A"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c35"></mjx-c></mjx-mn></mjx-math></mjx-container>  |</p>
+<table>
+<thead>
+<tr>
+<th>音程</th>
+<th>频率比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>纯八度</td>
+<td><mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3A"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math></mjx-container></td>
+</tr>
+<tr>
+<td>纯五度</td>
+<td><mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3A"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-math></mjx-container></td>
+</tr>
+<tr>
+<td>纯四度</td>
+<td><mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3A"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math></mjx-container></td>
+</tr>
+<tr>
+<td>大三度</td>
+<td><mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3A"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-math></mjx-container></td>
+</tr>
+<tr>
+<td>小三度</td>
+<td><mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mn class="mjx-n"><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3A"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c35"></mjx-c></mjx-mn></mjx-math></mjx-container></td>
+</tr>
+</tbody>
+</table>
 <p>看上去太漂亮了对吧!但是就是这个规定出了大锅.</p>
 <h4 id="toc-8">五度相生律</h4>
 <p>中国的三分损益法和毕达哥拉斯的五度相生法其实是类似的东西,我们这里只考虑五度相生律.</p>
