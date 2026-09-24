@@ -439,22 +439,24 @@ mark { background: #ffd66b; color: #3a2f00; border-radius: 2px; padding: 0 2px; 
 .post-content img { border-radius: 10px; box-shadow: var(--shadow-sm); }
 .post-content table {
   border-collapse: collapse; border-spacing: 0; width: 100%; margin: 1.35em 0;
-  border: 0; border-top: 2px solid color-mix(in srgb, var(--accent) 66%, var(--border));
-  background: color-mix(in srgb, var(--bg-elevated) 90%, var(--bg-soft));
+  border: 0; border-top: 1px solid color-mix(in srgb, var(--accent) 52%, var(--border));
+  background: color-mix(in srgb, var(--bg-elevated) 62%, transparent);
+  -webkit-backdrop-filter: blur(8px) saturate(112%);
+  backdrop-filter: blur(8px) saturate(112%);
 }
 .post-content th, .post-content td {
   padding: 10px 14px; text-align: left;
-  border: 0; border-bottom: 1px solid var(--border);
+  border: 0; border-bottom: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
 }
 .post-content th {
-  background: color-mix(in srgb, var(--bg-soft) 78%, var(--bg-elevated));
+  background: color-mix(in srgb, var(--bg-soft) 58%, transparent);
   font-weight: 650; color: var(--text);
 }
 .post-content tbody td {
   background: transparent;
 }
 .post-content tbody tr:nth-child(even) td {
-  background: color-mix(in srgb, var(--bg-soft) 34%, transparent);
+  background: color-mix(in srgb, var(--bg-soft) 24%, transparent);
 }
 @media (max-width: 680px) {
   .post-content table {
