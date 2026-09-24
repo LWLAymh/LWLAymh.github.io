@@ -446,7 +446,12 @@ mark { background: #ffd66b; color: #3a2f00; border-radius: 2px; padding: 0 2px; 
 .post-content th { background: var(--bg-soft); font-weight: 600; }
 .post-content th + th, .post-content td + td { border-left: 1px solid var(--border); }
 .post-content tr + tr th, .post-content tr + tr td { border-top: 1px solid var(--border); }
-.post-content tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--bg-soft) 55%, transparent); }
+.post-content tbody td {
+  background: color-mix(in srgb, var(--bg-elevated) 88%, var(--bg-soft));
+}
+.post-content tbody tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--bg-elevated) 62%, var(--bg-soft));
+}
 
 /* 代码 */
 .post-content code {
