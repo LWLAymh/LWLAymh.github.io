@@ -5,7 +5,7 @@
      每一项前面有复选框，勾上层会把下层全部勾上，取消上层会把下层全部取消；
      下层只勾了一部分时上层显示半选（mixed）。父级可折叠，默认全部折叠。
    - 默认「全部勾上」= 没有筛选，页面就是全部条目；取消任何一项才开始筛。
-     底部两个按钮：「全部选中」恢复默认（全部勾上），「全部取消」清空所有勾选；
+     底部两个按钮：「全选」恢复默认（全部勾上），「清空」清空所有勾选；
      当前状态下没有意义的那一个会自动禁用。
    - 没有打标签 / 没写评分的条目不受对应筛选影响，始终显示。
    - 每个 [data-listing] 独立初始化，同页多个榜单互不干扰；
@@ -273,7 +273,7 @@
     var selectAll = document.createElement('button');
     selectAll.type = 'button';
     selectAll.className = 'filter-chip filter-select-all';
-    selectAll.textContent = '全部选中';
+    selectAll.textContent = '全选';
     selectAll.addEventListener('click', function () {
       allTags.forEach(function (t) { checked[t] = true; });
       ratingValues.forEach(function (rating) { ratingOn[rating] = true; });
@@ -283,7 +283,7 @@
     var clearAll = document.createElement('button');
     clearAll.type = 'button';
     clearAll.className = 'filter-chip filter-reset';
-    clearAll.textContent = '全部取消';
+    clearAll.textContent = '清空';
     clearAll.addEventListener('click', function () {
       allTags.forEach(function (t) { delete checked[t]; });
       ratingValues.forEach(function (rating) { delete ratingOn[rating]; });
