@@ -74,24 +74,24 @@ window.MathJax = {
 <p>一般形式:</p>
 <p>$$
 \begin{aligned}
-f ( S ) & = \sum_{ T \subseteq S } g ( T ) \Leftrightarrow g ( S ) = \sum_{ T \subseteq S } ( - 1 )^{ | S | - | T | } f ( T ) \\
-f ( S ) & = \sum_{ S \subseteq T \subseteq U } g ( T ) \Leftrightarrow g ( S ) = \sum_{ S \subseteq T \subseteq U } ( - 1 )^{ | T | - | S | } f ( T )
+f ( S ) &amp; = \sum_{ T \subseteq S } g ( T ) \Leftrightarrow g ( S ) = \sum_{ T \subseteq S } ( - 1 )^{ | S | - | T | } f ( T ) \\
+f ( S ) &amp; = \sum_{ S \subseteq T \subseteq U } g ( T ) \Leftrightarrow g ( S ) = \sum_{ S \subseteq T \subseteq U } ( - 1 )^{ | T | - | S | } f ( T )
 \end{aligned}
 $$</p>
 <p>证明:</p>
 <p>$$
 \begin{aligned}
-g ( S ) & = \sum_{ T \subseteq S } ( - 1 )^{ | S | - | T | } f ( T ) \\
-& = ( - 1 )^{ | S | } \sum_{ T \subseteq S } ( - 1 )^{ | T | } \sum_{ P \subseteq T } g ( P ) \\
-& = ( - 1 )^{ | S | } \sum_{ P \subseteq S } g ( P ) \sum_{ T \subseteq S / P } ( - 1 )^{ | T | + | P | } \\
-& = ( - 1 )^{ | S | } \sum_{ P \subseteq S } g ( P ) ( - 1 )^{ | P | } \sum_{ T \subseteq S / P } ( - 1 )^{ | T | } \\
-& = ( - 1 )^{ | S | } \sum_{ P \subseteq S } g ( P ) [ S = P ] ( - 1 )^{ | P | } \\
-& = g ( S )
+g ( S ) &amp; = \sum_{ T \subseteq S } ( - 1 )^{ | S | - | T | } f ( T ) \\
+&amp; = ( - 1 )^{ | S | } \sum_{ T \subseteq S } ( - 1 )^{ | T | } \sum_{ P \subseteq T } g ( P ) \\
+&amp; = ( - 1 )^{ | S | } \sum_{ P \subseteq S } g ( P ) \sum_{ T \subseteq S / P } ( - 1 )^{ | T | + | P | } \\
+&amp; = ( - 1 )^{ | S | } \sum_{ P \subseteq S } g ( P ) ( - 1 )^{ | P | } \sum_{ T \subseteq S / P } ( - 1 )^{ | T | } \\
+&amp; = ( - 1 )^{ | S | } \sum_{ P \subseteq S } g ( P ) [ S = P ] ( - 1 )^{ | P | } \\
+&amp; = g ( S )
 \end{aligned}
 $$</p>
 <p>不难发现,这个子集反演也就相当于在做高维前后缀和.</p>
 <h5 id="toc-2">Example1(2019zrpzt七连day1D)</h5>
-<p>根据子集反演,设$cnt_S$为集合为$S$的数量,然后设$f_S = \sum_{ S ' \subseteq S } cnt_{ S ' }$,有:$ans = \sum_{ S } 2^{ f_S } ( - 1 )^{ n - | S | }$.</p>
+<p>根据子集反演,设$cnt_S$为集合为$S$的数量,然后设$f_S = \sum_{ S &#39; \subseteq S } cnt_{ S &#39; }$,有:$ans = \sum_{ S } 2^{ f_S } ( - 1 )^{ n - | S | }$.</p>
 <p>做一遍高维前缀和就好,复杂度$O ( n 2^n )$,应该也可以用分治FMT无脑做到$O ( n^2 2^n )$.</p>
 <h5 id="toc-3">Example2(有标号DAG计数)</h5>
 <p>设$f_{ i , j }$表示$i$个点,其中有$j$个点的入度数为$0$的方案数.(等一下,为撒子想到要记度数为$0$的点咧?因为你要一层一层转移,而在DAG中一层一层的就是零度点.而且说到底,你注意到有编号这个事实其实是很烦的,因为考虑如果一个一个点放上去,就有可能出现放的地方是等价的.而这么一层一层是绝对不会出现等价点的问题的.再说的仔细一点,如果我们把位置空着,然后选出一些放上来,是会出现等价点的问题的.但如果我们先选出来,然后再把边连上就不会.于是我们必须要枚举一些点然后再连到上面去)</p>
@@ -105,8 +105,8 @@ $$</p>
 <p>我们设$f ( n , S )$表示$n$个点,其中只有$S$中的点的入度为$0$;类似定义$g ( n , S )$表示$n$个点,至少$S$中的点的入度为$0$.显然我们所求也就是$g ( n , \emptyset )$,注意到:</p>
 <p>$$
 \begin{aligned}
-g ( n , S ) & = 2^{ | S | ( n - | S | ) } g ( n - | S | , \emptyset ) \\
-g ( n , S ) & = \sum_{ S \subseteq T } f ( n , T )
+g ( n , S ) &amp; = 2^{ | S | ( n - | S | ) } g ( n - | S | , \emptyset ) \\
+g ( n , S ) &amp; = \sum_{ S \subseteq T } f ( n , T )
 \end{aligned}
 $$</p>
 <p>对第二个式子用子集反演,有:</p>
@@ -116,11 +116,11 @@ $$</p>
 <p>接下来使用反复带入大法:</p>
 <p>$$
 \begin{aligned}
-g ( n , \emptyset ) & = \sum_{ \emptyset \ne T } f ( n , T ) \\
-& = \sum_{ T \subseteq S } ( - 1 )^{ | S | - | T | } g ( n , S ) \\
-& = \sum_{ T \subseteq S } ( - 1 )^{ | S | - | T | } 2^{ | S | ( n - | S | ) } g ( n - | S | , \emptyset ) \\
-& = \sum_{ m = 1 }^n \sum_{ | T | = m } \sum_{ T \subseteq S } ( - 1 )^{ | S | - | T | } 2^{ | S | ( n - | S | ) } g ( n - | S | , \emptyset ) \\
-& = \sum_{ m = 1 }^n \binom{ n }{ m } \sum_{ k = m }^n \binom{ n - m }{ k - m } ( - 1 )^{ k - m } 2^{ k ( n - k ) } g ( n - k , \emptyset ) \\
+g ( n , \emptyset ) &amp; = \sum_{ \emptyset \ne T } f ( n , T ) \\
+&amp; = \sum_{ T \subseteq S } ( - 1 )^{ | S | - | T | } g ( n , S ) \\
+&amp; = \sum_{ T \subseteq S } ( - 1 )^{ | S | - | T | } 2^{ | S | ( n - | S | ) } g ( n - | S | , \emptyset ) \\
+&amp; = \sum_{ m = 1 }^n \sum_{ | T | = m } \sum_{ T \subseteq S } ( - 1 )^{ | S | - | T | } 2^{ | S | ( n - | S | ) } g ( n - | S | , \emptyset ) \\
+&amp; = \sum_{ m = 1 }^n \binom{ n }{ m } \sum_{ k = m }^n \binom{ n - m }{ k - m } ( - 1 )^{ k - m } 2^{ k ( n - k ) } g ( n - k , \emptyset ) \\
 
 \end{aligned}
 $$</p>
@@ -128,11 +128,11 @@ $$</p>
 <p>接下来我们继续化简:</p>
 <p>$$
 \begin{aligned}
-& \sum_{ m = 1 }^n \binom{ n }{ m } \sum_{ k = m }^n \binom{ n - m }{ k - m } ( - 1 )^{ k - m } 2^{ k ( n - k ) } g ( n - k , \emptyset ) \\
-= & \sum_{ k = 1 }^n \sum_{ m = 1 }^k \binom{ n }{ m } \binom{ n - m }{ k - m } ( - 1 )^{ k - m } 2^{ k ( n - k ) } g ( n - k , \emptyset ) \\
-= & \sum_{ k = 1 }^n \binom{ n }{ k } 2^{ k ( n - k ) } g ( n - k , \emptyset ) \sum_{ m = 1 }^k \binom{ k }{ m } ( - 1 )^{ k - m } \\
-= & \sum_{ k = 1 }^n \binom{ n }{ k } 2^{ k ( n - k ) } g ( n - k , \emptyset ) ( ( 1 - 1 )^k - ( - 1 )^k ) \\
-= & \sum_{ k = 1 }^n \binom{ n }{ k } 2^{ k ( n - k ) } g ( n - k , \emptyset ) ( - 1 )^{ k - 1 } \\
+&amp; \sum_{ m = 1 }^n \binom{ n }{ m } \sum_{ k = m }^n \binom{ n - m }{ k - m } ( - 1 )^{ k - m } 2^{ k ( n - k ) } g ( n - k , \emptyset ) \\
+= &amp; \sum_{ k = 1 }^n \sum_{ m = 1 }^k \binom{ n }{ m } \binom{ n - m }{ k - m } ( - 1 )^{ k - m } 2^{ k ( n - k ) } g ( n - k , \emptyset ) \\
+= &amp; \sum_{ k = 1 }^n \binom{ n }{ k } 2^{ k ( n - k ) } g ( n - k , \emptyset ) \sum_{ m = 1 }^k \binom{ k }{ m } ( - 1 )^{ k - m } \\
+= &amp; \sum_{ k = 1 }^n \binom{ n }{ k } 2^{ k ( n - k ) } g ( n - k , \emptyset ) ( ( 1 - 1 )^k - ( - 1 )^k ) \\
+= &amp; \sum_{ k = 1 }^n \binom{ n }{ k } 2^{ k ( n - k ) } g ( n - k , \emptyset ) ( - 1 )^{ k - 1 } \\
 
 \end{aligned}
 $$</p>
@@ -140,7 +140,7 @@ $$</p>
 <p>上面是从集合的角度一步步分析得到的.但如果你直接从容斥的角度考虑,忽略掉那个$( - 1 )^{ k - 1 }$,把它当成一个可以数学归纳出来的容斥系数,那么这个式子会得到一个很简单的理解方式:</p>
 <p>$$
 \begin{aligned}
-f_n & = \sum_{ k = 1 }^n \binom{ n }{ k } ( - 1 )^{ k - 1 } 2^{ k ( n - k ) } f_{ n - k } \\
+f_n &amp; = \sum_{ k = 1 }^n \binom{ n }{ k } ( - 1 )^{ k - 1 } 2^{ k ( n - k ) } f_{ n - k } \\
 
 \end{aligned}
 $$</p>
@@ -149,21 +149,21 @@ $$</p>
 <p>一般形式:</p>
 <p>$$
 \begin{aligned}
-f ( n ) & = \sum_{ k = 0 }^n C_n^k g ( k ) \Leftrightarrow g ( n ) = \sum_{ k = 0 }^n ( - 1 )^{ n - k } C_n^k f ( k ) \\
-f ( n ) & = \sum_{ k = 0 }^n ( - 1 )^k \binom{ n }{ k } g ( k ) \Leftrightarrow g ( n ) = \sum_{ k = 0 }^n ( - 1 )^k \binom{ n }{ k } f ( k ) \\
-f ( n ) & = \sum_{ k = n }^N C_k^n g ( k ) \Leftrightarrow g ( n ) = \sum_{ k = n }^N ( - 1 )^{ k - n } C_k^n f ( k ) \\
-f ( n ) & = \sum_{ k = n }^N ( - 1 )^k \binom{ k }{ n } g ( k ) \Leftrightarrow g ( n ) = \sum_{ k = n }^N ( - 1 )^k \binom{ k }{ n } f ( k ) \\
+f ( n ) &amp; = \sum_{ k = 0 }^n C_n^k g ( k ) \Leftrightarrow g ( n ) = \sum_{ k = 0 }^n ( - 1 )^{ n - k } C_n^k f ( k ) \\
+f ( n ) &amp; = \sum_{ k = 0 }^n ( - 1 )^k \binom{ n }{ k } g ( k ) \Leftrightarrow g ( n ) = \sum_{ k = 0 }^n ( - 1 )^k \binom{ n }{ k } f ( k ) \\
+f ( n ) &amp; = \sum_{ k = n }^N C_k^n g ( k ) \Leftrightarrow g ( n ) = \sum_{ k = n }^N ( - 1 )^{ k - n } C_k^n f ( k ) \\
+f ( n ) &amp; = \sum_{ k = n }^N ( - 1 )^k \binom{ k }{ n } g ( k ) \Leftrightarrow g ( n ) = \sum_{ k = n }^N ( - 1 )^k \binom{ k }{ n } f ( k ) \\
 
 \end{aligned}
 $$</p>
 <p>显然以$( - 1 )^n g ( n )$代替$g ( n )$即可从第一个式子推导第二个式子,下面证明第一个式子:</p>
 <p>$$
 \begin{aligned}
-g ( n ) & = \sum_{ k = 0 }^n ( - 1 )^{ n - k } C_n^k f ( k ) \\
-& = \sum_{ m = 0 }^n \sum_{ k = 0 }^{ n - m } ( - 1 )^k C_{ n - m }^k C_n^m g ( m ) \\
-& = \sum_{ k = 0 }^n ( - 1 )^k C_n^k \sum_{ m = 0 }^{ n - k } C_{ n - k }^m g ( m ) \\
-& = \sum_{ k = 0 }^n ( - 1 )^k C_n^k f ( n - k ) \\
-& = \sum_{ k = 0 }^n ( - 1 )^{ n - k } C_n^k f ( k ) \\
+g ( n ) &amp; = \sum_{ k = 0 }^n ( - 1 )^{ n - k } C_n^k f ( k ) \\
+&amp; = \sum_{ m = 0 }^n \sum_{ k = 0 }^{ n - m } ( - 1 )^k C_{ n - m }^k C_n^m g ( m ) \\
+&amp; = \sum_{ k = 0 }^n ( - 1 )^k C_n^k \sum_{ m = 0 }^{ n - k } C_{ n - k }^m g ( m ) \\
+&amp; = \sum_{ k = 0 }^n ( - 1 )^k C_n^k f ( n - k ) \\
+&amp; = \sum_{ k = 0 }^n ( - 1 )^{ n - k } C_n^k f ( k ) \\
 
 \end{aligned}
 $$</p>
@@ -176,8 +176,8 @@ $$</p>
 <p>不难发现$n !$的后面形如$e^{ - 1 }$的泰勒展开,我们考虑直接将泰勒展开的公式带入,可以得到:</p>
 <p>$$
 \begin{aligned}
-g ( n ) & = \cfrac{ n ! }{ e } - n ! \sum_{ k > n } \cfrac{ ( - 1 )^k }{ k ! } \\
-& = \cfrac{ n ! }{ e } - \cfrac{ ( - 1 )^{ n + 1 } }{ n + 1 } \sum_{ 0 \leq k } ( - 1 )^k \cfrac{ ( n + 1 ) ! }{ ( k + n + 1 ) ! }
+g ( n ) &amp; = \cfrac{ n ! }{ e } - n ! \sum_{ k &gt; n } \cfrac{ ( - 1 )^k }{ k ! } \\
+&amp; = \cfrac{ n ! }{ e } - \cfrac{ ( - 1 )^{ n + 1 } }{ n + 1 } \sum_{ 0 \leq k } ( - 1 )^k \cfrac{ ( n + 1 ) ! }{ ( k + n + 1 ) ! }
 \end{aligned}
 $$</p>
 <p>用一些我不会的方法分析误差,会发现后面的项所能带来的误差很小,于是有$g ( n ) = \lfloor \cfrac{ n ! }{ e } + \cfrac{ 1 }{ 2 } \rfloor + [ n = 0 ]$.</p>
@@ -185,9 +185,9 @@ $$</p>
 <p>下面证明$g_n = ( n - 1 ) ( g_{ n - 1 } + g_{ n - 2 } )$,事实上,右边等于:</p>
 <p>$$
 \begin{aligned}
-& ( n - 1 ) ( g_{ n - 1 } + g_{ n - 2 } ) \\
-= & ( - 1 )^{ n - 1 } ( n - 1 ) + ( n - 1 ) \sum_{ k = 0 }^{ n - 2 } ( ( n - 1 ) ! \frac{ ( - 1 )^k }{ k ! } + ( n - 2 ) ! \frac{ ( - 1 )^k }{ k ! } ) \\
-= & n ! \sum_{ k = 0 }^{ n - 2 } \frac{ ( - 1 )^k }{ k ! } - ( n - 1 ) ( - 1 )^n \\
+&amp; ( n - 1 ) ( g_{ n - 1 } + g_{ n - 2 } ) \\
+= &amp; ( - 1 )^{ n - 1 } ( n - 1 ) + ( n - 1 ) \sum_{ k = 0 }^{ n - 2 } ( ( n - 1 ) ! \frac{ ( - 1 )^k }{ k ! } + ( n - 2 ) ! \frac{ ( - 1 )^k }{ k ! } ) \\
+= &amp; n ! \sum_{ k = 0 }^{ n - 2 } \frac{ ( - 1 )^k }{ k ! } - ( n - 1 ) ( - 1 )^n \\
 
 \end{aligned}
 $$</p>
@@ -204,18 +204,18 @@ $$</p>
 <p>写到这里发现一个问题(其实是我发现问题后把上面原本写错的给改了),为啥$f_{ n , m } \ne \binom{ N }{ n } \binom{ M }{ m } k^{ nm } ( k - 1 )^{ NM - nm }$呢?我们写成子集反演形式看看:</p>
 <p>$$
 \begin{aligned}
-f_{ S , T } & = \sum_{ s \subseteq S } \sum_{ t \subseteq T } g_{ s , t } \\
-f_{ S , T } & = \sum_{ s \subseteq S } h_{ s , T } \\
-h_{ S , T } & = \sum_{ t \subseteq T } g_{ S , t } \\
+f_{ S , T } &amp; = \sum_{ s \subseteq S } \sum_{ t \subseteq T } g_{ s , t } \\
+f_{ S , T } &amp; = \sum_{ s \subseteq S } h_{ s , T } \\
+h_{ S , T } &amp; = \sum_{ t \subseteq T } g_{ S , t } \\
 
 \end{aligned}
 $$</p>
 <p>做子集反演:</p>
 <p>$$
 \begin{aligned}
-f_{ S , T } & = k^{ | S | \times | T | } ( k - 1 )^{ NM - | S | | T | } \\
-h_{ s , T } & = \sum_{ S \subseteq s } ( - 1 )^{ | s | - | S | } f_{ S , T } \\
-g_{ s , t } & = \sum_{ T \subseteq t } ( - 1 )^{ | t | - | T | } h_{ s , T }
+f_{ S , T } &amp; = k^{ | S | \times | T | } ( k - 1 )^{ NM - | S | | T | } \\
+h_{ s , T } &amp; = \sum_{ S \subseteq s } ( - 1 )^{ | s | - | S | } f_{ S , T } \\
+g_{ s , t } &amp; = \sum_{ T \subseteq t } ( - 1 )^{ | t | - | T | } h_{ s , T }
 \end{aligned}
 $$</p>
 <p>把集合改成集合大小就可以发现问题所在:</p>
@@ -223,9 +223,9 @@ $$</p>
 <p>啥?这和我平常接触的二项式反演不一样啊?不说别的,第四题(BZOJ2839)的式子是这样的:</p>
 <p>$$
 \begin{aligned}
-f_i & = 2^{ 2^{ n - i } } \binom{ n }{ i } \\
-f_k & = \sum_{ i = k }^n \binom{ i }{ k } g_i \\
-g_k & = \sum_{ i = k }^n ( - 1 )^{ i - k } \binom{ i }{ k } f_i
+f_i &amp; = 2^{ 2^{ n - i } } \binom{ n }{ i } \\
+f_k &amp; = \sum_{ i = k }^n \binom{ i }{ k } g_i \\
+g_k &amp; = \sum_{ i = k }^n ( - 1 )^{ i - k } \binom{ i }{ k } f_i
 \end{aligned}
 $$</p>
 <p>冷静一下,二项式反演的公式肯定没错,那也就一定是下面这几句出现了问题:</p>
@@ -242,7 +242,7 @@ $$</p>
 <p>回到第四题,再看一遍这个式子:</p>
 <p>$$
 \begin{aligned}
-f_k & = \sum_{ i = k }^n \binom{ i }{ k } g_i \\
+f_k &amp; = \sum_{ i = k }^n \binom{ i }{ k } g_i \\
 
 \end{aligned}
 $$</p>
@@ -256,50 +256,50 @@ $$</p>
 <p>所以,实际上的$f$是这样的:</p>
 <p>$$
 \begin{aligned}
-f_{ n , m } & = \binom{ N }{ n } \binom{ M }{ m } \sum_{ i = 0 }^n \binom{ n }{ i } \sum_{ j = 0 }^m \binom{ m }{ j } g_{ i , j } \\
-f_{ n , m } & = \binom{ N }{ n } \binom{ M }{ m } k^{ nm } ( k - 1 )^{ NM - nm }
+f_{ n , m } &amp; = \binom{ N }{ n } \binom{ M }{ m } \sum_{ i = 0 }^n \binom{ n }{ i } \sum_{ j = 0 }^m \binom{ m }{ j } g_{ i , j } \\
+f_{ n , m } &amp; = \binom{ N }{ n } \binom{ M }{ m } k^{ nm } ( k - 1 )^{ NM - nm }
 \end{aligned}
 $$</p>
 <p>好麻烦啊,能不能避免这种需要进一步思考集合意义的问题呢?</p>
 <p>考虑二项式反演的第二个形式:</p>
 <p>$$
 \begin{aligned}
-f ( n ) & = \sum_{ k = n }^N C_n^k g ( k ) \Leftrightarrow g ( n ) = \sum_{ k = n }^N ( - 1 )^{ k - n } C_n^k f ( k ) \\
+f ( n ) &amp; = \sum_{ k = n }^N C_n^k g ( k ) \Leftrightarrow g ( n ) = \sum_{ k = n }^N ( - 1 )^{ k - n } C_n^k f ( k ) \\
 
 \end{aligned}
 $$</p>
 <p>不难发现这个式子无论怎么写,前后都一定是从已知集合中选东西.绝对不会出现上面的问题.</p>
-<p>因此,我们重新写一下这个题的相关式子,考虑直接正难则反,设$f '_{ i , j }$为至少有$i$行$j$列不满足条件的方案数,自然有$f '_{ i , j } = f_{ N - i , M - j }$.你发现此时一定有:</p>
+<p>因此,我们重新写一下这个题的相关式子,考虑直接正难则反,设$f &#39;_{ i , j }$为至少有$i$行$j$列不满足条件的方案数,自然有$f &#39;_{ i , j } = f_{ N - i , M - j }$.你发现此时一定有:</p>
 <p>$$
-f '_{ n , m } = \sum_{ i = n }^N \binom{ i }{ n } \sum_{ j = m }^M \binom{ j }{ m } g '_{ i , j }
+f &#39;_{ n , m } = \sum_{ i = n }^N \binom{ i }{ n } \sum_{ j = m }^M \binom{ j }{ m } g &#39;_{ i , j }
 $$</p>
-<p>最后答案就是$g '_{ 0 , 0 }$.</p>
+<p>最后答案就是$g &#39;_{ 0 , 0 }$.</p>
 <h3 id="toc-8">斯特林反演</h3>
 <p>一般形式:</p>
 <p>$$
 \begin{aligned}
-f ( n ) & = \sum_{ k = 0 }^n \left \{ \begin{array}
+f ( n ) &amp; = \sum_{ k = 0 }^n \left \{ \begin{array}
 { c } n \\
 k
 \end{array} \right \} g ( k ) \Leftrightarrow g ( n ) = \sum_{ k = 0 }^n \left [ \begin{array}
 { c } n \\
 k
 \end{array} \right ] ( - 1 )^{ n - k } f ( k ) \\
-f ( n ) & = \sum_{ k = 0 }^n \left [ \begin{array}
+f ( n ) &amp; = \sum_{ k = 0 }^n \left [ \begin{array}
 { c } n \\
 k
 \end{array} \right ] g ( k ) \Leftrightarrow g ( n ) = \sum_{ k = 0 }^n \left \{ \begin{array}
 { c } n \\
 k
 \end{array} \right \} ( - 1 )^{ n - k } f ( k ) \\
-f ( m ) & = \sum_{ n = m }^M ( - 1 )^{ m - n } \left [ \begin{array}
+f ( m ) &amp; = \sum_{ n = m }^M ( - 1 )^{ m - n } \left [ \begin{array}
 { c } n \\
 m
 \end{array} \right ] g ( n ) \Leftrightarrow g ( m ) = \sum_{ k = 0 }^M \left \{ \begin{array}
 { c } k \\
 m
 \end{array} \right \} f ( k ) \\
-f ( m ) & = \sum_{ n = m }^M ( - 1 )^{ m - n } \left \{ \begin{array}
+f ( m ) &amp; = \sum_{ n = m }^M ( - 1 )^{ m - n } \left \{ \begin{array}
 { c } n \\
 m
 \end{array} \right \} g ( n ) \Leftrightarrow g ( m ) = \sum_{ k = 0 }^M \left [ \begin{array}
@@ -319,7 +319,7 @@ k
 \end{array} \right ] \left \{ \begin{array}
 { c } k \\
 m
-\end{array} \right \} ( - 1 )^{ n - k } & = \sum_{ k = 0 }^n \left \{ \begin{array}
+\end{array} \right \} ( - 1 )^{ n - k } &amp; = \sum_{ k = 0 }^n \left \{ \begin{array}
 { c } n \\
 k
 \end{array} \right \} \left [ \begin{array}
@@ -332,15 +332,15 @@ $$</p>
 <p>第一个式子的证明:</p>
 <p>$$
 \begin{aligned}
-g ( n ) & = \sum_{ m = 0 }^n [ m = n ] g ( m ) \\
-& = \sum_{ m = 0 }^n \sum_{ k = 0 }^n \left [ \begin{array}
+g ( n ) &amp; = \sum_{ m = 0 }^n [ m = n ] g ( m ) \\
+&amp; = \sum_{ m = 0 }^n \sum_{ k = 0 }^n \left [ \begin{array}
 { c } n \\
 k
 \end{array} \right ] \left \{ \begin{array}
 { c } k \\
 m
 \end{array} \right \} ( - 1 )^{ n - k } g ( m ) \\
-& = \sum_{ k = 0 }^n \left [ \begin{array}
+&amp; = \sum_{ k = 0 }^n \left [ \begin{array}
 { c } n \\
 k
 \end{array} \right ] ( - 1 )^{ n - k } \sum_{ m = 0 }^k \left \{ \begin{array}
@@ -356,15 +356,15 @@ $$</p>
 <p>第三个式子的证明:</p>
 <p>$$
 \begin{aligned}
-g ( m ) & = \sum_{ n = m }^M [ n = m ] g ( n ) \\
-& = \sum_{ n = m }^M \sum_{ k = 0 }^M \left [ \begin{array}
+g ( m ) &amp; = \sum_{ n = m }^M [ n = m ] g ( n ) \\
+&amp; = \sum_{ n = m }^M \sum_{ k = 0 }^M \left [ \begin{array}
 { c } n \\
 k
 \end{array} \right ] \left \{ \begin{array}
 { c } k \\
 m
 \end{array} \right \} ( - 1 )^{ n - k } g ( n ) \\
-& = \sum_{ k = 0 }^M \left \{ \begin{array}
+&amp; = \sum_{ k = 0 }^M \left \{ \begin{array}
 { c } k \\
 m
 \end{array} \right \} f ( k ) \\
@@ -375,46 +375,46 @@ $$</p>
 <p>一般形式:</p>
 <p>$$
 \begin{aligned}
-f ( n ) & = \sum_{ d | n } g ( d ) \Leftrightarrow g ( n ) = \sum_{ d | n } \mu ( \frac{ n }{ d } ) f ( d ) \\
-f ( n ) & = \sum_{ n | d } g ( d ) \Leftrightarrow g ( n ) = \sum_{ n | d } \mu ( \frac{ d }{ n } ) f ( d ) \\
-f ( x ) & = \sum_{ 1 \leq d } g ( d ) \Leftrightarrow g ( x ) = \sum_{ 1 \leq d } f ( \cfrac{ x }{ d } ) \mu ( d )
+f ( n ) &amp; = \sum_{ d | n } g ( d ) \Leftrightarrow g ( n ) = \sum_{ d | n } \mu ( \frac{ n }{ d } ) f ( d ) \\
+f ( n ) &amp; = \sum_{ n | d } g ( d ) \Leftrightarrow g ( n ) = \sum_{ n | d } \mu ( \frac{ d }{ n } ) f ( d ) \\
+f ( x ) &amp; = \sum_{ 1 \leq d } g ( d ) \Leftrightarrow g ( x ) = \sum_{ 1 \leq d } f ( \cfrac{ x }{ d } ) \mu ( d )
 \end{aligned}
 $$</p>
 <p>第一个式子的证明:</p>
 <p>$$
 \begin{aligned}
-g ( n ) & = \sum_{ m | n } [ \frac{ n }{ m } = 1 ] g ( m ) \\
-& = \sum_{ m | n } \sum_{ d | \frac{ n }{ m } } \mu ( d ) g ( m ) \\
+g ( n ) &amp; = \sum_{ m | n } [ \frac{ n }{ m } = 1 ] g ( m ) \\
+&amp; = \sum_{ m | n } \sum_{ d | \frac{ n }{ m } } \mu ( d ) g ( m ) \\
 
 \end{aligned}
 $$</p>
 <p>注意到$[ d | \frac{ n }{ m } ] = [ md | n ] = [ m | \frac{ n }{ d } ] \\$.</p>
 <p>$$
 \begin{aligned}
-g ( n ) & = \sum_{ d | n } \mu ( d ) \sum_{ m | \frac{ n }{ d } } g ( m ) \\
-& = \sum_{ d | n } \mu ( d ) f ( \frac{ n }{ d } ) \\
-& = \sum_{ d | n } \mu ( \frac{ n }{ d } ) f ( d ) \\
+g ( n ) &amp; = \sum_{ d | n } \mu ( d ) \sum_{ m | \frac{ n }{ d } } g ( m ) \\
+&amp; = \sum_{ d | n } \mu ( d ) f ( \frac{ n }{ d } ) \\
+&amp; = \sum_{ d | n } \mu ( \frac{ n }{ d } ) f ( d ) \\
 
 \end{aligned}
 $$</p>
 <p>第二个式子的证明:</p>
 <p>$$
 \begin{aligned}
-g ( n ) & = \sum_{ n | d } [ \frac{ d }{ n } = 1 ] g ( d ) \\
-& = \sum_{ n | d } \sum_{ c | \frac{ d }{ n } } \mu ( c ) g ( d ) \\
-& = \sum_{ c | d } \sum_{ nc | d } \mu ( c ) g ( d ) \\
-& = \sum_{ c } \mu ( c ) f ( nc ) \\
-& = \sum_{ n | d } \mu ( \frac{ d }{ n } ) f ( d ) \\
+g ( n ) &amp; = \sum_{ n | d } [ \frac{ d }{ n } = 1 ] g ( d ) \\
+&amp; = \sum_{ n | d } \sum_{ c | \frac{ d }{ n } } \mu ( c ) g ( d ) \\
+&amp; = \sum_{ c | d } \sum_{ nc | d } \mu ( c ) g ( d ) \\
+&amp; = \sum_{ c } \mu ( c ) f ( nc ) \\
+&amp; = \sum_{ n | d } \mu ( \frac{ d }{ n } ) f ( d ) \\
 
 \end{aligned}
 $$</p>
 <p>第三个式子的证明:</p>
 <p>$$
 \begin{aligned}
-\sum_{ 1 \leq d } g ( \cfrac{ x }{ d } ) \mu ( d ) & = \sum_{ d \geq 1 } \mu ( d ) \sum_{ k \geq 1 } f ( \cfrac{ x }{ kd } ) \\
-& = \sum_{ m \geq 1 } f ( \cfrac{ x }{ m } ) \sum_{ d , k \geq 1 } [ m = dk ] \mu ( d ) \\
-& = \sum_{ m \geq 1 } f ( \cfrac{ x }{ m } ) \sum_{ d | m } \mu ( d ) \\
-& = f ( x )
+\sum_{ 1 \leq d } g ( \cfrac{ x }{ d } ) \mu ( d ) &amp; = \sum_{ d \geq 1 } \mu ( d ) \sum_{ k \geq 1 } f ( \cfrac{ x }{ kd } ) \\
+&amp; = \sum_{ m \geq 1 } f ( \cfrac{ x }{ m } ) \sum_{ d , k \geq 1 } [ m = dk ] \mu ( d ) \\
+&amp; = \sum_{ m \geq 1 } f ( \cfrac{ x }{ m } ) \sum_{ d | m } \mu ( d ) \\
+&amp; = f ( x )
 \end{aligned}
 $$</p>
 <h4 id="toc-10">Example1</h4>
@@ -427,22 +427,22 @@ $$</p>
 <h5 id="toc-12">增加枚举量</h5>
 <p>$$
 \begin{aligned}
-\sum_{ i = 1 }^{ n } \sum_{ j = 1 }^m gcd ( i , j ) & = \sum_{ i = 1 }^n \sum_{ j = 1 }^m id [ gcd ( i , j ) ] \\
-& = \sum_{ i = 1 }^n \sum_{ j = 1 }^m \sum_{ d | gcd ( i , j ) } \varphi ( d ) \\
+\sum_{ i = 1 }^{ n } \sum_{ j = 1 }^m gcd ( i , j ) &amp; = \sum_{ i = 1 }^n \sum_{ j = 1 }^m id [ gcd ( i , j ) ] \\
+&amp; = \sum_{ i = 1 }^n \sum_{ j = 1 }^m \sum_{ d | gcd ( i , j ) } \varphi ( d ) \\
 
 \end{aligned}
 $$</p>
 <h5 id="toc-13">交换枚举顺序</h5>
 <p>$$
 \begin{aligned}
-\sum_{ i = 1 }^n \sum_{ j = 1 }^m \sum_{ d | gcd ( i , j ) } \varphi ( d ) & = \sum_{ d = 1 }^{ \min ( n , m ) } \sum^{ \lfloor \frac{ n }{ d } \rfloor }_{ i = 1 } \sum^{ \lfloor \frac{ m }{ d } \rfloor }_{ j = 1 } \varphi ( d ) \\
+\sum_{ i = 1 }^n \sum_{ j = 1 }^m \sum_{ d | gcd ( i , j ) } \varphi ( d ) &amp; = \sum_{ d = 1 }^{ \min ( n , m ) } \sum^{ \lfloor \frac{ n }{ d } \rfloor }_{ i = 1 } \sum^{ \lfloor \frac{ m }{ d } \rfloor }_{ j = 1 } \varphi ( d ) \\
 
 \end{aligned}
 $$</p>
 <h5 id="toc-14">分离无关变量</h5>
 <p>$$
 \begin{aligned}
-\sum_{ d = 1 }^{ \min ( n , m ) } \sum^{ \lfloor \frac{ n }{ d } \rfloor }_{ i = 1 } \sum^{ \lfloor \frac{ m }{ d } \rfloor }_{ j = 1 } \varphi ( d ) & = \sum^{ \min ( n , m ) }_{ d = 1 } \varphi ( d ) \times \lfloor \cfrac{ n }{ d } \rfloor \times \lfloor \cfrac{ m }{ d } \rfloor \\
+\sum_{ d = 1 }^{ \min ( n , m ) } \sum^{ \lfloor \frac{ n }{ d } \rfloor }_{ i = 1 } \sum^{ \lfloor \frac{ m }{ d } \rfloor }_{ j = 1 } \varphi ( d ) &amp; = \sum^{ \min ( n , m ) }_{ d = 1 } \varphi ( d ) \times \lfloor \cfrac{ n }{ d } \rfloor \times \lfloor \cfrac{ m }{ d } \rfloor \\
 
 \end{aligned}
 $$</p>
@@ -455,10 +455,10 @@ $$</p>
 <p>考虑增加枚举量,则:</p>
 <p>$$
 \begin{aligned}
-\sum_{ i = 1 }^{ n } \sum_{ j = 1 }^m [ gcd ( i , j ) & \in \mathrm{ prime } ] = \sum_{ i = 1 }^{ n } \sum_{ j = 1 }^m \sum_{ p \in \mathrm{ prime } } [ gcd ( i , j ) = p ] \\
-& = \sum_{ p \in \mathrm{ prime } } \sum^{ \lfloor \frac{ n }{ d } \rfloor }_{ i = 1 } \sum^{ \lfloor \frac{ m }{ d } \rfloor }_{ j = 1 } [ gcd ( pi , pj ) = p ] \\
-& = \sum_{ p \in \mathrm{ prime } } \sum^{ \lfloor \frac{ n }{ p } \rfloor }_{ i = 1 } \sum^{ \lfloor \frac{ m }{ p } \rfloor }_{ j = 1 } [ gcd ( i , j ) = 1 ] \\
-& = \sum_{ p \in \mathrm{ prime } } \sum_{ d = 1 }^{ \min ( \lfloor \frac{ m }{ p } \rfloor , \lfloor \frac{ n }{ p } \rfloor ) } \mu ( d ) \lfloor \cfrac{ n }{ pd } \rfloor \lfloor \cfrac{ m }{ pd } \rfloor \\
+\sum_{ i = 1 }^{ n } \sum_{ j = 1 }^m [ gcd ( i , j ) &amp; \in \mathrm{ prime } ] = \sum_{ i = 1 }^{ n } \sum_{ j = 1 }^m \sum_{ p \in \mathrm{ prime } } [ gcd ( i , j ) = p ] \\
+&amp; = \sum_{ p \in \mathrm{ prime } } \sum^{ \lfloor \frac{ n }{ d } \rfloor }_{ i = 1 } \sum^{ \lfloor \frac{ m }{ d } \rfloor }_{ j = 1 } [ gcd ( pi , pj ) = p ] \\
+&amp; = \sum_{ p \in \mathrm{ prime } } \sum^{ \lfloor \frac{ n }{ p } \rfloor }_{ i = 1 } \sum^{ \lfloor \frac{ m }{ p } \rfloor }_{ j = 1 } [ gcd ( i , j ) = 1 ] \\
+&amp; = \sum_{ p \in \mathrm{ prime } } \sum_{ d = 1 }^{ \min ( \lfloor \frac{ m }{ p } \rfloor , \lfloor \frac{ n }{ p } \rfloor ) } \mu ( d ) \lfloor \cfrac{ n }{ pd } \rfloor \lfloor \cfrac{ m }{ pd } \rfloor \\
 
 \end{aligned}
 $$</p>
@@ -473,8 +473,8 @@ $$</p>
 <p>则原式即:</p>
 <p>$$
 \begin{aligned}
-\sum_{ j = 1 }^n \sum_{ d } [ d | i ] [ d | j ] f_r ( d ) g ( i ) h ( j ) x_j & \equiv b_i ( \mod p ) \\
-\sum_{ d | i } f_r ( d ) \sum_{ j = 1 }^n [ d | j ] h ( j ) x_j & \equiv \frac{ b_i }{ g ( i ) } ( \mod p ) \\
+\sum_{ j = 1 }^n \sum_{ d } [ d | i ] [ d | j ] f_r ( d ) g ( i ) h ( j ) x_j &amp; \equiv b_i ( \mod p ) \\
+\sum_{ d | i } f_r ( d ) \sum_{ j = 1 }^n [ d | j ] h ( j ) x_j &amp; \equiv \frac{ b_i }{ g ( i ) } ( \mod p ) \\
 
 \end{aligned}
 $$</p>
@@ -499,8 +499,8 @@ $$</p>
 <p>注意到一个事实是,异或是模意义下的按位加减法,这意味着我们可以对异或做莫比乌斯反演.事实上,我们有:</p>
 <p>$$
 \begin{aligned}
-f ( n ) & = \bigoplus_{ i \in A } i [ \gcd ( i , n ) = 1 ] \\
-& = \bigoplus_{ i \in A }^c i \sum_{ d | i , d | n } \mu ( d ) \\
+f ( n ) &amp; = \bigoplus_{ i \in A } i [ \gcd ( i , n ) = 1 ] \\
+&amp; = \bigoplus_{ i \in A }^c i \sum_{ d | i , d | n } \mu ( d ) \\
 
 \end{aligned}
 $$</p>
@@ -521,7 +521,7 @@ $$</p>
 <p>一般形式:定义$\mu ( S )$,若$S$包含重复元素则为$0$,否则为$( - 1 )^{ | S | }$.</p>
 <p>$$
 \begin{aligned}
-f ( S ) & = \sum_{ T \subseteq S } g ( T ) \Leftrightarrow g ( S ) = \sum_{ T \subseteq S } \mu ( S - T ) f ( T ) \\
+f ( S ) &amp; = \sum_{ T \subseteq S } g ( T ) \Leftrightarrow g ( S ) = \sum_{ T \subseteq S } \mu ( S - T ) f ( T ) \\
 
 \end{aligned}
 $$</p>
@@ -540,11 +540,11 @@ $$</p>
 <p>刚才的过程相当于:</p>
 <p>$$
 \begin{aligned}
-Ax & = b \\
-x & = Ix \\
-x & = ( BA ) x \\
-x & = B ( Ax ) \\
-x & = Bb \\
+Ax &amp; = b \\
+x &amp; = Ix \\
+x &amp; = ( BA ) x \\
+x &amp; = B ( Ax ) \\
+x &amp; = Bb \\
 
 \end{aligned}
 $$</p>
@@ -553,7 +553,7 @@ $$</p>
 <p>现在来推导满足$k \leq n$的一般情况反演:</p>
 <p>$$
 \begin{aligned}
-f ( n ) & = \sum_{ k = 1 }^n a_{ n , k } g ( k ) \\
+f ( n ) &amp; = \sum_{ k = 1 }^n a_{ n , k } g ( k ) \\
 
 \end{aligned}
 $$</p>
@@ -561,16 +561,16 @@ $$</p>
 <p>即$AB = BA = I \\$.</p>
 <p>$$
 \begin{aligned}
-g ( n ) & = \sum_{ m = 1 }^n [ n = m ] g ( m ) \\
-& = \sum_{ m = 1 }^n \sum_{ k = 1 }^n \mu ( n , k ) a_{ k , m } g ( m ) \\
-& = \sum_{ k = 1 }^n \mu ( n , k ) f ( k ) \\
+g ( n ) &amp; = \sum_{ m = 1 }^n [ n = m ] g ( m ) \\
+&amp; = \sum_{ m = 1 }^n \sum_{ k = 1 }^n \mu ( n , k ) a_{ k , m } g ( m ) \\
+&amp; = \sum_{ k = 1 }^n \mu ( n , k ) f ( k ) \\
 
 \end{aligned}
 $$</p>
 <p>由上我们发现,反演解决了一些在下标上的二元运算卷积:</p>
 <p>$$
 \begin{aligned}
-c_r & = \sum_{ p , q } [ f ( p , q ) = r ] a_p b_q \\
+c_r &amp; = \sum_{ p , q } [ f ( p , q ) = r ] a_p b_q \\
 
 \end{aligned}
 $$</p>
@@ -582,9 +582,9 @@ $$</p>
 <p>证明:我们考虑对于每个元素,看它对最终答案的贡献.假设它所属$m$个集合$S_1 , . . . , S_m$,而除了这些集合以外的集合,</p>
 <p>$$
 \begin{aligned}
-cnt & = \sum_{ i = 1 }^m ( - 1 )^{ i - 1 } \binom{ m }{ i } \\
-& = \binom{ m }{ 0 } - \sum_{ i = 0 }^m ( - 1 )^i \binom{ m }{ i } \\
-& = 1 - [ m = 0 ]
+cnt &amp; = \sum_{ i = 1 }^m ( - 1 )^{ i - 1 } \binom{ m }{ i } \\
+&amp; = \binom{ m }{ 0 } - \sum_{ i = 0 }^m ( - 1 )^i \binom{ m }{ i } \\
+&amp; = 1 - [ m = 0 ]
 \end{aligned}
 $$</p>
 <p>显然,当这个元素被包含的时候,贡献为$1$,反之贡献为$0$.</p>
@@ -685,24 +685,24 @@ $$</p>
 <p>考虑一个特例:$S_i = \{ 1 , 2 , \cdots , a_i \}$,那么上面的式子导出min-max容斥(我们设$S = \{ a_1 , a_2 , \cdots , a_n \}$)(第二个式子可以把前缀改成后缀):</p>
 <p>$$
 \begin{aligned}
-\max ( S ) & = \sum_{ T \subseteq S , T \ne \emptyset } ( - 1 )^{ | T | - 1 } \min ( T ) \\
-\min ( S ) & = \sum_{ T \subseteq S , T \ne \emptyset } ( - 1 )^{ | T | - 1 } \max ( T )
+\max ( S ) &amp; = \sum_{ T \subseteq S , T \ne \emptyset } ( - 1 )^{ | T | - 1 } \min ( T ) \\
+\min ( S ) &amp; = \sum_{ T \subseteq S , T \ne \emptyset } ( - 1 )^{ | T | - 1 } \max ( T )
 \end{aligned}
 $$</p>
 <p>由于是集合,这个式子在期望意义下同样成立:</p>
 <p>$$
 \begin{aligned}
-E ( \max \{ S \} ) & = \sum_{ T \subseteq S , T \ne \emptyset } ( - 1 )^{ | T | - 1 } E ( \min \{ S \} ) \\
-E ( \min \{ S \} ) & = \sum_{ T \subseteq S , T \ne \emptyset } ( - 1 )^{ | T | - 1 } E ( \max \{ S \} )
+E ( \max \{ S \} ) &amp; = \sum_{ T \subseteq S , T \ne \emptyset } ( - 1 )^{ | T | - 1 } E ( \min \{ S \} ) \\
+E ( \min \{ S \} ) &amp; = \sum_{ T \subseteq S , T \ne \emptyset } ( - 1 )^{ | T | - 1 } E ( \max \{ S \} )
 \end{aligned}
 $$</p>
 <p>进一步,这个式子可不止能求min-max的转化,它可以求出集合中第k大的数字:</p>
 <p>$$
 \begin{aligned}
-kth \max \{ S \} & = \sum_{ T \subseteq S , T \ne \emptyset } ( - 1 )^{ | T | - k } \binom{ | T | - 1 }{ k - 1 } \min \{ T \} \\
-kth \min \{ S \} & = \sum_{ T \subseteq S , T \ne \emptyset } ( - 1 )^{ | T | - k } \binom{ | T | - 1 }{ k - 1 } \max \{ T \} \\
-E ( kth \max \{ S \} ) & = \sum_{ T \subseteq S , T \ne \emptyset } ( - 1 )^{ | T | - k } \binom{ | T | - 1 }{ k - 1 } E ( \min \{ T \} ) \\
-E ( kth \min \{ S \} ) & = \sum_{ T \subseteq S , T \ne \emptyset } ( - 1 )^{ | T | - k } \binom{ | T | - 1 }{ k - 1 } E ( \max \{ T \} )
+kth \max \{ S \} &amp; = \sum_{ T \subseteq S , T \ne \emptyset } ( - 1 )^{ | T | - k } \binom{ | T | - 1 }{ k - 1 } \min \{ T \} \\
+kth \min \{ S \} &amp; = \sum_{ T \subseteq S , T \ne \emptyset } ( - 1 )^{ | T | - k } \binom{ | T | - 1 }{ k - 1 } \max \{ T \} \\
+E ( kth \max \{ S \} ) &amp; = \sum_{ T \subseteq S , T \ne \emptyset } ( - 1 )^{ | T | - k } \binom{ | T | - 1 }{ k - 1 } E ( \min \{ T \} ) \\
+E ( kth \min \{ S \} ) &amp; = \sum_{ T \subseteq S , T \ne \emptyset } ( - 1 )^{ | T | - k } \binom{ | T | - 1 }{ k - 1 } E ( \max \{ T \} )
 \end{aligned}
 $$</p>
 <p>原理是消掉前$k - 1$大的数字,让他们的贡献为$0$,剩下的配一下容斥系数.</p>
@@ -715,8 +715,8 @@ $$</p>
 <p>于是:</p>
 <p>$$
 \begin{aligned}
-ans & = \sum_{ T \subseteq \{ 1 , 2 , \cdots , n - 1 \} , T \ne \emptyset } ( - 1 )^{ | T | - 1 } f ( T ) \\
-& = \sum_{ k = 0 }^m \frac{ m }{ k } \sum_{ T \subseteq \{ 1 , 2 , \cdots , n - 1 \} , T \ne \emptyset , f ( T ) = k } ( - 1 )^{ | T | - 1 }
+ans &amp; = \sum_{ T \subseteq \{ 1 , 2 , \cdots , n - 1 \} , T \ne \emptyset } ( - 1 )^{ | T | - 1 } f ( T ) \\
+&amp; = \sum_{ k = 0 }^m \frac{ m }{ k } \sum_{ T \subseteq \{ 1 , 2 , \cdots , n - 1 \} , T \ne \emptyset , f ( T ) = k } ( - 1 )^{ | T | - 1 }
 \end{aligned}
 $$</p>
 <p>注意到$f ( S )$可能不那么好求,我们求$g ( S ) = m - f ( S )$,也就是不包含任何一个$[ i , i + 1 ] , i \in S$的区间个数,我们有:</p>
@@ -724,7 +724,7 @@ $$</p>
 ans = \sum_{ k = 0 }^m \frac{ m }{ m - k } \sum_{ T \subseteq \{ 1 , 2 , \cdots , n - 1 \} , T \ne \emptyset , g ( T ) = k } ( - 1 )^{ | T | - 1 }
 $$</p>
 <p>这里已经不难写出$O ( n^3 )$的dp了.</p>
-<p>那么怎么优化呢?设$dp_{ i , j }$表示只考虑$[ 1 , i ]$时($[ i - 1 , i ]$必选),$\sum_{ g ( T ) = j } ( - 1 )^{ | T | - 1 }$的答案,不难发现每次加入一个区间$[ l , r ]$就会让$dp_{ i , j } , i < = l$对$dp_{ r , j + 1 }$的贡献乘一个$1$.</p>
+<p>那么怎么优化呢?设$dp_{ i , j }$表示只考虑$[ 1 , i ]$时($[ i - 1 , i ]$必选),$\sum_{ g ( T ) = j } ( - 1 )^{ | T | - 1 }$的答案,不难发现每次加入一个区间$[ l , r ]$就会让$dp_{ i , j } , i &lt; = l$对$dp_{ r , j + 1 }$的贡献乘一个$1$.</p>
 <p>如何处理这个事情?我们用类似多项式的东西,前者相当于平移多项式系数,后者相当于标量乘法,然后拿线段树维护和,复杂度$O ( nm \log n )$.</p>
 <h4 id="toc-39">反射容斥</h4>
 <p>一般形式:给定二维平面上两个点$S$和$T$,其中$T$在$S$的右方,给定两条线$y = a$和$y = b$,每次可以向右上或者右下走一步,求不碰线的从$S$到$T$的方案数.</p>

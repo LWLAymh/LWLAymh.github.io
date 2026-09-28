@@ -111,12 +111,12 @@ window.MathJax = {
 <p>如果求封闭形式的话,显然有$T_n = \sum_{ i = 1 }^n 2^{ n - i } k_i$.</p>
 <h3 id="toc-11">递归式的封闭形式</h3>
 <p>在上述问题中，我们已经有了以下式子：</p>
-<p>$T_n = 2 T_{ n - 1 } + 1 , n > 0 , T_0 = 0$.</p>
+<p>$T_n = 2 T_{ n - 1 } + 1 , n &gt; 0 , T_0 = 0$.</p>
 <p>如果$n$很大，那么一步一步去计算是很复杂的，现在我们想知道一种更为快速的求出$T_n$的方法.</p>
 <p>换句话说，我们想要把$T_n$表示为只与n有关的式子，我们称其为该递归式的封闭形式.</p>
 <h4 id="toc-12">寻找循环节</h4>
 <h5 id="toc-13">Example(《具体数学》1.8)</h5>
-<p>解递归式:$Q_n = \begin{cases}\alpha & n = 0 \\ \beta & n = 1 \\ \frac{ ( 1 + Q_{ n - 1 } ) }{ Q_{ n - 2 } } & n > 1\end{cases}$,保证$\forall n , Q_n > 0$.</p>
+<p>解递归式:$Q_n = \begin{cases}\alpha &amp; n = 0 \\ \beta &amp; n = 1 \\ \frac{ ( 1 + Q_{ n - 1 } ) }{ Q_{ n - 2 } } &amp; n &gt; 1\end{cases}$,保证$\forall n , Q_n &gt; 0$.</p>
 <h5 id="toc-14">Solution</h5>
 <p>注意到$Q_2 = \frac{ \beta + 1 }{ \alpha } , Q_3 = \frac{ \beta + \alpha + 1 }{ \beta \alpha } , Q_4 = \frac{ 1 + \alpha }{ \beta } , Q_5 = \alpha , Q_6 = \beta$.</p>
 <p>显然该递归式存在长度为$5$的循环节.</p>
@@ -154,14 +154,14 @@ $$</p>
 <p>结论:排序$n$个数时,其期望复杂度满足:</p>
 <p>$$
 C_n = \begin{cases}
-0 & n = 0 , 1 \\
-n + 1 + \frac{ 2 }{ n } \sum_{ i = 0 }^{ n - 1 } C_k & n > 1
+0 &amp; n = 0 , 1 \\
+n + 1 + \frac{ 2 }{ n } \sum_{ i = 0 }^{ n - 1 } C_k &amp; n &gt; 1
 \end{cases}
 $$</p>
-<p>不妨考虑两边同时乘以$n$,有 $nC_n = n^2 + n + 2 \sum_{ i = 0 }^{ n - 1 } C_i , n > 1$ .</p>
-<p>显然也有$( n - 1 ) C_{ n - 1 } = ( n - 1 )^2 + n - 1 + 2 \sum_{ i = 0 }^{ n - 2 } C_i , n > 2$.</p>
-<p>二式相消,有$nC_n - ( n - 1 ) C_{ n - 1 } = 2 n + 2 C_{ n - 1 } , n > 2$.</p>
-<p>而同时有$C_2 = 3$.即:$nC_n = ( n + 1 ) C_{ n - 1 } + 2 n , n > 2$,可以使用转化和式的方法,两边乘以$\frac{ 1 }{ n ( n + 1 ) }$解决.</p>
+<p>不妨考虑两边同时乘以$n$,有 $nC_n = n^2 + n + 2 \sum_{ i = 0 }^{ n - 1 } C_i , n &gt; 1$ .</p>
+<p>显然也有$( n - 1 ) C_{ n - 1 } = ( n - 1 )^2 + n - 1 + 2 \sum_{ i = 0 }^{ n - 2 } C_i , n &gt; 2$.</p>
+<p>二式相消,有$nC_n - ( n - 1 ) C_{ n - 1 } = 2 n + 2 C_{ n - 1 } , n &gt; 2$.</p>
+<p>而同时有$C_2 = 3$.即:$nC_n = ( n + 1 ) C_{ n - 1 } + 2 n , n &gt; 2$,可以使用转化和式的方法,两边乘以$\frac{ 1 }{ n ( n + 1 ) }$解决.</p>
 <h5 id="toc-21">Example2</h5>
 <p>已知$a_1 = 1$,$a_n = \sqrt{ S_n } + \sqrt{ S_{ n - 1 } }$,求$a_n$.</p>
 <p>注意到$a_n = S_n - S_{ n - 1 }$,则有$\sqrt{ S_n } - \sqrt{ S_{ n - 1 } } = 1$,于是$\sqrt{ S_n } = n$,$S_n = n^2$,$a_n = 2 n - 1$.</p>
@@ -171,7 +171,7 @@ $$</p>
 <p>2f(\frac n 2)+\beta &amp; n=2k,k\in \mathbb{N_+}\</p>
 <p>2f(\frac {n-1}2)+\gamma &amp;n=2k+1,k\in \mathbb{N_+}</p>
 <p>\end{cases}</p>
-<p>其中$n = 2^m + l$且$2^m \leq n < 2^{ m + 1 }$.</p>
+<p>其中$n = 2^m + l$且$2^m \leq n &lt; 2^{ m + 1 }$.</p>
 <p>该如何求出$f ( n )$的封闭形式呢?</p>
 <p>由于所有的未知数都是以加法运算连接,显然有$f ( n ) = A ( n ) \alpha + B ( n ) \beta + C ( n ) \gamma$,而有$A 、 B 、 C$互不影响且$\alpha \beta \gamma$与$ABC$无关.</p>
 <p>那无论$\beta$和$\gamma$的取值如何,$A ( n )$都不会受到影响,我们考虑$\beta = \gamma = 0$的特殊情况,此时显然有$A ( n ) = 2^m$.</p>
@@ -185,8 +185,8 @@ $$</p>
 <p>一个常系数的$k$阶线性递推关系形如:</p>
 <p>$$
 \begin{aligned}
-a_n & = P_n + \sum_{ i = 1 }^k c_i a_{ n - i } , n \geq k \\
-a_0 & = C_0 , a_1 = C_1 , . . . , a_{ k - 1 } = C_{ k - 1 }
+a_n &amp; = P_n + \sum_{ i = 1 }^k c_i a_{ n - i } , n \geq k \\
+a_0 &amp; = C_0 , a_1 = C_1 , . . . , a_{ k - 1 } = C_{ k - 1 }
 \end{aligned}
 $$</p>
 <p>当$P = 0$时,称作齐次线性递推.</p>
@@ -198,40 +198,40 @@ $$</p>
 <p>先考虑前者的证明,首先考虑对于$n = 0$或者$n = 1$的情况,我们考虑求出一组$\alpha_1$和$\alpha_2$来满足:</p>
 <p>$$
 \begin{aligned}
-C_0 & = \alpha_1 + \alpha_2 \\
-C_1 & = \alpha_1 r_1 + \alpha_2 r_2
+C_0 &amp; = \alpha_1 + \alpha_2 \\
+C_1 &amp; = \alpha_1 r_1 + \alpha_2 r_2
 \end{aligned}
 $$</p>
 <p>若$r_1 \ne r_2$,可以解得:</p>
 <p>$$
 \begin{aligned}
-\alpha_1 & = \cfrac{ C_1 - C_0 r_2 }{ r_1 - r_2 } \\
-\alpha_2 & = C_0 - \alpha_1
+\alpha_1 &amp; = \cfrac{ C_1 - C_0 r_2 }{ r_1 - r_2 } \\
+\alpha_2 &amp; = C_0 - \alpha_1
 \end{aligned}
 $$</p>
 <p>接下来考虑数学归纳:</p>
 <p>$$
 \begin{aligned}
-a_n & = c_1 a_{ n - 1 } + c_2 a_{ n - 2 } \\
-& = c_1 ( \alpha_1 r_1^{ n - 1 } + \alpha_2 r_2^{ n - 1 } ) + c_2 ( \alpha_1 r_1^{ n - 2 } + \alpha_2 r_2^{ n - 2 } ) \\
-& = \alpha_1 ( c_1 r_1^{ n - 1 } + c_2 r_1^{ n - 2 } ) + \alpha_2 ( c_1 r_2^{ n - 1 } + c_2 r_2^{ n - 2 } ) \\
-& = \alpha_1 r_1^n + \alpha_2 r_2^n
+a_n &amp; = c_1 a_{ n - 1 } + c_2 a_{ n - 2 } \\
+&amp; = c_1 ( \alpha_1 r_1^{ n - 1 } + \alpha_2 r_2^{ n - 1 } ) + c_2 ( \alpha_1 r_1^{ n - 2 } + \alpha_2 r_2^{ n - 2 } ) \\
+&amp; = \alpha_1 ( c_1 r_1^{ n - 1 } + c_2 r_1^{ n - 2 } ) + \alpha_2 ( c_1 r_2^{ n - 1 } + c_2 r_2^{ n - 2 } ) \\
+&amp; = \alpha_1 r_1^n + \alpha_2 r_2^n
 \end{aligned}
 $$</p>
 <p>接下来考虑后者,首先我们有$\Delta = c_1^2 + 4 c_2 = 0$,考虑初始条件:</p>
 <p>$$
 \begin{aligned}
-C_0 & = \alpha_1 \\
-C_1 & = \alpha_1 r + \alpha_2 r \\
+C_0 &amp; = \alpha_1 \\
+C_1 &amp; = \alpha_1 r + \alpha_2 r \\
 
 \end{aligned}
 $$</p>
 <p>接下来我们考虑数学归纳:</p>
 <p>$$
 \begin{aligned}
-a_n & = c_1 a_{ n - 1 } + c_2 a_{ n - 2 } \\
-& = c_1 ( \alpha_1 r^{ n - 1 } + \alpha_2 nr^{ n - 1 } - \alpha_2 r^{ n - 1 } ) + c_2 ( \alpha_1 r^{ n - 2 } + \alpha_2 nr^{ n - 2 } - 2 \alpha_2 r^{ n - 2 } ) \\
-& = a_n - c_1 \alpha_2 r^{ n - 1 } - 2 c_2 \alpha_2 r^{ n - 2 }
+a_n &amp; = c_1 a_{ n - 1 } + c_2 a_{ n - 2 } \\
+&amp; = c_1 ( \alpha_1 r^{ n - 1 } + \alpha_2 nr^{ n - 1 } - \alpha_2 r^{ n - 1 } ) + c_2 ( \alpha_1 r^{ n - 2 } + \alpha_2 nr^{ n - 2 } - 2 \alpha_2 r^{ n - 2 } ) \\
+&amp; = a_n - c_1 \alpha_2 r^{ n - 1 } - 2 c_2 \alpha_2 r^{ n - 2 }
 \end{aligned}
 $$</p>
 <p>我们接下来只需证明$c_1 r + 2 c_2 = 0$即可.根据方程,不难发现$r = \cfrac{ c_1 }{ 2 }$,根据$\Delta = 0$,自然得证.</p>
@@ -247,19 +247,19 @@ $$</p>
 <p>整理得到:</p>
 <p>$$
 J ( n ) = \begin{cases}
-1 & n = 1 \\
-2 J ( \frac{ n }{ 2 } ) - 1 & n = 2 k , k \in \mathbb{ N_+ } \\
-2 J ( \frac{ n - 1 }{ 2 } ) + 1 & n = 2 k + 1 , k \in \mathbb{ N_+ }
+1 &amp; n = 1 \\
+2 J ( \frac{ n }{ 2 } ) - 1 &amp; n = 2 k , k \in \mathbb{ N_+ } \\
+2 J ( \frac{ n - 1 }{ 2 } ) + 1 &amp; n = 2 k + 1 , k \in \mathbb{ N_+ }
 \end{cases}
 $$</p>
-<p>仍然可以使用数学归纳，如果令$n = 2^m + l 且 2^m \leq n < 2^{ m + 1 }$.</p>
+<p>仍然可以使用数学归纳，如果令$n = 2^m + l 且 2^m \leq n &lt; 2^{ m + 1 }$.</p>
 <p>有$J ( n ) = 2 l + 1$.</p>
 <p>要是注意力没有那么集中怎么办呢?考虑到这个东西显然和取膜有着不可分割的关系,我们不妨从$0$开始编号:</p>
 <p>$$
 J ( n ) = \begin{cases}
-0 & n = 1 \\
-2 J ( \frac{ n }{ 2 } ) & n = 2 k , k \in \mathbb{ N_+ } \\
-2 J ( \frac{ n - 1 }{ 2 } ) + 2 & n = 2 k + 1 , k \in \mathbb{ N_+ }
+0 &amp; n = 1 \\
+2 J ( \frac{ n }{ 2 } ) &amp; n = 2 k , k \in \mathbb{ N_+ } \\
+2 J ( \frac{ n - 1 }{ 2 } ) + 2 &amp; n = 2 k + 1 , k \in \mathbb{ N_+ }
 \end{cases}
 $$</p>
 <p>这下相信$J ( n )$是多少就很显然了,将$n$写成二进制的形式,这个就相当于把首位$1$抹去然后在末尾加个$0$.</p>
@@ -269,19 +269,19 @@ $$</p>
 <p>显然有:</p>
 <p>$$
 J ( n ) = \begin{cases}
-2 & n = 2 \\
-1 & n = 3 \\
-2 J ( \frac{ n }{ 2 } ) - 1 & n = 2 k + 2 , k \in \mathbb{ N_+ } \\
-2 J ( \frac{ n - 1 }{ 2 } ) + 1 & n = 2 k + 3 , k \in \mathbb{ N_+ }
+2 &amp; n = 2 \\
+1 &amp; n = 3 \\
+2 J ( \frac{ n }{ 2 } ) - 1 &amp; n = 2 k + 2 , k \in \mathbb{ N_+ } \\
+2 J ( \frac{ n - 1 }{ 2 } ) + 1 &amp; n = 2 k + 3 , k \in \mathbb{ N_+ }
 \end{cases}
 $$</p>
 <p>从$0$开始编号,自然有:</p>
 <p>$$
 J ( n ) = \begin{cases}
-1 & n = 2 \\
-0 & n = 3 \\
-2 J ( \frac{ n }{ 2 } ) & n = 2 k + 2 , k \in \mathbb{ N_+ } \\
-2 J ( \frac{ n - 1 }{ 2 } ) + 2 & n = 2 k + 3 , k \in \mathbb{ N_+ }
+1 &amp; n = 2 \\
+0 &amp; n = 3 \\
+2 J ( \frac{ n }{ 2 } ) &amp; n = 2 k + 2 , k \in \mathbb{ N_+ } \\
+2 J ( \frac{ n - 1 }{ 2 } ) + 2 &amp; n = 2 k + 3 , k \in \mathbb{ N_+ }
 \end{cases}
 $$</p>
 <p>显然$J ( n )$也可以用二进制表达其形式.</p>
@@ -306,8 +306,8 @@ $$</p>
 <p>交换求和顺序:</p>
 <p>$$
 \begin{aligned}
-\sum_{ i } \sum_{ j } a_{ i , j } [ P ( i , j ) ] & = \sum_{ j } \sum_{ i } a_{ i , j } [ P ( i , j ) ] \\
-\sum_{ i = 1 }^n \sum_{ j = i }^n a_{ i , j } & = \sum_{ j = 1 }^n \sum_{ i = 1 }^j a_{ i , j }
+\sum_{ i } \sum_{ j } a_{ i , j } [ P ( i , j ) ] &amp; = \sum_{ j } \sum_{ i } a_{ i , j } [ P ( i , j ) ] \\
+\sum_{ i = 1 }^n \sum_{ j = i }^n a_{ i , j } &amp; = \sum_{ j = 1 }^n \sum_{ i = 1 }^j a_{ i , j }
 \end{aligned}
 $$</p>
 <h3 id="toc-33">和式的封闭形式</h3>
@@ -316,21 +316,21 @@ $$</p>
 <p>我们有:</p>
 <p>$$
 \begin{aligned}
-S_n & = \sum_{ i = 0 }^n ( ai + b ) = \sum_{ i = 0 }^n ( a ( n - i ) + b ) \\
-2 S_n & = \sum_{ i = 0 }^n ( an + 2 b ) = an ( n + 1 ) + 2 b ( n + 1 ) \\
-S_n & = ( n + 1 ) ( \frac{ an }{ 2 } + b )
+S_n &amp; = \sum_{ i = 0 }^n ( ai + b ) = \sum_{ i = 0 }^n ( a ( n - i ) + b ) \\
+2 S_n &amp; = \sum_{ i = 0 }^n ( an + 2 b ) = an ( n + 1 ) + 2 b ( n + 1 ) \\
+S_n &amp; = ( n + 1 ) ( \frac{ an }{ 2 } + b )
 \end{aligned}
 $$</p>
 <h5 id="toc-36">Example2(切比雪夫单调不等式)</h5>
-<p>令$S = \sum_{ 1 \leq i < j \leq n } ( a_j - a_i ) ( b_j - b_i ) = \sum_{ 1 \leq j < i \leq n } ( a_j - a_i ) ( b_j - b_i )$.</p>
-<p>考虑恒等式$[ 1 \leq j < i \leq n ] + [ 1 \leq i < j \leq n ] = [ 1 \leq j , i \leq n ] - [ 1 \leq i = j \leq n ]$.</p>
+<p>令$S = \sum_{ 1 \leq i &lt; j \leq n } ( a_j - a_i ) ( b_j - b_i ) = \sum_{ 1 \leq j &lt; i \leq n } ( a_j - a_i ) ( b_j - b_i )$.</p>
+<p>考虑恒等式$[ 1 \leq j &lt; i \leq n ] + [ 1 \leq i &lt; j \leq n ] = [ 1 \leq j , i \leq n ] - [ 1 \leq i = j \leq n ]$.</p>
 <p>那么我们有:</p>
 <p>$$
 \begin{aligned}
-2 S & = \sum_{ 1 \leq i , j \leq n } ( a_j - a_i ) ( b_j - b_i ) - \sum_{ 1 \leq i = j \leq n } ( a_j - a_i ) ( b_j - b_i ) \\
-& = \sum_{ 1 \leq i , j \leq n } ( a_j - a_i ) ( b_j - b_i ) \\
-& = 2 n \sum_{ i = 1 }^n a_i b_i - 2 ( \sum_{ i = 1 }^n a_i ) ( \sum_{ j = 1 }^n b_j ) \\
-( \sum_{ i = 1 }^n a_i ) ( \sum_{ j = 1 }^n b_j ) & = n \sum_{ i = 1 }^n a_i b_i - \sum_{ 1 \leq i < j \leq n } ( a_j - a_i ) ( b_j - b_i )
+2 S &amp; = \sum_{ 1 \leq i , j \leq n } ( a_j - a_i ) ( b_j - b_i ) - \sum_{ 1 \leq i = j \leq n } ( a_j - a_i ) ( b_j - b_i ) \\
+&amp; = \sum_{ 1 \leq i , j \leq n } ( a_j - a_i ) ( b_j - b_i ) \\
+&amp; = 2 n \sum_{ i = 1 }^n a_i b_i - 2 ( \sum_{ i = 1 }^n a_i ) ( \sum_{ j = 1 }^n b_j ) \\
+( \sum_{ i = 1 }^n a_i ) ( \sum_{ j = 1 }^n b_j ) &amp; = n \sum_{ i = 1 }^n a_i b_i - \sum_{ 1 \leq i &lt; j \leq n } ( a_j - a_i ) ( b_j - b_i )
 \end{aligned}
 $$</p>
 <p>显然有以下式子:</p>
@@ -341,27 +341,27 @@ $$</p>
 <p>证明:</p>
 <p>$$
 \begin{aligned}
-\sum_{ 1 \leq j < k \leq n } ( a_j b_k - a_k b_j )^2 & = ( \sum_{ i = 1 }^n a_i^2 ) ( \sum_{ i = 1 }^n b_i^2 ) - ( \sum_{ i = 1 }^n a_i b_i )^2 \\
+\sum_{ 1 \leq j &lt; k \leq n } ( a_j b_k - a_k b_j )^2 &amp; = ( \sum_{ i = 1 }^n a_i^2 ) ( \sum_{ i = 1 }^n b_i^2 ) - ( \sum_{ i = 1 }^n a_i b_i )^2 \\
 
 \end{aligned}
 $$</p>
 <p>有:</p>
 <p>$$
 \begin{aligned}
-S_n & = \sum_{ 1 \leq j < k \leq n } ( a_j b_k - a_k b_j )^2 \\
-2 S_n & = \sum_{ j = 1 }^n \sum_{ k = 1 }^n ( a_j b_k - a_k b_j )^2 \\
-& = \sum_{ j = 1 }^n \sum_{ k = 1 }^n ( a_j^2 b_k^2 - 2 a_j a_k b_j b_k + a_k^2 b_j^2 ) \\
-& = 2 ( \sum_{ i = 1 }^n a_i^2 ) ( \sum_{ i = 1 }^n b_i^2 ) - 2 ( \sum_{ i = 1 }^n a_i b_i )^2
+S_n &amp; = \sum_{ 1 \leq j &lt; k \leq n } ( a_j b_k - a_k b_j )^2 \\
+2 S_n &amp; = \sum_{ j = 1 }^n \sum_{ k = 1 }^n ( a_j b_k - a_k b_j )^2 \\
+&amp; = \sum_{ j = 1 }^n \sum_{ k = 1 }^n ( a_j^2 b_k^2 - 2 a_j a_k b_j b_k + a_k^2 b_j^2 ) \\
+&amp; = 2 ( \sum_{ i = 1 }^n a_i^2 ) ( \sum_{ i = 1 }^n b_i^2 ) - 2 ( \sum_{ i = 1 }^n a_i b_i )^2
 \end{aligned}
 $$</p>
 <h4 id="toc-38">扰动法</h4>
 <h5 id="toc-39">Example1(等比数列求和)</h5>
 <p>$$
 \begin{aligned}
-S_n & = \sum_{ i = 0 }^n ax^i \\
-& = a + \sum_{ i = 1 }^n ax^i \\
-& = a + x \sum_{ i = 0 }^{ n - 1 } ax^i \\
-& = a + xS_{ n - 1 }
+S_n &amp; = \sum_{ i = 0 }^n ax^i \\
+&amp; = a + \sum_{ i = 1 }^n ax^i \\
+&amp; = a + x \sum_{ i = 0 }^{ n - 1 } ax^i \\
+&amp; = a + xS_{ n - 1 }
 \end{aligned}
 $$</p>
 <p>而$S_{ n - 1 } + ax^n = S_n = a + xS_{ n - 1 }$,有$S_n + ax^{ n + 1 } = a + xS_n , S_n = a \frac{ x^{ n + 1 } - 1 }{ x - 1 }$，其中$x \ne 1$.</p>
@@ -369,23 +369,23 @@ $$</p>
 <p>如果直接对该公式使用扰动法:</p>
 <p>$$
 \begin{aligned}
-S_n & = \sum_{ i = 0 }^n i^2 = \sum_{ i = 0 }^{ n - 1 } i^2 + n^2 \\
-& = \sum_{ i = 1 }^n ( i - 1 )^2 + n^2 \\
-& = S_n - 2 \sum_{ i = 1 }^n i + n + n^2
+S_n &amp; = \sum_{ i = 0 }^n i^2 = \sum_{ i = 0 }^{ n - 1 } i^2 + n^2 \\
+&amp; = \sum_{ i = 1 }^n ( i - 1 )^2 + n^2 \\
+&amp; = S_n - 2 \sum_{ i = 1 }^n i + n + n^2
 \end{aligned}
 $$</p>
 <p>我们无法得到$S_n$的封闭形式,但我们发现我们得到了$\sum_{ i = 1 }^n i$的封闭形式.</p>
 <p>那以此类推,我们设$W_n = \sum_{ i = 0 } i^3$.</p>
 <p>$$
 \begin{aligned}
-W_n & = \sum_{ i = 0 }^{ n - 1 } i^3 + n^3 \\
-& = \sum_{ i = 1 }^n ( i - 1 )^3 + n^3 \\
-& = \sum_{ i = 1 }^n i^3 - 3 \sum_{ i = 1 }^n i^2 + 3 \sum_{ i = 1 }^n i - n + n^3 \\
-& = W_n - 3 S_n + 3 \frac{ n + n^2 }{ 2 } - n + n^3 \\
-S_n & = \frac{ n + n^2 }{ 2 } - \frac{ n - n^3 }{ 3 } \\
-& = \frac{ n + 3 n^2 + 2 n^3 }{ 6 } \\
-& = \frac{ n ( 1 + 3 n + 2 n^2 ) }{ 6 } \\
-& = \frac{ n ( 2 n + 1 ) ( n + 1 ) }{ 6 }
+W_n &amp; = \sum_{ i = 0 }^{ n - 1 } i^3 + n^3 \\
+&amp; = \sum_{ i = 1 }^n ( i - 1 )^3 + n^3 \\
+&amp; = \sum_{ i = 1 }^n i^3 - 3 \sum_{ i = 1 }^n i^2 + 3 \sum_{ i = 1 }^n i - n + n^3 \\
+&amp; = W_n - 3 S_n + 3 \frac{ n + n^2 }{ 2 } - n + n^3 \\
+S_n &amp; = \frac{ n + n^2 }{ 2 } - \frac{ n - n^3 }{ 3 } \\
+&amp; = \frac{ n + 3 n^2 + 2 n^3 }{ 6 } \\
+&amp; = \frac{ n ( 1 + 3 n + 2 n^2 ) }{ 6 } \\
+&amp; = \frac{ n ( 2 n + 1 ) ( n + 1 ) }{ 6 }
 \end{aligned}
 $$</p>
 <h5 id="toc-41">Example3(《具体数学》2.20)</h5>
@@ -394,10 +394,10 @@ $$</p>
 <p>不妨考虑$\sum_{ i = 0 }^n iH_{ i }$的值.</p>
 <p>$$
 \begin{aligned}
-\sum_{ i = 0 }^n iH_{ i } & = \sum_{ i = 1 }^n [ ( i - 1 + 1 ) H_{ i - 1 } + 1 ] \\
-& = n + \sum_{ i = 0 }^{ n - 1 } H_i + \sum_{ i = 0 }^{ n } iH_i - nH_n \\
-\sum_{ i = 0 }^{ n - 1 } H_i & = n ( H_n - 1 ) \\
-\sum_{ i = 0 }^n H_i & = ( n + 1 ) ( H_{ n + 1 } - 1 ) \\
+\sum_{ i = 0 }^n iH_{ i } &amp; = \sum_{ i = 1 }^n [ ( i - 1 + 1 ) H_{ i - 1 } + 1 ] \\
+&amp; = n + \sum_{ i = 0 }^{ n - 1 } H_i + \sum_{ i = 0 }^{ n } iH_i - nH_n \\
+\sum_{ i = 0 }^{ n - 1 } H_i &amp; = n ( H_n - 1 ) \\
+\sum_{ i = 0 }^n H_i &amp; = ( n + 1 ) ( H_{ n + 1 } - 1 ) \\
 
 \end{aligned}
 $$</p>
@@ -406,34 +406,34 @@ $$</p>
 <h5 id="toc-44">Solution 4</h5>
 <p>$$
 \begin{aligned}
-S_n & = \sum_{ i = 1 }^{ n } ( - 1 )^{ n - i } + ( - 1 )^n \\
-- S_{ n - 1 } + 1 & = ( - 1 )^n + \sum_{ i = 0 }^{ n - 1 } ( - 1 )^{ n - 1 - i } \\
-- S_{ n - 1 } + 1 & = ( - 1 )^n + S_{ n - 1 } \\
-S_{ n - 1 } & = \frac{ 1 - ( - 1 )^n }{ 2 } \\
-S_n & = \frac{ 1 + ( - 1 )^n }{ 2 }
+S_n &amp; = \sum_{ i = 1 }^{ n } ( - 1 )^{ n - i } + ( - 1 )^n \\
+- S_{ n - 1 } + 1 &amp; = ( - 1 )^n + \sum_{ i = 0 }^{ n - 1 } ( - 1 )^{ n - 1 - i } \\
+- S_{ n - 1 } + 1 &amp; = ( - 1 )^n + S_{ n - 1 } \\
+S_{ n - 1 } &amp; = \frac{ 1 - ( - 1 )^n }{ 2 } \\
+S_n &amp; = \frac{ 1 + ( - 1 )^n }{ 2 }
 \end{aligned}
 $$</p>
 <p>$$
 \begin{aligned}
-T_{ n } & = \sum_{ i = 1 }^n ( - 1 )^{ n - i } i \\
-- T_{ n - 1 } + n & = \sum_{ i = 1 }^n ( - 1 )^{ n - i } ( i - 1 ) + \sum_{ i = 1 }^n ( - 1 )^{ n - i } \\
-- T_{ n - 1 } + n & = \sum_{ i = 0 }^{ n - 1 } ( - 1 )^{ n - i - 1 } i + \sum_{ i = 0 }^n ( - 1 )^{ n - i } - ( - 1 )^n \\
-- T_{ n - 1 } + n & = T_{ n - 1 } + S_n - ( - 1 )^n \\
-n - \frac{ 1 - ( - 1 )^n }{ 2 } & = 2 T_{ n - 1 } \\
-T_n & = \frac{ 1 }{ 2 } ( n + 1 + \frac{ - 1 - ( - 1 )^n }{ 2 } ) = \frac{ 1 }{ 2 } ( n + \frac{ 1 - ( - 1 )^n }{ 2 } )
+T_{ n } &amp; = \sum_{ i = 1 }^n ( - 1 )^{ n - i } i \\
+- T_{ n - 1 } + n &amp; = \sum_{ i = 1 }^n ( - 1 )^{ n - i } ( i - 1 ) + \sum_{ i = 1 }^n ( - 1 )^{ n - i } \\
+- T_{ n - 1 } + n &amp; = \sum_{ i = 0 }^{ n - 1 } ( - 1 )^{ n - i - 1 } i + \sum_{ i = 0 }^n ( - 1 )^{ n - i } - ( - 1 )^n \\
+- T_{ n - 1 } + n &amp; = T_{ n - 1 } + S_n - ( - 1 )^n \\
+n - \frac{ 1 - ( - 1 )^n }{ 2 } &amp; = 2 T_{ n - 1 } \\
+T_n &amp; = \frac{ 1 }{ 2 } ( n + 1 + \frac{ - 1 - ( - 1 )^n }{ 2 } ) = \frac{ 1 }{ 2 } ( n + \frac{ 1 - ( - 1 )^n }{ 2 } )
 \end{aligned}
 $$</p>
 <p>$$
 \begin{aligned}
-U_n & = \sum_{ i = 1 }^n ( - 1 )^{ n - i } i^2 \\
-- U_{ n - 1 } + n^2 & = \sum_{ i = 1 }^n ( - 1 )^{ n - i } ( i - 1 + 1 )^2 \\
-- U_{ n - 1 } + n^2 & = \sum_{ i = 1 }^n ( - 1 )^{ n - i } ( i - 1 )^2 + 2 \sum_{ i = 1 }^n ( - 1 )^{ n - i } ( i - 1 ) + \sum_{ i = 1 }^n ( - 1 )^{ n - i } \\
-- U_{ n - 1 } + n^2 & = \sum_{ i = 0 }^{ n - 1 } ( - 1 )^{ n - i - 1 } i^2 + 2 \sum_{ i = 0 }^{ n - 1 } ( - 1 )^{ n - i - 1 } i + \sum_{ i = 0 }^{ n - 1 } ( - 1 )^{ n - i - 1 } \\
-- U_{ n - 1 } + n^2 & = U_{ n - 1 } + 2 T_{ n - 1 } + S_{ n - 1 } \\
-2 U_{ n - 1 } & = n^2 - 2 T_{ n - 1 } - S_{ n - 1 } \\
-2 U_{ n - 1 } & = n^2 - ( n - \frac{ 1 - ( - 1 )^n }{ 2 } ) - \frac{ 1 - ( - 1 )^n }{ 2 } \\
-2 U_{ n - 1 } & = n^2 - n \\
-U_n & = \frac{ n ( n + 1 ) }{ 2 }
+U_n &amp; = \sum_{ i = 1 }^n ( - 1 )^{ n - i } i^2 \\
+- U_{ n - 1 } + n^2 &amp; = \sum_{ i = 1 }^n ( - 1 )^{ n - i } ( i - 1 + 1 )^2 \\
+- U_{ n - 1 } + n^2 &amp; = \sum_{ i = 1 }^n ( - 1 )^{ n - i } ( i - 1 )^2 + 2 \sum_{ i = 1 }^n ( - 1 )^{ n - i } ( i - 1 ) + \sum_{ i = 1 }^n ( - 1 )^{ n - i } \\
+- U_{ n - 1 } + n^2 &amp; = \sum_{ i = 0 }^{ n - 1 } ( - 1 )^{ n - i - 1 } i^2 + 2 \sum_{ i = 0 }^{ n - 1 } ( - 1 )^{ n - i - 1 } i + \sum_{ i = 0 }^{ n - 1 } ( - 1 )^{ n - i - 1 } \\
+- U_{ n - 1 } + n^2 &amp; = U_{ n - 1 } + 2 T_{ n - 1 } + S_{ n - 1 } \\
+2 U_{ n - 1 } &amp; = n^2 - 2 T_{ n - 1 } - S_{ n - 1 } \\
+2 U_{ n - 1 } &amp; = n^2 - ( n - \frac{ 1 - ( - 1 )^n }{ 2 } ) - \frac{ 1 - ( - 1 )^n }{ 2 } \\
+2 U_{ n - 1 } &amp; = n^2 - n \\
+U_n &amp; = \frac{ n ( n + 1 ) }{ 2 }
 \end{aligned}
 $$</p>
 <h4 id="toc-45">转化为递归式</h4>
@@ -455,11 +455,11 @@ $$</p>
 <p>令$S_n = \frac{ 2^n }{ n ! } T_n$,有:</p>
 <p>$$
 \begin{aligned}
-S_n & = S_{ n - 1 } + 3 \times 2^{ n - 1 } \\
-& = 5 + 3 \sum_{ i = 0 }^{ n - 1 } 2^i \\
-& = 5 + 3 \times 2^{ n + 1 } - 3 \\
-& = 3 \times 2^{ n } + 2 \\
-T_n & = 3 n ! + \frac{ n ! }{ 2^{ n - 1 } }
+S_n &amp; = S_{ n - 1 } + 3 \times 2^{ n - 1 } \\
+&amp; = 5 + 3 \sum_{ i = 0 }^{ n - 1 } 2^i \\
+&amp; = 5 + 3 \times 2^{ n + 1 } - 3 \\
+&amp; = 3 \times 2^{ n } + 2 \\
+T_n &amp; = 3 n ! + \frac{ n ! }{ 2^{ n - 1 } }
 \end{aligned}
 $$</p>
 <h4 id="toc-50">转化为积分形式</h4>
@@ -469,47 +469,47 @@ $$</p>
 <p>接下来,我们考虑求得二者之间的误差,设$E_n = S_n - \frac{ n^3 }{ 3 } \\$,对其使用扰动法:</p>
 <p>$$
 \begin{aligned}
-E_n & = S_n - \frac{ n^3 }{ 3 } \\
-& = S_{ n - 1 } + n^2 - \frac{ ( n - 1 + 1 )^3 }{ 3 } \\
-& = S_{ n - 1 } + n^2 - \frac{ ( n - 1 )^3 }{ 3 } - ( n - 1 )^2 - ( n - 1 ) - \frac{ 1 }{ 3 } \\
-& = E_{ n - 1 } + n^2 - n^2 + 2 n - 1 - n + 1 - \frac{ 1 }{ 3 } \\
-& = E_{ n - 1 } + n - \frac{ 1 }{ 3 }
+E_n &amp; = S_n - \frac{ n^3 }{ 3 } \\
+&amp; = S_{ n - 1 } + n^2 - \frac{ ( n - 1 + 1 )^3 }{ 3 } \\
+&amp; = S_{ n - 1 } + n^2 - \frac{ ( n - 1 )^3 }{ 3 } - ( n - 1 )^2 - ( n - 1 ) - \frac{ 1 }{ 3 } \\
+&amp; = E_{ n - 1 } + n^2 - n^2 + 2 n - 1 - n + 1 - \frac{ 1 }{ 3 } \\
+&amp; = E_{ n - 1 } + n - \frac{ 1 }{ 3 }
 \end{aligned}
 $$</p>
 <p>这样就得到了递归式,可以求得封闭形式.</p>
 <p>还有一种方法是:</p>
 <p>$$
 \begin{aligned}
-E_n & = S_n - \int_0^n x^2 dx \\
-& = \sum_{ k = 1 }^n ( k^2 - \int_{ k - 1 }^k x^2 dx ) \\
-& = \sum_{ k = 1 }^n ( k^2 - \frac{ k^3 - ( k - 1 )^3 }{ 3 } ) \\
-& = \sum_{ k = 1 }^n ( k - \frac{ 1 }{ 3 } )
+E_n &amp; = S_n - \int_0^n x^2 dx \\
+&amp; = \sum_{ k = 1 }^n ( k^2 - \int_{ k - 1 }^k x^2 dx ) \\
+&amp; = \sum_{ k = 1 }^n ( k^2 - \frac{ k^3 - ( k - 1 )^3 }{ 3 } ) \\
+&amp; = \sum_{ k = 1 }^n ( k - \frac{ 1 }{ 3 } )
 \end{aligned}
 $$</p>
 <p>这是一个简单的和式.而$S_n = E_n + \frac{ n^3 }{ 3 } \\$,显然也可以求得.</p>
 <h5 id="toc-52">Example2(某浙江高考题)</h5>
 <p>已知$a_1 = 1 , a_{ n + 1 } - a_n = - \frac{ 1 }{ 3 } a_n^2$,估计$a_n$的值.</p>
 <p>考虑构造一个函数$f ( n )$使得$f ( n ) \approx a_n$,那我们就可以将$a_{ n + 1 } - a_n \approx f_n$.</p>
-<p>这个第一眼看上去就很有道理,而事实上也确实很有道理,原因是根据拉格朗日中值定理,$\exists x_0 \in [ n , n + 1 ] , f ' ( x_0 ) = f ( n + 1 ) - f ( n )$,而对于增长率变化不大的函数,直接认为$f ' ( x_0 ) = f ' ( n )$是有理可循的!</p>
+<p>这个第一眼看上去就很有道理,而事实上也确实很有道理,原因是根据拉格朗日中值定理,$\exists x_0 \in [ n , n + 1 ] , f &#39; ( x_0 ) = f ( n + 1 ) - f ( n )$,而对于增长率变化不大的函数,直接认为$f &#39; ( x_0 ) = f &#39; ( n )$是有理可循的!</p>
 <p>然后,原式子就变成了一个微分方程了,带入$f ( 1 ) = 1$解得$f ( n ) = \frac{ 3 }{ n + 2 }$.这个精度已经足够选出来原本的放缩题的答案了.</p>
 <p>令$a_n = \frac{ 3 }{ n + 2 } - b_n$,带入化简,得到$\{ b_n \}$的递推式:</p>
 <p>$$
 \begin{aligned}
-\frac{ 3 }{ n + 3 } - b_{ n + 1 } & = ( \frac{ 3 }{ n + 2 } - b_n ) ( 1 - \frac{ 1 }{ n + 2 } + \frac{ b_n }{ 3 } ) \\
-b_{ n + 1 } - \frac{ 3 }{ n + 3 } & = ( b_n - \frac{ 3 }{ n + 2 } ) ( \frac{ n + 1 }{ n + 2 } + \frac{ b_n }{ 3 } ) \\
-b_1 & = 0 , b_{ n + 1 } = \frac{ b_n^2 }{ 3 } + \frac{ n }{ n + 2 } b_n + \frac{ 3 }{ ( n + 2 )^2 ( n + 3 ) }
+\frac{ 3 }{ n + 3 } - b_{ n + 1 } &amp; = ( \frac{ 3 }{ n + 2 } - b_n ) ( 1 - \frac{ 1 }{ n + 2 } + \frac{ b_n }{ 3 } ) \\
+b_{ n + 1 } - \frac{ 3 }{ n + 3 } &amp; = ( b_n - \frac{ 3 }{ n + 2 } ) ( \frac{ n + 1 }{ n + 2 } + \frac{ b_n }{ 3 } ) \\
+b_1 &amp; = 0 , b_{ n + 1 } = \frac{ b_n^2 }{ 3 } + \frac{ n }{ n + 2 } b_n + \frac{ 3 }{ ( n + 2 )^2 ( n + 3 ) }
 \end{aligned}
 $$</p>
 <p>算到这里,我们可以很轻易使用数学归纳法算出$b_n \leq \frac{ 1 }{ 4 n }$,这个精度已经挺不错的了,但是也让人觉得很不满意,因为这个误差项怎么和估计项是同阶的啊.</p>
-<p>然后我开始估计了一下这个$b_n$的阶,因为我其实没学过什么高超的高数技巧,所以我使用了OI的一些技巧来估计,不妨假设$b_n^2 < < b_n$:</p>
+<p>然后我开始估计了一下这个$b_n$的阶,因为我其实没学过什么高超的高数技巧,所以我使用了OI的一些技巧来估计,不妨假设$b_n^2 &lt; &lt; b_n$:</p>
 <p>那么这个$b_n$是$O ( \frac{ \ln n }{ n^2 } )$级别的.</p>
 <p>如何理解这个级别?考虑别乱动$b_n$的系数,我们有:</p>
 <p>$$
 \begin{aligned}
-b_{ n + 1 } & = \frac{ n }{ n + 2 } b_n + \frac{ 1 }{ n ( n + 1 ) ( n + 2 ) } \\
-( n + 1 ) ( n + 2 ) b_{ n + 1 } & = n ( n + 1 ) b_n + \frac{ 1 }{ n } \\
-g ( n ) & = n ( n + 1 ) b_n , g ' ( n ) = \frac{ 1 }{ n } , g ( n ) = \ln n \\
-b_n & = \frac{ \ln n }{ n^2 }
+b_{ n + 1 } &amp; = \frac{ n }{ n + 2 } b_n + \frac{ 1 }{ n ( n + 1 ) ( n + 2 ) } \\
+( n + 1 ) ( n + 2 ) b_{ n + 1 } &amp; = n ( n + 1 ) b_n + \frac{ 1 }{ n } \\
+g ( n ) &amp; = n ( n + 1 ) b_n , g &#39; ( n ) = \frac{ 1 }{ n } , g ( n ) = \ln n \\
+b_n &amp; = \frac{ \ln n }{ n^2 }
 \end{aligned}
 $$</p>
 <p>这警戒我们以后乱估计的时候千万别把$O ( n^{ \epsilon } )$和$O ( 1 )$搞混了,警钟长鸣.</p>
@@ -519,13 +519,13 @@ $$</p>
 <p>我们有:</p>
 <p>$$
 \begin{aligned}
-S_n & = \sum_{ k = 1 }^n k^2 \\
-& = \sum_{ k = 1 }^n \sum_{ i = 1 }^k k \\
-& = \sum_{ i = 1 }^n \sum_{ k = i }^n k \\
-& = \sum_{ i = 1 }^n \frac{ 1 }{ 2 } ( i + n ) ( n - i + 1 ) \\
-& = \sum_{ i = 1 }^n \frac{ 1 }{ 2 } ( in - i^2 + i + n^2 - ni + n ) \\
-& = \frac{ 1 }{ 2 } ( \sum_{ i = 1 }^n i - \sum_{ i = 1 }^n i^2 + n^3 + n^2 ) \\
-& = \frac{ 1 }{ 4 } n ( n + 1 ) - \frac{ 1 }{ 2 } S_n + \frac{ n^3 + n^2 }{ 2 }
+S_n &amp; = \sum_{ k = 1 }^n k^2 \\
+&amp; = \sum_{ k = 1 }^n \sum_{ i = 1 }^k k \\
+&amp; = \sum_{ i = 1 }^n \sum_{ k = i }^n k \\
+&amp; = \sum_{ i = 1 }^n \frac{ 1 }{ 2 } ( i + n ) ( n - i + 1 ) \\
+&amp; = \sum_{ i = 1 }^n \frac{ 1 }{ 2 } ( in - i^2 + i + n^2 - ni + n ) \\
+&amp; = \frac{ 1 }{ 2 } ( \sum_{ i = 1 }^n i - \sum_{ i = 1 }^n i^2 + n^3 + n^2 ) \\
+&amp; = \frac{ 1 }{ 4 } n ( n + 1 ) - \frac{ 1 }{ 2 } S_n + \frac{ n^3 + n^2 }{ 2 }
 \end{aligned}
 $$</p>
 <p>整理得到$S_n$.</p>
@@ -534,11 +534,11 @@ $$</p>
 <h5 id="toc-56">Solution 2</h5>
 <p>$$
 \begin{aligned}
-\sum_{ i = 1 }^n i 2^i & = \sum_{ i = 1 }^n \sum_{ j = 1 }^i 2^i \\
-& = \sum_{ j = 1 }^n \sum_{ i = j }^n 2^i \\
-& = \sum_{ j = 1 }^n ( 2^{ n + 1 } - 2^j ) \\
-& = n 2^{ n + 1 } - ( 2^{ n + 1 } - 2 ) \\
-& = ( n - 1 ) 2^{ n + 1 } + 2
+\sum_{ i = 1 }^n i 2^i &amp; = \sum_{ i = 1 }^n \sum_{ j = 1 }^i 2^i \\
+&amp; = \sum_{ j = 1 }^n \sum_{ i = j }^n 2^i \\
+&amp; = \sum_{ j = 1 }^n ( 2^{ n + 1 } - 2^j ) \\
+&amp; = n 2^{ n + 1 } - ( 2^{ n + 1 } - 2 ) \\
+&amp; = ( n - 1 ) 2^{ n + 1 } + 2
 \end{aligned}
 $$</p>
 <h5 id="toc-57">Example3(《具体数学》2.15)</h5>
@@ -546,12 +546,12 @@ $$</p>
 <h5 id="toc-58">Solution 3</h5>
 <p>$$
 \begin{aligned}
-S ( n ) & = \sum_{ i = 1 }^n i^3 \\
-& = \sum_{ i = 1 }^n \sum_{ j = 1 }^i i^2 \\
-& = \sum_{ j = 1 }^n \sum_{ i = j }^n i^2 \\
-& = \sum_{ j = 1 }^n ( \frac{ n ( n + 1 ) ( 2 n + 1 ) }{ 6 } - \frac{ ( j - 1 ) j ( 2 j - 1 ) }{ 6 } ) \\
-& = \frac{ n^2 ( n + 1 ) ( 2 n + 1 ) }{ 6 } - \frac{ 1 }{ 3 } S ( n ) + \frac{ n ( n + 1 ) ( 2 n + 1 ) }{ 12 } - \frac{ n ( n + 1 ) }{ 12 } \\
-S ( n ) & = \frac{ n^2 ( n + 1 )^2 }{ 4 }
+S ( n ) &amp; = \sum_{ i = 1 }^n i^3 \\
+&amp; = \sum_{ i = 1 }^n \sum_{ j = 1 }^i i^2 \\
+&amp; = \sum_{ j = 1 }^n \sum_{ i = j }^n i^2 \\
+&amp; = \sum_{ j = 1 }^n ( \frac{ n ( n + 1 ) ( 2 n + 1 ) }{ 6 } - \frac{ ( j - 1 ) j ( 2 j - 1 ) }{ 6 } ) \\
+&amp; = \frac{ n^2 ( n + 1 ) ( 2 n + 1 ) }{ 6 } - \frac{ 1 }{ 3 } S ( n ) + \frac{ n ( n + 1 ) ( 2 n + 1 ) }{ 12 } - \frac{ n ( n + 1 ) }{ 12 } \\
+S ( n ) &amp; = \frac{ n^2 ( n + 1 )^2 }{ 4 }
 \end{aligned}
 $$</p>
 <h5 id="toc-59">ExampleEX</h5>
@@ -559,10 +559,10 @@ $$</p>
 <h5 id="toc-60">SolutionEX</h5>
 <p>$$
 \begin{aligned}
-\sum_{ i = 1 }^n iq^i & = \sum_{ j = 1 }^n \sum_{ i = j }^n q^i \\
-& = \sum_{ j = 1 }^n \frac{ q^j - q^{ n + 1 } }{ 1 - q } \\
-& = \frac{ 1 }{ q - 1 } \sum_{ j = 1 }^n ( q^{ n + 1 } - q^j ) \\
-& = \frac{ 1 }{ q - 1 } ( nq^{ n + 1 } - \frac{ q^{ n + 1 } - q }{ q - 1 } ) \\
+\sum_{ i = 1 }^n iq^i &amp; = \sum_{ j = 1 }^n \sum_{ i = j }^n q^i \\
+&amp; = \sum_{ j = 1 }^n \frac{ q^j - q^{ n + 1 } }{ 1 - q } \\
+&amp; = \frac{ 1 }{ q - 1 } \sum_{ j = 1 }^n ( q^{ n + 1 } - q^j ) \\
+&amp; = \frac{ 1 }{ q - 1 } ( nq^{ n + 1 } - \frac{ q^{ n + 1 } - q }{ q - 1 } ) \\
 
 \end{aligned}
 $$</p>
@@ -580,7 +580,7 @@ $$</p>
 <p>定义逆差分算子$\Sigma$,可以得到有限微积分的基本定理:</p>
 <p>$$
 \begin{aligned}
-g ( x ) & = \Delta f ( x ) \Leftrightarrow \sum g ( x ) \delta x = f ( x ) + C \\
+g ( x ) &amp; = \Delta f ( x ) \Leftrightarrow \sum g ( x ) \delta x = f ( x ) + C \\
 
 \end{aligned}
 $$</p>
@@ -589,14 +589,14 @@ $$</p>
 <h5 id="toc-67">定和式</h5>
 <p>如果$g ( x ) = \Delta f ( x )$,那么有$\sum \nolimits_{ a }^b g ( x ) \delta x = f ( x ) |^{ b }_a = f ( b ) - f ( a ) \\$.</p>
 <p>值得一提的是,如果$a \leq b$,显然有$\sum \nolimits_{ a }^b g ( x ) \delta x = \sum_{ x = a }^{ b - 1 } g ( x ) \\$.</p>
-<p>但如果$a > b$,那么$\sum \nolimits_{ a }^b g ( x ) \delta x = - \sum \nolimits_b^a g ( x ) \delta x \\$.</p>
+<p>但如果$a &gt; b$,那么$\sum \nolimits_{ a }^b g ( x ) \delta x = - \sum \nolimits_b^a g ( x ) \delta x \\$.</p>
 <p>事实上,我们一定有:$\sum \nolimits_a^b g ( x ) \delta x + \sum \nolimits_b^c g ( x ) \delta x = \sum \nolimits_a^c g ( x ) \delta x \\$.</p>
 <h5 id="toc-68">一些基本的公式</h5>
 <p>类比无限微积分中的$D ( x^m ) = mx^{ m - 1 }$，有:</p>
 <p>$$
 \begin{aligned}
-\Delta ( x^{ \underline{ m } } ) & = mx^{ \underline{ m - 1 } } \\
-\sum mx^{ \underline{ m - 1 } } \delta x & = x^{ \underline{ m } } + C , m \ne 0 \\
+\Delta ( x^{ \underline{ m } } ) &amp; = mx^{ \underline{ m - 1 } } \\
+\sum mx^{ \underline{ m - 1 } } \delta x &amp; = x^{ \underline{ m } } + C , m \ne 0 \\
 \\
 
 \end{aligned}
@@ -604,8 +604,8 @@ $$</p>
 <p>类比无限微积分中的$D ( \ln x ) = \frac{ 1 }{ x }$,有:</p>
 <p>$$
 \begin{aligned}
-\Delta ( H ( x ) ) & = x^{ \underline{ - 1 } } = \frac{ 1 }{ x + 1 } \\
-\sum x^{ \underline{ - 1 } } \delta x & = H ( x ) + C \\
+\Delta ( H ( x ) ) &amp; = x^{ \underline{ - 1 } } = \frac{ 1 }{ x + 1 } \\
+\sum x^{ \underline{ - 1 } } \delta x &amp; = H ( x ) + C \\
 \\
 
 \end{aligned}
@@ -613,17 +613,17 @@ $$</p>
 <p>类比无限微积分中的$D ( e^x ) = e^x$,有:</p>
 <p>$$
 \begin{aligned}
-\Delta ( 2^x ) & = 2^x , \sum 2^x \delta x = 2^x + C \\
-\Delta ( c^x ) & = ( c - 1 ) c^x , \sum c^x \delta x = \frac{ c^x }{ c - 1 } + C , c \ne 1 \\
-\Delta ( c^{ \underline{ x } } ) & = \frac{ c^{ \underline{ x + 2 } } }{ c - x } , \sum \frac{ c^{ \underline{ x + 2 } } }{ c - x } \delta x = c^{ \underline{ x } } + C , c - x \ne 0 \\
+\Delta ( 2^x ) &amp; = 2^x , \sum 2^x \delta x = 2^x + C \\
+\Delta ( c^x ) &amp; = ( c - 1 ) c^x , \sum c^x \delta x = \frac{ c^x }{ c - 1 } + C , c \ne 1 \\
+\Delta ( c^{ \underline{ x } } ) &amp; = \frac{ c^{ \underline{ x + 2 } } }{ c - x } , \sum \frac{ c^{ \underline{ x + 2 } } }{ c - x } \delta x = c^{ \underline{ x } } + C , c - x \ne 0 \\
 
 \end{aligned}
 $$</p>
 <p>根据组合数公式,有:</p>
 <p>$$
 \begin{aligned}
-\Delta ( \binom{ x }{ k } ) & = \binom{ x }{ k - 1 } \\
-\sum \binom{ x }{ k - 1 } \delta x & = \binom{ x }{ k } + C
+\Delta ( \binom{ x }{ k } ) &amp; = \binom{ x }{ k - 1 } \\
+\sum \binom{ x }{ k - 1 } \delta x &amp; = \binom{ x }{ k } + C
 \end{aligned}
 $$</p>
 <h6 id="toc-69">Example(平方和公式)</h6>
@@ -631,10 +631,10 @@ $$</p>
 <p>那么:</p>
 <p>$$
 \begin{aligned}
-S_{ n - 1 } & = \sum_{ i = 0 }^{ n - 1 } i^2 \\
-& = \sum_{ i = 0 }^{ n - 1 } ( i^{ \underline{ 2 } } + i^{ \underline{ 1 } } ) \\
-& = \sum \nolimits_{ 0 }^n x^{ \underline{ 2 } } \delta x + \sum \nolimits_{ 0 }^n x^{ \underline{ 1 } } \delta x \\
-& = \frac{ n^\underline{ 3 } }{ 3 } + \frac{ n^{ \underline{ 2 } } }{ 2 }
+S_{ n - 1 } &amp; = \sum_{ i = 0 }^{ n - 1 } i^2 \\
+&amp; = \sum_{ i = 0 }^{ n - 1 } ( i^{ \underline{ 2 } } + i^{ \underline{ 1 } } ) \\
+&amp; = \sum \nolimits_{ 0 }^n x^{ \underline{ 2 } } \delta x + \sum \nolimits_{ 0 }^n x^{ \underline{ 1 } } \delta x \\
+&amp; = \frac{ n^\underline{ 3 } }{ 3 } + \frac{ n^{ \underline{ 2 } } }{ 2 }
 \end{aligned}
 $$</p>
 <p>整理即可得到封闭形式.</p>
@@ -652,12 +652,12 @@ $$</p>
 <p>我们先对第一个式子进行变形:</p>
 <p>$$
 \begin{aligned}
-f_i & = \cfrac{ 1 }{ 2 } ( f_{ i - 1 } + f_{ i + 1 } ) + 1 \\
-2 f_i & = f_{ i - 1 } + f_{ i + 1 } + 2 \\
-f_i - f_{ i - 1 } & = f_{ i + 1 } - f_i + 2 \\
-\Delta f_{ i - 1 } & = \Delta f_{ i } + 2 \\
-\Delta f_i - \Delta f_{ i - 1 } & = - 2 \\
-\Delta^2 f_{ i - 1 } & = - 2
+f_i &amp; = \cfrac{ 1 }{ 2 } ( f_{ i - 1 } + f_{ i + 1 } ) + 1 \\
+2 f_i &amp; = f_{ i - 1 } + f_{ i + 1 } + 2 \\
+f_i - f_{ i - 1 } &amp; = f_{ i + 1 } - f_i + 2 \\
+\Delta f_{ i - 1 } &amp; = \Delta f_{ i } + 2 \\
+\Delta f_i - \Delta f_{ i - 1 } &amp; = - 2 \\
+\Delta^2 f_{ i - 1 } &amp; = - 2
 \end{aligned}
 $$</p>
 <p>$f$的二阶差分是常数,也就是说$f$是二次多项式,不难求得其二次项系数为$- 1$又知道两个零点,显然可以得到$f$的表达式.</p>
@@ -665,7 +665,7 @@ $$</p>
 <p>令$f ( x ) = \sum_{ 0 \leq i \leq d } a_i x^i \\$.而由于有斯特林数可以进行幂和下降幂的转换,则我们可以将其改写为$f ( x ) = \sum_{ 0 \leq i \leq d } b_i x^{ \underline{ i } } \\$.</p>
 <p>我们设$c_i = i ! b_i$,于是有:$f ( x ) = \sum_{ 0 \leq i \leq d } c_i \binom{ x }{ i } \\$.</p>
 <p>也就是说,任何多项式都可以表示为二项式系数的倍数之和,我们称这样的展开式为$f ( x )$的牛顿级数.</p>
-<p>于是不难发现有:$\Delta^n f ( x ) = \sum_{ 0 \leq i \leq d } c_i \binom{ x }{ i - n } \\$.如果我们令$x = 0$,则有:$\Delta^n f ( 0 ) = \begin{cases}c_n & n \leq d \\ 0 & n > d\end{cases}$.那么牛顿级数的另一种表示即:$f ( x ) = \sum_{ 0 \leq i \leq d } \Delta^i f ( 0 ) \binom{ x }{ d } \\$.</p>
+<p>于是不难发现有:$\Delta^n f ( x ) = \sum_{ 0 \leq i \leq d } c_i \binom{ x }{ i - n } \\$.如果我们令$x = 0$,则有:$\Delta^n f ( 0 ) = \begin{cases}c_n &amp; n \leq d \\ 0 &amp; n &gt; d\end{cases}$.那么牛顿级数的另一种表示即:$f ( x ) = \sum_{ 0 \leq i \leq d } \Delta^i f ( 0 ) \binom{ x }{ d } \\$.</p>
 <p>另外,如果我们展开一下$c_n = \Delta^n f ( 0 )$,我们可以得到公式:</p>
 <p>$\sum_{ k } \binom{ n }{ k } ( - 1 )^k ( \sum_{ 0 \leq i \leq n } c_i \binom{ k }{ i } ) = ( - 1 )^n c_n , n \in \mathbb{ N } \\$.</p>
 <p>如果我们将多项式还原,由于$a_n = b_n$,有:</p>
@@ -681,9 +681,9 @@ $$</p>
 <h5 id="toc-74">分部求和法则(Abel求和法)</h5>
 <p>$$
 \begin{aligned}
-\Delta ( uv ) & = u ( x + 1 ) v ( x + 1 ) - u ( x ) v ( x ) \\
-& = u ( x + 1 ) v ( x + 1 ) - u ( x ) v ( x + 1 ) + u ( x ) v ( x + 1 ) - u ( x ) v ( x ) \\
-& = v ( x + 1 ) \Delta u + u ( x ) \Delta v = Ev \Delta u + u \Delta v \\
+\Delta ( uv ) &amp; = u ( x + 1 ) v ( x + 1 ) - u ( x ) v ( x ) \\
+&amp; = u ( x + 1 ) v ( x + 1 ) - u ( x ) v ( x + 1 ) + u ( x ) v ( x + 1 ) - u ( x ) v ( x ) \\
+&amp; = v ( x + 1 ) \Delta u + u ( x ) \Delta v = Ev \Delta u + u \Delta v \\
 
 \end{aligned}
 $$</p>
@@ -692,15 +692,15 @@ $$</p>
 <p>分部求和用一般和式表达如下,下式又被称为Abel求和法:</p>
 <p>$$
 \begin{aligned}
-\sum_{ i = l }^{ r - 1 } ( a_{ i + 1 } - a_i ) b_i & = a_r b_r - a_l b_l - \sum_{ i = l }^{ r - 1 } a_{ i + 1 } ( b_{ i + 1 } - b_i ) \\
-\sum_{ i = l }^{ r - 1 } ( \Delta a_i ) b_i & = a_r b_r - a_l b_l - \sum_{ i = l }^{ r - 1 } a_{ i + 1 } ( \Delta b_i )
+\sum_{ i = l }^{ r - 1 } ( a_{ i + 1 } - a_i ) b_i &amp; = a_r b_r - a_l b_l - \sum_{ i = l }^{ r - 1 } a_{ i + 1 } ( b_{ i + 1 } - b_i ) \\
+\sum_{ i = l }^{ r - 1 } ( \Delta a_i ) b_i &amp; = a_r b_r - a_l b_l - \sum_{ i = l }^{ r - 1 } a_{ i + 1 } ( \Delta b_i )
 \end{aligned}
 $$</p>
 <p>对于$l = 0 , r = n , a_0 = b_0 = 0$的特殊情况,应当有:</p>
 <p>$$
 \begin{aligned}
-\sum_{ i = 0 }^{ n - 1 } ( \Delta a_i ) b_i & = a_n b_n - \sum_{ i = 0 }^{ n - 1 } a_{ i + 1 } ( \Delta b_i ) \\
-\sum_{ i = 1 }^n a_i ( b_{ i + 1 } - b_i ) & = a_n b_n - \sum_{ i = 0 }^{ n - 1 } ( \Delta a_i ) b_i
+\sum_{ i = 0 }^{ n - 1 } ( \Delta a_i ) b_i &amp; = a_n b_n - \sum_{ i = 0 }^{ n - 1 } a_{ i + 1 } ( \Delta b_i ) \\
+\sum_{ i = 1 }^n a_i ( b_{ i + 1 } - b_i ) &amp; = a_n b_n - \sum_{ i = 0 }^{ n - 1 } ( \Delta a_i ) b_i
 \end{aligned}
 $$</p>
 <p>取两组数列$\alpha , \beta$,并令$\sum_{ i = 1 }^n \beta_i = B_i$,立刻有:</p>
@@ -726,8 +726,8 @@ $$</p>
 <p>根据分部求和法则,有:</p>
 <p>$$
 \begin{aligned}
-\sum_{ i = 1 }^n \frac{ 2 i + 1 }{ i ( i + 1 ) } & = ( 2 n + 3 ) \times ( - \frac{ 1 }{ n + 1 } ) + 3 - \sum_{ i = 1 }^n ( - \frac{ 2 }{ i + 1 } ) \\
-& = - \frac{ 2 n + 3 }{ n + 1 } + 2 H_n + \frac{ n + 3 }{ n + 1 } = 2 H_n - \frac{ n }{ n + 1 }
+\sum_{ i = 1 }^n \frac{ 2 i + 1 }{ i ( i + 1 ) } &amp; = ( 2 n + 3 ) \times ( - \frac{ 1 }{ n + 1 } ) + 3 - \sum_{ i = 1 }^n ( - \frac{ 2 }{ i + 1 } ) \\
+&amp; = - \frac{ 2 n + 3 }{ n + 1 } + 2 H_n + \frac{ n + 3 }{ n + 1 } = 2 H_n - \frac{ n }{ n + 1 }
 \end{aligned}
 $$</p>
 <h6 id="toc-79">Problem 4(《具体数学》2.24)</h6>
@@ -737,10 +737,10 @@ $$</p>
 <p>根据分部求和法则,有:</p>
 <p>$$
 \begin{aligned}
-\sum_{ i = 0 }^{ n - 1 } \frac{ H_k }{ ( k + 1 ) ( k + 2 ) } & = - \frac{ H_n }{ n + 1 } - \sum_{ i = 0 }^{ n - 1 } ( - \frac{ 1 }{ ( i + 2 ) ( i + 1 ) } ) \\
-& = - \frac{ H_n }{ n + 1 } + \sum_{ i = 0 }^{ n - 1 } ( \frac{ 1 }{ i + 1 } - \frac{ 1 }{ i + 2 } ) \\
-& = - \frac{ H_n }{ n + 1 } + H_n - ( H_n - 1 + \frac{ 1 }{ n + 1 } ) \\
-& = 1 - \frac{ H_n + 1 }{ n + 1 }
+\sum_{ i = 0 }^{ n - 1 } \frac{ H_k }{ ( k + 1 ) ( k + 2 ) } &amp; = - \frac{ H_n }{ n + 1 } - \sum_{ i = 0 }^{ n - 1 } ( - \frac{ 1 }{ ( i + 2 ) ( i + 1 ) } ) \\
+&amp; = - \frac{ H_n }{ n + 1 } + \sum_{ i = 0 }^{ n - 1 } ( \frac{ 1 }{ i + 1 } - \frac{ 1 }{ i + 2 } ) \\
+&amp; = - \frac{ H_n }{ n + 1 } + H_n - ( H_n - 1 + \frac{ 1 }{ n + 1 } ) \\
+&amp; = 1 - \frac{ H_n + 1 }{ n + 1 }
 \end{aligned}
 $$</p>
 </div>

@@ -82,7 +82,7 @@ window.MathJax = {
 <p>如果$A$是一个正则语言,那么$\exists p\in \mathbb{N}$,使得只要$s\in A\land |s|\geq p$,那么存在一种切分$s=xyz$使得:</p>
 <ol>
 <li>$\forall i\geq 0,xy^iz\in A$.</li>
-<li>$|y|>0$.</li>
+<li>$|y|&gt;0$.</li>
 <li>$|xy|\leq p$.</li>
 </ol>
 <p>也就是足够长的串总会在不任意靠后的地方出现非平凡循环体.</p>
@@ -124,11 +124,11 @@ window.MathJax = {
 <p>如果$A$是一个CFL,则$\exists p\in \mathbb{N}$,使得$\forall s\in A$且$|s|\geq p$,那么可以划分$s=uvxyz$使得:</p>
 <ol>
 <li>$\forall i\geq 0,uv^ixy^iz\in A$.</li>
-<li>$|vy|>0$.</li>
+<li>$|vy|&gt;0$.</li>
 <li>$|vxy|\leq p$.</li>
 </ol>
 <p>接下来我们考虑最简的一种推理方式,即运用最少次规则推导出来.</p>
-<p>由于$|V|,|\Sigma|,|R|$都是有限的,我们考虑设$b=\max_{r\in R}(\#\{\text{symbols in RHS of r}\})$,这里的symbols指的是Terminals或Variables.此时,一个高度为$h$的推理串,得到的长度最多是$b^h$.如果$h>|V|$,那么就至少存在一条推理串上,同一个Variable出现了两次.因此如果一个串的长度超过了$b^{|V|+1}$,则它的高度$h>|V|$,因此可以找到一个Variable最终递归调用回了自己.取$p=b^{|V|+1}$,我们假设这个做到了$B\to s_1Bs_2\to s_1s_3s_2$.容易把这个东西替换上去或者替换下去,这样就证明了(1).</p>
+<p>由于$|V|,|\Sigma|,|R|$都是有限的,我们考虑设$b=\max_{r\in R}(\#\{\text{symbols in RHS of r}\})$,这里的symbols指的是Terminals或Variables.此时,一个高度为$h$的推理串,得到的长度最多是$b^h$.如果$h&gt;|V|$,那么就至少存在一条推理串上,同一个Variable出现了两次.因此如果一个串的长度超过了$b^{|V|+1}$,则它的高度$h&gt;|V|$,因此可以找到一个Variable最终递归调用回了自己.取$p=b^{|V|+1}$,我们假设这个做到了$B\to s_1Bs_2\to s_1s_3s_2$.容易把这个东西替换上去或者替换下去,这样就证明了(1).</p>
 <p>现在来看(2),如果$|vy|=0$,这意味着我们做了一圈$B\to B$,这显然不是最简的推理方式.</p>
 <p>最后来看(3),只需要找最靠下的$|V|+1$层,然后去做上面的过程就行.</p>
 <h3 id="toc-8">Turing Machine</h3>
@@ -208,7 +208,7 @@ window.MathJax = {
 <li>(recognizable)$A_{TM}=\{\langle M,\alpha\rangle|M\text{ accepts }\alpha\}$.</li>
 <li>$E_{TM}=\{\langle M\rangle|M\text{ accepts nothing}\}$.</li>
 <li>$EQ_{TM}=\{\langle M_1,M_2\rangle|L(M_1)=L(M_2)\}$.</li>
-<li>(Rice's Theorem)考虑$RE=\{A|\exists M,L(M)=A\}$,$\forall P,\emptyset\subsetneq P\subsetneq RE$,$T'=\{\langle M\rangle|L(M)\in P\}$ is undecidable.</li>
+<li>(Rice's Theorem)考虑$RE=\{A|\exists M,L(M)=A\}$,$\forall P,\emptyset\subsetneq P\subsetneq RE$,$T&#39;=\{\langle M\rangle|L(M)\in P\}$ is undecidable.</li>
 <li>$ALL_2 = \{\langle M\rangle|\text{M is a CFG and }L(M) = \Sigma^*\}$.</li>
 <li>波斯特对应问题(PCP):有限个字符串二元组$(s_i,t_i)$,要求从中选出若干个(可以重复选)$\{i_k\}$,使得$\sum_{k}s_{i_k}=\sum_{k}t_{i_k}$,问能否做到.</li>
 </ol>
@@ -219,36 +219,36 @@ window.MathJax = {
 <hr>
 <p>对于$A_{TM}$,很容易构造$UC\leq_m A_{TM}$.</p>
 <hr>
-<p>对于$E_{TM}$,考虑证明$A_{TM}\leq_m\overline{E_{TM}}$,方法是:对一个$\langle M,\alpha\rangle$,造一个新的图灵机$M'$,使得只要$\alpha\ne \beta$,$M'(\beta)$就接受;否则跑$M(\alpha)$.这样就做到$A_{TM}\leq_m\overline{E_{TM}}$.</p>
+<p>对于$E_{TM}$,考虑证明$A_{TM}\leq_m\overline{E_{TM}}$,方法是:对一个$\langle M,\alpha\rangle$,造一个新的图灵机$M&#39;$,使得只要$\alpha\ne \beta$,$M&#39;(\beta)$就接受;否则跑$M(\alpha)$.这样就做到$A_{TM}\leq_m\overline{E_{TM}}$.</p>
 <hr>
 <p>对于$EQ_{TM}$,考虑证明$A_{TM}\leq \overline{E_{TM}}$,方法还是造两个图灵机$M_1,M_2$,$M_1$只接受$\alpha$,$M_2$会拒绝所有和$\alpha$不同的,然后跑$M(\alpha)$.</p>
 <hr>
-<p>最后我们来证明Rice's Theorem,显然只需要证明$T'$或者$\bar{T'}$有一个undecidable即可.不失一般性,我们下面假设$\emptyset$不满足$P$(如果满足,则可以将$P$转化为$\bar P$,将$T'$转化为$\bar {T'}$).此时证明$A_{TM}\leq_m T'$.现在我们假设:</p>
+<p>最后我们来证明Rice's Theorem,显然只需要证明$T&#39;$或者$\bar{T&#39;}$有一个undecidable即可.不失一般性,我们下面假设$\emptyset$不满足$P$(如果满足,则可以将$P$转化为$\bar P$,将$T&#39;$转化为$\bar {T&#39;}$).此时证明$A_{TM}\leq_m T&#39;$.现在我们假设:</p>
 <ol>
 <li>$\emptyset\notin P$.</li>
 <li>$L_1\in P,L(M_1)=L_1$</li>
 <li>$L_2\notin P,L(M_2)=L_2$.</li>
 </ol>
-<p>对于一个$(M,\alpha)$,我们构造一个$M'$,对于一个输入的$\beta$,它先跑一下$M(\alpha)$:</p>
+<p>对于一个$(M,\alpha)$,我们构造一个$M&#39;$,对于一个输入的$\beta$,它先跑一下$M(\alpha)$:</p>
 <ol>
-<li>如果$M(\alpha)$ accept: 跑$M_1(\beta)$,此时$L(M')=L_1\in P$.</li>
-<li>如果$M(\alpha)$ reject: 跑$M_2(\beta)$,此时$L(M')=L_2\notin P$.</li>
-<li>如果$M(\alpha)$死循环了, 此时$L(M')=\emptyset\notin P$.</li>
+<li>如果$M(\alpha)$ accept: 跑$M_1(\beta)$,此时$L(M&#39;)=L_1\in P$.</li>
+<li>如果$M(\alpha)$ reject: 跑$M_2(\beta)$,此时$L(M&#39;)=L_2\notin P$.</li>
+<li>如果$M(\alpha)$死循环了, 此时$L(M&#39;)=\emptyset\notin P$.</li>
 </ol>
 <p>于是这的确构造了一个足够的映射.</p>
 <hr>
 <p>考虑证明$A_{TM}\leq \overline{ALL_2}$.考虑让$f(M,\alpha)$成为一个$CFG$,其识别所有字符串,除了$M(\alpha)$ accept时对应的转移$C_0-C_1-C_2-\cdots-C_n$.</p>
-<p>先把$M$转化为单纸带.对每个字符$c$,创建它的一个对偶版本$c'$,表示当前指针指向了这个字符.</p>
-<p>这里我们尝试让$C_i=(q_i,s_i')$,表示当前用到的纸带上面写的字符串是$s_i$,用对偶字符标出指针位置后为$s_i'$,状态为$q_i$.此外,为了我们下面的方便,我们假设$C'_i=f_i(C_i)$,其中$f_i(C_i)=\begin{cases}C_i&i\in \mathrm{even}\\C_i^R&i\in \mathrm{odd}\end{cases}$.</p>
+<p>先把$M$转化为单纸带.对每个字符$c$,创建它的一个对偶版本$c&#39;$,表示当前指针指向了这个字符.</p>
+<p>这里我们尝试让$C_i=(q_i,s_i&#39;)$,表示当前用到的纸带上面写的字符串是$s_i$,用对偶字符标出指针位置后为$s_i&#39;$,状态为$q_i$.此外,为了我们下面的方便,我们假设$C&#39;_i=f_i(C_i)$,其中$f_i(C_i)=\begin{cases}C_i&amp;i\in \mathrm{even}\\C_i^R&amp;i\in \mathrm{odd}\end{cases}$.</p>
 <p>为此,考虑让该CFG能生成所有&quot;并非&quot;$M(\alpha)$的字符串,其包括:</p>
 <ol>
 <li>格式不对的串.</li>
 <li>初始$C_0$并非$\alpha$的串.</li>
 <li>$C_i$中包含多个对偶字符.</li>
-<li>相邻的两个转移$(C_i',C_{i+1}')$不合法,即不满足$M$所刻画的转移.</li>
+<li>相邻的两个转移$(C_i&#39;,C_{i+1}&#39;)$不合法,即不满足$M$所刻画的转移.</li>
 </ol>
 <p>我们尝试在CFG里插入上述规则,使得其能生成所有&quot;至少一处&quot;不合法的串.对于前两者,调整编码规则就可以让CFG足够生成.</p>
-<p>对于(4),我们只需要插入一对不合法的$(C_i',C_{i+1}')$即可.由于它们一正一反,合法当且仅当有三个对应的字符(即:$C_i$时指针指向的字符,以及它旁边的两个字符)按$\delta$规则转移.因此只需要排栈就可以刻画.这样就足够了.</p>
+<p>对于(4),我们只需要插入一对不合法的$(C_i&#39;,C_{i+1}&#39;)$即可.由于它们一正一反,合法当且仅当有三个对应的字符(即:$C_i$时指针指向的字符,以及它旁边的两个字符)按$\delta$规则转移.因此只需要排栈就可以刻画.这样就足够了.</p>
 <p>从而这的确证毕了我们想要的命题.</p>
 <hr>
 <p>对于PCP问题,实际上是因为我们可以模拟configuration的变化.configuration的局部变化实际上是有限的,外部又可以通过拼$\Gamma$字符集的方式来模拟,因此容易证明$A_{TM}\leq_m PCP$.</p>
@@ -278,7 +278,7 @@ window.MathJax = {
 <li>Savitch定理: 对于任何函数$f$,满足$f(n)\geq \log n$,总有$NSPACE(f(n))\subseteq SPACE(f^2(n))$.</li>
 <li>空间层次定理(对于单带图灵机): 对于任何空间可构造函数$f$,存在语言$A$可以在$O(f(n))$空间内判定,但不能在$o(f(n))$空间内判定.</li>
 <li>时间层次定理(对于单带图灵机): 对于任何时间可构造函数$f$,存在语言$A$可以在$O(f(n))$时间内判定,但不能在$o(\frac{f(n)}{\log f(n)})$时间内判定.</li>
-<li>电路层次定理: 对于两个函数$T,T':\mathbb{N}\to \mathbb{N}$,并且$T(n)\log T(n)=o(T'(n))$,则$SIZE(T(n))\subsetneq SIZE(T'(n))$.</li>
+<li>电路层次定理: 对于两个函数$T,T&#39;:\mathbb{N}\to \mathbb{N}$,并且$T(n)\log T(n)=o(T&#39;(n))$,则$SIZE(T(n))\subsetneq SIZE(T&#39;(n))$.</li>
 <li>非确定性时间层次定理: 对于任何时间可构造函数$f,g$,如果$f(n+1)=o(g(n))$,存在语言$A$可以在$O(g(n))$时间内判定,但不能在$O(f(n))$时间内判定.</li>
 </ol>
 <hr>
@@ -296,14 +296,14 @@ window.MathJax = {
 </ol>
 <p>其中,仔细观察(3)的模拟:如果$M$需要$g(n)$空间运行,则模拟时显然只需要$Cg(n)$的空间模拟.</p>
 <p>显然,上述定义同时给出了一个在$O(f(n))$空间内判定$x\in A$的算法,我们下面证明$A$在$o(f(n))$空间内不可判定.</p>
-<p>假设存在图灵机$M$可以在$g(n)=o(f(n))$的空间内判定$A$,我们就可以用上述算法模拟$M$的结果(因为只需要$Cg(n)$的空间运行,只需要找到$n_0$使得$Cg(n_0)<f(n_0)$,然后输入$\langle M\rangle 1 0^{n_0}$):然而,$M$和上述算法会对同一个输入(即$\langle M\rangle 1 0^{n_0}$)上输出不同的结果,这立刻就导出了矛盾.</p>
+<p>假设存在图灵机$M$可以在$g(n)=o(f(n))$的空间内判定$A$,我们就可以用上述算法模拟$M$的结果(因为只需要$Cg(n)$的空间运行,只需要找到$n_0$使得$Cg(n_0)&lt;f(n_0)$,然后输入$\langle M\rangle 1 0^{n_0}$):然而,$M$和上述算法会对同一个输入(即$\langle M\rangle 1 0^{n_0}$)上输出不同的结果,这立刻就导出了矛盾.</p>
 <hr>
 <p>对于时间层次定理,证明方式和空间层次定理并无太大区别: 唯一的区别在于模拟. 我们断言模拟一个时间复杂度为$O(\frac{t(n)}{\log t(n)})$的图灵机需要$O(t(n))$的额外时间消耗即可.</p>
 <p>为什么这里多了个时间消耗呢?这是因为当前场景下,图灵机模拟另一个图灵机的时候,另一个图灵机可以有足够多的纸带数量,但我们的模拟机却只有有限个,这就导致必须模拟的时候需要搬运信息.</p>
 <hr>
-<p>最后来到电路上, 对于一个输入$\{0,1\}^n$,只考虑前$l=\log T(n)+2\log\log T(n)$个位置(也即只根据这$l$个位置确定取值).我们知道存在一个函数$f:\{0,1\}^l\to \{0,1\}$,使得其至少需要$\Omega(\frac{2^l}{l})=\Omega(T(n)\log T(n))$的时间,我们知道这也的确是一个精准的界,因此$T'(n)$的确可以模拟,这就搞定了.</p>
+<p>最后来到电路上, 对于一个输入$\{0,1\}^n$,只考虑前$l=\log T(n)+2\log\log T(n)$个位置(也即只根据这$l$个位置确定取值).我们知道存在一个函数$f:\{0,1\}^l\to \{0,1\}$,使得其至少需要$\Omega(\frac{2^l}{l})=\Omega(T(n)\log T(n))$的时间,我们知道这也的确是一个精准的界,因此$T&#39;(n)$的确可以模拟,这就搞定了.</p>
 <hr>
-<p>最后来看非确定性时间分层定理, 我们考虑列举所有的NTM: $M_1,M_2,\cdots$,并且人为划分若干区间$[l_j,u_j]$,满足$u_j>l_j,u_{j}+1=l_{j+1},\log g(u_j)>f(l_j)$.此时,我们考虑一个新的图灵机$D$:它对于输入的$n\in [l_k,u_k]$:</p>
+<p>最后来看非确定性时间分层定理, 我们考虑列举所有的NTM: $M_1,M_2,\cdots$,并且人为划分若干区间$[l_j,u_j]$,满足$u_j&gt;l_j,u_{j}+1=l_{j+1},\log g(u_j)&gt;f(l_j)$.此时,我们考虑一个新的图灵机$D$:它对于输入的$n\in [l_k,u_k]$:</p>
 <ol>
 <li>如果$n\in [l_k,u_k)$,则输出$M_k(n+1)$的结果,但要求运行时间不能超过$g(n)$.</li>
 <li>如果$n=u_k$,则输出$M_k(l_k)$的结果的取反.</li>
@@ -344,9 +344,9 @@ window.MathJax = {
 <hr>
 <p>现在我们来展示Karp-Lipton Theorem: 一旦$NP\subseteq P/poly$, 则我们可以证明$\Pi_2^p\subseteq \Sigma_2^p$, 从而$PH$塌缩到$\Sigma_2^p$.</p>
 <p>考虑$\Pi_2^p SAT$问题: $\forall u\exists v\psi(u,v)$, 由于$NP\subseteq P/poly$, 我们知道$\Phi(u)=\exists v\psi(u,v)$这个问题实际上可以被一族电路$\{C_n\}$解决,使得$\Phi(u)=1\Leftrightarrow C_n(u)=1$.</p>
-<p>而考虑事实上,如果我们把$v$拆成两部分:$v=v_1v_2$,那么$\Phi'(u,v_1)=\exists v_2\psi(u,v_1v_2)$同样也可以被电路判断,这就使得我们实际上可以用decision reduction去把这个$v$求出来!也就是存在一族电路$\{C_n'\}$,它可以做到$C_n'(u)=v$,使得$\Phi(u)=1\Leftrightarrow \psi(u,C_n'(u))=1$.</p>
-<p>一个显明的思路是,直接用$\exists C_n'$从而把这个电路的描述encode进我们的formula中,但这样就需要额外一个描述去表达$\forall u.(\Phi(u)=1\Leftrightarrow \psi(u,C_n'(u))=1)$的性质.然而好在我们所想要的正是$\forall u\Phi(u)$,因此我们直接用$\forall u.\psi(u,C_n'(u))$即可.</p>
-<p>最终,我们就转化出了$\exists C_n'\forall u\psi(u,C_n'(u))\in \Sigma_2^p$的形式,万事大吉.</p>
+<p>而考虑事实上,如果我们把$v$拆成两部分:$v=v_1v_2$,那么$\Phi&#39;(u,v_1)=\exists v_2\psi(u,v_1v_2)$同样也可以被电路判断,这就使得我们实际上可以用decision reduction去把这个$v$求出来!也就是存在一族电路$\{C_n&#39;\}$,它可以做到$C_n&#39;(u)=v$,使得$\Phi(u)=1\Leftrightarrow \psi(u,C_n&#39;(u))=1$.</p>
+<p>一个显明的思路是,直接用$\exists C_n&#39;$从而把这个电路的描述encode进我们的formula中,但这样就需要额外一个描述去表达$\forall u.(\Phi(u)=1\Leftrightarrow \psi(u,C_n&#39;(u))=1)$的性质.然而好在我们所想要的正是$\forall u\Phi(u)$,因此我们直接用$\forall u.\psi(u,C_n&#39;(u))$即可.</p>
+<p>最终,我们就转化出了$\exists C_n&#39;\forall u\psi(u,C_n&#39;(u))\in \Sigma_2^p$的形式,万事大吉.</p>
 <hr>
 <p>此外,我们还想展示一个更有意思的定理:存在一个神谕$A$,使得$P^A\ne NP^A$,然而$NP^A\subseteq P^A/poly$.</p>
 <p>考虑取$A=TQBF\coprod S$,或写作$A=\{0t|t\in TQBF\}\cup \{1s|s\in S\}$,其中$S$是一个稀疏语言,满足$\forall x,y\in S,x\ne y\Rightarrow |x|\ne |y|$.考虑一个语言$U(S)=\{1^n|\exists x\in \{0,1\}^n,x\in S\}$.容易发现总有$U(S)\in NP^A$,原因是只需要把这个$x\in \{0,1\}^n$作为certificate给出即可.</p>
@@ -354,7 +354,7 @@ window.MathJax = {
 <p>考虑左侧,其在运行的时候只能查询长度$\leq p(n)$的$S$,而能让oracle返回true的串只有$p(n)$个,我们可以把它们全部硬编码到电路中.从而已经证明了$PSPACE^S\subseteq PSPACE/poly$.</p>
 <p>现在来看证明存在一个满足上述条件的语言$S$,使得$U(S)\notin P^A$,从而证明$P^A\ne NP^A$.</p>
 <p>考虑列举所有的$\{M^A_i\}$图灵机,设$M^A_i$的运行时间为$f_i(n)$,我们力图找到一个语言$S$使得这些图灵机全都识别不了.我们先取一个语言$S=\{0,1\}^*$,后面我们会逐渐删去里面的元素.下面取$n_{0}=0$.</p>
-<p>对于$M^A_i$,我们问它$1^{n_i}$能否accept,其中$n_i$满足$2^{n_i}\geq \sum_{j=1}^i f_j(n_i)$,由于右侧仍然是个多项式函数,因此这总能做到.然后我们删掉$S$中所有长度在$[n_{i-1}+1,n_i-1]$的串.现在,$M^A_i$会查询若干个字符串.如果该字符串长度$<n_i$,我们就按照目前的$S$回答;如果该字符串长度$\geq n_i$,我们全部回答no(顺便在$S$里删掉它问的东西),由于它是多项式复杂度的,我们对$n_i$的限制保证了长度为$n_i$的串最后总会剩下非零个.</p>
+<p>对于$M^A_i$,我们问它$1^{n_i}$能否accept,其中$n_i$满足$2^{n_i}\geq \sum_{j=1}^i f_j(n_i)$,由于右侧仍然是个多项式函数,因此这总能做到.然后我们删掉$S$中所有长度在$[n_{i-1}+1,n_i-1]$的串.现在,$M^A_i$会查询若干个字符串.如果该字符串长度$&lt;n_i$,我们就按照目前的$S$回答;如果该字符串长度$\geq n_i$,我们全部回答no(顺便在$S$里删掉它问的东西),由于它是多项式复杂度的,我们对$n_i$的限制保证了长度为$n_i$的串最后总会剩下非零个.</p>
 <p>现在,如果$M_i^A$回答yes,那我就把长度为$n_i$的从$S$中全杀了;如果回答no,那我就留一个剩下全杀了,这样这个$M_i^A$就至少回答不对长度为$n_i$的结果.</p>
 <h3 id="toc-19">BPP在哪些复杂度类中?</h3>
 <p>容易根据定义直接看到$BPP=coBPP$以及$ZPP\subseteq RP\cap coRP$. 我们下面将展示三个更厉害的结论:</p>
@@ -365,8 +365,8 @@ window.MathJax = {
 </ol>
 <hr>
 <p>下面我们先证明$BPP\subseteq P/poly$,问题在于我们想要一个advice $r_n$,使得它对所有的输入$x,|x|=n$都能用.</p>
-<p>考虑error reduction, 我们知道存在一个概率图灵机$M:\{0,1\}^n\times \{0,1\}^m\to \{0,1\}$,使得$\forall x\in \{0,1\}^n,Pr_{r}[M(x,r)\ne L(x)]<2^{-(n+1)}$.</p>
-<p>也就是说,固定一个$x$,至多只有$\frac{2^m}{2^{n+1}}$个$r$是坏的,那么对于所有$x$,至多只有$\frac{2^m}{2^{n+1}}\times 2^n=2^{m-1}<2^m$个$r$是坏的,这就说明存在一个$r$对所有的输入$x$都是好的,它就是我们的advice.</p>
+<p>考虑error reduction, 我们知道存在一个概率图灵机$M:\{0,1\}^n\times \{0,1\}^m\to \{0,1\}$,使得$\forall x\in \{0,1\}^n,Pr_{r}[M(x,r)\ne L(x)]&lt;2^{-(n+1)}$.</p>
+<p>也就是说,固定一个$x$,至多只有$\frac{2^m}{2^{n+1}}$个$r$是坏的,那么对于所有$x$,至多只有$\frac{2^m}{2^{n+1}}\times 2^n=2^{m-1}&lt;2^m$个$r$是坏的,这就说明存在一个$r$对所有的输入$x$都是好的,它就是我们的advice.</p>
 <hr>
 <p>下面我们证明$BPP\subseteq \Pi_2^p\cap \Sigma_2^p$,由于$BPP=coBPP$,我们只需要证明$BPP\subseteq \Sigma_2^p$即可,也即转化为$\exists u\forall vM(x,u,v)$的形状.也就是说:如果$x\in L$,则我们需要找到一个$u$,使得其可以控制住所有的$v$;否则,如果$x\notin L$,则每个$u$都存在不被它控制的$v$.</p>
 <p>我们知道随机性来自于$\forall$,我们这么设计一个$\Sigma_2^p$中的问题:</p>
@@ -377,68 +377,68 @@ $$</p>
 <p>用error reduction我们知道:</p>
 <p>$$
 \begin{aligned}
-x\in L&\Rightarrow Pr_r[M(x,r)=1]>1-\frac{1}{2^n}\\
-x\notin L&\Rightarrow Pr_r[M(x,r)=1]\leq \frac{1}{2^n}
+x\in L&amp;\Rightarrow Pr_r[M(x,r)=1]&gt;1-\frac{1}{2^n}\\
+x\notin L&amp;\Rightarrow Pr_r[M(x,r)=1]\leq \frac{1}{2^n}
 \end{aligned}
 $$</p>
 <p>当$x\notin L$时, 我们需要找到一个$r$,使得无论怎么选取$u_1,\cdots,u_k$,都拿不到任何一个$M(x,r\oplus u_i)=true$.这实际上是简单的,因为能让某一个$u_i$成功的$r$只有$\frac{2^m}{2^n}$个,总共也只有$k2^{m-n}$个.</p>
 <p>当$x\in L$时, 我们需要找到一组$\{u_1,\cdots,u_k\}$,使得它们的确可以控制住所有的$r$.这个存在性证明可以使用概率方法,考虑对于一个固定的$r$:</p>
 <p>$$
 \begin{aligned}
-&Pr_{u_1,\cdots,u_k}[(\lor_{i=1}^k M(x,r\oplus u_i))=0]\\\
-=& \left(Pr_{u}[M(x,r\oplus u)=0]\right)^k\\
-\leq&\frac{1}{2^{nk}}
+&amp;Pr_{u_1,\cdots,u_k}[(\lor_{i=1}^k M(x,r\oplus u_i))=0]\\\
+=&amp; \left(Pr_{u}[M(x,r\oplus u)=0]\right)^k\\
+\leq&amp;\frac{1}{2^{nk}}
 \end{aligned}
 $$</p>
 <p>因此,随机一组$u_1,\cdots,u_k$,存在一个$r$出问题的概率可以被Union Bound控制在$\frac{2^m}{2^{nk}}$上.</p>
 <p>因此,如果我们能取$k$满足:</p>
 <ol>
-<li>$k2^{m-n}<2^m\Rightarrow k2^{-n}<1$.</li>
-<li>$\frac{2^m}{2^{nk}}< 1$.</li>
+<li>$k2^{m-n}&lt;2^m\Rightarrow k2^{-n}&lt;1$.</li>
+<li>$\frac{2^m}{2^{nk}}&lt; 1$.</li>
 </ol>
-<p>就万事大吉, 取$k=\lfloor\frac{m-1}{n}\rfloor$即可(假设$m>n$).</p>
+<p>就万事大吉, 取$k=\lfloor\frac{m-1}{n}\rfloor$即可(假设$m&gt;n$).</p>
 <hr>
 <p>最后我们来证明$BPP\subseteq ZPP^{SAT}$.回忆到$BPP\subseteq \Sigma_2^p$的证明,在那个证明中,我们需要选取一个$k$,使得:</p>
 <ol>
-<li>$k2^{-n}<1$.</li>
-<li>$2^{-kn}<2^{-m}$</li>
+<li>$k2^{-n}&lt;1$.</li>
+<li>$2^{-kn}&lt;2^{-m}$</li>
 </ol>
 <p>我们就能把任何一个判断是否有$x\in L$,其中$L\in BPP$的问题,转化为一个$\exists u_1\cdots u_k,\forall r,\lor_{i\in [k]}M(x,u_i\oplus r)=1$的问题.</p>
-<p>注意到(2)的目的是因为有:$Pr_{u_1,\cdots,u_k}[\exists r(\lor_{i\in [k]}M(x,u_i\oplus r))=0]\leq 2^{m-kn}<1$,从而证明存在这么一组$\{u_1,\cdots,u_k\}$.因此,如果一台机器选择去猜一组$\{u_1,\cdots,u_k\}$,它猜错的概率也就是$2^{m-kn}$.</p>
-<p>现在我们这么造一台在$ZPP^{SAT}$的图灵机:我们让它每次去猜$\{u_1,\cdots,u_k\}$,然后去在$SAT$里判断是否有$\exists r,\lor_{i\in [k]}M(x,u_i\oplus r)=0$.如果有的话就重新猜,不然的话就接受.猜错一次的概率仅有$p=2^{m-kn}$,只要选取$k=n$,就可以使这个$p<\frac{1}{2}$.因此猜错的期望次数只有$\sum_{i=0}^{+\infty}(1-p)p^i=O(1)$次,每次猜测都是多项式时间复杂度.此时只要$x\in L$,我们立刻就能在期望多项式时间内猜出正确答案.</p>
+<p>注意到(2)的目的是因为有:$Pr_{u_1,\cdots,u_k}[\exists r(\lor_{i\in [k]}M(x,u_i\oplus r))=0]\leq 2^{m-kn}&lt;1$,从而证明存在这么一组$\{u_1,\cdots,u_k\}$.因此,如果一台机器选择去猜一组$\{u_1,\cdots,u_k\}$,它猜错的概率也就是$2^{m-kn}$.</p>
+<p>现在我们这么造一台在$ZPP^{SAT}$的图灵机:我们让它每次去猜$\{u_1,\cdots,u_k\}$,然后去在$SAT$里判断是否有$\exists r,\lor_{i\in [k]}M(x,u_i\oplus r)=0$.如果有的话就重新猜,不然的话就接受.猜错一次的概率仅有$p=2^{m-kn}$,只要选取$k=n$,就可以使这个$p&lt;\frac{1}{2}$.因此猜错的期望次数只有$\sum_{i=0}^{+\infty}(1-p)p^i=O(1)$次,每次猜测都是多项式时间复杂度.此时只要$x\in L$,我们立刻就能在期望多项式时间内猜出正确答案.</p>
 <p>现在的问题在于当$x\notin L$时,如何在期望多项式时间内输出No.这并不困难,由于$BPP=coBPP$,我们可以同时去并行地猜$x\in \bar L$.由于要么$x\in L$,要么$x\in \bar L$,因此这么并行猜的期望时间仍然是多项式级别.</p>
 <hr>
-<p>最后我们可以谈及一种$BPP$的变种:我们知道$BPP$的选择概率是均等的$\frac{1}{2}$,如果我们把这个概率改成$p\in (0,1)$,不妨设新的复杂度类为$BPP'$,那么$BPP$和$BPP'$的关系如何呢?</p>
+<p>最后我们可以谈及一种$BPP$的变种:我们知道$BPP$的选择概率是均等的$\frac{1}{2}$,如果我们把这个概率改成$p\in (0,1)$,不妨设新的复杂度类为$BPP&#39;$,那么$BPP$和$BPP&#39;$的关系如何呢?</p>
 <p>我们会展示以下三个结论:</p>
 <ol>
-<li>$BPP\subseteq BPP'$.</li>
-<li>当$p\in \mathbb{Q},BPP=BPP'$.</li>
-<li>$\exists p,BPP\subsetneq BPP'$.</li>
+<li>$BPP\subseteq BPP&#39;$.</li>
+<li>当$p\in \mathbb{Q},BPP=BPP&#39;$.</li>
+<li>$\exists p,BPP\subsetneq BPP&#39;$.</li>
 </ol>
 <hr>
-<p>我们首先展示$BPP\subseteq BPP'$. 考虑对于$L\in BPP$,$M$是判断$L$的一个PTM,现在我们考虑构造一个$M'$,使得其满足题中的定义,并且$M'$也可以高概率判定$L$.</p>
-<p>我们构造$M'$的方式是:每次连续随机两次:</p>
+<p>我们首先展示$BPP\subseteq BPP&#39;$. 考虑对于$L\in BPP$,$M$是判断$L$的一个PTM,现在我们考虑构造一个$M&#39;$,使得其满足题中的定义,并且$M&#39;$也可以高概率判定$L$.</p>
+<p>我们构造$M&#39;$的方式是:每次连续随机两次:</p>
 <ol>
 <li>如果结果是$10$,则模拟$M$的$\delta_1$.</li>
 <li>如果结果是$01$,则模拟$M$的$\delta_2$.</li>
 <li>如果结果是$00$或者$11$,则重新随机.</li>
 </ol>
-<p>此外,我们在$M'$里加一个计时器,对于长度为$n$的输入,如果第(3)步的重复随机超过了$q(n)$次,我们就直接输出$0$,设这个事件为$A$.由于$10$和$01$出现的概率相等,因此只要没出现事件$A$,得到的结果就一定和$M$相符合.因此$Pr[M'(x)=L(x)]\geq Pr[M(x)=L(x)]-Pr[A]$.只要我们能说明右边是一个$>\frac{1}{2}+\delta$的数,其中$\delta$是一个常数,就可以用error reduction得到$\frac{2}{3}$的正确率.下面我们只要能限制$Pr[A]<\frac{1}{6}-\delta$即可.</p>
+<p>此外,我们在$M&#39;$里加一个计时器,对于长度为$n$的输入,如果第(3)步的重复随机超过了$q(n)$次,我们就直接输出$0$,设这个事件为$A$.由于$10$和$01$出现的概率相等,因此只要没出现事件$A$,得到的结果就一定和$M$相符合.因此$Pr[M&#39;(x)=L(x)]\geq Pr[M(x)=L(x)]-Pr[A]$.只要我们能说明右边是一个$&gt;\frac{1}{2}+\delta$的数,其中$\delta$是一个常数,就可以用error reduction得到$\frac{2}{3}$的正确率.下面我们只要能限制$Pr[A]&lt;\frac{1}{6}-\delta$即可.</p>
 <p>现在我们来看在某个时刻,第(3)步连续出现$C$次的概率:为$(p^2+(1-p)^2)^{C}$.假设$M$的运行时间为$t(n)$,根据union bound,至少出现一次的情况就是$\leq t(n)(1-2p+2p^2)^{q(n)}$.容易见到只要取$q(n)=Ct(n)$,这一概率就是$o(1)$级别的,因此只要取足够大的$C$就可以.</p>
 <hr>
-<p>当$p\in \mathbb{Q}$时,不妨设$p=\frac{a}{b},a,b\in \mathbb{N}_+$.考虑取$k\in \mathbb{N}$使得$2^{k-1}<b\leq 2^k$.注意这里的$k$是一个常数,我们接下来考虑用判定BPP中语言的$M$去模拟一个判定$BPP'$中语言的$M'$,以来证明$BPP'\subseteq BPP$,并根据(1)得到二者相等.</p>
+<p>当$p\in \mathbb{Q}$时,不妨设$p=\frac{a}{b},a,b\in \mathbb{N}_+$.考虑取$k\in \mathbb{N}$使得$2^{k-1}&lt;b\leq 2^k$.注意这里的$k$是一个常数,我们接下来考虑用判定BPP中语言的$M$去模拟一个判定$BPP&#39;$中语言的$M&#39;$,以来证明$BPP&#39;\subseteq BPP$,并根据(1)得到二者相等.</p>
 <p>我们考虑每次让$M$随机$k$次,并且:</p>
 <ol>
-<li>对于其中字典序最小的$a$种结果,采用$M'$的$\delta_0$.</li>
-<li>除了上述以外,对于其中字典序最小的$b-a$种结果,采用$M'$的$\delta_1$.</li>
+<li>对于其中字典序最小的$a$种结果,采用$M&#39;$的$\delta_0$.</li>
+<li>除了上述以外,对于其中字典序最小的$b-a$种结果,采用$M&#39;$的$\delta_1$.</li>
 <li>对于剩下的$2^k-b$种结果,重复以上步骤.</li>
 </ol>
 <p>同时仍然加一个计数器,当(3)重复了$q(n)$次后就直接输出$0$.</p>
 <p>和上面的分析完全类似,此时(3)出现一次的概率是$\leq t(n)(1-\frac{b}{2^k})^{q(n)}$.取$q(n)=Ct(n)$就可以得到这个概率为$o(1)$,取足够大的$C$就可以模拟.</p>
 <hr>
-<p>最后,考虑这样的$(0,1)$内的实数:不妨设它的二进制小数表示为$a_1a_2a_3\cdots$,它自己就是$\sum_{i\geq 1}a_i2^{-i}$.其中$a_i\in \{0,1\}$,并且满足$a_{4k+1}=0,a_{4k+2}=1$.容易见到这样的实数个数仍然是$2^{\mathbb{N}}$,也即不可数个.所以其中一定存在不可计算数$p$.我们下面来证明对于这个$p$来说,$BPP\subsetneq BPP'$.</p>
-<p>我们构造这样一个语言$L=\{1^n|\text{二进制数n是p的二进制表示的前缀}\}$.我们证明$L\in BPP'$,但$L\notin BPP$.</p>
-<p>先证明$L\in BPP'$,考虑取$k=\lceil\log_2 n\rceil$,也就是$n$的位长.我们直接让一台PTM随机$2^{12k}=O(n^{12})$次,每次如果是$\delta_1$就写下一个$0$,如果是$\delta_0$就写下一个$1$,然后统计写下来的数字中$1$的个数,设为$X$.立刻见到$E(X)=2^{2k}p$.我们接下来取$X$的前$k$位,并将它与$n$比较,如果相等则接受,如果不相等则拒绝.</p>
+<p>最后,考虑这样的$(0,1)$内的实数:不妨设它的二进制小数表示为$a_1a_2a_3\cdots$,它自己就是$\sum_{i\geq 1}a_i2^{-i}$.其中$a_i\in \{0,1\}$,并且满足$a_{4k+1}=0,a_{4k+2}=1$.容易见到这样的实数个数仍然是$2^{\mathbb{N}}$,也即不可数个.所以其中一定存在不可计算数$p$.我们下面来证明对于这个$p$来说,$BPP\subsetneq BPP&#39;$.</p>
+<p>我们构造这样一个语言$L=\{1^n|\text{二进制数n是p的二进制表示的前缀}\}$.我们证明$L\in BPP&#39;$,但$L\notin BPP$.</p>
+<p>先证明$L\in BPP&#39;$,考虑取$k=\lceil\log_2 n\rceil$,也就是$n$的位长.我们直接让一台PTM随机$2^{12k}=O(n^{12})$次,每次如果是$\delta_1$就写下一个$0$,如果是$\delta_0$就写下一个$1$,然后统计写下来的数字中$1$的个数,设为$X$.立刻见到$E(X)=2^{2k}p$.我们接下来取$X$的前$k$位,并将它与$n$比较,如果相等则接受,如果不相等则拒绝.</p>
 <p>由于我们上面对$p$的二进制位进行了一定的限制,我们知道如果$X$的前$4k$位不等于$a_1\cdots a_{4k}$,则要么至少多算了$2^{8k}$个$1$,要么至少少算了$2^{8k-1}$个$1$.</p>
 <p>容易见到,当$|X-E(X)|\geq 2^{8k-1}$才会发生判断错误.根据Hoeffding引理,我们知道:
 $$
@@ -460,20 +460,20 @@ $$
 <p>这实际上是显然的, 因为你只需要把这棵决策树的每一条到叶子节点为$true$的路径全抄下来就行.</p>
 <p>现在我们来展示整个证明中最重要的引理:</p>
 <blockquote>
-<p>Switching Lemma: 假设$f$是一个$w$宽度的DNF或者CNF, 考虑一个$s$-restriction $\alpha$, 其中$s=\sigma n\leq \frac{n}{50}$, 则$Pr_\alpha[DT_{depth}(f|_\alpha)>d]\leq (C\sigma w)^d$.其中$C$是一个常数(取$17$应该就够了).</p>
+<p>Switching Lemma: 假设$f$是一个$w$宽度的DNF或者CNF, 考虑一个$s$-restriction $\alpha$, 其中$s=\sigma n\leq \frac{n}{50}$, 则$Pr_\alpha[DT_{depth}(f|_\alpha)&gt;d]\leq (C\sigma w)^d$.其中$C$是一个常数(取$17$应该就够了).</p>
 </blockquote>
 <p>也就是说, 随机固定几位后,这个决策树的高度仍然很大的概率非常小.</p>
 <p>这个switching lemma的意义是什么呢? 考虑我们一开始假设存在的那个计算XOR的$AC_0$电路,我们可以把其最下面一层(假设是CNF),通过固定若干位的方式, 转化成一个width并不明显变化的DNF, 从而和上层进行合并使得层数$-1$,由于只有常数层, 因此当$n$足够大的时候, 我们一定可以剩下一个单独的CNF或者DNF,它仍然要对无穷多个输入bit计算XOR或者XOR取反. 然而CNF和DNF都是只关注一个局部信息(比如有一个clause为真那DNF就是真,有一个clause为假那CNF就为假),但是XOR关注的是全局信息(只要有一个bit输入不确定,那么答案就不确定), 因此这必然不可能做到.</p>
 <p>具体参数的选取,我们会在后面涉及.下面我们来证明这个Lemma.</p>
-<p>所有的restriction的数量显然是$\binom{n}{s}2^{n-s}$,而且它们都是等概率被选取的. 现在考虑设集合$B$为&quot;坏的restriction&quot;, 也就是$B=\{\beta|DT_{depth}(f|_\beta)>d\}$. 我们下面说明这个$B$的大小足够小.</p>
+<p>所有的restriction的数量显然是$\binom{n}{s}2^{n-s}$,而且它们都是等概率被选取的. 现在考虑设集合$B$为&quot;坏的restriction&quot;, 也就是$B=\{\beta|DT_{depth}(f|_\beta)&gt;d\}$. 我们下面说明这个$B$的大小足够小.</p>
 <p>假设$f=T_1\lor \cdots\lor T_m$. 现在我们来看对于一个$T_i$来说:</p>
 <ol>
 <li>如果$T_i=0$,说明其中存在一个literal取$0$.</li>
 <li>如果$T_i=1$,说明其中所有的literal都取$1$.</li>
 </ol>
-<p>现在我们来看如果$DT_{depth}(f|_\beta)>d$了会发生什么,由于我们的定义,这意味着任何一个计算$f|_\beta$的决策树的深度都$>d$,我们下面挑一个好分析的:</p>
+<p>现在我们来看如果$DT_{depth}(f|_\beta)&gt;d$了会发生什么,由于我们的定义,这意味着任何一个计算$f|_\beta$的决策树的深度都$&gt;d$,我们下面挑一个好分析的:</p>
 <p>考虑如此构造决策树: 对于$f$中那些还没确定的第一个clause,去直接造它的一棵决策树,这个决策树有一个(也可能没有)叶子节点会使得它为$true$,那就不用继续走了;对于剩下的为$false$的叶子节点,继续下一个clause的决策树构造,贴在这个节点下面.</p>
-<p>我们知道这棵决策树的深度肯定$>d$,我们现在取它的第一条长度$>d$的路径的前$d$位,这就拿到了一个fix了$n-s+d$个变量的赋值方法,但我们注意到$\binom{n}{s-d}2^{n-s+d}<<\binom{n}{s}2^{n-s}$, 如果我们能用这种赋值配合上一些额外信息去还原回$\beta$呢?那我们实际上就造出了一个双射, 这个双射的右侧(使得上面那种特殊决策树的深度$>d$的$\beta$)是一个$\geq|B|$的集合,如果我们能说明它的左侧足够小,就可以说明$|B|$足够小.</p>
+<p>我们知道这棵决策树的深度肯定$&gt;d$,我们现在取它的第一条长度$&gt;d$的路径的前$d$位,这就拿到了一个fix了$n-s+d$个变量的赋值方法,但我们注意到$\binom{n}{s-d}2^{n-s+d}&lt;&lt;\binom{n}{s}2^{n-s}$, 如果我们能用这种赋值配合上一些额外信息去还原回$\beta$呢?那我们实际上就造出了一个双射, 这个双射的右侧(使得上面那种特殊决策树的深度$&gt;d$的$\beta$)是一个$\geq|B|$的集合,如果我们能说明它的左侧足够小,就可以说明$|B|$足够小.</p>
 <p>我们现在的目标就是,发给对方一个$s-d$-restriction $\pi$以及一些额外信息,要求对方还原出唯一的$\beta$.</p>
 <p>这个怎么做呢,考虑对于$\beta$已经确定的那些位置,让$\pi$取相同的值,现在对方只需要知道$\pi$中哪些位置是我们后续赋值的即可.</p>
 <p>如果直接标注这些位置的话,每个位置需要$\Theta(\log n)$的长度编码,总共需要$\Theta(d\log n)$,那么额外的信息就需要$\Theta(n^d)$,这有点太差了.</p>
@@ -484,14 +484,14 @@ $$
 <p>现在我们完成了这一切,只需要$\Theta(d\log w)$的额外长度,因此总共的概率一定小于等于(用斯特林公式):</p>
 <p>$$
 \begin{aligned}
-Pr&\leq \frac{\binom{n}{s-d}2^{n-s+d}(Cw)^d}{\binom{n}{s}2^{n-s}}\\
-&\leq \left(\frac{s}{n-s+d}\right)^d(2Cw)^d\\
-&\leq \left(\frac{\sigma}{1-\sigma}\right)^d(2Cw)^d
+Pr&amp;\leq \frac{\binom{n}{s-d}2^{n-s+d}(Cw)^d}{\binom{n}{s}2^{n-s}}\\
+&amp;\leq \left(\frac{s}{n-s+d}\right)^d(2Cw)^d\\
+&amp;\leq \left(\frac{\sigma}{1-\sigma}\right)^d(2Cw)^d
 \end{aligned}
 $$</p>
 <p>让$\sigma$取得足够小就可以获得我们的Switching Lemma.</p>
-<p>最后的收尾就是,取$w=\Theta(\log N)$,其中$N$是电路大小,考虑不断操作后会剩下大概$n'=\Theta(\frac{n}{\log^k N})$,其中$k$是电路深度.</p>
-<p>如果最后某一个clause的width$<n'$,那只需要确定这个clause的width个变量就可以确定整个的取值,这显然不符合XOR的性质.因此$w=\Theta(\log N)\geq n'$,这导出$N=\Theta(2^{\sqrt[k]{n}})$,这是一个远大于$poly(n)$的量级, 因此矛盾了.</p>
+<p>最后的收尾就是,取$w=\Theta(\log N)$,其中$N$是电路大小,考虑不断操作后会剩下大概$n&#39;=\Theta(\frac{n}{\log^k N})$,其中$k$是电路深度.</p>
+<p>如果最后某一个clause的width$&lt;n&#39;$,那只需要确定这个clause的width个变量就可以确定整个的取值,这显然不符合XOR的性质.因此$w=\Theta(\log N)\geq n&#39;$,这导出$N=\Theta(2^{\sqrt[k]{n}})$,这是一个远大于$poly(n)$的量级, 因此矛盾了.</p>
 <h3 id="toc-21">IP=PSPACE的证明</h3>
 <p>显然, 由于prover可以模拟verifier的行为, 因此$IP\subseteq PSPACE$.我们下面将展示另一个方向:$PSPACE\subseteq IP$,方法是展示$TQBF\in IP$.</p>
 <p>具体而言,我们会将一个$TBQF$问题转化为一个$IP$中的问题, 此外我们转化过程有以下特性:</p>
@@ -511,8 +511,8 @@ $$</p>
 <p>现在,verifier首先要做的就是检查是否有$s(0)\lor s(1)\equiv k\pmod p$,如果没有的话直接拒绝.否则,verifier随机选取一个$a\in F_p$,并计算一下$h_a(b_2,\cdots,b_n)=g(a,b_2,\cdots,b_n)$的表达式.要求prover继续证明:</p>
 <p>$$
 \begin{aligned}
-s(a)&=\lor_{b_2\in \{0,1\}}\cdots g(a,\cdots,b_n)\\
-&=\lor_{b_2\in \{0,1\}}\cdots h_a(b_2,\cdots,b_n)
+s(a)&amp;=\lor_{b_2\in \{0,1\}}\cdots g(a,\cdots,b_n)\\
+&amp;=\lor_{b_2\in \{0,1\}}\cdots h_a(b_2,\cdots,b_n)
 \end{aligned}
 $$</p>
 <p>现在我们来看prover,如果它是个好人,那他就不必全程造假,此时一旦该formula确实可满足,那它就会全程回答正确的答案,并且一路通过.可如果它是个坏人,该formula不满足,它就需要开始造假.</p>
@@ -521,8 +521,8 @@ $$</p>
 k\not\equiv \land_{b_1\in \{0,1\}} g(b_1)\pmod p
 $$</p>
 <p>那此时verifier只需要检查一下$g(0)\land g(1)$就可以发现prover在说谎! 当场就拿下了.</p>
-<p>而如果在中间的步骤呢?prover显然不敢发一个真正的满足$s(x)=\lor_{b_2\in \{0,1\}}\cdots g(x,\cdots,b_n)$的多项式$s(x)$过去,不然verifier立刻就可以检查$s(0)$和$s(1)$判断对方在说谎.因此,prover必须伪造一个多项式$s'(x)\not\equiv \lor_{b_2\in \{0,1\}}\cdots g(x,\cdots,b_n)$.</p>
-<p>此时,verifier随机一个$a$,如果随机后的结果满足$s'(a)=\lor_{b_2\in \{0,1\}}\cdots h_a(b_2,\cdots,b_n)$,那prover就赢麻了,它后面只需要一直说实话就可以让verifier承认它一开始的命题.可是如果$s'(a)\neq\lor_{b_2\in \{0,1\}}\cdots h_a(b_2,\cdots,b_n)$,prover就不得不继续说谎.</p>
+<p>而如果在中间的步骤呢?prover显然不敢发一个真正的满足$s(x)=\lor_{b_2\in \{0,1\}}\cdots g(x,\cdots,b_n)$的多项式$s(x)$过去,不然verifier立刻就可以检查$s(0)$和$s(1)$判断对方在说谎.因此,prover必须伪造一个多项式$s&#39;(x)\not\equiv \lor_{b_2\in \{0,1\}}\cdots g(x,\cdots,b_n)$.</p>
+<p>此时,verifier随机一个$a$,如果随机后的结果满足$s&#39;(a)=\lor_{b_2\in \{0,1\}}\cdots h_a(b_2,\cdots,b_n)$,那prover就赢麻了,它后面只需要一直说实话就可以让verifier承认它一开始的命题.可是如果$s&#39;(a)\neq\lor_{b_2\in \{0,1\}}\cdots h_a(b_2,\cdots,b_n)$,prover就不得不继续说谎.</p>
 <p>因此,prover成功说谎的概率,就是中间存在某一处选到了能使两边真正相等的$a$.不妨设这个多项式的次数为$d$,我们知道它实际上只有$d$个根,因此说谎成功的概率就不超过$n\frac{d}{p}$,而多项式的次数是$2^n$级别的,因此这个概率就被控制在了$\leq \frac{n}{2^n}$,这就搞定了.</p>
 </div>
   <nav class="post-nav">

@@ -148,7 +148,7 @@ $$</p>
 <p>考虑如果$u$是树的重心,我们看能不能将$u$调整到另一个点使得所有点到其距离之和更小.</p>
 <p>由于调整是一步一步做的,显然只需要判断所有和$u$相邻的点是否符合条件即可.设这个点为$x$,那我们把$u$改为$x$,会使答案减小$siz_x$,增加$n - siz_x$,由于$siz_x \leq \lfloor \cfrac{ n }{ 2 } \rfloor$,所以这么做一定不优.</p>
 <p>(6)的证明如下:</p>
-<p>首先,如果加入一个叶子节点后,各个子树大小仍然都$< \lfloor \cfrac{ n }{ 2 } \rfloor$,那显然不必调整.</p>
+<p>首先,如果加入一个叶子节点后,各个子树大小仍然都$&lt; \lfloor \cfrac{ n }{ 2 } \rfloor$,那显然不必调整.</p>
 <p>不然,显然是往叶子节点移动一格或者加入一个相邻的重心.</p>
 <p>(7)的证明如下:</p>
 <p>不妨设两棵树大小分别为$siz_a \leq siz_b$,然后令相连的两个点是这两棵树的根.</p>
@@ -158,8 +158,8 @@ $$</p>
 <p>接下来我们考虑对于每个点$x$,它在什么情况下会成为重心.首先,删掉的边不可能在$x$的子树内,不然一定不可能取到$x$的.然后,我们假设删掉的子树大小为$S$,$x$的子树内最大的一个子树大小为$g_x$,那么根据重心的性质有:</p>
 <p>$$
 \begin{aligned}
-2 ( n - S - siz_x ) & \leq n - S \\
-2 g_x & \leq n - S \\
+2 ( n - S - siz_x ) &amp; \leq n - S \\
+2 g_x &amp; \leq n - S \\
 
 \end{aligned}
 $$</p>
@@ -178,7 +178,7 @@ $$</p>
 <p>所以考虑不断向上合并信息.不难发现此时一个点要处理出多对$( lim , val )$.考虑用一个左偏树维护这个东西.</p>
 <p>但是,我们还需要保证不能跳着选点.也就是说我们要保证选中一个点,这个点的父亲必须选,怎么办呢?</p>
 <p>一个方式是,我们把排序方法从只看$lim$变成先判是否存在祖先后代关系,再判断$lim$.</p>
-<p>另一个方式是,我们每次直接把当前子树根节点扔到堆顶.但是需要满足堆的性质.不难发现如果这个点$val < 0$,我们可以将它与下面的$lim$最的节点合并直到这个点$val \geq 0$.而如果这个点的$lim$太大,我们同样可以合并.注意到这样我们采取了一种很聪明的方式维护了树的形态.</p>
+<p>另一个方式是,我们每次直接把当前子树根节点扔到堆顶.但是需要满足堆的性质.不难发现如果这个点$val &lt; 0$,我们可以将它与下面的$lim$最的节点合并直到这个点$val \geq 0$.而如果这个点的$lim$太大,我们同样可以合并.注意到这样我们采取了一种很聪明的方式维护了树的形态.</p>
 <h4 id="toc-12">dfs树的性质</h4>
 <h5 id="toc-13">Example1([CF1361E]James and the Chase)</h5>
 <p>如何判断一个点是否是好的呢?首先,如果要求是任意路径,那一个点是好的当且仅当它是一个叶向有根树的根.</p>
@@ -252,7 +252,7 @@ $$</p>
 <h5 id="toc-25">Example3 同余最短路([luoguP2371]墨墨的等式)</h5>
 <p>因为$a_i$无序,假设$a_1$最小,那么所有的数字都可以按$\mod a_1$的结果分成$a_1$类.我们按照余数设置$a_1$个点,编号为$0$至$a_1 - 1$.</p>
 <p>设$dis_i$为所有能组成的数中且$\mod a_1$余数为$i$的最小数.那么,所有能表示出来的$\bmod a_1$余数为$i$的数都可以写作$dis_i + k \times a_1 , k \in \mathbb{ N }$的形式,求得$dis_i$后可以很轻易算出.</p>
-<p>那么怎么求$dis_i$呢?我们考虑:对于任意一个数$k$,它可以怎么得到.注意到如果$k - a_j$(其中$i \ne j$)可行,那么$k$一定可行.自然有:$dis_i = \min \{ dis_j + a_k | 0 \leq j < a_i , k \ne i \}$.</p>
+<p>那么怎么求$dis_i$呢?我们考虑:对于任意一个数$k$,它可以怎么得到.注意到如果$k - a_j$(其中$i \ne j$)可行,那么$k$一定可行.自然有:$dis_i = \min \{ dis_j + a_k | 0 \leq j &lt; a_i , k \ne i \}$.</p>
 <p>这显然是一个最短路问题.</p>
 <h3 id="toc-26">差分约束</h3>
 <h5 id="toc-27">Example1([AGC056C] 01 Balanced)</h5>
@@ -260,9 +260,9 @@ $$</p>
 <p>然后另一个问题在于这玩意为啥不会让$sum_i = sum_{ i - 1 }$,这个建图后观察一下就知道不会发生这种情况.</p>
 <h3 id="toc-28">2-SAT</h3>
 <h5 id="toc-29">Example1(CF1697F)</h5>
-<p>对每个点建立$k$对点表示$a_i \geq x$和$a_i < x$,就能做了.</p>
+<p>对每个点建立$k$对点表示$a_i \geq x$和$a_i &lt; x$,就能做了.</p>
 <h5 id="toc-30">Example2(2021集训队互测 序列)</h5>
-<p>注意到如果$a_i < x$,那么$a_j \geq x \land a_k \geq x$,这样就可以刻画所有的条件.</p>
+<p>注意到如果$a_i &lt; x$,那么$a_j \geq x \land a_k \geq x$,这样就可以刻画所有的条件.</p>
 <p>而且一定可以刻画所有的条件.</p>
 <h3 id="toc-31">对偶图</h3>
 <h5 id="toc-32">Example1([CSP-S 2021] 交通规划)</h5>
@@ -389,7 +389,7 @@ $$</p>
 <h5 id="toc-63">Example1(luoguP4313 文理分科)</h5>
 <p>先把所有的满意值全部吃下,然后考虑放弃哪些.</p>
 <p>对于每个人$u$,将$S$向他连一条流量为$art$的边,它向$T$连一条为$science$的边,表示它自己要么放弃文科,要么放弃理科.</p>
-<p>然后再对每个点建立一个虚点$u '$,$S$向$u '$连一条为$sameart$的边,$u '$向相邻的实点连$\infty$的边,表示要么放弃$sameart$,要么那些点全都放弃理科.$samescience$是同理的.</p>
+<p>然后再对每个点建立一个虚点$u &#39;$,$S$向$u &#39;$连一条为$sameart$的边,$u &#39;$向相邻的实点连$\infty$的边,表示要么放弃$sameart$,要么那些点全都放弃理科.$samescience$是同理的.</p>
 <p>从这也可以看出来,大部分最小割的题目其实就是将冲突的选项放到一条路径中,然后考虑放弃哪些,将这个限制用最小割表示出来.</p>
 <h5 id="toc-64">Example2([HNOI2013]切糕)</h5>
 <p>也是显然的最小割,唯一难处理的地方在于相差$\leq D$.</p>
@@ -435,7 +435,7 @@ $$</p>
 <p>在两个可选矩形的边界处建立一个点,如果它被选了,那么说明这个矩形和上面那个矩形被一起覆盖了.然后注意到每有一个点被选,自然就多覆盖了一个矩形,显然一个矩形不可能又跟纵向的一起被覆盖又跟横向的一起被覆盖,在他俩之间连边跑最大独立集即可.</p>
 <p>感觉还是类似于最小路径覆盖,将这种两个一起被覆盖就减少答案的东西转换成一整条流.</p>
 <h4 id="toc-70">最大权闭合子图</h4>
-<p>原图的边流量设为$+ \infty$,然后对于每个点$x$,如果$val_x > 0$,那么$ans + = val_x$,然后将$S \rightarrow x$,流量为$val_x$;不然,$x \rightarrow T$,流量为$- val_x$,然后求出最小割$w$,答案即为$ans - w$.</p>
+<p>原图的边流量设为$+ \infty$,然后对于每个点$x$,如果$val_x &gt; 0$,那么$ans + = val_x$,然后将$S \rightarrow x$,流量为$val_x$;不然,$x \rightarrow T$,流量为$- val_x$,然后求出最小割$w$,答案即为$ans - w$.</p>
 <h5 id="toc-71">Example1(luoguP4177)</h5>
 <p>只需要把中间的$\infty$边改为租用的代价即可.</p>
 <h4 id="toc-72">最小路径覆盖(覆盖点)</h4>
@@ -449,7 +449,7 @@ $$</p>
 <p>为啥呢?因为发现做完传递闭包后等价于新图的最大独立集.当然图是有性质的,观察一下可重复走点的最小点覆盖就可以发现等价于传递闭包后在二分图上求最大独立集.</p>
 <h5 id="toc-75">Example1([CF1630F]Making It Bipartite)</h5>
 <p>首先显然的一点是,对于任意一个数字$x$,这个序列中不能同时出现$px$和$pqx$,其中$p , q$都是大于等于二的正整数.这是显然的.如果我们把图改为有向图,由$x \rightarrow px$,那么整个图就只会有两种点:只有出边的点和只有入边的点.</p>
-<p>那么我们该怎么办呢?如果是只能出现$x$就不能出现$px$,那这就是一个经典的最长反链问题.但多了一层,我们可以考虑类似分层图的思想:建立和原图完全一样的图$G '$,并且将$G$中的$x$向$G '$中的$x '$连有向边,然后跑最长反链.不难发现这样做是正确的.</p>
+<p>那么我们该怎么办呢?如果是只能出现$x$就不能出现$px$,那这就是一个经典的最长反链问题.但多了一层,我们可以考虑类似分层图的思想:建立和原图完全一样的图$G &#39;$,并且将$G$中的$x$向$G &#39;$中的$x &#39;$连有向边,然后跑最长反链.不难发现这样做是正确的.</p>
 <h4 id="toc-76">平面图最小割</h4>
 <p>平面图最小割$=$对偶图最短路.</p>
 <h4 id="toc-77">最小费用任意流</h4>
@@ -478,11 +478,11 @@ $$</p>
 <p>注意如果两条增广路代价相同选流量大的那条.</p>
 <h4 id="toc-80">有负环的费用流</h4>
 <p>首先注意到:如果初始图没有负环,那无论后面怎么流都不可能出来负环.因为这意味着要么是一开始流了个正环,要么是一开始有负路径不走走正路径,都不太可能.</p>
-<p>对于所有的负边$u \rightarrow v$,我们建立两个新点$S '$和$T '$,我们先将这条负边反向权值取相反数并让答案加上$f \times v$,之后令$u \rightarrow T ' , S ' \rightarrow v$,跑$S ' \rightarrow T '$的费用流,这个时候再在残联网络上跑$s \rightarrow t$的费用流就是答案.</p>
+<p>对于所有的负边$u \rightarrow v$,我们建立两个新点$S &#39;$和$T &#39;$,我们先将这条负边反向权值取相反数并让答案加上$f \times v$,之后令$u \rightarrow T &#39; , S &#39; \rightarrow v$,跑$S &#39; \rightarrow T &#39;$的费用流,这个时候再在残联网络上跑$s \rightarrow t$的费用流就是答案.</p>
 <p>为啥会这样呢?</p>
-<p>首先先证明正确性,这个东西相当于一开始跑了一下$T ' \rightarrow u \rightarrow v \rightarrow S '$的图.然后我们在跑$S ' \rightarrow T '$的时候一定是可以把上面的那个东西所从$T ' \rightarrow S '$的所有流量全都退回去,因为这是一个可以构造的上界.也就相当于我们跑了一个环流.而在费用流里跑环流显然是不会影响答案的.</p>
-<p>好,那么为啥这么做就不会出现负环了呢?因为你不可能在跑$S ' \rightarrow T '$的时候跑个正环出来,自然不可能出现负环.</p>
-<p>另外有一点是,一个点可能向$S '$或$T '$连很多边,其实是可以拼掉的,因为这些边全都是零权边,而构造完后的图是非负权边.</p>
+<p>首先先证明正确性,这个东西相当于一开始跑了一下$T &#39; \rightarrow u \rightarrow v \rightarrow S &#39;$的图.然后我们在跑$S &#39; \rightarrow T &#39;$的时候一定是可以把上面的那个东西所从$T &#39; \rightarrow S &#39;$的所有流量全都退回去,因为这是一个可以构造的上界.也就相当于我们跑了一个环流.而在费用流里跑环流显然是不会影响答案的.</p>
+<p>好,那么为啥这么做就不会出现负环了呢?因为你不可能在跑$S &#39; \rightarrow T &#39;$的时候跑个正环出来,自然不可能出现负环.</p>
+<p>另外有一点是,一个点可能向$S &#39;$或$T &#39;$连很多边,其实是可以拼掉的,因为这些边全都是零权边,而构造完后的图是非负权边.</p>
 <h4 id="toc-81">模拟费用流</h4>
 <p>对于特殊的图,模拟EK费用流的增广过程并进行操作.</p>
 <p>对着例题记吧.</p>
@@ -511,28 +511,28 @@ $$</p>
 <p>我们先考虑证明Cayley公式:构造矩阵:</p>
 <p>$$
 \begin{bmatrix}
-- n + 1 & 1 & \cdots & 1 \\
-1 & - n + 1 & \cdots & 1 \\
-\vdots & \vdots & \ddots & \vdots \\
-1 & 1 & \cdots & - n + 1
+- n + 1 &amp; 1 &amp; \cdots &amp; 1 \\
+1 &amp; - n + 1 &amp; \cdots &amp; 1 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+1 &amp; 1 &amp; \cdots &amp; - n + 1
 \end{bmatrix}
 $$</p>
 <p>其主余子式为:</p>
 <p>$$
 \begin{bmatrix}
-- n + 1 & 1 & \cdots & 1 \\
-1 & - n + 1 & \cdots & 1 \\
-\vdots & \vdots & \ddots & \vdots \\
-1 & 1 & \cdots & - n + 1
+- n + 1 &amp; 1 &amp; \cdots &amp; 1 \\
+1 &amp; - n + 1 &amp; \cdots &amp; 1 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+1 &amp; 1 &amp; \cdots &amp; - n + 1
 \end{bmatrix}
 $$</p>
 <p>将所有行全部加到第一行:</p>
 <p>$$
 \begin{bmatrix}
-- 1 & - 1 & \cdots & - 1 \\
-1 & - n + 1 & \cdots & 1 \\
-\vdots & \vdots & \ddots & \vdots \\
-1 & 1 & \cdots & - n + 1
+- 1 &amp; - 1 &amp; \cdots &amp; - 1 \\
+1 &amp; - n + 1 &amp; \cdots &amp; 1 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+1 &amp; 1 &amp; \cdots &amp; - n + 1
 \end{bmatrix}
 $$</p>
 <p>全部加下来,然后就成了上三角矩阵,将对角线乘起来就是$n^{ n - 2 }$.</p>
@@ -549,17 +549,17 @@ $$</p>
 <p>根据行列式的定义,我们有:</p>
 <p>$$
 \begin{aligned}
-\det M & = \sum_{ \sigma } sign ( \sigma ) \prod_{ i = 1 }^n e ( a_i , b_{ \sigma ( i ) } ) \\
-& = \sum_{ \sigma } sign ( \sigma ) \prod_{ i = 1 }^n \sum_{ p_i : a_i \rightarrow b_{ \sigma ( i ) } } w ( p_i ) \\
+\det M &amp; = \sum_{ \sigma } sign ( \sigma ) \prod_{ i = 1 }^n e ( a_i , b_{ \sigma ( i ) } ) \\
+&amp; = \sum_{ \sigma } sign ( \sigma ) \prod_{ i = 1 }^n \sum_{ p_i : a_i \rightarrow b_{ \sigma ( i ) } } w ( p_i ) \\
 
 \end{aligned}
 $$</p>
 <p>考虑后面那部分,$\prod_{ i = 1 }^n \sum_{ p_i : a_i \rightarrow b_{ \sigma ( i ) } } w ( p_i ) \\$形如一个卷积的形式,所以这个式子等价于所有对应排列为$\sigma$的$P$的$w ( P )$,所以有:</p>
 <p>$$
 \begin{aligned}
-\det M & = \sum_{ \sigma } sign ( \sigma ) ( \sum_{ P : \{ a_1 , . . . , a_n \} \rightarrow \{ b_{ \sigma ( 1 ) } , . . . , b_{ \sigma ( n ) } \} } w ( P ) ) \\
-& = \sum_{ P : A \rightarrow B } sign ( \sigma ( P ) ) w ( P ) \\
-& = \sum_{ P^u : A \rightarrow B } sign ( \sigma ( P^u ) ) w ( P^u ) + \sum_{ P^c : A \rightarrow B } sign ( \sigma ( P^c ) ) w ( P^c )
+\det M &amp; = \sum_{ \sigma } sign ( \sigma ) ( \sum_{ P : \{ a_1 , . . . , a_n \} \rightarrow \{ b_{ \sigma ( 1 ) } , . . . , b_{ \sigma ( n ) } \} } w ( P ) ) \\
+&amp; = \sum_{ P : A \rightarrow B } sign ( \sigma ( P ) ) w ( P ) \\
+&amp; = \sum_{ P^u : A \rightarrow B } sign ( \sigma ( P^u ) ) w ( P^u ) + \sum_{ P^c : A \rightarrow B } sign ( \sigma ( P^c ) ) w ( P^c )
 \end{aligned}
 $$</p>
 <p>接下来只需证明$\sum_{ P^c : A \rightarrow B } sign ( \sigma ( P^c ) ) w ( P^c ) = 0 \\$即可.</p>
@@ -585,19 +585,19 @@ $$</p>
 <p>路径不相交,则终点排列只有可能是$\{ 1 , 2 , . . . , n \}$,直接使用LGV引理即可.</p>
 <h4 id="toc-91">矩阵树定理</h4>
 <h5 id="toc-92">无向图情况</h5>
-<p>定义无向图的度数矩阵$D ( G )$为:$D ( G )_{ i , j } = \begin{cases}0 & i \ne j \\ \deg_{ i } & i = j\end{cases}$.</p>
-<p>令$w ( i , j )$为$i$与$j$之间直接相连的无向边个数,定义无向图的邻接矩阵$A ( G )_{ i , j } = \begin{cases}0 & i = j \\ w ( i , j ) & i \ne j\end{cases}$</p>
+<p>定义无向图的度数矩阵$D ( G )$为:$D ( G )_{ i , j } = \begin{cases}0 &amp; i \ne j \\ \deg_{ i } &amp; i = j\end{cases}$.</p>
+<p>令$w ( i , j )$为$i$与$j$之间直接相连的无向边个数,定义无向图的邻接矩阵$A ( G )_{ i , j } = \begin{cases}0 &amp; i = j \\ w ( i , j ) &amp; i \ne j\end{cases}$</p>
 <p>定义无向图的基尔霍夫矩阵(又称拉普拉斯矩阵)$L ( G ) = D ( G ) - A ( G )$.</p>
 <p>记$t ( G )$为图$G$的生成树个数,那么有:$t ( G )$等于基尔霍夫矩阵任意一个主余子式.</p>
 <p>引理:无向图的基尔霍夫矩阵的任意一个代数余子式都相等.</p>
-<p>证明:考虑删去第$i$行,设剩下的矩阵为$A = [ \vec{ r }_1 , \vec{ r }_2 , . . . , \vec{ r }_n ]$,根据基尔霍夫矩阵的性质,不难发现$\sum{ \vec{ r }_i } = \vec{ 0 }$.$\forall 1 \leq j < k \leq n$,如果我们删去第$j$列,考虑将除了第$k$列的其它列全部加到第$k$列,于是得到矩阵$[ \vec{ r }_1 , . . . , \vec{ r }_{ j - 1 } , \vec{ r }_{ j + 1 } , . . . , \vec{ r }_{ k - 1 } , - \vec{ r }_j , \vec{ r }_{ k + 1 } , . . . , \vec{ r }_n ]$.我们接下来一路将第$k$列交换到第$j + 1$列之前并取反,我们就得到了删去第$k$列的矩阵,于是有$M_{ i , j } = ( - 1 )^{ 1 + ( k - 1 ) - ( j + 1 ) + 1 } M_{ i , k }$,也就是$C_{ i , j } = C_{ i , k }$,同理可证明$C_{ j , i } = C_{ k , i }$.</p>
+<p>证明:考虑删去第$i$行,设剩下的矩阵为$A = [ \vec{ r }_1 , \vec{ r }_2 , . . . , \vec{ r }_n ]$,根据基尔霍夫矩阵的性质,不难发现$\sum{ \vec{ r }_i } = \vec{ 0 }$.$\forall 1 \leq j &lt; k \leq n$,如果我们删去第$j$列,考虑将除了第$k$列的其它列全部加到第$k$列,于是得到矩阵$[ \vec{ r }_1 , . . . , \vec{ r }_{ j - 1 } , \vec{ r }_{ j + 1 } , . . . , \vec{ r }_{ k - 1 } , - \vec{ r }_j , \vec{ r }_{ k + 1 } , . . . , \vec{ r }_n ]$.我们接下来一路将第$k$列交换到第$j + 1$列之前并取反,我们就得到了删去第$k$列的矩阵,于是有$M_{ i , j } = ( - 1 )^{ 1 + ( k - 1 ) - ( j + 1 ) + 1 } M_{ i , k }$,也就是$C_{ i , j } = C_{ i , k }$,同理可证明$C_{ j , i } = C_{ k , i }$.</p>
 <p>接下来,用$T$表示生成树的边的集合,设$w ( T ) = \prod_{ e \in T } w ( e )$,我们只需证明$C_{ 1 , 1 } = \sum w ( T )$.</p>
-<p>定义$\zeta ( e , u ) = v , e = \{ u , v \}$,考虑构造一个$n \times m$的矩阵$A$满足$A_{ i , j } = \begin{cases}1 & i \in e_j \land i < \zeta ( e_j , i ) \\ - 1 & i \in e_j \land i > \zeta ( e_j , i ) \\ 0 & other\end{cases} \\$.</p>
+<p>定义$\zeta ( e , u ) = v , e = \{ u , v \}$,考虑构造一个$n \times m$的矩阵$A$满足$A_{ i , j } = \begin{cases}1 &amp; i \in e_j \land i &lt; \zeta ( e_j , i ) \\ - 1 &amp; i \in e_j \land i &gt; \zeta ( e_j , i ) \\ 0 &amp; other\end{cases} \\$.</p>
 <p>注意到:</p>
 <p>$$
 \begin{aligned}
-AA^T ( i , j ) & = \sum_{ k = 1 }^m A ( i , k ) A^T ( k , j ) \\
-& = \sum_{ k = 1 }^m A ( i , k ) A ( j , k ) \\
+AA^T ( i , j ) &amp; = \sum_{ k = 1 }^m A ( i , k ) A^T ( k , j ) \\
+&amp; = \sum_{ k = 1 }^m A ( i , k ) A ( j , k ) \\
 
 \end{aligned}
 $$</p>
@@ -605,8 +605,8 @@ $$</p>
 <p>定义$A$删去第一行后得到的矩阵为$B$,则$BB^T = M_{ 1 , 1 }$.此时我们带入Cauchy-Binet公式,得到:</p>
 <p>$$
 \begin{aligned}
-M_{ 1 , 1 } & = \sum_{ | S | = n - 1 , S \subseteq \{ 1 , 2 , . . . , m \} } \det ( B [ S ] B^T [ S ] ) \\
-& = \sum_{ | S | = n - 1 , S \subseteq \{ 1 , 2 , . . . , m \} } \det ( B [ S ] )^2
+M_{ 1 , 1 } &amp; = \sum_{ | S | = n - 1 , S \subseteq \{ 1 , 2 , . . . , m \} } \det ( B [ S ] B^T [ S ] ) \\
+&amp; = \sum_{ | S | = n - 1 , S \subseteq \{ 1 , 2 , . . . , m \} } \det ( B [ S ] )^2
 \end{aligned}
 $$</p>
 <p>接下来我们需要证明:如果$S$集合构成了一棵生成树,那么$\det B [ S ] = \pm 1$.反之,$\det B [ S ] = 0$.</p>
@@ -622,8 +622,8 @@ $$</p>
 <p>给定一个图,设第$i$条边的权值为$w_i$,求所有生成树的$( \sum_{ i = 1 }^{ n - 1 } w_i )^k$之和.</p>
 <p>考虑将第$e$条边边权改为$\sum_{ i = 0 }^k \cfrac{ w_e^i x^i }{ i ! }$.根据多项式定理,显然最后取$[ x^k ]$并乘以$k !$即可.</p>
 <h5 id="toc-95">有向图情况</h5>
-<p>定义有向图的出度矩阵$D^{ out } ( G ) = \begin{cases}0 & i \ne j \\ \deg^{ out }_i & i = j\end{cases}$,类似地可以定义入度矩阵$D^{ in } ( G )$.</p>
-<p>令$cnte ( i , j )$为从$i$直接连向$j$的有向边个数,定义有向图的邻接矩阵$A ( G )_{ i , j } = \begin{cases}0 & i = j \\ cnte ( i , j ) & i \ne j\end{cases}$</p>
+<p>定义有向图的出度矩阵$D^{ out } ( G ) = \begin{cases}0 &amp; i \ne j \\ \deg^{ out }_i &amp; i = j\end{cases}$,类似地可以定义入度矩阵$D^{ in } ( G )$.</p>
+<p>令$cnte ( i , j )$为从$i$直接连向$j$的有向边个数,定义有向图的邻接矩阵$A ( G )_{ i , j } = \begin{cases}0 &amp; i = j \\ cnte ( i , j ) &amp; i \ne j\end{cases}$</p>
 <p>定义有向图的出度基尔霍夫矩阵$L^{ out } ( G ) = D^{ out } ( G ) - A ( G )$,同理可以定义其入度基尔霍夫矩阵$L^{ in } ( G )$.</p>
 <p>记$t^{ root } ( r , G )$为图$G$以$r$为根的根向生成树($r$为根时,所有边都从儿子指向父亲)个数,同理可以定义叶向生成树个数$t^{ leaf } ( r , G )$.</p>
 <p>设$M^{ out }_{ r , r }$为$L^{ out }$的主余子式,有$t^{ root } ( r , G ) = M^{ out }_{ r , r }$.叶向同理.</p>
@@ -631,14 +631,14 @@ $$</p>
 <p>类似于无向图,我们考虑构造$n \times m$矩阵$A$和$( n - 1 ) \times m$矩阵$B$:</p>
 <p>$$
 \begin{aligned}
-A_{ i , j } & = \begin{cases}
-1 & e_j ' s \ head \ is \ i \\
-- 1 & e_j ' s \ tail \ is \ i \\
-0 & other
+A_{ i , j } &amp; = \begin{cases}
+1 &amp; e_j &#39; s \ head \ is \ i \\
+- 1 &amp; e_j &#39; s \ tail \ is \ i \\
+0 &amp; other
 \end{cases} \\
-B_{ i , j } & = \begin{cases}
-1 & e_j ' s \ head \ is \ i \\
-0 & other
+B_{ i , j } &amp; = \begin{cases}
+1 &amp; e_j &#39; s \ head \ is \ i \\
+0 &amp; other
 \end{cases}
 \end{aligned}
 $$</p>
@@ -693,16 +693,16 @@ $$</p>
 <p>但是注意到这题的容斥系数是$( - 1 )^k$,其中$k$是选择的儿子小于父亲的数量,然后其它的要求儿子大于父亲的边随便选.你发现你选中了一条边,无非是对答案乘以一个$- 1$,这是没有必要记录的.因此直接以$f_{ u , siz }$的状态转移就行.</p>
 <p>这个故事告诉我们别什么容斥都最后算,你能在做的过程中把$- 1$乘上去就别惦记最后统一求和了.</p>
 <h5 id="toc-104">三元环计数</h5>
-<p>我们对原图建立一个新的有向图,在新图中,如果$u \rightarrow v$,则在原图中$\deg u < \deg v$或$\deg u = \deg v \land u < v$.根据自然根号,每个点的出度不会超过$O ( \sqrt{ n } )$.</p>
+<p>我们对原图建立一个新的有向图,在新图中,如果$u \rightarrow v$,则在原图中$\deg u &lt; \deg v$或$\deg u = \deg v \land u &lt; v$.根据自然根号,每个点的出度不会超过$O ( \sqrt{ n } )$.</p>
 <p>接下来枚举原图的一条边$u \leftrightarrow v$,只要在新的图中找到$w$满足$u \rightarrow v , u \rightarrow w , v \rightarrow w$即可.打tag做一做,复杂度$O ( n \sqrt{ n } )$.</p>
 <h5 id="toc-105">四元环计数</h5>
 <p>仍然类似三元环计数那样建立新图.</p>
-<p>考虑原图中的两条边$u \leftrightarrow v$和$u \leftrightarrow v '$,我们考虑对四元环中度数最大的那个点$w$计数,对于这个$w$统计一个tag表示形如$u \leftrightarrow v \rightarrow w$的数量,每次改变$u$的时候清空一下全图tag.</p>
+<p>考虑原图中的两条边$u \leftrightarrow v$和$u \leftrightarrow v &#39;$,我们考虑对四元环中度数最大的那个点$w$计数,对于这个$w$统计一个tag表示形如$u \leftrightarrow v \rightarrow w$的数量,每次改变$u$的时候清空一下全图tag.</p>
 <h5 id="toc-106">有标号DAG计数</h5>
 <p>即:</p>
 <p>$$
 \begin{aligned}
-f_n & = \sum_{ k = 1 }^n \binom{ n }{ k } ( - 1 )^{ k - 1 } 2^{ k ( n - k ) } f_{ n - k } \\
+f_n &amp; = \sum_{ k = 1 }^n \binom{ n }{ k } ( - 1 )^{ k - 1 } 2^{ k ( n - k ) } f_{ n - k } \\
 
 \end{aligned}
 $$</p>
@@ -711,8 +711,8 @@ $$</p>
 <p>注意到一个环内部不能有任何边,那么其实也就是有标号DAG计数,只不过要乘上一个斯特林数.不妨设$g_{ n , m }$为$n$个点$m$条边的答案,再设$G_n$为其生成函数.事实上,我们自然有:</p>
 <p>$$
 \begin{aligned}
-G_n & = \sum_{ k = 1 } \binom{ n }{ k } \sum_{ j = 1 }^k{ k \brack j } ( - 1 )^{ j - 1 } ( 1 + z )^{ k ( n - k ) } G_{ n - k } \\
-& = \sum_{ k = 1 } \binom{ n }{ k } ( 1 + z )^{ k ( n - k ) } G_{ n - k } \sum_{ j = 1 }^k{ k \brack j } ( - 1 )^{ j - 1 } \\
+G_n &amp; = \sum_{ k = 1 } \binom{ n }{ k } \sum_{ j = 1 }^k{ k \brack j } ( - 1 )^{ j - 1 } ( 1 + z )^{ k ( n - k ) } G_{ n - k } \\
+&amp; = \sum_{ k = 1 } \binom{ n }{ k } ( 1 + z )^{ k ( n - k ) } G_{ n - k } \sum_{ j = 1 }^k{ k \brack j } ( - 1 )^{ j - 1 } \\
 
 \end{aligned}
 $$</p>
@@ -723,9 +723,9 @@ $$</p>
 <p>注意到$G_1 = 1$,于是:</p>
 <p>$$
 \begin{aligned}
-G_n & = n ( 1 + z )^{ n - 1 } G_{ n - 1 } \\
-& = n ! ( 1 + z )^{ \frac{ n ( n - 1 ) }{ 2 } } \\
-[ z^m ] G_n & = n ! \binom{ \frac{ n ( n - 1 ) }{ 2 } }{ m }
+G_n &amp; = n ( 1 + z )^{ n - 1 } G_{ n - 1 } \\
+&amp; = n ! ( 1 + z )^{ \frac{ n ( n - 1 ) }{ 2 } } \\
+[ z^m ] G_n &amp; = n ! \binom{ \frac{ n ( n - 1 ) }{ 2 } }{ m }
 \end{aligned}
 $$</p>
 </div>

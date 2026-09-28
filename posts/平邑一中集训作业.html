@@ -148,7 +148,7 @@ $$</p>
 <p>考虑把这个dp反过来!我们设$g_{ i , j }$表示如果初始只有$f_{ i , j } = 1$,dp到最后的答案是多少.于是只需要:</p>
 <p>$$
 \begin{aligned}
-P \times g_{ i - 1 , \max \{ 0 , j + a_{ i - 1 } \} } & \rightarrow g_{ i , j } \\
+P \times g_{ i - 1 , \max \{ 0 , j + a_{ i - 1 } \} } &amp; \rightarrow g_{ i , j } \\
 
 \end{aligned}
 $$</p>
@@ -198,15 +198,15 @@ $$</p>
 <p>首先能划分就一定需要是一个合法括号序列.同时这意味着一定可以划分出$N$个合法的序列.</p>
 <p>也就是说,我们其实只在乎这个序列最少能划分出多少,并且判断这个数字是否小于等于$K$.那么如何求这个数字呢?</p>
 <p>考虑第一个$B$,它一定会和它左边的某个$A$配对,不妨设它左边有$i$个$A$,那么最好的办法显然是这$i$个$A$和后面紧接着的$i$个$B$合并成一个序列.这是为什么呢?因为第一个$B$需要配对,因此它需要在一个序列中,把它删掉后后面的一个$B$也需要配对,而此时它前面的$A$其实都是等价的,于是选择最早的那个,以此类推.</p>
-<p>然后题解开始变魔术了.设$f [ x ]$表示第$x$个$B$前有多少个$A$,那我们做的实际上就是$x = 1$,然后不断做$x : = f [ x ] + 1$直到$x > n$.发现这样其实顺便把合法括号序列那个条件一起满足了,因为如果不合法一定会跳跳跳跳跳然后死循环.</p>
+<p>然后题解开始变魔术了.设$f [ x ]$表示第$x$个$B$前有多少个$A$,那我们做的实际上就是$x = 1$,然后不断做$x : = f [ x ] + 1$直到$x &gt; n$.发现这样其实顺便把合法括号序列那个条件一起满足了,因为如果不合法一定会跳跳跳跳跳然后死循环.</p>
 <p>那么我们的交换操作实际上是啥呢?首先不可能交换两个相同的,那实际上就是给一个$f \pm 1$,实际上显然不可能给一个$f$减一.</p>
-<p>但是这样会出现一个问题是,我们其实并不能选择任意一个$f$进行更改.那怎么办呢?事实上,只要过程中满足$\forall 1 < i \leq n , f_i \geq f_{ i - 1 }$,那我们的修改就一定可以实现.因为这等价于把后面的一个$A$挪前面去了.这样我们一开始进行操作使得整个序列满足$f_i \geq i$.</p>
+<p>但是这样会出现一个问题是,我们其实并不能选择任意一个$f$进行更改.那怎么办呢?事实上,只要过程中满足$\forall 1 &lt; i \leq n , f_i \geq f_{ i - 1 }$,那我们的修改就一定可以实现.因为这等价于把后面的一个$A$挪前面去了.这样我们一开始进行操作使得整个序列满足$f_i \geq i$.</p>
 <p>于是就有了一个$O ( n^3 )$的dp,即设$dp_{ i , k }$表示跳到$i$跳了$k$步的最小花费,每次跳到$j$的话要求把$[ i , n ]$上的所有$f$对$j - 1$取$\max$.</p>
 <p>仔细观察上面的过程,不难发现答案关于$k$是凸的,用wqs二分去掉第二维,于是现在就有了一个$O ( n^2 \log n )$的一维dp.</p>
 <p>不妨设$sum_x$表示$f_i \leq x$的$f_i$之和,$cnt_x$表示这样的$f_i$的个数,再设$pre_i$为$f$的前缀和.由于$f_i \geq i$,不难发现:</p>
 <p>$$
 \begin{aligned}
-dp_i & = dp_j + \\
+dp_i &amp; = dp_j + \\
 ( i - 1 ) ( cnt_{ i - 1 } - j + 1 ) - sum_{ i - 1 } + pre_{ j - 1 } - val
 \end{aligned}
 $$</p>
@@ -229,8 +229,8 @@ $$</p>
 <p>dp的话是下面这样的:</p>
 <p>$$
 \begin{aligned}
-dp_{ i , j , k } & \rightarrow dp_{ i + 1 , j , k } \\
-dp_{ i , j , k } & \rightarrow dp_{ i , j + 1 , k + b_i }
+dp_{ i , j , k } &amp; \rightarrow dp_{ i + 1 , j , k } \\
+dp_{ i , j , k } &amp; \rightarrow dp_{ i , j + 1 , k + b_i }
 \end{aligned}
 $$</p>
 <p>算的时候记得删掉过大的$k$.</p>
@@ -245,7 +245,7 @@ $$</p>
 <p>首先较大的那几个可以隔板法做,较小的那几个是个经典容斥:枚举有几个大于等于$x$的,这个数量不会超过$\frac{ R }{ x }$,然后剩下的暴力隔板.</p>
 <p>写式子之前考虑上面那个$s$怎么办,总不能暴力枚举,其实写出来也可以用二项式技巧去掉,但是更重要的是,为啥你不转化成和在$[ 0 , R ]$的答案减去和在$[ 0 , L - 1 ]$的答案呢?这下做完了.</p>
 <p>于是我们只考虑限制是$[ 0 , R ]$.</p>
-<p>这个时候我还在想要把左右两边分开求答案然后卷起来,但是这样还是避免不了枚举一边的和.事实上,我们可以把二者放在一起做容斥.下面式子会给出一个显式的表达.另外就是,有一个很大的问题在于我们如何钦定$a_M = x$,这一点其实是难以做到的.但我们可以钦定$a_M \geq x , a_{ M + 1 } < x$,然后再减去$a_M \geq x + 1 , a_{ M + 1 } < x$.为了方便,我们不妨设$a_M \geq x , a_{ M + 1 } \leq y$的答案是$f ( x , y )$,然后我们要求的就是$\sum_{ x } f ( x , x - 1 ) - f ( x + 1 , x - 1 )$.</p>
+<p>这个时候我还在想要把左右两边分开求答案然后卷起来,但是这样还是避免不了枚举一边的和.事实上,我们可以把二者放在一起做容斥.下面式子会给出一个显式的表达.另外就是,有一个很大的问题在于我们如何钦定$a_M = x$,这一点其实是难以做到的.但我们可以钦定$a_M \geq x , a_{ M + 1 } &lt; x$,然后再减去$a_M \geq x + 1 , a_{ M + 1 } &lt; x$.为了方便,我们不妨设$a_M \geq x , a_{ M + 1 } \leq y$的答案是$f ( x , y )$,然后我们要求的就是$\sum_{ x } f ( x , x - 1 ) - f ( x + 1 , x - 1 )$.</p>
 <p>接下来写一下$f ( x , y )$的式子:</p>
 <p>$$
 f ( x , y ) = \sum_{ i = 0 } \binom{ N - M }{ i } ( - 1 )^i \binom{ R - Mx - i ( y + 1 ) + N }{ N }
@@ -258,11 +258,11 @@ $$</p>
 <p>于是我们考虑枚举分界点,对于每个分界点枚举答案.不妨设左侧有$a_l$个问号,总共有$a$个问问号,答案显然是:</p>
 <p>$$
 \begin{aligned}
-& \sum_{ k } k \binom{ a_l }{ k - s_l } \binom{ a - a_l }{ k - s_r } \\
-= & \sum_{ k } ( k - s_l ) \binom{ a_l }{ k - s_l } \binom{ a - a_l }{ k - s_r } + \sum_{ k } s_l \binom{ a_l }{ k - s_l } \binom{ a - a_l }{ k - s_r } \\
-= & a_l \sum_{ k } \binom{ a_l - 1 }{ k - s_l - 1 } \binom{ a - a_l }{ k - s_r } + s_l \sum_{ k } \binom{ a_l }{ k - s_l } \binom{ a - a_l }{ k - s_r } \\
-= & a_l \sum_{ k } \binom{ a_l - 1 }{ a_l - k + s_l } \binom{ a - a_l }{ k - s_r } + s_l \sum_{ k } \binom{ a_l }{ a_l - k + s_l } \binom{ a - a_l }{ k - s_r } \\
-= & a_l \binom{ a - 1 }{ a_l + s_l - s_r } + s_l \binom{ a }{ a_l + s_l - s_r }
+&amp; \sum_{ k } k \binom{ a_l }{ k - s_l } \binom{ a - a_l }{ k - s_r } \\
+= &amp; \sum_{ k } ( k - s_l ) \binom{ a_l }{ k - s_l } \binom{ a - a_l }{ k - s_r } + \sum_{ k } s_l \binom{ a_l }{ k - s_l } \binom{ a - a_l }{ k - s_r } \\
+= &amp; a_l \sum_{ k } \binom{ a_l - 1 }{ k - s_l - 1 } \binom{ a - a_l }{ k - s_r } + s_l \sum_{ k } \binom{ a_l }{ k - s_l } \binom{ a - a_l }{ k - s_r } \\
+= &amp; a_l \sum_{ k } \binom{ a_l - 1 }{ a_l - k + s_l } \binom{ a - a_l }{ k - s_r } + s_l \sum_{ k } \binom{ a_l }{ a_l - k + s_l } \binom{ a - a_l }{ k - s_r } \\
+= &amp; a_l \binom{ a - 1 }{ a_l + s_l - s_r } + s_l \binom{ a }{ a_l + s_l - s_r }
 \end{aligned}
 $$</p>
 <p>不过这里有个问题啊,那就是$a = 0$怎么办,扩域的二项式我其实是不太会算的.于是我特判了$a = 0$.</p>
@@ -275,28 +275,28 @@ $$</p>
 <p>但是但是但是,我们写一个$O ( n^2 )$的dp,$f_{ i , j , 0 / 1 , 0 / 1 }$表示当前做到$i$,有$j$条折线,左端点是否已经选定,右端点是否已经选定.为啥要记录后两维呢?因为这不是环,这是一个排列,最左侧端点和最右侧端点是有可能直接停步的.因此我们还得讨论这个.说实话有点麻烦,所以我们先忽略左右端点,假设它们一直延伸.不妨设$k = cnt_{ merge } - cnt_{ split }$,自然有$k = 2 j - b_i$.不放在设$w = cnt_{ split } , cnt_{ merge } = k + w$,再设$F ( n , m )$为将$n$个无编号球放到$m$个有编号盒子(盒子可空)的方案数,不难发现$F ( n , m ) = \binom{ n + m - 1 }{ m - 1 }$.那我们有:</p>
 <p>$$
 \begin{aligned}
-f_{ i - 1 , j } \sum_{ w \geq 0 } \binom{ j - 1 }{ k + w } F ( w , j - w - k + 1 ) & \rightarrow f_{ i , j - k } \\
-f_{ i - 1 , j } \sum_{ w } \binom{ j - 1 }{ k + w } \binom{ j - k }{ j - w - k } & \rightarrow f_{ i , j - k } \\
-f_{ i - 1 , j } \binom{ 2 j - k - 1 }{ j } & \rightarrow f_{ i , j - k } \\
+f_{ i - 1 , j } \sum_{ w \geq 0 } \binom{ j - 1 }{ k + w } F ( w , j - w - k + 1 ) &amp; \rightarrow f_{ i , j - k } \\
+f_{ i - 1 , j } \sum_{ w } \binom{ j - 1 }{ k + w } \binom{ j - k }{ j - w - k } &amp; \rightarrow f_{ i , j - k } \\
+f_{ i - 1 , j } \binom{ 2 j - k - 1 }{ j } &amp; \rightarrow f_{ i , j - k } \\
 
 \end{aligned}
 $$</p>
-<p>用范德蒙德卷积的时候一定要注意,这个东西是扩域后的二项式,因此一定要在意一下枚举量是否取遍整数,这里是发现如果$w < 0$,那么后面那个组合数一定是$0$.</p>
+<p>用范德蒙德卷积的时候一定要注意,这个东西是扩域后的二项式,因此一定要在意一下枚举量是否取遍整数,这里是发现如果$w &lt; 0$,那么后面那个组合数一定是$0$.</p>
 <p>原本其实很怕这个转移,因为觉得很麻烦,但其实写出来就不麻烦了.甚至加两维也是好做的,我们不妨设后两维的和为$t$,就是几个端点是挂的,我们仍然有:</p>
 <p>$$
 \begin{aligned}
-b_i & = 2 ( j - k ) + cnt_{ merge } - cnt_{ split } - t + \Delta t \\
-k & = 2 j - t + \Delta t - b_i
+b_i &amp; = 2 ( j - k ) + cnt_{ merge } - cnt_{ split } - t + \Delta t \\
+k &amp; = 2 j - t + \Delta t - b_i
 \end{aligned}
 $$</p>
 <p>其中$\Delta t$是决定在这里停步的端点数量,$t$是停步后的端点数量,$j - k$是做完选择后,在$i$处的折线数量,两个$cnt$都是在做选择的<strong>过程中</strong>所做的merge和split的抉择数量.这样我们就完成了转移.</p>
-<p>没完没完,差点就寄了.如果左右端点没有确认,那么我们是可以在左边或者右边split的.令$t ' = t - \Delta t$,于是重推一下式子:</p>
+<p>没完没完,差点就寄了.如果左右端点没有确认,那么我们是可以在左边或者右边split的.令$t &#39; = t - \Delta t$,于是重推一下式子:</p>
 <p>$$
 \begin{aligned}
-f_{ i - 1 , j } \sum_{ w \geq 0 } \binom{ j - 1 }{ k + w } F ( w , j - w - k + 1 - t ' ) & \rightarrow f_{ i , j - k } \\
-f_{ i - 1 , j } \sum_{ w } \binom{ j - 1 }{ k + w } \binom{ j - k - t ' }{ j - w - k - t ' } & \rightarrow f_{ i , j - k } \\
-f_{ i - 1 , j } \binom{ 2 j - k - 1 - t ' }{ j - t ' } & \rightarrow f_{ i , j - k } \\
-f_{ i - 1 , j } \binom{ b_i - 1 }{ j - t ' } & \rightarrow f_{ i , j - k } \\
+f_{ i - 1 , j } \sum_{ w \geq 0 } \binom{ j - 1 }{ k + w } F ( w , j - w - k + 1 - t &#39; ) &amp; \rightarrow f_{ i , j - k } \\
+f_{ i - 1 , j } \sum_{ w } \binom{ j - 1 }{ k + w } \binom{ j - k - t &#39; }{ j - w - k - t &#39; } &amp; \rightarrow f_{ i , j - k } \\
+f_{ i - 1 , j } \binom{ 2 j - k - 1 - t &#39; }{ j - t &#39; } &amp; \rightarrow f_{ i , j - k } \\
+f_{ i - 1 , j } \binom{ b_i - 1 }{ j - t &#39; } &amp; \rightarrow f_{ i , j - k } \\
 
 \end{aligned}
 $$</p>
@@ -309,8 +309,8 @@ $$</p>
 <p>更进一步地,我们发现只要排列中有$p^k$的倍数,我们就直接贡献一个$p$作为答案.因此我们枚举$q = p^k$并统计有多少个排列至少有长度为$q$的倍数的环.这都至少了,直接容斥就行,我们设当前有$i$个点,自然有:</p>
 <p>$$
 \begin{aligned}
-f_{ i } & = \sum_{ q | k } - f_{ i - k , j - 1 } \binom{ i - 1 }{ k - 1 } ( k - 1 ) ! \\
-& = \sum_{ q | k } -{ ( i - 1 ) }^{ \underline{ k - 1 } } f_{ i - k , j - 1 }
+f_{ i } &amp; = \sum_{ q | k } - f_{ i - k , j - 1 } \binom{ i - 1 }{ k - 1 } ( k - 1 ) ! \\
+&amp; = \sum_{ q | k } -{ ( i - 1 ) }^{ \underline{ k - 1 } } f_{ i - k , j - 1 }
 \end{aligned}
 $$</p>
 <p>$\sum_{ q | i } - f_i \times ( n - i ) ! \times \binom{ n }{ i }$就是答案.这样复杂度是$O ( \sum ( \frac{ n }{ q } )^2 ) = O ( n^2 )$,事实上要更少,因为你发现我们只会对某个$q = p^k$做这个东西.</p>
@@ -319,7 +319,7 @@ $$</p>
 <p><a href="https://www.luogu.com.cn/problem/AT_agc060_d" target="_blank" rel="noopener noreferrer">https://www.luogu.com.cn/problem/AT_agc060_d</a></p>
 <p>ps:本题选入笔记:常见套路-组合意义-Example3.</p>
 <p>这题听了三遍,直接抄笔记.</p>
-<p>不妨设$C_p = \{ i | p_i > p_{ i + 1 } , 1 \leq i < n \}$.</p>
+<p>不妨设$C_p = \{ i | p_i &gt; p_{ i + 1 } , 1 \leq i &lt; n \}$.</p>
 <p>用一下组合意义,注意到答案等于:</p>
 <p>$$
 \sum_{ S } ( \sum_{ p } [ S = C_p ] )^2
@@ -331,32 +331,32 @@ $$</p>
 <p>这个咋做呢?我们考虑用组合意义展开:</p>
 <p>$$
 \begin{aligned}
-& \sum_{ S } ( \sum_{ S \subseteq T } \sum_{ p } ( - 1 )^{ | T | - | S | } [ T \subseteq C_p ] )^2 \\
-= & \sum_{ S } \sum_{ S \subseteq T_1 , T_2 } ( - 1 )^{ | T_1 | + | T_2 | } ( \sum_{ p } [ T_1 \subseteq C_p ] ) ( \sum_p [ T_2 \subseteq C_p ] )
+&amp; \sum_{ S } ( \sum_{ S \subseteq T } \sum_{ p } ( - 1 )^{ | T | - | S | } [ T \subseteq C_p ] )^2 \\
+= &amp; \sum_{ S } \sum_{ S \subseteq T_1 , T_2 } ( - 1 )^{ | T_1 | + | T_2 | } ( \sum_{ p } [ T_1 \subseteq C_p ] ) ( \sum_p [ T_2 \subseteq C_p ] )
 \end{aligned}
 $$</p>
 <p>注意到$S$屁用没有,直接交换枚举顺序.</p>
 <p>$$
 \begin{aligned}
-& \sum_{ S } \sum_{ S \subseteq T_1 , T_2 } ( - 1 )^{ | T_1 | + | T_2 | } ( \sum_{ p } [ T_1 \subseteq C_p ] ) ( \sum_p [ T_2 \subseteq C_p ] ) \\
-= & \sum_{ T_1 , T_2 } 2^{ | T_1 \cap T_2 | } ( - 1 )^{ | T_1 | + | T_2 | } ( \sum_{ p } [ T_1 \subseteq C_p ] ) ( \sum_p [ T_2 \subseteq C_p ] )
+&amp; \sum_{ S } \sum_{ S \subseteq T_1 , T_2 } ( - 1 )^{ | T_1 | + | T_2 | } ( \sum_{ p } [ T_1 \subseteq C_p ] ) ( \sum_p [ T_2 \subseteq C_p ] ) \\
+= &amp; \sum_{ T_1 , T_2 } 2^{ | T_1 \cap T_2 | } ( - 1 )^{ | T_1 | + | T_2 | } ( \sum_{ p } [ T_1 \subseteq C_p ] ) ( \sum_p [ T_2 \subseteq C_p ] )
 \end{aligned}
 $$</p>
-<p>考虑$( \sum_{ p } [ T_1 \subseteq C_p ] )$怎么求,注意到这等价于所有$T_1$中的位置全都被钦定为$>$,而其他位置任意,如果我们设所有以大于号连接的部分的长度为$l_1 , l_2 , . . . , l_k$,那么这里的答案就是$n ! \prod_{ i = 1 }^k \frac{ 1 }{ l_i ! }$.</p>
+<p>考虑$( \sum_{ p } [ T_1 \subseteq C_p ] )$怎么求,注意到这等价于所有$T_1$中的位置全都被钦定为$&gt;$,而其他位置任意,如果我们设所有以大于号连接的部分的长度为$l_1 , l_2 , . . . , l_k$,那么这里的答案就是$n ! \prod_{ i = 1 }^k \frac{ 1 }{ l_i ! }$.</p>
 <p>但我们很快发现了难点:$2^{ | T_1 \cap T_2 | }$这个东西是难求的,怎么办呢?</p>
-<p>我们考虑一下这个东西的意义:其实也就是在$T_1$和$T_2$中都是$>$的位置,这个好像不太好求,因为$>$是很平常的,但如果取补集就不一样了,取补集后意味着都是任意的位置的数量,而我们上面已经发现了:如果有一个位置对前后两个数字的约束是独立的,那我们可以把前后两个位置拆开.于是我们有:</p>
+<p>我们考虑一下这个东西的意义:其实也就是在$T_1$和$T_2$中都是$&gt;$的位置,这个好像不太好求,因为$&gt;$是很平常的,但如果取补集就不一样了,取补集后意味着都是任意的位置的数量,而我们上面已经发现了:如果有一个位置对前后两个数字的约束是独立的,那我们可以把前后两个位置拆开.于是我们有:</p>
 <p>$$
 \begin{aligned}
-& \sum_{ T_1 , T_2 } 2^{ | T_1 \cap T_2 | } ( - 1 )^{ | T_1 | + | T_2 | } ( \sum_{ p } [ T_1 \subseteq C_p ] ) ( \sum_p [ T_2 \subseteq C_p ] ) \\
-= & \sum_{ T_1 , T_2 } 2^{ ( ( n - 1 ) - | T_1 \cup T_2 | ) - ( n - 1 ) } ( - 2 )^{ | T_1 | + | T_2 | } ( \sum_{ p } [ T_1 \subseteq C_p ] ) ( \sum_p [ T_2 \subseteq C_p ] ) \\
-= & 2^{ 1 - n } ( n ! )^2 \sum_{ T_1 } ( ( - 2 )^{ | T_1 | } \frac{ 1 }{ \prod l_{ 1 , i } ! } ) \sum_{ T_2 } ( ( - 2 )^{ | T_2 | } \frac{ 1 }{ \prod l_{ 2 , i } ! } ) 2^{ n - 1 - | T_1 \cup T_2 | }
+&amp; \sum_{ T_1 , T_2 } 2^{ | T_1 \cap T_2 | } ( - 1 )^{ | T_1 | + | T_2 | } ( \sum_{ p } [ T_1 \subseteq C_p ] ) ( \sum_p [ T_2 \subseteq C_p ] ) \\
+= &amp; \sum_{ T_1 , T_2 } 2^{ ( ( n - 1 ) - | T_1 \cup T_2 | ) - ( n - 1 ) } ( - 2 )^{ | T_1 | + | T_2 | } ( \sum_{ p } [ T_1 \subseteq C_p ] ) ( \sum_p [ T_2 \subseteq C_p ] ) \\
+= &amp; 2^{ 1 - n } ( n ! )^2 \sum_{ T_1 } ( ( - 2 )^{ | T_1 | } \frac{ 1 }{ \prod l_{ 1 , i } ! } ) \sum_{ T_2 } ( ( - 2 )^{ | T_2 | } \frac{ 1 }{ \prod l_{ 2 , i } ! } ) 2^{ n - 1 - | T_1 \cup T_2 | }
 \end{aligned}
 $$</p>
-<p>其中$n - 1 - | T_1 \cup T_2 |$意味着均不在$T_1$和$T_2$中的位置的数量.为了给每一段连续的$>$都分配权值,我们进行一个细小的修改:</p>
+<p>其中$n - 1 - | T_1 \cup T_2 |$意味着均不在$T_1$和$T_2$中的位置的数量.为了给每一段连续的$&gt;$都分配权值,我们进行一个细小的修改:</p>
 <p>$$
 2^{ - 1 - n } ( n ! )^2 \sum_{ T_1 } ( ( - 2 )^{ | T_1 | + 1 } \frac{ 1 }{ \prod l_{ 1 , i } ! } ) \sum_{ T_2 } ( ( - 2 )^{ | T_2 | + 1 } \frac{ 1 }{ \prod l_{ 2 , i } ! } ) 2^{ n - 1 - | T_1 \cup T_2 | }
 $$</p>
-<p>写到这里应该就能发现,接下来必然要对$n - 1 - | T_1 \cup T_2 |$做整体操作.那我们再这么搞可能就很难受,我们采取这样的方式:对$T_1$和$T_2$求补集,这样它们的含义就变成了除了集合中的元素,剩下的全部被钦定为了$>$,我们自然有:</p>
+<p>写到这里应该就能发现,接下来必然要对$n - 1 - | T_1 \cup T_2 |$做整体操作.那我们再这么搞可能就很难受,我们采取这样的方式:对$T_1$和$T_2$求补集,这样它们的含义就变成了除了集合中的元素,剩下的全部被钦定为了$&gt;$,我们自然有:</p>
 <p>$$
 \begin{gathered}
 2^{ 1 + n } ( n ! )^2 \sum_{ T_1 } ( \frac{ 1 }{ ( - 2 )^{ | T_1 | + 1 } } \frac{ 1 }{ \prod l_{ 1 , i } ! } ) \sum_{ T_2 } ( \frac{ 1 }{ ( - 2 )^{ | T_2 | + 1 } } \frac{ 1 }{ \prod l_{ 2 , i } ! } ) 2^{ | T_1 \cap T_2 | } \\
@@ -366,8 +366,8 @@ $$</p>
 <p>这里已经很显然了,我们大概要做一个不断加段的做法,那此时$| T_1 \cap T_2 |$这个限制就显得尤其强,如果只是$S \subseteq T_1 , T_2$就会好做很多:我们可以钦定$S$作为分界线,然后把两边的东西卷起来.因此我们暴力拆开后面的式子:</p>
 <p>$$
 \begin{aligned}
-& 2^{ 1 + n } ( n ! )^2 \sum_{ T_1 } ( \frac{ 1 }{ ( - 2 )^{ | T_1 | + 1 } } \frac{ 1 }{ \prod l_{ 1 , i } ! } ) \sum_{ T_2 } ( \frac{ 1 }{ ( - 2 )^{ | T_2 | + 1 } } \frac{ 1 }{ \prod l_{ 2 , i } ! } ) 2^{ | T_1 \cap T_2 | } \\
-= & 2^{ 1 + n } ( n ! )^2 \sum_{ S } \sum_{ S \subseteq T_1 } ( \frac{ 1 }{ ( - 2 )^{ | T_1 | + 1 } } \frac{ 1 }{ \prod l_{ 1 , i } ! } ) \sum_{ S \subseteq T_2 } ( \frac{ 1 }{ ( - 2 )^{ | T_2 | + 1 } } \frac{ 1 }{ \prod l_{ 2 , i } ! } ) \\
+&amp; 2^{ 1 + n } ( n ! )^2 \sum_{ T_1 } ( \frac{ 1 }{ ( - 2 )^{ | T_1 | + 1 } } \frac{ 1 }{ \prod l_{ 1 , i } ! } ) \sum_{ T_2 } ( \frac{ 1 }{ ( - 2 )^{ | T_2 | + 1 } } \frac{ 1 }{ \prod l_{ 2 , i } ! } ) 2^{ | T_1 \cap T_2 | } \\
+= &amp; 2^{ 1 + n } ( n ! )^2 \sum_{ S } \sum_{ S \subseteq T_1 } ( \frac{ 1 }{ ( - 2 )^{ | T_1 | + 1 } } \frac{ 1 }{ \prod l_{ 1 , i } ! } ) \sum_{ S \subseteq T_2 } ( \frac{ 1 }{ ( - 2 )^{ | T_2 | + 1 } } \frac{ 1 }{ \prod l_{ 2 , i } ! } ) \\
 
 \end{aligned}
 $$</p>
@@ -381,7 +381,7 @@ $$</p>
 $$</p>
 <p>注意到,如果我们把每一段($[ T_i , T_{ i + 1 } )$)的贡献求和,那么$f ( T )$相当于这些和乘起来,那么$( \sum_{ S \subseteq T } f ( T ) )^2$就是这些和的平方乘起来.换句话说,我们自然有$ans_n = \sum_{ m } ans_{ n - m } g^2_{ m }$,其中$g_m$表示长度为$m$的一段的贡献之和.而$g_{ n } = \sum_m g_{ n - m } \frac{ 1 }{ - 2 m ! }$.二者都可以使用分治FFT或多项式求逆解决.更进一步地,$h_i = \frac{ 1 }{ - 2 i ! } , G = \frac{ 1 }{ 1 - H } , F = \frac{ 1 }{ 1 - G }$.</p>
 <p>这题还有一个做法:tyy的变魔术做法.</p>
-<p>还是容斥,考虑将$( > , > )$容斥掉,这样我们有若干种对:$2 ( < , < ) , 1 ( e , e ) , - ( e , < ) , - ( < , e )$,然后我们发现两个序列联系得太紧了,我们考虑分配系数:$< \rightarrow \sqrt{ 2 }$,$e \rightarrow - \frac{ 1 }{ \sqrt{ 2 } }$,但是这样发现$( e , e )$算错了,你把剩下的补上就行.你会发现这个式子和上面我们推的是等价的,但是变魔术.</p>
+<p>还是容斥,考虑将$( &gt; , &gt; )$容斥掉,这样我们有若干种对:$2 ( &lt; , &lt; ) , 1 ( e , e ) , - ( e , &lt; ) , - ( &lt; , e )$,然后我们发现两个序列联系得太紧了,我们考虑分配系数:$&lt; \rightarrow \sqrt{ 2 }$,$e \rightarrow - \frac{ 1 }{ \sqrt{ 2 } }$,但是这样发现$( e , e )$算错了,你把剩下的补上就行.你会发现这个式子和上面我们推的是等价的,但是变魔术.</p>
 <h4 id="toc-35">第七题</h4>
 <p><a href="https://www.luogu.com.cn/problem/CF1188E" target="_blank" rel="noopener noreferrer">https://www.luogu.com.cn/problem/CF1188E</a></p>
 <p>首先发现肯定不可能所有颜色都点过,那么至少有一个颜色没点过.</p>
@@ -421,8 +421,8 @@ $$</p>
 <p>发现我们要求恰好$k$个,自然的想法是想到钦定$k$个,不妨假设钦定$k$个的答案是$f_k$,自然有:</p>
 <p>$$
 \begin{aligned}
-f_k & = \sum_{ i = k }^n \binom{ i }{ k } ans_i \\
-ans_k & = \sum_{ i = k }^n \binom{ i }{ k } ( - 1 )^{ i - k } f_i
+f_k &amp; = \sum_{ i = k }^n \binom{ i }{ k } ans_i \\
+ans_k &amp; = \sum_{ i = k }^n \binom{ i }{ k } ( - 1 )^{ i - k } f_i
 \end{aligned}
 $$</p>
 <p>至于$f$怎么求,你直接dp,设$dp_{ i , j }$表示当前在$i$,子树内部选了$j$对祖先后代,那我们就知道目前子树内还有多少可以和$i$配对.合并是个树形背包.</p>
@@ -437,18 +437,18 @@ $$</p>
 <p>写到这里发现一个问题(其实是我发现问题后把上面原本写错的给改了),为啥$f_{ n , m } \ne \binom{ N }{ n } \binom{ M }{ m } k^{ nm } ( k - 1 )^{ NM - nm }$呢?我们写成子集反演形式看看:</p>
 <p>$$
 \begin{aligned}
-f_{ S , T } & = \sum_{ s \subseteq S } \sum_{ t \subseteq T } g_{ s , t } \\
-f_{ S , T } & = \sum_{ s \subseteq S } h_{ s , T } \\
-h_{ S , T } & = \sum_{ t \subseteq T } g_{ S , t } \\
+f_{ S , T } &amp; = \sum_{ s \subseteq S } \sum_{ t \subseteq T } g_{ s , t } \\
+f_{ S , T } &amp; = \sum_{ s \subseteq S } h_{ s , T } \\
+h_{ S , T } &amp; = \sum_{ t \subseteq T } g_{ S , t } \\
 
 \end{aligned}
 $$</p>
 <p>做子集反演:</p>
 <p>$$
 \begin{aligned}
-f_{ S , T } & = k^{ | S | \times | T | } ( k - 1 )^{ NM - | S | | T | } \\
-h_{ S , T } & = \sum_{ s \subseteq S } ( - 1 )^{ | s | - | S | } f_{ s , T } \\
-g_{ S , T } & = \sum_{ t \subseteq T } ( - 1 )^{ | t | - | T | } h_{ S , t }
+f_{ S , T } &amp; = k^{ | S | \times | T | } ( k - 1 )^{ NM - | S | | T | } \\
+h_{ S , T } &amp; = \sum_{ s \subseteq S } ( - 1 )^{ | s | - | S | } f_{ s , T } \\
+g_{ S , T } &amp; = \sum_{ t \subseteq T } ( - 1 )^{ | t | - | T | } h_{ S , t }
 \end{aligned}
 $$</p>
 <p>把集合改成集合大小就可以发现问题所在:</p>
@@ -456,9 +456,9 @@ $$</p>
 <p>啥?这和我平常接触的二项式反演不一样啊?不说别的,第四题(BZOJ2839)的式子是这样的:</p>
 <p>$$
 \begin{aligned}
-f_i & = 2^{ 2^{ n - i } } \binom{ n }{ i } \\
-f_k & = \sum_{ i = k }^n \binom{ i }{ k } g_i \\
-g_k & = \sum_{ i = k }^n ( - 1 )^{ i - k } \binom{ i }{ k } f_i
+f_i &amp; = 2^{ 2^{ n - i } } \binom{ n }{ i } \\
+f_k &amp; = \sum_{ i = k }^n \binom{ i }{ k } g_i \\
+g_k &amp; = \sum_{ i = k }^n ( - 1 )^{ i - k } \binom{ i }{ k } f_i
 \end{aligned}
 $$</p>
 <p>冷静一下,二项式反演的公式肯定没错,那也就一定是下面这几句出现了问题:</p>
@@ -475,7 +475,7 @@ $$</p>
 <p>回到第四题,再看一遍这个式子:</p>
 <p>$$
 \begin{aligned}
-f_k & = \sum_{ i = k }^n \binom{ i }{ k } g_i \\
+f_k &amp; = \sum_{ i = k }^n \binom{ i }{ k } g_i \\
 
 \end{aligned}
 $$</p>
@@ -489,24 +489,24 @@ $$</p>
 <p>所以,实际上的$f$是这样的:</p>
 <p>$$
 \begin{aligned}
-f_{ n , m } & = \binom{ N }{ n } \binom{ M }{ m } \sum_{ i = 0 }^n \binom{ n }{ i } \sum_{ j = 0 }^m \binom{ m }{ j } g_{ i , j } \\
-f_{ n , m } & = \binom{ N }{ n } \binom{ M }{ m } k^{ nm } ( k - 1 )^{ NM - nm }
+f_{ n , m } &amp; = \binom{ N }{ n } \binom{ M }{ m } \sum_{ i = 0 }^n \binom{ n }{ i } \sum_{ j = 0 }^m \binom{ m }{ j } g_{ i , j } \\
+f_{ n , m } &amp; = \binom{ N }{ n } \binom{ M }{ m } k^{ nm } ( k - 1 )^{ NM - nm }
 \end{aligned}
 $$</p>
 <p>好麻烦啊,能不能避免这种需要进一步思考集合意义的问题呢?</p>
 <p>考虑二项式反演的第二个形式:</p>
 <p>$$
 \begin{aligned}
-f ( n ) & = \sum_{ k = n }^N C_n^k g ( k ) \Leftrightarrow g ( n ) = \sum_{ k = n }^N ( - 1 )^{ k - n } C_n^k f ( k ) \\
+f ( n ) &amp; = \sum_{ k = n }^N C_n^k g ( k ) \Leftrightarrow g ( n ) = \sum_{ k = n }^N ( - 1 )^{ k - n } C_n^k f ( k ) \\
 
 \end{aligned}
 $$</p>
 <p>不难发现这个式子无论怎么写,前后都一定是从已知集合中选东西.绝对不会出现上面的问题.</p>
-<p>因此,我们重新写一下这个题的相关式子,考虑直接正难则反,设$f '_{ i , j }$为至少有$i$行$j$列不满足条件的方案数,自然有$f '_{ i , j } = f_{ N - i , M - j }$.你发现此时一定有:</p>
+<p>因此,我们重新写一下这个题的相关式子,考虑直接正难则反,设$f &#39;_{ i , j }$为至少有$i$行$j$列不满足条件的方案数,自然有$f &#39;_{ i , j } = f_{ N - i , M - j }$.你发现此时一定有:</p>
 <p>$$
-f '_{ n , m } = \sum_{ i = n }^N \binom{ i }{ n } \sum_{ j = m }^M \binom{ j }{ m } g '_{ i , j }
+f &#39;_{ n , m } = \sum_{ i = n }^N \binom{ i }{ n } \sum_{ j = m }^M \binom{ j }{ m } g &#39;_{ i , j }
 $$</p>
-<p>最后答案就是$g '_{ 0 , 0 }$.</p>
+<p>最后答案就是$g &#39;_{ 0 , 0 }$.</p>
 <h4 id="toc-44">第八题</h4>
 <p><a href="https://www.luogu.com.cn/problem/CF997C" target="_blank" rel="noopener noreferrer">https://www.luogu.com.cn/problem/CF997C</a></p>
 <p>和上一题差不多,不妨设$g_{ n , m }$表示恰好有$n$行$m$列同色的答案,$f_{ i , j }$为钦定$i$行$j$列同色的答案,自然有:</p>
@@ -525,17 +525,17 @@ $$</p>
 <p>看后面那一块:</p>
 <p>$$
 \begin{aligned}
-& \sum_{ j = 1 }^N ( - 1 )^{ j } \binom{ N }{ j }{ ( 3^{ ( N - i ) } ) }^{ ( N - j ) } \\
-= & ( - 1 )^{ [ N \ne 0 \pmod{ 2 } ] } \sum_{ j = 1 }^N ( - 1 )^{ N - j } \binom{ N }{ N - j }{ ( 3^{ ( N - i ) } ) }^{ ( N - j ) }
+&amp; \sum_{ j = 1 }^N ( - 1 )^{ j } \binom{ N }{ j }{ ( 3^{ ( N - i ) } ) }^{ ( N - j ) } \\
+= &amp; ( - 1 )^{ [ N \ne 0 \pmod{ 2 } ] } \sum_{ j = 1 }^N ( - 1 )^{ N - j } \binom{ N }{ N - j }{ ( 3^{ ( N - i ) } ) }^{ ( N - j ) }
 \end{aligned}
 $$</p>
 <p>再看后面那一块:</p>
 <p>$$
 \begin{aligned}
-& \sum_{ j = 1 }^N ( - 1 )^{ N - j } \binom{ N }{ N - j }{ ( 3^{ ( N - i ) } ) }^{ ( N - j ) } \\
-= & \sum_{ j = 0 }^{ N - 1 } ( - 1 )^j \binom{ N }{ j }{ ( 3^{ N - i } ) }^{ j } \\
-= & \sum_{ j = 0 }^{ N } ( - 1 )^j \binom{ N }{ j }{ ( 3^{ N - i } ) }^{ j } - ( - 1 )^N{ ( 3^{ N - i } ) }^N \\
-= & ( 1 - 3^{ N - i } )^N - ( - 1 )^N{ ( 3^{ N - i } ) }^N
+&amp; \sum_{ j = 1 }^N ( - 1 )^{ N - j } \binom{ N }{ N - j }{ ( 3^{ ( N - i ) } ) }^{ ( N - j ) } \\
+= &amp; \sum_{ j = 0 }^{ N - 1 } ( - 1 )^j \binom{ N }{ j }{ ( 3^{ N - i } ) }^{ j } \\
+= &amp; \sum_{ j = 0 }^{ N } ( - 1 )^j \binom{ N }{ j }{ ( 3^{ N - i } ) }^{ j } - ( - 1 )^N{ ( 3^{ N - i } ) }^N \\
+= &amp; ( 1 - 3^{ N - i } )^N - ( - 1 )^N{ ( 3^{ N - i } ) }^N
 \end{aligned}
 $$</p>
 <p>这样就做完了.</p>
@@ -544,8 +544,8 @@ $$</p>
 <p>直接二项式反演:</p>
 <p>$$
 \begin{aligned}
-f_k & = \sum_{ i = k }^{ m } ( - 1 )^{ i - k } \binom{ m }{ i } \binom{ i }{ k } \binom{ n }{ iS } \frac{ ( iS ) ! }{ ( S ! )^i } ( m - i )^{ n - iS } \\
-& = \sum_{ i = k }^{ m } ( - 1 )^{ i - k } \frac{ m ! }{ ( m - i ) ! } \frac{ 1 }{ k ! ( i - k ) ! } \frac{ n ! }{ ( n - iS ) ! } \frac{ 1 }{ ( S ! )^i } ( m - i )^{ n - iS }
+f_k &amp; = \sum_{ i = k }^{ m } ( - 1 )^{ i - k } \binom{ m }{ i } \binom{ i }{ k } \binom{ n }{ iS } \frac{ ( iS ) ! }{ ( S ! )^i } ( m - i )^{ n - iS } \\
+&amp; = \sum_{ i = k }^{ m } ( - 1 )^{ i - k } \frac{ m ! }{ ( m - i ) ! } \frac{ 1 }{ k ! ( i - k ) ! } \frac{ n ! }{ ( n - iS ) ! } \frac{ 1 }{ ( S ! )^i } ( m - i )^{ n - iS }
 \end{aligned}
 $$</p>
 <p>令$tag = m ! n !$,自然有:</p>
@@ -567,18 +567,18 @@ $$</p>
 <p>二项式反演:</p>
 <p>$$
 \begin{aligned}
-ans_k & = \sum_{ i = k }^n ( - 1 )^{ i - k } \binom{ i }{ k } \binom{ n }{ i } \binom{ n }{ i } i ! ( 2 n - 2 i ) ! 2^i \\
-& = \sum_{ i = k }^n ( - 1 )^{ i - k } \frac{ 1 }{ k ! ( i - k ) ! } \frac{ n ! }{ ( n - i ) ! } \frac{ n ! }{ ( n - i ) ! } ( 2 n - 2 i ) ! 2^i \\
-& = ( n ! )^2 \frac{ 2^k }{ k ! } \sum_{ i = k }^n ( - 1 )^{ i - k } \frac{ 1 }{ ( i - k ) ! } \binom{ 2 n - 2 i }{ n - i } 2^{ i - k } \\
-& = ( n ! )^2 \frac{ 2^k }{ k ! } \sum_{ i = 0 }^{ n } \frac{ ( - 2 )^{ i } }{ i ! } \binom{ 2 n - 2 i }{ n - i }
+ans_k &amp; = \sum_{ i = k }^n ( - 1 )^{ i - k } \binom{ i }{ k } \binom{ n }{ i } \binom{ n }{ i } i ! ( 2 n - 2 i ) ! 2^i \\
+&amp; = \sum_{ i = k }^n ( - 1 )^{ i - k } \frac{ 1 }{ k ! ( i - k ) ! } \frac{ n ! }{ ( n - i ) ! } \frac{ n ! }{ ( n - i ) ! } ( 2 n - 2 i ) ! 2^i \\
+&amp; = ( n ! )^2 \frac{ 2^k }{ k ! } \sum_{ i = k }^n ( - 1 )^{ i - k } \frac{ 1 }{ ( i - k ) ! } \binom{ 2 n - 2 i }{ n - i } 2^{ i - k } \\
+&amp; = ( n ! )^2 \frac{ 2^k }{ k ! } \sum_{ i = 0 }^{ n } \frac{ ( - 2 )^{ i } }{ i ! } \binom{ 2 n - 2 i }{ n - i }
 \end{aligned}
 $$</p>
 <p>注意到后者只与$n - k$有关,不妨设其为$f_{ n } = \sum_{ i = 0 }^{ n } \frac{ ( - 2 )^{ i } }{ i ! } \binom{ 2 n - 2 i }{ n - i }$,预处理一下就可以做到$O ( n^2 + nT )$.</p>
 <p>加强版咋做?我们继续看看式子:</p>
 <p>$$
 \begin{aligned}
-ans & = ( n ! )^2 \frac{ 2^k }{ k ! } f_{ n - k } \\
-f_{ n } & = \sum_{ i = 0 }^{ n } \frac{ ( - 2 )^{ i } }{ i ! } \binom{ 2 n - 2 i }{ n - i }
+ans &amp; = ( n ! )^2 \frac{ 2^k }{ k ! } f_{ n - k } \\
+f_{ n } &amp; = \sum_{ i = 0 }^{ n } \frac{ ( - 2 )^{ i } }{ i ! } \binom{ 2 n - 2 i }{ n - i }
 \end{aligned}
 $$</p>
 <p>注意到$f$是一个卷积的形式,设其生成函数为$F_n$,$g_n = \frac{ ( - 2 )^n }{ n ! } , h_n = \binom{ 2 n }{ n }$,我们自然有$F = GH$.</p>
@@ -601,17 +601,17 @@ $$</p>
 <p>两边求导:</p>
 <p>$$
 \begin{aligned}
-- 4 F^2 + ( 1 - 4 x ) 2 F \times F ' & = - 4 e^{ - 4 x } \\
-- 4 F^2 + ( 1 - 4 x ) 2 F \times F ' & = - 4 ( 1 - 4 x ) F^2 \\
-( 2 - 8 x ) F ' & = 16 xF \\
+- 4 F^2 + ( 1 - 4 x ) 2 F \times F &#39; &amp; = - 4 e^{ - 4 x } \\
+- 4 F^2 + ( 1 - 4 x ) 2 F \times F &#39; &amp; = - 4 ( 1 - 4 x ) F^2 \\
+( 2 - 8 x ) F &#39; &amp; = 16 xF \\
 
 \end{aligned}
 $$</p>
 <p>得到了一个线性递推形式,更进一步地:</p>
 <p>$$
 \begin{aligned}
-2 ( i + 1 ) f_{ i + 1 } - 8 if_i & = 16 f_{ i - 1 } \\
-if_i & = 4 ( i - 1 ) f_{ i - 1 } + 8 f_{ i - 2 }
+2 ( i + 1 ) f_{ i + 1 } - 8 if_i &amp; = 16 f_{ i - 1 } \\
+if_i &amp; = 4 ( i - 1 ) f_{ i - 1 } + 8 f_{ i - 2 }
 \end{aligned}
 $$</p>
 <p>技术总结一下:其实就是你想要得到一个递推式,然后注意到这玩意要写成微分方程的形式,所以开始往那边凑.</p>
@@ -620,8 +620,8 @@ $$</p>
 <p>简单题,不妨设当前这个序列中不同颜色的分别有$a , b , c , d$个(区别于题面中的$A , B , C , D$),自然有:</p>
 <p>$$
 \begin{aligned}
-ans & = \sum_{ k = 0 }^n ( - 1 )^k \binom{ k }{ 0 } \binom{ n - 3 k }{ k } \frac{ ( n - 4 k ) ! }{ ( a - k ) ! ( b - k ) ! ( c - k ) ! ( d - k ) ! } \\
-& = \sum_{ k = 0 }^n ( - 1 )^k \binom{ n - 3 k }{ k } \frac{ ( n - 4 k ) ! }{ ( a - k ) ! ( b - k ) ! ( c - k ) ! ( d - k ) ! }
+ans &amp; = \sum_{ k = 0 }^n ( - 1 )^k \binom{ k }{ 0 } \binom{ n - 3 k }{ k } \frac{ ( n - 4 k ) ! }{ ( a - k ) ! ( b - k ) ! ( c - k ) ! ( d - k ) ! } \\
+&amp; = \sum_{ k = 0 }^n ( - 1 )^k \binom{ n - 3 k }{ k } \frac{ ( n - 4 k ) ! }{ ( a - k ) ! ( b - k ) ! ( c - k ) ! ( d - k ) ! }
 \end{aligned}
 $$</p>
 <p>然后对最后那个东西做背包就行.</p>
@@ -635,15 +635,15 @@ $$</p>
 <p><a href="https://www.luogu.com.cn/problem/P3526" target="_blank" rel="noopener noreferrer">https://www.luogu.com.cn/problem/P3526</a></p>
 <p>注意到一个事实:如果这个字符串存在长度为$k$的周期,等价于存在长度为$len - k$的border,证明是显然的.</p>
 <p>考虑从小周期开始向大周期确定,首先可以用KMP求出所有前缀的最大border,然后就可以得到整个字符串的所有border.换句话说,我们实际上是在一步一步确定整个字符串的若干前缀的最大border.</p>
-<p>考虑border理论,设$q$为最小周期,如果$2 q \leq n$,也就是原串能写成$tt \cdots t '$的形式.我们不妨先求$tt '$对应的答案,然后在前面拼$t$.根据$\leq \frac{ n }{ 2 }$的border构成等差序列的结论,这样显然是正确的.</p>
-<p>如果$2 q > n$,此时必定有$s = tat$,其中$t$是border.考虑递归求解$t$,然后就只需要找到一个$a$满足条件,最小的$a$是全$0$,能放的话肯定放,不然我们就放一个$0 \cdots 01$.</p>
+<p>考虑border理论,设$q$为最小周期,如果$2 q \leq n$,也就是原串能写成$tt \cdots t &#39;$的形式.我们不妨先求$tt &#39;$对应的答案,然后在前面拼$t$.根据$\leq \frac{ n }{ 2 }$的border构成等差序列的结论,这样显然是正确的.</p>
+<p>如果$2 q &gt; n$,此时必定有$s = tat$,其中$t$是border.考虑递归求解$t$,然后就只需要找到一个$a$满足条件,最小的$a$是全$0$,能放的话肯定放,不然我们就放一个$0 \cdots 01$.</p>
 <p>为什么这样一定是对的呢?我们考虑什么时候全$0$不合法:</p>
 <ol>
 <li>
 <p>新增一个长度$l$的border,$l \leq | t | + | a |$:考虑$l$的最后一段是一段全$0$,也就必然意味着$t$的最后一段是全$0$,这么不断推下去就可以说明整个序列都是全$0$,此时放上$0 \cdots 01$必定合法.</p>
 </li>
 <li>
-<p>新增一个长度$l$的border,$l > | t | + | a |$:不妨设当前的$l$是最大的那个(最小的无意义,因为需要保证$| l | > | t |$),此时最短周期必然是$d = 2 | t | + | a | - l$.由于$| t | + | a |$也是周期并且二者之和$\leq n$,因此必然有$d | ( | t | + | a | )$.把$ta$按照$d$长度划分.如果$d \geq | a |$必有该串是全$0$串,不然考虑此时$d = | b | + | a |$,$b$是$t$的一段后缀.考虑此时的周期必然$< | b | + | a |$,首先不可能等于,如果大于的话可以平移一格.不妨假设周期比$| b | - | a |$少了$w$,那么此时必定有$b$的前$w$个字符是$0$,但是由于$0 \cdots 01$后面第一个$b$也往前平移了$w$格,因此它的第$w$个字符必定是$1$,这就保证了$0 \cdots 0 1$必定合法.</p>
+<p>新增一个长度$l$的border,$l &gt; | t | + | a |$:不妨设当前的$l$是最大的那个(最小的无意义,因为需要保证$| l | &gt; | t |$),此时最短周期必然是$d = 2 | t | + | a | - l$.由于$| t | + | a |$也是周期并且二者之和$\leq n$,因此必然有$d | ( | t | + | a | )$.把$ta$按照$d$长度划分.如果$d \geq | a |$必有该串是全$0$串,不然考虑此时$d = | b | + | a |$,$b$是$t$的一段后缀.考虑此时的周期必然$&lt; | b | + | a |$,首先不可能等于,如果大于的话可以平移一格.不妨假设周期比$| b | - | a |$少了$w$,那么此时必定有$b$的前$w$个字符是$0$,但是由于$0 \cdots 01$后面第一个$b$也往前平移了$w$格,因此它的第$w$个字符必定是$1$,这就保证了$0 \cdots 0 1$必定合法.</p>
 </li>
 </ol>
 <h4 id="toc-52">第三题</h4>
@@ -652,8 +652,8 @@ $$</p>
 <p>考虑这个权值的变化其实比较有规律,因为是树上的距离的差.我们考虑把距离这个东西做树上差分,设$v_i = c_i + dis ( i , 1 )$,我们要找到子树内部满足条件的其实就是在找满足:</p>
 <p>$$
 \begin{aligned}
-v_i - dis ( x , 1 ) - 1 & \equiv - 1 \pmod{ 2^k } \\
-v_i & \equiv dis ( x , 1 ) \pmod{ 2^k }
+v_i - dis ( x , 1 ) - 1 &amp; \equiv - 1 \pmod{ 2^k } \\
+v_i &amp; \equiv dis ( x , 1 ) \pmod{ 2^k }
 \end{aligned}
 $$</p>
 <p>也就是说我们每次对这个桶中要找的元素很固定,用一下colorful tree的trick可以做到$O ( n \log n )$.</p>
@@ -706,16 +706,16 @@ $$</p>
 <p>不合法的情况如此方便,因为两边直接独立了,因此直接考虑二项式反演,设$f_k$表示恰好有$k$个裂缝,$g_k$表示钦定有$k$个裂缝,自然有:</p>
 <p>$$
 \begin{aligned}
-g_k & = \sum_{ i = k }^w \binom{ i }{ k } f_i \\
-f_k & = \sum_{ i = k }^w \binom{ i }{ k } ( - 1 )^{ i - k } g_i \\
-ans & = f_0 = \sum_{ i = 0 }^w ( - 1 )^{ i } g_i
+g_k &amp; = \sum_{ i = k }^w \binom{ i }{ k } f_i \\
+f_k &amp; = \sum_{ i = k }^w \binom{ i }{ k } ( - 1 )^{ i - k } g_i \\
+ans &amp; = f_0 = \sum_{ i = 0 }^w ( - 1 )^{ i } g_i
 \end{aligned}
 $$</p>
 <p>考虑设一个高为$h$,长为$k$的段随便填的方案数,显然就是每一层都随便填的方案数,也就是$w_k = ( F_k )^h ( w_0 = 0 )$,其中$F_k$是斐波那契数列的第$k$项,那么$g_i$就是这玩意做卷积.更具体地,我们设$g_{ i , j }$表示目前长度为$j$,分成了$i$段的答案,自然有:</p>
 <p>$$
 \begin{aligned}
-g_{ i , j } & = \sum_{ k < j } g_{ i - 1 , k } w_{ j - k } \\
-G_i & = W^i
+g_{ i , j } &amp; = \sum_{ k &lt; j } g_{ i - 1 , k } w_{ j - k } \\
+G_i &amp; = W^i
 \end{aligned}
 $$</p>
 <p>这个生成函数形式其实没啥用,因为模数是$10^9 + 7$.上述dp的复杂度是$O ( n^3 )$的.</p>
@@ -733,7 +733,7 @@ $$</p>
 <p>然后上面形成若干限制条件,但是这个在下面的dp中是好处理的.不过有个细节是,如果有两个相邻的连续段(不一定紧邻)的颜色相同,那么我们上一个区间的后面拖着的无色区间是不必对此产生影响的.这怎么办呢?特判一下同色.</p>
 <p>这样的dp就很好设计了,更具体地,设$f_{ r , k }$表示目前$[ 1 , r ]$,包含$r$的那个区间颜色是$k$,最多能保留多少个区间.自然有:</p>
 <p>$$
-[ l , r ] = k \Rightarrow f_{ r , k } \leftarrow cnt_{ l , r , k } + \max_{ i = 0 }^{ l - 1 } f_{ i , k ' }
+[ l , r ] = k \Rightarrow f_{ r , k } \leftarrow cnt_{ l , r , k } + \max_{ i = 0 }^{ l - 1 } f_{ i , k &#39; }
 $$</p>
 <p>设$g_{ i } = \max_{ k } f_{ i , k }$,我们有:</p>
 <p>$$
@@ -746,7 +746,7 @@ $$</p>
 <p>由上面,我们可以发现一个状压dp,也就是设$dp_{ i , j , S }$表示当前走到$i$,前面的密度为$j$,然后如果在后面全出现了$S$中的数字,那么密度会变大$1$.这样给出了一个$\frac{ n^2 }{ c } 2^c$的做法.</p>
 <p>质数感觉不太行啊,考虑考虑dp,上面的形式看上去就很好dp,设$dp_{ i , j }$表示当前在$i$然后密度是$j$的方案数,再设$f_{ l , r }$表示在$[ l , r ]$中选出一个子序列,$r$必选且$a_r$只出现了一次的方案数.不妨设$T_i$表示$i$在这个区间出现的次数,不难发现$f_{ l , r } = \prod_{ i \ne a_r } ( 2^{ T_i } - 1 )$.这个只需要枚举$l$扫$r$就可以$O ( n^2 )$算.自然有转移:</p>
 <p>$$
-dp_{ i , j } = \sum_{ k < i } dp_{ k , j - 1 } f_{ k + 1 , i }
+dp_{ i , j } = \sum_{ k &lt; i } dp_{ k , j - 1 } f_{ k + 1 , i }
 $$</p>
 <p>不过吧这么转移有一个小问题,那就是我们的$dp_{ i , j }$必须是最后一段以$i$结尾.那么我们最后统计答案还要算上最后的那一段没有选出$[ 1 , c ]$的答案.不过这个也好算.</p>
 <p>但是还有一个方式,那就是从后往前dp,然后每次放这么一段,对dp取一个后缀和来转移.</p>
@@ -755,7 +755,7 @@ $$</p>
 <p><a href="https://www.luogu.com.cn/problem/CF1175G" target="_blank" rel="noopener noreferrer">https://www.luogu.com.cn/problem/CF1175G</a></p>
 <p>显然设$f_{ i , j }$为前$j$个划分了$i$段,自然有:</p>
 <p>$$
-f_{ i , j } = \min_{ k < j } \{ f_{ i - 1 , k } + ( j - k ) \max_{ l = k + 1 }^j a_l \}
+f_{ i , j } = \min_{ k &lt; j } \{ f_{ i - 1 , k } + ( j - k ) \max_{ l = k + 1 }^j a_l \}
 $$</p>
 <p>第一反应是决策单调性,可惜没有.</p>
 <p>不过后面那个形式很简单,我们暴力一点维护这个东西.用单调栈维护出当前哪些后缀的最大值相等,不妨记这个最大值为$m$.我们改成刷表更新:</p>
@@ -780,27 +780,27 @@ $$</p>
 <p>事实上有一种更简单的写法,不妨设$L , R$为实际控制的海拔范围,$S , T$为实际控制的山峰范围,我们先把转移仔细写一下:</p>
 <ol>
 <li>
-<p>$f_{ l , u } + c_u \rightarrow f_{ l , r } ( R_u > R_r \geq L_u \land u \in [ S_l , T_r ] )$.</p>
+<p>$f_{ l , u } + c_u \rightarrow f_{ l , r } ( R_u &gt; R_r \geq L_u \land u \in [ S_l , T_r ] )$.</p>
 </li>
 <li>
-<p>$f_{ u , r } + c_u \rightarrow f_{ l , r } ( L_u < L_l \leq R_u \land u \in [ S_l , T_r ] )$.</p>
+<p>$f_{ u , r } + c_u \rightarrow f_{ l , r } ( L_u &lt; L_l \leq R_u \land u \in [ S_l , T_r ] )$.</p>
 </li>
 <li>
-<p>$f_{ u , u } + c_u \rightarrow f_{ l , r } ( L_u < L_l \leq R_u \land R_u > R_r \geq L_u \land u \in [ S_l , T_r ] )$.</p>
+<p>$f_{ u , u } + c_u \rightarrow f_{ l , r } ( L_u &lt; L_l \leq R_u \land R_u &gt; R_r \geq L_u \land u \in [ S_l , T_r ] )$.</p>
 </li>
 </ol>
 <p>按照$L$从小到大枚举,按照$R$从大到小枚举,那上面的所有转移都是无后效性的.</p>
 <p>注意到第三种转移没有意义,我们可以直接改写成:</p>
 <ol>
 <li>
-<p>$\min \{ f_{ l , u } , f_{ u , u } \} + c_u \rightarrow f_{ l , r } ( R_u > R_r \geq L_u \land u \in [ S_l , T_r ] )$.</p>
+<p>$\min \{ f_{ l , u } , f_{ u , u } \} + c_u \rightarrow f_{ l , r } ( R_u &gt; R_r \geq L_u \land u \in [ S_l , T_r ] )$.</p>
 </li>
 <li>
-<p>$\min \{ f_{ u , r } , f_{ u , u } \} + c_u \rightarrow f_{ l , r } ( L_u < L_l \leq R_u \land u \in [ S_l , T_r ] )$.</p>
+<p>$\min \{ f_{ u , r } , f_{ u , u } \} + c_u \rightarrow f_{ l , r } ( L_u &lt; L_l \leq R_u \land u \in [ S_l , T_r ] )$.</p>
 </li>
 </ol>
 <p>原因在于,我们其实只想要让$u$与$l , r$所代表的区间相交,这个比较重要,其它的都不重要.就算转移是错误的,那样转移一定不优秀.</p>
-<p>此刻对于(1)我们想知道的就是固定$l$的情况下,按照$R$从大到小枚举的贡献,以及对称情况,不难发现这个用堆也是能做的.也就是在$l$相同的前提下,如果$R_i < R_j < R_k$,如果$k$不能贡献到$j$,那么$k$必然不能贡献到$i$,这就保证了堆的正确性.</p>
+<p>此刻对于(1)我们想知道的就是固定$l$的情况下,按照$R$从大到小枚举的贡献,以及对称情况,不难发现这个用堆也是能做的.也就是在$l$相同的前提下,如果$R_i &lt; R_j &lt; R_k$,如果$k$不能贡献到$j$,那么$k$必然不能贡献到$i$,这就保证了堆的正确性.</p>
 <h4 id="toc-65">第六题</h4>
 <p><a href="https://www.luogu.com.cn/problem/P8294" target="_blank" rel="noopener noreferrer">https://www.luogu.com.cn/problem/P8294</a></p>
 <p>毛估估的话就是设$f_{ x , s , t }$表示在断开$x$到父亲这条边时,$x$的值来自子树内的点$s$,然后从父亲换下来的值将要去子树内的$t$.不难发现$( x , s , t )$合法当且仅当$x = lca ( s , t )$,这样状态数就是$O ( n^2 )$的.</p>
@@ -824,8 +824,8 @@ $$</p>
 <p>不妨设$sum$表示每一行的前缀和,$sufsum$表示第三行的后缀和,注意到转移:</p>
 <p>$$
 \begin{aligned}
-- c_k + \max_{ l_k - 1 \leq j < i \leq r_k } \{ f_j \} & \rightarrow f_i \\
-- c_k + \max_{ l_k \leq j \leq i \leq r_k } \{ sum_{ 1 , j } - sum_{ 2 , j - 1 } \} & \rightarrow f_i
+- c_k + \max_{ l_k - 1 \leq j &lt; i \leq r_k } \{ f_j \} &amp; \rightarrow f_i \\
+- c_k + \max_{ l_k \leq j \leq i \leq r_k } \{ sum_{ 1 , j } - sum_{ 2 , j - 1 } \} &amp; \rightarrow f_i
 \end{aligned}
 $$</p>
 <p>这个东西即使我们枚举$k , i$,然后数据结构优化$j$来转移它也是艰难的.那咋办呢?我们考虑我们枚举$k$的原因是,我们需要保证$i \leq r_k$.如果我们钦点$i = r_k$,那我们上面的枚举就只有一维了.也就是需要保证$i$右边的点一定走不到,这样我们上面的转移仍然是正确的.至于计算答案,一个反应是把这个$f$做一下后缀$\max$.但其实不对!因为你往后多走点可能多吃到了一点$a$.</p>
@@ -833,18 +833,18 @@ $$</p>
 <p>于是吧,我们就有了下面这个转移:</p>
 <p>$$
 \begin{aligned}
-- c_k + \max_{ l_k - 1 \leq j < r_k } \{ f_{ j , 0 } , f_{ j , 1 } \} & \rightarrow f_{ r_k , 1 } \\
-- c_k + \max_{ l_k \leq j \leq r_k } \{ sum_{ 1 , j } - sum_{ 2 , j - 1 } \} & \rightarrow f_{ r_k , 0 }
+- c_k + \max_{ l_k - 1 \leq j &lt; r_k } \{ f_{ j , 0 } , f_{ j , 1 } \} &amp; \rightarrow f_{ r_k , 1 } \\
+- c_k + \max_{ l_k \leq j \leq r_k } \{ sum_{ 1 , j } - sum_{ 2 , j - 1 } \} &amp; \rightarrow f_{ r_k , 0 }
 \end{aligned}
 $$</p>
 <p>然后怎么贡献答案呢?首先你不能往左走太多,至少不能超过最后选的那个区间.事实上我们发现最后一定只有一个区间的右端点超过了拐点.因为选择的所有区间一定没有包含关系,而右端点可以对拐点取$\min$.因此我们枚举当前最靠右的那个区间$k$,以及最后拐到第三行的点$i$,自然有:</p>
 <p>$$
 \begin{aligned}
-- c_k + \max_{ l_k - 1 \leq j < r_k } \{ f_{ j , 0 } , f_{ j , 1 } \} + \max_{ j < i \leq r_k } \{ sum_{ 2 , i } + sufsum_{ i } \} & \rightarrow ans \\
-- c_k + \max_{ l_k \leq j \leq i \leq r_k } \{ sum_{ 1 , j } - sum_{ 2 , j - 1 } + sum_{ 2 , i } + sufsum_i \} & \rightarrow ans
+- c_k + \max_{ l_k - 1 \leq j &lt; r_k } \{ f_{ j , 0 } , f_{ j , 1 } \} + \max_{ j &lt; i \leq r_k } \{ sum_{ 2 , i } + sufsum_{ i } \} &amp; \rightarrow ans \\
+- c_k + \max_{ l_k \leq j \leq i \leq r_k } \{ sum_{ 1 , j } - sum_{ 2 , j - 1 } + sum_{ 2 , i } + sufsum_i \} &amp; \rightarrow ans
 \end{aligned}
 $$</p>
-<p>要统计所有$j < i$或者$j \leq i$的点对的答案在线段树上都是好做的.</p>
+<p>要统计所有$j &lt; i$或者$j \leq i$的点对的答案在线段树上都是好做的.</p>
 <h4 id="toc-68">第二题</h4>
 <p><a href="https://www.luogu.com.cn/problem/P9371" target="_blank" rel="noopener noreferrer">https://www.luogu.com.cn/problem/P9371</a></p>
 <p>考虑如何判断$x$是否是这个区间的中位数:我们把大于$x$的记作$1$,小于$x$的记作$- 1$,$x$记作$0$,如果区间和的绝对值小于等于$x$的出现次数,那么$x$满足条件.</p>
@@ -944,7 +944,7 @@ $$</p>
 <p>那么一个点能作为关键点,当且仅当它在dfs树上的某些子树所组成的城市都被控制,这个可以通过$low$来判断.枚举连通块大小,并设$dp_{ i , j }$表示$i$子树上部还有$j$个城市没决定被控制,这样就可以dp.注意到第二维有用的信息不多,这样就可以优化到$O ( n \sqrt{ n } )$.</p>
 <h4 id="toc-79">第四题</h4>
 <p><a href="https://www.luogu.com.cn/problem/P9170" target="_blank" rel="noopener noreferrer">https://www.luogu.com.cn/problem/P9170</a></p>
-<p>先看Bob,先把$| T | = 1$的选了,然后删掉.不断做这个过程直到所有的$| T | = 2$,此时将这两个点之间连一条边,那就会形成一张图.对于每个连通块,若$| E | > | V |$,则必然无解.其它的情况必然有解,这就解决了第一个问题.</p>
+<p>先看Bob,先把$| T | = 1$的选了,然后删掉.不断做这个过程直到所有的$| T | = 2$,此时将这两个点之间连一条边,那就会形成一张图.对于每个连通块,若$| E | &gt; | V |$,则必然无解.其它的情况必然有解,这就解决了第一个问题.</p>
 <p>不过其实没必要删$| T | = 1$,直接连自环就行.</p>
 <p>对于Alice,考虑以下几种情况:</p>
 <ol>
@@ -1005,13 +1005,13 @@ $$</p>
 <p>考虑求出前缀和,此时要满足条件,不妨设全局和为$x$,此时必然有:</p>
 <p>$$
 \begin{aligned}
-\forall 0 & \leq i < n , s_{ i + n } - s_i \geq a_i \\
-\forall n & \leq i < 2 n , x - ( s_{ i } - s_{ i - n } ) \geq a_i , s_i - s_{ i - n } \leq x - a_i \\
-\forall 0 & \leq i < 2 n , s_i \leq s_{ i + 1 }
+\forall 0 &amp; \leq i &lt; n , s_{ i + n } - s_i \geq a_i \\
+\forall n &amp; \leq i &lt; 2 n , x - ( s_{ i } - s_{ i - n } ) \geq a_i , s_i - s_{ i - n } \leq x - a_i \\
+\forall 0 &amp; \leq i &lt; 2 n , s_i \leq s_{ i + 1 }
 \end{aligned}
 $$</p>
 <p>注意上面的限制条件限制住了$s_{ i + n } - s_{ i }$的上下界,我们不妨设它的上下界分别为$l$和$r$.但是这俩需要知道$x$才能求出来,于是不妨二分$x$.</p>
-<p>贪心地构造,考虑每次要求$s_{ i + n }$尽可能地小,于是如果$l_i \leq s_{ i - 1 + n } - s_{ i - 1 } \leq r_i$,我们就继承前面的答案.反之,如果$l_i > s_{ i - 1 + n } - s_{ i - 1 }$,我们就提升$s_{ i + n } = s_{ i - 1 } + l_i$,$r$同理.这样走到最后一定是最小的,只需要满足$s_{ n - 1 } \leq s_n \land s_{ 2 n - 1 } \leq x$即可.</p>
+<p>贪心地构造,考虑每次要求$s_{ i + n }$尽可能地小,于是如果$l_i \leq s_{ i - 1 + n } - s_{ i - 1 } \leq r_i$,我们就继承前面的答案.反之,如果$l_i &gt; s_{ i - 1 + n } - s_{ i - 1 }$,我们就提升$s_{ i + n } = s_{ i - 1 } + l_i$,$r$同理.这样走到最后一定是最小的,只需要满足$s_{ n - 1 } \leq s_n \land s_{ 2 n - 1 } \leq x$即可.</p>
 <p>但是你发现个事情,我们前面一直在保证$s$尽可能小,却没有保证$s_{ n - 1 } \leq s_n$.我们怎么处理这里的$s_n$呢?考虑再次二分,每次找到最小的$s_n$满足前一个条件.那我们就需要说明两件事情:</p>
 <ol>
 <li>
@@ -1074,8 +1074,8 @@ $$</p>
 <p>把(2)化简一下,有:</p>
 <p>$$
 \begin{aligned}
-x^L G ( x ) & = \sum_{ j = 1 }^n F_j ( x ) \sum_{ i = 0 }^{ L - 1 } ( \frac{ 1 }{ 2 } x )^{ i - L } [ A_k^{ ( L - i ) } ={ A_j }_{ ( L - i ) } ] \\
-x^L G ( x ) & = \sum_{ j = 1 }^n F_j ( x ) \sum_{ i = 1 }^{ L } ( \frac{ 1 }{ 2 } x )^{ - i } [ A_k^{ ( i ) } ={ A_j }_{ ( i ) } ]
+x^L G ( x ) &amp; = \sum_{ j = 1 }^n F_j ( x ) \sum_{ i = 0 }^{ L - 1 } ( \frac{ 1 }{ 2 } x )^{ i - L } [ A_k^{ ( L - i ) } ={ A_j }_{ ( L - i ) } ] \\
+x^L G ( x ) &amp; = \sum_{ j = 1 }^n F_j ( x ) \sum_{ i = 1 }^{ L } ( \frac{ 1 }{ 2 } x )^{ - i } [ A_k^{ ( i ) } ={ A_j }_{ ( i ) } ]
 \end{aligned}
 $$</p>
 <p>带入$x = 1$,有:</p>
@@ -1135,9 +1135,9 @@ $$</p>
 <p>这个写法导致了复杂度正确.具体来说,考虑一个点成为卡着圆边界的点的概率是$\frac{ 3 }{ n }$,这三层循环的调用次数分别是:</p>
 <p>$$
 \begin{aligned}
-T_3 ( n ) & = O ( n ) \\
-T_2 ( n ) & = O ( n ) + \sum_{ i = 1 }^n \frac{ 3 }{ i } T_3 ( i ) \\
-T_1 ( n ) & = O ( n ) + \sum_{ i = 1 }^n \frac{ 3 }{ i } T_2 ( n )
+T_3 ( n ) &amp; = O ( n ) \\
+T_2 ( n ) &amp; = O ( n ) + \sum_{ i = 1 }^n \frac{ 3 }{ i } T_3 ( i ) \\
+T_1 ( n ) &amp; = O ( n ) + \sum_{ i = 1 }^n \frac{ 3 }{ i } T_2 ( n )
 \end{aligned}
 $$</p>
 <p>显然$T_1 ( n ) = O ( n )$.</p>
@@ -1220,7 +1220,7 @@ $$</p>
 <p>然后呢?我们接下来考虑继续在$[ 51 , 100 ]$这些数字中找到最大的.我们肯定要让它们全选$2$,这样对方可能会放弃一些这个区间中较小的数字,然后去选取$[ 1 , 50 ]$中较大的一些.持续这个过程,发现正好需要四次操作.</p>
 <h5 id="toc-120">Sub3</h5>
 <p>考虑结合sub1和sub2,我们不妨询问$\{ x , x , 0 , 0 , \cdots \}$,这样直觉上总是存在一个$x$使得前两个数字有一个被放弃.</p>
-<p>事实上也确实.考虑前两个数字中较小的那一个,设为$v$,当$\sum_{ i = x }^{ 2 x } i = \frac{ 3 x ( x + 1 ) }{ 2 } \geq v$的时候,显然它就会被放弃,对于这个最小的$x$,会发现两个数字中较大的那个(设为$w )$一定不会被放弃,因为如果它被放弃了,一定是因为$w \leq x - 1$,而我们知道$\frac{ ( 3 x - 3 ) x }{ 2 } < v < w \leq x - 1$,又因为$x \geq 1$,因此显然不成立.</p>
+<p>事实上也确实.考虑前两个数字中较小的那一个,设为$v$,当$\sum_{ i = x }^{ 2 x } i = \frac{ 3 x ( x + 1 ) }{ 2 } \geq v$的时候,显然它就会被放弃,对于这个最小的$x$,会发现两个数字中较大的那个(设为$w )$一定不会被放弃,因为如果它被放弃了,一定是因为$w \leq x - 1$,而我们知道$\frac{ ( 3 x - 3 ) x }{ 2 } &lt; v &lt; w \leq x - 1$,又因为$x \geq 1$,因此显然不成立.</p>
 <p>二分这个$x$,由于$v_{ \max } = 99$,发现$x \in [ 1 , 8 ]$,直接二分需要四次.</p>
 <p>然后有个牛逼做法是,考虑每个$x$能控制一个区间的$v$,发现$x = 7$的那个区间全部被覆盖了两次,因此不用选取$x = 7$.</p>
 <h5 id="toc-121">Sub4</h5>
@@ -1229,7 +1229,7 @@ $$</p>
 <p>一种想法是sub4+sub3,但过不去.</p>
 <p>冷静思考,注意到sub2,我们其实是知道了某些位置在哪个权值区间的.对着这个分治下去,这样实现了划分区间的功能,按理说应该是会有$2 n - 1$个节点.</p>
 <p>冷静一下,$l = r$的叶子节点是不用计算的,因此刚好玩了$n - 1$次.</p>
-<p>现在唯一的问题是,我们怎么找到一个$w$,使得这个区间内我都选$w$后,然后这个区间一定会被划分呢?考虑$sub 3$告诉我们如果$r - l + 1 \leq 12$一定有解,考虑$( r , 100 ]$的数字肯定要被选,那对方只剩下$r$个石子,不妨直接令$w = \lfloor \frac{ r }{ r - l + 1 } \rfloor + 1$,注意到这个区间一定选不满.并且由于$r - l + 1 > 12$,因此你会发现前面即使全选了也有剩余.</p>
+<p>现在唯一的问题是,我们怎么找到一个$w$,使得这个区间内我都选$w$后,然后这个区间一定会被划分呢?考虑$sub 3$告诉我们如果$r - l + 1 \leq 12$一定有解,考虑$( r , 100 ]$的数字肯定要被选,那对方只剩下$r$个石子,不妨直接令$w = \lfloor \frac{ r }{ r - l + 1 } \rfloor + 1$,注意到这个区间一定选不满.并且由于$r - l + 1 &gt; 12$,因此你会发现前面即使全选了也有剩余.</p>
 <p>实际的写法选择了直接枚举$w$,然后判断是否合法.</p>
 <h4 id="toc-123">第四题</h4>
 <p><a href="https://www.luogu.com.cn/problem/P4373" target="_blank" rel="noopener noreferrer">https://www.luogu.com.cn/problem/P4373</a></p>

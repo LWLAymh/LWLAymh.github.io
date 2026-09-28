@@ -69,11 +69,11 @@ window.MathJax = {
   </header>
   <div class="post-content"><p>本文除特殊说明,所涉及数均为整数.</p>
 <h3 id="toc-0">整除性及相关</h3>
-<p>如果$m > 0$且$\cfrac{ n }{ m }$是一个整数,我们就说$m$整除$n$,记作$m | n$.</p>
+<p>如果$m &gt; 0$且$\cfrac{ n }{ m }$是一个整数,我们就说$m$整除$n$,记作$m | n$.</p>
 <p>能同时整除两个数$n$和$m$的数称为$n$和$m$的公因子,所有公因子中最大的那个称为最大公因子,记作$\gcd ( n , m )$.而最小的能同时被$n$和$m$整除的非零数被称为他们的最小公倍数,记作$lcm ( n , m )$.不难发现$lcm ( n , m ) \gcd ( n , m ) = nm$.</p>
 <h4 id="toc-1">欧几里得算法</h4>
 <p>欧几里得算法基于以下定理:</p>
-<p>$\gcd ( 0 , n ) = n$且$\gcd ( n , m ) = \gcd ( n \mod m , m ) , m > 0$.</p>
+<p>$\gcd ( 0 , n ) = n$且$\gcd ( n , m ) = \gcd ( n \mod m , m ) , m &gt; 0$.</p>
 <p>考虑证明,首先,$\forall k \in \mathbb{ Z }$,$n$和$m$的公因子一定是$n$和$m + kn$的公因子,这是显然的.因此,$n$和$m$的公因子一定是$m$和$n - m \lfloor \cfrac{ n }{ m } \rfloor$的公因子,而反之亦然.</p>
 <p>另外有如下性质:</p>
 <ol>
@@ -89,13 +89,13 @@ window.MathJax = {
 </ol>
 <p>(1)的证明较为显然,我们考虑(2)的证明.</p>
 <p>不妨假设$n \leq m$,当$n = m$时显然成立.</p>
-<p>当$n < m$时:</p>
-<p>假设$a > b$,考虑$\gcd ( a^m - b^m , a^n - b^n ) = \gcd ( a^m - b^m - k ( a^n - b^n ) , a^n - b^n )$.</p>
+<p>当$n &lt; m$时:</p>
+<p>假设$a &gt; b$,考虑$\gcd ( a^m - b^m , a^n - b^n ) = \gcd ( a^m - b^m - k ( a^n - b^n ) , a^n - b^n )$.</p>
 <p>取$k = b^{ m - n }$,则:</p>
 <p>$$
 \begin{aligned}
-\gcd ( a^m - b^m , a^n - b^n ) & = \gcd ( a^m - b^{ m - n } a^n , a^n - b^n ) \\
-& = \gcd ( a^n ( a^{ m - n } - b^{ m - n } ) , a^n - b^n )
+\gcd ( a^m - b^m , a^n - b^n ) &amp; = \gcd ( a^m - b^{ m - n } a^n , a^n - b^n ) \\
+&amp; = \gcd ( a^n ( a^{ m - n } - b^{ m - n } ) , a^n - b^n )
 \end{aligned}
 $$</p>
 <p>由于$a \bot b$,所以显然$a^n - b^n \bot a^n$,于是:</p>
@@ -104,12 +104,12 @@ $$</p>
 $$</p>
 <p>自然得证.</p>
 <p>接下来考虑(3)的证明:</p>
-<p>如果$a = b$,显然得证.不然,不妨设$a > b$注意到:</p>
+<p>如果$a = b$,显然得证.不然,不妨设$a &gt; b$注意到:</p>
 <p>$$
 \begin{aligned}
-n^a & \equiv 1 \pmod{ m } \\
-n^a - n^{ a - b } n^b & \equiv 1 - n^{ a - b } \pmod{ m } \\
-n^{ a - b } & \equiv 1 \pmod{ m }
+n^a &amp; \equiv 1 \pmod{ m } \\
+n^a - n^{ a - b } n^b &amp; \equiv 1 - n^{ a - b } \pmod{ m } \\
+n^{ a - b } &amp; \equiv 1 \pmod{ m }
 \end{aligned}
 $$</p>
 <p>自然得证.</p>
@@ -142,14 +142,14 @@ $$</p>
 <p>否则,使用数学归纳,我们考虑$n$的最小质因子为$p$,设$\frac{ n }{ p } = xyz$,不妨设$x \leq y \leq z$.</p>
 <p>如果$x = 1$,显然成立.</p>
 <p>不然有$p \leq x \leq y \leq z$,而$pxyz = n$,那么$p^4 \leq n$,$p \leq n^{ \frac{ 1 }{ 4 } }$.</p>
-<p>现在我们想要证明不存在$xp > \sqrt{ n }$,$yp > \sqrt{ n }$,$zp > \sqrt{ n }$.</p>
+<p>现在我们想要证明不存在$xp &gt; \sqrt{ n }$,$yp &gt; \sqrt{ n }$,$zp &gt; \sqrt{ n }$.</p>
 <p>如果存在,我们有:</p>
 <p>$$
 \begin{aligned}
-xyzp^3 & > n^{ \frac{ 3 }{ 2 } } \\
-np^2 & > n^{ \frac{ 3 }{ 2 } } \\
-p^2 & > \sqrt{ n } \\
-p & > n^{ \frac{ 1 }{ 4 } }
+xyzp^3 &amp; &gt; n^{ \frac{ 3 }{ 2 } } \\
+np^2 &amp; &gt; n^{ \frac{ 3 }{ 2 } } \\
+p^2 &amp; &gt; \sqrt{ n } \\
+p &amp; &gt; n^{ \frac{ 1 }{ 4 } }
 \end{aligned}
 $$</p>
 <p>与我们前面的结论不符合.</p>
@@ -162,11 +162,11 @@ $$</p>
 <p>证明如下:</p>
 <p>若$a = 0$或$b = 0$,显然成立.</p>
 <p>不然,设集合$A = \{ xa + yb | x , y \in \mathbb{ Z } \}$中的最小正元素$d_0 = x_0 a + y_0 b$,该集合中显然一定有正元素.</p>
-<p>考虑取该集合中另一个正整数$d_1 = x_1 a + y_1 b > d_0$,注意到$d_1 - d_0 = ( x_1 - x_0 ) a + ( y_1 - y_0 ) b \in A$,所以$\gcd ( d_1 , d_0 ) \in A$,如果$d_0 \nmid d_1$,那么$0 < \gcd ( d_1 , d_0 ) < d_0$,与假设不符.所以这个集合里的所有数一定都是$d_0$的倍数.</p>
+<p>考虑取该集合中另一个正整数$d_1 = x_1 a + y_1 b &gt; d_0$,注意到$d_1 - d_0 = ( x_1 - x_0 ) a + ( y_1 - y_0 ) b \in A$,所以$\gcd ( d_1 , d_0 ) \in A$,如果$d_0 \nmid d_1$,那么$0 &lt; \gcd ( d_1 , d_0 ) &lt; d_0$,与假设不符.所以这个集合里的所有数一定都是$d_0$的倍数.</p>
 <p>事实上还有另一种证明方式:</p>
 <p>如果我们定义一个非空集合$I \subseteq \mathbb{ Z }$,满足其对加法和数乘($\forall a \in \mathbb{ Z } , x \in I , ax \in I$)均封闭,那么我们可以证明其中存在一个唯一的数字$g$满足所有数都是$g$的倍数.</p>
 <p>如果$I = \{ 0 \}$,可以取$g = 0$.</p>
-<p>反之,显然其中有正有负(因为可以取$a = - 1$),我们设$I_+ = \{ k \in I | k \geq 1 \}$取$g = \min I_+$.$\forall a \in I$,不妨设$a = gq + r , r \in [ 0 , g )$,那么$r = a + ( - q ) g \in I$,由于$r < g$,所以$r \notin I_+$,所以$r = 0$,$a$是$g$的倍数,且显然$g$唯一.</p>
+<p>反之,显然其中有正有负(因为可以取$a = - 1$),我们设$I_+ = \{ k \in I | k \geq 1 \}$取$g = \min I_+$.$\forall a \in I$,不妨设$a = gq + r , r \in [ 0 , g )$,那么$r = a + ( - q ) g \in I$,由于$r &lt; g$,所以$r \notin I_+$,所以$r = 0$,$a$是$g$的倍数,且显然$g$唯一.</p>
 <h4 id="toc-6">扩展欧几里得算法</h4>
 <p>考虑求方程$ax + by = \gcd ( a , b )$的一组解.</p>
 <p>首先,如果$b = 0$,那这组解显然就是$\begin{cases}x = 1 \\ y = 0\end{cases}$.</p>
@@ -178,7 +178,7 @@ $$</p>
 <p>这题最重要的地方其实在于观察到,由于每个点只会被走到一次(除了$( 0 , 0 )$,它会被走到两次,但只会由其它格子走来一次),因此如果抽象成图,每个格子只会有一个出边和一个入边.这意味着每个格子上面的和左边的格子必定只有一个指向它,进一步地,这意味着这两个格子的状态必然相同.</p>
 <p>由此我们发现,每条副对角线(取膜意义下)的状态必然相同,而取膜意义下的副对角线有多少条呢?不难注意到是$d = \frac{ hw }{ \text{ lcm } ( h , w ) } = \gcd ( h , w )$条.也就是说,我们只需要确定这$d$条对角线的值,就可以确定整个矩阵的答案.假设$R$表示向右走,$D$表示向下走,$a_i$表示第$i$条副对角线的状态,最后的操作序列自然是$a_0 a_1 . . . a_{ d - 1 } a_0 a_1 . . .$.</p>
 <p>那么我们接下来要做的就是给这$d$条副对角线定向,并判断一个方案是否合法.注意到一个方案不合法当且仅当出现了多于$1$个环.那这又意味着什么呢?意味着存在一个点,它可以通过少于$hw$次走动走回自己.这显然是不被我们允许的.另一件不难发现的事是,第一个走回自己的点一定是$( 0 , 0 )$.再不难发现的是,走回自己的时候一定是经过了若干个周期:$a_0 a_1 . . . a_{ d - 1 } a_0 . . . a_{ d - 1 }$,因为每次向下或者向右走都会走到下一条副对角线,而且最后要回到自己.这就注意到每一个循环$a_0 a_1 . . . a_{ d - 1 }$内部具体什么情况是不在乎的,只在乎经历过这个过程之后会发生什么样的变化.</p>
-<p>我们不妨假设序列$\{ a \}$中有$k$个$R$,$d - k$个$D$,那会产生这种情况当且仅当$\exists x \in \mathbb{ N_+ } , x < \frac{ hw }{ d }$,$\begin{cases}h | x ( d - k ) \\ w | xk\end{cases}$.注意到这等价于寻找最小的$x$,判断其是否小于$\frac{ hw }{ d }$,于是条件等价于自然有$x = lcm ( \frac{ h }{ \gcd ( d - k , h ) } , \frac{ w }{ \gcd ( w , k ) } )$,枚举$k$并判断即可.</p>
+<p>我们不妨假设序列$\{ a \}$中有$k$个$R$,$d - k$个$D$,那会产生这种情况当且仅当$\exists x \in \mathbb{ N_+ } , x &lt; \frac{ hw }{ d }$,$\begin{cases}h | x ( d - k ) \\ w | xk\end{cases}$.注意到这等价于寻找最小的$x$,判断其是否小于$\frac{ hw }{ d }$,于是条件等价于自然有$x = lcm ( \frac{ h }{ \gcd ( d - k , h ) } , \frac{ w }{ \gcd ( w , k ) } )$,枚举$k$并判断即可.</p>
 <h3 id="toc-8">素数及相关</h3>
 <h4 id="toc-9">定义</h4>
 <p>可以利用裴蜀定理证明素数的定义等价于$\forall a , b , p | ab \Rightarrow p | a \lor p | b$.</p>
@@ -191,8 +191,8 @@ $$</p>
 <p>则</p>
 <p>$$
 \begin{aligned}
-\sum_{ i = 0 }^{ m - 1 } n^i & = \sum_{ i = 0 }^{ c - 1 } n^{ di } \sum_{ j = 0 }^{ d - 1 } n^{ j } \\
-& = ( \sum_{ i = 0 }^{ c - 1 } n^{ di } ) ( \sum_{ j = 0 }^{ d - 1 } n^j )
+\sum_{ i = 0 }^{ m - 1 } n^i &amp; = \sum_{ i = 0 }^{ c - 1 } n^{ di } \sum_{ j = 0 }^{ d - 1 } n^{ j } \\
+&amp; = ( \sum_{ i = 0 }^{ c - 1 } n^{ di } ) ( \sum_{ j = 0 }^{ d - 1 } n^j )
 \end{aligned}
 $$</p>
 <p>显然不是质数.</p>
@@ -202,7 +202,7 @@ $$</p>
 <p>考虑数学归纳法,设小于$n$的数全部满足.</p>
 <p>则对于$n$,如果它不满足条件,一定存在两种分解方式$n = \prod_{ i = 1 }^m p_i = \prod_{ i = 1 }^k q_i$.</p>
 <p>首先,如果$p_1 = q_1$,根据归纳假设,显然不成立.</p>
-<p>不失一般性,设$p_1 < q_1$.则$q_1 | p_1 \prod_{ i = 2 }^m p_i$,显然$q_1 \nmid p_1$,所以$q_1 | \prod_{ i = 2 }^m p_i$,设$s = \prod_{ i = 2 }^m p_i$,但这是不可能的,因为$s < n$,根据归纳假设,它只有一种分解方式,这种方式中显然不可能存在$p_1$.</p>
+<p>不失一般性,设$p_1 &lt; q_1$.则$q_1 | p_1 \prod_{ i = 2 }^m p_i$,显然$q_1 \nmid p_1$,所以$q_1 | \prod_{ i = 2 }^m p_i$,设$s = \prod_{ i = 2 }^m p_i$,但这是不可能的,因为$s &lt; n$,根据归纳假设,它只有一种分解方式,这种方式中显然不可能存在$p_1$.</p>
 <p>那么根据上述证明,我们可以将一个数表示为以下形式:$n = \prod_p p^{ n_p } , n_p \geq 0$.</p>
 <p>另外不难证明的一点是,假设$\sum n_p = k$,那么最小质因子一定不大于$\sqrt[k]{ n }$.</p>
 <h5 id="toc-12">Example1([CF986F]Oppa Funcan Style Remastered)</h5>
@@ -216,29 +216,29 @@ $$</p>
 <p>在此基础上,我们可以定义欧几里得数:</p>
 <p>$e_1 = 2 , e_n = 1 + \prod_{ i = 1 }^{ n - 1 } e_i$.</p>
 <p>令$\pi ( n )$表示小于等于$n$的素数个数,有${ \lim_{ n \rightarrow + \infty } \cfrac{ \pi ( n ) \times \ln n }{ n } } = 1$.</p>
-<p>有切比雪夫定理(又称贝特朗假设):若$n > 1 , \exists p \in \mathrm{ prime } , p \in ( n , 2 n )$.</p>
+<p>有切比雪夫定理(又称贝特朗假设):若$n &gt; 1 , \exists p \in \mathrm{ prime } , p \in ( n , 2 n )$.</p>
 <p>又有狄利克雷定理:若$\gcd ( a , b ) = 1 , \{ an + b \}$中包含了无穷个素数.</p>
 <p>(顺便一提,当$a = 4$或者$a = 6$,$b = - 1$的时候是好证明的,由于素数要么形如$6 n - 1$要么形如$6 n + 1$,或者要么形如$4 n - 1$要么形如$4 n + 1$,只需要类似证明素数无限那样乘一乘)</p>
 <p>同时,我们还有以下结论:$\sum_{ 1 \leq p \leq n \land p \in \mathrm{ prime } } \cfrac{ 1 }{ p } \approx \log \log n$.</p>
 <p>证明如下:</p>
 <p>$$
 \begin{aligned}
-\sum_{ 1 \leq p \leq n \land p \in \mathrm{ prime } } \cfrac{ 1 }{ p } & = \sum^n_{ k = 1 } \cfrac{ \pi ( k ) - \pi ( k - 1 ) }{ k } = \sum^n_{ k = 1 } \cfrac{ \pi ( k ) }{ k } - \sum^n_{ k = 1 } \cfrac{ \pi ( k - 1 ) }{ k } \\
-& = \sum^n_{ k = 1 } \cfrac{ \pi ( k ) }{ k } - \sum^{ n - 1 }_{ k = 0 } \cfrac{ \pi ( k ) }{ k + 1 } \\
-& = \sum^{ n - 1 }_{ k = 1 } \cfrac{ \pi ( k ) }{ k } + \cfrac{ \pi ( n ) }{ n } - \sum^{ n - 1 }_{ k = 1 } \cfrac{ \pi ( k ) }{ k + 1 } - \cfrac{ \pi ( 0 ) }{ 1 } \\
-& = \sum^{ n - 1 }_{ k = 1 } \cfrac{ \pi ( k ) }{ k ( k + 1 ) } + \cfrac{ \pi ( n ) }{ n } \\
-& = \sum^{ n - 1 }_{ k = 1 }{ ( \cfrac{ 1 }{ k \log k } ) } + O ( \frac{ 1 }{ \log n } ) = O ( \log \log n ) + O ( \frac{ 1 }{ \log n } )
+\sum_{ 1 \leq p \leq n \land p \in \mathrm{ prime } } \cfrac{ 1 }{ p } &amp; = \sum^n_{ k = 1 } \cfrac{ \pi ( k ) - \pi ( k - 1 ) }{ k } = \sum^n_{ k = 1 } \cfrac{ \pi ( k ) }{ k } - \sum^n_{ k = 1 } \cfrac{ \pi ( k - 1 ) }{ k } \\
+&amp; = \sum^n_{ k = 1 } \cfrac{ \pi ( k ) }{ k } - \sum^{ n - 1 }_{ k = 0 } \cfrac{ \pi ( k ) }{ k + 1 } \\
+&amp; = \sum^{ n - 1 }_{ k = 1 } \cfrac{ \pi ( k ) }{ k } + \cfrac{ \pi ( n ) }{ n } - \sum^{ n - 1 }_{ k = 1 } \cfrac{ \pi ( k ) }{ k + 1 } - \cfrac{ \pi ( 0 ) }{ 1 } \\
+&amp; = \sum^{ n - 1 }_{ k = 1 } \cfrac{ \pi ( k ) }{ k ( k + 1 ) } + \cfrac{ \pi ( n ) }{ n } \\
+&amp; = \sum^{ n - 1 }_{ k = 1 }{ ( \cfrac{ 1 }{ k \log k } ) } + O ( \frac{ 1 }{ \log n } ) = O ( \log \log n ) + O ( \frac{ 1 }{ \log n } )
 \end{aligned}
 $$</p>
 <h5 id="toc-14">Example1(《具体数学》4.20)</h5>
 <p>证明:存在一个常数$b$满足$\lfloor 2^b \rfloor , \lfloor 2^{ 2^b } \rfloor , \lfloor 2^{ 2^{ 2^b } } \rfloor . , . .$都是质数.</p>
-<p>如此构造数列:设$p_1 = 2$,且$p_n$为满足$2^{ p_{ n - 1 } } < p_n < 2^{ p_{ n - 1 } + 1 }$的最小质数.</p>
+<p>如此构造数列:设$p_1 = 2$,且$p_n$为满足$2^{ p_{ n - 1 } } &lt; p_n &lt; 2^{ p_{ n - 1 } + 1 }$的最小质数.</p>
 <p>通过构造不难发现:$p_{ n - 1 } = \lfloor \log_2 p_n \rfloor$.</p>
 <p>根据整值函数的性质,我们有$\lfloor \log_2 x \rfloor = \lfloor \log_2 \lfloor x \rfloor \rfloor$.考虑反向数学归纳,考虑当$n \rightarrow + \infty$时构造满足题目条件,那么$p^{ n - 1 } = \lfloor \log_2 \lfloor 2^{ 2^{ 2^{ . . .^{ b } } } } \rfloor \rfloor = \lfloor 2^{ 2^{ . . .^{ b } } } \rfloor$,自然也满足条件.所以如果设$\log_2^{ ( n ) } x$为不断对$x$迭代求$\log_2$做$n$次后的答案,只需构造$b = \lim_{ n \rightarrow + \infty } \log_2^{ ( n ) } p_n$即可.</p>
 <h5 id="toc-15">Example2</h5>
 <p>求证:</p>
 <p>$$
-\mu ( \gcd ( a , b ) ) = 0 \Leftrightarrow \forall n > 0 , \mu ( an + b ) = 0
+\mu ( \gcd ( a , b ) ) = 0 \Leftrightarrow \forall n &gt; 0 , \mu ( an + b ) = 0
 $$</p>
 <p>左推右是简单的.接下来考虑右推左.</p>
 <p>考虑狄利克雷定理,数列$\{ \frac{ an + b }{ \gcd ( a , b ) } \}$.不妨反证,假设$\mu ( \gcd ( a , b ) ) \ne 0$,不妨设$p = \frac{ an + b }{ \gcd ( a , b ) }$,$p \gcd ( a , b ) = ax + b$,也就是$\mu ( p \gcd ( a , b ) ) = 0$,注意到$\mu ( \gcd ( a , b ) ) \ne 0$,此时必有$p | \gcd ( a , b )$,而$p$无限,$\gcd ( a , b )$的素因子有限,这就导出了矛盾.</p>
@@ -249,14 +249,14 @@ $$</p>
 <p>另外,费马数还满足$f_n = \prod_{ i = 0 }^{ n - 1 } f_i + 2$,我们考虑这个式子的证明:显然后面那一个连乘会得到若干项$2$的次幂,并且这些项两两不同,根据几何级数,我们有$\prod_{ i = 0 }^{ n - 1 } f_i + 1$=$2^{ 2^{ n } }$,于是显然得证.</p>
 <h5 id="toc-18">Example1(《具体数学》4.17)</h5>
 <p>求证:如果$m \ne n$,则$f_m \bot f_n$.</p>
-<p>不妨假设$m < n$,有:$\gcd ( f_m , f_n ) = \gcd ( f_m , 2 ) = 1$.</p>
+<p>不妨假设$m &lt; n$,有:$\gcd ( f_m , f_n ) = \gcd ( f_m , 2 ) = 1$.</p>
 <h5 id="toc-19">Example2(《具体数学》4.18)</h5>
 <p>求证:若$2^n + 1$是质数,则$n$是$2$的整数幂.</p>
 <p>如果$n = qm$且$q$是奇数,我们有:$2^n + 1 = ( 2^m + 1 ) ( 2^{ n - m } - 2^{ n - 2 m } + 2^{ n - 3 m } . . . - 2^m + 1 )$.</p>
 <h4 id="toc-20">Miller-Rabin算法</h4>
-<p>如果判断$n$是否是质数,取$a < n$,设$n - 1 = d \times 2^r$.</p>
+<p>如果判断$n$是否是质数,取$a &lt; n$,设$n - 1 = d \times 2^r$.</p>
 <p>则要么$a^d \equiv 1 ( \mod n )$.</p>
-<p>要么$\exists i$,使得$0 \leq i < r$,$a^{ d \times 2^i } \equiv - 1 ( \mod n )$.</p>
+<p>要么$\exists i$,使得$0 \leq i &lt; r$,$a^{ d \times 2^i } \equiv - 1 ( \mod n )$.</p>
 <p>若一个都不满足,则n一定不是质数,不然可能是质数.</p>
 <p>但是若取足够多的不同的$a$(如果选$m$个),那么$n$是质数的可能性更大.</p>
 <p>此为Miller-Rabin算法,复杂度$O ( m \times log_2 n )$.不保证正确性.</p>
@@ -284,7 +284,7 @@ $$</p>
 <p>而函数$y = i ( n + 1 - i ) , i \in [ 1 , n ]$显然在$i = 1$和$i = n$时取最小值,而在$i = \cfrac{ n + 1 }{ 2 }$时取最大值.</p>
 <p>那么我们有$\prod_{ i = 1 }^n n \leq ( n ! )^2 \leq \prod_{ i = 1 }^n \cfrac{ ( n + 1 )^2 }{ 4 }$.</p>
 <p>于是$n^{ \frac{ n }{ 2 } } \leq n ! \leq \cfrac{ ( n + 1 )^n }{ 2^n }$.</p>
-<p>还有一种估计方式是考虑$\lim_{ n \rightarrow \infty } \frac{ n }{ \sqrt[n]{ n } ! }$,由Stolz定理及其推论,我们知道若$a_n > 0 , \frac{ a_{ n + 1 } }{ a_n } = a$,那么$\lim_{ n \rightarrow \infty } \sqrt[n]{ a_n } = a$.而我们令$a_n = \frac{ n^n }{ n ! }$,$\frac{ a_{ n + 1 } }{ a_n } = ( 1 + \frac{ 1 }{ n } )^n$,所以$\lim_{ n \rightarrow \infty } \frac{ n }{ \sqrt[n]{ n ! } } = e$,于是我们可以估计$n ! \sim ( \frac{ n }{ e } )^n$.</p>
+<p>还有一种估计方式是考虑$\lim_{ n \rightarrow \infty } \frac{ n }{ \sqrt[n]{ n } ! }$,由Stolz定理及其推论,我们知道若$a_n &gt; 0 , \frac{ a_{ n + 1 } }{ a_n } = a$,那么$\lim_{ n \rightarrow \infty } \sqrt[n]{ a_n } = a$.而我们令$a_n = \frac{ n^n }{ n ! }$,$\frac{ a_{ n + 1 } }{ a_n } = ( 1 + \frac{ 1 }{ n } )^n$,所以$\lim_{ n \rightarrow \infty } \frac{ n }{ \sqrt[n]{ n ! } } = e$,于是我们可以估计$n ! \sim ( \frac{ n }{ e } )^n$.</p>
 <p>事实上有一种更准确的估计方法:$n ! \sim \sqrt{ 2 \pi n } ( \cfrac{ n }{ e } )^n$.</p>
 <p>考虑设$\varepsilon_p ( n ! )$为$n !$中质因子$p$的个数,我们分析一下这个函数:</p>
 <p>首先显然有:$\varepsilon_p ( n ! ) = \sum_{ k \geq 1 } \lfloor \cfrac{ n }{ p^k } \rfloor \leq \frac{ n }{ p - 1 }$.</p>
@@ -313,38 +313,38 @@ $$</p>
 </li>
 </ol>
 <h5 id="toc-26">Example1(《具体数学》4.42)</h5>
-<p>证明:如果两个分数$\cfrac{ m }{ n }$和$\cfrac{ m ' }{ n ' }$满足$n \bot m$且$n ' \bot m '$,则$( mn ' + m ' n ) \bot ( nn ' )$的充分必要条件是$n \bot n '$.</p>
-<p>首先,如果$\gcd ( n , n ' ) \ne 1$,显然不可能满足条件,必要性得证.</p>
-<p>考虑充分性,如果$n \bot n '$,则只需证明$n \bot ( mn ' + m ' n ) \land n ' \bot ( mn ' + m ' n )$即可.</p>
-<p>而$\gcd ( n , mn ' + m ' n ) = \gcd ( n , mn ' ) = 1$,另一个式子同理,于是得证.</p>
+<p>证明:如果两个分数$\cfrac{ m }{ n }$和$\cfrac{ m &#39; }{ n &#39; }$满足$n \bot m$且$n &#39; \bot m &#39;$,则$( mn &#39; + m &#39; n ) \bot ( nn &#39; )$的充分必要条件是$n \bot n &#39;$.</p>
+<p>首先,如果$\gcd ( n , n &#39; ) \ne 1$,显然不可能满足条件,必要性得证.</p>
+<p>考虑充分性,如果$n \bot n &#39;$,则只需证明$n \bot ( mn &#39; + m &#39; n ) \land n &#39; \bot ( mn &#39; + m &#39; n )$即可.</p>
+<p>而$\gcd ( n , mn &#39; + m &#39; n ) = \gcd ( n , mn &#39; ) = 1$,另一个式子同理,于是得证.</p>
 <h5 id="toc-27">Example2</h5>
-<p>证明:$\sum_{ 0 \leq k < m } f ( k ) = \sum_{ d | m } \sum_{ 0 \leq k < d } f ( \frac{ km }{ d } ) [ k \bot d ] \\$.</p>
+<p>证明:$\sum_{ 0 \leq k &lt; m } f ( k ) = \sum_{ d | m } \sum_{ 0 \leq k &lt; d } f ( \frac{ km }{ d } ) [ k \bot d ] \\$.</p>
 <p>考虑:</p>
 <p>$$
 \begin{aligned}
-\sum_{ 0 \leq k < m } f ( k ) & = \sum_{ d | m } \sum_{ 0 \leq k < m , d | k } f ( k ) [ \gcd ( k , m ) = d ] \\
-& = \sum_{ d | m } \sum_{ 0 \leq k < m , d | k } f ( k ) [ \frac{ k }{ d } \bot \frac{ m }{ d } ] \\
-& = \sum_{ d | m } \sum_{ 0 \leq k < \frac{ m }{ d } } f ( kd ) [ k \bot \frac{ m }{ d } ] \\
-& = \sum_{ d | m } \sum_{ 0 \leq k < d } f ( \frac{ km }{ d } ) [ k \bot d ]
+\sum_{ 0 \leq k &lt; m } f ( k ) &amp; = \sum_{ d | m } \sum_{ 0 \leq k &lt; m , d | k } f ( k ) [ \gcd ( k , m ) = d ] \\
+&amp; = \sum_{ d | m } \sum_{ 0 \leq k &lt; m , d | k } f ( k ) [ \frac{ k }{ d } \bot \frac{ m }{ d } ] \\
+&amp; = \sum_{ d | m } \sum_{ 0 \leq k &lt; \frac{ m }{ d } } f ( kd ) [ k \bot \frac{ m }{ d } ] \\
+&amp; = \sum_{ d | m } \sum_{ 0 \leq k &lt; d } f ( \frac{ km }{ d } ) [ k \bot d ]
 \end{aligned}
 $$</p>
 <h5 id="toc-28">Example3(《具体数学》4.63)</h5>
-<p>证明:满足$a^n + b^n = c^n ( n \in \mathbb{ N_+ } , n > 2 )$的最小的($n$为第一关键字,$c$为第二关键字)一组正整数解(即费马大定理最小的反例)一定满足以下性质:(另外,$n = 4$的情况早被证明了无解)</p>
+<p>证明:满足$a^n + b^n = c^n ( n \in \mathbb{ N_+ } , n &gt; 2 )$的最小的($n$为第一关键字,$c$为第二关键字)一组正整数解(即费马大定理最小的反例)一定满足以下性质:(另外,$n = 4$的情况早被证明了无解)</p>
 <ol>
 <li>
 <p>$n \in \mathrm{ prime }$.</p>
 </li>
 <li>
-<p>$\exists m \in \mathbb{ N_+ } , a + b = \begin{cases}m^n & n \nmid c \\ n^{ n - 1 } m^n & n \mid c\end{cases}$.</p>
+<p>$\exists m \in \mathbb{ N_+ } , a + b = \begin{cases}m^n &amp; n \nmid c \\ n^{ n - 1 } m^n &amp; n \mid c\end{cases}$.</p>
 </li>
 </ol>
-<p>首先证明(1),如果$n$是最小的满足条件的数但并不是质数,我们不妨设$n = xy , x > 2$,则$( a^y )^x + ( b^y )^x = ( c^y )^x$,显然这是更小的一组反例,于是(1)得证.</p>
+<p>首先证明(1),如果$n$是最小的满足条件的数但并不是质数,我们不妨设$n = xy , x &gt; 2$,则$( a^y )^x + ( b^y )^x = ( c^y )^x$,显然这是更小的一组反例,于是(1)得证.</p>
 <p>接下来考虑性质(2),注意到$a , b , c$必然两两互质,不然可以两边同时除以一个数构造出更小的解,又注意到:</p>
 <p>$$
 \begin{aligned}
-\gcd ( a + b , \cfrac{ a^n + b^n }{ a + b } ) & = \gcd ( a + b , ( a^{ n - 1 } - a^{ n - 2 } b + . . . + b^{ n - 1 } ) ) \\
-\gcd ( a + b , \cfrac{ c^n }{ a + b } ) & = \gcd ( a + b , na^{ n - 1 } ) \\
-\gcd ( a + b , \cfrac{ c^n }{ a + b } ) & = \gcd ( a + b , n )
+\gcd ( a + b , \cfrac{ a^n + b^n }{ a + b } ) &amp; = \gcd ( a + b , ( a^{ n - 1 } - a^{ n - 2 } b + . . . + b^{ n - 1 } ) ) \\
+\gcd ( a + b , \cfrac{ c^n }{ a + b } ) &amp; = \gcd ( a + b , na^{ n - 1 } ) \\
+\gcd ( a + b , \cfrac{ c^n }{ a + b } ) &amp; = \gcd ( a + b , n )
 \end{aligned}
 $$</p>
 <p>如果$\gcd ( a + b , n ) = 1$,那么我们有$( a + b ) \bot \cfrac{ c^n }{ a + b }$.接下来考虑每一个质因子$p$,如果$( a + b )$中有$x$个$p$,$c$中有$y$个$p$,于是$c^n$中有$ny$个$p$,我们自然有:$x = ny$,于是$\exists m \in \mathbb{ N_+ }$满足$a + b = m^n$.</p>
@@ -352,8 +352,8 @@ $$</p>
 <p>冷静一下,如果$n | ( a + b ) , n^2 \nmid ( a + b )$,令$m = a + b$,此时必有:</p>
 <p>$$
 \begin{aligned}
-c^n & = a^n + ( m - a )^n \\
-& = a^n + ( - a )^n + nm ( - a )^{ n - 1 } + \frac{ n ( n - 1 ) }{ 2 } m^2 ( - a )^{ n - 2 } + \cdots
+c^n &amp; = a^n + ( m - a )^n \\
+&amp; = a^n + ( - a )^n + nm ( - a )^{ n - 1 } + \frac{ n ( n - 1 ) }{ 2 } m^2 ( - a )^{ n - 2 } + \cdots
 \end{aligned}
 $$</p>
 <p>注意到$n$是奇数,$a^n + ( - a )^n = 0$,而$n^n | c^n \Rightarrow n^3 | c^n$,又注意到$n^3 | nm^2$,我们把两边对$n^3$取模:</p>
@@ -364,7 +364,7 @@ $$</p>
 <h4 id="toc-29">Stern-Brocot 树</h4>
 <p>Stern-Brocot树是一种可以不重不漏列举有理数的方式,它的构造如下:</p>
 <p>一开始,序列中有两个分数:$\cfrac{ 0 }{ 1 }$和$\cfrac{ 1 }{ 0 }$,这里使用了$0$作分母,但我们暂且认为它是正确的,因为这样会出现很多方便的性质.</p>
-<p>接下来,不断地对这个序列进行以下操作:在两个相邻的分数$\cfrac{ m }{ n }$和$\cfrac{ m ' }{ n ' }$之间插入一个新分数$\cfrac{ m + m ' }{ n + n ' }$.</p>
+<p>接下来,不断地对这个序列进行以下操作:在两个相邻的分数$\cfrac{ m }{ n }$和$\cfrac{ m &#39; }{ n &#39; }$之间插入一个新分数$\cfrac{ m + m &#39; }{ n + n &#39; }$.</p>
 <p>这么无限构造下去得到的序列满足两个性质:</p>
 <ol>
 <li>
@@ -375,30 +375,30 @@ $$</p>
 </li>
 </ol>
 <p>我们不妨认为$\cfrac{ 1 }{ 0 } = + \infty$,那么不难发现这么构造序列,所得到的序列一定是单调递增的.</p>
-<p>这是因为如果我们有$\cfrac{ m }{ n } < \cfrac{ m ' }{ n ' }$,那么我们一定有:$\cfrac{ m }{ n } < \cfrac{ m + m ' }{ n + n ' } < \cfrac{ m ' }{ n ' }$,其中$n , n ' , m , m ' \geq 0$,这一点不难验证.</p>
+<p>这是因为如果我们有$\cfrac{ m }{ n } &lt; \cfrac{ m &#39; }{ n &#39; }$,那么我们一定有:$\cfrac{ m }{ n } &lt; \cfrac{ m + m &#39; }{ n + n &#39; } &lt; \cfrac{ m &#39; }{ n &#39; }$,其中$n , n &#39; , m , m &#39; \geq 0$,这一点不难验证.</p>
 <p>而正因为如此,我们可以证明所得到的所有分数不重.</p>
-<p>然后,如果当前所得到的序列中有两个数$\cfrac{ m }{ n }$和$\cfrac{ m ' }{ n ' }$相邻,则$m ' n - mn ' = 1$,这一点不难通过数学归纳证明.而根据裴蜀定理,显然$m \bot n$且$m ' \bot n '$.</p>
-<p>我们最后需要证明任意非负有理数都可以通过这个序列构造出来,考虑类似二分的方法构造.换句话说,我们有两个序列中的分数$\cfrac{ m }{ n }$和$\cfrac{ m ' }{ n ' }$,要构造的有理数为$\cfrac{ a }{ b }$且满足$\cfrac{ m }{ n } < \cfrac{ a }{ b } < \cfrac{ m ' }{ n ' }$.</p>
-<p>我们考虑判断$\cfrac{ m + m ' }{ n + n ' }$与$\cfrac{ a }{ b }$的大小关系,这样就可以类似二分的方法一直往下找下去.</p>
-<p>问题在于为什么我们最后一定可以找到这个数呢?如果我们一直找不到这个数,意味着无论我们怎么做,都有$\cfrac{ m }{ n } < \cfrac{ a }{ b } < \cfrac{ m ' }{ n ' }$成立,而这也就意味着$an - bm \geq 1 \land bm ' - an ' \geq 1$,处理一下不等式并合并,我们有$( m ' + n ' ) ( an - bm ) + ( n + m ) ( bm ' - an ' ) \geq n + m + n ' + m '$.</p>
-<p>化简这个式子得到$a + b \geq m ' + n ' + m + n$,而我们在操作过程中$m , n , m ' , n '$显然会有两个数不变,另外两个数变大,因此迟早会大于$a + b$,也就意味着这个数迟早会被找到.</p>
+<p>然后,如果当前所得到的序列中有两个数$\cfrac{ m }{ n }$和$\cfrac{ m &#39; }{ n &#39; }$相邻,则$m &#39; n - mn &#39; = 1$,这一点不难通过数学归纳证明.而根据裴蜀定理,显然$m \bot n$且$m &#39; \bot n &#39;$.</p>
+<p>我们最后需要证明任意非负有理数都可以通过这个序列构造出来,考虑类似二分的方法构造.换句话说,我们有两个序列中的分数$\cfrac{ m }{ n }$和$\cfrac{ m &#39; }{ n &#39; }$,要构造的有理数为$\cfrac{ a }{ b }$且满足$\cfrac{ m }{ n } &lt; \cfrac{ a }{ b } &lt; \cfrac{ m &#39; }{ n &#39; }$.</p>
+<p>我们考虑判断$\cfrac{ m + m &#39; }{ n + n &#39; }$与$\cfrac{ a }{ b }$的大小关系,这样就可以类似二分的方法一直往下找下去.</p>
+<p>问题在于为什么我们最后一定可以找到这个数呢?如果我们一直找不到这个数,意味着无论我们怎么做,都有$\cfrac{ m }{ n } &lt; \cfrac{ a }{ b } &lt; \cfrac{ m &#39; }{ n &#39; }$成立,而这也就意味着$an - bm \geq 1 \land bm &#39; - an &#39; \geq 1$,处理一下不等式并合并,我们有$( m &#39; + n &#39; ) ( an - bm ) + ( n + m ) ( bm &#39; - an &#39; ) \geq n + m + n &#39; + m &#39;$.</p>
+<p>化简这个式子得到$a + b \geq m &#39; + n &#39; + m + n$,而我们在操作过程中$m , n , m &#39; , n &#39;$显然会有两个数不变,另外两个数变大,因此迟早会大于$a + b$,也就意味着这个数迟早会被找到.</p>
 <p>之所以称其为&quot;树&quot;,则是因为我们如果每次都在任意两个数之间插入一个数,然后将进行若干次操作得到的序列放到二叉搜索树上,会得到一些很好的性质,譬如一个数是由它所有祖先中最大的小于它的数和最小的大于它的数生成的,以及关于根中心对称的两点互为倒数.</p>
 <p>另外,如果我们定义法里级数$\mathcal{ F }_n$表示所有在$[ 0 , 1 ]$范围内且分母小于等于$n$的最简分数的集合.不难发现,$\mathcal{ F }_n$对应着整棵树的一棵子树的一部分.而$\mathcal{ F }_n$可以由$\mathcal{ F }_{ n - 1 }$得到,只需要判断$\mathcal{ F }_{ n - 1 }$中每两个相邻数能否生成一个满足条件的数即可.</p>
 <p>我们回到它的树形态上,如果我们定义$\cfrac{ 1 }{ 1 }$为这棵二叉搜索树的根,那么每个有理数显然都可以表示为从根到它的一个$LR$序列,表示从根向下搜索时每一步向左走还是向右走.特别地,我们定义根的序列为$I$.</p>
 <p>不难发现,通过这样的操作,我们将每一个非负有理数都对应到了一个$LR$序列.</p>
 <p>那么我们来考虑第一个问题:已知$LR$序列如何求这个数.</p>
-<p>我们可以设当前点是$x$,且它由$y$和$z$生成,其中$y < x < z$,那么不难发现它的右儿子由$x$和$z$生成,左儿子由$y$和$x$生成.</p>
+<p>我们可以设当前点是$x$,且它由$y$和$z$生成,其中$y &lt; x &lt; z$,那么不难发现它的右儿子由$x$和$z$生成,左儿子由$y$和$x$生成.</p>
 <p>那么我们显然可以使用记录$y$和$z$的方式,反复迭代求得答案.注意$x$是可以通过$y$和$z$求得的,因此没有必要存储.</p>
 <p>而这一过程可以简化为矩阵运算:</p>
-<p>我们令$y = \cfrac{ m }{ n }$,$z = \cfrac{ m ' }{ n ' }$,$S = \begin{bmatrix}n & n ' \\ m & m '\end{bmatrix}$,$f ( S ) = \cfrac{ m + m ' }{ n + n ' }$.</p>
+<p>我们令$y = \cfrac{ m }{ n }$,$z = \cfrac{ m &#39; }{ n &#39; }$,$S = \begin{bmatrix}n &amp; n &#39; \\ m &amp; m &#39;\end{bmatrix}$,$f ( S ) = \cfrac{ m + m &#39; }{ n + n &#39; }$.</p>
 <p>那么不难发现它的每一次操作只需右乘一个变换矩阵即可.</p>
-<p>其中:$L = \begin{bmatrix}1 & 1 \\ 0 & 1\end{bmatrix} , R = \begin{bmatrix}1 & 0 \\ 1 & 1\end{bmatrix}$.</p>
+<p>其中:$L = \begin{bmatrix}1 &amp; 1 \\ 0 &amp; 1\end{bmatrix} , R = \begin{bmatrix}1 &amp; 0 \\ 1 &amp; 1\end{bmatrix}$.</p>
 <p>使用数学归纳不难证明:</p>
-<p>$L^k = \begin{bmatrix}1 & k \\ 0 & 1\end{bmatrix} , R^k = \begin{bmatrix}1 & 0 \\ k & 1\end{bmatrix}$.</p>
+<p>$L^k = \begin{bmatrix}1 &amp; k \\ 0 &amp; 1\end{bmatrix} , R^k = \begin{bmatrix}1 &amp; 0 \\ k &amp; 1\end{bmatrix}$.</p>
 <p>至于已知数字求它的序列表示,首先可以直接在树上搜索.</p>
 <p>而如果要脱离树,我们仍然可以回到矩阵上,意识到$f ( RS ) = f ( S ) + 1$,再加上关于根中心对称两点互为倒数的性质,我们可以推导出以下法则:</p>
-<p>如果$m > n$,那么$f ( RS ) = \cfrac{ m }{ n } \Leftrightarrow f ( S ) = \cfrac{ m - n }{ n }$.</p>
-<p>如果$m < n$,那么$f ( LS ) = \cfrac{ m }{ n } \Leftrightarrow f ( S ) = \cfrac{ m }{ n - m }$.</p>
+<p>如果$m &gt; n$,那么$f ( RS ) = \cfrac{ m }{ n } \Leftrightarrow f ( S ) = \cfrac{ m - n }{ n }$.</p>
+<p>如果$m &lt; n$,那么$f ( LS ) = \cfrac{ m }{ n } \Leftrightarrow f ( S ) = \cfrac{ m }{ n - m }$.</p>
 <p>借助这一点,我们就可以求一个数的$LR$序列表示了.</p>
 <p>在某些情形下,这种表示可以解决二进制下某些分数无法精确表示的问题.</p>
 <h4 id="toc-30">升幂引理</h4>
@@ -457,7 +457,7 @@ $$</p>
 <p>$a \equiv b \pmod{ m } \land a \equiv b \pmod{ n } \Leftrightarrow a \equiv b \pmod{ lcm ( n , m ) }$.</p>
 </li>
 </ol>
-<p>我们考虑第五条的证明:由于$m \bot d$,则根据扩展欧几里得算法,可以求得一个数$d '$满足$dd ' + mm ' = 1$,也就是$dd ' \equiv 1 ( \mod m )$,那么如果我们有$ad \equiv bd ( \mod m )$,只需要两边同时乘以$d '$就可以得到右边.值得一提的是,我们通常称$d '$是$d$在模$m$意义下的逆元,记作$inv ( d , m )$或$d^{ - 1 }$.</p>
+<p>我们考虑第五条的证明:由于$m \bot d$,则根据扩展欧几里得算法,可以求得一个数$d &#39;$满足$dd &#39; + mm &#39; = 1$,也就是$dd &#39; \equiv 1 ( \mod m )$,那么如果我们有$ad \equiv bd ( \mod m )$,只需要两边同时乘以$d &#39;$就可以得到右边.值得一提的是,我们通常称$d &#39;$是$d$在模$m$意义下的逆元,记作$inv ( d , m )$或$d^{ - 1 }$.</p>
 <p>逆元有一种线性预处理的求法:</p>
 <p>考虑$1 \leq i \leq n$,设$p = ki + r$,则有$ki + r \equiv 0 ( \mod p )$,则有$kr^{ - 1 } + i^{ - 1 } \equiv 0 ( \mod p )$.</p>
 <p>于是有$i^{ - 1 } \equiv - kr^{ - 1 } ( \mod p )$,即$i^{ - 1 } \equiv - \lfloor \cfrac{ p }{ i } \rfloor \times r^{ - 1 } ( \mod p )$.</p>
@@ -475,11 +475,11 @@ $$</p>
 <h4 id="toc-35">威尔逊定理</h4>
 <p>$$
 \begin{cases}
--1\pmod p&p\in prime\\
+-1\pmod p&amp;p\in prime\\
 
-2\pmod p&p=4\\
+2\pmod p&amp;p=4\\
 
-0\pmod p&other
+0\pmod p&amp;other
 
 \end{cases}
 $$</p>
@@ -491,24 +491,24 @@ $$</p>
 <p>另外,当$p$是奇质数的时候,威尔逊定理可以写成如下形式:</p>
 <p>$$
 \begin{aligned}
-\prod_{ k = 1 }^{ \frac{ p - 1 }{ 2 } } k ( p - k ) & \equiv - 1 \pmod{ p } \\
-\prod_{ k = 1 }^{ \frac{ p - 1 }{ 2 } } - k^2 & \equiv - 1 \pmod{ p } \\
-( - 1 )^{ \frac{ p - 1 }{ 2 } } ( ( \cfrac{ p - 1 }{ 2 } ) ! )^2 & \equiv - 1 \pmod{ p }
+\prod_{ k = 1 }^{ \frac{ p - 1 }{ 2 } } k ( p - k ) &amp; \equiv - 1 \pmod{ p } \\
+\prod_{ k = 1 }^{ \frac{ p - 1 }{ 2 } } - k^2 &amp; \equiv - 1 \pmod{ p } \\
+( - 1 )^{ \frac{ p - 1 }{ 2 } } ( ( \cfrac{ p - 1 }{ 2 } ) ! )^2 &amp; \equiv - 1 \pmod{ p }
 \end{aligned}
 $$</p>
 <p>另外,通过以上推导过程,不难发现威尔逊定理还可以写成:</p>
 <p>$$
 ( p - 2 ) ! \equiv \begin{cases}
-1 ( \mod p ) & p \in \mathrm{ prime } \\
-2 ( \mod p ) & p = 4 \\
-0 ( \mod p ) & other
+1 ( \mod p ) &amp; p \in \mathrm{ prime } \\
+2 ( \mod p ) &amp; p = 4 \\
+0 ( \mod p ) &amp; other
 \end{cases}
 $$</p>
 <h5 id="toc-36">Example1(《具体数学》4.48)</h5>
-<p>求$\prod_{ 1 \leq n < m , n \bot m } n \pmod{ m } \\$.</p>
+<p>求$\prod_{ 1 \leq n &lt; m , n \bot m } n \pmod{ m } \\$.</p>
 <p>首先,类似威尔逊定理的推导,不难注意到这个式子也就等价于:</p>
 <p>$$
-\prod_{ 1 \leq n < m , n^2 \equiv 1 \pmod{ m } } n \pmod{ m }
+\prod_{ 1 \leq n &lt; m , n^2 \equiv 1 \pmod{ m } } n \pmod{ m }
 $$</p>
 <p>首先考虑满足$n^2 \equiv 1 \pmod{ m }$的$n$满足什么性质,根据我们在二次剩余的推导,先考虑$2 \nmid m$的情况,此时我们将$m$分解为了若干个形如$p^k$的质因数的乘积,对于每个$p^k$作为模数时,$n$有两个解:$1$和$p^k - 1$.</p>
 <p>当$m = p^k$的时候,显然答案就是$- 1$.</p>
@@ -516,9 +516,9 @@ $$</p>
 <p>至于$2 \mid m$的情况并没有麻烦很多,当$2 \mid m \land 4 \nmid m$,显然有没有这个$2$作为质因子都一样.当$4 \mid m \land 8 \nmid m$,这个质因子和其它质因子并没有多少区别.</p>
 <p>于是我们最后得到结论:</p>
 <p>$$
-\prod_{ 1 \leq n < m , n \bot m } n \equiv \begin{cases}
-- 1 \pmod{ m } & m = p^k \lor m = 2 p^k \lor m = 4 , p \in \mathrm{ prime } \land p \ne 2 \\
-1 \pmod{ m } & other \\
+\prod_{ 1 \leq n &lt; m , n \bot m } n \equiv \begin{cases}
+- 1 \pmod{ m } &amp; m = p^k \lor m = 2 p^k \lor m = 4 , p \in \mathrm{ prime } \land p \ne 2 \\
+1 \pmod{ m } &amp; other \\
 
 \end{cases}
 $$</p>
@@ -532,9 +532,9 @@ $$</p>
 <p>考虑$( p - 1 ) \equiv - 1 \pmod{ p }$,于是上式也即:</p>
 <p>$$
 \begin{aligned}
-\cfrac{ n ! ( n + 1 ) }{ p^{ \varepsilon_p ( n ! ) + k } } & = ( - 1 )^{ \varepsilon_p ( n ! ) } ( w + 1 ) \prod_{ i \geq 0 } a_i ! \pmod{ p } \\
-\cfrac{ n ! }{ p^{ \varepsilon_p ( n ! ) } } \cfrac{ n + 1 }{ p^k } & = ( - 1 )^{ \varepsilon_p ( n ! ) } ( w + 1 ) \prod_{ i \geq 0 } a_i ! \pmod{ p } \\
-\cfrac{ n ! }{ p^{ \varepsilon_p ( n ! ) } } ( w + 1 ) & = ( - 1 )^{ \varepsilon_p ( n ! ) } ( w + 1 ) \prod_{ i \geq 0 } a_i ! \pmod{ p }
+\cfrac{ n ! ( n + 1 ) }{ p^{ \varepsilon_p ( n ! ) + k } } &amp; = ( - 1 )^{ \varepsilon_p ( n ! ) } ( w + 1 ) \prod_{ i \geq 0 } a_i ! \pmod{ p } \\
+\cfrac{ n ! }{ p^{ \varepsilon_p ( n ! ) } } \cfrac{ n + 1 }{ p^k } &amp; = ( - 1 )^{ \varepsilon_p ( n ! ) } ( w + 1 ) \prod_{ i \geq 0 } a_i ! \pmod{ p } \\
+\cfrac{ n ! }{ p^{ \varepsilon_p ( n ! ) } } ( w + 1 ) &amp; = ( - 1 )^{ \varepsilon_p ( n ! ) } ( w + 1 ) \prod_{ i \geq 0 } a_i ! \pmod{ p }
 \end{aligned}
 $$</p>
 <p>于是化到$n$的情况,于是$n + 1$时该式子成立.</p>
@@ -549,8 +549,8 @@ $$</p>
 <p>我们有:</p>
 <p>$$
 \begin{aligned}
-\prod_{ k = 1 }^{ p - 1 } kn & \equiv \prod_{ k = 1 }^{ p - 1 } ( kn \mod p ) ( \mod p ) \\
-n^{ p - 1 } ( p - 1 ) ! & \equiv ( p - 1 ) ! ( \mod p )
+\prod_{ k = 1 }^{ p - 1 } kn &amp; \equiv \prod_{ k = 1 }^{ p - 1 } ( kn \mod p ) ( \mod p ) \\
+n^{ p - 1 } ( p - 1 ) ! &amp; \equiv ( p - 1 ) ! ( \mod p )
 \end{aligned}
 $$</p>
 <p>根据威尔逊定理,显然可以推得费马小定理.</p>
@@ -565,12 +565,12 @@ $$</p>
 <p>而由于$p \equiv 3 \pmod{ 4 }$,所以$4 | ( p + 1 )$,所以$n^{ p + 1 } \equiv 1 \pmod{ p }$,不符,因此一定不存在.</p>
 <p>反之,考虑威尔逊定理的变形$\prod_{ k = 1 }^{ \frac{ p - 1 }{ 2 } } - k^2 \equiv - 1 \pmod{ p } \\$.由于$p - 1 \equiv 0 \pmod{ 4 }$,所以这个式子也就等价于$\prod_{ k = 1 }^{ \frac{ p - 1 }{ 2 } } k^2 \equiv - 1 \pmod{ p }$,也就是$( ( \cfrac{ p - 1 }{ 2 } ) ! )^2 \equiv - 1 \pmod{ p }$,这就是一个解.</p>
 <h5 id="toc-41">Example2(《具体数学》4.46)</h5>
-<p>求证:如果$n > 1$,则$2^n \ne 1 \pmod{ n }$.</p>
+<p>求证:如果$n &gt; 1$,则$2^n \ne 1 \pmod{ n }$.</p>
 <p>如果$n$是质数,根据费马小定理,显然得证.</p>
 <p>不然,设$n = pq$,且$p$是$n$的最小质因子,若$2^{ n } \equiv 1 \pmod{ n }$,则$2^n \equiv 1 \pmod{ p }$.</p>
 <p>若$p = 2$,显然不成立.不然,有$2^{ p - 1 } \equiv 1 \pmod{ p }$,由于$( p - 1 ) \bot n$,则$2^{ \gcd ( p - 1 , n ) } \equiv 2 \equiv 1 \pmod{ p }$,显然不成立.</p>
 <p>另外,上面的过程显然可以推广为:</p>
-<p>如果$n > 1$,则对于任意质数$p$,$p^n \ne 1 \pmod{ n }$.</p>
+<p>如果$n &gt; 1$,则对于任意质数$p$,$p^n \ne 1 \pmod{ n }$.</p>
 <h4 id="toc-42">中国剩余定理(crt)</h4>
 <p>对于方程组$x \equiv a_i ( \mod m_i )$,其中$m_i$两两互质,求$x$.</p>
 <p>令$m = \prod^k_{ i = 1 } m_i$,设$M_i = \cfrac{ m }{ m_i }$,$N_i$是$M_i$在$\mod m_i$意义下逆元.</p>
@@ -594,33 +594,33 @@ $$</p>
 <p>合并上下方程,有:</p>
 <p>$$
 \begin{aligned}
-k_1 m_1 + a_1 & = k_2 m_2 + a_2 \\
-a_2 - a_1 & = k_1 m_1 - k_2 m_2
+k_1 m_1 + a_1 &amp; = k_2 m_2 + a_2 \\
+a_2 - a_1 &amp; = k_1 m_1 - k_2 m_2
 \end{aligned}
 $$</p>
 <p>设$g = \gcd ( m_1 , m_2 )$,显然若$g \nmid ( a_2 - a_1 )$,方程无解.</p>
 <p>不然,有:</p>
 <p>$$
 \begin{aligned}
-\frac{ a_2 - a_1 }{ g } & = k_1 \frac{ m_1 }{ g } - k_2 \frac{ m_2 }{ g } \\
-k_1 \frac{ m_1 }{ g } & = k_2 \frac{ m_2 }{ g } + \frac{ a_2 - a_1 }{ g } \\
-k_1 \frac{ m_1 }{ g } & \equiv \frac{ a_2 - a_1 }{ g } ( \mod \frac{ m_2 }{ g } ) \\
+\frac{ a_2 - a_1 }{ g } &amp; = k_1 \frac{ m_1 }{ g } - k_2 \frac{ m_2 }{ g } \\
+k_1 \frac{ m_1 }{ g } &amp; = k_2 \frac{ m_2 }{ g } + \frac{ a_2 - a_1 }{ g } \\
+k_1 \frac{ m_1 }{ g } &amp; \equiv \frac{ a_2 - a_1 }{ g } ( \mod \frac{ m_2 }{ g } ) \\
 
 \end{aligned}
 $$</p>
 <p>令$inv ( a , p )$表示$a$在$\mod p$意义下的逆元,有:</p>
 <p>$$
 \begin{aligned}
-k_1 & \equiv inv ( \frac{ m_1 }{ g } , \frac{ m_2 }{ g } ) \frac{ a_2 - a_1 }{ g } ( \mod \frac{ m_2 }{ g } ) \\
-k_1 & = inv ( \frac{ m_1 }{ g } , \frac{ m_2 }{ g } ) \frac{ a_2 - a_1 }{ g } + k_3 \frac{ m_2 }{ g } \\
+k_1 &amp; \equiv inv ( \frac{ m_1 }{ g } , \frac{ m_2 }{ g } ) \frac{ a_2 - a_1 }{ g } ( \mod \frac{ m_2 }{ g } ) \\
+k_1 &amp; = inv ( \frac{ m_1 }{ g } , \frac{ m_2 }{ g } ) \frac{ a_2 - a_1 }{ g } + k_3 \frac{ m_2 }{ g } \\
 
 \end{aligned}
 $$</p>
 <p>带回第一个方程:</p>
 <p>$$
 \begin{aligned}
-x & = m_1 ( inv ( \frac{ m_1 }{ g } , \frac{ m_2 }{ g } ) \frac{ a_2 - a_1 }{ g } + k_3 \frac{ m_2 }{ g } ) + a_1 \\
-x & \equiv m_1 inv ( \frac{ m_1 }{ g } , \frac{ m_2 }{ g } ) \frac{ a_2 - a_1 }{ g } + a_1 ( \mod \frac{ m_1 m_2 }{ g } )
+x &amp; = m_1 ( inv ( \frac{ m_1 }{ g } , \frac{ m_2 }{ g } ) \frac{ a_2 - a_1 }{ g } + k_3 \frac{ m_2 }{ g } ) + a_1 \\
+x &amp; \equiv m_1 inv ( \frac{ m_1 }{ g } , \frac{ m_2 }{ g } ) \frac{ a_2 - a_1 }{ g } + a_1 ( \mod \frac{ m_1 m_2 }{ g } )
 \end{aligned}
 $$</p>
 <h5 id="toc-44">Example1([NOI2018]屠龙勇士)</h5>
@@ -643,16 +643,16 @@ $$</p>
 <p>求方程$x^2 = k ( \mod m )$的解.</p>
 <p>我们先考虑一个特殊情况:$k = 1$,$m = p^k , p \in \mathrm{ prime }$.</p>
 <p>那么也就相当于求方程$( x - 1 ) ( x + 1 ) \equiv 0 ( \mod p^k )$.</p>
-<p>如果$p > 2$,那么显然$x - 1$和$x + 1$只有一个能被$p^k$整除,所以有$x = \pm 1$.</p>
+<p>如果$p &gt; 2$,那么显然$x - 1$和$x + 1$只有一个能被$p^k$整除,所以有$x = \pm 1$.</p>
 <p>如果$p = 2$,那么显然$x - 1$和$x + 1$有一个能被$2$整除但不能被$4$整除,另一个能被$2^{ k - 1 }$整除,如果$k = 1$时,显然只有一个解.当$k = 2$时,同上.反之,有$x = \pm 1$或$x = 2^{ k - 1 } \pm 1$.考虑一个性质:$( 2 k + 1 )^2 \equiv 1 ( \mod 8 )$.</p>
 <p>那么如果:$k = 1 , m \in \mathbb{ N_+ }$,也是一样的.先把$m$作质因数分解,然后再用中国剩余定理合并,那么显然不同质数的解会累乘到总的解上,若$m$有$r$个不同大于$2$的质因子,总的解的个数是$2^r$.而如果考虑$p = 2$的情况,$m$有$r$个不同的质因子,则解的个数为$2^{ r + [ 8 | m ] + [ 4 | m ] - [ 2 | m ] }$.</p>
 <p>下面开始讲正经的二次剩余.</p>
 <p>我们称$a$是$p$的二次剩余,当且仅当$\exists b , b^2 \equiv a \pmod{ p }$并且$a \ne 0 \pmod{ p }$,这里的$p$是奇素数,如果$a$不是$p$的倍数且$\nexists b , b^2 \equiv a \pmod{ p }$,则称为二次非剩余.我们引入勒让德符号来表示这个东西:</p>
 <p>$$
 \left ( \frac{ a }{ p } \right ) = \begin{cases}
-1 & a 是 二 次 剩 余 \\
-0 & a \equiv 0 \pmod{ p } \\
-- 1 & a 为 二 次 非 剩 余
+1 &amp; a 是 二 次 剩 余 \\
+0 &amp; a \equiv 0 \pmod{ p } \\
+- 1 &amp; a 为 二 次 非 剩 余
 \end{cases}
 $$</p>
 <p>那么这玩意怎么求呢?我们有欧拉判别准则:</p>
@@ -664,34 +664,34 @@ $$</p>
 <p>接下来证明欧拉判别准则:</p>
 <p>$$
 \begin{aligned}
-g^{ p - 1 } & \equiv 1 \pmod{ p } \\
-g^{ p - 1 } - 1 & \equiv 0 \pmod{ p } \\
-( g^{ \frac{ p - 1 }{ 2 } } + 1 ) ( g^{ \frac{ p - 1 }{ 2 } } - 1 ) & \equiv 0 \pmod{ p } \\
-g^{ \frac{ p - 1 }{ 2 } } & \equiv - 1 \pmod{ p } \\
-a^{ \frac{ p - 1 }{ 2 } } & = ( g^k )^{ \frac{ p - 1 }{ 2 } } = ( g^{ p - 1 } )^{ \frac{ k }{ 2 } }
+g^{ p - 1 } &amp; \equiv 1 \pmod{ p } \\
+g^{ p - 1 } - 1 &amp; \equiv 0 \pmod{ p } \\
+( g^{ \frac{ p - 1 }{ 2 } } + 1 ) ( g^{ \frac{ p - 1 }{ 2 } } - 1 ) &amp; \equiv 0 \pmod{ p } \\
+g^{ \frac{ p - 1 }{ 2 } } &amp; \equiv - 1 \pmod{ p } \\
+a^{ \frac{ p - 1 }{ 2 } } &amp; = ( g^k )^{ \frac{ p - 1 }{ 2 } } = ( g^{ p - 1 } )^{ \frac{ k }{ 2 } }
 \end{aligned}
 $$</p>
 <p>于是得证.另外通过这个证明过程,我们可以发现$[ 1 , p - 1 ]$中有正好一半的数是二次剩余,我们还能得知$x^2 \equiv a \pmod{ p }$的解的数量是$\left ( \frac{ a }{ p } \right ) + 1 \\$.</p>
 <h5 id="toc-47">Example1([CF1091G]New Year and the Factorisation Collaboration)</h5>
-<p>考虑随机一个$x$,令$x ' = \sqrt{ x^2 } \pmod{ n }$,如果$x ' = x$则放弃这次询问,不然自然有$( x ' - x ) ( x ' + x ) \equiv 0 \pmod{ n }$.</p>
-<p>$\forall p | n , p \in \mathrm{ prime }$,注意到一定满足$p | ( x ' - x )$或$p | ( x ' + x )$,我们可以多做几次,可以理解为这样将$n$随机分割了.</p>
+<p>考虑随机一个$x$,令$x &#39; = \sqrt{ x^2 } \pmod{ n }$,如果$x &#39; = x$则放弃这次询问,不然自然有$( x &#39; - x ) ( x &#39; + x ) \equiv 0 \pmod{ n }$.</p>
+<p>$\forall p | n , p \in \mathrm{ prime }$,注意到一定满足$p | ( x &#39; - x )$或$p | ( x &#39; + x )$,我们可以多做几次,可以理解为这样将$n$随机分割了.</p>
 <h5 id="toc-48">Example2(qoj5021)</h5>
 <p>整个题就强调一个字:双射!</p>
 <p>先把模数质因数分解.</p>
-<p>从头开始看,这种多元组计数肯定要一点一点确定,我们考虑固定$( a , a ' )$求解$( b , b ' )$,这个时候发现只要$( a , a ' )$不全为$0$,那么就有$p$组$( b , b ' )$满足条件,这个可以通过移项求逆元发现.发现这个全为$0$的条件很烦,我们先把它处理掉.</p>
-<p>显然只有$r = 0$会出现这种情况,讨论一下$( a , a ' )$全为$0$或$( b , b ' )$全为$0$的情况,简单分类讨论可以得到共有$2 p^3 + p^2 - 2 p$种方案.</p>
+<p>从头开始看,这种多元组计数肯定要一点一点确定,我们考虑固定$( a , a &#39; )$求解$( b , b &#39; )$,这个时候发现只要$( a , a &#39; )$不全为$0$,那么就有$p$组$( b , b &#39; )$满足条件,这个可以通过移项求逆元发现.发现这个全为$0$的条件很烦,我们先把它处理掉.</p>
+<p>显然只有$r = 0$会出现这种情况,讨论一下$( a , a &#39; )$全为$0$或$( b , b &#39; )$全为$0$的情况,简单分类讨论可以得到共有$2 p^3 + p^2 - 2 p$种方案.</p>
 <p>好了,困难的部分被我们解决了,不过这样我们需要多讨论一下$r$是否等于$0$,不过问题不大.</p>
 <p>先考虑$r = 0$的情况:</p>
-<p>注意到此时固定$( a , a ' )$会有$p - 1$组(有一组全$0$)$( b , b ' )$满足条件,此时有方程$\begin{cases}ac + a ' c ' \equiv 0 \pmod{ p } \\ bc + b ' c ' \equiv 0 \pmod{ p }\end{cases}$.显然若$( b , b ' ) \equiv k ( a , a ' )$,那么该方程有$p$组解,不然只有一组解.而前者相当于$( a , a ' )$满足$ka^2 + ka '^2 \equiv 0$,我们设$C_k$是方程$a^2 + a '^2 \equiv k \pmod{ p }$的解的数量,把上面的全部加起来,答案是:</p>
+<p>注意到此时固定$( a , a &#39; )$会有$p - 1$组(有一组全$0$)$( b , b &#39; )$满足条件,此时有方程$\begin{cases}ac + a &#39; c &#39; \equiv 0 \pmod{ p } \\ bc + b &#39; c &#39; \equiv 0 \pmod{ p }\end{cases}$.显然若$( b , b &#39; ) \equiv k ( a , a &#39; )$,那么该方程有$p$组解,不然只有一组解.而前者相当于$( a , a &#39; )$满足$ka^2 + ka &#39;^2 \equiv 0$,我们设$C_k$是方程$a^2 + a &#39;^2 \equiv k \pmod{ p }$的解的数量,把上面的全部加起来,答案是:</p>
 <p>$$
 ( C_0 - 1 ) ( p - 1 ) p + ( ( p^2 - 1 ) ( p - 1 ) - ( C_0 - 1 ) ( p - 1 ) )
 $$</p>
 <p>化简一下得到:$( C_0 - 1 ) ( p - 1 )^2 + p^3 - p^2 - p + 1$.</p>
 <p>再考虑$r \ne 0$的情况:</p>
-<p>注意到此时不可能有全为$0$的二元组了.所以固定$( a , a ' )$的话,$( b , b ' )$共有$p$组解,此时有方程$\begin{cases}ac + a ' c ' \equiv r \pmod{ p } \\ bc + b ' c ' \equiv r \pmod{ p }\end{cases}$.</p>
-<p>若$( b , b ' ) \equiv k ( a , a ' )$,显然当$k = 1$时有$p$组解,否则无解,此时$a^2 + a '^2 \equiv r \pmod{ p }$.</p>
+<p>注意到此时不可能有全为$0$的二元组了.所以固定$( a , a &#39; )$的话,$( b , b &#39; )$共有$p$组解,此时有方程$\begin{cases}ac + a &#39; c &#39; \equiv r \pmod{ p } \\ bc + b &#39; c &#39; \equiv r \pmod{ p }\end{cases}$.</p>
+<p>若$( b , b &#39; ) \equiv k ( a , a &#39; )$,显然当$k = 1$时有$p$组解,否则无解,此时$a^2 + a &#39;^2 \equiv r \pmod{ p }$.</p>
 <p>不然有唯一解.</p>
-<p>而$( b , b ' ) = k ( a , a ' )$的方案有多少呢,显然是$\sum_{ k = 1 }^{ p - 1 } C_{ \frac{ r }{ k } } = \sum_{ k = 1 }^{ p - 1 } C_k = p^2 - C_0$,这里用到了这篇题解的第一个双射,$[ 1 , p - 1 ] / k \mapsto [ 1 , p - 1 ]$.</p>
+<p>而$( b , b &#39; ) = k ( a , a &#39; )$的方案有多少呢,显然是$\sum_{ k = 1 }^{ p - 1 } C_{ \frac{ r }{ k } } = \sum_{ k = 1 }^{ p - 1 } C_k = p^2 - C_0$,这里用到了这篇题解的第一个双射,$[ 1 , p - 1 ] / k \mapsto [ 1 , p - 1 ]$.</p>
 <p>于是这里的答案就是:</p>
 <p>$$
 C_r p + ( ( p^2 - 1 ) p - ( p^2 - C_0 ) )
@@ -702,9 +702,9 @@ $$</p>
 <p>那么$C_r$怎么求呢?考虑$x^2 \equiv a \pmod{ p }$的解数为$\left ( \frac{ a }{ p } \right ) + 1$,我们有:</p>
 <p>$$
 \begin{aligned}
-C_r & = \sum_{ i = 0 }^{ p - 1 } ( \left ( \frac{ i }{ p } \right ) + 1 ) ( \left ( \frac{ r - i }{ p } \right ) + 1 ) \\
-& = \sum_{ i = 0 }^{ p - 1 } \left ( \frac{ i ( r - i ) }{ p } \right ) + 2 \sum_{ i = 0 }^{ p - 1 } \left ( \frac{ i }{ p } \right ) + p \\
-& = \sum_{ i = 1 }^{ p - 1 } \left ( \frac{ \frac{ r }{ i } - 1 }{ p } \right ) + p
+C_r &amp; = \sum_{ i = 0 }^{ p - 1 } ( \left ( \frac{ i }{ p } \right ) + 1 ) ( \left ( \frac{ r - i }{ p } \right ) + 1 ) \\
+&amp; = \sum_{ i = 0 }^{ p - 1 } \left ( \frac{ i ( r - i ) }{ p } \right ) + 2 \sum_{ i = 0 }^{ p - 1 } \left ( \frac{ i }{ p } \right ) + p \\
+&amp; = \sum_{ i = 1 }^{ p - 1 } \left ( \frac{ \frac{ r }{ i } - 1 }{ p } \right ) + p
 \end{aligned}
 $$</p>
 <p><s>(这是干啥啊)</s></p>
@@ -736,7 +736,7 @@ $$</p>
 <p>ps：$p = 1$的时候要特判.</p>
 <h4 id="toc-52">原根和阶</h4>
 <p>阶:找到一个最小的$k$使得$a^k \equiv 1 ( \mod p )$,则称$k$是$a$在膜$p$意义下的阶.</p>
-<p>原根:如果$a$在膜$p$意义下的阶是$\varphi ( p )$且$a < p$,则称$a$是$p$的一个原根.</p>
+<p>原根:如果$a$在膜$p$意义下的阶是$\varphi ( p )$且$a &lt; p$,则称$a$是$p$的一个原根.</p>
 <p>若$m$有原根,则$m$一定是$2$,$4$或是$p^a , 2 p^a$,其中$p \in \mathrm{ prime }$且$2 \nmid p$.</p>
 <p>由于对于大部分$m$来说,都存在一个很小的原根,所以在实际应用中只需要暴力找就可以了.</p>
 <p>根据阶的定义,我们如果要判断一个$a$不是$p$的原根,只需判断是否$\exists i$使得$a^i \equiv 1 ( \mod p )$.</p>
@@ -749,7 +749,7 @@ $$</p>
 <h5 id="toc-54">Example2(《具体数学》4.47)</h5>
 <p>证明:如果$\exists n , n^{ m - 1 } \equiv 1 \pmod{ m }$,且对于所有满足$p | ( m - 1 )$的$p$都满足$n^{ \frac{ m - 1 }{ p } } \ne 1 \pmod{ m }$,那么$m$是素数.</p>
 <p>首先不难发现,$m \in \ \mathrm{ prime } \Leftrightarrow \varphi ( m ) = m - 1$.</p>
-<p>考虑上面的过程中,不可能存在一个数$k$满足$0 \leq k < m - 1 , n^k \equiv 1 \pmod{ m }$.因此$\nexists 0 \leq i , j < m , i \ne j , n^i \equiv n^j \pmod{ m }$.</p>
+<p>考虑上面的过程中,不可能存在一个数$k$满足$0 \leq k &lt; m - 1 , n^k \equiv 1 \pmod{ m }$.因此$\nexists 0 \leq i , j &lt; m , i \ne j , n^i \equiv n^j \pmod{ m }$.</p>
 <p>根据欧拉定理,$m - 1 = \varphi ( m )$,因此得证.</p>
 <h3 id="toc-55">积性函数</h3>
 <p>若函数$f ( x )$满足$\forall n , m \in \mathbb{ N_+ } , n \bot m$,有$f ( 1 ) = 1 , f ( nm ) = f ( n ) f ( m )$,则称其为积性函数.若$\forall n , m \in \mathbb{ N_+ }$,有$f ( 1 ) = 1 , f ( nm ) = f ( n ) f ( m )$,则称其为完全积性函数.</p>
@@ -759,8 +759,8 @@ $$</p>
 <p>于是有</p>
 <p>$$
 \begin{aligned}
-g ( m ) & = \sum_{ d_1 | m_1 } \sum_{ d_2 | m_2 } f ( d_1 ) f ( d_2 ) - f ( m_1 ) f ( m_2 ) + f ( m_1 m_2 ) \\
-& = g ( m_1 m_2 ) - f ( m_1 ) f ( m_2 ) + f ( m_1 m_2 )
+g ( m ) &amp; = \sum_{ d_1 | m_1 } \sum_{ d_2 | m_2 } f ( d_1 ) f ( d_2 ) - f ( m_1 ) f ( m_2 ) + f ( m_1 m_2 ) \\
+&amp; = g ( m_1 m_2 ) - f ( m_1 ) f ( m_2 ) + f ( m_1 m_2 )
 \end{aligned}
 $$</p>
 <p>于是$f ( m_1 ) f ( m_2 ) = f ( m_1 m_2 )$.</p>
@@ -792,10 +792,10 @@ $$</p>
 <p>考虑第四条的证明:</p>
 <p>$$
 \begin{aligned}
-f * g ( nm ) & = \sum_{ d | ( nm ) } f ( d ) g ( \cfrac{ n }{ d } ) \\
-& = \sum_{ c | n } \sum_{ d | m } f ( cd ) g ( \cfrac{ nm }{ cd } ) \\
-& = \sum_{ c | n } \sum_{ d | m } f ( c ) f ( d ) g ( \cfrac{ n }{ c } ) g ( \cfrac{ m }{ d } ) \\
-& = ( f * g ( n ) ) \times ( f * g ( m ) )
+f * g ( nm ) &amp; = \sum_{ d | ( nm ) } f ( d ) g ( \cfrac{ n }{ d } ) \\
+&amp; = \sum_{ c | n } \sum_{ d | m } f ( cd ) g ( \cfrac{ nm }{ cd } ) \\
+&amp; = \sum_{ c | n } \sum_{ d | m } f ( c ) f ( d ) g ( \cfrac{ n }{ c } ) g ( \cfrac{ m }{ d } ) \\
+&amp; = ( f * g ( n ) ) \times ( f * g ( m ) )
 \end{aligned}
 $$</p>
 <ol start="5">
@@ -816,7 +816,7 @@ $$</p>
 <p>由于$\varphi$是积性函数,若$n \ne 1$,设$n = \prod_{ i = 1 }^k p_i^{ q_i }$,则$\varphi ( n ) = \prod_{ i = 1 }^k \varphi ( p_i^{ q_i } )$,则有:</p>
 <p>$$
 \begin{aligned}
-\sum_{ d | n } \varphi ( d ) & = \sum_{ w_1 = 0 }^{ q_1 } \sum_{ w_2 = 0 }^{ q_2 } . . . . . . \sum_{ w_k = 0 }^{ q_k }{ \varphi ( p_1^{ w_1 } ) \varphi ( p_2^{ w_2 } ) . . . . . . \varphi ( p_k^{ w_k } ) } \\
+\sum_{ d | n } \varphi ( d ) &amp; = \sum_{ w_1 = 0 }^{ q_1 } \sum_{ w_2 = 0 }^{ q_2 } . . . . . . \sum_{ w_k = 0 }^{ q_k }{ \varphi ( p_1^{ w_1 } ) \varphi ( p_2^{ w_2 } ) . . . . . . \varphi ( p_k^{ w_k } ) } \\
 
 \end{aligned}
 $$</p>
@@ -824,7 +824,7 @@ $$</p>
 <p>则原式等于$\prod_{ i = 1 }^k p_i^{ q_i } = n$.</p>
 <h5 id="toc-59">和法里级数的关系</h5>
 <p>我们考虑之前提到的法里级数$\mathcal{ F }_n$,令$\Phi ( x ) = \sum_{ 1 \leq k \leq x } \varphi ( k )$,那么$\mathcal{ F }_n$的个数显然是$\Phi ( x ) + 1$.</p>
-<p>接下来我们思考如何计算$\Phi ( x )$.事实上,我们有$\sum_{ d = 1 }^n \Phi ( \lfloor \cfrac{ n }{ d } \rfloor ) = \cfrac{ 1 }{ 2 } ( n + 1 ) n$.这里的证明是:考虑满足$0 \leq a < b \leq n$的分数$\cfrac{ a }{ b }$共有$\cfrac{ 1 }{ 2 } n ( n + 1 )$个,而如果我们枚举$d = \gcd ( a , b )$,那么显然右边也等于这些分数个数,于是得证.</p>
+<p>接下来我们思考如何计算$\Phi ( x )$.事实上,我们有$\sum_{ d = 1 }^n \Phi ( \lfloor \cfrac{ n }{ d } \rfloor ) = \cfrac{ 1 }{ 2 } ( n + 1 ) n$.这里的证明是:考虑满足$0 \leq a &lt; b \leq n$的分数$\cfrac{ a }{ b }$共有$\cfrac{ 1 }{ 2 } n ( n + 1 )$个,而如果我们枚举$d = \gcd ( a , b )$,那么显然右边也等于这些分数个数,于是得证.</p>
 <p>而事实上,如果我们用$n = \lfloor x \rfloor$来带入上面的式子,可以得到$\sum_{ d = 1 } \Phi ( \cfrac{ x }{ d } ) = \cfrac{ 1 }{ 2 } \lfloor x \rfloor \lfloor 1 + x \rfloor$.</p>
 <p>根据第三种莫比乌斯反演的形式,我们有:$\Phi ( x ) = \cfrac{ 1 }{ 2 } \sum_{ 1 \leq d } \mu ( d ) \lfloor \cfrac{ x }{ d } \rfloor \lfloor \cfrac{ x }{ d } + 1 \rfloor$.</p>
 <h5 id="toc-60">麦克马洪和式</h5>
@@ -833,20 +833,20 @@ $$</p>
 <p>那么我们显然有:</p>
 <p>$$
 \begin{aligned}
-nN ( n , m ) & = \sum_{ a_0 a_1 . . . a_{ n - 1 } } \sum_{ 0 \leq k < n } [ a_0 a_1 . . . a_{ n - 1 } = a_k . . . a_{ n - 1 } a_0 . . . a_{ k - 1 } ] \\
-& = \sum_{ 0 \leq k < n } \sum_{ a_0 a_1 . . . a_{ n - 1 } } [ a_0 a_1 . . . a_{ n - 1 } = a_k . . . a_{ n - 1 } a_0 . . . a_{ k - 1 } ]
+nN ( n , m ) &amp; = \sum_{ a_0 a_1 . . . a_{ n - 1 } } \sum_{ 0 \leq k &lt; n } [ a_0 a_1 . . . a_{ n - 1 } = a_k . . . a_{ n - 1 } a_0 . . . a_{ k - 1 } ] \\
+&amp; = \sum_{ 0 \leq k &lt; n } \sum_{ a_0 a_1 . . . a_{ n - 1 } } [ a_0 a_1 . . . a_{ n - 1 } = a_k . . . a_{ n - 1 } a_0 . . . a_{ k - 1 } ]
 \end{aligned}
 $$</p>
 <p>接下来我们只需要知道,当已知$k$的时候,右边和式的贡献是多少.显然此时有$a_i = a_{ ( i + k ) \mod n }$,也就是$a_i = a_{ ( i + kl ) \mod n }$,此时答案为$m^{ \gcd ({ n , k } ) }$.</p>
 <p>为啥答案为$m^{ \gcd ( n , k ) }$呢?我们考虑这一定会不断在$a$中取数,那么会取多少数呢?显然会取$x - 1$个数,其中$i + xk = i + yn$,不难解得此时$x = \frac{ n }{ \gcd ( k , n ) }$,因此一共有$\gcd ( n , k )$个轨道.</p>
-<p>也就是说:$nN ( n , m ) = \sum_{ 0 \leq k < n } m^{ \gcd ( n , k ) } , N ( n , m ) = \cfrac{ 1 }{ n } \sum_{ 0 \leq k < n } m^{ \gcd ( n , k ) } \\$.</p>
+<p>也就是说:$nN ( n , m ) = \sum_{ 0 \leq k &lt; n } m^{ \gcd ( n , k ) } , N ( n , m ) = \cfrac{ 1 }{ n } \sum_{ 0 \leq k &lt; n } m^{ \gcd ( n , k ) } \\$.</p>
 <p>如果我们对这个式子进行化简:</p>
 <p>$$
 \begin{aligned}
-N ( n , m ) & = \cfrac{ 1 }{ n } \sum_{ d | n } m^d \sum_{ 0 \leq k < n } [ d = \gcd ( n , k ) ] \\
-& = \cfrac{ 1 }{ n } \sum_{ d | n } m^d \sum_{ d | k , k < n } [ \cfrac{ k }{ d } \bot \cfrac{ n }{ d } ] \\
-& = \cfrac{ 1 }{ n } \sum_{ d | n } m^d \sum_{ 0 \leq k < \frac{ n }{ d } } [ k \bot \cfrac{ n }{ d } ] \\
-& = \cfrac{ 1 }{ n } \sum_{ d | n } \varphi ( d ) m^{ \frac{ n }{ d } } .
+N ( n , m ) &amp; = \cfrac{ 1 }{ n } \sum_{ d | n } m^d \sum_{ 0 \leq k &lt; n } [ d = \gcd ( n , k ) ] \\
+&amp; = \cfrac{ 1 }{ n } \sum_{ d | n } m^d \sum_{ d | k , k &lt; n } [ \cfrac{ k }{ d } \bot \cfrac{ n }{ d } ] \\
+&amp; = \cfrac{ 1 }{ n } \sum_{ d | n } m^d \sum_{ 0 \leq k &lt; \frac{ n }{ d } } [ k \bot \cfrac{ n }{ d } ] \\
+&amp; = \cfrac{ 1 }{ n } \sum_{ d | n } \varphi ( d ) m^{ \frac{ n }{ d } } .
 \end{aligned}
 $$</p>
 <p>这个式子被称为麦克马洪公式.</p>
@@ -854,8 +854,8 @@ $$</p>
 <p>而由于$\varphi ( x )$是积性函数,令$n = n_1 n_2 , n_1 \bot n_2$,有:</p>
 <p>$$
 \begin{aligned}
-\sum_{ d | n } \varphi ( d ) n^{ \frac{ n }{ d } } & = \sum_{ d_1 | n_1 , d_2 | n_2 } \varphi ( d_1 d_2 ) n^{ \frac{ n_1 n_2 }{ d_1 d_2 } } \\
-& = \sum_{ d_1 | n_1 } \varphi ( d_1 ) ( \sum_{ d_2 | n_2 } \varphi ( d_2 ) ( n^{ \frac{ n_1 }{ d_1 } } )^{ \frac{ n_2 }{ d_2 } } )
+\sum_{ d | n } \varphi ( d ) n^{ \frac{ n }{ d } } &amp; = \sum_{ d_1 | n_1 , d_2 | n_2 } \varphi ( d_1 d_2 ) n^{ \frac{ n_1 n_2 }{ d_1 d_2 } } \\
+&amp; = \sum_{ d_1 | n_1 } \varphi ( d_1 ) ( \sum_{ d_2 | n_2 } \varphi ( d_2 ) ( n^{ \frac{ n_1 }{ d_1 } } )^{ \frac{ n_2 }{ d_2 } } )
 \end{aligned}
 $$</p>
 <p>我们可以通过数学归纳来证明.</p>
@@ -876,8 +876,8 @@ $$</p>
 <p>证明考虑取出$[ 1 , m ]$中所有和$m$互质的数,设它们为$b_1 , b_2 , \cdots , b_{ \varphi ( m ) }$.我们有:</p>
 <p>$$
 \begin{aligned}
-\prod_{ k = 1 }^{ \varphi ( m ) } ab_k & \equiv \prod_{ k = 1 }^{ \varphi ( m ) } ( ab_k \bmod p ) ( \mod p ) \\
-a^{ \varphi ( m ) } \prod_{ k = 1 }^{ \varphi ( m ) } b_k & \equiv \prod_{ k = 1 }^{ \varphi ( m ) } b_k ( \mod p )
+\prod_{ k = 1 }^{ \varphi ( m ) } ab_k &amp; \equiv \prod_{ k = 1 }^{ \varphi ( m ) } ( ab_k \bmod p ) ( \mod p ) \\
+a^{ \varphi ( m ) } \prod_{ k = 1 }^{ \varphi ( m ) } b_k &amp; \equiv \prod_{ k = 1 }^{ \varphi ( m ) } b_k ( \mod p )
 \end{aligned}
 $$</p>
 <p>欧拉定理可以用来求逆元:$a^{ \varphi ( p ) } \equiv 1 ( \mod p )$,则有$a^{ - 1 } \equiv a^{ \varphi ( p ) - 1 } ( \mod p )$.</p>
@@ -885,9 +885,9 @@ $$</p>
 <p>断言$a^b \equiv a^c ( \mod m )$,其中</p>
 <p>$$
 c=\begin{cases}
-b\bmod \varphi(m) &a\perp m\\
-b &b<\varphi(m)\\
-(b\bmod \varphi(m))+\varphi(m) &other
+b\bmod \varphi(m) &amp;a\perp m\\
+b &amp;b&lt;\varphi(m)\\
+(b\bmod \varphi(m))+\varphi(m) &amp;other
 \end{cases}
 $$</p>
 <p>证明如下:</p>
@@ -905,22 +905,22 @@ $$</p>
 <p>我们有:</p>
 <p>$$
 \begin{aligned}
-1000 ! & \equiv ans \pmod{ 10^{ 250 } } \\
-\cfrac{ 1000 ! }{ 10^{ 249 } } & \equiv \cfrac{ ans }{ 10^{ 249 } } \pmod{ 10 }
+1000 ! &amp; \equiv ans \pmod{ 10^{ 250 } } \\
+\cfrac{ 1000 ! }{ 10^{ 249 } } &amp; \equiv \cfrac{ ans }{ 10^{ 249 } } \pmod{ 10 }
 \end{aligned}
 $$</p>
 <p>由于模数现在变成了$10$,考虑$1 \times 3 \times 3 \times 7 \times 9 \mod{ 10 } = 7$,于是我们有:</p>
 <p>$$
 \begin{aligned}
-\cfrac{ ans }{ 10^{ 249 } } & \equiv 2^{ 745 } \times 7^{ 100 } \pmod{ 10 } \\
+\cfrac{ ans }{ 10^{ 249 } } &amp; \equiv 2^{ 745 } \times 7^{ 100 } \pmod{ 10 } \\
 
 \end{aligned}
 $$</p>
 <p>而$\varphi ( 10 ) = 4$,根据扩展欧拉定理:</p>
 <p>$$
 \begin{aligned}
-\cfrac{ ans }{ 10^{ 249 } } & \equiv 2^{ 5 } \pmod{ 10 } \\
-ans & \equiv 2 \times 10^{ 249 } \pmod{ 10^{ 250 } }
+\cfrac{ ans }{ 10^{ 249 } } &amp; \equiv 2^{ 5 } \pmod{ 10 } \\
+ans &amp; \equiv 2 \times 10^{ 249 } \pmod{ 10^{ 250 } }
 \end{aligned}
 $$</p>
 <h5 id="toc-68">Example1(《具体数学》4.57)</h5>
@@ -933,9 +933,9 @@ $$</p>
 <p>对其增加枚举量:</p>
 <p>$$
 \begin{aligned}
-\sum_{ 1 \leq k \leq n } \varphi ( k ) \lfloor \cfrac{ n }{ k } \rfloor & = \sum_{ 1 \leq k \leq n } \varphi ( k ) \sum_{ d = 1 }^{ \lfloor \frac{ n }{ k } \rfloor } 1 \\
-& = \sum_{ k = 1 }^n \sum_{ d | k } \varphi ( d ) \\
-& = \sum_{ k = 1 }^n k = \cfrac{ ( n + 1 ) n }{ 2 }
+\sum_{ 1 \leq k \leq n } \varphi ( k ) \lfloor \cfrac{ n }{ k } \rfloor &amp; = \sum_{ 1 \leq k \leq n } \varphi ( k ) \sum_{ d = 1 }^{ \lfloor \frac{ n }{ k } \rfloor } 1 \\
+&amp; = \sum_{ k = 1 }^n \sum_{ d | k } \varphi ( d ) \\
+&amp; = \sum_{ k = 1 }^n k = \cfrac{ ( n + 1 ) n }{ 2 }
 \end{aligned}
 $$</p>
 <p>带入即可证明.</p>
@@ -944,76 +944,76 @@ $$</p>
 <p>考虑$p \bot ( p - 1 )$,使用中国剩余定理,我们有:</p>
 <p>$$
 \begin{aligned}
-\sum_{ 1 \leq a , b \leq p ( p - 1 ) } [ a^b & \equiv b^a ( \mod p ) ] \\
-& = \sum_{ 0 \leq a , b < p } \sum_{ 0 \leq c , d < p - 1 } [ a^c \equiv b^d ( \mod p ) ] \\
-& = ( p - 1 )^2 + \sum_{ 1 \leq a , b < p } \sum_{ 0 \leq c , d < p - 1 } [ a^c \equiv b^d ( \mod p ) ]
+\sum_{ 1 \leq a , b \leq p ( p - 1 ) } [ a^b &amp; \equiv b^a ( \mod p ) ] \\
+&amp; = \sum_{ 0 \leq a , b &lt; p } \sum_{ 0 \leq c , d &lt; p - 1 } [ a^c \equiv b^d ( \mod p ) ] \\
+&amp; = ( p - 1 )^2 + \sum_{ 1 \leq a , b &lt; p } \sum_{ 0 \leq c , d &lt; p - 1 } [ a^c \equiv b^d ( \mod p ) ]
 \end{aligned}
 $$</p>
 <p>后面那部分的答案是:</p>
 <p>$$
 \begin{aligned}
-\sum_{ 1 \leq a , b < p } \sum_{ 0 \leq c , d < p - 1 } [ a^c & \equiv b^d ( \mod p ) ] \\
-& = \sum_{ 1 \leq x < p } \sum_{ 0 \leq a , b < p } \sum_{ 1 \leq c , d < p - 1 } [ a^c \equiv x ( \mod p ) ] [ b^d \equiv x ( \mod p ) ] \\
-& = \sum_{ 1 \leq x < p } ( \sum_{ 1 \leq a < p , 0 \leq c < p - 1 } [ a^c \equiv x ( \mod p ) ] )^2
+\sum_{ 1 \leq a , b &lt; p } \sum_{ 0 \leq c , d &lt; p - 1 } [ a^c &amp; \equiv b^d ( \mod p ) ] \\
+&amp; = \sum_{ 1 \leq x &lt; p } \sum_{ 0 \leq a , b &lt; p } \sum_{ 1 \leq c , d &lt; p - 1 } [ a^c \equiv x ( \mod p ) ] [ b^d \equiv x ( \mod p ) ] \\
+&amp; = \sum_{ 1 \leq x &lt; p } ( \sum_{ 1 \leq a &lt; p , 0 \leq c &lt; p - 1 } [ a^c \equiv x ( \mod p ) ] )^2
 \end{aligned}
 $$</p>
-<p>令$g$为$p$的原根,令$a = g^b$,$x = g^{ x ' }$有:</p>
+<p>令$g$为$p$的原根,令$a = g^b$,$x = g^{ x &#39; }$有:</p>
 <p>$$
 \begin{aligned}
-\sum_{ 1 \leq x < p } ( \sum_{ 1 \leq a < p , 0 \leq c < p - 1 } [ a^c & \equiv x ( \mod p ) ] )^2 \\
-& = \sum_{ 0 \leq x ' < p - 1 } ( \sum_{ 0 \leq b < p - 1 , 0 \leq c < p - 1 } [ bc \equiv x ' ( \mod p - 1 ) ] )^2 \\
-& = \sum_{ 0 \leq x < p - 1 } ( \sum_{ 0 \leq a , b < p - 1 } [ ab \equiv x ( \mod p - 1 ) ] )^2 \\
+\sum_{ 1 \leq x &lt; p } ( \sum_{ 1 \leq a &lt; p , 0 \leq c &lt; p - 1 } [ a^c &amp; \equiv x ( \mod p ) ] )^2 \\
+&amp; = \sum_{ 0 \leq x &#39; &lt; p - 1 } ( \sum_{ 0 \leq b &lt; p - 1 , 0 \leq c &lt; p - 1 } [ bc \equiv x &#39; ( \mod p - 1 ) ] )^2 \\
+&amp; = \sum_{ 0 \leq x &lt; p - 1 } ( \sum_{ 0 \leq a , b &lt; p - 1 } [ ab \equiv x ( \mod p - 1 ) ] )^2 \\
 
 \end{aligned}
 $$</p>
-<p>考虑前面那个式子,如果我们令$x = x_0 x_1 , x_0 \bot x_1$,$p - 1 = p_0 p_1 , p_0 \bot p_1$,其中$0 \leq x_0 < p_0 , 0 \leq x_1 < p_1$,后面那个式子为$f ( p - 1 , x )$,由于中国剩余定理,有$f ( p - 1 , x ) = f ( p_0 , x_0 ) f ( p_1 , x_1 )$.</p>
+<p>考虑前面那个式子,如果我们令$x = x_0 x_1 , x_0 \bot x_1$,$p - 1 = p_0 p_1 , p_0 \bot p_1$,其中$0 \leq x_0 &lt; p_0 , 0 \leq x_1 &lt; p_1$,后面那个式子为$f ( p - 1 , x )$,由于中国剩余定理,有$f ( p - 1 , x ) = f ( p_0 , x_0 ) f ( p_1 , x_1 )$.</p>
 <p>于是令$p - 1 = \prod_{ i = 1 }^k p_i^{ q_i }$上面的式子可以改为:</p>
 <p>$$
-\prod_{ i = 1 }^k ( \sum_{ 0 \leq x_i < p_i^{ q_i } } ( \sum_{ 0 \leq a , b < p_i^{ q_i } } [ ab \equiv x_i ( \mod p_i^{ q_i } ) ] )^2 )
+\prod_{ i = 1 }^k ( \sum_{ 0 \leq x_i &lt; p_i^{ q_i } } ( \sum_{ 0 \leq a , b &lt; p_i^{ q_i } } [ ab \equiv x_i ( \mod p_i^{ q_i } ) ] )^2 )
 $$</p>
 <p>我们只考虑其中一项,形如:</p>
 <p>$$
-\sum_{ 0 \leq x < p^{ q } } ( \sum_{ 0 \leq a , b < p^q } [ ab \equiv x ( \mod p^{ q } ) ] )^2
+\sum_{ 0 \leq x &lt; p^{ q } } ( \sum_{ 0 \leq a , b &lt; p^q } [ ab \equiv x ( \mod p^{ q } ) ] )^2
 $$</p>
 <p>我们不妨用$ap^{ \alpha }$代替$a$,$bp^\beta$代替$b$,$xp^t$代替$x$,其中$a , b , x \bot p$那么有:</p>
 <p>$$
-\sum_{ 0 \leq x < p^{ q - t } } ( \sum_{ 0 \leq a < p^{ q - \alpha } , 0 \leq b < p^{ q - \beta } } [ abp^{ \alpha + \beta } \equiv xp^t ( \mod p^{ q } ) ] )^2
+\sum_{ 0 \leq x &lt; p^{ q - t } } ( \sum_{ 0 \leq a &lt; p^{ q - \alpha } , 0 \leq b &lt; p^{ q - \beta } } [ abp^{ \alpha + \beta } \equiv xp^t ( \mod p^{ q } ) ] )^2
 $$</p>
 <p>则我们要做的即对四元组$( a , b , \alpha , \beta )$计数.由于$a , b , x \bot p$,我们有:</p>
 <p>$$
 \begin{aligned}
-\alpha + \beta & = t , \alpha , \beta \in \mathbb{ N } \\
-ab & \equiv x \pmod{ p^{ q - t } } , 0 \leq a < p^{ q - \alpha } , 0 \leq b < p^{ q - \beta }
+\alpha + \beta &amp; = t , \alpha , \beta \in \mathbb{ N } \\
+ab &amp; \equiv x \pmod{ p^{ q - t } } , 0 \leq a &lt; p^{ q - \alpha } , 0 \leq b &lt; p^{ q - \beta }
 \end{aligned}
 $$</p>
-<p>第一个式子对四元组的贡献显然是$t + 1$,而第二个式子,由于$[ 1 , p^{ q - t } ) \in [ 1 , p^{ q - \alpha } )$,所以我们可以先求出$1 \leq a < p^{ q - t }$的答案,然后乘以$p^{ t - \alpha }$得到答案,$b$是类似的,于是:</p>
+<p>第一个式子对四元组的贡献显然是$t + 1$,而第二个式子,由于$[ 1 , p^{ q - t } ) \in [ 1 , p^{ q - \alpha } )$,所以我们可以先求出$1 \leq a &lt; p^{ q - t }$的答案,然后乘以$p^{ t - \alpha }$得到答案,$b$是类似的,于是:</p>
 <p>$$
 \begin{aligned}
-ans & = \sum_{ 1 \leq x < p^{ q - t } } ( ( t + 1 ) p^{ t - \alpha } p^{ t - \beta } \sum_{ 1 \leq a , b < p^{ q - t } } [ ab \equiv x \pmod{ p^{ q - t } } ] )^2 + ( \sum_{ 1 \leq a , b \leq p^q } [ ab \equiv 0 \pmod{ p^{ q } } ] )^2 \\
-& = \sum_{ 1 \leq x < p^{ q - t } } ( ( t + 1 ) p^{ t - \alpha } p^{ t - \beta } \sum_{ 1 \leq a , b < p^{ q - t } } [ ab \equiv x \pmod{ p^{ q - t } } ] )^2 + q ( p - 1 ) p^{ q - 1 } + p^q
+ans &amp; = \sum_{ 1 \leq x &lt; p^{ q - t } } ( ( t + 1 ) p^{ t - \alpha } p^{ t - \beta } \sum_{ 1 \leq a , b &lt; p^{ q - t } } [ ab \equiv x \pmod{ p^{ q - t } } ] )^2 + ( \sum_{ 1 \leq a , b \leq p^q } [ ab \equiv 0 \pmod{ p^{ q } } ] )^2 \\
+&amp; = \sum_{ 1 \leq x &lt; p^{ q - t } } ( ( t + 1 ) p^{ t - \alpha } p^{ t - \beta } \sum_{ 1 \leq a , b &lt; p^{ q - t } } [ ab \equiv x \pmod{ p^{ q - t } } ] )^2 + q ( p - 1 ) p^{ q - 1 } + p^q
 \end{aligned}
 $$</p>
 <p>后面,由于$a \bot p$,显然一个$a$唯一对应一个$b$.于是我们得到了答案为:</p>
 <p>$$
-\sum_{ 1 \leq x < p^{ q - t } } ( ( t + 1 ) p^{ t } \varphi ( p^{ q - t } ) )^2
+\sum_{ 1 \leq x &lt; p^{ q - t } } ( ( t + 1 ) p^{ t } \varphi ( p^{ q - t } ) )^2
 $$</p>
 <p>而后面的式子显然跟$x$无关,所以有:</p>
 <p>$$
 \begin{aligned}
-& \sum_{ 0 < x < p^{ q - t } } ( ( t + 1 ) p^{ t } \varphi ( p^{ q - t } ) )^2 \\
-= & \sum_{ 0 \leq t < q } ( \varphi ( p^{ q - t } ) ) ( ( t + 1 ) p^{ t } \varphi ( p^{ q - t } ) )^2 \\
-= & \sum_{ 0 \leq t < q } ( t + 1 )^2 p^{ 2 t } ( p - 1 )^3 p^{ 3 q - 3 t - 3 } \\
-= & \sum_{ 0 \leq t < q } ( t + 1 )^2 ( p - 1 )^3 p^{ 3 q - t - 3 }
+&amp; \sum_{ 0 &lt; x &lt; p^{ q - t } } ( ( t + 1 ) p^{ t } \varphi ( p^{ q - t } ) )^2 \\
+= &amp; \sum_{ 0 \leq t &lt; q } ( \varphi ( p^{ q - t } ) ) ( ( t + 1 ) p^{ t } \varphi ( p^{ q - t } ) )^2 \\
+= &amp; \sum_{ 0 \leq t &lt; q } ( t + 1 )^2 p^{ 2 t } ( p - 1 )^3 p^{ 3 q - 3 t - 3 } \\
+= &amp; \sum_{ 0 \leq t &lt; q } ( t + 1 )^2 ( p - 1 )^3 p^{ 3 q - t - 3 }
 \end{aligned}
 $$</p>
 <p>其实到这一步,由于$\sum t$是$O ( \log n )$级别的,这题已经可以做了.</p>
 <h4 id="toc-70">莫比乌斯函数</h4>
 <p>莫比乌斯函数$\mu ( x )$是一个满足$\sum_{ d | n } \mu ( n ) = 1$的函数,根据定义其显然是积性函数.根据定义可以求出它的封闭形式:</p>
-<p>$\mu ( m ) = \begin{cases}0 & \exists m_i \geq 2 \\ ( - 1 )^k & \forall m_i \leq 1\end{cases} , m = \prod_{ i = 1 }^k p_i^{ m_i }$.</p>
+<p>$\mu ( m ) = \begin{cases}0 &amp; \exists m_i \geq 2 \\ ( - 1 )^k &amp; \forall m_i \leq 1\end{cases} , m = \prod_{ i = 1 }^k p_i^{ m_i }$.</p>
 <h5 id="toc-71">莫比乌斯反演</h5>
 <p>见&quot;<a href="http://xn--kors84d.md" target="_blank" rel="noopener noreferrer">反演.md</a>&quot;.</p>
 <p>另外,值得一提的是,根据莫比乌斯反演,我们可以发现$\mu * id = \varphi$.</p>
-<p>有公式:$\mu^2 ( x ) = \sum_{ i^2 | x } \mu ( i )$.原因很简单,我们设$x '$为$x$中所有的质因子的幂先除二下取整再乘二后变成的答案,显然$\mu^2 ( x ) = \mu^2 ( x ' )$,我们有$\sum_{ i | \sqrt{ x ' } } \mu ( y ) = [ \sqrt{ x ' } = 1 ] , \sum_{ i^2 | x ' } \mu ( y ) = [ x ' = 1 ]$.</p>
+<p>有公式:$\mu^2 ( x ) = \sum_{ i^2 | x } \mu ( i )$.原因很简单,我们设$x &#39;$为$x$中所有的质因子的幂先除二下取整再乘二后变成的答案,显然$\mu^2 ( x ) = \mu^2 ( x &#39; )$,我们有$\sum_{ i | \sqrt{ x &#39; } } \mu ( y ) = [ \sqrt{ x &#39; } = 1 ] , \sum_{ i^2 | x &#39; } \mu ( y ) = [ x &#39; = 1 ]$.</p>
 <h4 id="toc-72">min25筛</h4>
 <p>如果我们考虑积性函数的值,理论上来说,设$S ( n , k )$表示最小质因子大于等于$p_k$的所有$f$的和加上$f ( 1 )$,其实我们自然有:</p>
 <p>$$
@@ -1026,14 +1026,14 @@ $$</p>
 <p>$$
 \sum_{ i = 1 }^n f ( i ) = \sum_{ p \in \mathrm{ prime } } f ( p ) + \sum_{ p \notin \mathrm{ prime } \land p \ne 1 } f ( p ) + f ( 1 )
 $$</p>
-<p>令$g ( N , i ) = \sum_{ j = 1 }^N [ j \in \mathrm{ prime } \lor \mathrm{ Min }_j > p_i ] F ( j ) \\$,其中$\mathrm{ Min }_j$表示$j$最小的质因数,$p_i$表示第$i$个质数.</p>
+<p>令$g ( N , i ) = \sum_{ j = 1 }^N [ j \in \mathrm{ prime } \lor \mathrm{ Min }_j &gt; p_i ] F ( j ) \\$,其中$\mathrm{ Min }_j$表示$j$最小的质因数,$p_i$表示第$i$个质数.</p>
 <p>注意到$g ( N , i )$实际上就是$N$以内的数在第$i$轮埃氏筛后剩余的数的$F$的和.</p>
 <p>$F ( i )$表示若干完全积性函数之和且当$p \in \mathrm{ prime }$ 时,$F ( p ) = f ( p )$,下文为了方便书写,直接认为$F$是完全积性函数.</p>
 <p>而$g ( N , \sqrt{ N } )$实际上就是$N$以内的质数的$F$之和,那么有:</p>
 <p>$$
 \begin{aligned}
-g ( n , 0 ) & = \sum_{ i = 2 }^n F ( i ) \\
-g ( i , j ) & = g ( i , j - 1 ) - F ( p_j ) ( \ g ( \lfloor \frac{ i }{ p_j } \rfloor , j - 1 ) - \sum_{ 2 \leq p \leq p_{ j - 1 } , p \in \mathrm{ prime } } F ( p ) \ ) \\
+g ( n , 0 ) &amp; = \sum_{ i = 2 }^n F ( i ) \\
+g ( i , j ) &amp; = g ( i , j - 1 ) - F ( p_j ) ( \ g ( \lfloor \frac{ i }{ p_j } \rfloor , j - 1 ) - \sum_{ 2 \leq p \leq p_{ j - 1 } , p \in \mathrm{ prime } } F ( p ) \ ) \\
 
 \end{aligned}
 $$</p>
@@ -1041,7 +1041,7 @@ $$</p>
 <p>第$j$个质数会比第$j - 1$个多筛若干个数,即最小质因数是$p_j$的数.这些数形如$\{ p_j , 2 p_j , 3 p_j . . . \}$,同时除以$p_j$得到$\{ 1 , 2 , 3 . . . \}$.</p>
 <p>我们要的就是其中最小质因数大于等于$p_j$的数,也就是最小质因数大于$p_{ j - 1 }$的数,因而就是$g ( \lfloor \frac{ i }{ p_j } \rfloor , j - 1 )$.</p>
 <p>但还有一些质数会被重复计算,我们把他删掉就可以了.</p>
-<p>考虑到$g$后面的维度最多走到$\sqrt{ n }$,所以我们所枚举的最小质因子一定小于等于$\sqrt{ n }$,所以一定有$p_{ j - 1 } < \lfloor \frac{ i }{ p_j } \rfloor$,所以直接删去一定不会多删.</p>
+<p>考虑到$g$后面的维度最多走到$\sqrt{ n }$,所以我们所枚举的最小质因子一定小于等于$\sqrt{ n }$,所以一定有$p_{ j - 1 } &lt; \lfloor \frac{ i }{ p_j } \rfloor$,所以直接删去一定不会多删.</p>
 <p>ps2:</p>
 <p>注意到以下事实:$\lfloor \frac{ \lfloor \frac{ a }{ b } \rfloor }{ c } \rfloor = \lfloor \frac{ a }{ bc } \rfloor \\$.</p>
 <p>因而,如果我们有以下代码:</p>
@@ -1062,8 +1062,8 @@ $$</p>
 <p>令$S ( n , m )$表示前$n$个数中,最小质因数大于等于$p_m$的数的$f$之和,可知:</p>
 <p>$$
 \begin{aligned}
-S ( n , m ) & = g ( n , + \infty ) - \sum_{ k = 1 }^{ m - 1 } f ( p_k ) + \sum_{ k \geq m , e \geq 1 , p_k^{ e + 1 } \leq n } f ( p_k^e ) S ( \lfloor \frac{ n }{ p_k^e } \rfloor , k + 1 ) + \sum_{ k \geq m , e = 2 , p_k^e \leq n } f ( p_k^e ) \\
-& = g ( n , + \infty ) - \sum_{ k = 1 }^{ m - 1 } f ( p_k ) + \sum_{ k \geq m , e \geq 1 , p_k^{ e + 1 } \leq n } [ f ( p_k^e ) S ( \lfloor \frac{ n }{ p_k^e } \rfloor , k + 1 ) + f ( p_k^{ e + 1 } ) ] \\
+S ( n , m ) &amp; = g ( n , + \infty ) - \sum_{ k = 1 }^{ m - 1 } f ( p_k ) + \sum_{ k \geq m , e \geq 1 , p_k^{ e + 1 } \leq n } f ( p_k^e ) S ( \lfloor \frac{ n }{ p_k^e } \rfloor , k + 1 ) + \sum_{ k \geq m , e = 2 , p_k^e \leq n } f ( p_k^e ) \\
+&amp; = g ( n , + \infty ) - \sum_{ k = 1 }^{ m - 1 } f ( p_k ) + \sum_{ k \geq m , e \geq 1 , p_k^{ e + 1 } \leq n } [ f ( p_k^e ) S ( \lfloor \frac{ n }{ p_k^e } \rfloor , k + 1 ) + f ( p_k^{ e + 1 } ) ] \\
 
 \end{aligned}
 $$</p>
@@ -1071,7 +1071,7 @@ $$</p>
 <p>前半段求出质数部分的和,后半段开始枚举最小质因子.</p>
 <p>由于$p_k$是当前数的最小质因子,$e$是他的幂.则这个数其他的质因子应该均大于$p_k$,因而大于等于$p_{ k + 1 }$.</p>
 <p>注意到由于$S$中不包含$1$,所以应特殊处理只含有$p_k$一个质因子的情况.</p>
-<p>又注意到,如果$p_k^e < n < p_k^{ e + 1 }$,那么此时$\lfloor \frac{ n }{ p_k^e } \rfloor$一定小于$p_k$,则不可能拥有比$p_k$更大的质因子.</p>
+<p>又注意到,如果$p_k^e &lt; n &lt; p_k^{ e + 1 }$,那么此时$\lfloor \frac{ n }{ p_k^e } \rfloor$一定小于$p_k$,则不可能拥有比$p_k$更大的质因子.</p>
 <p>该形式与上面一致,因而复杂度同样为$O ( n^{ \frac{ 3 }{ 4 } } )$.我们最终要求的答案即$S ( n , 1 ) + f ( 1 )$.</p>
 <p>一些后记:</p>
 <ol>
@@ -1108,8 +1108,8 @@ $$</p>
 <p>令$G ( n ) = \sum_{ i = 1 }^n g ( i ) , S ( n ) = \sum_{ i = 1 }^n s ( i ) \\$.若$G ( i )$和$S ( i )$都很方便求,$g ( 1 ) = 1$,我们就可以求出$F ( n )$.</p>
 <p>$$
 \begin{aligned}
-f * g & = s \\
-\sum_{ j | i } f ( j ) g ( \frac{ i }{ j } ) & = s ( i ) \\
+f * g &amp; = s \\
+\sum_{ j | i } f ( j ) g ( \frac{ i }{ j } ) &amp; = s ( i ) \\
 
 \end{aligned}
 $$</p>
@@ -1117,11 +1117,11 @@ $$</p>
 <p>那么:</p>
 <p>$$
 \begin{aligned}
-F ( n ) & = \sum_{ i = 1 }^n f ( i ) \\
-& = \sum_{ i = 1 }^n ( s ( i ) - \sum_{ j | i , j \ne i } f ( j ) g ( \frac{ i }{ j } ) ) \\
-& = S ( n ) - \sum_{ j = 1 }^n \sum_{ k = 2 }^{ \lfloor \frac{ n }{ j } \rfloor } g ( k ) f ( j ) \\
-& = S ( n ) - \sum_{ k = 2 }^n g ( k ) \sum_{ j = 1 }^{ \lfloor \frac{ n }{ k } \rfloor } f ( j ) \\
-& = S ( n ) - \sum_{ k = 2 }^n g ( k ) F ( \lfloor \frac{ n }{ k } \rfloor ) \\
+F ( n ) &amp; = \sum_{ i = 1 }^n f ( i ) \\
+&amp; = \sum_{ i = 1 }^n ( s ( i ) - \sum_{ j | i , j \ne i } f ( j ) g ( \frac{ i }{ j } ) ) \\
+&amp; = S ( n ) - \sum_{ j = 1 }^n \sum_{ k = 2 }^{ \lfloor \frac{ n }{ j } \rfloor } g ( k ) f ( j ) \\
+&amp; = S ( n ) - \sum_{ k = 2 }^n g ( k ) \sum_{ j = 1 }^{ \lfloor \frac{ n }{ k } \rfloor } f ( j ) \\
+&amp; = S ( n ) - \sum_{ k = 2 }^n g ( k ) F ( \lfloor \frac{ n }{ k } \rfloor ) \\
 
 \end{aligned}
 $$</p>
@@ -1140,16 +1140,16 @@ $$</p>
 <p>$\sum_{ i = 1 }^N{ \varphi ( i ) \times i^2 } \\$.</p>
 <p>由Example3,于是考虑$g = id^2$.</p>
 <h4 id="toc-79">Powerful Number筛</h4>
-<p>定义Powerful Number为满足所有质因子的指数都$> 1$的数,不难证明这样的数在$[ 1 , n ]$中最多只有$O ( \sqrt{ n } )$个(使用积分).同时对于质因子的幂分奇偶讨论:奇数分成一个$3$加上一个偶数,那么不难证明这个数一定有:$a^2 b^3$的形式.找到这些数字可以直接dfs搜指数.</p>
+<p>定义Powerful Number为满足所有质因子的指数都$&gt; 1$的数,不难证明这样的数在$[ 1 , n ]$中最多只有$O ( \sqrt{ n } )$个(使用积分).同时对于质因子的幂分奇偶讨论:奇数分成一个$3$加上一个偶数,那么不难证明这个数一定有:$a^2 b^3$的形式.找到这些数字可以直接dfs搜指数.</p>
 <p>现在我们要求积性函数$f ( n )$的前缀和.假设$f = h * g$,其中$h ( 1 ) = 1 , g ( p ) = f ( p ) , \forall p \in \mathrm{ prime }$且$g ( n )$的前缀和容易计算.</p>
 <p>接下来我们证明:$h ( n ) \ne 0 \Rightarrow n \ is \ Powerful \ Number$.</p>
 <p>$\forall p \in \mathrm{ prime }$,$f ( p ) = g ( 1 ) h ( p ) + g ( p ) h ( 1 ) = h ( p ) + g ( p )$,于是$h ( p ) = 0$.根据积性函数的性质有$\forall x \notin \text{ PN } , h ( x ) = 0$.</p>
 <p>注意到:</p>
 <p>$$
 \begin{aligned}
-F ( n ) & = \sum_{ i = 1 }^n f ( i ) \\
-& = \sum_{ i = 1 }^n \sum_{ j | i } h ( j ) g ( \frac{ i }{ j } ) \\
-& = \sum_{ j = 1 }^n h ( j ) G ( \lfloor \frac{ n }{ j } \rfloor )
+F ( n ) &amp; = \sum_{ i = 1 }^n f ( i ) \\
+&amp; = \sum_{ i = 1 }^n \sum_{ j | i } h ( j ) g ( \frac{ i }{ j } ) \\
+&amp; = \sum_{ j = 1 }^n h ( j ) G ( \lfloor \frac{ n }{ j } \rfloor )
 \end{aligned}
 $$</p>
 <p>于是可以快速求,复杂度$O ( \sqrt{ n } )$.</p>
@@ -1157,9 +1157,9 @@ $$</p>
 <p>首先我们需要构造$g ( p ) = f ( p ) , p \in \mathrm{ prime }$.注意到$f ( p ) = d ( p^3 ) = 4$,我们构造$g ( p ) = ( d * d ) ( p )$.这样问题在于求$G ( n )$.我们有:</p>
 <p>$$
 \begin{aligned}
-G ( n ) & = \sum_{ i = 1 }^n ( d * d ) ( i ) \\
-& = \sum_{ ij \leq n } d ( i ) d ( j ) \\
-& = \sum_{ i = 1 }^n d ( i ) D ( \lfloor \frac{ n }{ i } \rfloor )
+G ( n ) &amp; = \sum_{ i = 1 }^n ( d * d ) ( i ) \\
+&amp; = \sum_{ ij \leq n } d ( i ) d ( j ) \\
+&amp; = \sum_{ i = 1 }^n d ( i ) D ( \lfloor \frac{ n }{ i } \rfloor )
 \end{aligned}
 $$</p>
 <p>而$D ( n ) = \sum_{ i = 1 }^n \lfloor \frac{ n }{ i } \rfloor$,自然可以做.复杂度算一算是$O ( n^{ \frac{ 2 }{ 3 } } )$.</p>
@@ -1182,25 +1182,25 @@ $$</p>
 <p>$\lceil x \rceil - \lfloor x \rfloor = [ x \notin \mathbb{ Z } ]$.</p>
 </li>
 <li>
-<p>$x - 1 < \lfloor x \rfloor \leq x \leq \lceil x \rceil < x + 1$.</p>
+<p>$x - 1 &lt; \lfloor x \rfloor \leq x \leq \lceil x \rceil &lt; x + 1$.</p>
 </li>
 <li>
 <p>$\lfloor - x \rfloor = - \lceil x \rceil , \lceil - x \rceil = - \lfloor x \rfloor$.</p>
 </li>
 <li>
-<p>$\lfloor x \rfloor = n \Leftrightarrow n \leq x < n + 1 \Leftrightarrow x - 1 < n \leq x$.</p>
+<p>$\lfloor x \rfloor = n \Leftrightarrow n \leq x &lt; n + 1 \Leftrightarrow x - 1 &lt; n \leq x$.</p>
 </li>
 <li>
-<p>$\lceil x \rceil = n \Leftrightarrow n - 1 < x \leq n \Leftrightarrow x \leq n < x + 1$.</p>
+<p>$\lceil x \rceil = n \Leftrightarrow n - 1 &lt; x \leq n \Leftrightarrow x \leq n &lt; x + 1$.</p>
 </li>
 <li>
-<p>$x < n \Leftrightarrow \lfloor x \rfloor < n$.</p>
+<p>$x &lt; n \Leftrightarrow \lfloor x \rfloor &lt; n$.</p>
 </li>
 <li>
 <p>$x \leq n \Leftrightarrow \lceil x \rceil \leq n$.</p>
 </li>
 <li>
-<p>$x > n \Leftrightarrow \lceil x \rceil > n$.</p>
+<p>$x &gt; n \Leftrightarrow \lceil x \rceil &gt; n$.</p>
 </li>
 <li>
 <p>$x \geq n \Leftrightarrow \lfloor x \rfloor \geq n$.</p>
@@ -1212,10 +1212,10 @@ $$</p>
 <p>$\lceil x + n \rceil = \lceil x \rceil + n$.</p>
 </li>
 <li>
-<p>$\lfloor nx \rfloor = n \lfloor x \rfloor \Leftrightarrow n = 0 \lor x - \lfloor x \rfloor < \cfrac{ 1 }{ n }$.</p>
+<p>$\lfloor nx \rfloor = n \lfloor x \rfloor \Leftrightarrow n = 0 \lor x - \lfloor x \rfloor &lt; \cfrac{ 1 }{ n }$.</p>
 </li>
 <li>
-<p>$\lceil nx \rceil = n \lceil x \rceil \Leftrightarrow n = 0 \lor x - \lceil x \rceil < \cfrac{ 1 }{ n }$.</p>
+<p>$\lceil nx \rceil = n \lceil x \rceil \Leftrightarrow n = 0 \lor x - \lceil x \rceil &lt; \cfrac{ 1 }{ n }$.</p>
 </li>
 <li>
 <p>$\lceil \cfrac{ n }{ m } \rceil = \lfloor \cfrac{ n - 1 }{ m } \rfloor + 1 , m \in \mathbb{ N_+ }$.</p>
@@ -1238,8 +1238,8 @@ $$</p>
 <p>$\lfloor f ( x ) \rfloor = \lfloor f ( \lfloor x \rfloor ) \rfloor$和$\lceil f ( x ) \rceil = \lceil f ( \lceil x \rceil ) \rceil$.</p>
 <p>由于底和顶是类似的,我们考虑先对顶进行证明,这样也可以类似证明底:</p>
 <p>若$x = \lceil x \rceil$,显然得证;</p>
-<p>不然,有$x < \lceil x \rceil$,那么有$f ( x ) < f ( \lceil x \rceil )$,也就有$\lceil f ( x ) \rceil \leq \lceil f ( \lceil x \rceil ) \rceil$.</p>
-<p>考虑反证法,不妨令$\lceil f ( x ) \rceil < \lceil f ( \lceil x \rceil ) \rceil$.则一定存在一个整数$y$使得$\lceil f ( x ) \rceil = y < \lceil f ( \lceil x \rceil ) \rceil$,此时必有$x \leq y < \lceil x \rceil$.由于$f$的性值,显然有$y$是整数,但根据整值函数的性值,不可能存在这样一个整数$y$满足$x \leq y < \lceil x \rceil$,因此得证.</p>
+<p>不然,有$x &lt; \lceil x \rceil$,那么有$f ( x ) &lt; f ( \lceil x \rceil )$,也就有$\lceil f ( x ) \rceil \leq \lceil f ( \lceil x \rceil ) \rceil$.</p>
+<p>考虑反证法,不妨令$\lceil f ( x ) \rceil &lt; \lceil f ( \lceil x \rceil ) \rceil$.则一定存在一个整数$y$使得$\lceil f ( x ) \rceil = y &lt; \lceil f ( \lceil x \rceil ) \rceil$,此时必有$x \leq y &lt; \lceil x \rceil$.由于$f$的性值,显然有$y$是整数,但根据整值函数的性值,不可能存在这样一个整数$y$满足$x \leq y &lt; \lceil x \rceil$,因此得证.</p>
 <p>另外,我们考虑函数$f ( x ) = \cfrac{ x + m }{ n }$,显然这是一个满足条件的函数,因此显然满足上述的条件.再考虑$m = 0$的特殊情况:$\lfloor \cfrac{ \lfloor \cfrac{ x }{ n } \rfloor }{ m } \rfloor = \lfloor \cfrac{ x }{ nm } \rfloor$.</p>
 <p>而单调递减函数可以取相反数转化为单调递增函数.</p>
 <h4 id="toc-86">迪利克雷抽屉原理</h4>
@@ -1279,19 +1279,19 @@ $$</p>
 <p>不妨令函数$N ( \alpha , n )$表示$Spec ( \alpha )$中有多少个元素$\leq n$,其中$\alpha$是正数,我们有:</p>
 <p>$$
 \begin{aligned}
-N ( \alpha , n ) & = \sum_{ k \in \mathbb{ N_+ } } [ \lfloor k \alpha \rfloor \leq n ] \\
-& = \sum_{ k \in \mathbb{ N_+ } } [ \lfloor k \alpha \rfloor < n + 1 ] \\
-& = \sum_{ k \in \mathbb{ N_+ } } [ k \alpha < n + 1 ] \\
-& = \sum_k [ 0 < k < ( n + 1 ) / \alpha ] \\
-& = \lceil ( n + 1 ) / \alpha \rceil - 1
+N ( \alpha , n ) &amp; = \sum_{ k \in \mathbb{ N_+ } } [ \lfloor k \alpha \rfloor \leq n ] \\
+&amp; = \sum_{ k \in \mathbb{ N_+ } } [ \lfloor k \alpha \rfloor &lt; n + 1 ] \\
+&amp; = \sum_{ k \in \mathbb{ N_+ } } [ k \alpha &lt; n + 1 ] \\
+&amp; = \sum_k [ 0 &lt; k &lt; ( n + 1 ) / \alpha ] \\
+&amp; = \lceil ( n + 1 ) / \alpha \rceil - 1
 \end{aligned}
 $$</p>
 <p>则我们要证明的就是:</p>
 <p>$$
 \begin{aligned}
-\lceil \cfrac{ n + 1 }{ \sqrt{ 2 } } \rceil - 1 + \lceil \cfrac{ n + 1 }{ 2 + \sqrt{ 2 } } \rceil - 1 & = n \\
-\lfloor \cfrac{ n + 1 }{ \sqrt{ 2 } } \rfloor + \lfloor \cfrac{ n + 1 }{ 2 + \sqrt{ 2 } } \rfloor & = n \\
-\cfrac{ n + 1 }{ \sqrt{ 2 } } - \{ \cfrac{ n + 1 }{ \sqrt{ 2 } } \} + \cfrac{ n + 1 }{ 2 + \sqrt{ 2 } } - \{ \cfrac{ n + 1 }{ 2 + \sqrt{ 2 } } \} & = n
+\lceil \cfrac{ n + 1 }{ \sqrt{ 2 } } \rceil - 1 + \lceil \cfrac{ n + 1 }{ 2 + \sqrt{ 2 } } \rceil - 1 &amp; = n \\
+\lfloor \cfrac{ n + 1 }{ \sqrt{ 2 } } \rfloor + \lfloor \cfrac{ n + 1 }{ 2 + \sqrt{ 2 } } \rfloor &amp; = n \\
+\cfrac{ n + 1 }{ \sqrt{ 2 } } - \{ \cfrac{ n + 1 }{ \sqrt{ 2 } } \} + \cfrac{ n + 1 }{ 2 + \sqrt{ 2 } } - \{ \cfrac{ n + 1 }{ 2 + \sqrt{ 2 } } \} &amp; = n
 \end{aligned}
 $$</p>
 <p>而由于我们有恒等式:$\cfrac{ 1 }{ \sqrt{ 2 } } + \cfrac{ 1 }{ 2 + \sqrt{ 2 } } = 1$,且两个相加为整数的数的分数部分相加显然为$1$,原式得证.</p>
@@ -1310,12 +1310,12 @@ $$</p>
 <p>假设现在进行完了$k + 1$轮,令$N = n + 2 k + w$,其中$w \in \{ 1 , 2 \}$,则编号$N$的时候被杀死的即是$3 ( k + 1 )$,那么$N$之前的编号就是$3 k + w = N - ( n - k ) = N - n + k$.</p>
 <p>而$k = \lfloor \cfrac{ ( N - n - 1 ) }{ 2 } \rfloor$,我们可以不断进行迭代.</p>
 <p>如果我们令$D = 3 n + 1 - N$,换句话说即改变编号的顺序,我们可以有以下的赋值操作:</p>
-<p>$3 n + 1 - D ' = 3 n + 1 - D - n + \lfloor \cfrac{ ( 3 n + 1 - D - n - 1 ) }{ 2 } \rfloor$.</p>
-<p>化简这个式子,我们有:$D ' = D + n - \lfloor \cfrac{ ( 2 n - D ) }{ 2 } \rfloor = D + \lceil \cfrac{ D }{ 2 } \rceil = \lceil \cfrac{ 3 D }{ 2 } \rceil$.</p>
-<p>事实上,我们可以证明:如果我们每隔$q$个人就杀掉一个人的话,那么$D ' = \lceil \cfrac{ ( q + 1 ) D }{ q } \rceil$,一直迭代到$D ' > qn$时.</p>
+<p>$3 n + 1 - D &#39; = 3 n + 1 - D - n + \lfloor \cfrac{ ( 3 n + 1 - D - n - 1 ) }{ 2 } \rfloor$.</p>
+<p>化简这个式子,我们有:$D &#39; = D + n - \lfloor \cfrac{ ( 2 n - D ) }{ 2 } \rfloor = D + \lceil \cfrac{ D }{ 2 } \rceil = \lceil \cfrac{ 3 D }{ 2 } \rceil$.</p>
+<p>事实上,我们可以证明:如果我们每隔$q$个人就杀掉一个人的话,那么$D &#39; = \lceil \cfrac{ ( q + 1 ) D }{ q } \rceil$,一直迭代到$D &#39; &gt; qn$时.</p>
 <p>而最后的答案就是$( q + 1 ) n + 1 - D$.</p>
 <h4 id="toc-94">整值函数的恒等式</h4>
-<p>考虑公式$\lceil \cfrac{ n - k + 1 }{ m } \rceil$,不难发现它在$1 \leq k \leq n \mod m$时的值为$\lceil \cfrac{ n }{ m } \rceil$,而在$n \mod m < k \leq m$的值为$\lfloor \cfrac{ n }{ m } \rfloor$.</p>
+<p>考虑公式$\lceil \cfrac{ n - k + 1 }{ m } \rceil$,不难发现它在$1 \leq k \leq n \mod m$时的值为$\lceil \cfrac{ n }{ m } \rceil$,而在$n \mod m &lt; k \leq m$的值为$\lfloor \cfrac{ n }{ m } \rfloor$.</p>
 <p>那么我们可以得到以下恒等式:</p>
 <p>$n = \sum_{ k = 1 }^m \lceil \cfrac{ n - k + 1 }{ m } \rceil$.</p>
 <p>类似地,有:</p>
@@ -1331,19 +1331,19 @@ $$</p>
 <p>我们有:</p>
 <p>$$
 \begin{aligned}
-\sum_{ k = 0 }^{ n - 1 } \lfloor \sqrt{ k } \rfloor & = \sum_{ 0 \leq k , m } [ k < n ] [ m = \lfloor \sqrt{ k } \rfloor ] m \\
-& = \sum_{ 0 \leq k , m } [ k < n ] [ m^2 \leq k < ( m + 1 )^2 ] m \\
-& = \sum_{ 0 \leq k , m } m [ m^2 \leq k < n < ( m + 1 )^2 ] + \sum_{ 0 \leq k , m } m [ m^2 \leq k < ( m + 1 )^2 \leq n ]
+\sum_{ k = 0 }^{ n - 1 } \lfloor \sqrt{ k } \rfloor &amp; = \sum_{ 0 \leq k , m } [ k &lt; n ] [ m = \lfloor \sqrt{ k } \rfloor ] m \\
+&amp; = \sum_{ 0 \leq k , m } [ k &lt; n ] [ m^2 \leq k &lt; ( m + 1 )^2 ] m \\
+&amp; = \sum_{ 0 \leq k , m } m [ m^2 \leq k &lt; n &lt; ( m + 1 )^2 ] + \sum_{ 0 \leq k , m } m [ m^2 \leq k &lt; ( m + 1 )^2 \leq n ]
 \end{aligned}
 $$</p>
 <p>考虑$n = a^2$的特殊情况,则前面那一项显然是$0$,那么:</p>
 <p>$$
 \begin{aligned}
-ans & = \sum_{ 0 \leq k , m } m [ m^2 \leq k < ( m + 1 )^2 \leq n ] \\
-& = \sum_{ 0 \leq m } m ( 2 m + 1 ) [ m < a ] \\
-& = \sum_{ m = 0 }^{ a - 1 } ( 2 m^2 + m ) \\
-& = \cfrac{ ( a - 1 ) a ( 2 a - 1 ) }{ 3 } + \cfrac{ a ( a - 1 ) }{ 2 } \\
-& = \cfrac{ ( 4 a + 1 ) a ( a - 1 ) }{ 6 }
+ans &amp; = \sum_{ 0 \leq k , m } m [ m^2 \leq k &lt; ( m + 1 )^2 \leq n ] \\
+&amp; = \sum_{ 0 \leq m } m ( 2 m + 1 ) [ m &lt; a ] \\
+&amp; = \sum_{ m = 0 }^{ a - 1 } ( 2 m^2 + m ) \\
+&amp; = \cfrac{ ( a - 1 ) a ( 2 a - 1 ) }{ 3 } + \cfrac{ a ( a - 1 ) }{ 2 } \\
+&amp; = \cfrac{ ( 4 a + 1 ) a ( a - 1 ) }{ 6 }
 \end{aligned}
 $$</p>
 <p>而如果$n \ne a^2$,我们令$a = \lfloor \sqrt{ n } \rfloor$,而当$k \in [ a^2 , n )$的部分的贡献显然是$a ( n - a^2 )$.</p>
@@ -1351,9 +1351,9 @@ $$</p>
 <p>另一个做法是,我们考虑增加枚举量,有:</p>
 <p>$$
 \begin{aligned}
-\sum_{ k = 0 }^{ n - 1 } \lfloor \sqrt{ k } \rfloor & = \sum_{ j , k } [ 1 \leq j \leq \sqrt{ k } ] [ 0 \leq k < a^2 ] \\
-& = \sum_{ 1 \leq j < a } \sum_{ k } [ j^2 \leq k < a^2 ] \\
-& = \sum_{ 1 \leq j < a } a^2 - j^2 = a^3 - \cfrac{ a ( 2 a + 1 ) ( a + 1 ) }{ 6 }
+\sum_{ k = 0 }^{ n - 1 } \lfloor \sqrt{ k } \rfloor &amp; = \sum_{ j , k } [ 1 \leq j \leq \sqrt{ k } ] [ 0 \leq k &lt; a^2 ] \\
+&amp; = \sum_{ 1 \leq j &lt; a } \sum_{ k } [ j^2 \leq k &lt; a^2 ] \\
+&amp; = \sum_{ 1 \leq j &lt; a } a^2 - j^2 = a^3 - \cfrac{ a ( 2 a + 1 ) ( a + 1 ) }{ 6 }
 \end{aligned}
 $$</p>
 <h5 id="toc-97">Example2(类欧几里得算法)</h5>
@@ -1369,25 +1369,25 @@ $$</p>
 <p>另外,如果要求$\sum^n_{ i = 0 } \lfloor \cfrac{ ai + b }{ c } \rfloor$,我们也有一种$O ( \log n )$的做法(类欧几里得算法):</p>
 <p>若$c \leq a$,原式化为$\sum^n_{ i = 0 }{ ( i \times \lfloor \frac{ a }{ c } \rfloor + \lfloor \cfrac{ ( a \mod c ) i + b }{ c } \rfloor ) }$.</p>
 <p>若$c \leq b$,原式化为$\sum^n_{ i = 0 }{ \lfloor \cfrac{ b }{ c } \rfloor + \lfloor \cfrac{ ai + ( b \mod c ) }{ c } \rfloor }$.</p>
-<p>考虑$a , b < c$的情况,设$m = \lfloor \cfrac{ an + b }{ c } \rfloor$,原式化为</p>
+<p>考虑$a , b &lt; c$的情况,设$m = \lfloor \cfrac{ an + b }{ c } \rfloor$,原式化为</p>
 <p>$$
 \begin{aligned}
-\sum^n_{ i = 0 } \sum^m_{ j = 1 } [ j & \leq \lfloor \cfrac{ ai + b }{ c } \rfloor ] \\
-& = \sum^n_{ i = 0 } \sum^m_{ j = 1 } [ cj \leq ai + b ] \\
-& = nm - \sum^n_{ i = 0 } \sum^m_{ j = 1 } [ ai \leq cj - b - 1 ] \\
-& = nm - \sum^m_{ i = 1 } \lfloor \cfrac{ ci - b - 1 }{ a } \rfloor
+\sum^n_{ i = 0 } \sum^m_{ j = 1 } [ j &amp; \leq \lfloor \cfrac{ ai + b }{ c } \rfloor ] \\
+&amp; = \sum^n_{ i = 0 } \sum^m_{ j = 1 } [ cj \leq ai + b ] \\
+&amp; = nm - \sum^n_{ i = 0 } \sum^m_{ j = 1 } [ ai \leq cj - b - 1 ] \\
+&amp; = nm - \sum^m_{ i = 1 } \lfloor \cfrac{ ci - b - 1 }{ a } \rfloor
 \end{aligned}
 $$</p>
 <h5 id="toc-98">Example3</h5>
 <p>求$\sum_{ n = 1 }^{ 1000 } [ \lfloor \sqrt[3]{ n } \rfloor | n ]$.</p>
 <p>$$
 \begin{aligned}
-ans & = \sum_{ n , k } [ k = \lfloor \sqrt[3]{ n } \rfloor ] [ k | n ] [ 1 \leq n \leq 1000 ] \\
-& = \sum_{ k , m , n } [ k^3 \leq n < ( k + 1 )^3 ] [ n = km ] [ 1 \leq n \leq 1000 ] \\
-& = 1 + \sum_{ k , m } [ k^3 \leq km < ( k + 1 )^3 ] [ 1 \leq k < 10 ] \\
-& = 1 + \sum_{ k , m } [ k^2 \leq m < \frac{ ( k + 1 )^3 }{ k } ] [ 1 \leq k < 10 ] \\
-& = 1 + \sum_{ k = 1 }^9 ( \lceil k^2 + 3 k + 3 + \frac{ 1 }{ k } \rceil - \lceil k^2 \rceil ) \\
-& = 1 + \sum_{ k = 1 }^9 ( 3 k + 4 ) = 172
+ans &amp; = \sum_{ n , k } [ k = \lfloor \sqrt[3]{ n } \rfloor ] [ k | n ] [ 1 \leq n \leq 1000 ] \\
+&amp; = \sum_{ k , m , n } [ k^3 \leq n &lt; ( k + 1 )^3 ] [ n = km ] [ 1 \leq n \leq 1000 ] \\
+&amp; = 1 + \sum_{ k , m } [ k^3 \leq km &lt; ( k + 1 )^3 ] [ 1 \leq k &lt; 10 ] \\
+&amp; = 1 + \sum_{ k , m } [ k^2 \leq m &lt; \frac{ ( k + 1 )^3 }{ k } ] [ 1 \leq k &lt; 10 ] \\
+&amp; = 1 + \sum_{ k = 1 }^9 ( \lceil k^2 + 3 k + 3 + \frac{ 1 }{ k } \rceil - \lceil k^2 \rceil ) \\
+&amp; = 1 + \sum_{ k = 1 }^9 ( 3 k + 4 ) = 172
 \end{aligned}
 $$</p>
 <p>上述推理过程将$n = 1000$的情况特殊讨论了一下,不难发现,如果我们要求的式子是$\sum_{ n = 1 }^{ N } [ \lfloor \sqrt[3]{ n } \rfloor | n ]$,也仍然可以使用将$[ K^3 , N ] , K = \lfloor \sqrt[3]{ N } \rfloor$中的数特殊处理的方式做掉,因为这些数的三次根下取整一定是$K$,式子就不难化简了.</p>
@@ -1397,8 +1397,8 @@ $$</p>
 <p>于是我们有:</p>
 <p>$$
 \begin{aligned}
-& \sum_{ d = 1 }^n ( - 1 )^{ \lfloor d \sqrt{ r } \rfloor } \\
-= & n - 2 \sum_{ d = 1 }^n \lfloor d \sqrt{ r } \rfloor + 4 \sum_{ d = 1 }^n \lfloor \frac{ \lfloor d \sqrt{ r } \rfloor }{ 2 } \rfloor \\
+&amp; \sum_{ d = 1 }^n ( - 1 )^{ \lfloor d \sqrt{ r } \rfloor } \\
+= &amp; n - 2 \sum_{ d = 1 }^n \lfloor d \sqrt{ r } \rfloor + 4 \sum_{ d = 1 }^n \lfloor \frac{ \lfloor d \sqrt{ r } \rfloor }{ 2 } \rfloor \\
 
 \end{aligned}
 $$</p>
@@ -1406,11 +1406,11 @@ $$</p>
 <p>于是我们有:</p>
 <p>$$
 \begin{aligned}
-ans & = n - 2 \sum_{ d = 1 }^n \lfloor d \sqrt{ r } \rfloor + 4 \sum_{ d = 1 }^n \lfloor \frac{ d \sqrt{ r } }{ 2 } \rfloor \\
+ans &amp; = n - 2 \sum_{ d = 1 }^n \lfloor d \sqrt{ r } \rfloor + 4 \sum_{ d = 1 }^n \lfloor \frac{ d \sqrt{ r } }{ 2 } \rfloor \\
 
 \end{aligned}
 $$</p>
-<p>记$t = \sqrt{ r }$,我们所要解决的问题是$\sum_{ d = 1 }^n \lfloor d \frac{ Pt + R }{ Q } \rfloor$.如果$\frac{ Pt + R }{ Q } \geq 1$,我们可以把整数部分取出来单独算.于是接下来我们只讨论$0 \leq \frac{ Pt + R }{ Q } < 1$的情况.相当于求一条斜率小于$1$的直线下方的整点个数.我们可以反转坐标系,这样就变成了斜率大于$1$的直线,继续做上面的操作.</p>
+<p>记$t = \sqrt{ r }$,我们所要解决的问题是$\sum_{ d = 1 }^n \lfloor d \frac{ Pt + R }{ Q } \rfloor$.如果$\frac{ Pt + R }{ Q } \geq 1$,我们可以把整数部分取出来单独算.于是接下来我们只讨论$0 \leq \frac{ Pt + R }{ Q } &lt; 1$的情况.相当于求一条斜率小于$1$的直线下方的整点个数.我们可以反转坐标系,这样就变成了斜率大于$1$的直线,继续做上面的操作.</p>
 <p>这个问题引出万能欧几里得算法.</p>
 <h5 id="toc-100">Example5([loj6440]万能欧几里得算法)</h5>
 <p>解决形如$\sum_{ x = 1 }^{ L } A^x B^{ \lfloor \frac{ Px + R }{ Q } \rfloor }$的问题,其中$A$和$B$都是$n \times n$的矩阵.默认$P , Q , R \geq 0$.</p>
@@ -1420,8 +1420,8 @@ $$</p>
 <p>例如上面那个例子就是:现在有一个矩阵二元组$( X , Y )$,初始为$( A , B^{ \lfloor \frac{ R }{ Q } \rfloor } )$,$R_w$操作是:$( X , Y ) \rightarrow ( AX , Y + X )$,$U_w$操作是:$( X , Y ) \rightarrow ( XB , Y )$.一直走到$x = L$的点为止,最后矩阵$Y$就是答案.不过这个形式不好写成矩阵,我们可以记录$( A^a , B^b , Y )$.这样最后就可以带入操作,不难发现这个操作是个环.</p>
 <p>操作要满足可合并性,也就是我可以将$U_w R_w$变成一个操作进行.</p>
 <p>接下来我们分情况讨论一下:</p>
-<p>当$P \geq Q$时,注意到$y = \frac{ Px + R }{ Q } = \lfloor \frac{ P }{ Q } \rfloor x + \frac{ ( P \mod Q ) x + R }{ Q }$,此时任意一个$R_w$操作前必然有至少$\lfloor \frac{ P }{ Q } \rfloor$个$U_w$,我们令$R_w ' = U_w^{ \lfloor \frac{ P }{ Q } \rfloor } R_w$,不难发现:$solve ( P , Q , R , L , U_w , R_w ) = solve ( P \mod Q , Q , R , L , U_w , R_w ' )$.</p>
-<p>当$P < Q \land P \ne 0$时,我们想要让$P$与$Q$互换,假设第$a$个$R_w$在第$b$个$U_w$之前,考虑这个$R_w$前会有$\lfloor \frac{ Pa + R }{ Q } \rfloor - \lfloor \frac{ R }{ Q } \rfloor$个$U_w$,而对于后者,变换坐标系得到$x = \frac{ yQ - R }{ P }$,由于遇到整点时,先$U_w$再进行$R_w$,也就是说,第$b$个$U_w$前会有$\lfloor \frac{ Qb - R - 1 }{ P } \rfloor$个$R_w$(这个并没有忽略初始位置).我们考虑如何让这个数和上面的$\lfloor \frac{ Pa + R }{ Q } \rfloor$的差分写成一样的形式.注意到$b = 1$需要特殊处理!</p>
+<p>当$P \geq Q$时,注意到$y = \frac{ Px + R }{ Q } = \lfloor \frac{ P }{ Q } \rfloor x + \frac{ ( P \mod Q ) x + R }{ Q }$,此时任意一个$R_w$操作前必然有至少$\lfloor \frac{ P }{ Q } \rfloor$个$U_w$,我们令$R_w &#39; = U_w^{ \lfloor \frac{ P }{ Q } \rfloor } R_w$,不难发现:$solve ( P , Q , R , L , U_w , R_w ) = solve ( P \mod Q , Q , R , L , U_w , R_w &#39; )$.</p>
+<p>当$P &lt; Q \land P \ne 0$时,我们想要让$P$与$Q$互换,假设第$a$个$R_w$在第$b$个$U_w$之前,考虑这个$R_w$前会有$\lfloor \frac{ Pa + R }{ Q } \rfloor - \lfloor \frac{ R }{ Q } \rfloor$个$U_w$,而对于后者,变换坐标系得到$x = \frac{ yQ - R }{ P }$,由于遇到整点时,先$U_w$再进行$R_w$,也就是说,第$b$个$U_w$前会有$\lfloor \frac{ Qb - R - 1 }{ P } \rfloor$个$R_w$(这个并没有忽略初始位置).我们考虑如何让这个数和上面的$\lfloor \frac{ Pa + R }{ Q } \rfloor$的差分写成一样的形式.注意到$b = 1$需要特殊处理!</p>
 <p>显然操作序列一共有$cntU = \lfloor \frac{ PL + R }{ Q } \rfloor - \lfloor \frac{ R }{ Q } \rfloor$,将二者对应一下,这里的答案就是$solve ( Q , P , ( Q - R - 1 ) \bmod P , cntU - 1 , R_w , U_w )$.</p>
 <p>然后是开头部分,开头部分一共有$\lfloor \frac{ Q - R - 1 }{ P } \rfloor$个$R_w$和一个$U_w$.</p>
 <p>但是注意到末尾部分同样是不规整的,注意到末尾一共有$L - \lfloor \frac{ QcntU - R - 1 }{ P } \rfloor$个$R_w$,拼到末尾即可.</p>
