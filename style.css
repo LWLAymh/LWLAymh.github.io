@@ -1034,6 +1034,10 @@ mjx-container[display="true"] + br { display: none; }
   color: #1a7f37; border-color: rgba(26, 127, 55, 0.35);
   background: rgba(26, 127, 55, 0.08);
 }
+.post-content .paper-rating.rating-good {
+  color: #4f8565; border-color: rgba(79, 133, 101, 0.34);
+  background: rgba(79, 133, 101, 0.075);
+}
 .post-content .paper-rating.rating-poor {
   color: #b3261e; border-color: rgba(179, 38, 30, 0.35);
   background: rgba(179, 38, 30, 0.08);
@@ -1156,6 +1160,9 @@ mjx-container[display="true"] + br { display: none; }
 .sidebar-content-filter .rating-check .tag-check-count { margin-left: auto; }
 .sidebar-content-filter .rating-check[aria-checked="true"][data-filter-value="awesome"] {
   color: #1a7f37; border-left-color: currentColor; background: rgba(26, 127, 55, 0.045);
+}
+.sidebar-content-filter .rating-check[aria-checked="true"][data-filter-value="good"] {
+  color: #4f8565; border-left-color: currentColor; background: rgba(79, 133, 101, 0.045);
 }
 .sidebar-content-filter .rating-check[aria-checked="true"][data-filter-value="normal"] {
   color: var(--text-muted); border-left-color: currentColor; background: color-mix(in srgb, var(--bg-soft) 44%, transparent);

@@ -15,7 +15,7 @@
 (function () {
   'use strict';
 
-  var RATING_ORDER = ['awesome', 'normal', 'poor', 'reading'];
+  var RATING_ORDER = ['awesome', 'good', 'normal', 'poor', 'reading'];
   var TAG_SEP = '-';
 
   /** tag 是否落在 node 这棵子树里（node 自己也算）。 */
