@@ -54,24 +54,55 @@
   const counters = [...document.querySelectorAll('[data-slide-source]')];
   if (!counters.length) return;
 
+  const CACHE_KEY = 'lwlaymh-slide-page-counts-v1';
+  const CACHE_TTL = 60 * 60 * 1000;
+  let pageCache = {};
+  try {
+    pageCache = JSON.parse(localStorage.getItem(CACHE_KEY) || '{}') || {};
+  } catch (error) {
+    pageCache = {};
+  }
+
+  const showCount = (node, pages) => {
+    node.textContent = `${pages} 页`;
+    node.classList.remove('is-loading', 'is-unavailable');
+  };
+
+  const saveCache = () => {
+    try { localStorage.setItem(CACHE_KEY, JSON.stringify(pageCache)); } catch (error) { /* 无存储权限时静默退化 */ }
+  };
+
   async function updateCounter(node) {
     const source = node.dataset.slideSource;
     if (!source) return;
     try {
-      const response = await fetch(source, { cache: 'no-cache', mode: 'cors' });
+      const response = await fetch(source, { cache: 'default', mode: 'cors' });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const pages = countSlidevPages(await response.text());
       if (!Number.isFinite(pages) || pages < 1) throw new Error('invalid page count');
-      node.textContent = `${pages} 页`;
-      node.classList.remove('is-loading');
+      pageCache[source] = { pages, checkedAt: Date.now() };
+      saveCache();
+      showCount(node, pages);
     } catch (error) {
-      node.textContent = '页数暂不可用';
-      node.classList.add('is-unavailable');
+      const cached = pageCache[source];
+      if (cached && Number.isFinite(cached.pages)) showCount(node, cached.pages);
+      else {
+        node.textContent = '页数暂不可用';
+        node.classList.add('is-unavailable');
+      }
     }
   }
 
-  counters.forEach((node) => node.classList.add('is-loading'));
-  const updateAll = () => Promise.allSettled(counters.map(updateCounter));
+  const staleCounters = counters.filter((node) => {
+    const cached = pageCache[node.dataset.slideSource];
+    if (cached && Number.isFinite(cached.pages)) showCount(node, cached.pages);
+    else node.classList.add('is-loading');
+    return !cached || !Number.isFinite(cached.pages) ||
+      !Number.isFinite(cached.checkedAt) || Date.now() - cached.checkedAt >= CACHE_TTL;
+  });
+  if (!staleCounters.length) return;
+
+  const updateAll = () => Promise.allSettled(staleCounters.map(updateCounter));
   if ('requestIdleCallback' in window) window.requestIdleCallback(updateAll, { timeout: 1800 });
   else window.setTimeout(updateAll, 0);
 })();
