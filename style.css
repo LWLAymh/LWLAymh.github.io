@@ -1129,6 +1129,21 @@ mjx-container[display="true"] + br { display: none; }
   background: var(--accent-soft);
 }
 .sidebar-content-filter .filter-chip-count { opacity: 0.6; font-variant-numeric: tabular-nums; }
+.sidebar-content-filter .listing-order-toggle {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 7px 2px 8px; border: 0; border-bottom: 1px solid var(--border);
+  background: transparent; color: var(--text); font: inherit; font-size: 0.78rem;
+  text-align: left; cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.sidebar-content-filter .listing-order-toggle:hover {
+  color: var(--accent); border-bottom-color: color-mix(in srgb, var(--accent) 48%, var(--border));
+}
+.sidebar-content-filter .listing-order-arrow {
+  color: var(--text-faint); font-family: var(--font-mono); font-size: 0.8rem;
+  transition: color 0.15s, transform 0.15s;
+}
+.sidebar-content-filter .listing-order-toggle:hover .listing-order-arrow { color: var(--accent); }
 /* 层级标签树：目录式，每项一个复选框，父级可折叠 */
 .sidebar-content-filter .tag-tree { display: flex; flex-direction: column; gap: 2px; }
 .sidebar-content-filter .tag-tree-node { display: flex; align-items: center; gap: 2px; }

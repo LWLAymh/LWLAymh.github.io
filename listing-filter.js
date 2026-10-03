@@ -10,6 +10,8 @@
    - 没有打标签 / 没写评分的条目不受对应筛选影响，始终显示。
    - 每个 [data-listing] 独立初始化，同页多个榜单互不干扰；
      同一容器被重复初始化（同一脚本被引入多次）会直接跳过。
+   - 排序默认保持静态页面的「最新在前」，可在侧边栏切换为「最早在前」；
+     只调整当前页面条目的 DOM 顺序，不修改 JSON 数据。
    - 按钮从条目的 data-tags / data-rating 现场汇总，静态 HTML 里没有筛选文案。
    ========================================================================== */
 (function () {
@@ -27,7 +29,8 @@
     if (root.getAttribute('data-listing-ready')) return; // 同一脚本被引入多次时只初始化一次
     var box = root.querySelector('[data-listing-filter]');
     var items = Array.prototype.slice.call(root.querySelectorAll('[data-listing-item]'));
-    if (!box || !items.length) return;
+    var list = root.querySelector('.acm-cites');
+    if (!box || !list || !items.length) return;
     root.setAttribute('data-listing-ready', '1');
 
     // 榜单正文只保留条目，筛选控件使用同一个节点移入侧边栏。
@@ -61,9 +64,6 @@
       var ib = RATING_ORDER.indexOf(b);
       return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib) || a.localeCompare(b);
     });
-
-    /* 既没有标签也没有评分就没有可筛的东西，保持隐藏（不改变页面） */
-    if (!allTags.length && !ratingValues.length) return;
 
     /* ---- 标签层级树：PL → PL-FM → PL-FM-CSL，父节点也是一个可勾选的项 ---- */
     var tagRoot = { path: '', children: {}, count: 0 };
@@ -154,7 +154,7 @@
     head.className = 'listing-filter-head';
     var title = document.createElement('span');
     title.className = 'listing-filter-title';
-    title.textContent = '筛选';
+    title.textContent = '筛选与排序';
     var status = document.createElement('span');
     status.className = 'listing-filter-status';
     head.appendChild(title);
@@ -173,6 +173,38 @@
       box.appendChild(group);
       return group;
     }
+
+    /* ---- 时间顺序：静态 HTML 默认已经是最新在前 ---- */
+    var newestFirst = true;
+    var orderWrap = document.createElement('div');
+    orderWrap.className = 'listing-order';
+    var orderButton = document.createElement('button');
+    orderButton.type = 'button';
+    orderButton.className = 'listing-order-toggle';
+    var orderText = document.createElement('span');
+    orderText.className = 'listing-order-text';
+    var orderArrow = document.createElement('span');
+    orderArrow.className = 'listing-order-arrow';
+    orderArrow.setAttribute('aria-hidden', 'true');
+    orderButton.appendChild(orderText);
+    orderButton.appendChild(orderArrow);
+    orderWrap.appendChild(orderButton);
+    addGroup('排序', orderWrap);
+
+    function applyOrder() {
+      var ordered = newestFirst ? items : items.slice().reverse();
+      ordered.forEach(function (item) { list.appendChild(item); });
+      orderText.textContent = newestFirst ? '最新在前' : '最早在前';
+      orderArrow.textContent = newestFirst ? '↓' : '↑';
+      orderButton.setAttribute('aria-pressed', newestFirst ? 'true' : 'false');
+      orderButton.setAttribute('aria-label', newestFirst ? '切换为最早在前' : '切换为最新在前');
+      orderButton.title = newestFirst ? '当前：最新在前；点击切换' : '当前：最早在前；点击切换';
+    }
+
+    orderButton.addEventListener('click', function () {
+      newestFirst = !newestFirst;
+      applyOrder();
+    });
 
     /** 复选框行：目录树的节点与评分都用它，交互和样式保持一致。 */
     function makeCheck(kind, value, labelText, count) {
@@ -292,7 +324,7 @@
 
     actions.appendChild(selectAll);
     actions.appendChild(clearAll);
-    box.appendChild(actions);
+    if (allTags.length || ratingValues.length) box.appendChild(actions);
 
     var empty = document.createElement('p');
     empty.className = 'empty listing-filter-empty';
@@ -341,6 +373,7 @@
       apply();
     }
 
+    applyOrder();
     refresh();
   }
 
