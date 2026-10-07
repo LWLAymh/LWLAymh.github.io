@@ -12,7 +12,8 @@
     abandon: $('ics-abandon'), progressText: $('ics-progress-text'), scoreText: $('ics-score-text'),
     progressBar: $('ics-progress-bar'), questionMeta: $('ics-question-meta'),
     questionTitle: $('ics-question-title'), questionContent: $('ics-question-content'),
-    answerForm: $('ics-answer-form'), answer: $('ics-answer'), submit: $('ics-submit'),
+    answerForm: $('ics-answer-form'), answerLabel: document.querySelector('.ics-answer-label'),
+    choiceList: $('ics-choice-list'), answer: $('ics-answer'), submit: $('ics-submit'),
     feedback: $('ics-feedback'), verdict: $('ics-verdict'), reference: $('ics-reference'),
     selfGrade: $('ics-self-grade'), next: $('ics-next'), result: $('ics-result'),
     finalScore: $('ics-final-score'), finalSummary: $('ics-final-summary'), retry: $('ics-retry'),
@@ -29,9 +30,18 @@
   }
 
   function cleanMarkdown(source) {
-    return String(source || '')
+    const cleaned = String(source || '')
       .replace(/<!--\s*=+\s*page\s+\d+\s*=+\s*-->/gi, '')
-      .replace(/^\s*\d+\s*$(?=\s*\n)/gm, '');
+      .replace(/^\s*\d+\s*$(?=\s*\n)/gm, '')
+      // PDF 转文本常把一个中文词从中间换行；Markdown 会额外补一个空格。
+      .replace(/([\u3400-\u9fff])\n(?=[\u3400-\u9fff])/g, '$1');
+
+    // Markdown 默认会把普通单换行合并成空格。只把 A./B./… 选项前的换行
+    // 变成显式换行，既保证选项逐行显示，又不把 PDF 的正文折行全部保留下来。
+    return cleaned.split(/(```+[\s\S]*?```+|~~~+[\s\S]*?~~~+)/g).map(function (part, index) {
+      if (index % 2 === 1) return part;
+      return part.replace(/\n(?=\s*[A-Ha-h][.．、)]\s+)/g, '  \n');
+    }).join('');
   }
 
   function renderMarkdown(source) {
@@ -86,8 +96,8 @@
 
   function simpleExpected(answer) {
     const text = String(answer || '').replace(/\*+/g, '').trim();
-    let match = text.match(/(?:答案|答)\s*[:：]\s*(?:选|为)?\s*([A-H](?:\s*(?:[、,，/&+]|和|及)\s*[A-H])*)/i);
-    if (!match) match = text.match(/^\s*(?:选)?\s*([A-H](?:\s*(?:[、,，/&+]|和|及)\s*[A-H])*)\s*[。.!！]?\s*$/i);
+    let match = text.match(/(?:答案|答)\s*[:：]\s*(?:选|为)?\s*([A-H](?![A-Za-z])(?:\s*(?:[、,，/&+]|和|及)\s*[A-H](?![A-Za-z]))*)/i);
+    if (!match) match = text.match(/^\s*(?:选)?\s*([A-H](?![A-Za-z])(?:\s*(?:[、,，/&+]|和|及)\s*[A-H](?![A-Za-z]))*)\s*[。.!！]?\s*$/i);
     if (match) return { kind: 'choice', value: match[1].toUpperCase().match(/[A-H]/g).sort().join('') };
     match = text.match(/(?:答案|答)\s*[:：]\s*(正确|错误|对|错|是|否|√|×)/);
     if (match) return { kind: 'boolean', value: normalizeBoolean(match[1]) };
@@ -107,6 +117,42 @@
     const match = String(userAnswer).match(/^\s*(?:答案)?\s*[:：]?\s*(?:选)?\s*([A-H](?:\s*(?:[、,，/&+]|和|及)\s*[A-H])*)\s*[。.!！]?\s*$/i);
     if (!match) return false;
     return match[1].toUpperCase().match(/[A-H]/g).sort().join('') === expected.value;
+  }
+
+  function parseChoiceQuestion(source, expected) {
+    if (!expected || expected.kind !== 'choice') return null;
+    const lines = String(source || '').split('\n');
+    let first = -1;
+    for (let i = 0; i < lines.length; i += 1) {
+      if (/^\s*A[.．、)]\s+/i.test(lines[i])) { first = i; break; }
+    }
+    if (first < 0) return null;
+
+    const choices = [];
+    let current = null;
+    for (let i = first; i < lines.length; i += 1) {
+      const match = lines[i].match(/^\s*([A-H])[.．、)]\s+(.*)$/i);
+      if (match) {
+        if (current) choices.push(current);
+        current = { key: match[1].toUpperCase(), lines: [match[2]] };
+      } else if (current) {
+        current.lines.push(lines[i]);
+      }
+    }
+    if (current) choices.push(current);
+
+    const keys = choices.map(function (choice) { return choice.key; });
+    if (choices.length < 2 || new Set(keys).size !== choices.length) return null;
+    for (let i = 0; i < keys.length; i += 1) {
+      if (keys[i] !== String.fromCharCode(65 + i)) return null;
+    }
+    return {
+      stem: lines.slice(0, first).join('\n').trim(),
+      choices: choices.map(function (choice) {
+        return { key: choice.key, content: choice.lines.join('\n').trim() };
+      }),
+      multiple: expected.value.length > 1,
+    };
   }
 
   function secureShuffle(items) {
@@ -191,17 +237,34 @@
   function renderQuestion() {
     const q = state.questions[state.index];
     const number = state.index + 1;
+    const expected = simpleExpected(q.directAnswer);
+    const choiceQuestion = parseChoiceQuestion(q.prompt, expected);
     ui.progressText.textContent = '第 ' + number + ' / ' + state.questions.length + ' 题';
     ui.scoreText.textContent = '当前 ' + state.score + ' 分';
     ui.progressBar.style.width = ((state.index / state.questions.length) * 100) + '%';
-    ui.questionMeta.innerHTML = [q.moduleTitle, q.year, q.examType, q.exam]
+    ui.questionMeta.innerHTML = [q.moduleTitle, q.year, q.examType, q.questionNo, q.exam]
       .filter(Boolean).map(function (item) { return '<span>' + escapeHtml(item) + '</span>'; }).join('');
-    ui.questionTitle.textContent = q.questionNo || q.summary || '题目 ' + number;
-    ui.questionContent.innerHTML = renderMarkdown(q.prompt);
+    ui.questionTitle.textContent = q.summary || q.questionNo || '题目 ' + number;
+    ui.questionContent.innerHTML = renderMarkdown(choiceQuestion ? choiceQuestion.stem : q.prompt);
     ui.answer.value = ''; ui.answer.disabled = false; ui.submit.disabled = false;
+    ui.choiceList.innerHTML = '';
+    ui.choiceList.hidden = !choiceQuestion;
+    ui.answer.hidden = !!choiceQuestion;
+    ui.answer.required = !choiceQuestion;
+    ui.answerLabel.textContent = choiceQuestion
+      ? (choiceQuestion.multiple ? '选择答案（可多选）' : '选择答案')
+      : '你的回答';
+    if (choiceQuestion) {
+      ui.choiceList.dataset.multiple = choiceQuestion.multiple ? 'true' : 'false';
+      ui.choiceList.innerHTML = choiceQuestion.choices.map(function (choice) {
+        return '<button class="ics-choice" type="button" data-choice="' + choice.key + '" aria-pressed="false">' +
+          '<span class="ics-choice-key">' + choice.key + '</span>' +
+          '<span class="ics-choice-content post-content">' + renderMarkdown(choice.content) + '</span></button>';
+      }).join('');
+    }
     ui.answerForm.hidden = false; ui.feedback.hidden = true; ui.selfGrade.hidden = true; ui.next.hidden = true;
     ui.verdict.className = 'ics-verdict'; ui.reference.innerHTML = '';
-    ui.answer.focus({ preventScroll: true });
+    if (!choiceQuestion) ui.answer.focus({ preventScroll: true });
     typeset(ui.questionContent);
     window.scrollTo({ top: ui.quiz.offsetTop - 90, behavior: 'smooth' });
   }
@@ -228,7 +291,11 @@
 
   function submitAnswer(event) {
     event.preventDefault();
-    if (!ui.answer.value.trim()) { ui.answer.focus(); return; }
+    if (!ui.answer.value.trim()) {
+      if (ui.choiceList.hidden) ui.answer.focus();
+      else ui.choiceList.classList.add('needs-choice');
+      return;
+    }
     const q = state.questions[state.index];
     const expected = simpleExpected(q.directAnswer);
     const result = autoGrade(ui.answer.value, expected);
@@ -277,6 +344,25 @@
   });
   ui.start.addEventListener('click', startQuiz);
   ui.answerForm.addEventListener('submit', submitAnswer);
+  ui.choiceList.addEventListener('click', function (event) {
+    const button = event.target.closest('[data-choice]');
+    if (!button) return;
+    const multiple = ui.choiceList.dataset.multiple === 'true';
+    if (!multiple) {
+      ui.choiceList.querySelectorAll('[data-choice]').forEach(function (item) {
+        const selected = item === button;
+        item.classList.toggle('selected', selected);
+        item.setAttribute('aria-pressed', selected ? 'true' : 'false');
+      });
+    } else {
+      const selected = !button.classList.contains('selected');
+      button.classList.toggle('selected', selected);
+      button.setAttribute('aria-pressed', selected ? 'true' : 'false');
+    }
+    ui.choiceList.classList.remove('needs-choice');
+    ui.answer.value = Array.from(ui.choiceList.querySelectorAll('.selected'))
+      .map(function (item) { return item.dataset.choice; }).sort().join('');
+  });
   ui.selfGrade.addEventListener('click', function (event) {
     const button = event.target.closest('[data-grade]');
     if (!button) return;
