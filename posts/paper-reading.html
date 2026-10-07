@@ -7,14 +7,14 @@
 (function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 </script>
 <title>Paper Reading · LWLAymh的备忘录</title>
-<meta name="description" content="本页展示我对一些读过的论文的整理与评价 [42] Youngju Song, Dongjae Lee Refinement Composition Logic . 2024. In Proceedings of the ACM on Pro">
+<meta name="description" content="本页展示我对一些读过的论文的整理与评价 [41] Youngju Song, Dongjae Lee Refinement Composition Logic . 2024. In Proceedings of the ACM on Pro">
 <meta name="author" content="LWLAymh">
 <link rel="canonical" href="https://LWLAymh.github.io/posts/paper-reading.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="LWLAymh的备忘录">
 <meta property="og:url" content="https://LWLAymh.github.io/posts/paper-reading.html">
 <meta property="og:title" content="Paper Reading · LWLAymh的备忘录">
-<meta property="og:description" content="本页展示我对一些读过的论文的整理与评价 [42] Youngju Song, Dongjae Lee Refinement Composition Logic . 2024. In Proceedings of the ACM on Pro">
+<meta property="og:description" content="本页展示我对一些读过的论文的整理与评价 [41] Youngju Song, Dongjae Lee Refinement Composition Logic . 2024. In Proceedings of the ACM on Pro">
 <link rel="icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
 <link rel="apple-touch-icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
 <link rel="stylesheet" href="/style.css">
@@ -52,7 +52,7 @@
   <header class="post-header">
     <h1 class="post-title">Paper Reading</h1>
     <div class="post-meta">
-      <time>2026-10-03</time>
+      <time>2026-10-06</time>
       <a class="chip chip-cat" href="/categories.html#%E5%AD%A6%E4%B9%A0" title="学习 / Reading">学习 / Reading</a>
       
     </div>
@@ -61,15 +61,8 @@
   <div class="listing-filter" data-listing-filter hidden></div>
   <ol class="acm-cites"><li class="acm-cite" data-listing-item data-tags="PL-FM-CSL" data-rating="reading">
     <div class="acm-cite-main">
-      <span class="cite-num">[42]</span>
-      <div class="acm-cite-content">Youngju Song, Dongjae Lee <strong>Refinement Composition Logic</strong>. 2024. In <strong>Proceedings of the ACM on Programming Languages</strong>. <a href="https://doi.org/10.1145/3674645" target="_blank" rel="noopener">https://doi.org/10.1145/3674645</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages / Formal Methods / Concurrent Separation Logic">PL-FM-CSL</span></div><details class="paper-abstract"><summary>Abstract</summary><div class="paper-abstract-text">One successful approach to verifying programs is refinement, where one establishes that the implementation (e.g., in C) behaves as specified in its mathematical specification. In this approach, the end result (a whole implementation refines a whole specification) is often established via composing multiple “small” refinements.In this paper, we focus on the task of composing refinements. Our key observation is a novel correspondence between the task of composing refinements and the task of proving entailments in modern separation logic. This correspondence is useful. First, it unlocks tools and abstract constructs developed for separation logic, greatly streamlining the composition proof. Second, it uncovers a fundamentally new verification strategy. We address the key challenge in establishing the correspondence with a novel use of angelic non-determinism.Guided by the correspondence, we develop RCL (Refinement Composition Logic), a logic dedicated to composing refinements. All our results are formalized in Coq.</div></details></div>
-    </div>
-    <span class="paper-rating rating-reading">reading</span>
-  </li>
-<li class="acm-cite" data-listing-item data-tags="ML-CV" data-rating="reading">
-    <div class="acm-cite-main">
       <span class="cite-num">[41]</span>
-      <div class="acm-cite-content">Meng Lou, Yizhou Yu <strong>OverLoCK: An Overview-first-Look-Closely-next ConvNet with Context-Mixing Dynamic Kernels</strong>. 2025. arXiv preprint arXiv:2502.20087. <a href="https://arxiv.org/abs/2502.20087v3" target="_blank" rel="noopener">https://arxiv.org/abs/2502.20087</a><div class="paper-tags"><span class="tag-chip" title="ML-CV">ML-CV</span></div><details class="paper-abstract"><summary>Abstract</summary><div class="paper-abstract-text">Top-down attention plays a crucial role in the human vision system, wherein the brain initially obtains a rough overview of a scene to discover salient cues (i.e., overview first), followed by a more careful finer-grained examination (i.e., look closely next). However, modern ConvNets remain confined to a pyramid structure that successively downsamples the feature map for receptive field expansion, neglecting this crucial biomimetic principle. We present OverLoCK, the first pure ConvNet backbone architecture that explicitly incorporates a top-down attention mechanism. Unlike pyramid backbone networks, our design features a branched architecture with three synergistic sub-networks: 1) a Base-Net that encodes low/mid-level features; 2) a lightweight Overview-Net that generates dynamic top-down attention through coarse global context modeling (i.e., overview first); and 3) a robust Focus-Net that performs finer-grained perception guided by top-down attention (i.e., look closely next). To fully unleash the power of top-down attention, we further propose a novel context-mixing dynamic convolution (ContMix) that effectively models long-range dependencies while preserving inherent local inductive biases even when the input resolution increases, addressing critical limitations in existing convolutions. Our OverLoCK exhibits a notable performance improvement over existing methods. For instance, OverLoCK-T achieves a Top-1 accuracy of 84.2%, significantly surpassing ConvNeXt-B while using only around one-third of the FLOPs/parameters. On object detection, our OverLoCK-S clearly surpasses MogaNet-B by 1% in AP^b. On semantic segmentation, our OverLoCK-T remarkably improves UniRepLKNet-T by 1.7% in mIoU.</div></details></div>
+      <div class="acm-cite-content">Youngju Song, Dongjae Lee <strong>Refinement Composition Logic</strong>. 2024. In <strong>Proceedings of the ACM on Programming Languages</strong>. <a href="https://doi.org/10.1145/3674645" target="_blank" rel="noopener">https://doi.org/10.1145/3674645</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages / Formal Methods / Concurrent Separation Logic">PL-FM-CSL</span></div><details class="paper-abstract"><summary>Abstract</summary><div class="paper-abstract-text">One successful approach to verifying programs is refinement, where one establishes that the implementation (e.g., in C) behaves as specified in its mathematical specification. In this approach, the end result (a whole implementation refines a whole specification) is often established via composing multiple “small” refinements.In this paper, we focus on the task of composing refinements. Our key observation is a novel correspondence between the task of composing refinements and the task of proving entailments in modern separation logic. This correspondence is useful. First, it unlocks tools and abstract constructs developed for separation logic, greatly streamlining the composition proof. Second, it uncovers a fundamentally new verification strategy. We address the key challenge in establishing the correspondence with a novel use of angelic non-determinism.Guided by the correspondence, we develop RCL (Refinement Composition Logic), a logic dedicated to composing refinements. All our results are formalized in Coq.</div></details></div>
     </div>
     <span class="paper-rating rating-reading">reading</span>
   </li>
