@@ -12,7 +12,7 @@
     abandon: $('ics-abandon'), progressText: $('ics-progress-text'), scoreText: $('ics-score-text'),
     progressBar: $('ics-progress-bar'), questionMeta: $('ics-question-meta'),
     questionTitle: $('ics-question-title'), questionContent: $('ics-question-content'),
-    answerForm: $('ics-answer-form'), answerLabel: document.querySelector('.ics-answer-label'),
+    answerForm: $('ics-answer-form'), answerLabel: $('ics-answer-label'), answerHint: $('ics-answer-hint'),
     choiceList: $('ics-choice-list'), answer: $('ics-answer'), submit: $('ics-submit'),
     feedback: $('ics-feedback'), verdict: $('ics-verdict'), reference: $('ics-reference'),
     selfGrade: $('ics-self-grade'), next: $('ics-next'), result: $('ics-result'),
@@ -20,8 +20,22 @@
     reviewToggle: $('ics-review-toggle'), reviewList: $('ics-review-list'),
   };
 
-  const state = { catalog: null, questions: [], index: 0, score: 0, records: [], answerBlocks: new Map() };
+  const state = { catalog: null, questions: [], index: 0, score: 0, records: [], answerBlocks: new Map(), currentMode: '' };
   const md = window.markdownit ? window.markdownit({ html: false, linkify: true, breaks: false }) : null;
+  if (md) {
+    const defaultImage = md.renderer.rules.image || function (tokens, index, options, env, renderer) {
+      return renderer.renderToken(tokens, index, options);
+    };
+    md.renderer.rules.image = function (tokens, index, options, env, renderer) {
+      const token = tokens[index];
+      const source = String(token.attrGet('src') || '').replace(/\\/g, '/');
+      const assetIndex = source.indexOf('assets/');
+      if (assetIndex >= 0) token.attrSet('src', '/web-data/assets/' + source.slice(assetIndex + 7));
+      token.attrSet('loading', 'lazy');
+      token.attrSet('decoding', 'async');
+      return defaultImage(tokens, index, options, env, renderer);
+    };
+  }
 
   function escapeHtml(value) {
     return String(value == null ? '' : value)
@@ -40,7 +54,13 @@
     // 变成显式换行，既保证选项逐行显示，又不把 PDF 的正文折行全部保留下来。
     return cleaned.split(/(```+[\s\S]*?```+|~~~+[\s\S]*?~~~+)/g).map(function (part, index) {
       if (index % 2 === 1) return part;
-      return part.replace(/\n(?=\s*[A-Ha-h][.．、)]\s+)/g, '  \n');
+      const withChoices = part.replace(/\n(?=\s*[A-Ha-h][.．、)]\s*)/g, '  \n');
+      return withChoices.split('\n').map(function (line) {
+        // PDF 文本里的汇编通常没有围栏；保留这些指令行的换行，避免整段挤成一行。
+        return /^\s*(?:mov|push|pop|call|ret|leave|add|sub|cmp|test|lea|xor|and|or|sal|sar|shr|jmp|j[a-z]+|set[a-z]+|cmov[a-z]+)[a-z]*q?\b/i.test(line)
+          ? line.replace(/\s*$/, '') + '  '
+          : line;
+      }).join('\n');
     }).join('');
   }
 
@@ -80,15 +100,29 @@
     return { prompt: prompt.trim(), answer: answers.join('\n\n').trim() };
   }
 
-  function prepareQuestion(raw, module) {
+  function questionIdentity(raw) {
+    return [raw.moduleId, raw.year, raw.examType, raw.questionNo, raw.summary]
+      .map(function (value) { return String(value || '').trim(); }).join('|');
+  }
+
+  function prepareQuestion(raw, module, companion) {
     const split = splitAnswer(raw.content);
     // 只纳入能够从正文可靠拆出答案的题。relatedBlockIds 指向的往往是整份试卷
     // 的答案块，不保证与单题精确对应；使用它自动组卷会造成泄题或误判。
     if (!raw.answer || !raw.answer.inline || !split.answer) return null;
-    if (/(?:参考)?答案\s*[:：]/.test(split.prompt)) return null;
+    let prompt = split.prompt;
+    if (companion && String(companion.content || '').trim().length > prompt.length) {
+      prompt = String(companion.content).trim();
+    }
+    if (/(?:参考)?答案\s*[:：]/.test(prompt)) return null;
+    const expected = simpleExpected(split.answer);
+    // 答案是选项字母、题面却没有完整选项时，通常是 PDF/题库切分丢失。
+    // 有无答案版的同题时会在上面自动补齐；仍补不齐的题不进入随机池。
+    if (expected && expected.kind === 'choice' && !parseChoiceQuestion(prompt, expected)) return null;
+    if (prompt.length < 140 && /(?:如下|下列|如图|所示|代码序列)\s*[：:]?\s*$/.test(prompt)) return null;
     return Object.assign({}, raw, {
       moduleTitle: module.title,
-      prompt: split.prompt,
+      prompt: prompt,
       directAnswer: split.answer,
       relatedBlockIds: [],
     });
@@ -96,9 +130,16 @@
 
   function simpleExpected(answer) {
     const text = String(answer || '').replace(/\*+/g, '').trim();
-    let match = text.match(/(?:答案|答)\s*[:：]\s*(?:选|为)?\s*([A-H](?![A-Za-z])(?:\s*(?:[、,，/&+]|和|及)\s*[A-H](?![A-Za-z]))*)/i);
-    if (!match) match = text.match(/^\s*(?:选)?\s*([A-H](?![A-Za-z])(?:\s*(?:[、,，/&+]|和|及)\s*[A-H](?![A-Za-z]))*)\s*[。.!！]?\s*$/i);
-    if (match) return { kind: 'choice', value: match[1].toUpperCase().match(/[A-H]/g).sort().join('') };
+    let match = text.match(/(?:答案|答)\s*[:：]\s*(?:选|为)?\s*((?:[A-H](?![A-Za-z0-9])(?:\s*(?:[、,，/&+]|和|及)\s*[A-H](?![A-Za-z0-9]))+)|(?:[A-H]+(?![A-Za-z0-9])))/);
+    if (!match) match = text.match(/^\s*(?:选)?\s*((?:[A-H](?![A-Za-z0-9])(?:\s*(?:[、,，/&+]|和|及)\s*[A-H](?![A-Za-z0-9]))+)|(?:[A-H]+(?![A-Za-z0-9])))\s*[。.!！]?\s*$/);
+    if (match) {
+      const letters = match[1].match(/[A-H]/g);
+      const hasSeparator = /[、,，/&+]|和|及/.test(match[1]);
+      // 连写多选答案通常是按字母顺序且无重复的 ABC/ABDE；避免把 FFFA/FBAC
+      // 这类十六进制填空误判成选择题答案。
+      if (!hasSeparator && letters.length > 1 && letters.join('') !== Array.from(new Set(letters)).sort().join('')) return null;
+      return { kind: 'choice', value: letters.sort().join('') };
+    }
     match = text.match(/(?:答案|答)\s*[:：]\s*(正确|错误|对|错|是|否|√|×)/);
     if (match) return { kind: 'boolean', value: normalizeBoolean(match[1]) };
     return null;
@@ -114,24 +155,37 @@
   function autoGrade(userAnswer, expected) {
     if (!expected) return null;
     if (expected.kind === 'boolean') return normalizeBoolean(userAnswer) === expected.value;
-    const match = String(userAnswer).match(/^\s*(?:答案)?\s*[:：]?\s*(?:选)?\s*([A-H](?:\s*(?:[、,，/&+]|和|及)\s*[A-H])*)\s*[。.!！]?\s*$/i);
-    if (!match) return false;
-    return match[1].toUpperCase().match(/[A-H]/g).sort().join('') === expected.value;
+    const compact = String(userAnswer).toUpperCase()
+      .replace(/^\s*(?:答案)?\s*[:：]?\s*(?:选)?\s*/i, '')
+      .replace(/[、,，/&+\s]|和|及/g, '')
+      .replace(/[。.!！]+$/g, '');
+    if (!/^[A-H]+$/.test(compact)) return false;
+    return compact.split('').sort().join('') === expected.value;
   }
 
   function parseChoiceQuestion(source, expected) {
     if (!expected || expected.kind !== 'choice') return null;
-    const lines = String(source || '').split('\n');
+    // PDF 表格经常把 A/B/C/D 四项压在同一行，用两个以上空格分栏。
+    // 在明确知道答案是选项字母时，先恢复 B..H 的逻辑换行再解析。
+    const normalizedSource = String(source || '').replace(
+      /[ \t]{2,}(?=[B-H](?:[.．、)]\s*|[ \t]{2,}))/g,
+      '\n'
+    );
+    const lines = normalizedSource.split('\n');
     let first = -1;
+    const optionMatch = function (line) {
+      return line.match(/^\s*([A-H])(?:[.．、)]\s*|\s{2,})(.*)$/i);
+    };
     for (let i = 0; i < lines.length; i += 1) {
-      if (/^\s*A[.．、)]\s+/i.test(lines[i])) { first = i; break; }
+      const match = optionMatch(lines[i]);
+      if (match && match[1].toUpperCase() === 'A') { first = i; break; }
     }
     if (first < 0) return null;
 
     const choices = [];
     let current = null;
     for (let i = first; i < lines.length; i += 1) {
-      const match = lines[i].match(/^\s*([A-H])[.．、)]\s+(.*)$/i);
+      const match = optionMatch(lines[i]);
       if (match) {
         if (current) choices.push(current);
         current = { key: match[1].toUpperCase(), lines: [match[2]] };
@@ -153,6 +207,32 @@
       }),
       multiple: expected.value.length > 1,
     };
+  }
+
+  function parseFillQuestion(source) {
+    let gapCount = 0;
+    const gapPattern = /_{2,}|＿{2,}|（[\s　]{2,}）|\([\s　]{2,}\)|_+\s*(?:\(\d{1,2}\)|[①②③④⑤⑥⑦⑧⑨⑩])\s*_+/g;
+    const parts = String(source || '').split(/(```+[\s\S]*?```+|~~~+[\s\S]*?~~~+)/g);
+    const markdown = parts.map(function (part, index) {
+      if (index % 2 === 1) return part;
+      return part.replace(gapPattern, function () {
+        const token = 'ICSGAP' + gapCount + 'X';
+        gapCount += 1;
+        return token;
+      });
+    }).join('');
+    return gapCount ? { markdown: markdown, count: gapCount } : null;
+  }
+
+  function renderFillQuestion(fillQuestion) {
+    let html = renderMarkdown(fillQuestion.markdown);
+    for (let i = 0; i < fillQuestion.count; i += 1) {
+      const input = '<span class="ics-inline-blank"><span class="ics-blank-number">' + (i + 1) + '</span>' +
+        '<input class="ics-blank-input" name="blank-' + i + '" data-gap="' + i + '" ' +
+        'form="ics-answer-form" aria-label="第 ' + (i + 1) + ' 空" autocomplete="off" required></span>';
+      html = html.replace('ICSGAP' + i + 'X', input);
+    }
+    return html;
   }
 
   function secureShuffle(items) {
@@ -213,9 +293,18 @@
       const examType = ui.examType.value;
       let pool = [];
       payloads.forEach(function (payload) {
+        const companions = new Map();
+        payload.questions.forEach(function (candidate) {
+          if (!candidate || !candidate.content) return;
+          const hasInlineAnswer = candidate.answer && candidate.answer.inline;
+          if (hasInlineAnswer || /(?:参考)?答案\s*[:：]/.test(candidate.content)) return;
+          const key = questionIdentity(candidate);
+          const previous = companions.get(key);
+          if (!previous || candidate.content.length > previous.content.length) companions.set(key, candidate);
+        });
         payload.questions.forEach(function (raw) {
           if (examType && raw.examType !== examType) return;
-          const prepared = prepareQuestion(raw, payload.module);
+          const prepared = prepareQuestion(raw, payload.module, companions.get(questionIdentity(raw)));
           if (prepared) pool.push(prepared);
         });
       });
@@ -239,21 +328,32 @@
     const number = state.index + 1;
     const expected = simpleExpected(q.directAnswer);
     const choiceQuestion = parseChoiceQuestion(q.prompt, expected);
+    const fillQuestion = choiceQuestion ? null : parseFillQuestion(q.prompt);
+    state.currentMode = choiceQuestion ? 'choice' : fillQuestion ? 'fill' : 'short';
+    const modeLabel = state.currentMode === 'choice'
+      ? (choiceQuestion.multiple ? '多选题' : '单选题')
+      : state.currentMode === 'fill' ? '填空题' : '简答题';
     ui.progressText.textContent = '第 ' + number + ' / ' + state.questions.length + ' 题';
     ui.scoreText.textContent = '当前 ' + state.score + ' 分';
     ui.progressBar.style.width = ((state.index / state.questions.length) * 100) + '%';
-    ui.questionMeta.innerHTML = [q.moduleTitle, q.year, q.examType, q.questionNo, q.exam]
-      .filter(Boolean).map(function (item) { return '<span>' + escapeHtml(item) + '</span>'; }).join('');
+    ui.questionMeta.innerHTML = '<span class="ics-mode-badge">' + modeLabel + '</span>' +
+      [q.moduleTitle, q.year, q.examType, q.questionNo, q.exam]
+        .filter(Boolean).map(function (item) { return '<span>' + escapeHtml(item) + '</span>'; }).join('');
     ui.questionTitle.textContent = q.summary || q.questionNo || '题目 ' + number;
-    ui.questionContent.innerHTML = renderMarkdown(choiceQuestion ? choiceQuestion.stem : q.prompt);
+    ui.questionContent.innerHTML = choiceQuestion
+      ? renderMarkdown(choiceQuestion.stem)
+      : fillQuestion ? renderFillQuestion(fillQuestion) : renderMarkdown(q.prompt);
     ui.answer.value = ''; ui.answer.disabled = false; ui.submit.disabled = false;
+    ui.answerForm.dataset.mode = state.currentMode;
     ui.choiceList.innerHTML = '';
     ui.choiceList.hidden = !choiceQuestion;
-    ui.answer.hidden = !!choiceQuestion;
-    ui.answer.required = !choiceQuestion;
-    ui.answerLabel.textContent = choiceQuestion
-      ? (choiceQuestion.multiple ? '选择答案（可多选）' : '选择答案')
-      : '你的回答';
+    ui.answerLabel.textContent = state.currentMode === 'choice'
+      ? '选择答案'
+      : state.currentMode === 'fill' ? '填写答案' : '思考完成后查看参考答案';
+    ui.answerHint.textContent = state.currentMode === 'choice' && choiceQuestion.multiple
+      ? '可选择多个选项'
+      : state.currentMode === 'fill' ? '每个空格单独填写' : '本题查看答案后自评';
+    ui.submit.textContent = state.currentMode === 'short' ? '显示参考答案' : '提交答案';
     if (choiceQuestion) {
       ui.choiceList.dataset.multiple = choiceQuestion.multiple ? 'true' : 'false';
       ui.choiceList.innerHTML = choiceQuestion.choices.map(function (choice) {
@@ -264,7 +364,6 @@
     }
     ui.answerForm.hidden = false; ui.feedback.hidden = true; ui.selfGrade.hidden = true; ui.next.hidden = true;
     ui.verdict.className = 'ics-verdict'; ui.reference.innerHTML = '';
-    if (!choiceQuestion) ui.answer.focus({ preventScroll: true });
     typeset(ui.questionContent);
     window.scrollTo({ top: ui.quiz.offsetTop - 90, behavior: 'smooth' });
   }
@@ -291,15 +390,26 @@
 
   function submitAnswer(event) {
     event.preventDefault();
-    if (!ui.answer.value.trim()) {
-      if (ui.choiceList.hidden) ui.answer.focus();
-      else ui.choiceList.classList.add('needs-choice');
+    if (state.currentMode === 'choice' && !ui.answer.value.trim()) {
+      ui.choiceList.classList.add('needs-choice');
       return;
+    }
+    if (state.currentMode === 'fill') {
+      const inputs = Array.from(ui.questionContent.querySelectorAll('.ics-blank-input'));
+      const missing = inputs.find(function (input) { return !input.value.trim(); });
+      if (missing) { missing.classList.add('missing'); missing.focus(); return; }
+      ui.answer.value = inputs.map(function (input, index) {
+        input.disabled = true;
+        return '第 ' + (index + 1) + ' 空：' + input.value.trim();
+      }).join('；');
+    } else if (state.currentMode === 'short') {
+      ui.answer.value = '查看参考答案后自评';
     }
     const q = state.questions[state.index];
     const expected = simpleExpected(q.directAnswer);
-    const result = autoGrade(ui.answer.value, expected);
+    const result = state.currentMode === 'choice' ? autoGrade(ui.answer.value, expected) : null;
     ui.answer.disabled = true; ui.submit.disabled = true; ui.feedback.hidden = false;
+    ui.choiceList.querySelectorAll('button').forEach(function (button) { button.disabled = true; });
     ui.reference.innerHTML = renderMarkdown(referenceFor(q));
     typeset(ui.reference);
 
@@ -310,7 +420,9 @@
       ui.verdict.className = 'ics-verdict incorrect'; ui.verdict.textContent = '答案不一致，本题暂得 0 分。';
       recordGrade(0, 'auto');
     } else {
-      ui.verdict.textContent = '综合题已显示参考内容，请根据关键点完成自评。';
+      ui.verdict.textContent = state.currentMode === 'fill'
+        ? '已显示各空的参考内容，请核对后完成自评。'
+        : '已显示参考答案 / 解析，请根据关键点完成自评。';
       ui.selfGrade.hidden = false;
     }
   }
