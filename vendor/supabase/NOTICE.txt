@@ -1,0 +1,6 @@
+Supabase browser client
+Package: @supabase/supabase-js
+Version: 2.117.2
+Bundle: dist/umd/supabase.js
+License: MIT
+Source: https://www.npmjs.com/package/@supabase/supabase-js
