@@ -766,6 +766,19 @@
     ui.reviewList.hidden = !ui.reviewList.hidden;
     ui.reviewToggle.textContent = ui.reviewList.hidden ? '查看答题记录' : '收起答题记录';
   });
+  const wechatCopy = document.querySelector('[data-copy-wechat]');
+  if (wechatCopy) {
+    wechatCopy.addEventListener('click', async function () {
+      const hint = wechatCopy.querySelector('small');
+      try {
+        await navigator.clipboard.writeText(wechatCopy.dataset.copyWechat);
+        hint.textContent = '已复制微信号';
+        setTimeout(function () { hint.textContent = '点击复制'; }, 1800);
+      } catch (_) {
+        hint.textContent = '微信号：' + wechatCopy.dataset.copyWechat;
+      }
+    });
+  }
 
   init();
 }());

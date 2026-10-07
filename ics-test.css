@@ -2,12 +2,18 @@
   --ics-success: #27835c;
   --ics-danger: #b54c55;
   --ics-warn: #b7791f;
-  max-width: 1040px;
+  max-width: 1100px;
+  padding-top: 18px;
 }
+.page-ics-test .progress-bar { display: none; }
 
 .ics-shell { width: 100%; }
-
 .ics-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
   margin: 1.5rem 0 2rem;
   padding: clamp(1.6rem, 5vw, 3.4rem);
   border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--border));
@@ -17,10 +23,15 @@
     linear-gradient(145deg, color-mix(in srgb, var(--bg-elevated) 94%, var(--accent)), var(--bg-elevated));
   box-shadow: var(--shadow);
 }
+.ics-theme-toggle { position: absolute; top: 1rem; right: 1rem; z-index: 1; }
 
 .ics-hero h1 { margin: .1rem 0 .45rem; font: 700 clamp(2rem, 6vw, 3.5rem)/1.15 var(--font-display); }
-.ics-hero p:last-child { max-width: 680px; margin: 0; color: var(--text-muted); }
+.ics-hero-copy > p:last-child { max-width: 680px; margin: 0; color: var(--text-muted); }
 .ics-eyebrow { margin: 0; color: var(--accent); font-size: .78rem; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
+.ics-hero-status { display: grid; grid-template-columns: auto auto; align-items: center; flex: 0 0 auto; gap: .12rem .55rem; padding: .75rem .9rem; border-radius: 14px; background: color-mix(in srgb, var(--bg) 76%, transparent); box-shadow: var(--shadow-sm); }
+.ics-hero-status > span { grid-row: 1 / 3; width: .65rem; height: .65rem; border-radius: 50%; background: var(--ics-success); box-shadow: 0 0 0 5px color-mix(in srgb, var(--ics-success) 13%, transparent); }
+.ics-hero-status strong { font-size: .84rem; }
+.ics-hero-status small { color: var(--text-muted); font-size: .72rem; }
 
 .ics-panel {
   margin: 0 0 1.5rem;
@@ -277,13 +288,48 @@
 .ics-review-score { float: right; color: var(--accent); font-weight: 750; }
 .ics-error { color: var(--ics-danger); font-weight: 650; }
 
+.ics-contact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem 0 .5rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--bg-elevated) 94%, transparent);
+  box-shadow: var(--shadow-sm);
+}
+.ics-contact h2 { margin: .25rem 0 .35rem; font: 700 1.35rem/1.3 var(--font-display); }
+.ics-contact > div > p:last-child { margin: 0; color: var(--text-muted); }
+.ics-contact-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
+.ics-contact-link {
+  display: grid;
+  min-width: 180px;
+  padding: .75rem .9rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .15s ease, background .15s ease, transform .15s ease;
+}
+.ics-contact-link:hover { border-color: var(--accent); background: var(--accent-soft); text-decoration: none; transform: translateY(-1px); }
+.ics-contact-link span { color: var(--text-muted); font-size: .72rem; }
+.ics-contact-link strong { margin: .12rem 0; color: var(--text); font-size: .88rem; }
+.ics-contact-link small { color: var(--accent); font-size: .7rem; }
+
 @media (max-width: 800px) {
+  .ics-hero { align-items: flex-start; flex-direction: column; gap: 1.2rem; }
+  .ics-contact { grid-template-columns: 1fr; }
   .ics-mode-grid { grid-template-columns: 1fr; }
   .ics-module-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 560px) {
   .ics-hero { border-radius: 18px; }
+  .ics-hero-status { width: 100%; }
   .ics-panel { padding: 1rem; border-radius: 16px; }
   .ics-module-grid { grid-template-columns: 1fr; }
   .ics-panel-head { align-items: flex-start; }
@@ -295,4 +341,6 @@
   #ics-answer-form[data-mode="short"] .ics-primary { width: 100%; }
   .ics-blank-input { width: min(12rem, 68vw); }
   .ics-stats-row { grid-template-columns: 1.3rem minmax(50px, 1fr) auto; gap: .45rem; }
+  .ics-contact-actions { grid-template-columns: 1fr; }
+  .ics-contact-link { min-width: 0; width: 100%; }
 }
