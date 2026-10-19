@@ -77,10 +77,10 @@ window.MathJax = {
 <p>单位根有以下性质:</p>
 <ol>
 <li>
-<p>折半引理:$\omega_{ 2 n }^{ 2 k } = \omega_n^k \\$,由我们上面推导的通项公式即可证明.</p>
+<p>折半引理:$\omega_{ 2 n }^{ 2 k } = \omega_n^k$,由我们上面推导的通项公式即可证明.</p>
 </li>
 <li>
-<p>消去引理:$\omega_n^{ k + \frac{ n }{ 2 } } = - \omega_n^k \\$,同样使用通项，运用三角恒等变换可证明.</p>
+<p>消去引理:$\omega_n^{ k + \frac{ n }{ 2 } } = - \omega_n^k$,同样使用通项，运用三角恒等变换可证明.</p>
 </li>
 </ol>
 <h4 id="toc-2">分圆多项式</h4>
@@ -102,7 +102,6 @@ $$</p>
 <p>接下来观察$X^d - 1 = \prod_{ k = 1 }^d ( X - \omega_{ n }^{ kj } )$,带入$X = - 1$得到$f ( \omega_n^j ) = \begin{cases}2^{ \frac{ n }{ d } } &amp; d \in \text{ odd } \\ 0 &amp; d \in \text{ even }\end{cases}$.</p>
 <p>接下来考虑拿到$\sum_{ j } a_{ jn }$,只需求$\frac{ 1 }{ n } \sum_{ j = 1 }^n f ( \omega_n^j ) = \frac{ 1 }{ n } \sum_{ d \in \text{ odd } , \gcd ( j , n ) = \frac{ n }{ d } } 2^{ \frac{ n }{ d } } = \frac{ 1 }{ n } \sum_{ d \in \text{ odd } } \varphi ( d ) 2^{ \frac{ n }{ d } }$.</p>
 <h5 id="toc-3">Example(尺规做正n边形问题)</h5>
-<p><s>碰瓷高斯问题.</s></p>
 <p>一步一步来.根据尺规作图理论:尺规作图只可以实现$+ , - , \times , \div , \sqrt[2]{  }$五种操作.而对于正$n$边形,显然只要我们能将$\cos \frac{ 2 \pi }{ n }$用只含上述五种操作和若干整数表示出来,那就一定可行.</p>
 <h6 id="toc-4">正五边形问题</h6>
 <p>观察正五边形在复平面上的图像,注意到有两对点互为共轭复数,我们令:</p>
@@ -129,20 +128,10 @@ $$</p>
 <p>于是我们显然可以求得.</p>
 <h6 id="toc-5">正七边形</h6>
 <p>类似正五边形,最后会导出三次方程:根中含有三次根号,因此不行.</p>
-<h6 id="toc-6">正n边形</h6>
-<p><s>要解决正17边形,只需要解决正n边形,然后令n=17即可</s>.</p>
-<p><s>你问我咋想到的下面的证明?问高斯去.</s></p>
-<p>下面其实用到了ntt知识,但我懒得扔下面了.</p>
-<p>先假设$n \in \mathrm{ prime }$,我们用$p$代替$n$.</p>
-<p>我们有$z_1 = \cos \frac{ 2 \pi }{ p } + i \sin \frac{ 2 \pi }{ p }$,由于其它的$z$都可以表示成它的幂,因此我们记$\varepsilon = z_1$.</p>
-<p>我们现在想要这么分组:</p>
-<p>$$
-\sigma_{ k + 1 } = \sum_{ 1 \leq l \leq p - 1 , f ( l , k ) = 1 } \varepsilon^l
-$$</p>
-<h3 id="toc-7">泰勒展开</h3>
-<p>即$f ( x ) = g ( x ) = f ( x_0 ) + \sum_{ k \geq 1 } \frac{ f^{ ( k ) } ( x_0 ) }{ k ! } ( x - x_0 )^k \\$.$x_0 = 0$的时候是麦克劳林级数.</p>
+<h3 id="toc-6">泰勒展开</h3>
+<p>即$f ( x ) = g ( x ) = f ( x_0 ) + \sum_{ k \geq 1 } \frac{ f^{ ( k ) } ( x_0 ) }{ k ! } ( x - x_0 )^k$.$x_0 = 0$的时候是麦克劳林级数.</p>
 <p>麦克劳林展开是生成函数的基础,我们所谓的生成函数的封闭形式其实就是麦克劳林展开的逆运算(可能也不能完全等价,但笔者能力不够,暂且这么理解).</p>
-<h2 id="toc-8">离散傅里叶变换</h2>
+<h2 id="toc-7">离散傅里叶变换</h2>
 <p>考虑如何将一个交换群以一个函数(未必是同态)映射到复数,则这个东西天然对$\mathbb{C}$形成线性空间且维度为$|G|$.</p>
 <p>结构定理首先给出$G\cong \mathbb{Z}_{n_1}\times \cdots\times \mathbb{Z}_{n_k}$,考虑映射$X_a(x)$,其固定一个$a:(a_1,\cdots,a_k)$,而将一个$x:(x_1,\cdots,x_k)$映射到$\omega_{n_1}^{a_1x_1}\cdots \omega_{n_k}^{a_kx_k}$.</p>
 <p>现在考虑这个映射本身所组成的交换群$\{X_a\}$,容易发现以下性质:</p>
@@ -195,19 +184,19 @@ $$
 &amp;=n \hat f(x)\hat g(x)
 \end{aligned}
 $$</p>
-<h2 id="toc-9">多项式</h2>
-<h3 id="toc-10">多项式基础</h3>
-<h4 id="toc-11">点值表示法和系数表示法</h4>
+<h2 id="toc-8">多项式</h2>
+<h3 id="toc-9">多项式基础</h3>
+<h4 id="toc-10">点值表示法和系数表示法</h4>
 <p>代数基本定理:一个$n - 1$次方程在复数域上有且只有$n - 1$个根.</p>
 <p>定理:一个$n - 1$次多项式在$n$个不同点的取值唯一确定了该多项式.</p>
-<p>证明:考虑反证法,假设命题不成立,则存在两个$n - 1$次多项式$A ( x )$和$B ( x )$且有$\forall i \in [ 0 , n - 1 ] , A ( x_i ) = B ( x_i ) \\$.</p>
-<p>令$C ( x ) = A ( x ) - B ( x )$,那么$C ( x )$至多是一个$n - 1$次多项式且$\forall i \in [ 0 , n - 1 ] , C ( x_i ) = 0 \\$,也就是$C ( x )$有$n$个根,与代数基本定理不符合.</p>
+<p>证明:考虑反证法,假设命题不成立,则存在两个$n - 1$次多项式$A ( x )$和$B ( x )$且有$\forall i \in [ 0 , n - 1 ] , A ( x_i ) = B ( x_i )$.</p>
+<p>令$C ( x ) = A ( x ) - B ( x )$,那么$C ( x )$至多是一个$n - 1$次多项式且$\forall i \in [ 0 , n - 1 ] , C ( x_i ) = 0$,也就是$C ( x )$有$n$个根,与代数基本定理不符合.</p>
 <p>由上面的内容,多项式有点值表示法和系数表示法两种:</p>
-<p>系数表示法:$A ( x ) = \sum_{ i = 0 }^{ n - 1 } a_i x^i \\$.</p>
-<p>点值表示法:$y_i = \sum_{ j = 0 }^{ n - 1 } a_j x_i^j \\$.</p>
+<p>系数表示法:$A ( x ) = \sum_{ i = 0 }^{ n - 1 } a_i x^i$.</p>
+<p>点值表示法:$y_i = \sum_{ j = 0 }^{ n - 1 } a_j x_i^j$.</p>
 <p>已知多项式点值表示法求系数表示法的过程被称为插值.</p>
-<h4 id="toc-12">拉格朗日插值</h4>
-<p>构造多项式$\sum_{ i = 0 }^{ n - 1 } y_i ( \prod_{ j = 0 \land j \ne i }^{ n - 1 } \frac{ x - x_j }{ x_i - x_j } ) \\$.显然当$x = x_i$时,该多项式的答案为$y_i$.</p>
+<h4 id="toc-11">拉格朗日插值</h4>
+<p>构造多项式$\sum_{ i = 0 }^{ n - 1 } y_i ( \prod_{ j = 0 \land j \ne i }^{ n - 1 } \frac{ x - x_j }{ x_i - x_j } )$.显然当$x = x_i$时,该多项式的答案为$y_i$.</p>
 <p>另外,如果$x_i = i$,不难发现这个式子可以写成:</p>
 <p>$$
 \begin{aligned}
@@ -217,14 +206,14 @@ $$</p>
 = &amp; \sum_{ i = 1 }^n y_i ( - 1 )^{ n - i } ( \cfrac{ 1 }{ ( i - 1 ) ! ( n - i ) ! } \prod_{ j = 1 , j \ne i }^{ n } ( x - j ) )
 \end{aligned}
 $$</p>
-<h3 id="toc-13">多项式运算</h3>
+<h3 id="toc-12">多项式运算</h3>
 <p>考虑两个多项式相乘,如果我们已知他们的点值表示法,显然可以直接相乘.</p>
 <p>这为我们提供了一种思路:先将系数表示法转化为点值表示法,进行相乘之后再转化回系数表示法.</p>
 <p>这引出以FFT为代表的多项式乘法,并拓展到了多种多项式运算.</p>
-<h4 id="toc-14">多项式乘法</h4>
-<h5 id="toc-15">快速傅里叶变换(FFT)</h5>
-<h6 id="toc-16">DFT</h6>
-<p>将$n$次单位根(默认$n$是二的整次幂,如果少了的话补零,设$n = 2^w$)分别带入$A ( x )$得到点值向量$A ( \omega_n^k ) \\$.</p>
+<h4 id="toc-13">多项式乘法</h4>
+<h5 id="toc-14">快速傅里叶变换(FFT)</h5>
+<h6 id="toc-15">DFT</h6>
+<p>将$n$次单位根(默认$n$是二的整次幂,如果少了的话补零,设$n = 2^w$)分别带入$A ( x )$得到点值向量$A ( \omega_n^k )$.</p>
 <p>如果朴素带入,复杂度显然不可接受.</p>
 <p>考虑:</p>
 <p>$$
@@ -235,11 +224,13 @@ A ( x ) &amp; = \sum_{ i = 0 }^{ n - 1 } a_i x^i \\
 
 \end{aligned}
 $$</p>
-<p>令</p>
-<p>A_2(x)=\sum_{i=2k+1,k\in\mathbb{N}}<sup>{n-1}a_ix</sup>{k}\$, 那 么$A(x)=A_1(x<sup>2)+xA_2(x</sup>2)\</p>
+<p>令$A_2(x)=\sum_{i=2k+1,k\in\mathbb{N}}^{n-1}a_ix^{k}$, 那么$A(x)=A_1(x^2)+xA_2(x^2)$</p>
 <p>接下来分类讨论:</p>
-<p>$\forall 0 \leq k \leq \frac{ n }{ 2 } - 1 , k \in \mathbb{ N } \\$,我们有:</p>
-<p>$$
+<ol>
+<li>$\forall 0 \leq k \leq \frac{ n }{ 2 } - 1 , k \in \mathbb{ N }$</li>
+</ol>
+<p>我们有:
+$$
 \begin{aligned}
 A ( \omega_n^k ) &amp; = A_1 ( \omega_n^{ 2 k } ) + \omega_n^k A_2 ( \omega_n^{ 2 k } ) \\
 
@@ -253,8 +244,11 @@ A ( \omega_n^k ) &amp; = A_1 ( \omega_{ \frac{ n }{ 2 } }^k ) + \omega_n^k A_2 (
 \end{aligned}
 $$</p>
 <p>这样我们处理完了前半部分.</p>
-<p>$\forall \frac{ n }{ 2 } \leq k + \frac{ n }{ 2 } \leq n - 1 , k \in \mathbb{ N } \\$,我们有:</p>
-<p>$$
+<ol start="2">
+<li>$\forall \frac{ n }{ 2 } \leq k + \frac{ n }{ 2 } \leq n - 1 , k \in \mathbb{ N }$</li>
+</ol>
+<p>我们有:
+$$
 \begin{aligned}
 A ( \omega_n^{ k + \frac{ n }{ 2 } } ) &amp; = A_1 ( \omega_n^{ 2 k + n } ) + \omega_n^{ k + \frac{ n }{ 2 } } A_2 ( \omega_n^{ 2 k + n } ) \\
 
@@ -268,7 +262,7 @@ A ( \omega_n^{ k + \frac{ n }{ 2 } } ) &amp; = A_1 ( \omega_{ \frac{ n }{ 2 } }^
 \end{aligned}
 $$</p>
 <p>综上,我们可以递归处理$A_1$和$A_2$,然后合并得到$A$的答案,可以分治.</p>
-<h6 id="toc-17">IDFT</h6>
+<h6 id="toc-16">IDFT</h6>
 <p>设$A ( \omega_n^k ) = d_k$,构造多项式$F ( x ) = \sum_{ i = 0 }^{ n - 1 } d_i x^i$.</p>
 <p>我们求出$F ( x )$的点值表示,设$c_k = F ( \omega_n^{ - k } )$,也即:</p>
 <p>$$
@@ -280,24 +274,21 @@ c_k &amp; = \sum_{ i = 0 }^{ n - 1 } d_i ( \omega_n^{ - k } )^i \\
 \end{aligned}
 $$</p>
 <p>当$j = k$时,显然$\sum_{ i = 0 }^{ n - 1 } ( \omega_n^i )^{ j - k } = n$.</p>
-<p>否则根据等比数列求和公式,$\sum_{ i = 0 }^{ n - 1 } ( \omega_n^i )^{ j - k } = \frac{ \omega^0_n [ ( \omega_n^{ j - k } )^n - 1 ] }{ \omega_n^{ j - k } - 1 } = 0 \\$.</p>
-<p>所以$\sum_{ i = 0 }^{ n - 1 } ( \omega_n^i )^{ j - k } = n [ j = k ] \\$.</p>
-<p>那么我们有</p>
-<p>a_k=\frac{c_k}{n}\</p>
-<h6 id="toc-18">写法</h6>
+<p>否则根据等比数列求和公式,$\sum_{ i = 0 }^{ n - 1 } ( \omega_n^i )^{ j - k } = \frac{ \omega^0_n [ ( \omega_n^{ j - k } )^n - 1 ] }{ \omega_n^{ j - k } - 1 } = 0$.所以$\sum_{ i = 0 }^{ n - 1 } ( \omega_n^i )^{ j - k } = n [ j = k ]$.那么我们有$a_k=\frac{c_k}{n}$</p>
+<h6 id="toc-17">写法</h6>
 <p>递归写法显然.</p>
 <p>递归过程中,第$k$层相当于在根据数在第$k$位的二进制数是$1$还是$0$来分类.那显然可以求出最后一层的数组,然后向上合并.</p>
 <p>(没找到fft的代码,懒得写了,直接用的ntt的,注意快速幂要处理幂为负数的情况).</p>
 <pre class="hljs"><code class="language-cpp"><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">init_rev</span><span class="hljs-params">(<span class="hljs-type">int</span> limit,<span class="hljs-type">int</span> k)</span></span>{
-    rev[<span class="hljs-number">0</span>]=<span class="hljs-number">0</span>;
-    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;limit;++i){
-        rev[i]=(rev[i&gt;&gt;<span class="hljs-number">1</span>]&gt;&gt;<span class="hljs-number">1</span>)|((i&amp;<span class="hljs-number">1</span>)&lt;&lt;(k<span class="hljs-number">-1</span>));
-    }
-    <span class="hljs-keyword">return</span> ;
+	rev[<span class="hljs-number">0</span>]=<span class="hljs-number">0</span>;
+	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;limit;++i){
+		rev[i]=(rev[i&gt;&gt;<span class="hljs-number">1</span>]&gt;&gt;<span class="hljs-number">1</span>)|((i&amp;<span class="hljs-number">1</span>)&lt;&lt;(k<span class="hljs-number">-1</span>));
+	}
+	<span class="hljs-keyword">return</span> ;
 }
 <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">ntt</span><span class="hljs-params">(<span class="hljs-type">int</span> limit,ll *a,ll t)</span></span>{<span class="hljs-comment">//DFT:t=1;IDFT:t=-1</span>
     <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;limit;++i){
-        <span class="hljs-keyword">if</span>(i&lt;rev[i])std::<span class="hljs-built_in">swap</span>(a[i],a[rev[i]]);
+    	<span class="hljs-keyword">if</span>(i&lt;rev[i])std::<span class="hljs-built_in">swap</span>(a[i],a[rev[i]]);
     }
     <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> mid=<span class="hljs-number">1</span>;mid&lt;limit;mid=mid&lt;&lt;<span class="hljs-number">1</span>){
         <span class="hljs-type">int</span> n=mid&lt;&lt;<span class="hljs-number">1</span>;
@@ -315,15 +306,15 @@ $$</p>
     <span class="hljs-keyword">if</span>(t==<span class="hljs-number">-1</span>){
         ll inv=<span class="hljs-built_in">mpow</span>(limit,<span class="hljs-number">-1</span>);
         <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;limit;++i){
-            a[i]=a[i]*inv%mod;
+        	a[i]=a[i]*inv%mod;
         }
     }
     <span class="hljs-keyword">return</span> ;
 }</code></pre>
-<h5 id="toc-19">快速数论变换(NTT)</h5>
+<h5 id="toc-18">快速数论变换(NTT)</h5>
 <p>由于FFT中的单位根会产生精度误差,因此在膜$998244353$意义下,通常会选择NTT来进行多项式乘法.</p>
 <p>NTT与FFT的运算过程基本相同,证明过程基本相同,唯一不同的是将单位根改为了原根.</p>
-<p>根据上面FFT的证明过程,我们知道,设原根为$g$,$g_n = g^{ \frac{ p - 1 }{ n } } \\$,只需要证明原根满足以下条件,就可以进行变换:</p>
+<p>根据上面FFT的证明过程,我们知道,设原根为$g$,$g_n = g^{ \frac{ p - 1 }{ n } }$,只需要证明原根满足以下条件,就可以进行变换:</p>
 <ol>
 <li>
 <p>$g_n^n = g_n^0 = 1$且$\forall 0 \leq i &lt; j &lt; n , g_n^i \ne g_n^j$,证明由原根的性质.</p>
@@ -332,12 +323,12 @@ $$</p>
 <p>折半引理:$g_{ 2 n }^{ 2 k } = g_{ n }^k$,证明显然.</p>
 </li>
 <li>
-<p>消去引理:$g_{ n }^{ k + \frac{ n }{ 2 } } = - g^k_n \\$.由于$g^{ \frac{ p - 1 }{ 2 } } = - 1$,该结论显然成立.</p>
+<p>消去引理:$g_{ n }^{ k + \frac{ n }{ 2 } } = - g^k_n$.由于$g^{ \frac{ p - 1 }{ 2 } } = - 1$,该结论显然成立.</p>
 </li>
 </ol>
 <p>由上我们证明了,我们完全可以使用$g_n$代替$\omega_n$进行变换.</p>
-<p>另外,注意到$998244352 = 2^{ 23 } \times 7 \times 17 \\$,而$2^{ 23 } \approx 8 \times 10^6 \\$.因而,当$n \leq 8 \times 10^6$的时候,$g_n$可以直接求出.这也是为什么大部分NTT题目都使用$998244353$作为模数的原因.</p>
-<h5 id="toc-20">范德蒙德矩阵理解</h5>
+<p>另外,注意到$998244352 = 2^{ 23 } \times 7 \times 17$,而$2^{ 23 } \approx 8 \times 10^6$.因而,当$n \leq 8 \times 10^6$的时候,$g_n$可以直接求出.这也是为什么大部分NTT题目都使用$998244353$作为模数的原因.</p>
+<h5 id="toc-19">范德蒙德矩阵理解</h5>
 <p>范德蒙德矩阵形如:</p>
 <p>$$
 \begin{bmatrix}
@@ -370,14 +361,14 @@ $$</p>
 1 &amp; \omega_n^{ - ( n - 1 ) } &amp; \cdots &amp; \omega_n^{ - ( n - 1 )^2 }
 \end{bmatrix}
 $$</p>
-<h4 id="toc-21">分治FFT</h4>
+<h4 id="toc-20">分治FFT</h4>
 <p>给定$g ( x )$和$f ( 0 )$,求$f ( x ) = \sum_{ y = 1 }^x f ( x - y ) g ( y )$,答案对$998244353$取膜.</p>
 <p>考虑分治,假如我们已经知道了$f ( x ) , x \in [ 1 , \frac{ n }{ 2 } ]$.那我们可以计算出这段部分对$f ( y ) ， y \in [ \frac{ n }{ 2 } + 1 , n ]$的贡献.</p>
 <p>这显然是一个卷积的形式,我们直接计算$f$和$g$的乘积并贡献上去.</p>
-<h4 id="toc-22">多项式求逆</h4>
-<p>对于多项式$P ( x )$,找到$Q ( x )$使得$Q ( x ) P ( x ) \equiv 1 \pmod{ x^{ n } } \\$.显然$Q ( x )$是唯一的.</p>
-<p>首先不妨设$n = 2^k \\$.</p>
-<p>如果我们已知$P ( x ) Q_{ k - 1 } ( x ) \equiv 1 \pmod{ x^{ 2^{ k - 1 } } } \\$,同时肯定有$P ( x ) Q_{ k } ( x ) \equiv 1 \pmod{ x^{ 2^{ k - 1 } } } \\$,相减得到$Q_k ( x ) - Q_{ k - 1 } ( x ) \equiv 0 \pmod{ x^{ 2^{ k - 1 } } } \\$.</p>
+<h4 id="toc-21">多项式求逆</h4>
+<p>对于多项式$P ( x )$,找到$Q ( x )$使得$Q ( x ) P ( x ) \equiv 1 \pmod{ x^{ n } }$.显然$Q ( x )$是唯一的.</p>
+<p>首先不妨设$n = 2^k$.</p>
+<p>如果我们已知$P ( x ) Q_{ k - 1 } ( x ) \equiv 1 \pmod{ x^{ 2^{ k - 1 } } }$,同时肯定有$P ( x ) Q_{ k } ( x ) \equiv 1 \pmod{ x^{ 2^{ k - 1 } } }$,相减得到$Q_k ( x ) - Q_{ k - 1 } ( x ) \equiv 0 \pmod{ x^{ 2^{ k - 1 } } }$.</p>
 <p>两边平方:</p>
 <p>$$
 \begin{aligned}
@@ -402,8 +393,8 @@ F ( x ) &amp; = \frac{ f ( 0 ) }{ 1 - G ( x ) } \pmod{ x^{ n + 1 } }
 \end{aligned}
 $$</p>
 <p>于是可以直接做多项式求逆.</p>
-<h4 id="toc-23">多项式除法</h4>
-<p>对于$n$次多项式$F ( x )$和$m$次多项式$G ( x )$,找到$Q ( x ) , R ( x )$使得$F ( x ) = G ( x ) Q ( x ) + R ( x ) \\$.</p>
+<h4 id="toc-22">多项式除法</h4>
+<p>对于$n$次多项式$F ( x )$和$m$次多项式$G ( x )$,找到$Q ( x ) , R ( x )$使得$F ( x ) = G ( x ) Q ( x ) + R ( x )$.</p>
 <p>考虑对于$n$次多项式$F ( x )$,令$F_R ( x ) = x^n F ( \cfrac{ 1 }{ x } )$,如果设$f_i$为其$x^i$项前的系数,不难发现$f_R ( i ) = f ( n - i )$.</p>
 <p>那么我们有:</p>
 <p>$$
@@ -417,7 +408,7 @@ Q_R ( x ) &amp; \equiv F_R ( x ) G_R^{ - 1 } ( x ) \pmod{ x^{ n - m + 1 } }
 \end{aligned}
 $$</p>
 <p>于是只要做一遍多项式求逆即可求得$Q ( x )$,再做一遍相减既可以得到$R ( x )$.</p>
-<h4 id="toc-24">多项式ln</h4>
+<h4 id="toc-23">多项式ln</h4>
 <p>给出$n - 1$次多项式$A ( x )$,求一个多项式$B ( x )$,满足$B ( x ) \equiv \ln A ( x )$.</p>
 <p>我们有:</p>
 <p>$$
@@ -439,7 +430,7 @@ B ( x ) &amp; \equiv \int_0^x \cfrac{ A &#39; ( t ) }{ A ( t ) } dt + B ( 0 ) \p
 $$</p>
 <p>首先$B ( 0 ) = \ln A ( 0 ) = \ln a_0$,如果$a_0 \in \mathbb{ Q } \land a_0 \ne 1$,则$B ( 0 ) \notin \mathbb{ Q }$,因此不能放到模意义下,自然不存在对数多项式.</p>
 <p>若$[ x^0 ] f ( x ) = 1$的时候,$B ( 0 ) = 0$,因此可以直接求出答案.</p>
-<h4 id="toc-25">牛顿迭代</h4>
+<h4 id="toc-24">牛顿迭代</h4>
 <p>给定多项式$G ( x )$,求一个多项式$F ( x )$满足$G ( F ( x ) ) \equiv 0 \pmod{ x^n }$.</p>
 <p>首先$n = 1$的时候,也就是求$G ( F ( x ) ) \equiv 0 \pmod{ x }$.这个要根据具体题目具体分析求出.</p>
 <p>假设我们已经求出了在$\bmod x^{ \lceil \frac{ n }{ 2 } \rceil }$意义下的答案$F_0 ( x )$,我们考虑在$F_0 ( x )$处做泰勒展开:</p>
@@ -459,14 +450,14 @@ F ( x ) &amp; \equiv F_0 ( x ) - \frac{ G ( F_0 ( x ) ) }{ G &#39; ( F_0 ( x ) )
 \end{aligned}
 $$</p>
 <p>牛顿迭代可以用来证明多项式求逆的式子同样正确.</p>
-<h4 id="toc-26">多项式开方</h4>
+<h4 id="toc-25">多项式开方</h4>
 <p>给定$h ( x )$,设$g ( f ( x ) ) = f^2 ( x ) - h ( x )$,求零点.</p>
 <p>根据牛顿迭代,有:</p>
 <p>$$
 f ( x ) \equiv f_0 ( x ) - \frac{ f^2 ( x ) - h ( x ) }{ 2 f_0 ( x ) } \equiv \frac{ f^2 ( x ) + h ( x ) }{ 2 f_0 ( x ) } \pmod{ x^n }
 $$</p>
 <p>还没完,用牛顿迭代前一定要求$g ( a ) \equiv 0 \pmod{ x^n }$的解,也就是$[ x^0 ] h ( x )$的开根,用二次剩余算.</p>
-<h4 id="toc-27">多项式exp</h4>
+<h4 id="toc-26">多项式exp</h4>
 <p>给定$h ( x )$,设$g ( f ( x ) ) = \ln f ( x ) - h ( x )$,求零点.</p>
 <p>根据牛顿迭代,有:</p>
 <p>$$
@@ -476,7 +467,7 @@ f ( x ) &amp; \equiv f_0 ( x ) - \frac{ \ln f_0 ( x ) - h ( x ) }{ \frac{ 1 }{ f
 \end{aligned}
 $$</p>
 <p>还没完,还需要求$g ( a ) \equiv 0 \pmod{ x^n }$的解,注意到存在$\exp$当且仅当$[ x^0 ] g ( x ) \equiv 0$,此时$f ( x ) \equiv 1 \pmod{ x }$.</p>
-<h4 id="toc-28">多项式快速幂</h4>
+<h4 id="toc-27">多项式快速幂</h4>
 <p>求$\ln$后求$\exp$即可,唯一的问题是为什么指数可以对$p$取膜.</p>
 <p>我们有一个结论:</p>
 <p>$$
@@ -484,7 +475,7 @@ f ( x^p ) \equiv f ( x )^p \pmod{ p }
 $$</p>
 <p>这个结论很简单,注意到$( a + b )^p \equiv a^p + b^p \pmod{ p }$即可.</p>
 <p>而又由于$n &lt; p$,因此$f ( x )^p \equiv f ( 0 ) \pmod{ p }$,通常取$f ( 0 ) = 1$,于是就可以直接对$p$取膜.</p>
-<h4 id="toc-29">多项式运算全家桶(重载运算符版)</h4>
+<h4 id="toc-28">多项式运算全家桶(重载运算符版)</h4>
 <p>我们必须指出的一点是,虽然重载运算符很好看,但是大部分情况下还是需要指针传参.例如在这里,由于做$\exp$的时候的直接数组传参,会导致$\exp$的复杂度退化到$O ( n \log^2 n )$.</p>
 <pre class="hljs"><code class="language-cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;algorithm&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;cstring&gt;</span></span>
@@ -665,12 +656,12 @@ poly q_sqrt,tmp_sqrt;
     x=k*<span class="hljs-built_in">lnpoly</span>(x);
     <span class="hljs-keyword">return</span> <span class="hljs-built_in">exppoly</span>(x);
 }</code></pre>
-<h3 id="toc-30">集合幂级数</h3>
+<h3 id="toc-29">集合幂级数</h3>
 <p>集合幂级数形如$\sum_{ i = 0 }^{ 2^n - 1 } a_i x^i$,其中二进制数$i$表示$\{ 1 , 2 , . . . , n \}$的一个子集,用$| i |$表示该子集大小,等价于对二进制使用的popcount函数.</p>
 <p>下述级数如无特别说明均为集合幂级数.</p>
-<h4 id="toc-31">与/或卷积</h4>
-<p>高维前缀和:$c_i = \sum_{ j \subseteq i } a_j \\$.</p>
-<p>高维后缀和:$c_i = \sum_{ j \supseteq i } a_j \\$.</p>
+<h4 id="toc-30">与/或卷积</h4>
+<p>高维前缀和:$c_i = \sum_{ j \subseteq i } a_j$.</p>
+<p>高维后缀和:$c_i = \sum_{ j \supseteq i } a_j$.</p>
 <p>上述过程又称快速莫比乌斯变换(FMT).</p>
 <pre class="hljs"><code class="language-cpp"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)
     <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">0</span>;j&lt;(<span class="hljs-number">1</span>&lt;&lt;n);j++)
@@ -732,7 +723,7 @@ $$</p>
     }
     <span class="hljs-keyword">return</span> ;
 }</code></pre>
-<h4 id="toc-32">异或卷积</h4>
+<h4 id="toc-31">异或卷积</h4>
 <p>异或卷积:$c_i = \sum_j \sum_k [ j \oplus k = i ] a_j b_k \\$.</p>
 <p>引理:$( i \oplus j ) \land k = ( i \land k ) \oplus ( j \land k )$.</p>
 <p>证明的话考虑如果$k = 0$,二者显然相等;当$k = 1$的时候,左右都等价于$( i \oplus j )$.</p>
@@ -769,8 +760,8 @@ $$</p>
     }
     <span class="hljs-keyword">return</span> ;
 }</code></pre>
-<h4 id="toc-33">快速沃尔什变换</h4>
-<h5 id="toc-34">线性代数角度</h5>
+<h4 id="toc-32">快速沃尔什变换</h4>
+<h5 id="toc-33">线性代数角度</h5>
 <p>我们来重定义一下所谓的FWT.</p>
 <p>首先类比FFT,我们希望存在一个线性变换$FWT$,使得</p>
 <ol>
@@ -815,13 +806,13 @@ FWT ( A )_i &amp; = \sum_{ j = 0 }^{ 2^m - 1 } w ( i , j ) A_j \\
 $$</p>
 <p>这样就实现了规模减半,复杂度$O ( mn )$.</p>
 <p>下面我们设FWT的变换矩阵为$\begin{bmatrix}w ( 0 , 0 ) &amp; w ( 0 , 1 ) \\ w ( 1 , 0 ) &amp; w ( 1 , 1 )\end{bmatrix}$.顺便一提,不难发现,最后对整体做的矩阵是这个矩阵的克罗内多积.</p>
-<h6 id="toc-35">或卷积</h6>
+<h6 id="toc-34">或卷积</h6>
 <p>取矩阵$\begin{bmatrix}1 &amp; 0 \\ 1 &amp; 1\end{bmatrix}$.其逆矩阵为$\begin{bmatrix}1 &amp; 0 \\ - 1 &amp; 1\end{bmatrix}$.</p>
-<h6 id="toc-36">与卷积</h6>
+<h6 id="toc-35">与卷积</h6>
 <p>取矩阵$\begin{bmatrix}1 &amp; 1 \\ 0 &amp; 1\end{bmatrix}$.其逆矩阵为$\begin{bmatrix}1 &amp; - 1 \\ 0 &amp; 1\end{bmatrix}$.</p>
-<h6 id="toc-37">异或卷积</h6>
+<h6 id="toc-36">异或卷积</h6>
 <p>取矩阵$\begin{bmatrix}1 &amp; 1 \\ 1 &amp; - 1\end{bmatrix}$.其逆矩阵为$\begin{bmatrix}\frac{ 1 }{ 2 } &amp; \frac{ 1 }{ 2 } \\ \frac{ 1 }{ 2 } &amp; - \frac{ 1 }{ 2 }\end{bmatrix}$.</p>
-<h5 id="toc-38">生成函数角度</h5>
+<h5 id="toc-37">生成函数角度</h5>
 <p>我们再从生成函数角度理解一下FWT.</p>
 <p>我们重新定义幂乘法:$x^S x^T = x^{ S \oplus T }$,显然幂乘法该满足的性质它都满足.</p>
 <p>观察FWT的式子:</p>
@@ -838,14 +829,14 @@ $$</p>
 [ x^S ] IFWT ( A ) &amp; = [ x^S ] \frac{ 1 }{ 2^n } FWT ( A )
 \end{aligned}
 $$</p>
-<h4 id="toc-39">子集卷积</h4>
+<h4 id="toc-38">子集卷积</h4>
 <p>子集卷积:$c_i = \sum_{ j } \sum_{ k } [ j \land k = \emptyset , j \lor k = i ] a_j b_k \\$.</p>
 <p>意识到该卷积与或卷积的差别在于:或卷积会多累加一些$[ j \land k \ne \emptyset ]$的答案,而$[ j \land k = \phi , j \lor k = i ] = [ | j | + | k | = | i | , j \lor k = i ] \\$.</p>
 <p>因而可以将原集合按照元素个数分组做FMT,然后再$n^2$次结合,并做IFMT,最终将结果累计,复杂度$O ( 2^n n^2 )$.</p>
-<h4 id="toc-40">集合占位幂级数</h4>
+<h4 id="toc-39">集合占位幂级数</h4>
 <p>其实就是设$g_{ i , j } = z^i f_j$,然后做卷积(类似子集卷积).</p>
-<h4 id="toc-41">Example</h4>
-<h5 id="toc-42">Example1([AGC034F] RNG and XOR)</h5>
+<h4 id="toc-40">Example</h4>
+<h5 id="toc-41">Example1([AGC034F] RNG and XOR)</h5>
 <p>设$f_i ( n )$表示操作$n$次后第一次变成$i$的概率,$g_i ( n )$表示操作$n$次后变成$i$的概率.$F , G$分别是其生成函数.</p>
 <p>注意到$G_i = F_i G_0 , F_i = \frac{ G_i }{ G_0 }$,而$F_i &#39; ( 1 )$就是期望.接下来的问题在于如何求$G$.</p>
 <p>接下来涉及到的东西就很本质了,我们一开始先把$a_i \rightarrow \frac{ a_i }{ \sum a }$,然后做$A = FWT ( a )$,注意这里$A_0 = \sum a = 1$,FWT自身有很好的性质:$a = \frac{ 1 }{ 2^N } FWT ( A )$.我们做$n$次操作后得到的概率数组也就是$\frac{ 1 }{ 2^N } FWT ( A^n )$.展开FWT的式子,自然有:</p>
@@ -861,14 +852,14 @@ $$</p>
 <p><s>(我草这个式子太顶级了)</s></p>
 <p>但是我们冷静一下,这个题与普通生成函数不同的地方在于,我们要求$F &#39;_i ( 1 )$,因此我们直接把$x = 1$带入算一算就好.不过由于$A_0 = 1$,我们必须要解决分母为$0$的情况,解决的方法是分母乘上$( 1 - x )$,这样就消掉了$j = 0$的项,同时分子由于是减法可以抵消一下.</p>
 <p>然后大概做做吧,感觉太顶级了.</p>
-<h5 id="toc-43">Example2([QOJ5089]环覆盖)</h5>
+<h5 id="toc-42">Example2([QOJ5089]环覆盖)</h5>
 <p>合法显然当且仅当每个点度数为偶数,考虑直接拿一个二进制数将每个点度数奇偶性压起来,如果选中一条边$u \leftrightarrow v$就异或上$( 2^u + 2^v )$.最后要求这个二进制数是$0$.我们用一个二元组$( a , F )$表示在集合幂级数上异或上$a$,在多项式上乘上$F$.显然一条边是$( 0 , 1 ) + ( 2^u + 2^v , x )$.注意到这是可以定义乘法运算和标量乘法运算的,也就能做FWT,而且在做FWT的时候要么乘上$1 + x$要么乘上$1 - x$,做完FWT得到的每一个$FWT_i$一定形如$( 1 + x )^k ( 1 - x )^{ m - k }$,做IFWT的时候直接求$\frac{ 1 }{ 2^N } \sum ( 1 + x )^k ( 1 - x )^{ m - k }$即可.</p>
 <p>仔细想想这个过程:有一句名言是只要看到生成函数就一定存在分配律,这里也是一样的,由于存在一种选择:选不选这条边,因此这里也就有了两种情况:$( 0 , 1 )$和$( 2^u + 2^v , x )$,分开两种情况就实现了FWT.</p>
 <p>问题在于对于每个$i$求$k$,也就是对于每个$i$求有多少条边满足$| i \land ( 2^u + 2^v ) | = 1$,也就是求有多少条边一段链接在了$i$的内部,另一端连接在了外部,这个补集转化一下,做高维前缀和.</p>
-<h5 id="toc-44">Example3(CF1034E Little C Loves 3 III)</h5>
+<h5 id="toc-43">Example3(CF1034E Little C Loves 3 III)</h5>
 <p>仍然是子集卷积,转化为$c_i = \sum_{ j } \sum_{ k } [ | j | + | k | = | i | , j \lor k = i ] a_j b_k \\$.然后我们将$a_j$乘上$4^j$,将$b_k$乘上$4^k$,最后把$c_i$除去$4^i$对$4$取膜就行.</p>
 <p>还有个用到FWT的本质的矩阵做法,大概是手推矩阵然后再手推求逆.</p>
-<h5 id="toc-45">Example4(CF1336E2 Chiori and Doll Picking)</h5>
+<h5 id="toc-44">Example4(CF1336E2 Chiori and Doll Picking)</h5>
 <p>先考虑easy version.首先求出线性基,如果线性基的大小$k$比较小,我们可以直接$2^k$枚举一下.而如果线性基较大,我们先消成最简线性基,然后主元位置有多少个$1$取决于选了多少个元素,其他位置共有$m - k$个,可以直接状压进状态.这样复杂度就是$O ( \min \{ 2^k , m^2 2^{ m - k } \} )$.</p>
 <p>那么我们怎么优化呢?首先$k$较大的时候有点难做,我们看看能不能优化到$2^{ m - k }$.</p>
 <p>考虑设$f_i^c = [ | i | = c ]$,将线性基能做出的线性空间设为$A$,$A_S = 1$当且仅当线性基能异或出$S$(最后再把那些废元素贡献到答案里).那么$popcount = c$的答案就是$IFWT ( FWT ( F ) FWT ( A ) )_0$.考虑$IFWT_0 = \frac{ 1 }{ 2^m } \sum_{ i = 0 }^{ 2^m - 1 } FWT ( F )_i FWT ( A )_i$,问题在于这个东西好像也不好做.</p>
@@ -910,17 +901,17 @@ w_d^c = \sum_{ j = 0 }^{ d } ( - 1 )^{ j } \binom{ d }{ j } \binom{ m - d }{ c -
 $$</p>
 <p>接下来怎么做呢?令$g_d = \sum_{ i = 0 }^{ 2^m - 1 } [ A_i = 1 ] [ | i | = d ]$,这里可以$O ( 2^{ m - k } )$,然后乘起来就行了.</p>
 <p>太顶级了吧.</p>
-<h5 id="toc-46">Example5(CF 1326F2)</h5>
+<h5 id="toc-45">Example5(CF 1326F2)</h5>
 <p>首先发现&quot;如果没有边那么是$0$&quot;这个限制太强了,如果我们能改为&quot;如果是$0$,那么可有边可无边&quot;的话,整个序列就会被$1$的段分成若干两两无关的链.显然这是一步或卷积,这样我们就只需要求后者.如果设$g_{ len , S }$表示长度为$len$,一段长度为$len - 1$的连续的$1$对应的集合是$S$的方案数,不难发现我们最后只需要做一个类似子集卷积的东西就行(前面的每个段会自动在后面放个$0$).</p>
 <p>但是还没完,题目让我们求每一个,我们不难发现我们这样划分之后答案只取决于链的长度的可重集合,而本质不同的集合的数量很少,直接枚举就行.</p>
-<h5 id="toc-47">Example6(qoj5019)</h5>
+<h5 id="toc-46">Example6(qoj5019)</h5>
 <p>首先可以类似数位dp设计一个$dp_{ i , S }$表示目前dp到了第$i$位,然后前面的$limit$是$S$.接下来分类讨论当前的最大值限制是$1$还是$0$.</p>
 <p>这个题知道题解其实没什么难的,但是这个题告诉了我们:FWT作为一种线性变换,它是可以和其它线性变换一起做的,也就是说你是可以将其中的若干位做FWT,剩下若干位做其它的东西的.</p>
-<h2 id="toc-48">生成函数</h2>
-<h3 id="toc-49">普通生成函数(OGF)</h3>
-<h4 id="toc-50">概念</h4>
+<h2 id="toc-47">生成函数</h2>
+<h3 id="toc-48">普通生成函数(OGF)</h3>
+<h4 id="toc-49">概念</h4>
 <p>我们定义一个幂级数形如$A ( z ) = \sum_{ k \geq 0 } a_k z^k$,并使$[ z^n ] A ( z ) = a_n$.则称$A ( z )$是$\langle a_0 , a_1 , . . . \rangle$的生成函数.</p>
-<h4 id="toc-51">运算</h4>
+<h4 id="toc-50">运算</h4>
 <ol>
 <li>
 <p>$\alpha A ( z ) + \beta B ( z ) = \sum_{ n \geq 0 } ( \alpha f_n + \beta g_n ) z^n$.</p>
@@ -944,7 +935,7 @@ $$</p>
 <p>$\cfrac{ 1 }{ 1 - z } A ( z ) = \sum_{ n \geq 0 } ( \sum_{ k = 0 }^n g_k ) z^n$.</p>
 </li>
 </ol>
-<h4 id="toc-52">常见序列生成函数</h4>
+<h4 id="toc-51">常见序列生成函数</h4>
 <ol>
 <li>$\cfrac{ 1 }{ 1 - z } = \sum_{ k \geq 0 } z^k \\$,$\cfrac{ 1 }{ 1 - cz } = \sum_{ k \geq 0 } c^k z^k \\$.</li>
 </ol>
@@ -992,10 +983,10 @@ $$</p>
 xC^2 + 1 = C
 $$</p>
 <p>然后得到两个根,带入$x = 0$舍掉一个.</p>
-<h3 id="toc-53">指数生成函数(EGF)</h3>
+<h3 id="toc-52">指数生成函数(EGF)</h3>
 <p><a href="https://zhuanlan.zhihu.com/p/53079223" target="_blank" rel="noopener noreferrer">https://zhuanlan.zhihu.com/p/53079223</a></p>
 <p>序列$\{ a \}$的指数生成函数定义为形式幂级数$\hat F ( x ) = \sum a_n \frac{ x^n }{ n ! }$.注意$[ x^n ] \hat F ( x ) = a_n$.</p>
-<h4 id="toc-54">基本运算</h4>
+<h4 id="toc-53">基本运算</h4>
 <p>我们有:</p>
 <p>$$
 \begin{aligned}
@@ -1006,7 +997,7 @@ $$</p>
 $$</p>
 <p>即$\langle \sum_{ i = 0 }^n \binom{ n }{ i } a_i b_{ n - i } \rangle$的EFG.</p>
 <p>注意到有一个特例是$x \hat F ( x )$就是$\langle \binom{ n }{ n - 1 } a_i \rangle$的EGF.</p>
-<h4 id="toc-55">封闭式</h4>
+<h4 id="toc-54">封闭式</h4>
 <ol>
 <li>$e^x = \sum_{ k \geq 0 } \frac{ x^k }{ k ! }$</li>
 </ol>
@@ -1032,7 +1023,7 @@ $$</p>
 </li>
 </ol>
 <p>都可以通过泰勒展开证明.</p>
-<h4 id="toc-56">EXP的组合意义</h4>
+<h4 id="toc-55">EXP的组合意义</h4>
 <p>我们设$F_k ( n )$为$n$个有标号元素划分成$k$个非空无序集合的情况,$f_i$为$i$个元素组成一个集合的时候,其上特定组合结构的数量(就是一个一个只和$| S |$有关的定义在集合上的函数),有:</p>
 <p>$$
 F_k ( n ) = \frac{ n ! }{ k ! } \sum_{ \sum_{ i = 1 }^k a_i = n } \prod_{ j = 1 }^k \frac{ f_{ a_j } }{ a_j ! }
@@ -1066,8 +1057,8 @@ $$</p>
 \end{aligned}
 $$</p>
 <p>简而言之,$[ x^n ] \hat F ( x )$是将$n$个有标号的元素放到同一个无序集合的方案数,而$[ x^n ] \exp \hat F ( x )$是将$n$个有标号的元素分成若干个无编号的非空无序集合的方案数.</p>
-<h4 id="toc-57">Example</h4>
-<h5 id="toc-58">Example1(POJ3734)</h5>
+<h4 id="toc-56">Example</h4>
+<h5 id="toc-57">Example1(POJ3734)</h5>
 <p>对于红黄色砖块,其选取方案为$\{ 1 , 0 , 1 , 0 , \cdots \}$,对应的EGF是$\frac{ e^x + e^{ - x } }{ 2 }$.</p>
 <p>对于蓝绿色砖块,选取方案是$e^x$.</p>
 <p>乘起来有:</p>
@@ -1080,19 +1071,19 @@ $$</p>
 \end{aligned}
 $$</p>
 <p>于是有$[ x^n ] \hat F ( x ) = 4^{ n - 1 } + 2^{ n - 1 }$.</p>
-<h5 id="toc-59">Example2(圆排列)</h5>
+<h5 id="toc-58">Example2(圆排列)</h5>
 <p>长度为$n$的排列数的指数生成函数是$\hat P ( x ) = \sum_{ n \geq 0 } \frac{ n ! x^n }{ n ! } = \frac{ 1 }{ 1 - x }$.</p>
 <p>长度为$n$的圆排列的指数生成函数是$\hat Q ( x ) = \sum_{ n \geq 0 } \frac{ ( n - 1 ) ! x^n }{ n ! } = \frac{ x^n }{ n } = - \ln ( 1 - x ) = \ln \frac{ 1 }{ 1 - x }$.</p>
 <p>于是有$\exp \hat Q ( x ) = \hat P ( x )$.</p>
 <p>这个怎么理解呢?考虑一个排列可以分成若干个置换环,而一个集合能形成的置换环数量显然就是圆排列.</p>
-<h5 id="toc-60">Example3(错排数)</h5>
+<h5 id="toc-59">Example3(错排数)</h5>
 <p>从置换环的角度考虑,错排是指置换环中不存在自环的排列,也就是说不存在长度为$1$的置换环,其EGF显然是$\sum_{ n \geq 2 } \frac{ x^n }{ n } = - \ln ( 1 - x ) - x$,错排数的EGF对其取$\exp$即可.</p>
-<h5 id="toc-61">Example4(点带编号无向连通图计数)</h5>
+<h5 id="toc-60">Example4(点带编号无向连通图计数)</h5>
 <p>考虑如果$n$个点带编号的无向连通图的EGF是$\hat F ( x )$,那么$n$个点带标号无向图的EGF就是$\exp \hat F ( x )$,后者直接计数,前者对后者做一次$\ln$就好.</p>
-<h5 id="toc-62">Example5(不动点计数)</h5>
+<h5 id="toc-61">Example5(不动点计数)</h5>
 <p>求有多少个映射$f : \{ 1 , 2 , \cdots , n \} \mapsto \{ 1 , 2 , \cdots , n \}$满足$f \circ f \circ \cdots \circ f$(共$k$个$f$)$= f \circ f \circ \cdots \circ f$(共$k - 1$个$f$).</p>
 <p>考虑将$i \rightarrow f_i$,这等价于对深度不超过$k$的基环树(环的长度为$1$)计数,等价于对深度不超过$k$的有根树计数.注意到删去根节点后等价于对深度不超过$k - 1$的有根树计数,因此$\hat F_k ( x ) = x \exp \hat F_{ k - 1 } ( x )$.</p>
-<h5 id="toc-63">Example6([CF891E]Lust)</h5>
+<h5 id="toc-62">Example6([CF891E]Lust)</h5>
 <p>假设$k$次操作后$a_i$减少了$b_i$,实际上要求的就是$\prod_{ i = 1 }^n a_i - \prod_{ i = 1 }^n ( a_i - b_i )$.</p>
 <p>考虑对所有情况下的$\prod_{ i = 1 }^n ( a_i - b_i )$求和,注意到$k$次操作,使得$i$出现$b_i$次的方案数是$\frac{ k ! }{ \prod_{ i = 1 }^n b_i ! }$.直接设$a_j$的EGF是</p>
 <p>$$
@@ -1103,10 +1094,10 @@ $$</p>
 \end{aligned}
 $$</p>
 <p>答案就是$[ x^k ] \prod_{ j = 1 }^n \hat F_j ( x )$.</p>
-<h5 id="toc-64">Example7</h5>
-<h3 id="toc-65">狄利克雷生成函数(DGF)</h3>
+<h5 id="toc-63">Example7</h5>
+<h3 id="toc-64">狄利克雷生成函数(DGF)</h3>
 <p>对于序列$f_n$,定义其DGF为$\tilde{ F } ( x ) = \sum_{ i \geq 1 } \frac{ f_i }{ i^x }$.注意到若$f$是积性函数,那么$\tilde{ F } ( x ) = \prod_{ p \in \mathrm{ prime } } \sum_{ i \geq 0 } \frac{ f_{ p^i } }{ p^{ ix } } \\$.</p>
-<h4 id="toc-66">基本运算</h4>
+<h4 id="toc-65">基本运算</h4>
 <p>对于两个序列$f , g$,其DGF之积对应的是两者的狄利克雷卷积序列的DGF:</p>
 <p>$$
 \begin{aligned}
@@ -1114,7 +1105,7 @@ $$</p>
 &amp; = \sum_{ i } \frac{ 1 }{ i^x } \sum_{ d | i } f ( d ) g ( \frac{ i }{ d } )
 \end{aligned}
 $$</p>
-<h4 id="toc-67">封闭式</h4>
+<h4 id="toc-66">封闭式</h4>
 <ol>
 <li>$\epsilon ( x ) = [ x = 1 ]$.</li>
 </ol>
@@ -1164,8 +1155,8 @@ $$</p>
 <li>$u ( n ) = | \mu ( n ) |$.</li>
 </ol>
 <p>$\tilde{ u } ( n ) = \frac{ \zeta ( n ) }{ \zeta ( 2 n ) }$.</p>
-<h4 id="toc-68">Example</h4>
-<h5 id="toc-69">Example1(luoguP3768)</h5>
+<h4 id="toc-67">Example</h4>
+<h5 id="toc-68">Example1(luoguP3768)</h5>
 <p>考虑对于$f ( n ) = n^2 \varphi ( n )$构造积性函数$g ( n ) , h ( n )$使得$f * g = h$.</p>
 <p>注意到:</p>
 <p>$$
@@ -1175,7 +1166,7 @@ $$</p>
 \end{aligned}
 $$</p>
 <p>也就是$f * I_2 = I_3$.</p>
-<h3 id="toc-70">阶乘的扩展定义</h3>
+<h3 id="toc-69">阶乘的扩展定义</h3>
 <p>对于复数的阶乘,我们通常定义:</p>
 <p>$$
 \cfrac{ 1 }{ z ! } = \lim_{ n \rightarrow + \infin } \binom{ n + z }{ z } n^{ - z }
@@ -1192,14 +1183,14 @@ $$</p>
 <p>$$
 \binom{ z }{ w } = \lim_{ \zeta \rightarrow z , \omega \rightarrow w } \cfrac{ \zeta ! }{ \omega ! ( \zeta - \omega ) ! }
 $$</p>
-<h3 id="toc-71">超几何级数</h3>
-<h4 id="toc-72">超几何函数</h4>
+<h3 id="toc-70">超几何级数</h3>
+<h4 id="toc-71">超几何函数</h4>
 <p>我们定义超几何函数$F ( a_1 , . . . , a_m ; b_1 , . . . b_n ; z ) = F \left ( \begin{array}{ r | } a_1 , . . . , a_m \\ b_1 , . . . , b_n\end{array} z \right ) = \sum_{ k \geq 0 } \cfrac{ z^k \prod_{ i = 1 }^m a_i^{ \overline{ k } } }{ k ! \prod_{ i = 1 }^n b_i^{ \overline{ k } } }$.</p>
 <p>许多生成函数都可以写成超几何函数的形式.</p>
 <p>值得一提的是,如果我们直接定义类似$\cfrac{ 0 }{ 0 } = 1$之类的式子,可以发现当$z = 0$时任意超几何函数总是$= 1$.</p>
 <p>值得一提的是,我们通常直接忽略超几何函数中的任何特殊情况,例如分母为$0$或者哪里出现了正无穷.如同生成函数中我们不关心式子带入一个数后是否收敛而只关心是否两边存在一种对应的转化.如果你想去探究超几何函数中的各种情况,那请去翻那本巨大的、黑糊糊的、作者默认你精通高等数学的、你在第五章看到的恒等式作者在第七章才给出证明的《具体数学》,而不是看我这个弱智写的笔记.笔者看这一段的时候已经被作者的&quot;严谨&quot;态度整疯了.该证明的一拖再拖不该证明的可以一句话带过的逼逼逼逼.仿佛这本书就是写给那些已经会了所有东西只是来使自己已经学会的东西更加体系化的以及拿来查阅各种恒等式的工具书.</p>
-<h4 id="toc-73">特殊的超几何函数</h4>
-<h5 id="toc-74">合流超几何函数</h5>
+<h4 id="toc-72">特殊的超几何函数</h4>
+<h5 id="toc-73">合流超几何函数</h5>
 <p>我们通常把形如$M ( a ; b ; z ) = F \left ( \begin{array}{ r | } a \\ b\end{array} z \right ) = \sum_{ k \geq 0 } \cfrac{ z^k a^{ \overline{ k } } }{ b^{ \overline{ k } } k ! }$的函数称为合流超几何函数.</p>
 <p>不难发现我们有:</p>
 <p>$$
@@ -1209,7 +1200,7 @@ F \left ( \begin{array}
 \end{array} z \right ) = e^z
 $$</p>
 <p>也即常见生成函数中的$( 6 )$.</p>
-<h5 id="toc-75">高斯超几何函数</h5>
+<h5 id="toc-74">高斯超几何函数</h5>
 <p>我们把形如$F \left ( \begin{array}{ r | } a , b \\ c\end{array} z \right ) = \sum_{ k \geq 0 } \cfrac{ z^k a^{ \overline{ k } } b^{ \overline{ k } } }{ c^{ \overline{ k } } k ! }$的函数称为高斯超几何函数.</p>
 <p>下面是几种常见的高斯超几何函数形式:</p>
 <ol>
@@ -1228,7 +1219,7 @@ $$</p>
 <li>$F \left ( \begin{array}{ r | } 1 , 1 \\ 2\end{array} - z \right ) = \cfrac{ \ln ( 1 + z ) }{ z }$.</li>
 </ol>
 <p>即常见生成函数$( 7 )$.</p>
-<h4 id="toc-76">超几何级数的应用</h4>
+<h4 id="toc-75">超几何级数的应用</h4>
 <p>我们先考虑改写超几何级数的形式:</p>
 <p>$F \left ( \begin{array}{ r | } a_1 , . . . , a_m \\ b_1 , . . . , b_n\end{array} z \right ) = \sum_{ k \geq 0 } t_k , t_k = \cfrac{ z^k \prod_{ i = 1 }^m a_i^{ \overline{ k } } }{ k ! \prod_{ i = 1 }^n b_i^{ \overline{ k } } }$.</p>
 <p>不难发现$t_0 = 1$,而:</p>
@@ -1242,7 +1233,7 @@ $$</p>
 <p>换句话说,对于一个无穷级数$\sum_{ k \geq 0 } t_k$,我们先将$\cfrac{ t_{ k + 1 } }{ t_k }$表示回超几何函数,设为$F$.</p>
 <p>那么有:$\sum_{ k \geq 0 } t_k = t_0 F$.</p>
 <p>好,接下来请把脑子扔了,不要纠结某一个公式按理来说只能作用于正整数而在这里直接将它套在了复数域上.你只需要知道数学家非常厉害通过扩展一些东西的定义(大部分是阶乘和$\Gamma$函数的定义)来使这些公式全部成立.But who cares,只要我们能用就行了.我又不是数竞人,这些麻烦的要死我直观上根本无法接受的定义交给数竞老哥证明得了.反正信竞更多依赖离散数学,大不了我们直接默认所有的数都是自然数.</p>
-<h5 id="toc-77">Example</h5>
+<h5 id="toc-76">Example</h5>
 <p>求证:$\sum_{ k \leq n } \binom{ r + k }{ k } = \binom{ r + n + 1 }{ n } \Leftrightarrow F \left ( \begin{array}{ r | } 1 , - n \\ - n - r\end{array} 1 \right ) = \cfrac{ r + n + 1 }{ r + 1 } , n \in \mathbb{ N } \\$.</p>
 <p>首先考虑:</p>
 <p>$$
@@ -1256,7 +1247,7 @@ $$</p>
 \end{array} 1 \right ) = \binom{ r + n + 1 }{ n }
 $$</p>
 <p>两边同时除以$\binom{ r + n }{ n }$得到上式.</p>
-<h5 id="toc-78">二项式系数与超几何函数</h5>
+<h5 id="toc-77">二项式系数与超几何函数</h5>
 <p>通过范德蒙德卷积,不难验证:</p>
 <p>$$
 F \left ( \begin{array}
@@ -1287,8 +1278,8 @@ c , a + b - n - c + 1
 \end{aligned}
 $$</p>
 <p>事实上,《具体数学》上给出了大量的超几何级数的应用以及各种技巧,但是笔者的智商已经理解不了接下来的内容了.考虑到大部分时候上述两个超几何级数恒等式已经足够解决绝大部分问题,如果考到更加困难的求和技巧,笔者相信别人也不会做,于是笔者决定摆烂.</p>
-<h3 id="toc-79">求微分方程</h3>
-<h4 id="toc-80">Example1(luogu4931)</h4>
+<h3 id="toc-78">求微分方程</h3>
+<h4 id="toc-79">Example1(luogu4931)</h4>
 <p>二项式反演:</p>
 <p>$$
 \begin{aligned}
@@ -1340,8 +1331,8 @@ if_i &amp; = 4 ( i - 1 ) f_{ i - 1 } + 8 f_{ i - 2 }
 \end{aligned}
 $$</p>
 <p>技术总结一下:其实就是你想要得到一个递推式,然后注意到这玩意要写成微分方程的形式,所以开始往那边凑.</p>
-<h3 id="toc-81">生成函数的应用</h3>
-<h4 id="toc-82">求解递归关系</h4>
+<h3 id="toc-80">生成函数的应用</h3>
+<h4 id="toc-81">求解递归关系</h4>
 <p>我们假设已经有了$R ( z ) = \sum_{ k \geq 0 } g_k z^k$,并且$R ( z ) = \cfrac{ P ( z ) }{ Q ( z ) }$,其中$P ( z )$和$Q ( z )$都是多项式,我们想要找到一种方式求解$[ z^n ] R ( z )$.</p>
 <p>考虑有理函数$S ( z ) = \sum_{ k = 1 }^m \cfrac{ a_k }{ 1 - \rho_k z } \\$,不难发现$[ z^n ] S ( z ) = \sum_{ k = 1 }^m a_k \rho_k^n \\$.</p>
 <p>那么可以证明,只要$Q ( z ) = 0$无重根并且无零根,那么就存在一组系数满足$S ( z ) = R ( z )$.</p>
@@ -1349,7 +1340,7 @@ $$</p>
 <p>若$Q ( z ) = q_0 \prod_{ k = 1 }^m ( 1 - \rho_k z )$,则显然有$Q^R ( z ) = q_0 \prod_{ k = 1 }^m ( z - \rho_k ) \\$.</p>
 <p>那么显然这里求出来的这组数$\rho$就是$S ( z )$中的那组$\rho$.</p>
 <p>而我们有$a_k = \cfrac{ - \rho_k P ( \cfrac{ 1 }{ \rho_k } ) }{ Q &#39; ( \rho_k ) }$.</p>
-<h4 id="toc-83">Example1</h4>
+<h4 id="toc-82">Example1</h4>
 <p>已知$n ! = \sum_{ k } \binom{ n }{ k } g_{ n - k } , n \in \mathbb{ N } \\$,求$g_n$.</p>
 <p>首先两边同时除以$n !$并将组合数用阶乘形式展开,我们有:</p>
 <p>$$
@@ -1365,14 +1356,14 @@ D ( z ) &amp; = ( \sum_{ k \geq 0 } z^k ) ( \sum_{ k \geq 0 } ( - 1 )^k \cfrac{ 
 \end{aligned}
 $$</p>
 <p>于是$g_n = n ! \sum_{ k = 0 }^n \cfrac{ ( - 1 )^k }{ k ! } \\$.</p>
-<h4 id="toc-84">Example2([QOJ5169] 夹娃娃)</h4>
+<h4 id="toc-83">Example2([QOJ5169] 夹娃娃)</h4>
 <p>首先设$F_i ( x )$为第$i$家的生成函数,这个是显然可以快速预处理出来的.令$M = 520$.</p>
 <p>问题在于每次询问的时候求出答案呢?</p>
 <p>这里有一个套路:我们在一开始就暴力做点值,最后拿拉格朗日插值求答案.中间大概把能预处理的都预处理一下.最后的问题在于:</p>
 <p>第一,预处理点值的时候,一共有$n$个多项式,最高次数是$M$,因此一共要插入$nM$个值,又要处理每个后缀,复杂度来到$O ( n^2 M^3 )$.这个问题是好解决的.我们只需要在带入点值的时候做一个后缀继承一类的东西,复杂度就可以来到$O ( n^2 M^2 )$.</p>
 <p>第二,询问的时候需要找到所有对应的点值并暴力乘起来,复杂度来到$O ( n^2 Mq )$.但$n$如此小,我们可以用指数级别的复杂度来优化,我们考虑预处理一下$2^n$的答案,复杂度来到$O ( nM 2^n q )$.但是这个更不太行.那怎么办呢?我们把这个指数级别的东西分块一下.预处理复杂度来到$O ( \frac{ n }{ B } B 2^B MnM )$,单次询问复杂度来到$O ( \frac{ n }{ B } Mnq )$.但这个预处理复杂度好像还是有点艰难.不过注意到如果做一个剪枝优化:如果总共的喜欢的店的个数乘以$k$要大于$m$,就直接输出$0$.预处理的时候块内部也做一个剪枝,然后发现就能过了(牛逼).</p>
 <p>第三,拉格朗日插值的时候需要$O ( ( nM )^2 q )$的复杂度,不过由于点值可以自己控制,这个复杂度可以轻松降到$O ( nMq )$.</p>
-<h4 id="toc-85">Example3([十二省联考 2019] 皮配)</h4>
+<h4 id="toc-84">Example3([十二省联考 2019] 皮配)</h4>
 <p>首先注意到题目等价于规定一个阵营和一个排序的人数上下界.</p>
 <p>我们可以将这四位导师分别记为$xy , y , x , 1$,这样最后判断幂在一个区间内的$x$和$y$前面的系数就行.</p>
 <p>注意到如果没有学校有偏好,将生成函数卷起来后得到的答案就是$\prod ( x^{ s_i } y^{ s_i } + x^{ s_i } ) + \prod ( y^{ s_i } + 1 ) = ( \prod ( x^{ s_i } + 1 ) ) ( \prod ( y^{ s_i } + 1 ) )$.也就是$x$和$y$是互相独立的,我们可以分开算.</p>
@@ -1432,13 +1423,6 @@ $$</p>
         <a href="#toc-5">正七边形</a>
       </div>
       
-    </li>
-<li class="toc-branch toc-leaf">
-      <div class="toc-row">
-        <span class="toc-toggle-spacer"></span>
-        <a href="#toc-6">正n边形</a>
-      </div>
-      
     </li></ul>
     </li></ul>
     </li></ul>
@@ -1446,7 +1430,7 @@ $$</p>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-7">泰勒展开</a>
+        <a href="#toc-6">泰勒展开</a>
       </div>
       
     </li></ul>
@@ -1454,31 +1438,31 @@ $$</p>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-8">离散傅里叶变换</a>
+        <a href="#toc-7">离散傅里叶变换</a>
       </div>
       
     </li>
 <li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
-        <a href="#toc-9">多项式</a>
+        <a href="#toc-8">多项式</a>
       </div>
       <ul class="toc-children"><li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
-        <a href="#toc-10">多项式基础</a>
+        <a href="#toc-9">多项式基础</a>
       </div>
       <ul class="toc-children"><li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-11">点值表示法和系数表示法</a>
+        <a href="#toc-10">点值表示法和系数表示法</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-12">拉格朗日插值</a>
+        <a href="#toc-11">拉格朗日插值</a>
       </div>
       
     </li></ul>
@@ -1486,51 +1470,36 @@ $$</p>
 <li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
-        <a href="#toc-13">多项式运算</a>
+        <a href="#toc-12">多项式运算</a>
       </div>
       <ul class="toc-children"><li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
-        <a href="#toc-14">多项式乘法</a>
+        <a href="#toc-13">多项式乘法</a>
       </div>
       <ul class="toc-children"><li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
-        <a href="#toc-15">快速傅里叶变换(FFT)</a>
+        <a href="#toc-14">快速傅里叶变换(FFT)</a>
       </div>
       <ul class="toc-children"><li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-16">DFT</a>
+        <a href="#toc-15">DFT</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-17">IDFT</a>
+        <a href="#toc-16">IDFT</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-18">写法</a>
-      </div>
-      
-    </li></ul>
-    </li>
-<li class="toc-branch toc-leaf">
-      <div class="toc-row">
-        <span class="toc-toggle-spacer"></span>
-        <a href="#toc-19">快速数论变换(NTT)</a>
-      </div>
-      
-    </li>
-<li class="toc-branch toc-leaf">
-      <div class="toc-row">
-        <span class="toc-toggle-spacer"></span>
-        <a href="#toc-20">范德蒙德矩阵理解</a>
+        <a href="#toc-17">写法</a>
       </div>
       
     </li></ul>
@@ -1538,63 +1507,78 @@ $$</p>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-21">分治FFT</a>
+        <a href="#toc-18">快速数论变换(NTT)</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-22">多项式求逆</a>
+        <a href="#toc-19">范德蒙德矩阵理解</a>
+      </div>
+      
+    </li></ul>
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-20">分治FFT</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-23">多项式除法</a>
+        <a href="#toc-21">多项式求逆</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-24">多项式ln</a>
+        <a href="#toc-22">多项式除法</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-25">牛顿迭代</a>
+        <a href="#toc-23">多项式ln</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-26">多项式开方</a>
+        <a href="#toc-24">牛顿迭代</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-27">多项式exp</a>
+        <a href="#toc-25">多项式开方</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-28">多项式快速幂</a>
+        <a href="#toc-26">多项式exp</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-29">多项式运算全家桶(重载运算符版)</a>
+        <a href="#toc-27">多项式快速幂</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-28">多项式运算全家桶(重载运算符版)</a>
       </div>
       
     </li></ul>
@@ -1602,58 +1586,50 @@ $$</p>
 <li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
-        <a href="#toc-30">集合幂级数</a>
+        <a href="#toc-29">集合幂级数</a>
       </div>
       <ul class="toc-children"><li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-31">与/或卷积</a>
+        <a href="#toc-30">与/或卷积</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-32">异或卷积</a>
+        <a href="#toc-31">异或卷积</a>
       </div>
       
     </li>
 <li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
-        <a href="#toc-33">快速沃尔什变换</a>
+        <a href="#toc-32">快速沃尔什变换</a>
       </div>
       <ul class="toc-children"><li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
-        <a href="#toc-34">线性代数角度</a>
+        <a href="#toc-33">线性代数角度</a>
       </div>
       <ul class="toc-children"><li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-35">或卷积</a>
+        <a href="#toc-34">或卷积</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-36">与卷积</a>
+        <a href="#toc-35">与卷积</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-37">异或卷积</a>
-      </div>
-      
-    </li></ul>
-    </li>
-<li class="toc-branch toc-leaf">
-      <div class="toc-row">
-        <span class="toc-toggle-spacer"></span>
-        <a href="#toc-38">生成函数角度</a>
+        <a href="#toc-36">异或卷积</a>
       </div>
       
     </li></ul>
@@ -1661,61 +1637,69 @@ $$</p>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-39">子集卷积</a>
+        <a href="#toc-37">生成函数角度</a>
+      </div>
+      
+    </li></ul>
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-38">子集卷积</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-40">集合占位幂级数</a>
+        <a href="#toc-39">集合占位幂级数</a>
       </div>
       
     </li>
 <li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
-        <a href="#toc-41">Example</a>
+        <a href="#toc-40">Example</a>
       </div>
       <ul class="toc-children"><li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-42">Example1([AGC034F] RNG and XOR)</a>
+        <a href="#toc-41">Example1([AGC034F] RNG and XOR)</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-43">Example2([QOJ5089]环覆盖)</a>
+        <a href="#toc-42">Example2([QOJ5089]环覆盖)</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-44">Example3(CF1034E Little C Loves 3 III)</a>
+        <a href="#toc-43">Example3(CF1034E Little C Loves 3 III)</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-45">Example4(CF1336E2 Chiori and Doll Picking)</a>
+        <a href="#toc-44">Example4(CF1336E2 Chiori and Doll Picking)</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-46">Example5(CF 1326F2)</a>
+        <a href="#toc-45">Example5(CF 1326F2)</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-47">Example6(qoj5019)</a>
+        <a href="#toc-46">Example6(qoj5019)</a>
       </div>
       
     </li></ul>
@@ -1725,31 +1709,31 @@ $$</p>
 <li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
-        <a href="#toc-48">生成函数</a>
+        <a href="#toc-47">生成函数</a>
       </div>
       <ul class="toc-children"><li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
-        <a href="#toc-49">普通生成函数(OGF)</a>
+        <a href="#toc-48">普通生成函数(OGF)</a>
       </div>
       <ul class="toc-children"><li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-50">概念</a>
+        <a href="#toc-49">概念</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-51">运算</a>
+        <a href="#toc-50">运算</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-52">常见序列生成函数</a>
+        <a href="#toc-51">常见序列生成函数</a>
       </div>
       
     </li></ul>
@@ -1757,173 +1741,80 @@ $$</p>
 <li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
-        <a href="#toc-53">指数生成函数(EGF)</a>
+        <a href="#toc-52">指数生成函数(EGF)</a>
       </div>
       <ul class="toc-children"><li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-54">基本运算</a>
+        <a href="#toc-53">基本运算</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-55">封闭式</a>
+        <a href="#toc-54">封闭式</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-56">EXP的组合意义</a>
+        <a href="#toc-55">EXP的组合意义</a>
       </div>
       
     </li>
 <li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
-        <a href="#toc-57">Example</a>
+        <a href="#toc-56">Example</a>
       </div>
       <ul class="toc-children"><li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-58">Example1(POJ3734)</a>
+        <a href="#toc-57">Example1(POJ3734)</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-59">Example2(圆排列)</a>
+        <a href="#toc-58">Example2(圆排列)</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-60">Example3(错排数)</a>
+        <a href="#toc-59">Example3(错排数)</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-61">Example4(点带编号无向连通图计数)</a>
+        <a href="#toc-60">Example4(点带编号无向连通图计数)</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-62">Example5(不动点计数)</a>
+        <a href="#toc-61">Example5(不动点计数)</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-63">Example6([CF891E]Lust)</a>
+        <a href="#toc-62">Example6([CF891E]Lust)</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-64">Example7</a>
-      </div>
-      
-    </li></ul>
-    </li></ul>
-    </li>
-<li class="toc-branch collapsed">
-      <div class="toc-row">
-        <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
-        <a href="#toc-65">狄利克雷生成函数(DGF)</a>
-      </div>
-      <ul class="toc-children"><li class="toc-branch toc-leaf">
-      <div class="toc-row">
-        <span class="toc-toggle-spacer"></span>
-        <a href="#toc-66">基本运算</a>
-      </div>
-      
-    </li>
-<li class="toc-branch toc-leaf">
-      <div class="toc-row">
-        <span class="toc-toggle-spacer"></span>
-        <a href="#toc-67">封闭式</a>
-      </div>
-      
-    </li>
-<li class="toc-branch collapsed">
-      <div class="toc-row">
-        <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
-        <a href="#toc-68">Example</a>
-      </div>
-      <ul class="toc-children"><li class="toc-branch toc-leaf">
-      <div class="toc-row">
-        <span class="toc-toggle-spacer"></span>
-        <a href="#toc-69">Example1(luoguP3768)</a>
-      </div>
-      
-    </li></ul>
-    </li></ul>
-    </li>
-<li class="toc-branch toc-leaf">
-      <div class="toc-row">
-        <span class="toc-toggle-spacer"></span>
-        <a href="#toc-70">阶乘的扩展定义</a>
-      </div>
-      
-    </li>
-<li class="toc-branch collapsed">
-      <div class="toc-row">
-        <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
-        <a href="#toc-71">超几何级数</a>
-      </div>
-      <ul class="toc-children"><li class="toc-branch toc-leaf">
-      <div class="toc-row">
-        <span class="toc-toggle-spacer"></span>
-        <a href="#toc-72">超几何函数</a>
-      </div>
-      
-    </li>
-<li class="toc-branch collapsed">
-      <div class="toc-row">
-        <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
-        <a href="#toc-73">特殊的超几何函数</a>
-      </div>
-      <ul class="toc-children"><li class="toc-branch toc-leaf">
-      <div class="toc-row">
-        <span class="toc-toggle-spacer"></span>
-        <a href="#toc-74">合流超几何函数</a>
-      </div>
-      
-    </li>
-<li class="toc-branch toc-leaf">
-      <div class="toc-row">
-        <span class="toc-toggle-spacer"></span>
-        <a href="#toc-75">高斯超几何函数</a>
-      </div>
-      
-    </li></ul>
-    </li>
-<li class="toc-branch collapsed">
-      <div class="toc-row">
-        <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
-        <a href="#toc-76">超几何级数的应用</a>
-      </div>
-      <ul class="toc-children"><li class="toc-branch toc-leaf">
-      <div class="toc-row">
-        <span class="toc-toggle-spacer"></span>
-        <a href="#toc-77">Example</a>
-      </div>
-      
-    </li>
-<li class="toc-branch toc-leaf">
-      <div class="toc-row">
-        <span class="toc-toggle-spacer"></span>
-        <a href="#toc-78">二项式系数与超几何函数</a>
+        <a href="#toc-63">Example7</a>
       </div>
       
     </li></ul>
@@ -1932,12 +1823,71 @@ $$</p>
 <li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
-        <a href="#toc-79">求微分方程</a>
+        <a href="#toc-64">狄利克雷生成函数(DGF)</a>
       </div>
       <ul class="toc-children"><li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-80">Example1(luogu4931)</a>
+        <a href="#toc-65">基本运算</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-66">封闭式</a>
+      </div>
+      
+    </li>
+<li class="toc-branch collapsed">
+      <div class="toc-row">
+        <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
+        <a href="#toc-67">Example</a>
+      </div>
+      <ul class="toc-children"><li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-68">Example1(luoguP3768)</a>
+      </div>
+      
+    </li></ul>
+    </li></ul>
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-69">阶乘的扩展定义</a>
+      </div>
+      
+    </li>
+<li class="toc-branch collapsed">
+      <div class="toc-row">
+        <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
+        <a href="#toc-70">超几何级数</a>
+      </div>
+      <ul class="toc-children"><li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-71">超几何函数</a>
+      </div>
+      
+    </li>
+<li class="toc-branch collapsed">
+      <div class="toc-row">
+        <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
+        <a href="#toc-72">特殊的超几何函数</a>
+      </div>
+      <ul class="toc-children"><li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-73">合流超几何函数</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-74">高斯超几何函数</a>
       </div>
       
     </li></ul>
@@ -1945,33 +1895,67 @@ $$</p>
 <li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
-        <a href="#toc-81">生成函数的应用</a>
+        <a href="#toc-75">超几何级数的应用</a>
       </div>
       <ul class="toc-children"><li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-82">求解递归关系</a>
+        <a href="#toc-76">Example</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-83">Example1</a>
+        <a href="#toc-77">二项式系数与超几何函数</a>
+      </div>
+      
+    </li></ul>
+    </li></ul>
+    </li>
+<li class="toc-branch collapsed">
+      <div class="toc-row">
+        <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
+        <a href="#toc-78">求微分方程</a>
+      </div>
+      <ul class="toc-children"><li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-79">Example1(luogu4931)</a>
+      </div>
+      
+    </li></ul>
+    </li>
+<li class="toc-branch collapsed">
+      <div class="toc-row">
+        <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
+        <a href="#toc-80">生成函数的应用</a>
+      </div>
+      <ul class="toc-children"><li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-81">求解递归关系</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-84">Example2([QOJ5169] 夹娃娃)</a>
+        <a href="#toc-82">Example1</a>
       </div>
       
     </li>
 <li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
-        <a href="#toc-85">Example3([十二省联考 2019] 皮配)</a>
+        <a href="#toc-83">Example2([QOJ5169] 夹娃娃)</a>
+      </div>
+      
+    </li>
+<li class="toc-branch toc-leaf">
+      <div class="toc-row">
+        <span class="toc-toggle-spacer"></span>
+        <a href="#toc-84">Example3([十二省联考 2019] 皮配)</a>
       </div>
       
     </li></ul>

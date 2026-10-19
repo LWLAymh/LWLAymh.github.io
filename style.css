@@ -365,6 +365,14 @@ mark { background: #ffd66b; color: #3a2f00; border-radius: 2px; padding: 0 2px; 
 .chip-cat:hover { color: var(--accent); background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 26%, transparent); }
 
 /* ---- 文章详情 ---- */
+.redacted-text {
+  color: #111;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  overflow-wrap: anywhere;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
 .post-header { margin-bottom: 8px; }
 .post-title {
   font-family: var(--font-display); font-size: 1.8rem; line-height: 1.38;
