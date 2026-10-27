@@ -661,7 +661,7 @@ $$</p>
 <p>证明$GL ( n , F )_{ der } = SL ( n , F )$,其中$F$是含有至少三个元素的域.</p>
 <p>显然$GL ( n , F )_{ der } \subseteq SL ( n , F )$,只需要证明上述导出子群的确生成了$SL ( n , F )$即可.</p>
 <p>考虑所有的矩阵都可以通过若干次初等行列变换变到对角线全$1$的矩阵,只需要把这些初等行列变换全都拿到即可,略去不谈.</p>
-<p>此时也可以见到$GL ( n , F ) / SL ( n , F ) = F$,其实也就是行列式.</p>
+<p>此时也可以见到$GL ( n , F ) / SL ( n , F ) \cong F^\times$,其实也就是行列式.</p>
 <h6 id="toc-42">Example2(岩泽健吉(Iwasawa)判准)</h6>
 <p>设群$G$作用在集合$X$上,$| X | \geq 2$,若$\forall ( x , y ) , ( x &#39; , y &#39; ) \in X^2$,其中$x \ne y , x &#39; \ne y &#39;$,都存在$g \in G$使得$gx = x &#39; , gy = y &#39;$,则称该作用是<strong>双传递的</strong>.下面我们设$G$双传递于$X$,并且记$H_x = \mathrm{ Stab }_G ( x )$.</p>
 <p>先证明一个引理:$\forall H_x$都是$G$的极大真子群.</p>
@@ -2782,7 +2782,7 @@ $$</p>
 <p>回忆到还有一件重要的事情需要解释,那就是柯里化$\text{ Hom } ( W , V^\vee ) \cong \text{ Bil } ( V , W ; F ) \cong \text{ Hom } ( V , W^\vee )$.从表面上看,它应当是典范的,可实则描述的时候却发现总需要标准内积结构来体现.为解决这个问题,我们下面证明上述同构映射将$\varphi \in \text{ Hom } ( W , V^\vee )$为$( \varphi^t ) \circ \text{ ev }_V \in \text{ Hom } ( V , W^\vee )$.</p>
 <p>考虑将两边都映射到典范配对的结构上,由双线性形式的定义,$\varphi \in \text{ Hom } ( W , V^\vee )$必然映一组$\vec{ w } , \vec{ v }$为$\langle \varphi ( \vec{ w } ) , \vec{ v } \rangle$,这当然是显然的.</p>
 <p>回看$( \varphi^t ) \circ \text{ ev }_V$,它做到的是将一组$\vec{ w } , \vec{ v }$映射到$\langle \text{ ev }_V ( \vec{ v } ) , \varphi ( \vec{ w } ) \rangle$,可只需用$\text{ ev }_V ( \vec{ v } )$的定义,上述两者当然是相同的.</p>
-<p>再最后,我们终于回看基的选取,我们可以证明以下结论:设$V$是有限维的向量空间,$\vec{ v }_1 , \cdots , \vec{ v }_n \in V$是一组有序基,其对偶基记作$\check{ v }_1 , \cdots , \check{ v }_n$.我们声称:$V^\vee$中的一组元素$\text{ ev }_V ( \vec{ v }_1 ) , \cdots , \text{ ev }_V ( \vec{ v }_n )$是$\check{ v }_1 , \cdots , \check{ v }_n$的对偶基.也就是说中间不管怎么取对偶形态,最终总会回到一种典范的同构$V \cong V^\vee$上.</p>
+<p>再最后,我们终于回看基的选取,我们可以证明以下结论:设$V$是有限维的向量空间,$\vec{ v }_1 , \cdots , \vec{ v }_n \in V$是一组有序基,其对偶基记作$\check{ v }_1 , \cdots , \check{ v }_n$.我们声称:$( V^\vee )^\vee$中的一组元素$\text{ ev }_V ( \vec{ v }_1 ) , \cdots , \text{ ev }_V ( \vec{ v }_n )$是$\check{ v }_1 , \cdots , \check{ v }_n$的对偶基.也就是说中间不管怎么取对偶形态,最终总会回到一种典范的同构$V \cong ( V^\vee )^\vee$上.</p>
 <p>至于证明,无非只是:</p>
 <p>$$
 \langle \text{ ev }_V ( \vec{ v }_i ) , \check{ v }_j \rangle = \langle \check{ v }_j , \vec{ v }_i \rangle
@@ -3152,7 +3152,7 @@ $$</p>
 $$</p>
 <p>这就与$A - B$正定是矛盾的了.</p>
 <h6 id="toc-178">Example2</h6>
-<p>设$A , B , A - B$都是正定矩阵,求证$A^{ - 1 } - B^{ - 1 }$正定.</p>
+<p>设$A , B , A - B$都是正定矩阵,求证$B^{ - 1 } - A^{ - 1 }$正定.</p>
 <p>直接扩到复数域,这样一定存在一个$C$,使得$( C^* ) BC = I$,此时由于合同是内积空间上的同构,所以$( C^* ) ( A - B ) C = C^* AC - I$仍然正定,这就将情况化约到$B = I$的情况.</p>
 <p>此时只需对$A$做对角化即可见得了.</p>
 <h5 id="toc-179">极分解</h5>
@@ -3696,7 +3696,7 @@ $$</p>
 <p>$\Vert \vec{ v } \Vert = 0 \Leftrightarrow \vec{ v } = 0$.</p>
 </li>
 <li>
-<p>$\Vert t \vec{ v } \Vert = | t | \Vert \vec{ v } \Vert^2$.</p>
+<p>$\Vert t \vec{ v } \Vert = | t | \Vert \vec{ v } \Vert$.</p>
 </li>
 <li>
 <p>$\Im ( \vec{ v }_1 \mid \vec{ v }_2 ) = \Re ( i \vec{ v }_1 \mid \vec{ v }_2 )$.</p>

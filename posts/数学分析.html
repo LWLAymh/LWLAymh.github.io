@@ -641,7 +641,7 @@ $$</p>
 <p>如果$x \rightarrow x_0$时,$f ( x )$有界,称$f ( x ) = O ( 1 )$.</p>
 <p>如果$x \rightarrow x_0$的时候,$f ( x ) \rightarrow 0$,称$f ( x ) = o ( 1 )$.</p>
 <p>如果$f , g = o ( 1 )$,$\frac{ f }{ g } \rightarrow 1$,那么称二者为<strong>等价无穷小</strong>;如果$\frac{ f }{ g } = c \ne 0$,则称二者为同阶无穷小(可记作$f \sim g$);如果$\frac{ f }{ g } = 0$,则称$f$为$g$的<strong>高阶无穷小</strong>,可记作$f = o ( g )$.</p>
-<p>同阶无穷小在做乘除法的时候是可以替换的.</p>
+<p>等价无穷小在做乘除法的时候是可以替换的.</p>
 <p>如果$\frac{ f }{ g }$是有界的,那么可以写作$f = O ( g )$.</p>
 <h6 id="toc-45">Example1</h6>
 <p>$\lim_{ x \rightarrow 0 } \frac{ \sin x }{ x } = 1$.</p>
@@ -695,7 +695,7 @@ $$</p>
 <p>事实上有更强的结论:任意函数的第一类间断点集都是可数的.</p>
 <p>设$M$是函数$f$的第一类间断点集,取$M_n = \{ x \in M \mid | f ( x + 0 ) - f ( x - 0 ) | &gt; \frac{ 1 }{ n } \} , M &#39; = \{ x \in M | f ( x + 0 ) = f ( x - 0 ) \ne f ( x ) \}$.</p>
 <p>注意到$M = ( \bigcup_{ n \geq 1 } M_n ) \cup M &#39;$.</p>
-<p>我们定义孤立点:如果$x \in A , \exists \sigma , ( x - \sigma , x + \sigma ) \nsubseteq A$,则称$x$是$A$中的一个孤立点.类似刚才证明可数性,我们每个孤立点都可以取一段邻域,领域中一定存在有理数,所以任意一个集合中的孤立点个数一定是可数的.</p>
+<p>我们定义孤立点:如果$x \in A , \exists \sigma , (( x - \sigma , x + \sigma )\setminus\{x\}) \cap A=\emptyset$,则称$x$是$A$中的一个孤立点.类似刚才证明可数性,我们每个孤立点都可以取一段邻域,领域中一定存在有理数,所以任意一个集合中的孤立点个数一定是可数的.</p>
 <p>又发现所有的$x \in M_n$,$x$都是孤立点,原因很显然因为在$x$的两侧小区间都在趋近于一个极限,所以它们肯定不是第一类间断点.所以所有的$M_n$都是可数集.</p>
 <p>那怎么证明$M &#39;$是可数集呢?考虑取$M &#39;_n = \{ x \in M | | f ( x ) - f ( x - 0 ) | &gt; \frac{ 1 }{ n } \}$,现在$M &#39; = \bigcup_{ n \geq 1 } M &#39;_n$,而$M &#39;_n$一定是孤立点集,所以$M &#39;$可数.</p>
 <p>综上就可以看出$M$是一个可数集.</p>
@@ -925,7 +925,7 @@ $$</p>
 <p>但是连续不一定可导,相当漂亮的一个反例是$f ( x ) = \begin{cases}0 &amp; x = 0 \\ x \sin \frac{ 1 }{ x } &amp; \text{ otherwise }\end{cases}$,其在零点没有左右导数.</p>
 <p>如果$f$的$n - 1$次导数存在,记作$f^{ ( n - 1 ) } ( x )$,如果该函数可导则其导数称作$f^{ ( n ) } ( x )$.</p>
 <p>如果$f^{ ( n ) } ( x )$在$I$上连续,则称$f \in C^{ n } ( I )$.如果其任意阶可导,则称$f \in C^{ \infty } ( I )$.</p>
-<p>特别地,如果称一个函数是$\alpha$次可导,即$| f ( x ) - f ( y ) | \leq | x - y |^\alpha$.其实就是Holder连续.</p>
+<p>特别地,如果称一个函数是$\alpha$次Holder连续, 即$| f ( x ) - f ( y ) | \leq C| x - y |^\alpha$..</p>
 <h4 id="toc-71">导数基本运算</h4>
 <p>导数也可以类似求出四则运算以及复合的法则:</p>
 <ol>
@@ -1117,7 +1117,7 @@ $$</p>
 <h5 id="toc-81">指数函数</h5>
 <p>我们需要首先拿到指数为有理数的东西.</p>
 <p>首先整数次方是有定义的,我们需要拿到形如$f ( x ) = a^{ \frac{ 1 }{ x } }$的东西,这个考虑取一下反函数即可.然后二者嵌套一下得到形如$a^{ \frac{ q }{ p } }$的幂函数,取反一下得到形如$a^{ - \frac{ q }{ p } }$的幂函数.</p>
-<p>然后要定义无理数指数幂,类似戴德金分割,定义$a^x = \sup_{ q \leq x , q \in Q } a^q$.</p>
+<p>然后要定义无理数指数幂,类似戴德金分割, 对于$a\geq 1$定义$a^x = \sup_{ q \leq x , q \in Q } a^q$, 对于$0&lt;a&lt;1$则定义$a^x=(\frac{1}{a})^{-x}$.</p>
 <p>当然我们要验证那些指数的运算法则,还有一些单调性(两个无理数之间插入两个有理数就可以拆成单调的,这里还需要讨论一下和$1$的大小关系),这些当然都是对的.</p>
 <p>然后我们就可以拿出指数函数,用反函数定义对数函数.</p>
 <p>指数函数的连续性:考虑对于$f ( x ) = a^x$,$\forall \epsilon &gt; 0$,$\exists N &gt; 0 , a &lt; ( 1 + \epsilon )^N$,此时取$q_1 &lt; x_0 &lt; q_2$,$q_2 - q_1 &lt; \frac{ 1 }{ N }$,这当然能做得到.考虑$a^{ x_0 } \leq f ( x_0 + 0 ) \leq f ( q_2 )$,于是$1 \leq \frac{ a^{ q_2 } }{ a^{ q_1 } } \leq a^{ \frac{ 1 }{ N } } \leq 1 + \epsilon$.</p>
@@ -1333,7 +1333,7 @@ $$</p>
 <h5 id="toc-104">函数的凹凸性</h5>
 <p>定义一个函数是下凸的,若对$\forall x_1 , x_2 \in I , \forall \lambda \in [ 0 , 1 ] , f ( \lambda x_1 + ( 1 - \lambda ) x_2 ) \leq \lambda f ( x_1 ) + ( 1 - \lambda ) f ( x_2 )$.</p>
 <p>如果一个函数是下凸的,那么其充要条件是$\forall x_1 , x_2 , x_3 \in I$满足$x_1 &lt; x_2 &lt; x_3$,$\left | \begin{matrix}1 &amp; x_1 &amp; f ( x_1 ) \\ 1 &amp; x_2 &amp; f ( x_2 ) \\ 1 &amp; x_3 &amp; f ( x_3 )\end{matrix} \right | \geq 0$.只需设$x_2 = \lambda x_1 + ( 1 - \lambda ) x_3$然后简单变形即可.</p>
-<p>不妨设$k ( x_1 , x_2 ) = \frac{ f ( x_1 ) - f ( x_2 ) }{ x_1 - x_2 }$也就是这里的割线斜率.还可以证明如果一个函数是下凸的,那么其充要条件是$\forall x_1 , x_2 , x_3 \in I , x_1 &lt; x_2 &lt; x_3$,斜率有$k ( x_1 , x_2 ) \leq k ( x_1 , x_3 ) \leq k ( x_2 , x_3 )$,即所谓三弦引理.这个性质容易证明,而且该性质立刻说明开区间上的有界下凸函数一定是李氏连续函数.这意味着其应当几乎处处可导.另外三弦引理还可以改为$k ( x_1 , x_2 ) \leq k ( x_2 , x_3 )$,原因是中间项一定是两项的带权平均.</p>
+<p>不妨设$k ( x_1 , x_2 ) = \frac{ f ( x_1 ) - f ( x_2 ) }{ x_1 - x_2 }$也就是这里的割线斜率.还可以证明如果一个函数是下凸的,那么其充要条件是$\forall x_1 , x_2 , x_3 \in I , x_1 &lt; x_2 &lt; x_3$,斜率有$k ( x_1 , x_2 ) \leq k ( x_1 , x_3 ) \leq k ( x_2 , x_3 )$,即所谓三弦引理.这个性质容易证明,而且该性质立刻说明开区间上的有界下凸函数一定是局部李氏连续函数.这意味着其应当几乎处处可导.另外三弦引理还可以改为$k ( x_1 , x_2 ) \leq k ( x_2 , x_3 )$,原因是中间项一定是两项的带权平均.</p>
 <p>另外显然的是:</p>
 <ol>
 <li>
@@ -1344,7 +1344,7 @@ $$</p>
 </li>
 </ol>
 <p>如果$f ( x )$在$x_0$附近连续并且在$x_0$左右小邻域内凸性相反,称其为$f ( x )$的一个<strong>拐点</strong>.</p>
-<p>容易说明$f &#39; &#39; ( x_0 ) = 0$是拐点的必要条件,原因是拐点处$f &#39; ( x )$的增减性相反,$x_0$必定是$f &#39; ( x )$的极值点.由此还可以套用之前的极值点结论:</p>
+<p>容易说明, 如果拐点处二阶导数存在(考虑$f(x)=x|x|$,其$0$处是一个拐点, 然而并不存在二阶导数), 则$f &#39; &#39; ( x_0 ) = 0$是拐点的必要条件,原因是拐点处$f &#39; ( x )$的增减性相反,$x_0$必定是$f &#39; ( x )$的极值点.由此还可以套用之前的极值点结论:</p>
 <p>若$f$在$( a , b )$上$n$次可导,$\exists x_0 \in ( a , b ) , \forall 1 \leq k \leq n - 1 , f^{ ( k ) } ( x_0 ) = 0$.并且$\forall x \in ( a , b ) , f^{ ( n ) } ( x ) &gt; 0$我们有以下结论:</p>
 <ol>
 <li>
@@ -1368,7 +1368,7 @@ $$</p>
 <p>充分性略有麻烦.考虑反证,只需反推三弦引理即可.设其不是凸的,那就$\exists x_1 , x_2 , x_3 \in ( a , b ) , x_1 &lt; x_2 &lt; x_3 , k ( x_1 , x_2 ) &gt; k ( x_2 , x_3 )$.不妨设$\eta_1 = k ( x_1 , x_2 ) , \eta_2 = k ( x_2 , x_3 )$那么根据广义拉格朗日中值定理,$\exists \xi_1 \in ( x_1 , x_2 ) , \xi_2 \in ( x_2 , x_3 )$,使得$( f_+ &#39; ( \xi_1 ) - \eta_1 ) ( f &#39;_- ( \xi_1 ) - \eta_1 ) \leq 0 , ( f_+ &#39; ( \xi_2 ) - \eta_2 ) ( f &#39;_- ( \xi_2 ) - \eta_2 ) \leq 0$.</p>
 <p>立刻得到$f &#39;_+ ( \xi_1 ) \geq \eta_1 \geq f_- &#39; ( \xi_1 ) , f &#39;_+ ( \xi_2 ) \geq \eta_2 \geq f_- &#39; ( \xi_2 )$,由于$\eta_1 &gt; \eta_2$,所以$f &#39;_+ ( \xi_1 ) \geq \eta_1 &gt; \eta_2 \geq f &#39;_- ( \xi_2 )$,但$\xi_1 &lt; \xi_2$,这就出现了矛盾.</p>
 <p>还可以证明下凸函数除了可数个点以外都可导,并且几乎处处有二阶导数.</p>
-<p>这个怎么证明呢?考虑由(1)(2),可以发现$f &#39;_+ ( x )$和$f_- &#39; ( x )$都是单调函数,那么除了可数个点以外它们均连续,而它们在连续处必定可导,原因是$f_+ &#39; ( x_0 - \epsilon ) \leq f &#39;_- ( x_0 ) \leq f &#39;_+ ( x_0 )$,夹逼一下就可以了.而这样的话其导数单调,于是处处二阶可导.</p>
+<p>这个怎么证明呢?考虑由(1)(2),可以发现$f &#39;_+ ( x )$和$f_- &#39; ( x )$都是单调函数,那么除了可数个点以外它们均连续,而它们在连续处必定可导,原因是$f_+ &#39; ( x_0 - \epsilon ) \leq f &#39;_- ( x_0 ) \leq f &#39;_+ ( x_0 )$,夹逼一下就可以了.而这样的话其导数单调,于是几乎处处二阶可导.</p>
 <p>由此还可以发现:$f$在开区间$I$上,是下凸的等价于:</p>
 <ol>
 <li>
@@ -1520,7 +1520,7 @@ $$</p>
 <p>$f , g$均解析,并且$f \circ g$有意义,那么$f \circ g$也解析.</p>
 </li>
 <li>
-<p>$f$在$x_0$处解析,那么$f^{ - 1 }$在$f ( x_0 )$处解析.</p>
+<p>$f$在$x_0$处解析,而且$f&#39;(x_0)\ne 0$, 那么其局部反函数$f^{ - 1 }$在$f ( x_0 )$处解析.</p>
 </li>
 <li>
 <p>初等函数基本是解析函数.</p>
@@ -1592,7 +1592,7 @@ $$</p>
 <p>当$f &#39; f &#39; &#39; &lt; 0$,$x_n$单调上升趋近于$c$.</p>
 </li>
 </ol>
-<p>并且$| x_n - c | \sim O ( 2^{ - 2^n } )$.</p>
+<p>并且$| x_n - c | = O ( \rho^{ - 2^n } )$, 其中$\rho$是和具体函数以及初值选取有关的一个$&gt;1$的常数.</p>
 <p>上述讨论情况有点多,我们下面只讨论其中一种进行证明:</p>
 <p>当$f &#39; &gt; 0 , f &#39; &#39; &gt; 0$的时候,$f$是一个单调上升的下凸函数.容易发现这个数列单调下降并且应当大于$c$,那它就有极限,两边取极限得知$\lim_{ n \to \infty } f ( x_n ) = 0$.</p>
 <p>接下来看一下逼近速度,泰勒公式展开一下知道$0 = f ( c ) = f ( x_n ) + f &#39; ( x_n ) ( c - x_n ) + \frac{ f &#39; &#39; ( \xi ) }{ 2 } ( c - x_n )^2$.从上面的结果容易看出$n \geq 1$的时候,$| x_{ n + 1 } - c | = \frac{ | f ( x_n ) + f &#39; ( x_n ) ( c - x_n ) | }{ | f &#39; ( x_n ) | } = \frac{ f &#39; &#39; ( \xi ) }{ 2 | f &#39; ( x_n ) | } ( c - x_n )^2$.前面那个系数是有界的,可以看作一个常数.于是这一次的误差应当是上一次误差的平方级别.</p>
@@ -1657,7 +1657,7 @@ $$</p>
 \begin{aligned}
 I_n &amp; = \int \tan^{ n - 2 } ( \frac{ 1 }{ \cos^2 x } - 1 ) \text{ d } x \\
 &amp; = \int \tan^{ n - 2 } x ( \text{ d } \tan x ) - I_{ n - 2 } \\
-&amp; = \frac{ \tan^{ n - 1 } x }{ n - 2 } - I_{ n - 2 }
+&amp; = \frac{ \tan^{ n - 1 } x }{ n - 1 } - I_{ n - 2 }
 \end{aligned}
 $$</p>
 <p>边界条件的话$I_0 = x + C , I_1 = \int \frac{ \sin x }{ \cos x } \text{ d } x = - \int \frac{ 1 }{ \cos x } ( \text{ d } \cos x ) = - \ln ( \cos x ) + C$.</p>
@@ -1696,7 +1696,7 @@ $$</p>
 \begin{aligned}
 I_{ m , n } &amp; = \int \sin^m x \cos ( nx ) \text{ d } x \\
 &amp; = \frac{ 1 }{ n } \int \sin^m x \text{ d } \sin ( nx ) \\
-&amp; = \frac{ 1 }{ n } \left ( \sin^m x \sin ( nx ) - \frac{ m }{ n } \int \sin ( nx ) \sin^{ m - 1 } x \cos x \text{ d } x \right )
+&amp; = \frac{ 1 }{ n } \left ( \sin^m x \sin ( nx ) - m \int \sin ( nx ) \sin^{ m - 1 } x \cos x \text{ d } x \right )
 \end{aligned}
 $$</p>
 <p>然后观察到:</p>
@@ -1908,7 +1908,7 @@ I &amp; = a^2 \int \cosh^2 t \text{ d } t \\
 &amp; = \frac{ 1 }{ 2 } ( x \sqrt{ x^2 + a^2 } + a^2 \text{ arsinh } \frac{ x }{ a } ) + C
 \end{aligned}
 $$</p>
-<p>另一个同理,仍然使用双曲换元,结果是$\frac{ 1 }{ 2 } ( x \sqrt{ x^2 - a^2 } + a^2 \text{ arcosh } \frac{ x }{ a } ) + C$</p>
+<p>另一个同理,仍然使用双曲换元,结果是$\frac{ 1 }{ 2 } ( x \sqrt{ x^2 - a^2 } - a^2 \text{ arcosh } \frac{ x }{ a } ) + C$</p>
 <h5 id="toc-141">椭圆积分</h5>
 <p>以下是几个常见的无初等形式的积分:</p>
 <ol>
@@ -2456,7 +2456,7 @@ $$</p>
 $$</p>
 <p>但这不可能,因为左边的恰好是原本收敛的那个函数$x \to b - 0$处的表现.</p>
 <h5 id="toc-162">积分第一中值定理</h5>
-<p>设$f , g \in R [ a , b ]$并且$g$不变号.不妨设$f$的连续点集为$A$,称它的<strong>本性上界</strong>为$M = \inf_{ x \in A } ( f ( x ) )$,同理定义<strong>本性下界</strong>$m$.则$\exists \mu \in [ m , M ]$使得:</p>
+<p>设$f , g \in R [ a , b ]$并且$g$不变号.不妨设$f$的连续点集为$A$,称它的<strong>本性上界</strong>为$M = \sup_{ x \in A } ( f ( x ) )$,同理定义<strong>本性下界</strong>$m$.则$\exists \mu \in [ m , M ]$使得:</p>
 <p>$$
 \int_a^b fg ( x ) \text{ d } x = \mu \int_a^b g ( x ) \text{ d } x
 $$</p>
@@ -2672,7 +2672,7 @@ $$</p>
 <p>$$
 \begin{aligned}
 2 \sqrt{ A \pi r^2 } &amp; \leq A + \pi r^2 \\
-&amp; = \int_\alpha^\beta ( xy &#39; + \bar{ y } x &#39; ) \text{ d } \theta \\
+&amp; = \int_\alpha^\beta ( xy &#39; - \bar{ y } x &#39; ) \text{ d } \theta \\
 &amp; \leq \int_\alpha^\beta \sqrt{ x^2 + ( \bar{ y } )^2 } \sqrt{ y &#39;^2 + x &#39;^2 } \text{ d } t \\
 &amp; = rl
 \end{aligned}
@@ -2789,7 +2789,7 @@ $$</p>
 <p>最后一步是因为求均值也可以用介值定理.</p>
 <p>那么在中点估计会怎么样呢?考虑给$f$更好的条件,让$f$二阶可导,则:</p>
 <p>$$
-\int_a^b f ( x ) \mathrm{ d } x = \frac{ b - a }{ n } \sum_{ k = 1 }^n y_{ k - \frac{ 1 }{ 2 } } - \frac{ ( b - a )^3 }{ 24 n^2 } f &#39; &#39; ( \xi )
+\int_a^b f ( x ) \mathrm{ d } x = \frac{ b - a }{ n } \sum_{ k = 1 }^n y_{ k - \frac{ 1 }{ 2 } } + \frac{ ( b - a )^3 }{ 24 n^2 } f &#39; &#39; ( \xi )
 $$</p>
 <p>在$x_{ k - \frac{ 1 }{ 2 } }$处做泰勒展开,应当有:</p>
 <p>$$
@@ -2806,9 +2806,9 @@ $$</p>
 \end{aligned}
 $$</p>
 <p>用介值定理就可以求和,原命题自然得证.</p>
-<p>而上面的做法是矩形逼近,能不能用梯形逼近呢?用梯形逼近的话其实无非是$\frac{ b - a }{ n } ( \frac{ y_0 + y_n }{ 2 } \sum_{ k = 1 }^{ n - 1 } y_k )$,然而,对于$f \in C^2 [ a , b ]$,我们声明:</p>
+<p>而上面的做法是矩形逼近,能不能用梯形逼近呢?用梯形逼近的话其实无非是$\frac{ b - a }{ n } ( \frac{ y_0 + y_n }{ 2 } + \sum_{ k = 1 }^{ n - 1 } y_k )$,然而,对于$f \in C^2 [ a , b ]$,我们声明:</p>
 <p>$$
-\int_a^b f ( x ) \mathrm{ d } x = \frac{ b - a }{ n } ( \frac{ y_0 + y_n }{ 2 } \sum_{ k = 1 }^{ n - 1 } y_k ) - \frac{ ( b - a )^3 }{ 12 n^2 } f &#39; &#39; ( \xi )
+\int_a^b f ( x ) \mathrm{ d } x = \frac{ b - a }{ n } ( \frac{ y_0 + y_n }{ 2 } + \sum_{ k = 1 }^{ n - 1 } y_k ) - \frac{ ( b - a )^3 }{ 12 n^2 } f &#39; &#39; ( \xi )
 $$</p>
 <p>证明当然还是分部积分,考虑:</p>
 <p>$$
@@ -2845,7 +2845,7 @@ $$</p>
 \begin{aligned}
 &amp; \int_{ x_{ k - 1 } }^{ x_k } Q_k ( x ) \mathrm{ d } x \\
 = &amp; \frac{ p }{ 3 } ( x_k^3 - x_{ k - 1 }^3 ) + \frac{ q }{ 2 } ( x_k^2 - x_{ k - 1 }^2 ) + r ( x_k - x_{ k - 1 } ) \\
-= &amp; \frac{ x_k - x_{ k - 1 } }{ 6 } ( Q_k ( x_k ) + Q_k ( x_{ k - 1 } ) + Q_k ( x_{ k - \frac{ 1 }{ 2 } } ) ) \\
+= &amp; \frac{ x_k - x_{ k - 1 } }{ 6 } ( Q_k ( x_k ) + Q_k ( x_{ k - 1 } ) + 4 Q_k ( x_{ k - \frac{ 1 }{ 2 } } ) ) \\
 = &amp; \frac{ b - a }{ 6 n } ( y_{ k - 1 } + y_k + 4 y_{ k - \frac{ 1 }{ 2 } } )
 \end{aligned}
 $$</p>
@@ -2920,11 +2920,11 @@ $$</p>
 \begin{aligned}
 U_k &amp; = \int_{ ( k - 1 ) \pi }^{ k \pi } \frac{ x \mathrm{ d } x }{ 1 + x^4 \sin^2 x } \\
 &amp; \geq \int_{ ( k - 1 ) \pi }^{ k \pi } \frac{ x \mathrm{ d } x }{ 1 + ( k \pi )^4 \sin^2 x } \\
-&amp; \geq 2 ( k - 1 ) \pi \int_{ 0 }^{ \frac{ \pi }{ 2 } } \frac{ x \mathrm{ d } x }{ 1 + ( k \pi )^4 ( \sin x )^2 } \\
-&amp; \geq 2 ( k - 1 ) \pi \int_{ 0 }^{ \frac{ \pi }{ 2 } } \frac{ x \mathrm{ d } x }{ 1 + ( k \pi )^4 x^2 } \\
+&amp; \geq 2 ( k - 1 ) \pi \int_{ 0 }^{ \frac{ \pi }{ 2 } } \frac{ \mathrm{ d } x }{ 1 + ( k \pi )^4 ( \sin x )^2 } \\
+&amp; \geq 2 ( k - 1 ) \pi \int_{ 0 }^{ \frac{ \pi }{ 2 } } \frac{ \mathrm{ d } x }{ 1 + ( k \pi )^4 x^2 } \\
 &amp; = \frac{ 2 ( k - 1 ) \pi }{ k^2 \pi^2 } \arctan ( k^2 \pi^2 x ) |_0^{ \frac{ \pi }{ 2 } } \\
 &amp; \geq \frac{ 2 ( k - 1 ) \pi }{ k^2 \pi^2 } \arctan ( \frac{ \pi^3 }{ 2 } ) \\
-&amp; = O ( \frac{ 1 }{ k } )
+&amp; = \Theta ( \frac{ 1 }{ k } )
 \end{aligned}
 $$</p>
 <p>这就证完了,必然发散.</p>
@@ -3160,7 +3160,7 @@ $$</p>
 <p>求证:当$\int_a^b | f | &lt; \infty$的时候,黎曼引理仍然成立.</p>
 <p>回忆到黎曼引理要求$f \in R [ a , b ]$,但这里的确可以推广,原因是瑕积分肯定只有有限个瑕点(有无限个瑕点能立刻证明发散),只需要用足够小的区间把这有限个瑕点盖住,用柯西准则就可以证明这部分很小,而外面的部分当然是正常的黎曼引理.</p>
 <h4 id="toc-204">RS积分</h4>
-<p>设$\alpha ( x ) : [ a , b ] \to \mathbb{ R }$是一个单调不减的函数,对于有界函数$f ( x ) : [ a , b ] \to \mathbb{ R }$,考虑一个分划$P : a = x_0 &lt; \cdots &lt; x_n = b$,定义$\Delta \alpha_k = \alpha ( x_k ) - \alpha ( x_{ k - 1 } ) \geq 0$,并定义$M_k = \sup_{ [ x_{ k - 1 } , x_k ] } f ( x ) , m_k = \inf_{ [ x_{ k - 1 } , x_k ] } f ( x )$.在此基础上定义<strong>上和</strong>$U ( P , f , \alpha ) = \sum_{ k = 1 }^n M_k \Delta \alpha_k$,同理定义<strong>下和</strong>$L ( P , f , \alpha ) = \sum_{ k = 1 }^n m_k \Delta \alpha_k$.定义<strong>上积分</strong>$\overline{ \int_{ a }^b } f ( x ) \mathrm{ d } \alpha = \inf_P{ U ( P , f , \alpha ) }$,同理定义<strong>下积分</strong>$\underline{ \int_{ a }^b } f ( x ) \mathrm{ d } \alpha = \inf_P{ L ( P , f , \alpha ) }$.那么如果有以下$\overline{ \int_{ a }^b } f ( x ) \mathrm{ d } \alpha = \underline{ \int_{ a }^b } f ( x ) \mathrm{ d } \alpha$,称$f$在$[ a , b ]$上关于$\alpha$<strong>RS可积</strong>,记作$f \in{ R }_\alpha [ a , b ]$,而将此值称作$f$关于$\alpha$的RS积分,记作$\int_a^b f ( x ) \mathrm{ d } \alpha$.</p>
+<p>设$\alpha ( x ) : [ a , b ] \to \mathbb{ R }$是一个单调不减的函数,对于有界函数$f ( x ) : [ a , b ] \to \mathbb{ R }$,考虑一个分划$P : a = x_0 &lt; \cdots &lt; x_n = b$,定义$\Delta \alpha_k = \alpha ( x_k ) - \alpha ( x_{ k - 1 } ) \geq 0$,并定义$M_k = \sup_{ [ x_{ k - 1 } , x_k ] } f ( x ) , m_k = \inf_{ [ x_{ k - 1 } , x_k ] } f ( x )$.在此基础上定义<strong>上和</strong>$U ( P , f , \alpha ) = \sum_{ k = 1 }^n M_k \Delta \alpha_k$,同理定义<strong>下和</strong>$L ( P , f , \alpha ) = \sum_{ k = 1 }^n m_k \Delta \alpha_k$.定义<strong>上积分</strong>$\overline{ \int_{ a }^b } f ( x ) \mathrm{ d } \alpha = \inf_P{ U ( P , f , \alpha ) }$,同理定义<strong>下积分</strong>$\underline{ \int_{ a }^b } f ( x ) \mathrm{ d } \alpha = \sup_P{ L ( P , f , \alpha ) }$.那么如果有以下$\overline{ \int_{ a }^b } f ( x ) \mathrm{ d } \alpha = \underline{ \int_{ a }^b } f ( x ) \mathrm{ d } \alpha$,称$f$在$[ a , b ]$上关于$\alpha$<strong>RS可积</strong>,记作$f \in{ R }_\alpha [ a , b ]$,而将此值称作$f$关于$\alpha$的RS积分,记作$\int_a^b f ( x ) \mathrm{ d } \alpha$.</p>
 <p>类比黎曼积分那套理论,应当有以下显而易见的性质:</p>
 <ol>
 <li>
@@ -3289,7 +3289,7 @@ $$</p>
 <p>既然如此,对拓展的版本进一步寻找性质,不妨设$V ( x ) = V_a^x \alpha$.</p>
 <ol>
 <li>
-<p>$f \in C [ a , b ]$且$\alpha$是有界变差,或$f , \alpha$都是有界变差且$f$连续时,$| \int_a^b f \mathrm{ d } \alpha | \leq \int_a^b f \mathrm{ d } V$</p>
+<p>$f \in C [ a , b ]$且$\alpha$是有界变差,或$f , \alpha$都是有界变差且$f$连续时,$| \int_a^b f \mathrm{ d } \alpha | \leq \int_a^b | f | \mathrm{ d } V$</p>
 </li>
 <li>
 <p>作为(1)的推论,上述条件时,$| \int_a^b f \mathrm{ d } \alpha | \leq \sup | f | \times V_a^b \alpha$</p>
@@ -3314,8 +3314,8 @@ $$</p>
 <p>$$
 \begin{aligned}
 | S ( P , f , \alpha ) | &amp; = | \sum f ( t_k ) \Delta \alpha_k | \\
-&amp; \leq | \sum f ( t_k ) | \cdot | \Delta \alpha_k | \\
-&amp; \leq | \sum f ( t_k ) | \Delta V_k
+&amp; \leq \sum | f ( t_k ) | \cdot | \Delta \alpha_k | \\
+&amp; \leq \sum | f ( t_k ) | \Delta V_k
 \end{aligned}
 $$</p>
 <p>于是证毕.(2)自是(1)的推论.</p>
@@ -3713,15 +3713,15 @@ $$</p>
 <p>$$
 \begin{aligned}
 &amp; \prod_{ k = N }^{ n - 1 } \frac{ a_{ k + 1 } }{ a_{ k } } \\
-&lt; &amp; \prod_{ k = N }^{ n - 1 } \frac{ n }{ n + \epsilon } \\
-= &amp; \prod_{ k = N }^{ n - 1 } \frac{ 1 }{ 1 + \frac{ \epsilon }{ n } } \\
+&lt; &amp; \prod_{ k = N }^{ n - 1 } \frac{ k }{ k + \epsilon } \\
+= &amp; \prod_{ k = N }^{ n - 1 } \frac{ 1 }{ 1 + \frac{ \epsilon }{ k } } \\
 
 \end{aligned}
 $$</p>
 <p>然而注意到:</p>
 <p>$$
 \begin{aligned}
-&amp; \prod_{ k = N }^{ n - 1 } ( 1 + \frac{ \epsilon }{ n } ) \\
+&amp; \prod_{ k = N }^{ n - 1 } ( 1 + \frac{ \epsilon }{ k } ) \\
 \geq &amp; 1 + \frac{ \epsilon }{ N } + \cdots + \frac{ \epsilon }{ n - 1 } \to \infty
 \end{aligned}
 $$</p>
@@ -3937,7 +3937,7 @@ $$</p>
 <p>$$
 \frac{ \Gamma ( x + 1 ) }{ \Gamma ( x ) } = \lim_{ n \to \infty } \frac{ ( n + 1 ) x }{ x + 1 + n } = x
 $$</p>
-<p>所以$\Gamma ( x + 1 ) = x \Gamma ( x )$,而且$\Gamma ( 1 ) = 1$,所以$\Gamma ( n ) = n !$,这实际上是阶乘函数的一个推广.</p>
+<p>所以$\Gamma ( x + 1 ) = x \Gamma ( x )$,而且$\Gamma ( 1 ) = 1$,所以$\Gamma ( n ) = ( n - 1 ) !$,这实际上是阶乘函数的一个推广.</p>
 <p>而此时有$\Gamma ( x + 1 ) = x \Gamma ( x ) = \prod_{ n = 1 }^\infty \frac{ ( 1 + \frac{ 1 }{ n } )^x }{ 1 + \frac{ x }{ n } }$.</p>
 <p>而观察这个级数:</p>
 <p>$$
@@ -4008,7 +4008,7 @@ e^{ - 2 v } &amp; = 1 \\
 v &amp; = 0
 \end{aligned}
 $$</p>
-<p>所以其只有实根,用多项式理论知道如若$\sin x$的根只有$2 k \pi$,应该有:</p>
+<p>所以其只有实根,用多项式理论知道如若$\sin x$的根只有$k \pi$,应该有:</p>
 <p>$$
 \sin x = cx \prod_{ k = 1 }^{ \infty } ( 1 - \frac{ x^2 }{ k^2 \pi^2 } )
 $$</p>
@@ -4107,7 +4107,7 @@ $$</p>
 $$</p>
 <p>由此见到,极限函数的积分不一定等于积分的极限.极限和积分不一定可交换.</p>
 <h6 id="toc-241">Example4</h6>
-<p>考虑$f_n ( x ) = \begin{cases}2 n^2 x \\ x \in [ 0 , \frac{ 1 }{ 2 n } ] \\ 2 n^2 ( x - \frac{ 1 }{ n } ) &amp; x \in ( \frac{ 1 }{ 2 n } , \frac{ 1 }{ n } ] \\ 0 &amp; \text{ otherwise }\end{cases}$,也就是这个函数在$\frac{ 1 }{ 2 n }$处高度为$n$,底长为$\frac{ 1 }{ n }$的一个小三角形.求其极限函数.</p>
+<p>考虑$f_n ( x ) = \begin{cases}2 n^2 x &amp; x \in [ 0 , \frac{ 1 }{ 2 n } ] \\ 2 n^2 ( \frac{ 1 }{ n } - x ) &amp; x \in ( \frac{ 1 }{ 2 n } , \frac{ 1 }{ n } ] \\ 0 &amp; \text{ otherwise }\end{cases}$,也就是这个函数在$\frac{ 1 }{ 2 n }$处高度为$n$,底长为$\frac{ 1 }{ n }$的一个小三角形.求其极限函数.</p>
 <p>对于每一个点,这个函数当然逐点收敛于$0$.然而也可以见到,这个函数的积分对于每一个$n$来说都是$\frac{ 1 }{ 2 }$.</p>
 <p>再次说明了极限函数的积分不一定等于积分的极限.极限和积分不一定可交换.</p>
 <h6 id="toc-242">Example5</h6>
@@ -4463,7 +4463,7 @@ $$</p>
 <p>$$
 \begin{aligned}
 &amp; \sum_{ n \geq 0 } \int_0^1 \frac{ ( - x \ln x )^n }{ n ! } \mathrm{ d } x \\
-= &amp; - \sum_{ n \geq 0 } \frac{ 1 }{ n ! } \int_0^{ + \infty } e^{ - ( n + 1 ) t } t^n \mathrm{ d } t
+= &amp; \sum_{ n \geq 0 } \frac{ 1 }{ n ! } \int_0^{ + \infty } e^{ - ( n + 1 ) t } t^n \mathrm{ d } t
 \end{aligned}
 $$</p>
 <p>而考虑:</p>
@@ -4475,7 +4475,7 @@ $$</p>
 = &amp; \frac{ n }{ n + 1 } \int_0^{ + \infty } e^{ - ( n + 1 ) t } t^{ n - 1 } \\
 = &amp; \cdots \\
 = &amp; \frac{ n ! }{ ( n + 1 )^{ n } } \int_0^{ + \infty } e^{ - ( n + 1 ) t } \mathrm{ d } t \\
-= &amp; - \frac{ n ! }{ ( n + 1 )^{ n + 1 } }
+= &amp; \frac{ n ! }{ ( n + 1 )^{ n + 1 } }
 \end{aligned}
 $$</p>
 <p>和上面结合一下就证毕.</p>
@@ -4642,7 +4642,7 @@ g ( t ) = \begin{cases}
 0 &amp; t \in [ 0 , \frac{ 1 }{ 3 } ] \cup [ \frac{ 5 }{ 3 } , 2 ] \\
 3 t - 1 &amp; t \in [ \frac{ 1 }{ 3 } , \frac{ 2 }{ 3 } ] \\
 1 &amp; t \in [ \frac{ 2 }{ 3 } , \frac{ 4 }{ 3 } ] \\
-3 t + 5 &amp; t \in [ \frac{ 4 }{ 3 } , \frac{ 5 }{ 3 } ] \\
+5 - 3 t &amp; t \in [ \frac{ 4 }{ 3 } , \frac{ 5 }{ 3 } ] \\
 
 \end{cases}
 $$</p>
@@ -5017,7 +5017,7 @@ $$</p>
 <p>若非常数$f$在$( a , b )$的每一点都解析,则其零点集在$( a , b )$内无聚点.</p>
 <p>考虑如果一个点$c \in ( a , b )$是$f$的聚点的话,那么$c$一定是$f$的任意阶导数的聚点.由于任意阶导数都是连续的,因此$c$处的任意阶导数都是$0$.又因为$f$解析,所以$c$周围的一个小邻域必然全部为$0$.既如此取最长的小邻域为$( \alpha , \beta )$,下面我们证明$( \alpha , \beta ) = ( a , b )$,不妨假设$a \ne \alpha$,由于连续性得知$f$在$[ \alpha , \beta )$上取值为$0$,然而这意味着$\alpha$必然也是零点集的聚点,因此它还可以继续往左延申一个小邻域,这就与$a$是最靠左的矛盾了.</p>
 <p>不过这个做法不能推广到复平面上,原因是平面上的介值定理难搞一点啊.</p>
-<p>提供另一种证明方法,考虑$f$在$( a , b )$上的零点的聚点$x_0$,如果$x_0$的任意阶导数都是$0$的话,那还是按照上面一样往外面扩就行了对吧.反之,设$f ( x_0 ) = f^{ ( 1 ) } ( x_0 ) = \cdots = f^{ ( N - 1 ) } ( x_0 ) = 0 , f^{ ( N ) } ( x_0 ) \ne 0$,此时考虑$f ( x ) = ( x - x_0 )^{ N + 1 } \sum_{ n = 0 }^\infty \frac{ f^{ ( N + n + 1 ) } }{ ( N + n + 1 ) ! } ( x - x_0 )^n$,不妨设$g ( x ) = \sum_{ n = 0 }^\infty \frac{ f^{ ( N + n + 1 ) } }{ ( N + n + 1 ) ! } ( x - x_0 )^n$,容易发现$g ( x_0 ) \ne 0$,既然如此,$g$肯定在$x_0$的一个小邻域(要与解析的那个邻域取交)上非$0$,设为$( x_0 - \delta , x_0 + \delta )$上非零,可这样$f ( x )$在$( x_0 - \delta , x_0 ) \cup ( x_0 , x_0 + \delta )$上必然非零,这与$x_0$是零点聚点矛盾了.</p>
+<p>提供另一种证明方法,考虑$f$在$( a , b )$上的零点的聚点$x_0$,如果$x_0$的任意阶导数都是$0$的话,那还是按照上面一样往外面扩就行了对吧.反之,设$f ( x_0 ) = f^{ ( 1 ) } ( x_0 ) = \cdots = f^{ ( N - 1 ) } ( x_0 ) = 0 , f^{ ( N ) } ( x_0 ) \ne 0$,此时考虑$f ( x ) = ( x - x_0 )^N \sum_{ n = 0 }^\infty \frac{ f^{ ( N + n ) } ( x_0 ) }{ ( N + n ) ! } ( x - x_0 )^n$,不妨设$g ( x ) = \sum_{ n = 0 }^\infty \frac{ f^{ ( N + n ) } ( x_0 ) }{ ( N + n ) ! } ( x - x_0 )^n$,容易发现$g ( x_0 ) \ne 0$,既然如此,$g$肯定在$x_0$的一个小邻域(要与解析的那个邻域取交)上非$0$,设为$( x_0 - \delta , x_0 + \delta )$上非零,可这样$f ( x )$在$( x_0 - \delta , x_0 ) \cup ( x_0 , x_0 + \delta )$上必然非零,这与$x_0$是零点聚点矛盾了.</p>
 <h5 id="toc-291">多项式逼近</h5>
 <p>如果对于函数$f ( x ) : [ a , b ] \to \mathbb{ R }$,存在一个多项式列可以一致收敛到$f ( x )$,则称其可以被多项式<strong>一致逼近</strong>.容易见到一个必要条件是$f ( x ) \in C [ a , b ]$.</p>
 <p>事实上我们有<strong>维尔斯特拉斯定理</strong>:有界闭区间上的连续函数可由多项式一致连续逼近.首先不妨假设$[ a , b ] = [ 0 , 1 ]$.下面给出两种证明:</p>
@@ -5104,7 +5104,7 @@ $$</p>
 f ( z ) - \frac{ 1 }{ n } &lt; g_n ( z ) &lt; f ( z ) + \frac{ 1 }{ n }
 $$</p>
 <p>搞定了.</p>
-<p>那么,这个多项式能不能再来点限制呢?比如说我不许在多项式里出现$x^2$项可以吗?也可以.考虑$f \in C [ a , b ]$,则$f ( x^{ \frac{ 1 }{ 3 } } ) \in C [ a^{ \frac{ 1 }{ 3 } } , b^{ \frac{ 1 }{ 3 } } ]$,所以存在一个多项式$P ( x ) \rightrightarrows f ( x^{ \frac{ 1 }{ 3 } } )$,意味着$P ( x^3 ) \rightrightarrows f ( x ) , x \in [ a , b ]$.而$P ( x^3 )$当然没有$x^2$项.</p>
+<p>那么,这个多项式能不能再来点限制呢?比如说我不许在多项式里出现$x^2$项可以吗?也可以.考虑$f \in C [ a , b ]$,则$f ( x^{ \frac{ 1 }{ 3 } } ) \in C [ a^3 , b^3 ]$,所以存在一个多项式$P ( x ) \rightrightarrows f ( x^{ \frac{ 1 }{ 3 } } )$,意味着$P ( x^3 ) \rightrightarrows f ( x ) , x \in [ a , b ]$.而$P ( x^3 )$当然没有$x^2$项.</p>
 <p>也就是说这些多项式很多都是浪费的.那么有没有一个非常厉害的结论能告诉我什么样的多项式可以呢?考虑在$[ 0 , 1 ]$上,$\mathrm{ Span } \{ 1 , x^{ \lambda_1 } , \cdots \}$张成的多项式,其中$0 &lt; \lambda_1 &lt; \lambda_2 &lt; \cdots$,其中$\lambda_n \to \infty$.注意这里不要求$\lambda_i$是整数,如果其闭包能张成$C [ 0 , 1 ]$,当且仅当$\sum \frac{ 1 }{ \lambda_i } = + \infty$.这被称为<strong>Muntz定理</strong>,(其一个更强的推广是去掉$\lambda_n \to \infty$的结论,取而代之的是需要满足$\sum \frac{ \lambda_i }{ 1 + \lambda_i^2 } = + \infty$)</p>
 <p>这个定理的必要性我们目前难以证明,先证明其充分性.</p>
 <p>考虑$\forall m \in \mathbb{ N }_+ \setminus \{ \lambda_i \}$,都可以定义一个函数列,其中$Q_0 ( x ) = x^m , Q_n ( x ) = ( \lambda_n - m ) x^{ \lambda_n } \int_x^1 Q_{ n - 1 } ( t ) t^{ - 1 - \lambda_n } \mathrm{ d } t$.我们先证明$Q_n$一定长成$x^m - \sum_{ i = 1 }^n a_{ n , i } x^{ \lambda_i }$的形式.</p>
@@ -5259,8 +5259,8 @@ $$</p>
 &amp; \leq \frac{ \epsilon }{ c } \ln ( \frac{ \lambda_m }{ c } ) - \frac{ 1 }{ \lambda_m } \int_{ 1 }^{ \frac{ \epsilon \lambda_m }{ c } - 1 } \ln t \mathrm{ d t } \\
 &amp; = \frac{ \epsilon }{ c } \ln ( \frac{ \lambda_m }{ c } ) - \frac{ 1 }{ \lambda_m } \int_{ 1 }^{ \frac{ \epsilon \lambda_m }{ c } } \ln t \mathrm{ d t } + \frac{ 1 }{ \lambda_m } \int_{ \frac{ \epsilon \lambda_m }{ c } - 1 }^{ \frac{ \epsilon \lambda_m }{ c } } \ln t \mathrm{ d } t \\
 &amp; \leq \frac{ \epsilon }{ c } \ln ( \frac{ \lambda_m }{ c } ) - \frac{ 1 }{ \lambda_m } \int_{ 1 }^{ \frac{ \epsilon \lambda_m }{ c } } \ln t \mathrm{ d t } + \frac{ \ln ( \frac{ \epsilon \lambda_m }{ c } ) }{ \lambda_m } \\
-&amp; = \frac{ \epsilon }{ c } \ln ( \frac{ \lambda_m }{ c } ) + \frac{ \ln ( \frac{ \epsilon \lambda_m }{ c } ) }{ \lambda_m } - \frac{ 1 }{ \lambda_m } ( \frac{ \epsilon \lambda_m }{ c } \ln ( \frac{ \epsilon \lambda_m }{ c } ) - 1 ) \\
-&amp; = \frac{ \epsilon }{ c } \ln \epsilon + \frac{ 1 + \ln ( \frac{ \epsilon \lambda_m }{ c } ) }{ \lambda_m }
+&amp; = \frac{ \epsilon }{ c } \ln ( \frac{ \lambda_m }{ c } ) + \frac{ \ln ( \frac{ \epsilon \lambda_m }{ c } ) }{ \lambda_m } - \frac{ 1 }{ \lambda_m } ( \frac{ \epsilon \lambda_m }{ c } \ln ( \frac{ \epsilon \lambda_m }{ c } ) - \frac{ \epsilon \lambda_m }{ c } + 1 ) \\
+&amp; = \frac{ \epsilon }{ c } ( 1 - \ln \epsilon ) + \frac{ \ln ( \frac{ \epsilon \lambda_m }{ c } ) - 1 }{ \lambda_m }
 \end{aligned}
 $$</p>
 <p>由于$\epsilon$在$m$之前决定,因此$\lambda_m \to \infty$的时候可以让后者趋近于$0$,此时再让$\epsilon \to 0$可以让前者为$0$,这就搞定了.</p>
@@ -5672,16 +5672,16 @@ $$</p>
 \begin{aligned}
 \sigma_n ( x ) &amp; = \frac{ S_0 ( x ) + \cdots + S_n ( x ) }{ n + 1 } \\
 &amp; = \frac{ 1 }{ ( n + 1 ) \pi } \int_{ - \pi }^\pi f ( x + t ) \frac{ \sum_{ k = 0 }^n \sin ( k + \frac{ 1 }{ 2 } ) t }{ 2 \sin \frac{ t }{ 2 } } \mathrm{ d } t \\
-&amp; = \frac{ 1 }{ ( n + 1 ) \pi } \int_{ - \pi }^\pi f ( x + t ) \frac{ 1 - \cos ( n + 1 ) t }{ 2 \sin^2 \frac{ t }{ 2 } } \mathrm{ d } t \\
+&amp; = \frac{ 1 }{ ( n + 1 ) \pi } \int_{ - \pi }^\pi f ( x + t ) \frac{ 1 - \cos ( n + 1 ) t }{ 4 \sin^2 \frac{ t }{ 2 } } \mathrm{ d } t \\
 &amp; = \frac{ 1 }{ ( n + 1 ) \pi } \int_{ - \pi }^\pi f ( x + t ) \frac{ \sin^2 ( \frac{ n + 1 }{ 2 } t ) }{ 2 \sin^2 \frac{ t }{ 2 } } \mathrm{ d } t \\
 
 \end{aligned}
 $$</p>
 <p>设费叶核$\phi_n ( t ) = \frac{ \sin^2 \frac{ n + 1 }{ 2 } t }{ 2 ( n + 1 ) \sin^2 \frac{ t }{ 2 } }$.容易见到$\phi_n ( t ) = \phi_n ( - t )$,$\phi ( 0 ) = \frac{ n + 1 }{ 2 }$,而且$\frac{ 1 }{ \pi } \int_{ - \pi }^\pi \phi_n ( t ) \mathrm{ d } t = 1$,原因是$\phi_n ( t )$原本是个三角多项式,因此这里的积分只和其常数项有关,而常数项为$\frac{ 1 }{ 2 }$.</p>
-<p>现在我们说,当$f ( x ) \equiv f ( x + 2 \pi )$,$f$在$[ - \pi , \pi ]$上绝对可积,并且$f ( x_0 \pm 0 )$极限存在,则$\lim_{ n \to \infty } \sigma_n ( x_n ) = \frac{ f ( x_0 + 0 ) + f ( x_0 - 0 ) }{ 2 }$.进一步,如果$f \in C ( \mathbb{ R } )$,则$\sigma_n ( x ) \rightrightarrows f ( x )$.</p>
+<p>现在我们说,当$f ( x ) \equiv f ( x + 2 \pi )$,$f$在$[ - \pi , \pi ]$上绝对可积,并且$f ( x_0 \pm 0 )$极限存在,则$\lim_{ n \to \infty } \sigma_n ( x_0 ) = \frac{ f ( x_0 + 0 ) + f ( x_0 - 0 ) }{ 2 }$.进一步,如果$f \in C ( \mathbb{ R } )$,则$\sigma_n ( x ) \rightrightarrows f ( x )$.</p>
 <p>考虑设$I_n = \sigma_n ( x ) - \frac{ f ( x + 0 ) + f ( x - 0 ) }{ 2 }$,有:</p>
 <p>$$
-I_n = \frac{ 1 }{ \pi } \int_{ - \pi }^\pi \phi_n ( t ) ( f ( x + t ) + f ( x - t ) - f ( x + 0 ) - f ( x - 0 ) ) \mathrm{ d } t
+I_n = \frac{ 1 }{ \pi } \int_0^\pi \phi_n ( t ) ( f ( x + t ) + f ( x - t ) - f ( x + 0 ) - f ( x - 0 ) ) \mathrm{ d } t
 $$</p>
 <p>此时考虑$f ( x \pm 0 )$存在意味着$\forall \epsilon &gt; 0 , \exists \delta &gt; 0$,使得当$0 &lt; t \leq \delta$的时候,总有$| f ( x \pm t ) - f ( x \pm 0 ) | &lt; \frac{ \epsilon }{ 2 \pi }$,于是我们上面的$I_n$就可以拆成$\int_0^\delta + \int_\delta^\pi$两部分.</p>
 <p>对于前者:</p>
@@ -6037,7 +6037,7 @@ $$</p>
 <li>有界闭集上连续函数一致连续.</li>
 </ol>
 <p>(1)的证明与一维无区别,直接找一列点$\{x_n\}$满足$|f(x_n)|\geq n$,然后找这一列中的收敛子列收敛于$x_0$,连续性给出$|f(x_0)|=\infty$这是不可能的.</p>
-<p>(2)在(1)的基础上,如果$M=\sup_D f$,则可以找到一列点$\{x_n\}$满足$|f(x_n)|\to M$,这个时候找其收敛子列收敛于$x_0$给出$|f(x_0)|\to M$.</p>
+<p>(2)在(1)的基础上,如果$M=\sup_D f$,则可以找到一列点$\{x_n\}$满足$f(x_n)\to M$,这个时候找其收敛子列收敛于$x_0$给出$f(x_0)=M$.</p>
 <p>(3)如果不一致连续,则$\exists \epsilon$,存在两列$\{x_n\}$和$\{y_n\}$,使得$|x_n-y_n|\to 0$但$|f(x_n)-f(y_n)|&gt;\epsilon$.然而取出这两个数列的收敛子列,它们必然收敛于同一个值,这就矛盾了.</p>
 <h6 id="toc-321">Example1</h6>
 <p>求$\lim_{(x,y)\to (0,0)}\frac{xy}{x^2+y^2}$.</p>

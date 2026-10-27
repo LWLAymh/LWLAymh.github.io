@@ -454,7 +454,7 @@ $$</p>
 <p>给定$h ( x )$,设$g ( f ( x ) ) = f^2 ( x ) - h ( x )$,求零点.</p>
 <p>根据牛顿迭代,有:</p>
 <p>$$
-f ( x ) \equiv f_0 ( x ) - \frac{ f^2 ( x ) - h ( x ) }{ 2 f_0 ( x ) } \equiv \frac{ f^2 ( x ) + h ( x ) }{ 2 f_0 ( x ) } \pmod{ x^n }
+f ( x ) \equiv f_0 ( x ) - \frac{ f_0^2 ( x ) - h ( x ) }{ 2 f_0 ( x ) } \equiv \frac{ f_0^2 ( x ) + h ( x ) }{ 2 f_0 ( x ) } \pmod{ x^n }
 $$</p>
 <p>还没完,用牛顿迭代前一定要求$g ( a ) \equiv 0 \pmod{ x^n }$的解,也就是$[ x^0 ] h ( x )$的开根,用二次剩余算.</p>
 <h4 id="toc-26">多项式exp</h4>
@@ -945,7 +945,7 @@ $$</p>
 </ol>
 <p>证明根据二项式定理.</p>
 <ol start="3">
-<li>$\cfrac{ 1 }{ 1 - z^m } = \sum_{ n \geq 0 } [ n | m ] z^n \\$.</li>
+<li>$\cfrac{ 1 }{ 1 - z^m } = \sum_{ n \geq 0 } [ m | n ] z^n \\$.</li>
 </ol>
 <p>证明显然.</p>
 <ol start="4">
@@ -985,7 +985,7 @@ $$</p>
 <p>然后得到两个根,带入$x = 0$舍掉一个.</p>
 <h3 id="toc-52">指数生成函数(EGF)</h3>
 <p><a href="https://zhuanlan.zhihu.com/p/53079223" target="_blank" rel="noopener noreferrer">https://zhuanlan.zhihu.com/p/53079223</a></p>
-<p>序列$\{ a \}$的指数生成函数定义为形式幂级数$\hat F ( x ) = \sum a_n \frac{ x^n }{ n ! }$.注意$[ x^n ] \hat F ( x ) = a_n$.</p>
+<p>序列$\{ a \}$的指数生成函数定义为形式幂级数$\hat F ( x ) = \sum a_n \frac{ x^n }{ n ! }$.注意$[ x^n ] \hat F ( x ) = \frac{ a_n }{ n ! }$.</p>
 <h4 id="toc-53">基本运算</h4>
 <p>我们有:</p>
 <p>$$
@@ -1019,7 +1019,7 @@ $$</p>
 <p>$\ln ( 1 + x ) = \sum_{ k \geq 1 } ( - 1 )^{ k - 1 } ( k - 1 ) ! \frac{ x^k }{ k ! }$.</p>
 </li>
 <li>
-<p>$\ln ( 1 - x ) = \sum_{ k \geq 1 } ( k - 1 ) ! \frac{ x^k }{ k ! }$.</p>
+<p>$\ln ( 1 - x ) = - \sum_{ k \geq 1 } ( k - 1 ) ! \frac{ x^k }{ k ! }$.</p>
 </li>
 </ol>
 <p>都可以通过泰勒展开证明.</p>

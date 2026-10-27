@@ -544,7 +544,7 @@ $$</p>
 <li>采用最大似然估计, 最大化$f(p)=\binom{a+b}{a}p^a(1-p)^b$, 直接求导解$\frac{1-p}{b}=\frac{p}{a}$方程, 得到$p=\frac{a}{a+b}$.</li>
 <li>采用贝叶斯估计(HDU2843的正解), 设事件为$\theta$,考虑$P(p|\theta)=\frac{P(\theta|p)P(p)}{P(\theta)}=\frac{P(\theta|p)P(p)}{\int_0^1P(\theta|p)P(p)\mathrm{d}p}$, 容易见到$P(\theta|p)=\binom{a+b}{a}p^a(1-p)^b$, 直接让$P(p)=1$(因为我们不知道任何先验知识), 用分部积分得到$f(a,b)=\int_0^1p^a(1-p)^b\mathrm{d}p=\frac{a!b!}{(a+b+1)!}$, 于是$p=\int_0^1pP(p|\theta)\mathrm{d}p=\frac{a+1}{a+b+2}$.</li>
 </ol>
-<p>不妨设$x=k-a,y=k-b$,我们只需要让$A$赢第$x$场时, $B$尚未赢到第$y$场就能算出$A$获胜的概率. 于是答案就是$\sum_{i=0}^{y-1}\binom{x+i}{i}(1-p)^ip^x$, 我不会继续化简了.</p>
+<p>不妨设$x=n-a,y=n-b$,我们只需要让$A$赢第$x$场时, $B$尚未赢到第$y$场就能算出$A$获胜的概率. 于是答案就是$\sum_{i=0}^{y-1}\binom{x+i-1}{i}(1-p)^ip^x$, 我不会继续化简了.</p>
 <h4 id="toc-106">Problem5</h4>
 <p>求证: 任意正有理数都可以拆成若干分母不同的单位分数之和.</p>
 <h5 id="toc-107">Solution5</h5>

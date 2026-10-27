@@ -7,14 +7,14 @@
 (function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 </script>
 <title>Paper Reading · LWLAymh的备忘录</title>
-<meta name="description" content="本页展示我对一些读过的论文的整理与评价 [42] Ralf Jung, Robbert Krebbers, Lars Birkedal, Derek Dreyer Higher-order ghost state . 2016. In Pr">
+<meta name="description" content="本页展示我对一些读过的论文的整理与评价 [43] Andrew W. Appel, David McAllester An Indexed Model of Recursive Types for Foundational Proof-Ca">
 <meta name="author" content="LWLAymh">
 <link rel="canonical" href="https://LWLAymh.github.io/posts/paper-reading.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="LWLAymh的备忘录">
 <meta property="og:url" content="https://LWLAymh.github.io/posts/paper-reading.html">
 <meta property="og:title" content="Paper Reading · LWLAymh的备忘录">
-<meta property="og:description" content="本页展示我对一些读过的论文的整理与评价 [42] Ralf Jung, Robbert Krebbers, Lars Birkedal, Derek Dreyer Higher-order ghost state . 2016. In Pr">
+<meta property="og:description" content="本页展示我对一些读过的论文的整理与评价 [43] Andrew W. Appel, David McAllester An Indexed Model of Recursive Types for Foundational Proof-Ca">
 <link rel="icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
 <link rel="apple-touch-icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
 <link rel="stylesheet" href="/style.css">
@@ -52,14 +52,21 @@
   <header class="post-header">
     <h1 class="post-title">Paper Reading</h1>
     <div class="post-meta">
-      <time>2026-10-14</time>
+      <time>2026-10-26</time>
       <a class="chip chip-cat" href="/categories.html#%E5%AD%A6%E4%B9%A0" title="学习 / Reading">学习 / Reading</a>
       
     </div>
   </header>
   <div class="post-content"><p class="paper-intro">本页展示我对一些读过的论文的整理与评价</p><div class="listing" data-listing>
   <div class="listing-filter" data-listing-filter hidden></div>
-  <ol class="acm-cites"><li class="acm-cite" data-listing-item data-tags="PL-FM-CSL-Iris" data-rating="reading">
+  <ol class="acm-cites"><li class="acm-cite" data-listing-item data-tags="PL-FM" data-rating="reading">
+    <div class="acm-cite-main">
+      <span class="cite-num">[43]</span>
+      <div class="acm-cite-content">Andrew W. Appel, David McAllester <strong>An Indexed Model of Recursive Types for Foundational Proof-Carrying Code</strong>. 2001. In <strong>ACM Transactions on Programming Languages and Systems</strong>. 657–683. <a href="https://doi.org/10.1145/504709.504712" target="_blank" rel="noopener">https://doi.org/10.1145/504709.504712</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages &amp; Formal Methods">PL-FM</span></div><details class="paper-abstract"><summary>Abstract</summary><div class="paper-abstract-text">The proofs of “traditional” proof carrying code (PCC) are type-specialized in the sense that they require axioms about a specific type system. In contrast, the proofs of foundational PCC explicitly define all required types and explicitly prove all the required properties of those types assuming only a fixed foundation of mathematics such as higher-order logic. Foundational PCC is both more flexible and more secure than type-specialized PCC. For foundational PCC we need semantic models of type systems on von Neumann machines. Previous models have been either too weak (lacking general recursive types and first-class function-pointers), too complex (requiring machine-checkable proofs of large bodies of computability theory), or not obviously applicable to von Neumann machines. Our new model is strong, simple, and works either in λ-calculus or on Pentiums.</div></details></div>
+    </div>
+    <span class="paper-rating rating-reading">reading</span>
+  </li>
+<li class="acm-cite" data-listing-item data-tags="PL-FM-CSL-Iris" data-rating="reading">
     <div class="acm-cite-main">
       <span class="cite-num">[42]</span>
       <div class="acm-cite-content">Ralf Jung, Robbert Krebbers, Lars Birkedal, Derek Dreyer <strong>Higher-order ghost state</strong>. 2016. In <strong>Proceedings of the 21st ACM SIGPLAN International Conference on Functional Programming</strong>. 256–269. <a href="https://doi.org/10.1145/2951913.2951943" target="_blank" rel="noopener">https://doi.org/10.1145/2951913.2951943</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages / Formal Methods / CSL / Iris">PL-FM-CSL-Iris</span></div><details class="paper-abstract"><summary>Abstract</summary><div class="paper-abstract-text">The development of concurrent separation logic (CSL) has sparked a long line of work on modular verification of sophisticated concurrent programs. Two of the most important features supported by several existing extensions to CSL are higher-order quantification and custom ghost state. However, none of the logics that support both of these features reap the full potential of their combination. In particular, none of them provide general support for a feature we dub &quot;higher-order ghost state&quot;: the ability to store arbitrary higher-order separation-logic predicates in ghost variables. In this paper, we propose higher-order ghost state as a interesting and useful extension to CSL, which we formalize in the framework of Jung et al.&#39;s recently developed Iris logic. To justify its soundness, we develop a novel algebraic structure called CMRAs (&quot;cameras&quot;), which can be thought of as &quot;step-indexed partial commutative monoids&quot;. Finally, we show that Iris proofs utilizing higher-order ghost state can be effectively formalized in Coq, and discuss the challenges we faced in formalizing them.</div></details></div>
