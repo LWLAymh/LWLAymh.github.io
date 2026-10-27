@@ -105,22 +105,22 @@ window.MathJax = {
 <li>相伴恒等式:$( r - k ) \binom{ r }{ k } = r \binom{ r - 1 }{ k } , k \in \mathbb{ Z } \\$.</li>
 </ol>
 <p>证明如下:</p>
-<p>$$
+$$
 \begin{aligned}
 ( r - k ) \binom{ r }{ k } &amp; = ( r - k ) \binom{ r }{ r - k } \\
 &amp; = r \binom{ r - 1 }{ r - k - 1 } \\
 &amp; = r \binom{ r - 1 }{ k }
 \end{aligned}
-$$</p>
+$$
 <p>问题在于:我们在上述描述中并未提到$r$的范围,但是推导过程要求$r \in \mathbb{ N }$.不过,我们已经说明了二项式系数是关于$r$的$k$次多项式,因此只需要有$k + 1$个$r$满足这个公式即可.而根据推导过程显然有无限个$r$满足,因此这个公式对$r \in \mathbb{ C }$也是成立的.</p>
 <p>不过事实上,直接用吸收恒等式就可以证明:</p>
-<p>$$
+$$
 \begin{aligned}
 k \binom{ r }{ k } &amp; = r \binom{ r - 1 }{ k - 1 } \\
 ( r - k ) \binom{ r }{ r - k } &amp; = r \binom{ r - 1 }{ r - k - 1 } \\
 ( r - k ) \binom{ r }{ k } &amp; = r \binom{ r - 1 }{ k }
 \end{aligned}
-$$</p>
+$$
 <ol start="6">
 <li>加法公式:$\binom{ r }{ k } = \binom{ r - 1 }{ k } + \binom{ r - 1 }{ k - 1 } , k \in \mathbb{ Z } \\$.</li>
 </ol>
@@ -145,19 +145,19 @@ $$</p>
 </ol>
 <p>可以使用组合意义证明.</p>
 <p>二项式定理有一些有用的特殊情况:</p>
-<p>$$
+$$
 \begin{aligned}
 \sum_{ 0 \leq k \leq n } \binom{ n }{ k } &amp; = 2^n , n \in \mathbb{ N } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>在二项式定理中令$x = y = 1$即可证明.</p>
-<p>$$
+$$
 \begin{aligned}
 \sum_{ 0 \leq k \leq n } ( - 1 )^k \binom{ n }{ k } &amp; = 0^n = [ n = 0 ] , n \in \mathbb{ N } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>在二项式定理中令$x = - 1 , y = 1$即可证明,值得一提的是,当$n = 0$的时候这个式子给出$1$,并在其他情况下给出$0$,这个式子是二项式反演的基础.</p>
 <ol start="11">
 <li>三项式定理:$( x + y + z )^n = \sum_{ 0 \leq a , b , c \leq n } [ a + b + c = n ] \cfrac{ n ! }{ a ! b ! c ! } x^a y^b z^c , n \in \mathbb{ N } \\$.</li>
@@ -185,12 +185,12 @@ $$</p>
 <li>$\sum_{ k \leq m } \binom{ r }{ k } ( - 1 )^k = ( - 1 )^m \binom{ r - 1 }{ m } , m \in \mathbb{ Z } \\$.</li>
 </ol>
 <p>证明如下:</p>
-<p>$$
+$$
 \begin{aligned}
 \sum_{ k \leq m } \binom{ r }{ k } ( - 1 )^k &amp; = \sum_{ k \leq m } \binom{ k - r - 1 }{ k } \\
 &amp; = \binom{ - r + m }{ m } = ( - 1 )^m \binom{ r - 1 }{ m }
 \end{aligned}
-$$</p>
+$$
 <ol start="2">
 <li>$\sum_{ - q \leq k \leq l } \binom{ l - k }{ m } \binom{ q + k }{ n } = \binom{ l + q + 1 }{ m + n + 1 } , n , m \in \mathbb{ N } , l + q \geq 0 \\$.</li>
 </ol>
@@ -204,7 +204,7 @@ $$</p>
 </ol>
 <p>我们有$\binom{ n }{ m } \binom{ m }{ k } = \binom{ n }{ k } \binom{ n - k }{ m - k } \\$,两边同时除以$\binom{ n }{ m } \binom{ n - k }{ m - k } \\$,于是我们得到了$\cfrac{ \binom{ m }{ k } }{ \binom{ n }{ k } } = \cfrac{ \binom{ n - k }{ m - k } }{ \binom{ n }{ m } } \\$.</p>
 <p>有:</p>
-<p>$$
+$$
 \begin{aligned}
 \sum_{ k = 0 }^m \cfrac{ \binom{ m }{ k } }{ \binom{ n }{ k } } &amp; = \sum_{ k = 0 }^m \cfrac{ \binom{ n - k }{ m - k } }{ \binom{ n }{ m } } \\
 &amp; = \cfrac{ 1 }{ \binom{ n }{ m } } \sum_{ k = 0 }^m \binom{ n - k }{ m - k } \\
@@ -212,7 +212,7 @@ $$</p>
 &amp; = \cfrac{ \binom{ n + 1 }{ m } }{ \binom{ n }{ m } } \\
 &amp; = \cfrac{ n + 1 }{ n + 1 - m }
 \end{aligned}
-$$</p>
+$$
 <ol start="5">
 <li>$( - 1 )^m \binom{ - n - 1 }{ m } = ( - 1 )^n \binom{ - m - 1 }{ n } , n , m \in \mathbb{ N } \\$.</li>
 </ol>
@@ -225,26 +225,26 @@ $$</p>
 <li>$\sum_{ k \leq m } \binom{ m + r }{ k } x^k y^{ m - k } = \sum_{ k \leq m } \binom{ - r }{ k } ( - x )^k ( x + y )^{ m - k } , m \in \mathbb{ Z } \\$.</li>
 </ol>
 <p>不妨令左边的值为$S_m$,我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 S_m &amp; = \sum_{ k \leq m } \binom{ m + r }{ k } x^k y^{ m - k } = \sum_{ k \leq m } \binom{ m + r - 1 }{ k } x^k y^{ m - k } + \sum_{ k \leq m } \binom{ m + r - 1 }{ k - 1 } x^k y^{ m - k } \\
 &amp; = y \sum_{ k &lt; m } \binom{ m - 1 + r }{ k } x^k y^{ m - 1 - k } + \binom{ m + r - 1 }{ m } x^m + x \sum_{ k \leq m } \binom{ m + r - 1 }{ k - 1 } x^{ k - 1 } y^{ m - k } \\
 &amp; = ( x + y ) S_{ m - 1 } + \binom{ m + r - 1 }{ m } x^m \\
 &amp; = ( x + y ) S_{ m - 1 } + \binom{ r }{ m } ( - x )^m
 \end{aligned}
-$$</p>
+$$
 <p>左右两边满足相同递归式,通过数学归纳法不难证明二者相等.</p>
 <ol start="8">
 <li>$\sum_{ k \leq m } \binom{ m + k }{ k } 2^{ - k } = 2^m , m \in \mathbb{ N } \\$.</li>
 </ol>
 <p>考虑$( 7 )$,将$x = y = 1 , r = m + 1$带入,得到:</p>
-<p>$$
+$$
 \begin{aligned}
 \sum_{ k \leq m } \binom{ 2 m + 1 }{ k } &amp; = \sum_{ k \leq m } \binom{ m + k }{ k } 2^{ m - k } \\
 2^{ 2 m } &amp; = \sum_{ k \leq m } \binom{ m + k }{ k } 2^{ m - k } \\
 2^m &amp; = \sum_{ k \leq m } \binom{ m + k }{ k } 2^{ - k }
 \end{aligned}
-$$</p>
+$$
 <ol start="9">
 <li>$\sum_{ k } \binom{ l }{ m + k } \binom{ s + k }{ n } ( - 1 )^k = ( - 1 )^{ l + m } \binom{ s - m }{ n - l } , l \in \mathbb{ N } , n , m \in \mathbb{ Z } \\$.</li>
 </ol>
@@ -311,17 +311,17 @@ $$</p>
 <p>\end{cases}\</p>
 <p>不难发现$f_n = \frac{ ( 2 n - 1 ) ( 2 n ) }{ n ( n + 1 ) } f_{ n - 1 } \\$.整理,得到$f_n = \frac{ 4 n - 2 }{ n + 1 } f_{ n - 1 } \\$.</p>
 <p>换个记号,设$C_n$为卡特兰数的第$n$项,卡特兰数有一个著名的结论是$k$次卷积:</p>
-<p>$$
+$$
 C^{ ( k ) }_n = \sum_{ \sum_{ j = 1 }^k a_j = n } \prod C_{ a_i } = \frac{ k }{ n + k } \binom{ 2 n + k - 1 }{ n }
-$$</p>
+$$
 <p>我们可以这么理解它:它指的是一个长度为$n + k - 1$的括号序列,前$k - 1$个必须是左括号的方案数.为啥呢?因为这样这个括号序列必须写成$( ( ( A ) B ) C ) D$之类的形式,等价于卷积.</p>
 <p>那么证明就很简单了,类似反射容斥,有:</p>
-<p>$$
+$$
 \begin{aligned}
 C^{ ( k ) }_n &amp; = \binom{ 2 n + k - 1 }{ n } - \binom{ 2 n + k - 1 }{ n - 1 } \\
 &amp; = \frac{ k }{ n + k } \binom{ 2 n + k - 1 }{ n }
 \end{aligned}
-$$</p>
+$$
 <h5 id="toc-7">Example([HNOI2009]有趣的数列)</h5>
 <p>首先,如果没有第三条限制,那显然奇数位置和偶数位置互不影响,直接随便选,答案就是$\binom{ 2 n }{ n }$.</p>
 <p>而有了限制呢,我们还是想随便选然后顺序排起来,但是这次不能排列的时候使奇数位置大于偶数位置,可以发现这就是括号序列需要满足的条件,于是答案就是卡特兰数.</p>
@@ -342,21 +342,21 @@ $$</p>
 <p>这两部分怎么算呢?</p>
 <p>先看深度:$x$的祖先有两种:一种在序列中在$x$的左边,一种在$x$的右边.我们设前者为$0 = l_0 &lt; l_1 &lt; l_2 &lt; \cdots l_p &lt; l_{ p + 1 } = x$,设后者为$n + 1 = r_0 &gt; r_1 &gt; r_2 &gt; \cdots &gt; r_{ q } &gt; r_{ q + 1 } = x$.这么分类有什么用呢?我们考虑$( l_{ i - 1 } , l_{ i } )$这一段数能放在哪里,它只能是$l_{ i }$的左儿子,独立于整棵树,因此这一段的答案就是$C_{ l_i - l_{ i - 1 } - 1 }$.</p>
 <p>记:</p>
-<p>$$
+$$
 \begin{aligned}
 L_p &amp; = \sum_{ l } \prod_{ i = 1 }^{ p + 1 } C_{ l_i - l_{ i - 1 } - 1 } \\
 R_q &amp; = \sum_{ r } \prod_{ i = 1 }^{ q + 1 } C_{ r_{ i - 1 } - r_i - 1 } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>注意到这等价于卡特兰数的$k$次卷积,有:</p>
-<p>$$
+$$
 \begin{aligned}
 L_p &amp; = C_{ x - p - 1 }^{ ( p + 1 ) } \\
 R_q &amp; = C^{ ( q + 1 ) }_{ n - x - q } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>此时的答案自然是$f_{ p + q + 1 } = L_p R_q \binom{ p + q }{ q }$,做卷积.</p>
 <p>儿子怎么算呢?二叉搜索树有一个经典性质:确定根后每个点插在哪里是固定的.也就是说我们把$x$的子树从原树中删去,然后插入$x$一定会插回原位置,这是一个双射.而子树内随便做,设左子树大小为$p$,右子树大小为$q$,我们有$g_{ p + q + 1 } = C_p C_q C_{ n - ( p + q + 1 ) } = C_{ n - 1 }^{ ( 3 ) }$,同样是简单的卷积.</p>
 <h3 id="toc-9">二项式系数的处理</h3>
@@ -365,38 +365,38 @@ $$</p>
 <p>求$\sum_{ k = 0 }^n k \binom{ m - k - 1 }{ m - n - 1 } , n , m \in \mathbb{ N } \land m &gt; n \\$.</p>
 <p>这个式子乘了个系数$k$导致很难处理,一个自然的想法是使用吸收恒等式将$k$消去,然后对后面的式子使用上指标求和.</p>
 <p>于是:</p>
-<p>$$
+$$
 \begin{aligned}
 \sum_{ k = 0 }^n k \binom{ m - k - 1 }{ m - n - 1 } &amp; = \sum_{ k = 0 }^n m \binom{ m - k - 1 }{ m - n - 1 } - \sum_{ k = 0 }^n ( m - k ) \binom{ m - k - 1 }{ m - n - 1 } \\
 &amp; = m \sum_{ k = 0 }^{ m - 1 } \binom{ m - k - 1 }{ m - n - 1 } - ( m - n ) \sum_{ k = 0 }^m \binom{ m - k }{ m - n }
 \end{aligned}
-$$</p>
+$$
 <p>不妨令$S_m = \sum_{ k = 0 }^m \binom{ m - k }{ m - n } \\$,不难发现我们有:</p>
-<p>$$
+$$
 S_m = \sum_{ k = 0 }^m \binom{ k }{ m - n } = \binom{ m + 1 }{ m - n + 1 }
-$$</p>
+$$
 <p>于是原式$= mS_{ m - 1 } - ( m - n ) S_m = \cfrac{ n }{ m - n + 1 } \binom{ m }{ m - n } \\$.</p>
 <p>不过事实上,我们有另一种方式来处理这个等式,我们直接将$k = \binom{ k }{ 1 }$带入:</p>
-<p>$$
+$$
 \begin{aligned}
 \sum_{ k = 0 }^n k \binom{ m - k - 1 }{ m - n - 1 } &amp; = \sum_{ k = 0 }^n \binom{ k }{ 1 } \binom{ m - k - 1 }{ m - n - 1 } \\
 &amp; = \binom{ m }{ m - n + 1 } \\
 &amp; = \cfrac{ n }{ m - n + 1 } \binom{ m }{ m - n }
 \end{aligned}
-$$</p>
+$$
 <h5 id="toc-12">Example2</h5>
 <p>求$\sum_{ k } k \binom{ n }{ k } \binom{ s }{ k } , n \in \mathbb{ N } \\$.</p>
 <p>第一反应仍然是使用吸收恒等式,但是注意到$n$和$s$的范围不一样,由于吸收恒等式的范围很松,因此应选择一个范围更松的数吸收,这样才能保证另一个数范围的特殊性,于是有:</p>
-<p>$$
+$$
 \begin{aligned}
 \sum_{ k } k \binom{ n }{ k } \binom{ s }{ k } &amp; = s \sum_{ k } \binom{ n }{ k } \binom{ s - 1 }{ k - 1 } \\
 &amp; = s \binom{ n + s - 1 }{ n - 1 }
 \end{aligned}
-$$</p>
+$$
 <h5 id="toc-13">Example3</h5>
 <p>求$\sum_{ 0 \leq k } \binom{ n + k }{ 2 k } \binom{ 2 k }{ k } \cfrac{ ( - 1 )^k }{ k + 1 } , n \in \mathbb{ N } \\$.</p>
 <p>我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 \sum_{ 0 \leq k } \binom{ n + k }{ 2 k } \binom{ 2 k }{ k } \cfrac{ ( - 1 )^k }{ k + 1 } &amp; = \sum_{ 0 \leq k } \binom{ n + k }{ k } \binom{ n }{ k } \cfrac{ ( - 1 )^k }{ k + 1 } , n \in \mathbb{ N } \\
 &amp; = \cfrac{ 1 }{ n + 1 } \sum_{ 0 \leq k } \binom{ n + k }{ k } \binom{ n + 1 }{ k + 1 }{ ( - 1 )^k } \\
@@ -404,34 +404,34 @@ $$</p>
 &amp; = \cfrac{ 1 }{ n + 1 } \binom{ 0 }{ n } \\
 &amp; = [ n = 0 ]
 \end{aligned}
-$$</p>
+$$
 <h5 id="toc-14">Example4</h5>
 <p>求$\sum_{ k \geq 0 } \binom{ n + k }{ m + 2 k } \binom{ 2 k }{ k } \cfrac{ ( - 1 )^k }{ k + 1 } , n , m \in \mathbb{ N_+ } \\$.</p>
 <p>考虑恒等式扩展的二项式恒等式(整数范围内)的$( 1 )$,我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 \sum_{ k \geq 0 } \binom{ n + k }{ m + 2 k } \binom{ 2 k }{ k } \cfrac{ ( - 1 )^k }{ k + 1 } &amp; = \sum_{ k \geq 0 } \sum_{ 0 \leq j \leq n + k - 1 } \binom{ n + k - 1 - j }{ 2 k } \binom{ j }{ m - 1 } \binom{ 2 k }{ k } \cfrac{ ( - 1 )^k }{ k + 1 } \\
 &amp; = \sum_{ 0 \leq j \leq n - 1 } \binom{ j }{ m - 1 } \sum_{ j + 1 - n \leq k , 0 \leq k } \binom{ n + k - 1 - j }{ 2 k } \binom{ 2 k }{ k } \cfrac{ ( - 1 )^k }{ k + 1 }
 \end{aligned}
-$$</p>
+$$
 <p>注意到如果$j + 1 - n \geq 0$,则$\binom{ n + k - 1 - j }{ 2 k } \\$应为$0$.所以有:</p>
-<p>$$
+$$
 \begin{aligned}
 &amp; \sum_{ 0 \leq j \leq n - 1 } \binom{ j }{ m - 1 } \sum_{ j + 1 - n \leq k , 0 \leq k } \binom{ n + k - 1 - j }{ 2 k } \binom{ 2 k }{ k } \cfrac{ ( - 1 )^k }{ k + 1 } \\
 = &amp; \sum_{ 0 \leq j &lt; n } \binom{ j }{ m - 1 } [ n - 1 - j = 0 ] = \binom{ n - 1 }{ m - 1 }
 \end{aligned}
-$$</p>
+$$
 <h5 id="toc-15">Example5</h5>
 <p>求$\sum_{ k = 0 }^n ( C_n^k )^2$.</p>
-<p>$$
+$$
 \sum_{ k = 0 }^n ( C_n^k )^2 = \sum_{ k = 0 }^n C_{ n }^k \times C_{ n }^{ n - k } = C_n^{ 2 n }
-$$</p>
+$$
 <h4 id="toc-16">转化为递归式/和式求解</h4>
 <h5 id="toc-17">Example1</h5>
 <p>求$Q_n = \sum_{ k \leq 2^n } \binom{ 2^n - k }{ k } ( - 1 )^k , n \in \mathbb{ N } \\$.</p>
 <p>如果要转化为递归式的话,我们所掌握的只有加法恒等式,但加法恒等式只给出了杨辉三角中相邻两行的关系.但由于$Q_n$的式子中实际上只与$2^n$有关,我们不妨令$R_n = \sum_{ k \leq n } \binom{ n - k }{ k } ( - 1 )^k \\$,显然有$Q_n = R_{ 2^n }$.</p>
 <p>而我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 R_n &amp; = \sum_{ k \leq n } \binom{ n - 1 - k }{ k } ( - 1 )^k + \sum_{ k \leq n } \binom{ n - 1 - k }{ k - 1 } ( - 1 )^k \\
 &amp; = \sum_{ k \leq n } \binom{ n - 1 - k }{ k } ( - 1 )^k + \sum_{ k \leq n - 1 } \binom{ n - k - 2 }{ k } ( - 1 )^{ k + 1 } \\
@@ -442,12 +442,12 @@ R_n &amp; = \sum_{ k \leq n } \binom{ n - 1 - k }{ k } ( - 1 )^k + \sum_{ k \leq
 &amp; = - R_{ n - 3 } \\
 &amp; = R_{ n - 6 }
 \end{aligned}
-$$</p>
+$$
 <p>也即$R_n$具有周期性,不难计算前几项答案,最后有$Q_n \begin{cases}1 &amp; n = 0 \\ 0 &amp; n \ is \ \mathrm{ odd } \\ - 1 &amp; n &gt; 0 \land n \ is \ \mathrm{ even }\end{cases}$.</p>
 <h5 id="toc-18">Example2</h5>
 <p>求$( \sum^{ + \infty }_{ i = 0 } C^{ ik + r }_{ nk } ) \mod p$.</p>
 <p>考虑设$f ( n , r ) = \sum^{ + \infty }_{ i = 0 } C^{ ik + r }_{ nk } \\$,则有:</p>
-<p>$$
+$$
 \begin{aligned}
 f ( n , r ) &amp; = \sum^{ + \infty }_{ i = 0 } C^{ ik + r }_{ nk } \\
 &amp; = \sum_{ i = 0 }^{ + \infty } \sum_{ j = 0 }^k C_{ nk - k }^{ ik + r - j } \times C_k^j \\
@@ -455,13 +455,13 @@ f ( n , r ) &amp; = \sum^{ + \infty }_{ i = 0 } C^{ ik + r }_{ nk } \\
 &amp; = \sum_{ j = 0 }^k C_k^j f ( n - 1 , r - j ) \\
 
 \end{aligned}
-$$</p>
+$$
 <p>整理上式,得到:$f ( n , r ) = \sum_{ j = 0 }^k C_k^j f ( n - 1 , r - j ) \\$.</p>
 <p>于是我们得到了关于$f$的转移方程,可以矩阵加速.</p>
 <h4 id="toc-19">利用微积分求解</h4>
 <h5 id="toc-20">Example</h5>
 <p>求$\sum_{ k = 1 }^n k^2 C_n^k$.</p>
-<p>$$
+$$
 \begin{aligned}
 ( ( 1 + x )^n ) &amp; = ( \sum_{ k = 0 }^n C_n^k x^{ k } ) \\
 ( ( 1 + x )^n ) &#39; &amp; = ( \sum_{ k = 0 }^n C_n^k x^{ k } ) &#39; \\
@@ -471,7 +471,7 @@ nx ( 1 + x )^{ n - 1 } &amp; = \sum_{ k = 0 }^n kC_n^k x^{ k } \\
 n ( ( 1 + x )^{ n - 1 } + ( n - 1 ) x ( 1 + x )^{ n - 2 } ) &amp; = \sum_{ k = 0 }^n k^2 C_n^k x^{ k - 1 } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>取$x = 1$,则原式$= n ( n + 1 ) 2^{ n - 2 }$.</p>
 <h4 id="toc-21">转化为二维平面</h4>
 <h5 id="toc-22">Example1</h5>
@@ -480,14 +480,14 @@ $$</p>
 <p>因为是概率,所以当我们已经确定这个事会发生的时候可以多走几步,不难发现这里的概率等价于走到$x + y = r + 1$这条直线时横坐标$\geq n - k + 1$的概率.枚举一下总共向上走了几步,就得到$\frac{ 1 }{ 2^{ r } } \sum_{ j = 0 }^{ r - n + k } \binom{ r + 1 }{ j }$,注意这里是$\frac{ 1 }{ 2^r }$,因为从一开始钦定了一步,因此映射过来需要多乘个$\frac{ 1 }{ 2 }$,反映射就要乘个$2$.但是这个式子还是做不了,因为$r$并不满足$\sum r \leq 2 n$.我们需要另辟蹊径.</p>
 <p>做一下补集转化转化成走到上方的概率,这个概率就等价于$1 - \frac{ 1 }{ 2^{ r } } \sum_{ i = 0 }^{ n - k } \binom{ r + 1 }{ i }$.我们考虑暴力预处理出$f_r = \sum_{ i = 0 }^{ n } \binom{ r }{ i }$,每次删掉一个后缀的组合数就行.现在的问题在于$f$怎么做.</p>
 <p>直接拆组合数,我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 f_r &amp; = \sum_{ i = 0 }^n \binom{ r }{ i } \\
 &amp; = \sum_{ i = 0 }^n \binom{ r - 1 }{ i - 1 } + \sum_{ i = 0 }^n \binom{ r - 1 }{ i } \\
 &amp; = 2 \sum_{ i = 0 }^n \binom{ r - 1 }{ i } - \binom{ r - 1 }{ n } \\
 &amp; = 2 f_{ r - 1 } - \binom{ r - 1 }{ n }
 \end{aligned}
-$$</p>
+$$
 <h3 id="toc-23">Lucas定理</h3>
 <p>若$p$是质数,则$C_n^m \mod p = C_{ n \mod p }^{ m \mod p } \times C_{ \lfloor \frac{ n }{ p } \rfloor }^{ \lfloor \frac{ m }{ p } \rfloor } \mod p \\$.</p>
 <p>或者说,将$n$和$m$在$p$进制下分解,再逐位求组合数并相乘.</p>
@@ -499,47 +499,47 @@ $$</p>
 <p>根据二项式定理,$C_n^m \bmod p$即$x^m$项的系数.</p>
 <p>我们可以得出,$C_n^m x^m \equiv C_{ k_1 }^{ k_2 } x^{ k_2 p } C_{ b 1 }^{ b_2 } x^{ b_2 } \pmod{ p } \\$,那么有$C_a^b \equiv C_{ k_1 }^{ k_2 } C_{ b_1 }^{ b_2 } \pmod{ p } \\$.</p>
 <p>另外,Lucas定理有一个很重要的推论是:</p>
-<p>$$
+$$
 \binom{ n }{ m } \equiv [ m \subseteq n ] \pmod{ 2 }
-$$</p>
+$$
 <h5 id="toc-24">Example1([CF1770F]Koxia and Sequence)</h5>
 <p>首先观察样例并思考,可以发现当$n$为偶数时,显然翻转整个序列就可以一一对应(除非翻转后与本身相同,但这种情况下异或值也是$0$),所以异或值为$0$.不然,我们可以翻转$a [ 2 . . . n ]$,得出答案应该是所有$a_1$的异或和.</p>
 <p>问题在于接下来怎么做,我们考虑把按位或的那个东西容斥掉.现在问题转化为:对于所有$y &#39; \subseteq y$,求出满足$a_i \subseteq y &#39; , \sum a_i = x$时,$a_1$异或和.接下来怎么做呢?我们考虑拆位,若$2^k \subseteq y &#39;$,假设$a_1$的第$k$位是$1$,然后讨论此时它对答案是否会产生贡献.</p>
 <p>我们不难发现,第$k$位贡献是:</p>
-<p>$$
+$$
 [ 2^k \subseteq y &#39; ] \bigoplus_{ \sum a = x } [ 2^k \subseteq a_1 ] \prod_{ i = 1 }^n [ a_i \subseteq y &#39; ]
-$$</p>
+$$
 <p>这个东西看上去没办法做,但我们突然想到个事:Lucas定理的推论:$[ x \subseteq y ] \equiv \binom{ y }{ x } \pmod{ 2 }$.</p>
 <p>所以原式化简为:</p>
-<p>$$
+$$
 \begin{aligned}
 &amp; \binom{ y &#39; }{ 2^k } \sum_{ \sum a = x } \binom{ a_1 }{ 2^k } \prod_{ i = 1 }^n \binom{ y &#39; }{ a_i } \pmod{ 2 } \\
 = &amp; \binom{ y &#39; }{ 2^k } \sum_{ a_1 } \binom{ y &#39; - 2^k }{ a_1 - 2^k } \sum_{ \sum a = x - a_1 } \prod_{ i = 2 }^n \binom{ y &#39; }{ a_i } \pmod{ 2 } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>然后呢?不难发现后面那一串是范德蒙德卷积的形式,就可以写成:</p>
-<p>$$
+$$
 \begin{aligned}
 &amp; \binom{ y &#39; }{ 2^k } \sum_{ a_1 } \binom{ y &#39; - 2^k }{ a_1 - 2^k } \binom{ ( n - 1 ) y &#39; }{ x - a_1 } \pmod{ 2 } \\
 = &amp; \binom{ y &#39; }{ 2^k } \binom{ ny &#39; - 2^k }{ x - 2^k } \pmod{ 2 } \\
 = &amp; [ 2^k \subseteq y &#39; ] [ ( x - 2^k ) \subseteq ( ny &#39; - 2^k ) ]
 \end{aligned}
-$$</p>
+$$
 <h3 id="toc-25">扩展Lucas定理</h3>
 <p>令$p = \prod p_i^{ e_i }$,那我们只要对于每个$i$求出$C_n^m \mod p_i^{ e_i }$,然后使用中国剩余定理合并即可.</p>
 <p>那现在问题转化为要求$C_n^m \mod p^k$,其中$p \in \mathrm{ prime }$.</p>
 <p>原式$= \frac{ n ! }{ m ! ( n - m ) ! } \mod p^k = \frac{ \frac{ n ! }{ p^x } }{ \frac{ m ! }{ p^y } \frac{ ( n - m ) ! }{ p^z } } p^{ x - y - z } \mod p^k \\$.</p>
 <p>现在问题转化为求$\frac{ n ! }{ p^x } \mod p^k 以 及 p^x \\$.</p>
 <p>注意到:</p>
-<p>$$
+$$
 \begin{aligned}
 n ! &amp; = \prod_{ i = 1 } i \\
 &amp; = ( \prod_{ i = wp , w \in \mathbb{ Z } } i ) ( \prod_{ i \ne wp , w \in \mathbb{ Z } } i ) \\
 &amp; = p^{ \lfloor n p \rfloor } ( \lfloor n p \rfloor ! ) ( \prod_{ i \ne wp , w \in \mathbb{ Z } } i ) \\
 &amp; \equiv p^{ \lfloor \frac{ n }{ p } \rfloor } ( \lfloor \frac{ n }{ p } \rfloor ! ) ( \prod_{ i = 1 , i \ne wp , w \in \mathbb{ Z } }^{ p^k } i )^{ \lfloor \frac{ n }{ p^k } \rfloor } ( \prod^{ n \ \bmod{ p^k } }_{ i = p^k \lfloor \frac{ n }{ p^k } \rfloor , i \ne wp , w \in \mathbb{ Z } } i ) ( \mod p^k )
 \end{aligned}
-$$</p>
+$$
 <p>递归求解即可.</p>
 <p>ps:</p>
 <p>这样摆式子可能非常难以理解,我们考虑将$[ 1 , n ]$的所有数全部排成一个宽为$p^k$的矩阵.</p>
@@ -562,7 +562,7 @@ $$</p>
 <li>$x^n = \sum_{ k = 0 }^n \left \{ \begin{array}{ c } n \\ k\end{array} \right \} x^{ \underline{ k } } = \sum_{ k = 0 }^n \left \{ \begin{array}{ c } n \\ k\end{array} \right \} ( - 1 )^{ n - k } x^{ \overline{ k } } \\$.</li>
 </ol>
 <p>证明:先考虑前半段,不妨使用数学归纳.若$x^{ n - 1 } = \sum_{ k = 0 }^{ n - 1 } \left \{ \begin{array}{ c } n - 1 \\ k\end{array} \right \} x^{ \underline{ k } }$,我们要证</p>
-<p>$$
+$$
 \begin{aligned}
 x \sum_{ k = 0 }^{ n - 1 } \left \{ \begin{array}
 { c } n - 1 \\
@@ -573,9 +573,9 @@ k
 \end{array} \right \} x^{ \underline{ k } } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>考虑$( x - k ) x^{ \underline{ k } } = x^{ \underline{ k + 1 } }$,所以$x \cdot x^{ \underline{ k } } = x^{ \underline{ k + 1 } } + kx^{ \underline{ k } } \\$.那么左边即:</p>
-<p>$$
+$$
 \begin{aligned}
 &amp; \sum_{ k = 0 }^{ n - 1 } \left \{ \begin{array}
 { c } n - 1 \\
@@ -598,10 +598,10 @@ k
 \\
 
 \end{aligned}
-$$</p>
+$$
 <p>至于后半段,由于$x^{ \underline{ n } } = ( - 1 )^n ( - x )^{ \overline{ n } } \\$,所以$x^n = \sum_{ k = 0 }^n \left \{ \begin{array}{ c } n \\ k\end{array} \right \} ( - 1 )^k ( - x )^{ \overline{ k } } \\$.</p>
 <p>不妨用$x$来代替$- x$,我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 ( - x )^n &amp; = \sum_{ k = 0 }^n \left \{ \begin{array}
 { c } n \\
@@ -612,7 +612,7 @@ x^n &amp; = \sum_{ k = 0 }^n \left \{ \begin{array}
 k
 \end{array} \right \} ( - 1 )^{ n - k } x^{ \overline{ k } }
 \end{aligned}
-$$</p>
+$$
 <ol start="2">
 <li>
 <p>$x^{ \overline{ n } } = \sum_{ k = 0 }^n \left [ \begin{array}{ c } n \\ k\end{array} \right ] x^k \\$.</p>
@@ -681,13 +681,13 @@ $$</p>
 <p>证明:</p>
 <p>考虑$( n - 1 )^{ \underline{ n - m } } = \frac{ ( n - 1 ) ! }{ ( m - 1 ) ! } \\$,不妨设$f ( n , m ) = \sum_{ k = m }^n \left [ \begin{array}{ c } n \\ k\end{array} \right ] \left \{ \begin{array}{ c } k \\ m\end{array} \right \} \\$,相当于将$n$个数分成非空$m$组,然后组内的数要形成若干轮换的方案数.那么知道$f ( n , m ) = f ( n - 1 , m - 1 ) + ( n - 1 + m ) f ( n - 1 , m ) \\$.</p>
 <p>设$g ( n , m ) = C_n^m \frac{ ( n - 1 ) ! }{ ( m - 1 ) ! } = \frac{ n ! ( n - 1 ) ! }{ m ! ( n - m ) ! ( m - 1 ) ! } \\$,那么知道:</p>
-<p>$$
+$$
 \begin{aligned}
 g ( n - 1 , m - 1 ) &amp; = \frac{ ( n - 1 ) ! ( n - 2 ) ! }{ ( m - 1 ) ! ( n - m ) ! ( m - 2 ) ! } \\
 g ( n - 1 , m ) &amp; = \frac{ ( n - 1 ) ! ( n - 2 ) ! }{ m ! ( n - 1 - m ) ! ( m - 2 ) ! } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>显然$g ( n , m ) = g ( n - 1 , m - 1 ) + ( n - 1 + m ) g ( n - 1 , m ) \\$,数学归纳即可.</p>
 <ol start="15">
 <li>
@@ -713,21 +713,21 @@ $$</p>
 <p>特别地,我们令$\left \langle \begin{array}\\ 0 \\ k\end{array} \right \rangle = [ k = 0 ]$,若$k &lt; 0$,则$\left \langle \begin{array}\\ n \\ k\end{array} \right \rangle = 0$.</p>
 <h3 id="toc-33">欧拉数与二项式系数</h3>
 <p>我们有Worpitzky恒等式:</p>
-<p>$$
+$$
 x^n = \sum_{ k \geq 0 } \binom{ x + k }{ n } \left \langle \begin{array}
 \\
 n \\
 k
 \end{array} \right \rangle , n \in \mathbb{ N }
-$$</p>
+$$
 <p>还有另一个恒等式:</p>
-<p>$$
+$$
 \left \langle \begin{array}
 \\
 n \\
 m
 \end{array} \right \rangle = \sum_{ k = 0 }^m \binom{ n + 1 }{ k } ( m + 1 - k )^n ( - 1 )^k
-$$</p>
+$$
 <p>剩下的不会了.</p>
 <h2 id="toc-34">伯努利数</h2>
 <p>定义$B_j$为第$j$个伯努利数,且满足$\sum_{ j = 0 }^m \binom{ m + 1 }{ j } B_j = [ m = 0 ] , m \geq 0 \\$.</p>
@@ -735,7 +735,7 @@ $$</p>
 <p>伯努利数满足公式:$S_m ( n ) = \cfrac{ 1 }{ m + 1 } \sum_{ k = 0 }^m \binom{ m + 1 }{ k } B_k n^{ m + 1 - k } \\$.</p>
 <p>证明如下:</p>
 <p>对$S_{ m + 1 } ( n )$使用扰动法,我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 S_{ m + 1 } ( n ) + n^{ m + 1 } &amp; = \sum_{ k = 0 }^{ n - 1 } ( k + 1 )^{ m + 1 } \\
 &amp; = \sum_{ k = 0 }^{ n - 1 } \sum_{ j = 0 }^{ m + 1 } \binom{ m + 1 }{ j } k^j \\
@@ -744,9 +744,9 @@ S_{ m + 1 } ( n ) + n^{ m + 1 } &amp; = \sum_{ k = 0 }^{ n - 1 } ( k + 1 )^{ m +
 n^{ m + 1 } &amp; = \sum_{ j = 0 }^m \binom{ m + 1 }{ j } S_j ( n ) \\
 
 \end{aligned}
-$$</p>
+$$
 <p>接下来使用数学归纳,假设$0 \leq j &lt; m$时该公式成立,并假设有$S_m ( n ) = \cfrac{ 1 }{ m + 1 } \sum_{ k = 0 }^m \binom{ m + 1 }{ k } B_k n^{ m + 1 - k } + \Delta \\$,我们只需要证明$\Delta = 0$.</p>
-<p>$$
+$$
 \begin{aligned}
 n^{ m + 1 } &amp; = \sum_{ j = 0 }^m \binom{ m + 1 }{ j } \cfrac{ 1 }{ j + 1 } \sum_{ k = 0 }^j \binom{ j + 1 }{ k } B_k n^{ j + 1 - k } + ( m + 1 ) \Delta \\
 &amp; = \sum_{ 0 \leq k \leq j \leq m } \binom{ j + 1 }{ k } \binom{ m + 1 }{ j } \cfrac{ 1 }{ j + 1 } B_k n^{ j + 1 - k } + ( m + 1 ) \Delta \\
@@ -758,37 +758,37 @@ n^{ m + 1 } &amp; = \sum_{ j = 0 }^m \binom{ m + 1 }{ j } \cfrac{ 1 }{ j + 1 } \
 &amp; = \sum_{ k = 0 }^m \cfrac{ n^{ k + 1 } }{ k + 1 } \binom{ m + 1 }{ k } [ m - k = 0 ] + ( m + 1 ) \Delta \\
 &amp; = n^{ m + 1 } + ( m + 1 ) \Delta
 \end{aligned}
-$$</p>
+$$
 <p>显然$\Delta = 0$,上式成立.</p>
 <h2 id="toc-35">斐波那契数</h2>
 <p>定义斐波那契数$F_n = \begin{cases}0 &amp; n = 0 \\ 1 &amp; n = 1 \\ F_{ n - 1 } + F_{ n - 2 } &amp; n &gt; 1\end{cases}$.</p>
 <h3 id="toc-36">斐波那契数的扩展定义</h3>
 <p>首先根据数学归纳,不难证明卡西尼恒等式:</p>
-<p>$$
+$$
 F_{ n + 1 } F_{ n - 1 } - F_n^2 = ( - 1 )^n , n &gt; 0
-$$</p>
+$$
 <p>事实上,如果我们将斐波那契数的递推式改写作:$F_n = F_{ n + 2 } - F_{ n + 1 }$,我们可以在$n \in \mathbb{ Z }$的时候定义斐波那契数,同样也是满足上面的恒等式的,而且我们可以发现:</p>
-<p>$$
+$$
 F_{ - n } = ( - 1 )^{ n - 1 } F_n , n \in \mathbb{ Z }
-$$</p>
+$$
 <h3 id="toc-37">斐波那契数与数论</h3>
 <p>如果我们考虑不断使用斐波那契递推式展开,不难发现:</p>
-<p>$$
+$$
 \begin{aligned}
 F_{ n + k } &amp; = F_k F_{ n + 1 } + F_{ k - 1 } F_n \\
 F_{ n + m + 1 } &amp; = F_{ n + 1 } F_{ m + 1 } + F_n F_m
 \end{aligned}
-$$</p>
+$$
 <p>另外,如果我们在上面这个式子中取$k = wn , w \in \mathbb{ N }$并使用归纳法,我们又可以得到一个性质:$F_{ kn }$是$F_n$的倍数,$k \in \mathbb{ Z }$.</p>
 <p>再观察这个式子,使用归纳法可以证明$\gcd ( F_{ n } , F_{ n - 1 } ) = 1$,进一步有:$\gcd ( F_{ n + m } , F_m ) = \gcd ( F_n , F_m )$.</p>
 <p>如果我们推广这个结论,就可以得到一个重要的性质:</p>
-<p>$$
+$$
 \gcd ( F_m , F_n ) = F_{ \gcd ( n , m ) }
-$$</p>
+$$
 <p>如果我们再一次推广这个结论,可以得到马蒂亚舍维奇引理:</p>
-<p>$$
+$$
 F_n^2 | F_m \Leftrightarrow nF_n | m , n &gt; 2
-$$</p>
+$$
 <p>这个引理的证明如下:</p>
 <p>由于$F_{ n + 1 } \equiv F_{ n - 1 } \pmod{ F_n }$.于是我们有:$F_{ 2 n } = F_n F_{ n + 1 } + F_{ n - 1 } F_n$,也就是$F_{ 2 n } \equiv 2 F_n F_{ n + 1 } \pmod{ F_n^2 }$.</p>
 <p>另外我们有:$F_{ 2 n + 1 } \equiv F_{ n + 1 }^2 \pmod{ F_n^2 }$.</p>
@@ -810,28 +810,28 @@ $$</p>
 <p>通过定义不难发现:$K_n ( 1 , 1 , . . . , 1 ) = F_{ n + 1 }$.</p>
 <p>继续观察式子,会发现它递归的过程相当于枚举是否消掉相邻的一对数$( x_{ n - 1 } , x_n )$.我们考虑用这样一种形式的字符串来表示最后某一项的情况:'.'为还没有消除掉的项,长度为$1$;'-'为已经消除了的两项,长度为$2$.那么$K_n ( x_1 , x_2 , . . . , x_n )$就可以表示为一个长度为$n$的字符串,其中若有$k$个'-',有$n - 2 k$个'.',则有$\binom{ n - k }{ k }$种不同的排列方式.</p>
 <p>于是我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 K_n ( z , z , . . . , z ) &amp; = \sum_{ k = 0 }^n \binom{ n - k }{ k } z^{ n - 2 k } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>另外,这也导出:$F_{ n + 1 } = \sum_{ k = 0 }^n \binom{ n - k }{ k } \\$.</p>
 <p>考虑上面的构造过程,不难发现$K_n ( x_1 , x_2 , . . . , x_n ) = K_n ( x_n , x_{ n - 1 } , . . . , x_1 )$.</p>
 <p>于是递归式可以写成:$K_n ( x_1 , x_2 , . . . , x_n ) = x_1 K_{ n - 1 } ( x_2 , x_3 , . . . x_{ n } ) + K_{ n - 2 } ( x_3 , x_4 , . . . , x_{ n } )$.</p>
 <p>进一步地,不断展开后得到:</p>
-<p>$$
+$$
 \begin{aligned}
 K_{ m + n } ( x_1 , . . . , x_m , x_{ m + 1 } , . . . , x_{ n + m } ) &amp; = \\
 K_m ( x_1 , . . . , x_m ) K_n ( x_{ m + 1 } , . . . , x_{ n + m } ) + K_{ m - 1 } ( x_1 , . . . , x_{ m - 1 } ) K_{ n - 1 } ( x_{ m + 2 } , . . . , x_{ n + m } )
 \end{aligned}
-$$</p>
+$$
 <p>另外,根据连项式的定义,不难导出$K_n ( x_1 , . . . , x_n + y ) = K_n ( x_1 , . . . , x_n ) + K_{ n - 1 } ( x_1 , . . . , x_{ n - 1 } ) y$.</p>
 <p>由这个公式可以推出:$\cfrac{ K_{ n + 1 } ( a_0 , . . . , a_n ) }{ K_n ( a_1 , . . . , a_n ) } = \cfrac{ K_n ( a_0 , . . . , a_{ n - 1 } + \cfrac{ 1 }{ a_n } ) }{ K_{ n - 1 } ( a_1 , . . . , a_{ n - 1 } + \cfrac{ 1 }{ a_n } ) }$.</p>
 <p>不断做这个迭代,于是我们可以得到连项式与连分数之间的关系:</p>
-<p>$$
+$$
 \cfrac{ K_{ n + 1 } ( a_0 , . . . , a_n ) }{ K_n ( a_1 , . . . , a_n ) } = a_0 + \cfrac{ 1 }{ a_1 + \cfrac{ 1 }{ a_2 + \cfrac{ 1 }{ a_3 + . . . } } }
-$$</p>
+$$
 <p>另外,这个与数论中的Stern-Brocot树有很大关系,暂略.</p>
 </div>
   <nav class="post-nav">

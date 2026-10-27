@@ -371,26 +371,26 @@ window.MathJax = {
 <hr>
 <p>下面我们证明$BPP\subseteq \Pi_2^p\cap \Sigma_2^p$,由于$BPP=coBPP$,我们只需要证明$BPP\subseteq \Sigma_2^p$即可,也即转化为$\exists u\forall vM(x,u,v)$的形状.也就是说:如果$x\in L$,则我们需要找到一个$u$,使得其可以控制住所有的$v$;否则,如果$x\notin L$,则每个$u$都存在不被它控制的$v$.</p>
 <p>我们知道随机性来自于$\forall$,我们这么设计一个$\Sigma_2^p$中的问题:</p>
-<p>$$
+$$
 \exists u_1,\cdots, u_k,\forall r\in \{0,1\}^m,\lor_{i=1}^k M(x,r\oplus u_i)
-$$</p>
+$$
 <p>下面我们来证明它的确可以和BPP中的问题互相转化:</p>
 <p>用error reduction我们知道:</p>
-<p>$$
+$$
 \begin{aligned}
 x\in L&amp;\Rightarrow Pr_r[M(x,r)=1]&gt;1-\frac{1}{2^n}\\
 x\notin L&amp;\Rightarrow Pr_r[M(x,r)=1]\leq \frac{1}{2^n}
 \end{aligned}
-$$</p>
+$$
 <p>当$x\notin L$时, 我们需要找到一个$r$,使得无论怎么选取$u_1,\cdots,u_k$,都拿不到任何一个$M(x,r\oplus u_i)=true$.这实际上是简单的,因为能让某一个$u_i$成功的$r$只有$\frac{2^m}{2^n}$个,总共也只有$k2^{m-n}$个.</p>
 <p>当$x\in L$时, 我们需要找到一组$\{u_1,\cdots,u_k\}$,使得它们的确可以控制住所有的$r$.这个存在性证明可以使用概率方法,考虑对于一个固定的$r$:</p>
-<p>$$
+$$
 \begin{aligned}
 &amp;Pr_{u_1,\cdots,u_k}[(\lor_{i=1}^k M(x,r\oplus u_i))=0]\\\
 =&amp; \left(Pr_{u}[M(x,r\oplus u)=0]\right)^k\\
 \leq&amp;\frac{1}{2^{nk}}
 \end{aligned}
-$$</p>
+$$
 <p>因此,随机一组$u_1,\cdots,u_k$,存在一个$r$出问题的概率可以被Union Bound控制在$\frac{2^m}{2^{nk}}$上.</p>
 <p>因此,如果我们能取$k$满足:</p>
 <ol>
@@ -441,11 +441,11 @@ $$</p>
 <p>我们构造这样一个语言$L=\{1^n|\text{二进制数n是p的二进制表示的前缀}\}$.我们证明$L\in BPP&#39;$,但$L\notin BPP$.</p>
 <p>先证明$L\in BPP&#39;$,考虑取$k=\lceil\log_2 n\rceil$,也就是$n$的位长.我们直接让一台PTM随机$2^{12k}=O(n^{12})$次,每次如果是$\delta_1$就写下一个$0$,如果是$\delta_0$就写下一个$1$,然后统计写下来的数字中$1$的个数,设为$X$.立刻见到$E(X)=2^{12k}p$.我们接下来取$X$的前$k$位,并将它与$n$比较,如果相等则接受,如果不相等则拒绝.</p>
 <p>由于我们上面对$p$的二进制位进行了一定的限制,我们知道如果$X$的前$4k$位不等于$a_1\cdots a_{4k}$,则要么至少多算了$2^{8k}$个$1$,要么至少少算了$2^{8k-1}$个$1$.</p>
-<p>容易见到,当$|X-E(X)|\geq 2^{8k-1}$才会发生判断错误.根据Hoeffding引理,我们知道:
+<p>容易见到,当$|X-E(X)|\geq 2^{8k-1}$才会发生判断错误.根据Hoeffding引理,我们知道:</p>
 $$
 P(|X- E(X)|\geq 2^{8k-1})\leq 2e^{-\frac{2^{16k-1}}{2^{12k}}}=o(1)
 $$
-接下来我们来证明$BPP$没办法判定这个问题.假设$BPP$可以判定这个问题,我们可以构造一个确定性图灵机$M$,它的目的是枚举$BPP$的所有可能的运行结果.可以见到$M$可以在有限时间内判定这个问题.既然如此,我们直接枚举$p$的前缀二进制串并不断用$M$判断就可以计算$p$,但这不可能,因为$p$是不可计算数.</p>
+<p>接下来我们来证明$BPP$没办法判定这个问题.假设$BPP$可以判定这个问题,我们可以构造一个确定性图灵机$M$,它的目的是枚举$BPP$的所有可能的运行结果.可以见到$M$可以在有限时间内判定这个问题.既然如此,我们直接枚举$p$的前缀二进制串并不断用$M$判断就可以计算$p$,但这不可能,因为$p$是不可计算数.</p>
 <h3 id="toc-20">XOR不在AC0中的证明</h3>
 <p>写这篇博客的动机是我正在复习《计算理论导论》一课, 然后我想起来课上讲过的一个非常大的定理: $XOR \notin AC_0$,这个定理的重要推论是由于$XOR\in NC_1$, 以及显然的$NC_0\subsetneq AC_0$, 因此得到了$NC_0\subsetneq AC_0\subsetneq NC_1$. 然后我想默写一遍这个定理的证明当复习x.</p>
 <hr>
@@ -483,13 +483,13 @@ $$
 <p>方法是,考虑在$\beta$的赋值的基础上多fix几位成为$\pi$,由于$\beta$并没有直接确定整个DNF的取值,因此一定不可能存在$T_j$被$\beta$变成$true$了,我们直接让$\pi$把$T_1^*$变成$true$,这样解码方拿到$\pi$,把它放在$f$上跑一遍,得到的第一个$T_j=true$就是$T_1^*$.然后它就可以通过辅助的东西(告诉它这个里面是哪些位置原本是自由变量)还原这一切.</p>
 <p>可是然后怎么处理$T_2^*$呢?我们注意我们一定要保证还原出来的$\beta$存在我们刚刚所说的那一条长度为$d$的路径,因此我们需要保证还原出来的$s-d$-restriction一定尚未确定整个$f$的取值,这就需要额外信息告诉:这条长度为$d$的路径在$T_1^*$上的取值.然后就可以继续按照上面的方式继续操作.</p>
 <p>现在我们完成了这一切,只需要$\Theta(d\log w)$的额外长度,因此总共的概率一定小于等于(用斯特林公式):</p>
-<p>$$
+$$
 \begin{aligned}
 Pr&amp;\leq \frac{\binom{n}{s-d}2^{n-s+d}(Cw)^d}{\binom{n}{s}2^{n-s}}\\
 &amp;\leq \left(\frac{s}{n-s+d}\right)^d(2Cw)^d\\
 &amp;\leq \left(\frac{\sigma}{1-\sigma}\right)^d(2Cw)^d
 \end{aligned}
-$$</p>
+$$
 <p>让$\sigma$取得足够小就可以获得我们的Switching Lemma.</p>
 <p>最后的收尾就是,取$w=\Theta(\log N)$,其中$N$是电路大小,考虑不断操作后会剩下大概$n&#39;=\Theta(\frac{n}{\log^k N})$,其中$k$是电路深度.</p>
 <p>如果最后某一个clause的width$&lt;n&#39;$,那只需要确定这个clause的width个变量就可以确定整个的取值,这显然不符合XOR的性质.因此$w=\Theta(\log N)\geq n&#39;$,这导出$N=\Theta(2^{\sqrt[k]{n}})$,这是一个远大于$poly(n)$的量级, 因此矛盾了.</p>
@@ -504,23 +504,23 @@ $$</p>
 <p>现在考虑一个$TQBF$问题$\psi=Q_1x_1\cdots Q_nx_n\phi(x_1,\cdots,x_n)$,我们知道任何一个公式其实都可以改成一个多项式,方法是$a\land b$改为$ab$,$\lnot a$改为$1-a$,因此我们可以把上述这个问题改为一个多项式判定的问题,现在我们要判定$f=\land_{b_1\in \{0,1\}}\lor_{b_2\in \{0,1\}}\cdots P_{\phi}(b_1,\cdots,b_n)$是否为$1$即可.</p>
 <p>在最开始的时候,prover先给verifier发一个大素数$p\in (2^{2n},2^{3n}]$,verifier用Miller-Rabin验证一下这个$p$确实是素数,然后我们开始后面的过程:</p>
 <p>我们下面展示这个证明最重要的设计:sumcheck protocol.简单来说,对于一个多项式$g$,以及一个常数$k$,每次prover都试图递归地向verifier宣称:</p>
-<p>$$
+$$
 k\equiv \land_{b_1\in \{0,1\}}\lor_{b_2\in \{0,1\}}\cdots g(b_1,\cdots,b_n)\pmod p
-$$</p>
+$$
 <p>(注意,虽然对于我们的初始多项式,它的取值只有$\{0,1\}$两种,但我们后面会引入更多复杂的多项式,它的取值会更丰富一些)</p>
 <p>此外,prover还会给verifier发一个多项式$s$的描述,并且宣称:$s(x)=\lor_{b_2\in \{0,1\}}\cdots g(x,\cdots,b_n)$.</p>
 <p>现在,verifier首先要做的就是检查是否有$s(0)\lor s(1)\equiv k\pmod p$,如果没有的话直接拒绝.否则,verifier随机选取一个$a\in F_p$,并计算一下$h_a(b_2,\cdots,b_n)=g(a,b_2,\cdots,b_n)$的表达式.要求prover继续证明:</p>
-<p>$$
+$$
 \begin{aligned}
 s(a)&amp;=\lor_{b_2\in \{0,1\}}\cdots g(a,\cdots,b_n)\\
 &amp;=\lor_{b_2\in \{0,1\}}\cdots h_a(b_2,\cdots,b_n)
 \end{aligned}
-$$</p>
+$$
 <p>现在我们来看prover,如果它是个好人,那他就不必全程造假,此时一旦该formula确实可满足,那它就会全程回答正确的答案,并且一路通过.可如果它是个坏人,该formula不满足,它就需要开始造假.</p>
 <p>我们来看一下什么时候prover可以造假成功,如果当前面对的是最后一步,并且实际上:</p>
-<p>$$
+$$
 k\not\equiv \land_{b_1\in \{0,1\}} g(b_1)\pmod p
-$$</p>
+$$
 <p>那此时verifier只需要检查一下$g(0)\land g(1)$就可以发现prover在说谎! 当场就拿下了.</p>
 <p>而如果在中间的步骤呢?prover显然不敢发一个真正的满足$s(x)=\lor_{b_2\in \{0,1\}}\cdots g(x,\cdots,b_n)$的多项式$s(x)$过去,不然verifier立刻就可以检查$s(0)$和$s(1)$判断对方在说谎.因此,prover必须伪造一个多项式$s&#39;(x)\not\equiv \lor_{b_2\in \{0,1\}}\cdots g(x,\cdots,b_n)$.</p>
 <p>此时,verifier随机一个$a$,如果随机后的结果满足$s&#39;(a)=\lor_{b_2\in \{0,1\}}\cdots h_a(b_2,\cdots,b_n)$,那prover就赢麻了,它后面只需要一直说实话就可以让verifier承认它一开始的命题.可是如果$s&#39;(a)\neq\lor_{b_2\in \{0,1\}}\cdots h_a(b_2,\cdots,b_n)$,prover就不得不继续说谎.</p>

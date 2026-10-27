@@ -71,12 +71,12 @@ window.MathJax = {
   <div class="post-content"><h3 id="toc-0">本质相同</h3>
 <h5 id="toc-1">Example1</h5>
 <p>对于所有满足以下条件的长度为$n$的序列$\{ a \}$,我们称它是好的:</p>
-<p>$$
+$$
 \begin{aligned}
 a_1 &amp; = 1 \\
 \forall 2 &amp; \leq i \leq n , a_i \leq \max \{ a_1 , \cdots , a_{ i - 1 } \} + 1
 \end{aligned}
-$$</p>
+$$
 <p>对于每一个数$1 \leq x \leq n$,求它在每个好的序列中出现的次数的平方和.其中$1 \leq n \leq 3000$,任意模数.</p>
 <p>首先注意到可以枚举每个数$x$出现的次数,这样就转化为对满足某些位置是$x$的好的序列计数.</p>
 <p>对于一个没有限制的好的序列,设$f_{ i , j }$表示$[ 1 , i ]$中填了$[ 1 , j ]$(其中$j$必填)的方案数,不难发现这就是第二类斯特林数.</p>
@@ -249,9 +249,9 @@ $$</p>
 <p>设$A$的正面朝上为$S_A$,$B$的为$S_B$.设$p_1 = \sum [ S_A &gt; S_B ] , p_2 = \sum [ S_A = S_B ] , p_3 = \sum [ S_A &lt; S_B ]$.</p>
 <p>当$a = b$,翻转所有硬币,自然有$p_1 = p_3$,又设$P = p_1 + p_2 + p_3 = 2^{ a + b }$,于是求得$p_2$即可得到答案.而$p_2 = \sum_{ i = 0 }^a \binom{ a }{ i } \binom{ b }{ i }$,用范德蒙德卷积的变式,有$p_2 = \binom{ a + b }{ a }$.</p>
 <p>同样,当$a &gt; b$时.我们设$p_4 = \sum [ a - S_A &gt; b - S_B ] , p_5 = \sum [ a - S_A = b - S_B ] , p_6 = \sum [ a - S_A &lt; b - S_B ]$.同样是翻转硬币的套路,自然有$p_4 = p_1 , p_5 = p_2 , p_6 = p_3$.注意到:$S_A \leq S_B \Rightarrow a - S_A &gt; b - S_B$,但逆命题不成立.不妨设$p_7 = \sum [ S_A &gt; S_B \land a - S_A &gt; b - S_B ]$.自然有:</p>
-<p>$$
+$$
 p_1 = p_4 = p_7 + p_2 + p_3 = p_7 + P - p_1
-$$</p>
+$$
 <p>于是只要求出$p_7$就可以求得$p_1$.</p>
 <p>考虑$p_7$如何求,注意到$[ S_A &gt; S_B \land a - S_A &gt; b - S_B ] = [ 0 &lt; S_A - S_B &lt; a - b ]$,我们可以枚举$S_A - S_B$,然后继续用范德蒙德卷积的变式.</p>
 <h5 id="toc-36">Example3([2022qbxt国庆Day4]C)</h5>
@@ -288,22 +288,22 @@ $$</p>
 <p>首先考虑数位dp,每次枚举当前的$k$个数中还有$x$个数被limit,这次又有$y$个数不用被limit,再枚举一下当前各位之和,然后可以写一个转移,复杂度$O ( k^4 \lg x )$</p>
 <p>然后想了好久发现这个东西好像优化不动了.</p>
 <p>冷静一下,注意到问题在于枚举,我们不妨把枚举换成容斥试试.设$g ( x )$为$\sum a$为$x$的方案数,那么可以通过容斥得知:</p>
-<p>$$
+$$
 g ( n ) = \sum_{ i = 0 }^k ( - 1 )^i \binom{ k }{ i } \binom{ n - i ( x + 1 ) + k - 1 }{ k - 1 }
-$$</p>
+$$
 <p>我们最后要求的答案也就是$\sum f ( n ) g ( n )$,继续推式子:</p>
-<p>$$
+$$
 ans = \sum_{ n = 0 }^{ kx } f ( n ) g ( n ) = \sum_{ n = 0 }^{ kx } f ( n ) \sum_{ i = 0 }^k ( - 1 )^i \binom{ k }{ i } \binom{ n - i ( x + 1 ) + k - 1 }{ k - 1 }
-$$</p>
-<p>$$
+$$
+$$
 = \sum_{ i = 0 }^k ( - 1 )^i \binom{ k }{ i } \sum_{ n = 0 }^{ kx } f ( n ) \binom{ n - i ( x + 1 ) + k - 1 }{ k - 1 }
-$$</p>
+$$
 <p>看上去好像推不动了.</p>
 <p>冷静一下,会发现$n$的取值远远大于$i , k$的取值.于是我们选择把组合数拆成一个$k - 1$次多项式,这样只需要处理出这个多项式的每一项的系数,然后就可以预处理后面的东西.</p>
 <p>拆二项式系数的时候要注意特判上指标小于下指标的情况.</p>
-<p>$$
+$$
 ans = \sum_{ i = 0 }^k ( - 1 )^i \binom{ k }{ i } \sum_{ j = 0 }^{ k - 1 } c_{ i , j } \sum_{ n = i ( x + 1 ) }^{ kx } f ( n ) n^j
-$$</p>
+$$
 <p>其中$c_{ i , j } = [ n^j ] \binom{ n - i ( x + 1 ) + k - 1 }{ k - 1 }$.</p>
 <p>这样我们就成功地分离出了一项$\sum_{ n = i ( x + 1 ) }^{ kx } f ( n ) n^j$,接下来考虑怎么处理这一项.</p>
 <p>考虑枚举$i$,然后设$dp_{ j , limit } = \sum_{ n = 0 }^{ limit } f ( n ) n^j$,考虑拿数位dp做这个东西,枚举当前位置$cnt$的取值$w$,根据二项式定理,$dp_{ a + b , limit } \leftarrow \binom{ a + b }{ b } dp_{ b , limit } f ( w ) ( w 10^{ cnt } )^a$,那么$\sum_{ n = i ( x + 1 ) }^{ kx } f ( n ) n^j = dp_{ j , kx } - dp_{ j , i ( x + 1 ) - 1 }$.</p>
@@ -481,7 +481,7 @@ $$</p>
 <h5 id="toc-85">Example1([NOIP2021] 方差)</h5>
 <p>首先我们注意到:设$b_i = a_i - a_{ i - 1 }$这个操作相当于交换$b_{ i - 1 }$和$b_i$.</p>
 <p>接下来推一下式子:</p>
-<p>$$
+$$
 \begin{aligned}
 n^2 S^2 &amp; = n \sum_{ i = 1 }^n a_i^2 - ( \sum_{ i = 1 }^n a_i )^2 \\
 &amp; = n \sum_{ i = 1 }^n ( \sum_{ j = 1 }^i b_j )^2 - ( \sum_{ i = 1 }^n ( n - i + 1 ) b_i )^2 \\
@@ -489,16 +489,16 @@ n^2 S^2 &amp; = n \sum_{ i = 1 }^n a_i^2 - ( \sum_{ i = 1 }^n a_i )^2 \\
 &amp; = n \sum_{ j = 1 }^n b_j \sum_{ k = 1 }^n b_k \times ( n - \max \{ j , k \} + 1 ) - \sum_{ j = 1 }^n ( n - j + 1 ) b_j \sum_{ k = 1 }^n ( n - k + 1 ) b_k \\
 &amp; = n \sum_{ j = 1 }^n b_{ n - j + 1 } \sum_{ k = 1 }^n b_{ n - k + 1 } \times \min \{ j , k \} - \sum_{ j = 1 }^n jb_{ n - j + 1 } \sum_{ k = 1 }^n kb_{ n - k + 1 }
 \end{aligned}
-$$</p>
+$$
 <p>令$c$为$b$的倒置数组,则原式</p>
-<p>$$
+$$
 \begin{aligned}
 &amp; = n \sum_{ j = 1 }^n c_{ j } \sum_{ k = 1 }^n c_{ k } \times \min \{ j , k \} - \sum_{ j = 1 }^n jc_{ j } \sum_{ k = 1 }^n kc_{ k } \\
 &amp; = 2 \sum_{ j = 1 }^n nc_j \sum_{ k = 1 }^j c_k k - 2 \sum_{ j = 1 }^n jc_{ j } \sum_{ k = 1 }^j kc_{ k } + \sum_{ i = 1 }^n c_i^2 i ( i - 1 ) \\
 &amp; = 2 \sum_{ j = 1 }^n ( n - j ) c_j \sum_{ k = 1 }^j c_k k + \sum_{ i = 1 }^n c_i^2 i ( i - 1 ) \\
 &amp; = \sum_{ j = 1 }^n ( n - j ) c_j \sum_{ k = 1 }^n c_k k + \sum_{ i = 1 }^n ( n - 1 ) ic_i^2
 \end{aligned}
-$$</p>
+$$
 <p><s>推到这一步发现好像没啥用但是推了好久懒得删了</s></p>
 <p>冷静一下,由于一开始的数列是单调递增的,所以改变后的数列一定也是单调递增的(差分数组均$\geq 0$).感性上理解,我们肯定是想让尽可能多的数接近绝对值,于是让重新排列后的差分数组呈现单最小值的峰看上去就很优秀.</p>
 <p>这样我们设计$dp_{ i , S }$表示现在填到第$i$小的$b$,$\sum a = S$的情况下最小的$\sum a^2$,复杂度$O ( n^2 a )$.</p>
@@ -517,64 +517,64 @@ $$</p>
 <h5 id="toc-90">Example3(AGC060D)</h5>
 <p>不妨设$C_p = \{ i | p_i &gt; p_{ i + 1 } , 1 \leq i &lt; n \}$.</p>
 <p>用一下组合意义,注意到答案等于:</p>
-<p>$$
+$$
 \sum_{ S } ( \sum_{ p } [ S = C_p ] )^2
-$$</p>
+$$
 <p>中间那个地方看上去是经典的计数容斥,我们对着它做容斥:</p>
-<p>$$
+$$
 \sum_{ S } ( \sum_{ p } [ S = C_p ] )^2 = \sum_{ S } ( \sum_{ S \subseteq T } \sum_{ p } ( - 1 )^{ | T | - | S | } [ T \subseteq C_p ] )^2
-$$</p>
+$$
 <p>这个咋做呢?我们考虑用组合意义展开:</p>
-<p>$$
+$$
 \begin{aligned}
 &amp; \sum_{ S } ( \sum_{ S \subseteq T } \sum_{ p } ( - 1 )^{ | T | - | S | } [ T \subseteq C_p ] )^2 \\
 = &amp; \sum_{ S } \sum_{ S \subseteq T_1 , T_2 } ( - 1 )^{ | T_1 | + | T_2 | } ( \sum_{ p } [ T_1 \subseteq C_p ] ) ( \sum_p [ T_2 \subseteq C_p ] )
 \end{aligned}
-$$</p>
+$$
 <p>注意到$S$屁用没有,直接交换枚举顺序.</p>
-<p>$$
+$$
 \begin{aligned}
 &amp; \sum_{ S } \sum_{ S \subseteq T_1 , T_2 } ( - 1 )^{ | T_1 | + | T_2 | } ( \sum_{ p } [ T_1 \subseteq C_p ] ) ( \sum_p [ T_2 \subseteq C_p ] ) \\
 = &amp; \sum_{ T_1 , T_2 } 2^{ | T_1 \cap T_2 | } ( - 1 )^{ | T_1 | + | T_2 | } ( \sum_{ p } [ T_1 \subseteq C_p ] ) ( \sum_p [ T_2 \subseteq C_p ] )
 \end{aligned}
-$$</p>
+$$
 <p>考虑$( \sum_{ p } [ T_1 \subseteq C_p ] )$怎么求,注意到这等价于所有$T_1$中的位置全都被钦定为$&gt;$,而其他位置任意,如果我们设所有以大于号连接的部分的长度为$l_1 , l_2 , . . . , l_k$,那么这里的答案就是$n ! \prod_{ i = 1 }^k \frac{ 1 }{ l_i ! }$.</p>
 <p>但我们很快发现了难点:$2^{ | T_1 \cap T_2 | }$这个东西是难求的,怎么办呢?</p>
 <p>我们考虑一下这个东西的意义:其实也就是在$T_1$和$T_2$中都是$&gt;$的位置,这个好像不太好求,因为$&gt;$是很平常的,但如果取补集就不一样了,取补集后意味着都是任意的位置的数量,而我们上面已经发现了:如果有一个位置对前后两个数字的约束是独立的,那我们可以把前后两个位置拆开.于是我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 &amp; \sum_{ T_1 , T_2 } 2^{ | T_1 \cap T_2 | } ( - 1 )^{ | T_1 | + | T_2 | } ( \sum_{ p } [ T_1 \subseteq C_p ] ) ( \sum_p [ T_2 \subseteq C_p ] ) \\
 = &amp; \sum_{ T_1 , T_2 } 2^{ ( ( n - 1 ) - | T_1 \cup T_2 | ) - ( n - 1 ) } ( - 2 )^{ | T_1 | + | T_2 | } ( \sum_{ p } [ T_1 \subseteq C_p ] ) ( \sum_p [ T_2 \subseteq C_p ] ) \\
 = &amp; 2^{ 1 - n } ( n ! )^2 \sum_{ T_1 } ( ( - 2 )^{ | T_1 | } \frac{ 1 }{ \prod l_{ 1 , i } ! } ) \sum_{ T_2 } ( ( - 2 )^{ | T_2 | } \frac{ 1 }{ \prod l_{ 2 , i } ! } ) 2^{ n - 1 - | T_1 \cup T_2 | }
 \end{aligned}
-$$</p>
+$$
 <p>其中$n - 1 - | T_1 \cup T_2 |$意味着均不在$T_1$和$T_2$中的位置的数量.为了给每一段连续的$&gt;$都分配权值,我们进行一个细小的修改:</p>
-<p>$$
+$$
 2^{ - 1 - n } ( n ! )^2 \sum_{ T_1 } ( ( - 2 )^{ | T_1 | + 1 } \frac{ 1 }{ \prod l_{ 1 , i } ! } ) \sum_{ T_2 } ( ( - 2 )^{ | T_2 | + 1 } \frac{ 1 }{ \prod l_{ 2 , i } ! } ) 2^{ n - 1 - | T_1 \cup T_2 | }
-$$</p>
+$$
 <p>写到这里应该就能发现,接下来必然要对$n - 1 - | T_1 \cup T_2 |$做整体操作.那我们再这么搞可能就很难受,我们采取这样的方式:对$T_1$和$T_2$求补集,这样它们的含义就变成了除了集合中的元素,剩下的全部被钦定为了$&gt;$,我们自然有:</p>
-<p>$$
+$$
 \begin{gathered}
 2^{ 1 + n } ( n ! )^2 \sum_{ T_1 } ( \frac{ 1 }{ ( - 2 )^{ | T_1 | + 1 } } \frac{ 1 }{ \prod l_{ 1 , i } ! } ) \sum_{ T_2 } ( \frac{ 1 }{ ( - 2 )^{ | T_2 | + 1 } } \frac{ 1 }{ \prod l_{ 2 , i } ! } ) 2^{ | T_1 \cap T_2 | } \\
 
 \end{gathered}
-$$</p>
+$$
 <p>这里已经很显然了,我们大概要做一个不断加段的做法,那此时$| T_1 \cap T_2 |$这个限制就显得尤其强,如果只是$S \subseteq T_1 , T_2$就会好做很多:我们可以钦定$S$作为分界线,然后把两边的东西卷起来.因此我们暴力拆开后面的式子:</p>
-<p>$$
+$$
 \begin{aligned}
 &amp; 2^{ 1 + n } ( n ! )^2 \sum_{ T_1 } ( \frac{ 1 }{ ( - 2 )^{ | T_1 | + 1 } } \frac{ 1 }{ \prod l_{ 1 , i } ! } ) \sum_{ T_2 } ( \frac{ 1 }{ ( - 2 )^{ | T_2 | + 1 } } \frac{ 1 }{ \prod l_{ 2 , i } ! } ) 2^{ | T_1 \cap T_2 | } \\
 = &amp; 2^{ 1 + n } ( n ! )^2 \sum_{ S } \sum_{ S \subseteq T_1 } ( \frac{ 1 }{ ( - 2 )^{ | T_1 | + 1 } } \frac{ 1 }{ \prod l_{ 1 , i } ! } ) \sum_{ S \subseteq T_2 } ( \frac{ 1 }{ ( - 2 )^{ | T_2 | + 1 } } \frac{ 1 }{ \prod l_{ 2 , i } ! } ) \\
 
 \end{aligned}
-$$</p>
+$$
 <p>令$f ( T ) = \sum_{ S \subseteq T } ( \frac{ 1 }{ ( - 2 )^{ | T | + 1 } } \frac{ 1 }{ \prod l_{ 2 , i } ! } ) \\$,则原式即:</p>
-<p>$$
+$$
 2^{ 1 + n } ( n ! )^2 \sum_{ S } ( \sum_{ S \subseteq T } f ( T ) )^2
-$$</p>
+$$
 <p>考虑下面这个东西怎么求:</p>
-<p>$$
+$$
 \sum_{ S } ( \sum_{ S \subseteq T } f ( T ) )^2
-$$</p>
+$$
 <p>注意到,如果我们把每一段($[ T_i , T_{ i + 1 } )$)的贡献求和,那么$f ( T )$相当于这些和乘起来,那么$( \sum_{ S \subseteq T } f ( T ) )^2$就是这些和的平方乘起来.换句话说,我们自然有$ans_n = \sum_{ m } ans_{ n - m } g^2_{ m }$,其中$g_m$表示长度为$m$的一段的贡献之和.而$g_{ n } = \sum_m g_{ n - m } \frac{ 1 }{ - 2 m ! }$.二者都可以使用分治FFT或多项式求逆解决.更进一步地,$h_i = \frac{ 1 }{ - 2 i ! } , G = \frac{ 1 }{ 1 - H } , F = \frac{ 1 }{ 1 - G }$.</p>
 <p>这题还有一个做法:tyy的变魔术做法.</p>
 <p>还是容斥,考虑将$( &gt; , &gt; )$容斥掉,这样我们有若干种对:$2 ( &lt; , &lt; ) , 1 ( e , e ) , - ( e , &lt; ) , - ( &lt; , e )$,然后我们发现两个序列联系得太紧了,我们考虑分配系数:$&lt; \rightarrow \sqrt{ 2 }$,$e \rightarrow - \frac{ 1 }{ \sqrt{ 2 } }$,但是这样发现$( e , e )$算错了,你把剩下的补上就行.你会发现这个式子和上面我们推的是等价的,但是变魔术.</p>
@@ -603,9 +603,9 @@ $$</p>
 <li>$| B | \ne 0$.</li>
 </ol>
 <p>我们有:</p>
-<p>$$
+$$
 \{ [ 1 , k ] , A , k + 1 , B \} \rightarrow \{ B , A , k + 1 , [ 1 , k ] \} \rightarrow \{ [ 1 , k + 1 ] , B , A \}
-$$</p>
+$$
 <ol start="2">
 <li>$| B | = 0 , | A | = 0$.</li>
 </ol>
@@ -614,9 +614,9 @@ $$</p>
 <li>$| B | = 0 , | A | \geq 2$.</li>
 </ol>
 <p>假设$A = A_1 A_2$,我们有:</p>
-<p>$$
+$$
 \{ [ 1 , k ] , A_1 , A_2 , k + 1 \} \rightarrow \{ A_2 , k + 1 , A_1 , [ 1 , k ] \} \rightarrow \{ [ 1 , k + 1 ] , A_1 , A_2 \}
-$$</p>
+$$
 <ol start="4">
 <li>$| B | = 0 , | A | = 1$.</li>
 </ol>

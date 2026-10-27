@@ -85,19 +85,19 @@ window.MathJax = {
 </ol>
 <h4 id="toc-2">分圆多项式</h4>
 <p>上复平面,设$S_k = ( \cos \frac{ 2 k \pi }{ n } , \sin \frac{ 2 k \pi }{ n } )$,也就是$z_k = \cos \frac{ 2 k \pi }{ n } + i \sin \frac{ 2 k \pi }{ n }$是方程$z^n - 1 = 0$的复根.我们把这个方程写开:</p>
-<p>$$
+$$
 z^n - 1 = ( z - 1 ) ( z^{ n - 1 } + z^{ n - 2 } + \cdots + 1 ) = 0
-$$</p>
+$$
 <p>不难发现$z = 1$是平凡解.</p>
 <p>我们不妨定义$f ( x ) = \prod_{ k = 1 }^n ( 1 + X^k ) = \sum_{ k \geq 0 } a_k X^k$,事实上我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 \frac{ 1 }{ n } \sum_{ j = 1 }^n f ( \omega_n^j ) &amp; = \frac{ 1 }{ n } \sum_{ j = 1 }^n \sum_{ k \geq 0 } a_k \omega^{ kj }_n \\
 &amp; = \frac{ 1 }{ n } \sum_{ k \geq 0 } a_k \sum_{ j = 1 }^n \omega_{ n }^{ kj } \\
 &amp; = \sum_{ j \geq 0 } a_{ jn } + \frac{ 1 }{ n } \sum_{ k \geq 0 , n \nmid k } a_k \frac{ 1 - \omega^{ nj }_n }{ 1 - \omega^{ k }_n } \omega_{ n }^j \\
 &amp; = \sum_{ j \geq 0 } a_{ jn }
 \end{aligned}
-$$</p>
+$$
 <p>事实上,我们令$d = \frac{ n }{ \gcd ( j , n ) }$,容易发现$f ( \omega_n^j ) = ( \prod_{ k = 1 }^d ( 1 + \omega_n^{ kj } ) )^{ \frac{ n }{ d } }$,又容易发现$n | jd$.</p>
 <p>接下来观察$X^d - 1 = \prod_{ k = 1 }^d ( X - \omega_{ n }^{ kj } )$,带入$X = - 1$得到$f ( \omega_n^j ) = \begin{cases}2^{ \frac{ n }{ d } } &amp; d \in \text{ odd } \\ 0 &amp; d \in \text{ even }\end{cases}$.</p>
 <p>接下来考虑拿到$\sum_{ j } a_{ jn }$,只需求$\frac{ 1 }{ n } \sum_{ j = 1 }^n f ( \omega_n^j ) = \frac{ 1 }{ n } \sum_{ d \in \text{ odd } , \gcd ( j , n ) = \frac{ n }{ d } } 2^{ \frac{ n }{ d } } = \frac{ 1 }{ n } \sum_{ d \in \text{ odd } } \varphi ( d ) 2^{ \frac{ n }{ d } }$.</p>
@@ -105,26 +105,26 @@ $$</p>
 <p>一步一步来.根据尺规作图理论:尺规作图只可以实现$+ , - , \times , \div , \sqrt[2]{  }$五种操作.而对于正$n$边形,显然只要我们能将$\cos \frac{ 2 \pi }{ n }$用只含上述五种操作和若干整数表示出来,那就一定可行.</p>
 <h6 id="toc-4">正五边形问题</h6>
 <p>观察正五边形在复平面上的图像,注意到有两对点互为共轭复数,我们令:</p>
-<p>$$
+$$
 \begin{aligned}
 \sigma_1 &amp; = z_1 + z_4 \\
 \sigma_2 &amp; = z_2 + z_3
 \end{aligned}
-$$</p>
+$$
 <p>不难验证:</p>
-<p>$$
+$$
 \begin{aligned}
 \sigma_1 + \sigma_2 &amp; = - 1 \\
 \sigma_1 \sigma_2 &amp; = - 1
 \end{aligned}
-$$</p>
+$$
 <p>可以求出复合条件的解,将$z$带入又有:</p>
-<p>$$
+$$
 \begin{aligned}
 \sigma_1 &amp; = 2 \cos \frac{ 2 \pi }{ 5 } \\
 \sigma_2 &amp; = 2 \cos \frac{ 4 \pi }{ 5 }
 \end{aligned}
-$$</p>
+$$
 <p>于是我们显然可以求得.</p>
 <h6 id="toc-5">正七边形</h6>
 <p>类似正五边形,最后会导出三次方程:根中含有三次根号,因此不行.</p>
@@ -142,7 +142,7 @@ $$</p>
 <li>$X_{a}(b)=X_{b}(a)$.</li>
 <li>$\sum_x X_a(x)=\begin{cases}|G|&amp;a=0\\0&amp;\text{otherwise}\end{cases}$</li>
 </ol>
-<p>考虑在上面的复内积$\langle X_a,X_b\rangle=\sum_x X_a(x)\bar {X_b}(x)=\sum_x X_{a-b}(x)$.这显然是一组正交基.从而任何一个$f:G\to \mathbb{C}$都可以写作$\sum \hat f(b)X_b$的形式,而且$\hat f(b)=\frac{1}{n}\langle f,X_b\rangle$,容易见到这里$\hat f(b)\in \mathbb{C}$,从而其实$\hat f$也是一个$G\to \mathbb{C}$的函数.那如果拿它来做内积会怎么样呢?请看:
+<p>考虑在上面的复内积$\langle X_a,X_b\rangle=\sum_x X_a(x)\bar {X_b}(x)=\sum_x X_{a-b}(x)$.这显然是一组正交基.从而任何一个$f:G\to \mathbb{C}$都可以写作$\sum \hat f(b)X_b$的形式,而且$\hat f(b)=\frac{1}{n}\langle f,X_b\rangle$,容易见到这里$\hat f(b)\in \mathbb{C}$,从而其实$\hat f$也是一个$G\to \mathbb{C}$的函数.那如果拿它来做内积会怎么样呢?请看:</p>
 $$
 \begin{aligned}
 \sum_b \hat f(b)\bar{X}_a(b)&amp;=\sum_b\sum_x \frac{1}{n}f(x)X_{-b}(x)X_{-a}(b)\\
@@ -152,7 +152,7 @@ $$
 &amp;=f(-a)
 \end{aligned}
 $$
-于是我们见到下面两个过程:</p>
+<p>于是我们见到下面两个过程:</p>
 <ol>
 <li>$\langle f,X_a\rangle=n \hat f(a)$.</li>
 <li>$\langle\hat f,X_{-a}\rangle=f(a)$.</li>
@@ -168,11 +168,11 @@ $$
 </ol>
 <p>考虑(1),显然$\Vert f\Vert^2=n\sum_x (\hat f(x))^2$.</p>
 <p>(2)(3)显然.</p>
-<p>对于(4):
+<p>对于(4):</p>
 $$
 \widehat{fg}(x)=\frac{1}{n}\langle fg,X_x\rangle
-$$</p>
-<p>对于(5):
+$$
+<p>对于(5):</p>
 $$
 \begin{aligned}
 \widehat{f*g}(x)&amp;=\frac{1}{n}\langle f*g,X_x\rangle\\
@@ -183,7 +183,7 @@ $$
 &amp;=\frac{1}{n}n\hat f(x)n\hat g(x)\\
 &amp;=n \hat f(x)\hat g(x)
 \end{aligned}
-$$</p>
+$$
 <h2 id="toc-8">多项式</h2>
 <h3 id="toc-9">多项式基础</h3>
 <h4 id="toc-10">点值表示法和系数表示法</h4>
@@ -198,14 +198,14 @@ $$</p>
 <h4 id="toc-11">拉格朗日插值</h4>
 <p>构造多项式$\sum_{ i = 0 }^{ n - 1 } y_i ( \prod_{ j = 0 \land j \ne i }^{ n - 1 } \frac{ x - x_j }{ x_i - x_j } )$.显然当$x = x_i$时,该多项式的答案为$y_i$.</p>
 <p>另外,如果$x_i = i$,不难发现这个式子可以写成:</p>
-<p>$$
+$$
 \begin{aligned}
 &amp; \sum_{ i = 1 }^{ n } y_i ( \prod_{ j = 1 \land j \ne i }^{ n } \frac{ x - x_j }{ x_i - x_j } ) \\
 \\
 = &amp; \sum_{ i = 1 }^n y_i ( \prod_{ j = 1 \land j \ne i }^n \cfrac{ x - j }{ i - j } ) \\
 = &amp; \sum_{ i = 1 }^n y_i ( - 1 )^{ n - i } ( \cfrac{ 1 }{ ( i - 1 ) ! ( n - i ) ! } \prod_{ j = 1 , j \ne i }^{ n } ( x - j ) )
 \end{aligned}
-$$</p>
+$$
 <h3 id="toc-12">多项式运算</h3>
 <p>考虑两个多项式相乘,如果我们已知他们的点值表示法,显然可以直接相乘.</p>
 <p>这为我们提供了一种思路:先将系数表示法转化为点值表示法,进行相乘之后再转化回系数表示法.</p>
@@ -216,63 +216,63 @@ $$</p>
 <p>将$n$次单位根(默认$n$是二的整次幂,如果少了的话补零,设$n = 2^w$)分别带入$A ( x )$得到点值向量$A ( \omega_n^k )$.</p>
 <p>如果朴素带入,复杂度显然不可接受.</p>
 <p>考虑:</p>
-<p>$$
+$$
 \begin{aligned}
 A ( x ) &amp; = \sum_{ i = 0 }^{ n - 1 } a_i x^i \\
 &amp; = \sum_{ i = 2 k , k \in \mathbb{ N } }^{ n - 2 } a_i x^i + \sum_{ i = 2 k + 1 , k \in \mathbb{ N } }^{ n - 1 } a_i x^i \\
 &amp; = \sum_{ i = 2 k , k \in \mathbb{ N } }^{ n - 2 } a_i x^{ 2 k } + x \sum_{ i = 2 k + 1 , k \in \mathbb{ N } }^{ n - 1 } a_i x^{ 2 k } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>令$A_2(x)=\sum_{i=2k+1,k\in\mathbb{N}}^{n-1}a_ix^{k}$, 那么$A(x)=A_1(x^2)+xA_2(x^2)$</p>
 <p>接下来分类讨论:</p>
 <ol>
 <li>$\forall 0 \leq k \leq \frac{ n }{ 2 } - 1 , k \in \mathbb{ N }$</li>
 </ol>
-<p>我们有:
+<p>我们有:</p>
 $$
 \begin{aligned}
 A ( \omega_n^k ) &amp; = A_1 ( \omega_n^{ 2 k } ) + \omega_n^k A_2 ( \omega_n^{ 2 k } ) \\
 
 \end{aligned}
-$$</p>
+$$
 <p>根据折半引理:</p>
-<p>$$
+$$
 \begin{aligned}
 A ( \omega_n^k ) &amp; = A_1 ( \omega_{ \frac{ n }{ 2 } }^k ) + \omega_n^k A_2 ( \omega^k_{ \frac{ n }{ 2 } } ) \\
 
 \end{aligned}
-$$</p>
+$$
 <p>这样我们处理完了前半部分.</p>
 <ol start="2">
 <li>$\forall \frac{ n }{ 2 } \leq k + \frac{ n }{ 2 } \leq n - 1 , k \in \mathbb{ N }$</li>
 </ol>
-<p>我们有:
+<p>我们有:</p>
 $$
 \begin{aligned}
 A ( \omega_n^{ k + \frac{ n }{ 2 } } ) &amp; = A_1 ( \omega_n^{ 2 k + n } ) + \omega_n^{ k + \frac{ n }{ 2 } } A_2 ( \omega_n^{ 2 k + n } ) \\
 
 \end{aligned}
-$$</p>
+$$
 <p>根据消去引理:</p>
-<p>$$
+$$
 \begin{aligned}
 A ( \omega_n^{ k + \frac{ n }{ 2 } } ) &amp; = A_1 ( \omega_{ \frac{ n }{ 2 } }^k ) - \omega_n^k A_2 ( \omega_{ \frac{ n }{ 2 } }^k ) \\
 
 \end{aligned}
-$$</p>
+$$
 <p>综上,我们可以递归处理$A_1$和$A_2$,然后合并得到$A$的答案,可以分治.</p>
 <h6 id="toc-16">IDFT</h6>
 <p>设$A ( \omega_n^k ) = d_k$,构造多项式$F ( x ) = \sum_{ i = 0 }^{ n - 1 } d_i x^i$.</p>
 <p>我们求出$F ( x )$的点值表示,设$c_k = F ( \omega_n^{ - k } )$,也即:</p>
-<p>$$
+$$
 \begin{aligned}
 c_k &amp; = \sum_{ i = 0 }^{ n - 1 } d_i ( \omega_n^{ - k } )^i \\
 &amp; = \sum_{ i = 0 }^{ n - 1 } ( \sum_{ j = 0 }^{ n - 1 } a_j ( \omega_n^i )^j ) ( \omega_n^{ - k } )^i \\
 &amp; = \sum_{ j = 0 }^{ n - 1 } a_j \sum_{ i = 0 }^{ n - 1 } ( \omega_n^i )^{ j - k } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>当$j = k$时,显然$\sum_{ i = 0 }^{ n - 1 } ( \omega_n^i )^{ j - k } = n$.</p>
 <p>否则根据等比数列求和公式,$\sum_{ i = 0 }^{ n - 1 } ( \omega_n^i )^{ j - k } = \frac{ \omega^0_n [ ( \omega_n^{ j - k } )^n - 1 ] }{ \omega_n^{ j - k } - 1 } = 0$.所以$\sum_{ i = 0 }^{ n - 1 } ( \omega_n^i )^{ j - k } = n [ j = k ]$.那么我们有$a_k=\frac{c_k}{n}$</p>
 <h6 id="toc-17">写法</h6>
@@ -330,25 +330,25 @@ $$</p>
 <p>另外,注意到$998244352 = 2^{ 23 } \times 7 \times 17$,而$2^{ 23 } \approx 8 \times 10^6$.因而,当$n \leq 8 \times 10^6$的时候,$g_n$可以直接求出.这也是为什么大部分NTT题目都使用$998244353$作为模数的原因.</p>
 <h5 id="toc-19">范德蒙德矩阵理解</h5>
 <p>范德蒙德矩阵形如:</p>
-<p>$$
+$$
 \begin{bmatrix}
 1 &amp; \alpha_1 &amp; \cdots &amp; \alpha_1^{ n - 1 } \\
 1 &amp; \alpha_2 &amp; \cdots &amp; \alpha_2^{ n - 1 } \\
 \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
 1 &amp; \alpha_m &amp; \cdots &amp; \alpha_m^{ n - 1 }
 \end{bmatrix} \in \mathbb{ R }^{ m \times n }
-$$</p>
+$$
 <p>如果取单位根,我们有:</p>
-<p>$$
+$$
 \begin{bmatrix}
 1 &amp; 1 &amp; \cdots &amp; 1 \\
 1 &amp; \omega_n^1 &amp; \cdots &amp; \omega_2^{ n - 1 } \\
 \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
 1 &amp; \omega_n^{ n - 1 } &amp; \cdots &amp; \omega_n^{ ( n - 1 )^2 }
 \end{bmatrix} \in \mathbb{ R }^{ n \times n }
-$$</p>
+$$
 <p>这就是我们在做FFT(一个线性变换)的时候的变换矩阵.所以我们有:</p>
-<p>$$
+$$
 \begin{bmatrix}
 1 &amp; 1 &amp; \cdots &amp; 1 \\
 1 &amp; \omega_n^1 &amp; \cdots &amp; \omega_2^{ n - 1 } \\
@@ -360,7 +360,7 @@ $$</p>
 \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
 1 &amp; \omega_n^{ - ( n - 1 ) } &amp; \cdots &amp; \omega_n^{ - ( n - 1 )^2 }
 \end{bmatrix}
-$$</p>
+$$
 <h4 id="toc-20">分治FFT</h4>
 <p>给定$g ( x )$和$f ( 0 )$,求$f ( x ) = \sum_{ y = 1 }^x f ( x - y ) g ( y )$,答案对$998244353$取膜.</p>
 <p>考虑分治,假如我们已经知道了$f ( x ) , x \in [ 1 , \frac{ n }{ 2 } ]$.那我们可以计算出这段部分对$f ( y ) ， y \in [ \frac{ n }{ 2 } + 1 , n ]$的贡献.</p>
@@ -370,34 +370,34 @@ $$</p>
 <p>首先不妨设$n = 2^k$.</p>
 <p>如果我们已知$P ( x ) Q_{ k - 1 } ( x ) \equiv 1 \pmod{ x^{ 2^{ k - 1 } } }$,同时肯定有$P ( x ) Q_{ k } ( x ) \equiv 1 \pmod{ x^{ 2^{ k - 1 } } }$,相减得到$Q_k ( x ) - Q_{ k - 1 } ( x ) \equiv 0 \pmod{ x^{ 2^{ k - 1 } } }$.</p>
 <p>两边平方:</p>
-<p>$$
+$$
 \begin{aligned}
 Q_k^2 ( x ) + Q^2_{ k - 1 } ( x ) - 2 Q_k ( x ) Q_{ k - 1 } ( x ) &amp; \equiv 0 \pmod{ x^{ 2^k } } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>两边乘一下$P ( x )$:</p>
-<p>$$
+$$
 \begin{aligned}
 Q_k ( x ) - 2 Q_{ k - 1 } ( x ) + P ( x ) Q_{ k - 1 }^2 ( x ) &amp; \equiv 0 \pmod{ x^n } \\
 Q_k ( x ) &amp; \equiv 2 Q_{ k - 1 } ( x ) - P ( x ) Q_{ k - 1 }^2 ( x ) \pmod{ x^n } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>根据主定理，这么做复杂度是$O ( n \log_2 n )$的.</p>
 <p>同时,多项式求逆可以解决上面提到的分治FFT.我们注意到分治FFT的条件等价于:</p>
-<p>$$
+$$
 \begin{aligned}
 F ( x ) &amp; \equiv F ( x ) G ( x ) + f_0 \pmod{ x^{ n + 1 } } \\
 F ( x ) &amp; = \frac{ f ( 0 ) }{ 1 - G ( x ) } \pmod{ x^{ n + 1 } }
 \end{aligned}
-$$</p>
+$$
 <p>于是可以直接做多项式求逆.</p>
 <h4 id="toc-22">多项式除法</h4>
 <p>对于$n$次多项式$F ( x )$和$m$次多项式$G ( x )$,找到$Q ( x ) , R ( x )$使得$F ( x ) = G ( x ) Q ( x ) + R ( x )$.</p>
 <p>考虑对于$n$次多项式$F ( x )$,令$F_R ( x ) = x^n F ( \cfrac{ 1 }{ x } )$,如果设$f_i$为其$x^i$项前的系数,不难发现$f_R ( i ) = f ( n - i )$.</p>
 <p>那么我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 F ( x ) &amp; = G ( x ) Q ( x ) + R ( x ) \\
 F ( \cfrac{ 1 }{ x } ) &amp; = G ( \cfrac{ 1 }{ x } ) Q ( \cfrac{ 1 }{ x } ) + R ( \cfrac{ 1 }{ x } ) \\
@@ -406,73 +406,73 @@ F_R ( x ) &amp; = G_R ( x ) Q_R ( x ) + x^{ n - m + 1 } R_R ( x ) \\
 F_R ( x ) &amp; \equiv G_R ( x ) Q_R ( x ) \pmod{ x^{ n - m + 1 } } \\
 Q_R ( x ) &amp; \equiv F_R ( x ) G_R^{ - 1 } ( x ) \pmod{ x^{ n - m + 1 } }
 \end{aligned}
-$$</p>
+$$
 <p>于是只要做一遍多项式求逆即可求得$Q ( x )$,再做一遍相减既可以得到$R ( x )$.</p>
 <h4 id="toc-23">多项式ln</h4>
 <p>给出$n - 1$次多项式$A ( x )$,求一个多项式$B ( x )$,满足$B ( x ) \equiv \ln A ( x )$.</p>
 <p>我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 B ( x ) &amp; \equiv \ln A ( x ) \pmod{ x^n } \\
 B &#39; ( x ) &amp; \equiv \cfrac{ A &#39; ( x ) }{ A ( x ) } \pmod{ nx^{ n - 1 } } \\
 B ( x ) &amp; \equiv \int \cfrac{ A &#39; ( x ) }{ A ( x ) } dx \pmod{ x^n } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>另外,考虑中间求导的过程中,其实模数也要相应发生变化,但是由于模数是从更高次变低,而最后积分的时候又要变回来,所以可以直接忽略变化.</p>
 <p>定理:在模意义下当且仅当$[ x^0 ] f ( x ) = 1$的时候,$f ( x )$有对数多项式.</p>
 <p>我们对最后再做一步:</p>
-<p>$$
+$$
 \begin{aligned}
 B ( x ) &amp; \equiv \int_0^x \cfrac{ A &#39; ( t ) }{ A ( t ) } dt + B ( 0 ) \pmod{ x^n } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>首先$B ( 0 ) = \ln A ( 0 ) = \ln a_0$,如果$a_0 \in \mathbb{ Q } \land a_0 \ne 1$,则$B ( 0 ) \notin \mathbb{ Q }$,因此不能放到模意义下,自然不存在对数多项式.</p>
 <p>若$[ x^0 ] f ( x ) = 1$的时候,$B ( 0 ) = 0$,因此可以直接求出答案.</p>
 <h4 id="toc-24">牛顿迭代</h4>
 <p>给定多项式$G ( x )$,求一个多项式$F ( x )$满足$G ( F ( x ) ) \equiv 0 \pmod{ x^n }$.</p>
 <p>首先$n = 1$的时候,也就是求$G ( F ( x ) ) \equiv 0 \pmod{ x }$.这个要根据具体题目具体分析求出.</p>
 <p>假设我们已经求出了在$\bmod x^{ \lceil \frac{ n }{ 2 } \rceil }$意义下的答案$F_0 ( x )$,我们考虑在$F_0 ( x )$处做泰勒展开:</p>
-<p>$$
+$$
 \begin{aligned}
 G ( F ( x ) ) &amp; = \sum_{ k = 0 }^{ + \infty } \frac{ G^{ ( k ) } ( F_0 ( x ) ) }{ k ! } ( F ( x ) - F_0 ( x ) )^k \equiv 0 \pmod{ x^n } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>考虑$F ( x ) - F_0 ( x )$,由于$F_0 ( x ) \equiv F ( x ) \pmod{ x^{ \lceil \frac{ n }{ 2 } \rceil } }$,因此,因此$( F ( x ) - F_0 ( x ) )^2 \equiv 0 \pmod{ x^n }$.</p>
 <p>于是我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 \sum_{ k = 0 }^{ + \infty } \frac{ G^{ ( k ) } ( F_0 ( x ) ) }{ k ! } ( F ( x ) - F_0 ( x ) )^k &amp; \equiv 0 \pmod{ x^n } \\
 G ( F_0 ( x ) ) + G &#39; ( F_0 ( x ) ) ( F ( x ) - F_0 ( x ) ) &amp; \equiv 0 \pmod{ x^n } \\
 F ( x ) &amp; \equiv F_0 ( x ) - \frac{ G ( F_0 ( x ) ) }{ G &#39; ( F_0 ( x ) ) } \pmod{ x^n }
 \end{aligned}
-$$</p>
+$$
 <p>牛顿迭代可以用来证明多项式求逆的式子同样正确.</p>
 <h4 id="toc-25">多项式开方</h4>
 <p>给定$h ( x )$,设$g ( f ( x ) ) = f^2 ( x ) - h ( x )$,求零点.</p>
 <p>根据牛顿迭代,有:</p>
-<p>$$
+$$
 f ( x ) \equiv f_0 ( x ) - \frac{ f_0^2 ( x ) - h ( x ) }{ 2 f_0 ( x ) } \equiv \frac{ f_0^2 ( x ) + h ( x ) }{ 2 f_0 ( x ) } \pmod{ x^n }
-$$</p>
+$$
 <p>还没完,用牛顿迭代前一定要求$g ( a ) \equiv 0 \pmod{ x^n }$的解,也就是$[ x^0 ] h ( x )$的开根,用二次剩余算.</p>
 <h4 id="toc-26">多项式exp</h4>
 <p>给定$h ( x )$,设$g ( f ( x ) ) = \ln f ( x ) - h ( x )$,求零点.</p>
 <p>根据牛顿迭代,有:</p>
-<p>$$
+$$
 \begin{aligned}
 f ( x ) &amp; \equiv f_0 ( x ) - \frac{ \ln f_0 ( x ) - h ( x ) }{ \frac{ 1 }{ f_0 ( x ) } } \pmod{ x^n } \\
 &amp; \equiv f_0 ( x ) ( 1 - \ln f_0 ( x ) + h ( x ) ) \pmod{ x^n }
 \end{aligned}
-$$</p>
+$$
 <p>还没完,还需要求$g ( a ) \equiv 0 \pmod{ x^n }$的解,注意到存在$\exp$当且仅当$[ x^0 ] g ( x ) \equiv 0$,此时$f ( x ) \equiv 1 \pmod{ x }$.</p>
 <h4 id="toc-27">多项式快速幂</h4>
 <p>求$\ln$后求$\exp$即可,唯一的问题是为什么指数可以对$p$取膜.</p>
 <p>我们有一个结论:</p>
-<p>$$
+$$
 f ( x^p ) \equiv f ( x )^p \pmod{ p }
-$$</p>
+$$
 <p>这个结论很简单,注意到$( a + b )^p \equiv a^p + b^p \pmod{ p }$即可.</p>
 <p>而又由于$n &lt; p$,因此$f ( x )^p \equiv f ( 0 ) \pmod{ p }$,通常取$f ( 0 ) = 1$,于是就可以直接对$p$取膜.</p>
 <h4 id="toc-28">多项式运算全家桶(重载运算符版)</h4>
@@ -675,7 +675,7 @@ poly q_sqrt,tmp_sqrt;
 <p>若$j , k \subseteq i$,则$j \lor k \subseteq i$,逆命题同样成立.</p>
 <p>若$j , k \supseteq i$,则$j \land k \supseteq i$,逆命题同样成立.</p>
 <p>设$a , b , c$的高维前缀和分别为$A , B , C$,我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 A_i B_i &amp; = ( \sum_{ j \subseteq i } a_j ) ( \sum_{ k \subseteq i } b_k ) \\
 &amp; = \sum_{ j , k \subseteq i } a_i b_k \\
@@ -683,9 +683,9 @@ A_i B_i &amp; = ( \sum_{ j \subseteq i } a_j ) ( \sum_{ k \subseteq i } b_k ) \\
 &amp; = C_i \\
 
 \end{aligned}
-$$</p>
+$$
 <p>现在考虑已知$C$求$c$,本质上是一个反演.注意到$\sum_{ r \subseteq p } ( - 1 )^{ | r | } = \sum_{ k = 0 }^{ | p | } C_{ | p | }^k ( - 1 )^k = [ p = 0 ] \\$,我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 c ( p ) &amp; = \sum_{ q \subseteq p } [ p - q = 0 ] c ( q ) \\
 &amp; = \sum_{ q \subseteq p } \sum_{ r \subseteq ( p - q ) } ( - 1 )^{ | r | } c ( q ) \\
@@ -694,7 +694,7 @@ c ( p ) &amp; = \sum_{ q \subseteq p } [ p - q = 0 ] c ( q ) \\
 &amp; = \sum_{ r \subseteq p } ( - 1 )^{ | p | - | r | } C ( r ) \\
 
 \end{aligned}
-$$</p>
+$$
 <p>于是有$c ( S ) = \sum_{ T \subseteq S } ( - 1 )^{ | S | - | T | } C ( T ) \\$(实际上就是个差分的过程).</p>
 <p>因而做两遍高维前缀和再反推回去即可,复杂度$O ( 2^n n )$.</p>
 <p>与卷积即改为高维后缀和.</p>
@@ -730,7 +730,7 @@ $$</p>
 <p>快速沃尔什变换(FWT):</p>
 <p>定义集合幂级数$FWT ( a )$,满足$FWT ( a )_i = \sum_{ j = 0 }^{ 2^n - 1 } ( - 1 )^{ | i \land j | } a_j \\$.</p>
 <p>那么有:</p>
-<p>$$
+$$
 \begin{aligned}
 FWT ( c )_i &amp; = \sum_{ j = 0 }^{ 2^n - 1 } ( - 1 )^{ | i \land j | } c_j \\
 &amp; = \sum_{ j = 0 }^{ 2^n - 1 } ( - 1 )^{ | i \land j | } \sum_{ k = 0 }^{ 2^n - 1 } \sum_{ l = 0 }^{ 2^n - 1 } [ k \oplus l = j ] a_k b_l \\
@@ -739,7 +739,7 @@ FWT ( c )_i &amp; = \sum_{ j = 0 }^{ 2^n - 1 } ( - 1 )^{ | i \land j | } c_j \\
 &amp; = FWT ( a )_i FWT ( b )_i \\
 
 \end{aligned}
-$$</p>
+$$
 <p>时间复杂度$O ( 2^n n )$.</p>
 <p>逆运算的话考虑实现过程,反向就行.不过可以把过程中乘上的$\frac{ 1 }{ 2 }$都提出来乘到最后.</p>
 <p>FMT可以看作是FWT在解决与/或卷积时的特例.</p>
@@ -777,14 +777,14 @@ $$</p>
 </ol>
 <p>我们设$FWT ( A )_i = \sum_{ j } w ( i , j ) A_j$,我们想要做的就是构造一组满足上述条件的$w$.</p>
 <p>考虑:</p>
-<p>$$
+$$
 \begin{aligned}
 FWT ( C )_i &amp; = FWT ( A )_i FWT ( B )_i \\
 \sum_{ j } w ( i , j ) C_j &amp; = \sum_{ j , k } w ( i , j ) w ( i , k ) A_j B_k
 \end{aligned}
-$$</p>
+$$
 <p>再考虑:</p>
-<p>$$
+$$
 \begin{aligned}
 C &amp; = A * B \\
 C_i &amp; = \sum_{ k \oplus l = i } A_k B_l \\
@@ -792,18 +792,18 @@ C_i &amp; = \sum_{ k \oplus l = i } A_k B_l \\
 \sum_{ j , k } w ( i , j ) w ( i , k ) A_j B_k &amp; = \sum_j w ( i , j ) \sum_{ k \oplus l = j } A_k B_l \\
 \sum_{ j , k } w ( i , j ) w ( i , k ) A_j B_k &amp; = \sum_{ j , k } A_j B_k w ( i , j \oplus k )
 \end{aligned}
-$$</p>
+$$
 <p>比较两边系数,有$w ( i , j ) w ( i , k ) = w ( i , j \oplus k )$.只要满足这个条件,我们就能构造出一组满足条件(1)的线性变换.如果这个线性变换对应的矩阵可逆,那么就满足了条件(2).</p>
 <p>而由于$\oplus$是集合的运算,我们可以对二进制分开考虑.换句话说,如果$a = \sum_{ i = 0 } a_i 2^i , b = \sum_{ i = 0 } b_i 2^i$,那么$w ( a , b ) = \prod_{ i = 0 } w ( a_i , b_i )$一定是满足条件的.</p>
 <p>这样我们就可以只求一个$2 \times 2$的线性变换矩阵就好.我们接下来将对三种常见的基础位运算($\lor , \land , xor ( \oplus )$)分别讨论这个矩阵.我们先来解决第三个问题:如何快速求出$FWT ( a )$呢?</p>
 <p>考虑和FFT一样折半,令$i_0$为$i$的最高位是否是$1$,$i &#39;$为$i$去掉最高位后的二进制数字,令$n = 2^m$我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 FWT ( A )_i &amp; = \sum_{ j = 0 }^{ 2^m - 1 } w ( i , j ) A_j \\
 &amp; = \sum_{ j = 0 }^{ 2^{ m - 1 } - 1 } w ( i , j ) A_j + \sum_{ j = 2^{ m - 1 } }^{ 2^m - 1 } w ( i , j ) A_j \\
 &amp; = w ( i_0 , 0 ) \sum_{ j = 0 }^{ 2^{ m - 1 } - 1 } w ( i &#39; , j &#39; ) A_j + w ( i_0 , 1 ) \sum_{ j = 2^{ m - 1 } }^{ 2^m - 1 } w ( i &#39; , j &#39; ) A_j
 \end{aligned}
-$$</p>
+$$
 <p>这样就实现了规模减半,复杂度$O ( mn )$.</p>
 <p>下面我们设FWT的变换矩阵为$\begin{bmatrix}w ( 0 , 0 ) &amp; w ( 0 , 1 ) \\ w ( 1 , 0 ) &amp; w ( 1 , 1 )\end{bmatrix}$.顺便一提,不难发现,最后对整体做的矩阵是这个矩阵的克罗内多积.</p>
 <h6 id="toc-34">或卷积</h6>
@@ -816,19 +816,19 @@ $$</p>
 <p>我们再从生成函数角度理解一下FWT.</p>
 <p>我们重新定义幂乘法:$x^S x^T = x^{ S \oplus T }$,显然幂乘法该满足的性质它都满足.</p>
 <p>观察FWT的式子:</p>
-<p>$$
+$$
 \begin{aligned}
 FWT ( A )_S &amp; = \sum_{ T = 0 }^{ 2^n - 1 } ( - 1 )^{ | S \land T | } a_T \\
 IFWT ( A )_S &amp; = \frac{ 1 }{ 2^n } FWT ( A )_S
 \end{aligned}
-$$</p>
+$$
 <p>这等价于:</p>
-<p>$$
+$$
 \begin{aligned}
 [ x^S ] FWT ( A ) &amp; = \sum_{ T = 0 }^{ 2^n - 1 } ( - 1 )^{ | S \land T | } a_T \\
 [ x^S ] IFWT ( A ) &amp; = [ x^S ] \frac{ 1 }{ 2^n } FWT ( A )
 \end{aligned}
-$$</p>
+$$
 <h4 id="toc-38">子集卷积</h4>
 <p>子集卷积:$c_i = \sum_{ j } \sum_{ k } [ j \land k = \emptyset , j \lor k = i ] a_j b_k \\$.</p>
 <p>意识到该卷积与或卷积的差别在于:或卷积会多累加一些$[ j \land k \ne \emptyset ]$的答案,而$[ j \land k = \phi , j \lor k = i ] = [ | j | + | k | = | i | , j \lor k = i ] \\$.</p>
@@ -840,7 +840,7 @@ $$</p>
 <p>设$f_i ( n )$表示操作$n$次后第一次变成$i$的概率,$g_i ( n )$表示操作$n$次后变成$i$的概率.$F , G$分别是其生成函数.</p>
 <p>注意到$G_i = F_i G_0 , F_i = \frac{ G_i }{ G_0 }$,而$F_i &#39; ( 1 )$就是期望.接下来的问题在于如何求$G$.</p>
 <p>接下来涉及到的东西就很本质了,我们一开始先把$a_i \rightarrow \frac{ a_i }{ \sum a }$,然后做$A = FWT ( a )$,注意这里$A_0 = \sum a = 1$,FWT自身有很好的性质:$a = \frac{ 1 }{ 2^N } FWT ( A )$.我们做$n$次操作后得到的概率数组也就是$\frac{ 1 }{ 2^N } FWT ( A^n )$.展开FWT的式子,自然有:</p>
-<p>$$
+$$
 \begin{aligned}
 g_i ( n ) &amp; = \sum_{ j = 0 }^{ 2^N - 1 } ( - 1 )^{ | i \land j | } A_j^n x^n \\
 G_i &amp; = \sum_{ j = 0 }^{ 2^N - 1 } ( - 1 )^{ | i \land j | } \frac{ 1 }{ 1 - A_j x } \\
@@ -848,7 +848,7 @@ F_i &amp; = \frac{ G_i }{ G_0 } \\
 F_i &#39; &amp; = \frac{ G_i &#39; G_0 - G_0 &#39; G_i }{ G_0^2 } \\
 &amp; = \frac{ ( \sum_{ j = 0 }^{ 2^N - 1 } ( - 1 )^{ | i \land j | } \frac{ A_j }{ ( 1 - A_j x )^2 } ) ( \sum_{ j = 0 }^{ 2^N - 1 } \frac{ 1 }{ 1 - A_j x } ) - ( \sum_{ j = 0 }^{ 2^N - 1 } \frac{ A_j }{ ( 1 - A_j x )^2 } ) ( \sum_{ j = 0 }^{ 2^N - 1 } ( - 1 )^{ | i \land j | } \frac{ 1 }{ 1 - A_j x } ) }{ ( \sum_{ j = 0 }^{ 2^N - 1 } \frac{ 1 }{ 1 - A_j x } )^2 }
 \end{aligned}
-$$</p>
+$$
 <p><s>(我草这个式子太顶级了)</s></p>
 <p>但是我们冷静一下,这个题与普通生成函数不同的地方在于,我们要求$F &#39;_i ( 1 )$,因此我们直接把$x = 1$带入算一算就好.不过由于$A_0 = 1$,我们必须要解决分母为$0$的情况,解决的方法是分母乘上$( 1 - x )$,这样就消掉了$j = 0$的项,同时分子由于是减法可以抵消一下.</p>
 <p>然后大概做做吧,感觉太顶级了.</p>
@@ -866,29 +866,29 @@ $$</p>
 <p>然后接下来开始一波顶级操作(下面的操作全部基于行向量+行操作):</p>
 <p>引理1:$FWT ( A )$要么是$2^k$,要么是$0$.</p>
 <p>考虑:</p>
-<p>$$
+$$
 A * A = A \times 2^k
-$$</p>
+$$
 <p>这句是为啥呢?因为对于右边的每一个数字$x$和左边的一个数字$y$,如果它们都在线性基中,一定存在一个数字$z$满足$y \oplus z = x$,不然就是$0$.</p>
 <p>于是我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 FWT ( A )_i \cdot FWT ( A )_i &amp; = FWT ( A )_i \times 2^k \\
 FWT ( A )_i &amp; = 0 \lor 2^k
 \end{aligned}
-$$</p>
+$$
 <p>引理2:$FWT ( A )_i = 2^k \Leftrightarrow \forall x , A_x \ne 0 , | i \land x | \equiv 0 \pmod{ 2 }$.</p>
 <p>直接展开上面的式子,用$\sum_{ S \subseteq T } ( - 1 )^{ | S | } = [ T = \emptyset ]$.</p>
 <p>引理3:$FWT ( A )$中值为$2^k$的位置构成一个线性基.</p>
 <p>只需要证明封闭性就好,注意到如果$i$满足条件,$j$满足条件,一开始做FWT时我们已经注意到:$( i \oplus j ) \land x = ( i \land x ) \oplus ( j \land x )$.于是这个引理也显然成立.</p>
 <p>引理4:$FWT ( A )$中值为$2^k$的位置构成的线性基的大小是$m - k$.</p>
 <p>设这些位置构成的空间是$B$,$B_S = 1$当且仅当$S$在这个空间中.我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 FWT ( A ) &amp; = B \times 2^k \\
 A &amp; = IFWT ( B ) \times 2^k
 \end{aligned}
-$$</p>
+$$
 <p>注意到$a_0 = 1$,也就是$\frac{ 2^k }{ 2^m } \sum b = 1 , \sum b = 2^{ m - k }$,这就证明了引理.</p>
 <p>引理5:将$A$的线性基对应的矩阵从前往后消成最简,$B$的线性基对应的矩阵从后往前消成最简,上$A$下$B$拼成一个$m \times m$的矩阵,那么这个矩阵关于主对角线对称.</p>
 <p>首先根据$rank ( A ) + rank ( B ) = k + m - k = m$可以知道主对角线一定全是$1$,然后我们任取$A$中的一个基$x$和$B$中的一个基$y$,应该有$| x \land y | \equiv 0 \pmod{ 2 }$.不难发现此时必定对称(画个图,不对称的话考虑主元对他俩的贡献就不是偶数了).</p>
@@ -896,9 +896,9 @@ $$</p>
 <p>引理6:$FWT ( F^c )_i$只和$| i |$有关.</p>
 <p>因为$F^c_i$只和$| i |$有关,这里考虑一下对称性就可以.因此设$w_{ d }^c = FWT ( F^c )_i , | i | = d$.</p>
 <p>然后注意到$w_d^c = \sum_{ i = 0 }^{ 2^m - 1 } ( - 1 )^{ | i \land ( 2^d - 1 ) | } [ | i | = c ]$.组合意义展开一下:</p>
-<p>$$
+$$
 w_d^c = \sum_{ j = 0 }^{ d } ( - 1 )^{ j } \binom{ d }{ j } \binom{ m - d }{ c - j }
-$$</p>
+$$
 <p>接下来怎么做呢?令$g_d = \sum_{ i = 0 }^{ 2^m - 1 } [ A_i = 1 ] [ | i | = d ]$,这里可以$O ( 2^{ m - k } )$,然后乘起来就行了.</p>
 <p>太顶级了吧.</p>
 <h5 id="toc-45">Example5(CF 1326F2)</h5>
@@ -952,16 +952,16 @@ $$</p>
 <li>$\cfrac{ 1 }{ ( 1 - z )^{ n + 1 } } = \sum_{ k \geq 0 } \binom{ n + k }{ n } z^k , n \in \mathbb{ N } \\$,$\cfrac{ z^n }{ ( 1 - z )^{ n + 1 } } = \sum_{ k \geq 0 } \binom{ k }{ n } z^k , n \in \mathbb{ N } \\$</li>
 </ol>
 <p>直接使用二项式定理展开$( 1 - z )^{ - n - 1 }$,可以得到:</p>
-<p>$$
+$$
 ( 1 - z )^{ - n - 1 } = \sum_{ k \geq 0 } ( - 1 )^k \binom{ - n - 1 }{ k } z^k
-$$</p>
+$$
 <p>反转上指标并使用对称恒等式得到上式.此外上式还有两个特殊形式:</p>
-<p>$$
+$$
 \begin{aligned}
 \cfrac{ 1 }{ ( 1 - z )^2 } &amp; = \sum_{ n \geq 0 } ( n + 1 ) z^n \\
 \cfrac{ z }{ ( 1 - z )^2 } &amp; = \sum_{ n \geq 0 } nz^n
 \end{aligned}
-$$</p>
+$$
 <p>根据$( 1 )$求导即可得到此式.</p>
 <ol start="5">
 <li>
@@ -979,22 +979,22 @@ $$</p>
 <li>$\frac{ 1 - \sqrt{ 1 - 4 x } }{ 2 x } = \sum_{ k \geq 0 } \frac{ \binom{ 2 k }{ k } }{ k + 1 } x^k$.</li>
 </ol>
 <p>也即卡特兰数$C_k$的生成函数,证明考虑:</p>
-<p>$$
+$$
 xC^2 + 1 = C
-$$</p>
+$$
 <p>然后得到两个根,带入$x = 0$舍掉一个.</p>
 <h3 id="toc-52">指数生成函数(EGF)</h3>
 <p><a href="https://zhuanlan.zhihu.com/p/53079223" target="_blank" rel="noopener noreferrer">https://zhuanlan.zhihu.com/p/53079223</a></p>
 <p>序列$\{ a \}$的指数生成函数定义为形式幂级数$\hat F ( x ) = \sum a_n \frac{ x^n }{ n ! }$.注意$[ x^n ] \hat F ( x ) = \frac{ a_n }{ n ! }$.</p>
 <h4 id="toc-53">基本运算</h4>
 <p>我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 \hat F ( x ) \hat G ( x ) &amp; = \sum_{ j \geq 0 } a_j \frac{ x^j }{ j ! } \sum_{ k \geq 0 } b_k \frac{ x^k }{ k ! } \\
 &amp; = \sum_{ k \geq 0 } x^k \sum_{ j = 0 }^k a_j b_{ k - j } \frac{ k ! }{ j ! ( k - j ) ! } \frac{ 1 }{ k ! } \\
 &amp; = \sum_{ k \geq 0 } \frac{ x^k }{ k ! } \sum_{ j = 0 }^k a_j b_{ k - j } \binom{ k }{ j }
 \end{aligned}
-$$</p>
+$$
 <p>即$\langle \sum_{ i = 0 }^n \binom{ n }{ i } a_i b_{ n - i } \rangle$的EFG.</p>
 <p>注意到有一个特例是$x \hat F ( x )$就是$\langle \binom{ n }{ n - 1 } a_i \rangle$的EGF.</p>
 <h4 id="toc-54">封闭式</h4>
@@ -1025,29 +1025,29 @@ $$</p>
 <p>都可以通过泰勒展开证明.</p>
 <h4 id="toc-55">EXP的组合意义</h4>
 <p>我们设$F_k ( n )$为$n$个有标号元素划分成$k$个非空无序集合的情况,$f_i$为$i$个元素组成一个集合的时候,其上特定组合结构的数量(就是一个一个只和$| S |$有关的定义在集合上的函数),有:</p>
-<p>$$
+$$
 F_k ( n ) = \frac{ n ! }{ k ! } \sum_{ \sum_{ i = 1 }^k a_i = n } \prod_{ j = 1 }^k \frac{ f_{ a_j } }{ a_j ! }
-$$</p>
+$$
 <p>设$\hat{ F } ( x ) = \sum_{ n \geq 0 } f_n \frac{ x^n }{ n ! }$,再设:</p>
-<p>$$
+$$
 \begin{aligned}
 \hat G_k ( x ) &amp; = \sum_{ n \geq 0 } F_k ( n ) \frac{ x^n }{ n ! } \\
 &amp; = \sum_{ n \geq 0 } x^n \frac{ 1 }{ k ! } \sum_{ \sum_{ i = 1 }^k a_i = n } \prod_{ j = 1 }^k \frac{ f_{ a_j } }{ a_j ! } \\
 &amp; = \sum_{ n \geq 0 } \frac{ 1 }{ k ! } \sum_{ \sum_{ i = 1 }^k a_i = n } \prod_{ j = 1 }^k \frac{ f_{ a_j } x^{ a_j } }{ a_j ! } \\
 &amp; = \frac{ 1 }{ k ! } \hat F^k ( x )
 \end{aligned}
-$$</p>
-<p>$$
+$$
+$$
 \sum_{ k \geq 0 } \hat G_k ( x ) = \exp \hat F ( x )
-$$</p>
+$$
 <p>或者直接递推:</p>
-<p>$$
+$$
 \begin{aligned}
 F_k ( x ) &amp; = \sum_{ i = 1 }^{ n - k + 1 } \binom{ n }{ i } F_{ k - 1 } ( n - i ) f_i \frac{ 1 }{ k } \\
 
 \end{aligned}
-$$</p>
-<p>$$
+$$
+$$
 \begin{aligned}
 \hat G_k ( x ) &amp; = \sum_{ n \geq 0 } \frac{ x^n }{ n ! } F_k ( n ) \\
 &amp; = \sum_{ n \geq 0 } \frac{ x^n }{ n ! } \sum_{ i = 1 }^{ n - k + 1 } \binom{ n }{ i } F_{ k - 1 } ( n - i ) f_i \frac{ 1 }{ k } \\
@@ -1055,21 +1055,21 @@ $$</p>
 &amp; = \frac{ 1 }{ k } \hat G_{ k - 1 } ( x ) \hat F ( x ) \\
 &amp; = \frac{ 1 }{ k ! } \hat F^k ( x )
 \end{aligned}
-$$</p>
+$$
 <p>简而言之,$[ x^n ] \hat F ( x )$是将$n$个有标号的元素放到同一个无序集合的方案数,而$[ x^n ] \exp \hat F ( x )$是将$n$个有标号的元素分成若干个无编号的非空无序集合的方案数.</p>
 <h4 id="toc-56">Example</h4>
 <h5 id="toc-57">Example1(POJ3734)</h5>
 <p>对于红黄色砖块,其选取方案为$\{ 1 , 0 , 1 , 0 , \cdots \}$,对应的EGF是$\frac{ e^x + e^{ - x } }{ 2 }$.</p>
 <p>对于蓝绿色砖块,选取方案是$e^x$.</p>
 <p>乘起来有:</p>
-<p>$$
+$$
 \begin{aligned}
 \hat F ( x ) &amp; = ( \frac{ e^x + e^{ - x } }{ 2 } )^2 e^{ 2 x } \\
 &amp; = \frac{ ( e^{ 2 x } + 2 + e^{ - 2 x } ) e^{ 2 x } }{ 4 } \\
 &amp; = \frac{ e^{ 4 x } + 2 e^{ 2 x } + 1 }{ 4 } \\
 &amp; = \frac{ 1 }{ 4 } + \sum_{ k \geq 0 } \frac{ 4^i + 2^{ i + 1 } }{ 4 } \frac{ x^i }{ i ! }
 \end{aligned}
-$$</p>
+$$
 <p>于是有$[ x^n ] \hat F ( x ) = 4^{ n - 1 } + 2^{ n - 1 }$.</p>
 <h5 id="toc-58">Example2(圆排列)</h5>
 <p>长度为$n$的排列数的指数生成函数是$\hat P ( x ) = \sum_{ n \geq 0 } \frac{ n ! x^n }{ n ! } = \frac{ 1 }{ 1 - x }$.</p>
@@ -1086,25 +1086,25 @@ $$</p>
 <h5 id="toc-62">Example6([CF891E]Lust)</h5>
 <p>假设$k$次操作后$a_i$减少了$b_i$,实际上要求的就是$\prod_{ i = 1 }^n a_i - \prod_{ i = 1 }^n ( a_i - b_i )$.</p>
 <p>考虑对所有情况下的$\prod_{ i = 1 }^n ( a_i - b_i )$求和,注意到$k$次操作,使得$i$出现$b_i$次的方案数是$\frac{ k ! }{ \prod_{ i = 1 }^n b_i ! }$.直接设$a_j$的EGF是</p>
-<p>$$
+$$
 \begin{aligned}
 \hat F_{ j } ( x ) &amp; = \sum_{ i \geq 0 } ( a_j - i ) \frac{ x^i }{ i ! } \\
 &amp; = \sum_{ i \geq 0 } a_j \frac{ x^i }{ i ! } - \sum_{ i \geq 1 } \frac{ x^i }{ ( i - 1 ) ! } \\
 &amp; = a_j e^x - xe^x = ( a_j - x ) e^x
 \end{aligned}
-$$</p>
+$$
 <p>答案就是$[ x^k ] \prod_{ j = 1 }^n \hat F_j ( x )$.</p>
 <h5 id="toc-63">Example7</h5>
 <h3 id="toc-64">狄利克雷生成函数(DGF)</h3>
 <p>对于序列$f_n$,定义其DGF为$\tilde{ F } ( x ) = \sum_{ i \geq 1 } \frac{ f_i }{ i^x }$.注意到若$f$是积性函数,那么$\tilde{ F } ( x ) = \prod_{ p \in \mathrm{ prime } } \sum_{ i \geq 0 } \frac{ f_{ p^i } }{ p^{ ix } } \\$.</p>
 <h4 id="toc-65">基本运算</h4>
 <p>对于两个序列$f , g$,其DGF之积对应的是两者的狄利克雷卷积序列的DGF:</p>
-<p>$$
+$$
 \begin{aligned}
 \tilde{ F } ( x ) \tilde{ G } ( x ) &amp; = \sum_{ i } \sum_{ j } \frac{ f ( i ) g ( j ) }{ ( ij )^x } \\
 &amp; = \sum_{ i } \frac{ 1 }{ i^x } \sum_{ d | i } f ( d ) g ( \frac{ i }{ d } )
 \end{aligned}
-$$</p>
+$$
 <h4 id="toc-66">封闭式</h4>
 <ol>
 <li>$\epsilon ( x ) = [ x = 1 ]$.</li>
@@ -1114,13 +1114,13 @@ $$</p>
 <li>$I ( x ) = 1$.</li>
 </ol>
 <p>其封闭式是黎曼函数$\zeta ( x )$,事实上,我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 \zeta ( x ) &amp; = \prod_{ i \geq 1 } \frac{ 1 }{ i^x } \\
 &amp; = \prod_{ p \in \mathrm{ prime } } \sum_{ i \geq 0 } \frac{ 1 }{ p^{ ix } } \\
 &amp; = \prod_{ p \in \mathrm{ prime } } \frac{ 1 }{ 1 - p^{ - x } }
 \end{aligned}
-$$</p>
+$$
 <ol start="3">
 <li>$\mu ( n )$.</li>
 </ol>
@@ -1132,20 +1132,20 @@ $$</p>
 <ol start="5">
 <li>$I_k ( n ) = n^k$.</li>
 </ol>
-<p>$$
+$$
 \tilde{ I_k } ( x ) = \prod_{ i \geq 1 } \frac{ 1 }{ i^{ x - k } } = \zeta ( x - k )
-$$</p>
+$$
 <ol start="6">
 <li>$\varphi ( n )$.</li>
 </ol>
 <p>注意到:</p>
-<p>$$
+$$
 \begin{aligned}
 \tilde{ \Phi } ( x ) &amp; = \prod_{ p \in \mathrm{ prime } } ( 1 + \frac{ p - 1 }{ p^x } + \frac{ p ( p - 1 ) }{ p^{ 2 x } } + \cdots ) \\
 &amp; = \prod_{ p \in \mathrm{ prime } } \frac{ 1 - p^{ - x } }{ 1 - p^{ 1 - x } } \\
 &amp; = \tilde{ \Phi } ( x ) = \frac{ \zeta ( x - 1 ) }{ \zeta ( x ) }
 \end{aligned}
-$$</p>
+$$
 <p>也注意到$\tilde{ \Phi } ( x ) I ( x ) = \zeta ( x - 1 ) = \tilde{ ID } ( x )$.</p>
 <ol start="7">
 <li>$\sigma_k ( n ) = \sum_{ d | n } d^k$.</li>
@@ -1159,30 +1159,30 @@ $$</p>
 <h5 id="toc-68">Example1(luoguP3768)</h5>
 <p>考虑对于$f ( n ) = n^2 \varphi ( n )$构造积性函数$g ( n ) , h ( n )$使得$f * g = h$.</p>
 <p>注意到:</p>
-<p>$$
+$$
 \begin{aligned}
 \tilde{ F } ( x ) &amp; = \prod_{ p \in \mathrm{ prime } } ( 1 + \sum_{ k \geq 1 } \frac{ p^{ 3 k - 1 } ( p - 1 ) }{ p^{ kx } } ) \\
 &amp; = \prod_{ p \in \mathrm{ prime } } \frac{ 1 - p^{ 2 - x } }{ 1 - p^{ 3 - x } } = \frac{ \zeta ( x - 3 ) }{ \zeta ( x - 2 ) }
 \end{aligned}
-$$</p>
+$$
 <p>也就是$f * I_2 = I_3$.</p>
 <h3 id="toc-69">阶乘的扩展定义</h3>
 <p>对于复数的阶乘,我们通常定义:</p>
-<p>$$
+$$
 \cfrac{ 1 }{ z ! } = \lim_{ n \rightarrow + \infin } \binom{ n + z }{ z } n^{ - z }
-$$</p>
+$$
 <p>同时我们定义$\Gamma ( z + 1 ) = z !$,有:$( - z ) ! \Gamma ( z ) = \cfrac{ \pi }{ \sin ( \pi z ) }$.</p>
 <p>这样我们还可以定义广义阶乘幂:</p>
-<p>$$
+$$
 \begin{aligned}
 z^{ \underline{ w } } &amp; = \cfrac{ z ! }{ ( z - w ) ! } \\
 z^{ \overline{ w } } &amp; = \cfrac{ \Gamma ( z + w ) }{ \Gamma ( z ) }
 \end{aligned}
-$$</p>
+$$
 <p>通过以上我们还可以有二项式系数的定义:</p>
-<p>$$
+$$
 \binom{ z }{ w } = \lim_{ \zeta \rightarrow z , \omega \rightarrow w } \cfrac{ \zeta ! }{ \omega ! ( \zeta - \omega ) ! }
-$$</p>
+$$
 <h3 id="toc-70">超几何级数</h3>
 <h4 id="toc-71">超几何函数</h4>
 <p>我们定义超几何函数$F ( a_1 , . . . , a_m ; b_1 , . . . b_n ; z ) = F \left ( \begin{array}{ r | } a_1 , . . . , a_m \\ b_1 , . . . , b_n\end{array} z \right ) = \sum_{ k \geq 0 } \cfrac{ z^k \prod_{ i = 1 }^m a_i^{ \overline{ k } } }{ k ! \prod_{ i = 1 }^n b_i^{ \overline{ k } } }$.</p>
@@ -1193,12 +1193,12 @@ $$</p>
 <h5 id="toc-73">合流超几何函数</h5>
 <p>我们通常把形如$M ( a ; b ; z ) = F \left ( \begin{array}{ r | } a \\ b\end{array} z \right ) = \sum_{ k \geq 0 } \cfrac{ z^k a^{ \overline{ k } } }{ b^{ \overline{ k } } k ! }$的函数称为合流超几何函数.</p>
 <p>不难发现我们有:</p>
-<p>$$
+$$
 F \left ( \begin{array}
 { r | } 1 \\
 1
 \end{array} z \right ) = e^z
-$$</p>
+$$
 <p>也即常见生成函数中的$( 6 )$.</p>
 <h5 id="toc-74">高斯超几何函数</h5>
 <p>我们把形如$F \left ( \begin{array}{ r | } a , b \\ c\end{array} z \right ) = \sum_{ k \geq 0 } \cfrac{ z^k a^{ \overline{ k } } b^{ \overline{ k } } }{ c^{ \overline{ k } } k ! }$的函数称为高斯超几何函数.</p>
@@ -1223,12 +1223,12 @@ $$</p>
 <p>我们先考虑改写超几何级数的形式:</p>
 <p>$F \left ( \begin{array}{ r | } a_1 , . . . , a_m \\ b_1 , . . . , b_n\end{array} z \right ) = \sum_{ k \geq 0 } t_k , t_k = \cfrac{ z^k \prod_{ i = 1 }^m a_i^{ \overline{ k } } }{ k ! \prod_{ i = 1 }^n b_i^{ \overline{ k } } }$.</p>
 <p>不难发现$t_0 = 1$,而:</p>
-<p>$$
+$$
 \begin{aligned}
 \cfrac{ t_{ k + 1 } }{ t_k } &amp; = \cfrac{ z^{ k + 1 } }{ z^k } \cfrac{ k ! }{ ( k + 1 ) ! } \cfrac{ \prod_{ i = 1 }^m a_i^{ \overline{ k + 1 } } }{ \prod_{ i = 1 }^m a_i^{ \overline{ k } } } \cfrac{ \prod_{ i = 1 }^n b_i^{ \overline{ k } } }{ \prod_{ i = 1 }^n b_i^{ \overline{ k + 1 } } } \\
 &amp; = \cfrac{ \prod_{ i = 1 }^m ( k + a_i ) }{ \prod_{ i = 1 }^n ( k + b_i ) } \cfrac{ z }{ k + 1 }
 \end{aligned}
-$$</p>
+$$
 <p>换句话说,$\cfrac{ t_{ k + 1 } }{ t_k }$是关于$k$的一个有理函数.而根据代数基本定理,任意$k$的有理函数在$\mathbb{ C }$内都可以分解为以上的形式(如果缺少$k + 1$项则需要上下同时乘以$k + 1$以补上).</p>
 <p>换句话说,对于一个无穷级数$\sum_{ k \geq 0 } t_k$,我们先将$\cfrac{ t_{ k + 1 } }{ t_k }$表示回超几何函数,设为$F$.</p>
 <p>那么有:$\sum_{ k \geq 0 } t_k = t_0 F$.</p>
@@ -1236,27 +1236,27 @@ $$</p>
 <h5 id="toc-76">Example</h5>
 <p>求证:$\sum_{ k \leq n } \binom{ r + k }{ k } = \binom{ r + n + 1 }{ n } \Leftrightarrow F \left ( \begin{array}{ r | } 1 , - n \\ - n - r\end{array} 1 \right ) = \cfrac{ r + n + 1 }{ r + 1 } , n \in \mathbb{ N } \\$.</p>
 <p>首先考虑:</p>
-<p>$$
+$$
 \sum_{ k \leq n } \binom{ r + k }{ k } = \sum_{ k \geq 0 } \binom{ r + n - k }{ n - k }
-$$</p>
+$$
 <p>有了这个无穷级数,我们可以直接将二项式系数用阶乘形式展开,于是得到:</p>
-<p>$$
+$$
 \binom{ r + n }{ n } F \left ( \begin{array}
 { r | } 1 , - n \\
 - n - r
 \end{array} 1 \right ) = \binom{ r + n + 1 }{ n }
-$$</p>
+$$
 <p>两边同时除以$\binom{ r + n }{ n }$得到上式.</p>
 <h5 id="toc-77">二项式系数与超几何函数</h5>
 <p>通过范德蒙德卷积,不难验证:</p>
-<p>$$
+$$
 F \left ( \begin{array}
 { r | } a , b \\
 c
 \end{array} 1 \right ) = \cfrac{ \Gamma ( c - a - b ) \Gamma ( c ) }{ \Gamma ( c - a ) \Gamma ( c - b ) } , - b \in \mathbb{ N }
-$$</p>
+$$
 <p>这个公式的一个特例是:</p>
-<p>$$
+$$
 \begin{aligned}
 F \left ( \begin{array}
 { r | } a , - n \\
@@ -1265,10 +1265,10 @@ c
 \sum_{ k \geq 0 } \cfrac{ a^{ \overline{ k } } ( - n )^{ \overline{ k } } }{ c^{ \overline{ k } } k ! } &amp; = \cfrac{ ( c - a )^{ \overline{ n } } }{ c^{ \overline{ n } } } = \cfrac{ ( a - c )^{ \underline{ n } } }{ ( - c )^{ \underline{ n } } } , n \in \mathbb{ N } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>这个公式几乎囊括了所有的基本二项式求和公式:上指标求和,平行求和,范德蒙德卷积......几乎只要是我们推出的由两个及以下项的乘积求和的二项式系数相关的式子都可以使用这个式子.</p>
 <p>那么如果我们要三项相乘或更多,我们有Saalschütz恒等式:</p>
-<p>$$
+$$
 \begin{aligned}
 F \left ( \begin{array}
 { r | } a , b , - n \\
@@ -1276,60 +1276,60 @@ c , a + b - n - c + 1
 \end{array} 1 \right ) &amp; = \cfrac{ ( c - a )^{ \overline{ n } } ( c - b )^{ \overline{ n } } }{ c^{ \overline{ n } } ( c - a - b )^{ \overline{ n } } } = \cfrac{ ( a - c )^{ \underline{ n } } ( b - c )^{ \underline{ n } } }{ ( - c )^{ \underline{ n } } ( a + b - c )^{ \overline{ n } } } , n \in \mathbb{ N } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>事实上,《具体数学》上给出了大量的超几何级数的应用以及各种技巧,但是笔者的智商已经理解不了接下来的内容了.考虑到大部分时候上述两个超几何级数恒等式已经足够解决绝大部分问题,如果考到更加困难的求和技巧,笔者相信别人也不会做,于是笔者决定摆烂.</p>
 <h3 id="toc-78">求微分方程</h3>
 <h4 id="toc-79">Example1(luogu4931)</h4>
 <p>二项式反演:</p>
-<p>$$
+$$
 \begin{aligned}
 ans_k &amp; = \sum_{ i = k }^n ( - 1 )^{ i - k } \binom{ i }{ k } \binom{ n }{ i } \binom{ n }{ i } i ! ( 2 n - 2 i ) ! 2^i \\
 &amp; = \sum_{ i = k }^n ( - 1 )^{ i - k } \frac{ 1 }{ k ! ( i - k ) ! } \frac{ n ! }{ ( n - i ) ! } \frac{ n ! }{ ( n - i ) ! } ( 2 n - 2 i ) ! 2^i \\
 &amp; = ( n ! )^2 \frac{ 2^k }{ k ! } \sum_{ i = k }^n ( - 1 )^{ i - k } \frac{ 1 }{ ( i - k ) ! } \binom{ 2 n - 2 i }{ n - i } 2^{ i - k } \\
 &amp; = ( n ! )^2 \frac{ 2^k }{ k ! } \sum_{ i = 0 }^{ n } \frac{ ( - 2 )^{ i } }{ i ! } \binom{ 2 n - 2 i }{ n - i }
 \end{aligned}
-$$</p>
+$$
 <p>注意到后者只与$n - k$有关,不妨设其为$f_{ n } = \sum_{ i = 0 }^{ n } \frac{ ( - 2 )^{ i } }{ i ! } \binom{ 2 n - 2 i }{ n - i }$,预处理一下就可以做到$O ( n^2 + nT )$.</p>
 <p>加强版咋做?我们继续看看式子:</p>
-<p>$$
+$$
 \begin{aligned}
 ans &amp; = ( n ! )^2 \frac{ 2^k }{ k ! } f_{ n - k } \\
 f_{ n } &amp; = \sum_{ i = 0 }^{ n } \frac{ ( - 2 )^{ i } }{ i ! } \binom{ 2 n - 2 i }{ n - i }
 \end{aligned}
-$$</p>
+$$
 <p>注意到$f$是一个卷积的形式,设其生成函数为$F_n$,$g_n = \frac{ ( - 2 )^n }{ n ! } , h_n = \binom{ 2 n }{ n }$,我们自然有$F = GH$.</p>
 <p>考虑$G$和$H$的生成函数形式,先看$G$,显然用泰勒展开:</p>
-<p>$$
+$$
 G = \sum_{ n \geq 0 } \frac{ ( - 2 x )^n }{ n ! } = e^{ - 2 x }
-$$</p>
+$$
 <p>再看$H$,是卡特兰数的生成函数,有:</p>
-<p>$$
+$$
 H = \frac{ 1 }{ \sqrt{ 1 - 4 x } }
-$$</p>
+$$
 <p>这下简单了,答案是:</p>
-<p>$$
+$$
 ( n ! )^2 \frac{ 2^k }{ k ! } [ x^{ n - k } ] \frac{ e^{ - 2 x } }{ \sqrt{ 1 - 4 x } }
-$$</p>
+$$
 <p>现在看$F$,平方一下有:</p>
-<p>$$
+$$
 ( 1 - 4 x ) F^2 = e^{ - 4 x }
-$$</p>
+$$
 <p>两边求导:</p>
-<p>$$
+$$
 \begin{aligned}
 - 4 F^2 + ( 1 - 4 x ) 2 F \times F &#39; &amp; = - 4 e^{ - 4 x } \\
 - 4 F^2 + ( 1 - 4 x ) 2 F \times F &#39; &amp; = - 4 ( 1 - 4 x ) F^2 \\
 ( 2 - 8 x ) F &#39; &amp; = 16 xF \\
 
 \end{aligned}
-$$</p>
+$$
 <p>得到了一个线性递推形式,更进一步地:</p>
-<p>$$
+$$
 \begin{aligned}
 2 ( i + 1 ) f_{ i + 1 } - 8 if_i &amp; = 16 f_{ i - 1 } \\
 if_i &amp; = 4 ( i - 1 ) f_{ i - 1 } + 8 f_{ i - 2 }
 \end{aligned}
-$$</p>
+$$
 <p>技术总结一下:其实就是你想要得到一个递推式,然后注意到这玩意要写成微分方程的形式,所以开始往那边凑.</p>
 <h3 id="toc-80">生成函数的应用</h3>
 <h4 id="toc-81">求解递归关系</h4>
@@ -1343,18 +1343,18 @@ $$</p>
 <h4 id="toc-82">Example1</h4>
 <p>已知$n ! = \sum_{ k } \binom{ n }{ k } g_{ n - k } , n \in \mathbb{ N } \\$,求$g_n$.</p>
 <p>首先两边同时除以$n !$并将组合数用阶乘形式展开,我们有:</p>
-<p>$$
+$$
 1 = \sum_{ k } \cfrac{ g_{ n - k } }{ k ! ( n - k ) ! } .
-$$</p>
+$$
 <p>如果我们令$D ( z ) = \sum_{ k \geq 0 } \cfrac{ g_{ k } }{ k ! } z^k$,则有:</p>
-<p>$$
+$$
 \begin{aligned}
 \cfrac{ 1 }{ 1 - z } &amp; = e^z D ( z ) \\
 D ( z ) &amp; = \cfrac{ 1 }{ 1 - z } e^{ - z } \\
 D ( z ) &amp; = ( \sum_{ k \geq 0 } z^k ) ( \sum_{ k \geq 0 } ( - 1 )^k \cfrac{ z^k }{ k ! } ) \\
 [ z^n ] D ( z ) &amp; = \sum_{ k = 0 }^n \cfrac{ ( - 1 )^k }{ k ! }
 \end{aligned}
-$$</p>
+$$
 <p>于是$g_n = n ! \sum_{ k = 0 }^n \cfrac{ ( - 1 )^k }{ k ! } \\$.</p>
 <h4 id="toc-83">Example2([QOJ5169] 夹娃娃)</h4>
 <p>首先设$F_i ( x )$为第$i$家的生成函数,这个是显然可以快速预处理出来的.令$M = 520$.</p>

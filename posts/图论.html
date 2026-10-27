@@ -76,9 +76,9 @@ window.MathJax = {
 <h5 id="toc-3">Example2([2022qbxt国庆Day1]tree)</h5>
 <p>首先考虑分开处理每个点,在做每个点的时候假设它的所有子节点全部已经满足条件了,最终我们再通过计算组合数的方式计算即可.</p>
 <p>那么最后,我们需要对于每个点进行处理,假设我们已知这个子树的集合是$S$,那么我们需要用容斥计算如果当前子树集合是$S$的子集的情况,不难发现容斥式子:</p>
-<p>$$
+$$
 ans = \sum_{ k = \max \{ f_v | x \rightarrow v \} }^{ f_x } ( - 1 )^{ f_x - k } k \binom{ f_x }{ k } \sum_{ x \rightarrow v } \binom{ k }{ f_v }
-$$</p>
+$$
 <p>其实也就是个二项式反演的形式.</p>
 <p>这题还需要一些技巧优化,我们首先发现由于$f_v$有可能有重复的,我们可以提前把重复的$f_v$压缩到一起再用快速幂求,于是后面的部分最多不过$\sqrt{ n }$级别.而前面是一个类似于树上启发式合并的东西,于是复杂度$O ( n \sqrt{ n } \log n )$.</p>
 <h5 id="toc-4">Example3(CF1628E Groceries in Meteor Town)</h5>
@@ -157,17 +157,17 @@ $$</p>
 <h5 id="toc-9">Example1([CSP-S2019]树的重心)</h5>
 <p>首先取重心$rt$为根,如果有两个就随便取一个.</p>
 <p>接下来我们考虑对于每个点$x$,它在什么情况下会成为重心.首先,删掉的边不可能在$x$的子树内,不然一定不可能取到$x$的.然后,我们假设删掉的子树大小为$S$,$x$的子树内最大的一个子树大小为$g_x$,那么根据重心的性质有:</p>
-<p>$$
+$$
 \begin{aligned}
 2 ( n - S - siz_x ) &amp; \leq n - S \\
 2 g_x &amp; \leq n - S \\
 
 \end{aligned}
-$$</p>
+$$
 <p>整理得到:</p>
-<p>$$
+$$
 2 g_x \leq n - S \leq 2 siz_x
-$$</p>
+$$
 <p>考虑这个怎么计算:如果没有删边必须在$x$子树外的限制,那显然可以直接遍历一遍存下$n - S$,然后统一使用值域树状数组做.而我们接下来考虑删去$x$子树内的贡献,类似colorful tree的做法,每次dfs到一个点,记录下来当前树状数组的答案,然后dfs子树,回溯时拿新答案减去旧答案就是子树内的答案.</p>
 <p>接下来我们需要考虑$x = rt$怎么做.</p>
 <p>考虑$x$的子树中最大的那个和次大的那个,如果我们删去的节点不在最大的子树中,那只需要保证最大的子树大小满足条件;不然,只需保证次大的子树大小满足条件,也是好维护的.</p>
@@ -357,9 +357,9 @@ $$</p>
 <h5 id="toc-54">Hall定理</h5>
 <p>对于二分图$\langle V_1 , V_2 , E \rangle , | V_1 | \leq | V_2 |$,那么该图存在完备匹配的充要条件是$\forall Q \subseteq V_1 , | Q | \leq | N ( Q ) |$,其中$N ( Q )$指的是所有与$Q$中点有边相连的点的集合.</p>
 <p>必要性很显然,接下来说明充分性.设$T$为最小点覆盖,也就是最大匹配的数量,再设$M$为最大匹配,此时自然有:</p>
-<p>$$
+$$
 | M | = | T | = | T_1 | + | T_2 | \geq | T_1 | + | N ( V_1 / T_1 ) | \geq | T_1 | + | V_1 / T_1 | = | V_1 |
-$$</p>
+$$
 <p>显然$| M | \leq | V_1 |$,于是$| M | = | V_1 |$.</p>
 <p>另外,Hall定理有一个推论:正则二分图一定存在完美匹配.什么叫正则二分图,就是所有的点的度数(不为$0$)都相等的图.</p>
 <p>$2^d$-正则二分图求完美匹配的话,可以不断求欧拉回路并给边定向,每次把一个方向的边全都删掉,这样就转化成了$2^{ d - 1 }$-正则二分图,不断递归到$d = 0$.</p>
@@ -510,32 +510,32 @@ $$</p>
 <h4 id="toc-88">Prufer序列的矩阵树定理理解</h4>
 <p>事实上,Prufer序列其实是可以拿矩阵树定理代替的(但是更麻烦一点).</p>
 <p>我们先考虑证明Cayley公式:构造矩阵:</p>
-<p>$$
+$$
 \begin{bmatrix}
 - n + 1 &amp; 1 &amp; \cdots &amp; 1 \\
 1 &amp; - n + 1 &amp; \cdots &amp; 1 \\
 \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
 1 &amp; 1 &amp; \cdots &amp; - n + 1
 \end{bmatrix}
-$$</p>
+$$
 <p>其主余子式为:</p>
-<p>$$
+$$
 \begin{bmatrix}
 - n + 1 &amp; 1 &amp; \cdots &amp; 1 \\
 1 &amp; - n + 1 &amp; \cdots &amp; 1 \\
 \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
 1 &amp; 1 &amp; \cdots &amp; - n + 1
 \end{bmatrix}
-$$</p>
+$$
 <p>将所有行全部加到第一行:</p>
-<p>$$
+$$
 \begin{bmatrix}
 - 1 &amp; - 1 &amp; \cdots &amp; - 1 \\
 1 &amp; - n + 1 &amp; \cdots &amp; 1 \\
 \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
 1 &amp; 1 &amp; \cdots &amp; - n + 1
 \end{bmatrix}
-$$</p>
+$$
 <p>全部加下来,然后就成了上三角矩阵,将对角线乘起来就是$n^{ n - 2 }$.</p>
 <p>连通块的结论是类似的.</p>
 <h4 id="toc-89">LGV引理</h4>
@@ -543,26 +543,26 @@ $$</p>
 <p>记边$i$的权值为$w_i$.对于有向路径$p$,记路径上所有边的边权的乘积为$W ( p )$.记$e ( u , v ) = \sum_{ p : u \rightarrow v } W ( p )$,即从$u$到$v$的所有路径的边权乘积之和.</p>
 <p>记$P : A \rightarrow B = ( p_1 , p_2 , . . . , p_n )$,$p_i$表示从$a_i$到$b_{ \sigma ( i ) }$的一条路径,其中$\sigma$是一个排列,记$sign ( \sigma )$为$- 1$以这个排列的逆序对数量为幂的值.又记$\sigma ( P )$为$P$所对应终点的排列.若满足$\forall 1 \leq i , j \leq n , i \ne j$,$p_i$与$p_j$没有公共点,则记作$P^u$,否则记作$P^c$,若不作区分记作$P$.记$W_{ all } ( P ) = \prod_{ i = 1 }^n W ( p_i ) \\$,也就是所有路径的乘积.</p>
 <p>设矩阵$M$满足$M_{ i , j } = e ( a_i , b_j )$,那么有:</p>
-<p>$$
+$$
 \det M = \sum_{ P^u : A \rightarrow B } sign ( \sigma ( P^u ) ) W_{ all } ( P^u )
-$$</p>
+$$
 <p>证明:</p>
 <p>根据行列式的定义,我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 \det M &amp; = \sum_{ \sigma } sign ( \sigma ) \prod_{ i = 1 }^n e ( a_i , b_{ \sigma ( i ) } ) \\
 &amp; = \sum_{ \sigma } sign ( \sigma ) \prod_{ i = 1 }^n \sum_{ p_i : a_i \rightarrow b_{ \sigma ( i ) } } w ( p_i ) \\
 
 \end{aligned}
-$$</p>
+$$
 <p>考虑后面那部分,$\prod_{ i = 1 }^n \sum_{ p_i : a_i \rightarrow b_{ \sigma ( i ) } } w ( p_i ) \\$形如一个卷积的形式,所以这个式子等价于所有对应排列为$\sigma$的$P$的$w ( P )$,所以有:</p>
-<p>$$
+$$
 \begin{aligned}
 \det M &amp; = \sum_{ \sigma } sign ( \sigma ) ( \sum_{ P : \{ a_1 , . . . , a_n \} \rightarrow \{ b_{ \sigma ( 1 ) } , . . . , b_{ \sigma ( n ) } \} } w ( P ) ) \\
 &amp; = \sum_{ P : A \rightarrow B } sign ( \sigma ( P ) ) w ( P ) \\
 &amp; = \sum_{ P^u : A \rightarrow B } sign ( \sigma ( P^u ) ) w ( P^u ) + \sum_{ P^c : A \rightarrow B } sign ( \sigma ( P^c ) ) w ( P^c )
 \end{aligned}
-$$</p>
+$$
 <p>接下来只需证明$\sum_{ P^c : A \rightarrow B } sign ( \sigma ( P^c ) ) w ( P^c ) = 0 \\$即可.</p>
 <p>设所有$P^c$组成的集合为$E$,考虑构造一个映射$f : E \rightarrow E$满足如下条件:</p>
 <ol>
@@ -595,21 +595,21 @@ $$</p>
 <p>接下来,用$T$表示生成树的边的集合,设$w ( T ) = \prod_{ e \in T } w ( e )$,我们只需证明$C_{ 1 , 1 } = \sum w ( T )$.</p>
 <p>定义$\zeta ( e , u ) = v , e = \{ u , v \}$,考虑构造一个$n \times m$的矩阵$A$满足$A_{ i , j } = \begin{cases}1 &amp; i \in e_j \land i &lt; \zeta ( e_j , i ) \\ - 1 &amp; i \in e_j \land i &gt; \zeta ( e_j , i ) \\ 0 &amp; other\end{cases} \\$.</p>
 <p>注意到:</p>
-<p>$$
+$$
 \begin{aligned}
 AA^T ( i , j ) &amp; = \sum_{ k = 1 }^m A ( i , k ) A^T ( k , j ) \\
 &amp; = \sum_{ k = 1 }^m A ( i , k ) A ( j , k ) \\
 
 \end{aligned}
-$$</p>
+$$
 <p>当$i = j$时,不难发现$AA^T ( i , j ) = \sum_{ k = 1 }^m [ i \in e_k ] = \deg_i$.不然,注意到显然为$- \sum_{ k = 1 }^m [ i \in e_k ] [ j \in e_k ]$.也就是说,$AA^T = L$.</p>
 <p>定义$A$删去第一行后得到的矩阵为$B$,则$BB^T = M_{ 1 , 1 }$.此时我们带入Cauchy-Binet公式,得到:</p>
-<p>$$
+$$
 \begin{aligned}
 M_{ 1 , 1 } &amp; = \sum_{ | S | = n - 1 , S \subseteq \{ 1 , 2 , . . . , m \} } \det ( B [ S ] B^T [ S ] ) \\
 &amp; = \sum_{ | S | = n - 1 , S \subseteq \{ 1 , 2 , . . . , m \} } \det ( B [ S ] )^2
 \end{aligned}
-$$</p>
+$$
 <p>接下来我们需要证明:如果$S$集合构成了一棵生成树,那么$\det B [ S ] = \pm 1$.反之,$\det B [ S ] = 0$.</p>
 <p>如果集合没有构成一个生成树,则至少存在一个简单环.如果有某个点是孤立点那么答案肯定是$0$,因此只需考虑每个点都与边连通的情况即可.</p>
 <p>考虑这种情况下,如果有两条边$( u_1 , u_2 )$和$( u_2 , u_3 )$被选上了,那么我们可以通过列变换将它们改为$( u_1 , u_2 )$和$( u_1 , u_3 )$.这样不断进行下去,如果存在环,一定会出现重边选择的情况,这个时候行列式的值为$0$.如果不存在环,那么我们可以通过这个操作得到一个菊花图.所以行列式为$\pm 1$.</p>
@@ -630,7 +630,7 @@ $$</p>
 <p>设$M^{ out }_{ r , r }$为$L^{ out }$的主余子式,有$t^{ root } ( r , G ) = M^{ out }_{ r , r }$.叶向同理.</p>
 <p>下面只简单提到根向生成树的证明,叶向同理.</p>
 <p>类似于无向图,我们考虑构造$n \times m$矩阵$A$和$( n - 1 ) \times m$矩阵$B$:</p>
-<p>$$
+$$
 \begin{aligned}
 A_{ i , j } &amp; = \begin{cases}
 1 &amp; e_j &#39; s \ head \ is \ i \\
@@ -642,13 +642,13 @@ B_{ i , j } &amp; = \begin{cases}
 0 &amp; other
 \end{cases}
 \end{aligned}
-$$</p>
+$$
 <p>剩下的部分与无向图类似.</p>
 <h4 id="toc-96">BEST定理</h4>
 <p>设$ec ( G )$为有向图$G$的欧拉回路个数,若其存在欧拉回路,则:</p>
-<p>$$
+$$
 ec ( G ) = t^{ root } ( G , x ) \prod_{ i = 1 }^n ( \deg_i - 1 ) !
-$$</p>
+$$
 <p>其中$\deg_i = \deg^{ in }_i = \deg_i^{ out }$.</p>
 <p>考虑如果勒令以$x$为起点,我们保留除了$x$以外每个点的最后经过的出边,最后一定会形成一棵根向树.而其他点可以随便选(由于我们勒令了每个点存在一个出边,所以不可能走到死胡同),这样的答案是$t^{ root } ( G , x ) \deg_x \prod_{ i = 1 }^n ( \deg_i - 1 ) !$.</p>
 <p>但是如果没有规定起点,考虑循环重构,在我们选择不同的边当作初始边时,只需循环一下总体的顺序,就可以得到以另一条边为初始边的另一个图,所以答案要比规定起点的答案多除一个$\deg_x$.</p>
@@ -701,34 +701,34 @@ $$</p>
 <p>考虑原图中的两条边$u \leftrightarrow v$和$u \leftrightarrow v &#39;$,我们考虑对四元环中度数最大的那个点$w$计数,对于这个$w$统计一个tag表示形如$u \leftrightarrow v \rightarrow w$的数量,每次改变$u$的时候清空一下全图tag.</p>
 <h5 id="toc-106">有标号DAG计数</h5>
 <p>即:</p>
-<p>$$
+$$
 \begin{aligned}
 f_n &amp; = \sum_{ k = 1 }^n \binom{ n }{ k } ( - 1 )^{ k - 1 } 2^{ k ( n - k ) } f_{ n - k } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>证明见反演与容斥-子集反演-Example2.</p>
 <h6 id="toc-107">Example1(qoj5749)</h6>
 <p>注意到一个环内部不能有任何边,那么其实也就是有标号DAG计数,只不过要乘上一个斯特林数.不妨设$g_{ n , m }$为$n$个点$m$条边的答案,再设$G_n$为其生成函数.事实上,我们自然有:</p>
-<p>$$
+$$
 \begin{aligned}
 G_n &amp; = \sum_{ k = 1 } \binom{ n }{ k } \sum_{ j = 1 }^k{ k \brack j } ( - 1 )^{ j - 1 } ( 1 + z )^{ k ( n - k ) } G_{ n - k } \\
 &amp; = \sum_{ k = 1 } \binom{ n }{ k } ( 1 + z )^{ k ( n - k ) } G_{ n - k } \sum_{ j = 1 }^k{ k \brack j } ( - 1 )^{ j - 1 } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>逆用斯特林公式,如果$n \geq 1$:</p>
-<p>$$
+$$
 \sum_{ i }{ n \brack i } ( - 1 )^{ i - 1 } = ( - 1 ) \times ( - 1 )^{ \overline{ n } } = [ n = 1 ]
-$$</p>
+$$
 <p>注意到$G_1 = 1$,于是:</p>
-<p>$$
+$$
 \begin{aligned}
 G_n &amp; = n ( 1 + z )^{ n - 1 } G_{ n - 1 } \\
 &amp; = n ! ( 1 + z )^{ \frac{ n ( n - 1 ) }{ 2 } } \\
 [ z^m ] G_n &amp; = n ! \binom{ \frac{ n ( n - 1 ) }{ 2 } }{ m }
 \end{aligned}
-$$</p>
+$$
 </div>
   <nav class="post-nav">
       <a class="post-nav-item" href="/posts/Beautiful-Things.html"><span>← 上一篇</span>Beautiful Things</a>

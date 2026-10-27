@@ -76,7 +76,7 @@ window.MathJax = {
 <p>我们都知道期望满足线性可加,也就是$E ( X_1 + X_2 ) = E ( X_1 ) + E ( X_2 )$,这很好理解,因为期望从一开始定义就是所有情况下的答案的加和,因此根据我们的加法交换律和结合律就可以导出上面的式子.</p>
 <p>我们还知道期望的乘法在相互独立的条件下是可以直接乘的,也就是若$X_1$和$X_2$相互独立,$E ( X_1 X_2 ) = E ( X_1 ) E ( X_2 )$,同样是拆期望那个式子,使用乘法分配律得到.</p>
 <p>而方差在相互独立的条件下同样是线性可加的,也就是只要$X_1$和$X_2$相互独立,$D ( X_1 + X_2 ) = D ( X_1 ) + D ( X_2 )$.从形式上证明是好证明的,我们考虑:</p>
-<p>$$
+$$
 \begin{aligned}
 D ( X_1 + X_2 ) &amp; = E ( ( X_1 + X_2 )^2 ) - E^2 ( X_1 + X_2 ) \\
 &amp; = E ( X_1^2 ) + E ( 2 X_1 X_2 ) + E ( X_2^2 ) - E^2 ( X_1 + X_2 ) \\
@@ -84,7 +84,7 @@ D ( X_1 + X_2 ) &amp; = E ( ( X_1 + X_2 )^2 ) - E^2 ( X_1 + X_2 ) \\
 &amp; = E ( X_1^2 ) - E^2 ( X_1 ) + E ( X_2^2 ) - E^2 ( X_2 ) \\
 &amp; = D ( X_1 ) + D ( X_2 )
 \end{aligned}
-$$</p>
+$$
 <p>或者你也可以卷积然后求导啊!</p>
 <p>如何从感性上理解这一点呢?很遗憾,笔者暂时没有想出从感性上理解的方式.从感觉上来讲,笔者比较相信这和独立变量以及正交性有关,查询相关资料得到了协方差的概念,也就是当两个变量独立的时候协方差为$0$,不然$D ( X_1 + X_2 )$要再加上两倍的协方差.笔者的能力也就到此了.</p>
 <p>对于数据统计部分,我们会发现它在做的其实都是一个套路:将数据放在均值的两侧,也就是减去均值,这样新的值的均值为$0$,并且缩放权值,使得方差恰好为$1$.这个做法在正态分布那里就已经展示了它的强大.这是下面概统的极重要的思想,似乎被称作&quot;标准化&quot;.如果我们痴迷于这个思想,就会发现概统的一切复杂的公式的目的只有两个:让误差均值为$0$的前提下,使得方差最小.</p>
@@ -214,13 +214,13 @@ $$</p>
 <p>考虑分离对数后操作多项式,我们显然可找到$0 &lt; t &lt; 1 , 2 + t + at^2 &gt; 0 , 2 - t + at^2 &gt; 0$,下面只考虑$x \in [ - t , t ]$.此时$f ( x ) = ( 2 + x + ax^2 ) ( \ln ( x + 1 ) - \frac{ 2 x }{ 2 + x + ax^2 } )$.</p>
 <p>考虑令$g ( x ) = \ln ( x + 1 ) - \frac{ 2 x }{ 2 + x + ax^2 }$,由于$f ( 0 ) = 0$,只需证明$g ( x ) \leq 0 , x \in [ - t , t ]$即可.</p>
 <p>而:</p>
-<p>$$
+$$
 \begin{aligned}
 g &#39; ( x ) &amp; = \frac{ 1 }{ x + 1 } - \frac{ 4 - 2 ax^2 }{ ( 2 + x + ax^2 )^2 } \\
 &amp; = \frac{ x^2 ( a^2 x^2 + 4 ax + 6 a + 1 ) }{ ( x + 1 ) ( 2 + x + ax^2 ) } \\
 \text{ sign } ( g &#39; ( x ) ) &amp; = \text{ sign } ( a^2 x^2 + 4 ax + 6 a + 1 )
 \end{aligned}
-$$</p>
+$$
 <p>则$a^2 0^2 + 4 a 0 + 6 a + 1 = 0$,$a = - \frac{ 1 }{ 6 }$.验证一下.</p>
 <h4 id="toc-37">消去指数</h4>
 <h5 id="toc-38">Example</h5>
@@ -248,42 +248,42 @@ $$</p>
 <h5 id="toc-48">Example1(对数平均不等式)</h5>
 <p>求证$\sqrt{ ab } &lt; \frac{ a - b }{ \ln a - \ln b } &lt; \frac{ a + b }{ 2 }$.</p>
 <p>两边证明方式类似,这里只证明右半边,下面的证明的每一步均为充要的,因而可以倒退.</p>
-<p>$$
+$$
 \begin{aligned}
 \frac{ a - b }{ \ln a - \ln b } &amp; &lt; \frac{ a + b }{ 2 } \\
 \frac{ a - b }{ a + b } &amp; &lt; \frac{ \ln \frac{ a }{ b } }{ 2 } \\
 \frac{ \frac{ a }{ b } - 1 }{ \frac{ a }{ b } + 1 } &amp; &lt; \frac{ \ln \frac{ a }{ b } }{ 2 }
 \end{aligned}
-$$</p>
+$$
 <p>换元,令$t = \frac{ a }{ b }$,然后下面大力求导.</p>
 <h5 id="toc-49">Example2</h5>
 <p>已知函数$f ( x ) = 3 \ln x - ax$,若$x_1 &lt; x_2$是$f ( x )$的两个零点,求证$f &#39; ( \frac{ x_1 + 3 x_2 }{ 4 } ) &lt; 0$.</p>
 <p>我们来分析已知,我们目前知道的是:</p>
-<p>$$
+$$
 \begin{cases}
 3 \ln x_1 = ax_1 \\
 3 \ln x_2 = ax_2
 \end{cases}
-$$</p>
+$$
 <p>我们想要知道的是:$\frac{ 12 }{ x_1 + 3 x_2 } &lt; a$.</p>
 <p>这就是整个题全部的部分,和前面的函数其实一点关系都没太有.那么这个东西怎么搞呢?我们先把$a$给换掉,事实上我们根据前面的方程有$a = \frac{ 3 \ln \frac{ x_2 }{ x_1 } }{ x_2 - x_1 }$.</p>
 <p>于是我们只需要证明:$\frac{ x_1 + 3 x_2 }{ 4 } &gt; \frac{ x_2 - x_1 }{ \ln \frac{ x_2 }{ x_1 } }$,这是一个很显然的齐次化形式.</p>
 <h5 id="toc-50">Example3</h5>
 <p>已知函数$f ( x ) = \ln x - ax$,其有两个零点$x_1 \ne x_2$,求证$x_1 x_2 &gt; e^2$.</p>
 <p>同样分析已知,我们得到的是:</p>
-<p>$$
+$$
 \begin{cases}
 \ln x_1 = ax_1 \\
 \ln x_2 = ax_2
 \end{cases}
-$$</p>
+$$
 <p>通过简单线代知识我们知道,如果我们想把这两个条件同时用上,我们最好先相加再相减,这样这一步推下来就是充要的:</p>
-<p>$$
+$$
 \begin{cases}
 \ln x_2 - \ln x_1 = a ( x_2 - x_1 ) \\
 \ln x_2 + \ln x_1 = a ( x_2 + x_1 )
 \end{cases}
-$$</p>
+$$
 <p>这里先把所求变形一下,我们把它改成$\ln x_1 + \ln x_2 &gt; 2$.</p>
 <p>发现了什么?这个东西等价于$a ( x_2 + x_1 ) &gt; 2$,至此,我们用上了第二个式子,并且将其蕴含到了答案中.</p>
 <p>接下来用第一个式子代换$a$即可.</p>
@@ -299,9 +299,9 @@ $$</p>
 <p>一般这种题先判$a$的正负,注意到$x &gt; 1$的时候右边恒大于$0$,因此$a &gt; 0$.</p>
 <p>观察这个式子,发现形式似乎很相似,更进一步地,我们把常数$2$放进$\ln$,自然有:$ax ( e^{ ax } + 1 ) \geq ( x^2 + 1 ) \ln x^2$.</p>
 <p>考虑令$t_1 = ax , t_2 = \ln x^2$,则:</p>
-<p>$$
+$$
 t_1 ( e^{ t_1 } + 1 ) \geq t_2 ( e^{ t_2 } + 1 )
-$$</p>
+$$
 <p>接下来分析函数$f ( x ) = x ( e^x + 1 )$的单调性,就可以得到$a \geq \frac{ 2 }{ e }$.</p>
 <h3 id="toc-54">不等式相关</h3>
 <h4 id="toc-55">基本不等式相关</h4>
@@ -315,15 +315,15 @@ $$</p>
 <p>已知$n , m &gt; 0 , 2 m + n = nm$,求$n + m + \sqrt{ n^2 + m^2 }$的最小值.</p>
 <p>这个题有一个方式是观察到$n , m , \sqrt{ n^2 + m^2 }$是直角三角形的三条边然后使用三角换元.但我们接下来会给出一个更加厉害的做法:</p>
 <p>我们想要知道它的最小值,就是想要证明下面这个不等式并且证明等号成立:</p>
-<p>$$
+$$
 \begin{aligned}
 n + m + \sqrt{ n^2 + m^2 } &amp; \geq k \\
 \Leftarrow \sqrt{ n^2 + m^2 } &amp; \geq k - n - m \\
 
 \end{aligned}
-$$</p>
+$$
 <p>如果$n + m \geq k$,那么不等式显然成立,下面只需要证明$n + m &lt; k$的情况:</p>
-<p>$$
+$$
 \begin{aligned}
 \sqrt{ n^2 + m^2 } &amp; \geq k - n - m \\
 \Leftarrow n^2 + m^2 &amp; \geq ( k - ( n + m ) )^2 \\
@@ -332,57 +332,57 @@ $$</p>
 \Leftarrow k^2 + n ( 2 - 2 k ) + m ( 4 - 2 k ) &amp; \leq 0 \\
 \Leftarrow k^2 &amp; \leq n ( 2 k - 2 ) + m ( 2 k - 4 )
 \end{aligned}
-$$</p>
+$$
 <p>变形方程得到$\frac{ 2 }{ n } + \frac{ 1 }{ m } = 1$,使用这个式子来降次:</p>
-<p>$$
+$$
 \begin{aligned}
 n ( 2 k - 2 ) + m ( 2 k - 4 ) &amp; = 6 k - 8 + \frac{ n }{ m } ( 2 k - 2 ) + \frac{ m }{ n } ( 4 k - 8 ) \\
 
 \end{aligned}
-$$</p>
+$$
 <p>要严谨一点的话我们需要证明$4 k - 8 \geq 0$,$k \geq 2$.这非常简单,因为$k \geq n + m &gt; 3$.</p>
 <p>这就足够了么?不需要证明存在一个$w = \frac{ n }{ m }$使得带入到原方程中有解么?这个其实是显然易证的.</p>
 <p>那么:</p>
-<p>$$
+$$
 n ( 2 k - 2 ) + m ( 2 k - 4 ) \geq 6 k - 8 + 2 \sqrt{ 8 ( k - 1 ) ( k - 2 ) }
-$$</p>
+$$
 <p>这个等号可以取到,也就是说,只要满足:</p>
-<p>$$
+$$
 k^2 \leq 6 k - 8 + 2 \sqrt{ 8 ( k - 1 ) ( k - 2 ) }
-$$</p>
+$$
 <p>那么这个$k$就是一个下界,特别地,如果满足:</p>
-<p>$$
+$$
 k^2 = 6 k - 8 + 2 \sqrt{ 8 ( k - 1 ) ( k - 2 ) }
-$$</p>
+$$
 <p>那么这个$k$就是一个下确界,也就是我们想要求的最小值.</p>
 <p>事情还没有解决(即使这个时候你已经能猜到$k = 10$是一个解了),接下来我们必须求出一个$k$.</p>
-<p>$$
+$$
 \begin{aligned}
 k^2 &amp; = 6 k - 8 + 2 \sqrt{ 8 ( k - 1 ) ( k - 2 ) } \\
 k^2 - 6 k + 8 &amp; = 2 \sqrt{ 8 ( k - 1 ) ( k - 2 ) } \\
 ( k - 4 ) ( k - 2 ) &amp; = 2 \sqrt{ 8 ( k - 1 ) ( k - 2 ) } \\
 \sqrt{ k - 2 } &amp; = \frac{ 2 \sqrt{ 8 ( k - 1 ) } }{ k - 4 }
 \end{aligned}
-$$</p>
+$$
 <p>我们看上去走投无路了对么?其实不然,你发现这个式子两边的次是不等的,我们可以使用它降次!换言之,把这个$\sqrt{ k - 2 }$带入到上面去!</p>
-<p>$$
+$$
 \begin{aligned}
 ( k - 4 ) ( k - 2 ) &amp; = 2 \sqrt{ 8 ( k - 1 ) } \frac{ 2 \sqrt{ 8 ( k - 1 ) } }{ k - 4 } \\
 ( k - 4 ) ( k - 2 ) &amp; = \frac{ 32 ( k - 1 ) }{ k - 4 } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>我想你这个时候又会发现我们走投无路了,但稍微思考一下就会发现,这个方程一定没有常数项(或者说$k = 0$是这个方程的一个解).</p>
 <p>这样得到了一个二次方程,我们自然可以解出$k = 10$.</p>
 <h4 id="toc-58">泰勒展开</h4>
 <h5 id="toc-59">抽象函数的泰勒展开</h5>
-<p>$$
+$$
 \begin{aligned}
 f ( x ) &amp; = \sum_{ k \geq 0 } \frac{ f^{ ( k ) } ( x_0 ) }{ k ! } ( x - x_0 )^k \\
 f ( x ) &amp; = \sum_{ k \geq 0 } \frac{ f^{ ( k ) } ( 0 ) }{ k ! } x^k \\
 
 \end{aligned}
-$$</p>
+$$
 <h5 id="toc-60">常用泰勒展开公式</h5>
 <ol>
 <li>
@@ -399,21 +399,21 @@ $$</p>
 <h5 id="toc-62">Example1</h5>
 <p>已知函数$f ( x ) = \ln x - ax$,其有两个零点$x_1 \ne x_2$,求证$x_1 x_2 &gt; e^2$.</p>
 <p>极值点偏移的形式,应该是形如$g ( x ) = a$有两个解$x_1 , x_2$,然后使得$x_1 + x_2$满足一定条件.因此我们先变形条件:</p>
-<p>$$
+$$
 \begin{cases}
 \frac{ \ln x_1 }{ x_1 } = a \\
 \frac{ \ln x_2 }{ x_2 } = a
 \end{cases}
-$$</p>
+$$
 <p>也就是目前我们构造出了函数$g ( x ) = \frac{ \ln x }{ x }$,观察$g ( x )$图像立得$x_1 + x_2 &gt; 2 e$.</p>
 <p>我们发现,$x_1 x_2 \leq \frac{ ( x_1 + x_2 )^2 }{ 4 }$,这个形式看上去非常正确!但是问题在于,我们好像不太能去变形不等式了,怎么办呢?</p>
 <p>考虑对着我们要证明的东西去搞,极值点偏移可以解决相加性问题,因此我们变形所求为$\ln x_1 + \ln x_2 &lt; 2$,然后令$t_1 = \ln x_1 , t_2 = \ln x_2$,带入立有:</p>
-<p>$$
+$$
 \begin{cases}
 \frac{ t_1 }{ e^{ t_1 } } = a \\
 \frac{ t_2 }{ e^{ t_2 } } = a
 \end{cases}
-$$</p>
+$$
 <p>而$g ( x ) = \frac{ x }{ e^x }$恰好也是满足$x_1 + x_2 &gt; 2$的这么一个函数!于是我们就解决了问题.</p>
 <h5 id="toc-63">Example2</h5>
 <p>$f ( x ) = x ( 1 - \ln x )$,$b \ln a - a \ln b = a - b$,求证$2 &lt; \frac{ 1 }{ a } + \frac{ 1 }{ b } &lt; e$.</p>
@@ -422,23 +422,23 @@ $$</p>
 <p>$f &#39; ( x ) = - \ln x$,其在$( 0 , 1 ) \uparrow , ( 1 , + \infty ) \downarrow$,考察极值点偏移,我们想要证明$\frac{ 1 }{ b } &lt; e - \frac{ 1 }{ a }$,我们就想办法把$\frac{ 1 }{ b }$和$e - \frac{ 1 }{ a }$扔到同一个区间里,而它们确实同在$( 1 , + \infty )$这个区间内.</p>
 <p>比较有启发性的是,你发现$\frac{ 1 }{ b } , e - \frac{ 1 }{ a }$和$\frac{ 1 }{ a } , e - \frac{ 1 }{ b }$这两对必有一对在同一个区间内部.</p>
 <p>现在我们就可以套路化了:</p>
-<p>$$
+$$
 \begin{aligned}
 \frac{ 1 }{ b } &amp; &lt; e - \frac{ 1 }{ a } \\
 f ( \frac{ 1 }{ a } ) &amp; = f ( \frac{ 1 }{ b } ) &gt; f ( e - \frac{ 1 }{ a } )
 \end{aligned}
-$$</p>
+$$
 <p>对着上面那个函数证明即可.</p>
 <h5 id="toc-64">Example3</h5>
 <p>$f ( x ) = e^{ x - 1 } - ax$在$( 0 , 2 )$有两个零点$x_1 , x_2$,求证$x_1 x_2 &gt; \frac{ 1 }{ a }$.</p>
 <p>首先要证明$a$的范围啊,我们不加证明地给出:$a \in ( 1 , \frac{ e }{ 2 } )$,并且$( - \infty , 1 + \ln a ) \downarrow , ( 1 + \ln a , + \infty ) \uparrow$.</p>
 <p>这个其实差不多啊,简单来说就是首先列方程:</p>
-<p>$$
+$$
 \begin{cases}
 ax_1 = e^{ x_1 - 1 } \\
 ax_2 = e^{ x_2 - 1 }
 \end{cases}
-$$</p>
+$$
 <p>我们知道,一般双变量的问题加法会比较好做(原理是加法便于看单调区间),因此现在我们有两条路可走:要么变化所求,两边取$\ln$,要么变化已知.</p>
 <p>我们发现如果变化所求,我们还得对已知两边取$\ln$,这也太麻烦了,不如直接变化已知.具体地,我们把已知的式子相乘就可以得到$x_1 x_2$和$x_1 + x_2$之间的关系,带下来就可以了.然后观察单调区间做极值点偏移.最后的式子应该形如$0 &lt; f ( 2 + \ln a - x_2 )$,也就是$0 &lt; ae^{ 1 - x_2 } - a ( 2 + \ln a - x_2 )$.</p>
 <p>但是这样有一个问题,我们把$f$带进去,你会发现最后我们的式子同时带有$a , x_2$,这个就难做了,咋办呢?考虑拿$ax_2 = e^{ x_2 - 1 }$操作一下把$a$消掉就好了.</p>
@@ -475,27 +475,27 @@ $$</p>
 <p>那么后半边怎么证明呢?我们考虑一个想法是:这题既然出出来了,它必然不可能是虚的.因此我们要找的切点不可能过于离谱.</p>
 <p>另外一个事实是,我们考虑如果我们找到了一条切线,那么由于不等式的右边是定值,我们肯定想要让令一条切线稍微平均一下,使得$( x_2 - x_1 )_{ \max }$尽可能地小对吧!</p>
 <p>我们不妨设我们要找的两个切点,一个横坐标是$u$,另一个是$v$,其中$v &lt; \frac{ 1 }{ e } &lt; u$,那么两条切线分别是:</p>
-<p>$$
+$$
 \begin{cases}
 x = \frac{ y - f ( u ) }{ f &#39; ( u ) } + u \\
 x = \frac{ y - f ( v ) }{ f &#39; ( v ) } + v
 \end{cases}
-$$</p>
+$$
 <p>那么,现在我们要做的就是找到一组$( u , v )$,使得:</p>
-<p>$$
+$$
 \frac{ b - f ( u ) }{ f &#39; ( u ) } + u - \frac{ b - f ( v ) }{ f &#39; ( v ) } - v = \frac{ e^{ - 3 } + 2 + 3 b }{ 2 }
-$$</p>
+$$
 <p>感觉很难搞啊,我们不妨让$u = 1$,自然有:</p>
-<p>$$
+$$
 \frac{ ( f &#39; ( v ) - 1 ) b + f ( v ) - vf &#39; ( v ) }{ f &#39; ( v ) } = \frac{ e^{ - 3 } + 3 b }{ 2 }
-$$</p>
+$$
 <p>然后我们凑系数,上面的式子,我们大胆猜测:</p>
-<p>$$
+$$
 \begin{cases}
 \frac{ f &#39; ( v ) - 1 }{ f &#39; ( v ) } = \frac{ 3 }{ 2 } \\
 \frac{ f ( v ) - vf &#39; ( v ) }{ f &#39; ( v ) } = \frac{ e^{ - 3 } }{ 2 }
 \end{cases}
-$$</p>
+$$
 <p>考虑让$f &#39; ( v ) = - 2$,则$v = e^{ - 3 }$,带入发现正好适配.</p>
 <h4 id="toc-69">凹凸性反转</h4>
 <h5 id="toc-70">Example1</h5>
@@ -523,33 +523,33 @@ $$</p>
 <p>这样当$x = 0 . 1$的时候所有的数字都被正确表示了.</p>
 <p>比较$a , b$:</p>
 <p>考虑它们都有乘除项,考虑使用对数把乘除改为加减,立有:</p>
-<p>$$
+$$
 \begin{aligned}
 y &amp; = \ln ( a ) - \ln ( b ) = x + \ln ( 1 - x ) \\
 y &#39; &amp; = 1 - \frac{ 1 }{ 1 - x } = \frac{ - x }{ 1 - x }
 \end{aligned}
-$$</p>
+$$
 <p>注意到$x = 0$的时候$y = 0$,又注意到其在$( 0 , 0 . 1 )$上单减,这样立有$a &lt; b$.</p>
 <p>比较$a , c$:</p>
-<p>$$
+$$
 \begin{aligned}
 y &amp; = a - c = xe^x + \ln ( 1 - x ) \\
 y &#39; &amp; = ( x + 1 ) e^x - \frac{ 1 }{ 1 - x } = \frac{ ( 1 + x ) ( 1 - x ) e^x - 1 }{ 1 - x } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>注意到$x = 0$的时候$y = 0$,又注意到其在$( 0 , 0 . 1 )$上单增,这样立有$a &gt; c$.</p>
 <p>经验教训:在构造函数的时候,你一定要找一些简单一点的函数来构造,<strong>最好不要带有系数</strong>.</p>
 <h2 id="toc-77">数列导论</h2>
 <h3 id="toc-78">递归式的求解</h3>
 <h4 id="toc-79">特征根法</h4>
 <p>一个常系数的$k$阶线性递推关系形如:</p>
-<p>$$
+$$
 \begin{aligned}
 a_n &amp; = P_n + \sum_{ i = 1 }^k c_i a_{ n - i } , n \geq k \\
 a_0 &amp; = C_0 , a_1 = C_1 , . . . , a_{ k - 1 } = C_{ k - 1 }
 \end{aligned}
-$$</p>
+$$
 <p>当$P = 0$时,称作齐次线性递推.</p>
 <h5 id="toc-80">特征方程</h5>
 <p>我们称方程$r^k = \sum_{ i = 1 }^k c_i r^{ k - i }$是该递推关系的特征方程,方程的解叫做该递推关系的特征根.</p>
@@ -557,53 +557,53 @@ $$</p>
 <p>若其特征方程有两个不同的根$r_1$和$r_2$,那么存在两个常数$\alpha_1$和$\alpha_2$,满足$a_n = \alpha_1 r_1^n + \alpha_2 r_2^n$.</p>
 <p>若其特征方程有两个相同的根$r$,那么存在两个常数$\alpha_1$和$\alpha_2$,满足$a_n = \alpha_1 r^n + \alpha_2 nr^n$.</p>
 <p>先考虑前者的证明,首先考虑对于$n = 0$或者$n = 1$的情况,我们考虑求出一组$\alpha_1$和$\alpha_2$来满足:</p>
-<p>$$
+$$
 \begin{aligned}
 C_0 &amp; = \alpha_1 + \alpha_2 \\
 C_1 &amp; = \alpha_1 r_1 + \alpha_2 r_2
 \end{aligned}
-$$</p>
+$$
 <p>若$r_1 \ne r_2$,可以解得:</p>
-<p>$$
+$$
 \begin{aligned}
 \alpha_1 &amp; = \cfrac{ C_1 - C_0 r_2 }{ r_1 - r_2 } \\
 \alpha_2 &amp; = C_0 - \alpha_1
 \end{aligned}
-$$</p>
+$$
 <p>接下来考虑数学归纳:</p>
-<p>$$
+$$
 \begin{aligned}
 a_n &amp; = c_1 a_{ n - 1 } + c_2 a_{ n - 2 } \\
 &amp; = c_1 ( \alpha_1 r_1^{ n - 1 } + \alpha_2 r_2^{ n - 1 } ) + c_2 ( \alpha_1 r_1^{ n - 2 } + \alpha_2 r_2^{ n - 2 } ) \\
 &amp; = \alpha_1 ( c_1 r_1^{ n - 1 } + c_2 r_1^{ n - 2 } ) + \alpha_2 ( c_1 r_2^{ n - 1 } + c_2 r_2^{ n - 2 } ) \\
 &amp; = \alpha_1 r_1^n + \alpha_2 r_2^n
 \end{aligned}
-$$</p>
+$$
 <p>接下来考虑后者,首先我们有$\Delta = c_1^2 + 4 c_2 = 0$,考虑初始条件:</p>
-<p>$$
+$$
 \begin{aligned}
 C_0 &amp; = \alpha_1 \\
 C_1 &amp; = \alpha_1 r + \alpha_2 r \\
 
 \end{aligned}
-$$</p>
+$$
 <p>接下来我们考虑数学归纳:</p>
-<p>$$
+$$
 \begin{aligned}
 a_n &amp; = c_1 a_{ n - 1 } + c_2 a_{ n - 2 } \\
 &amp; = c_1 ( \alpha_1 r^{ n - 1 } + \alpha_2 nr^{ n - 1 } - \alpha_2 r^{ n - 1 } ) + c_2 ( \alpha_1 r^{ n - 2 } + \alpha_2 nr^{ n - 2 } - 2 \alpha_2 r^{ n - 2 } ) \\
 &amp; = a_n - c_1 \alpha_2 r^{ n - 1 } - 2 c_2 \alpha_2 r^{ n - 2 }
 \end{aligned}
-$$</p>
+$$
 <p>我们接下来只需证明$c_1 r + 2 c_2 = 0$即可.根据方程,不难发现$r = \cfrac{ c_1 }{ 2 }$,根据$\Delta = 0$,自然得证.</p>
 <h5 id="toc-82">更一般的情况</h5>
 <p>在上面做$k = 2$的时候,我们已经发现了这个问题的棘手.甚至动用了求根公式.那有没有什么办法能让这个方法拓展到更高维呢?我们引入线性代数.</p>
 <h6 id="toc-83">重定义向</h6>
 <p>由于《线性代数》一书的作者与笔者使用字母习惯略有差异,为了防止出错,下面一律使用原书的使用习惯,可能会与前面的定义不尽相同.</p>
 <p>给定$a_0 , . . . , a_n$,其中$a_0 \ne 0$,对于所有的$k \in \mathbb{ N }$,若有下列式子成立:</p>
-<p>$$
+$$
 a_0 y_{ k + n } + a_1 y_{ k + n - 1 } + \cdots + a_n y_k = z_k
-$$</p>
+$$
 <p>则称为一个$n$阶线性差分方程(或递归关系).为了简化,通常取$a_0 = 1$.若$\{ z_k \}$是零序列,则称其是一个齐次线性方程.</p>
 <h6 id="toc-84">引入矩阵</h6>
 <p>我们注意到,对于齐次差分方程而言,如果不给定$y_0 , \cdots y_{ n - 1 }$,只是构造一组满足条件的$y$的话,自然的想法是令$y_k = r^k$.其中$r$是辅助方程$a_0 r^{ n } + a_1 r^{ n - 1 } + \cdots + a_n = 0$的一个根.</p>
@@ -612,22 +612,22 @@ $$</p>
 <p>至于如果这$n$个根有重根的话怎么办,我们发现这可能拟合失败.根据上面的经验,我们发现我们需要找到另外几组线性无关的$\mathbb{ R }^k$的向量来拟合.</p>
 <p>最后,如果对于非齐次线性递推的答案,可能就需要猜根了.总之需要猜出总共$n$个线性无关的根,然后拟合初值.我们如此做:对于一个出现了$m$次的根$r$,我们注意到$r^k , kr^k , \cdots , k^{ m - 1 } r^k$都是满足条件的解,且他们线性无关.这个结论是怎么得到的呢?</p>
 <p>首先,我们注意到如果初始条件成立,我们只要错位相减就可以做数学归纳,也就是说我们需要证明初始条件成立,下面以$kr^k$作为例子,即证明:</p>
-<p>$$
+$$
 a_0 nr^n + a_1 ( n - 1 ) r^{ n - 1 } + \cdots + a_1 r = 0
-$$</p>
+$$
 <p>是满足条件的.</p>
 <p>用一下简单的生成函数技巧,如果有两个$r$作为根,必然意味着原方程形如$( y - r )^2 P$,其中$P$是一个关于$y$的多项式.</p>
 <p>我们把它写开:$( y^2 - 2 ry + r^2 ) P = 0$,然后我们用$kr^k$去代替$r^k$,不难发现代替后右边还是个多项式,而左边变成了$0$,这意味着这个根一定可行.</p>
 <p>对于更高次的问题,只需要用二项式定理解决一下就行.</p>
 <p>不过!我们可以用导数解决这个问题:我们对原方程两边求导.</p>
-<p>$$
+$$
 \begin{aligned}
 a_0 r^{ n + k } + a_1 r^{ n + k - 1 } + \cdots + a_1 r^k &amp; = 0 \\
 a_0 ( n + k ) r^{ n + k - 1 } + a_1 ( n + k - 1 ) r^{ n + k - 2 } + \cdots + a_1 kr^{ k - 1 } &amp; = 0 \\
 a_0 ( n + k ) r^{ n + k } + a_1 ( n + k - 1 ) r^{ n + k - 1 } + \cdots + a_1 kr^{ k } &amp; = 0 \\
 
 \end{aligned}
-$$</p>
+$$
 <p>这样我们就可以数学归纳解决.</p>
 <p>另外,我们注意一个问题:$( ( y - r )^2 P ) &#39; = ( y - r ) ( ( y - r ) P ) &#39; + ( y - r ) &#39; ( y - r ) P = ( y - r ) [ ( y - r ) &#39; P + ( ( y - r ) P ) &#39; ]$,$r$一定是这个方程的一个根,高次是同理的.</p>
 <h6 id="toc-85">再进一步</h6>
@@ -653,68 +653,68 @@ $$</p>
 <h4 id="toc-89">交换顺序法</h4>
 <h6 id="toc-90">Example1(等差数列求和)</h6>
 <p>等差数列求和：</p>
-<p>$$
+$$
 \begin{aligned}
 S_n &amp; = \sum_{ i = 0 }^n ( ai + b ) = \sum_{ i = 0 }^n ( a ( n - i ) + b ) \\
 2 S_n &amp; = \sum_{ i = 0 }^n ( an + 2 b ) = an ( n + 1 ) + 2 b ( n + 1 ) \\
 S_n &amp; = ( n + 1 ) ( \frac{ an }{ 2 } + b )
 \end{aligned}
-$$</p>
+$$
 <h6 id="toc-91">Example2(切比雪夫单调不等式)</h6>
 <p>令$S = \sum_{ 1 \leq i &lt; j \leq n } ( a_j - a_i ) ( b_j - b_i ) = \sum_{ 1 \leq j &lt; i \leq n } ( a_j - a_i ) ( b_j - b_i )$.</p>
 <p>考虑恒等式$[ 1 \leq j &lt; i \leq n ] + [ 1 \leq i &lt; j \leq n ] = [ 1 \leq j , i \leq n ] - [ 1 \leq i = j \leq n ]$.</p>
 <p>那么我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 2 S &amp; = \sum_{ 1 \leq i , j \leq n } ( a_j - a_i ) ( b_j - b_i ) - \sum_{ 1 \leq i = j \leq n } ( a_j - a_i ) ( b_j - b_i ) \\
 &amp; = \sum_{ 1 \leq i , j \leq n } ( a_j - a_i ) ( b_j - b_i ) \\
 &amp; = 2 n \sum_{ i = 1 }^n a_i b_i - 2 ( \sum_{ i = 1 }^n a_i ) ( \sum_{ j = 1 }^n b_j ) \\
 
 \end{aligned}
-$$</p>
+$$
 <p>又有$( \sum_{ i = 1 }^n a_i ) ( \sum_{ j = 1 }^n b_j ) = n \sum_{ i = 1 }^n a_i b_i - \sum_{ 1 \leq i &lt; j \leq n } ( a_j - a_i ) ( b_j - b_i )$,显然有以下式子:</p>
-<p>$$
+$$
 \begin{aligned}
 ( \sum_{ i = 1 }^n a_i ) ( \sum_{ j = 1 }^n b_j ) &amp; \leq n \sum_{ i = 1 }^n a_i b_i , \forall i &lt; j , a_i \leq a_j \land b_i \leq b_j \\
 ( \sum_{ i = 1 }^n a_i ) ( \sum_{ j = 1 }^n b_j ) &amp; \geq n \sum_{ i = 1 }^n a_i b_i , \forall i &lt; j , a_i \leq a_j \land b_i \geq b_j \\
 
 \end{aligned}
-$$</p>
+$$
 <p>上式被称为切比雪夫单调不等式.</p>
 <h6 id="toc-92">Example3(拉格朗日恒等式)</h6>
 <p>即$\sum_{ 1 \leq j &lt; k \leq n } ( a_j b_k - a_k b_j )^2 = ( \sum_{ i = 1 }^n a_i^2 ) ( \sum_{ i = 1 }^n b_i^2 ) - ( \sum_{ i = 1 }^n a_i b_i )^2 \\$.</p>
 <p>令$S_n = \sum_{ 1 \leq j &lt; k \leq n } ( a_j b_k - a_k b_j )^2 \\$,有:</p>
-<p>$$
+$$
 \begin{aligned}
 2 S_n &amp; = \sum_{ j = 1 }^n \sum_{ k = 1 }^n ( a_j b_k - a_k b_j )^2 \\
 &amp; = \sum_{ j = 1 }^n \sum_{ k = 1 }^n ( a_j^2 b_k^2 - 2 a_j a_k b_j b_k - a_k^2 b_j^2 ) \\
 &amp; = 2 ( \sum_{ i = 1 }^n a_i^2 ) ( \sum_{ i = 1 }^n b_i^2 ) - 2 ( \sum_{ i = 1 }^n a_i b_i )^2
 \end{aligned}
-$$</p>
+$$
 <h4 id="toc-93">扰动法</h4>
 <h6 id="toc-94">Example1(等比数列求和)</h6>
-<p>$$
+$$
 \begin{aligned}
 S_n &amp; = \sum_{ i = 0 }^n ax^i \\
 &amp; = a + \sum_{ i = 1 }^n ax^i \\
 &amp; = a + x \sum_{ i = 0 }^{ n - 1 } ax^i \\
 &amp; = a + xS_{ n - 1 }
 \end{aligned}
-$$</p>
+$$
 <p>而$S_{ n - 1 } + ax^n = S_n = a + xS_{ n - 1 }$,有$S_n + ax^{ n + 1 } = a + xS_n , S_n = a \frac{ x^{ n + 1 } - 1 }{ x - 1 }$，其中$x \ne 1$.</p>
 <h6 id="toc-95">Example2(平方和公式)</h6>
 <p>$S_n = \sum_{ i = 0 }^n i^2$.</p>
 <p>如果直接对该公式使用扰动法:</p>
-<p>$$
+$$
 \begin{aligned}
 S_n &amp; = \sum_{ i = 0 }^{ n - 1 } i^2 + n^2 \\
 &amp; = \sum_{ i = 1 }^n ( i - 1 )^2 + n^2 \\
 &amp; = S_n - 2 \sum_{ i = 1 }^n i + n + n^2
 \end{aligned}
-$$</p>
+$$
 <p>我们无法得到$S_n$的封闭形式,但我们发现我们得到了$\sum_{ i = 1 }^n i$的封闭形式.</p>
 <p>那以此类推，我们设$W_n = \sum_{ i = 0 } i^3$</p>
-<p>$$
+$$
 \begin{aligned}
 W_n &amp; = \sum_{ i = 0 }^{ n - 1 } i^3 + n^3 \\
 &amp; = \sum_{ i = 1 }^n ( i - 1 )^3 + n^3 \\
@@ -725,10 +725,10 @@ S_n &amp; = \frac{ n + n^2 }{ 2 } - \frac{ n - n^3 }{ 3 } \\
 &amp; = \frac{ n ( 1 + 3 n + 2 n^2 ) }{ 6 } \\
 &amp; = \frac{ n ( 2 n + 1 ) ( n + 1 ) }{ 6 }
 \end{aligned}
-$$</p>
+$$
 <h4 id="toc-96">展开和收缩</h4>
 <h6 id="toc-97">Example1(平方和公式)</h6>
-<p>$$
+$$
 \begin{aligned}
 S_n &amp; = \sum_{ k = 1 }^n k^2 \\
 &amp; = \sum_{ k = 1 }^n \sum_{ i = 1 }^k k \\
@@ -738,11 +738,11 @@ S_n &amp; = \sum_{ k = 1 }^n k^2 \\
 &amp; = \frac{ 1 }{ 2 } ( \sum_{ i = 1 }^n i - \sum_{ i = 1 }^n i^2 + n^3 + n^2 ) \\
 &amp; = \frac{ 1 }{ 4 } n ( n + 1 ) - \frac{ 1 }{ 2 } S_n + \frac{ n^3 + n^2 }{ 2 }
 \end{aligned}
-$$</p>
+$$
 <p>整理得到$S_n$.</p>
 <h6 id="toc-98">Example2</h6>
 <p>求$\sum_{ i = 1 }^n i^3 \\$.</p>
-<p>$$
+$$
 \begin{aligned}
 S ( n ) &amp; = \sum_{ i = 1 }^n i^3 \\
 &amp; = \sum_{ i = 1 }^n \sum_{ j = 1 }^i i^2 \\
@@ -751,11 +751,11 @@ S ( n ) &amp; = \sum_{ i = 1 }^n i^3 \\
 &amp; = \frac{ n^2 ( n + 1 ) ( 2 n + 1 ) }{ 6 } - \frac{ 1 }{ 3 } S ( n ) + \frac{ n ( n + 1 ) ( 2 n + 1 ) }{ 12 } - \frac{ n ( n + 1 ) }{ 12 } \\
 S ( n ) &amp; = \frac{ n^2 ( n + 1 )^2 }{ 4 }
 \end{aligned}
-$$</p>
+$$
 <h5 id="toc-99">Problme3</h5>
 <p>求$\sum_{ i = 1 }^n iq^i ( q \ne 1 )$.</p>
 <h5 id="toc-100">Solution3</h5>
-<p>$$
+$$
 \begin{aligned}
 \sum_{ i = 1 }^n iq^i &amp; = \sum_{ j = 1 }^n \sum_{ i = j }^n q^i \\
 &amp; = \sum_{ j = 1 }^n \frac{ q^j - q^{ n + 1 } }{ 1 - q } \\
@@ -763,7 +763,7 @@ $$</p>
 &amp; = \frac{ 1 }{ q - 1 } ( nq^{ n + 1 } - \frac{ q^{ n + 1 } - q }{ q - 1 } ) \\
 
 \end{aligned}
-$$</p>
+$$
 <h5 id="toc-101">ProblemEX2</h5>
 <p>求$\sum_{ i = 1 }^n ( ai + b ) q^{ i - 1 } ( q \ne 1 )$.</p>
 <h5 id="toc-102">SolutionEX2</h5>
@@ -801,26 +801,26 @@ $$</p>
 <p>仍然考虑平方和公式：</p>
 <p>我们有:$k^2 = k^{ \underline{ 2 } } + k^{ \underline{ 1 } } \\$.</p>
 <p>那么:</p>
-<p>$$
+$$
 \begin{aligned}
 S_{ n - 1 } &amp; = \sum_{ i = 0 }^{ n - 1 } i^2 \\
 &amp; = \sum_{ i = 0 }^{ n - 1 } ( i^{ \underline{ 2 } } + i^{ \underline{ 1 } } ) \\
 &amp; = \sum \nolimits_{ 0 }^n x^{ \underline{ 2 } } \delta x + \sum \nolimits_{ 0 }^n x^{ \underline{ 1 } } \delta x \\
 &amp; = \frac{ n^\underline{ 3 } }{ 3 } + \frac{ n^{ \underline{ 2 } } }{ 2 }
 \end{aligned}
-$$</p>
+$$
 <p>整理即可得到封闭形式.</p>
 <p>值得一提的是:</p>
 <p>与前面的方法不同，这里没有使用三次的二项式公式，而是使用了二次的斯特林公式负责将一般幂转化为下降幂.</p>
 <h5 id="toc-110">分部求和法则(Abel求和法)</h5>
-<p>$$
+$$
 \begin{aligned}
 \Delta ( uv ) &amp; = u ( x + 1 ) v ( x + 1 ) - u ( x ) v ( x ) \\
 &amp; = u ( x + 1 ) v ( x + 1 ) - u ( x ) v ( x + 1 ) + u ( x ) v ( x + 1 ) - u ( x ) v ( x ) \\
 &amp; = v ( x + 1 ) \Delta u + u ( x ) \Delta v = Ev \Delta u + u \Delta v \\
 
 \end{aligned}
-$$</p>
+$$
 <p>两边取不定和，即可得到分部求和法则:</p>
 <p>$\sum u \Delta v = uv - \sum Ev \Delta u \\$.</p>
 <p>分部求和用一般和式表达如下,下式又被称为Abel求和法:</p>
@@ -830,7 +830,7 @@ $$</p>
 <p>根据分部求和法则，我们有:</p>
 <p>$\sum x 2^x \delta x = x 2^x - \sum 2^{ x + 1 } \delta x = x 2^x - 2^{ x + 1 } + C \\$.</p>
 <p>改为定和式形式，显然有:</p>
-<p>$$
+$$
 \begin{aligned}
 &amp; \sum_{ k = 0 }^n k 2^k \\
 = &amp; \sum \nolimits_0^{ n + 1 } x 2^x \delta x \\
@@ -838,7 +838,7 @@ $$</p>
 = &amp; ( n - 1 ) 2^{ n + 1 } + 2 \\
 
 \end{aligned}
-$$</p>
+$$
 <h6 id="toc-112">Example2</h6>
 <p>求$\sum_{ k = 0 }^{ n - 1 } kH_k \\$.</p>
 <p>令$u ( x ) = H_x , v ( x ) = \frac{ 1 }{ 2 } x^{ \underline{ 2 } } \\$.</p>
@@ -849,42 +849,42 @@ $$</p>
 <p>求$\sum_{ i = 1 }^n \frac{ 2 i + 1 }{ i ( i + 1 ) } \\$.</p>
 <p>令$u = ( 2 n + 1 ) , v = - \frac{ 1 }{ i }$,则$\Delta u = 2 , \Delta v = \frac{ 1 }{ i ( i + 1 ) }$.</p>
 <p>根据分部求和法则,有:</p>
-<p>$$
+$$
 \begin{aligned}
 \sum_{ i = 1 }^n \frac{ 2 i + 1 }{ i ( i + 1 ) } &amp; = ( 2 n + 3 ) \times ( - \frac{ 1 }{ n + 1 } ) + 3 - \sum_{ i = 1 }^n ( - \frac{ 2 }{ i + 1 } ) \\
 &amp; = - \frac{ 2 n + 3 }{ n + 1 } + 2 H_n + \frac{ n + 3 }{ n + 1 } \\
 &amp; = 2 H_n - \frac{ n }{ n + 1 }
 \end{aligned}
-$$</p>
+$$
 <h6 id="toc-114">Example4</h6>
 <p>求$\sum_{ i = 0 }^{ n - 1 } \frac{ H_k }{ ( k + 1 ) ( k + 2 ) } \\$.</p>
 <p>令$u = H_n , v = - \frac{ 1 }{ n + 1 } , \Delta u = \frac{ 1 }{ n + 1 } , \Delta v = \frac{ 1 }{ ( n + 1 ) ( n + 2 ) } \\$.</p>
 <p>根据分部求和法则,有:</p>
-<p>$$
+$$
 \begin{aligned}
 \sum_{ i = 0 }^{ n - 1 } \frac{ H_k }{ ( k + 1 ) ( k + 2 ) } &amp; = - \frac{ H_n }{ n + 1 } - \sum_{ i = 0 }^{ n - 1 } ( - \frac{ 1 }{ ( i + 2 ) ( i + 1 ) } ) \\
 &amp; = - \frac{ H_n }{ n + 1 } + \sum_{ i = 0 }^{ n - 1 } ( \frac{ 1 }{ i + 1 } - \frac{ 1 }{ i + 2 } ) \\
 &amp; = - \frac{ H_n }{ n + 1 } + H_n - ( H_n - 1 + \frac{ 1 }{ n + 1 } ) \\
 &amp; = 1 - \frac{ H_n + 1 }{ n + 1 }
 \end{aligned}
-$$</p>
+$$
 <h3 id="toc-115">基础数论在数列中的应用</h3>
 <h5 id="toc-116">Example</h5>
 <p>令$A = \{ 2 n - 1 | n \in \mathbb{ N }_{ + } \} , B = \{ 3 n - 1 | n \in \mathbb{ N }_{ + } \}$.求$A \cap B$,以及$A \cup B$的最小的一百项之和.</p>
 <p>对于前者,我们知道:</p>
-<p>$$
+$$
 \begin{aligned}
 a &amp; \in A \Leftrightarrow a \equiv - 1 \pmod{ 2 } \\
 b &amp; \in B \Leftrightarrow b \equiv - 1 \pmod{ 6 } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>所以$A \cap B = \{ 6 n - 1 | n \in \mathbb{ N }_{ + } \}$.</p>
 <p>而同理,$x \in A \cup B \Leftrightarrow x \equiv - 1 / - 2 / - 3 / - 5 \pmod{ 6 }$.于是后者是简单的.</p>
 <h3 id="toc-117">构造双射在数列中的应用</h3>
 <p>设$A = \{ x | x = 2 n - 1 , n \in \mathbb{ N }_+ \} , B = \{ x | x = 2^n , n \in \mathbb{ N }_+ \}$,现在将$A \cup B$中的元素排序并提取成一个数列$a$,求使得$S_n &gt; 12 a_n$最小的正整数$n$.</p>
 <p>写出数列,它长这样:</p>
-<p>$$
+$$
 \begin{matrix}
 1 &amp; 2 \\
 3 &amp; 4 \\
@@ -892,7 +892,7 @@ $$</p>
 9 &amp; 11 &amp; 13 &amp; 15 &amp; 16 \\
 &amp; &amp; \cdots
 \end{matrix}
-$$</p>
+$$
 <p>不妨设$n$在第$r$行$c$列,显然$( r , c )$和$n$构成双射.</p>
 <p>那么我们现在无非有两个思路:要么找到一个方式使得对于给定的$n$能快速表达$( r , c )$,要么反之.显然反之比较简单.</p>
 <p>考虑设前$k$行共有$W_k$个数,不难发现$W_{ k + 1 } = W_k + 2^{ k - 1 } + 1 , W_k = 2^{ k - 1 } + k$.</p>
@@ -900,20 +900,20 @@ $$</p>
 <p>令$SR_{ r }$为前$r$行数字之和,不难发现$SR_r = 2^{ r + 1 } - 2 + ( 2^{ r - 1 } )^2$.</p>
 <p>接下来考虑找到这个最小的$n$,显然$r \ne 1$,接下来只考虑$r \geq 2$的情况.</p>
 <p>那么我们可以轻松写出$S_n$和$a_n$的表达式,下面直接给出:</p>
-<p>$$
+$$
 \begin{aligned}
 S_n &amp; = SR_{ r - 1 } + \sum_{ k = 1 }^c ( 2^{ r - 1 } + 2 k - 1 ) - [ c = 2^{ r - 2 } + 2 ] \\
 S_n &amp; = 2^r - 2 + 4^{ r - 2 } + 2^{ r - 1 } c + c^2 - [ c = 2^{ r - 2 } + 1 ] \\
 a_n &amp; = 2^{ r - 1 } + 2 c - 1 - [ c = 2^{ r - 2 } + 1 ]
 \end{aligned}
-$$</p>
+$$
 <p>讨论一下$[ c = 2^{ r - 2 } + 1 ]$这个判定式取$0$还是取$1$,这样就做完了.</p>
 <h3 id="toc-118">不等式放缩在数列中的应用</h3>
 <h2 id="toc-119">几何导论</h2>
 <h3 id="toc-120">三角相关</h3>
 <h4 id="toc-121">三角恒等变换</h4>
 <h5 id="toc-122">两角和差公式</h5>
-<p>$$
+$$
 \begin{aligned}
 \sin ( A + B ) &amp; = \sin A \cos B + \sin B \cos A \\
 \sin ( A - B ) &amp; = \sin A \cos B - \sin B \cos A \\
@@ -922,25 +922,25 @@ $$</p>
 \tan ( A + B ) &amp; = \frac{ \tan A + \tan B }{ 1 - \tan A \tan B } \\
 \tan ( A - B ) &amp; = \frac{ \tan A - \tan B }{ 1 + \tan A \tan B }
 \end{aligned}
-$$</p>
+$$
 <h5 id="toc-123">倍角公式</h5>
-<p>$$
+$$
 \begin{aligned}
 \tan ( 2 A ) &amp; = \frac{ 2 \tan A }{ 1 - \tan^2 A } \\
 \sin ( 2 A ) &amp; = 2 \sin A \cos A \\
 \cos ( 2 A ) &amp; = \cos^2 A - \sin^2 A = 2 \cos^2 A - 1 = 1 - 2 \sin^2 A
 \end{aligned}
-$$</p>
+$$
 <h5 id="toc-124">半角公式</h5>
-<p>$$
+$$
 \begin{aligned}
 \sin ( \frac{ A }{ 2 } ) &amp; = \pm \sqrt{ \frac{ 1 - \cos A }{ 2 } } \\
 \cos ( \frac{ A }{ 2 } ) &amp; = \pm \sqrt{ \frac{ 1 + \cos A }{ 2 } } \\
 \tan ( \frac{ A }{ 2 } ) &amp; = \frac{ \sin A }{ 1 + \cos A } = \frac{ 1 - \cos A }{ \sin A } = \pm \sqrt{ \frac{ 1 - \cos A }{ 1 + \cos A } }
 \end{aligned}
-$$</p>
+$$
 <h5 id="toc-125">和差化积</h5>
-<p>$$
+$$
 \begin{aligned}
 \sin A + \sin B &amp; = 2 \sin ( \frac{ A + B }{ 2 } ) \cos ( \frac{ A - B }{ 2 } ) \\
 \sin A - \sin B &amp; = 2 \cos ( \frac{ A + B }{ 2 } ) \sin ( \frac{ A - B }{ 2 } ) \\
@@ -948,44 +948,44 @@ $$</p>
 \cos A - \cos B &amp; = - 2 \sin ( \frac{ A + B }{ 2 } ) \sin ( \frac{ A - B }{ 2 } ) \\
 \tan A + \tan B &amp; = \frac{ \sin ( A + B ) }{ \cos A \cos B }
 \end{aligned}
-$$</p>
+$$
 <p>值得一提的是,如果你对和差化积特别熟悉,你不难发现下面这个式子:</p>
-<p>$$
+$$
 \sin^2 A - \sin^2 B = \sin ( A - B ) \sin ( A + B )
-$$</p>
+$$
 <p>如果细看会发现,这其实就是和差化积与二倍角公式并用得到的推论,但实际上用处远比和差化积要多.</p>
 <h5 id="toc-126">积化和差</h5>
-<p>$$
+$$
 \begin{aligned}
 \sin A \sin B &amp; = - \frac{ 1 }{ 2 } [ \cos ( A + B ) - \cos ( A - B ) ] \\
 \cos A \cos B &amp; = \frac{ 1 }{ 2 } [ \cos ( A + B ) + \cos ( A - B ) ] \\
 \sin A \cos B &amp; = \frac{ 1 }{ 2 } [ \sin ( A + B ) + \sin ( A - B ) ] \\
 \cos A \sin B &amp; = \frac{ 1 }{ 2 } [ \sin ( A + B ) - \sin ( A - B ) ]
 \end{aligned}
-$$</p>
+$$
 <h5 id="toc-127">万能公式</h5>
 <p>令$w = \tan \frac{ A }{ 2 }$,则:</p>
-<p>$$
+$$
 \begin{aligned}
 \sin A &amp; = \frac{ 2 w }{ 1 + w^2 } \\
 \cos A &amp; = \frac{ 1 - w^2 }{ 1 + w^2 } \\
 \tan A &amp; = \frac{ 2 w }{ 1 - w^2 }
 \end{aligned}
-$$</p>
+$$
 <p>当然,这个所谓的万能公式其实一点用都没有,因为我们有更强大的公式:</p>
-<p>$$
+$$
 \begin{aligned}
 \cos ( x ) &amp; = \frac{ e^{ ix } + e^{ - ix } }{ 2 } \\
 \sin ( x ) &amp; = \frac{ e^{ ix } - e^{ - ix } }{ 2 i }
 \end{aligned}
-$$</p>
+$$
 <h5 id="toc-128">补充公式</h5>
-<p>$$
+$$
 \begin{aligned}
 1 + \sin A &amp; = ( \sin \frac{ A }{ 2 } + \cos \frac{ A }{ 2 } )^2 \\
 1 - \sin A &amp; = ( \sin \frac{ A }{ 2 } - \cos \frac{ A }{ 2 } )^2
 \end{aligned}
-$$</p>
+$$
 <h4 id="toc-129">周期函数与初等数论</h4>
 <p>我们知道,处理三角中的周期性问题时,需要设一些取值为整数的$k$来解决问题,这引发我们思考:是否可以将初等数论中的模法来解决这一类问题呢?</p>
 <h6 id="toc-130">Example1</h6>
@@ -993,40 +993,40 @@ $$</p>
 <p>正确做法应该是强设$k_1 , k_2$,但我们来使用模法.</p>
 <p>必须要注意的一点是,我们这里的$\omega$和$\varphi$都不是整数,这意味着我们必须时刻保证同余式子左侧是整数,也就是在操作的时候不可以使用任何逆元!换句话说,你两边同时做乘法的时候,只可以同时乘以整数,不可以同时乘以分数.</p>
 <p>不妨令$\frac{ \pi }{ 2 }$为单位$1$,我们必有以下式子:</p>
-<p>$$
+$$
 \begin{aligned}
 - \frac{ \omega }{ 3 } + \varphi &amp; \equiv 0 \pmod{ 2 } \\
 \omega + \varphi &amp; \equiv 3 \pmod{ 4 }
 \end{aligned}
-$$</p>
+$$
 <p>下面推导$\omega$,首先将上面两个式子直接相减,立有:</p>
-<p>$$
+$$
 \frac{ 4 }{ 3 } \omega \equiv 1 \pmod{ 2 }
-$$</p>
+$$
 <p>对于$\varphi$,考虑类似的做法,将第一个式子乘以$3$后与第二个式子相加,立有:</p>
-<p>$$
+$$
 4 \varphi \equiv 1 \pmod{ 2 }
-$$</p>
+$$
 <p>这样我们得到的必须满足的条件就有以下几条:</p>
-<p>$$
+$$
 \begin{aligned}
 \frac{ 4 }{ 3 } \omega &amp; \equiv 1 \pmod{ 2 } \\
 4 \varphi &amp; \equiv 1 \pmod{ 2 } \\
 \omega + \varphi &amp; \equiv 3 \pmod{ 4 }
 \end{aligned}
-$$</p>
+$$
 <h3 id="toc-131">向量相关</h3>
 <h4 id="toc-132">旋转模型</h4>
 <p>自己瞎起的名字.</p>
 <h6 id="toc-133">Example1</h6>
 <p>已知$AB = 2 , AC = 1 , \angle A = \theta$,$BC$绕$B$点顺时针旋转$\frac{ \pi }{ 3 }$得到$BD$,求以$\theta$表示$S_{ \triangle CBD }$.</p>
 <p>先来说文化课做法,我们直接表示$S$,令$\alpha = \angle ABC$:</p>
-<p>$$
+$$
 \begin{aligned}
 S &amp; = | BD | \sin ( \alpha + \frac{ \pi }{ 3 } ) \\
 
 \end{aligned}
-$$</p>
+$$
 <p>对于这个式子,我们发现如果我们能得到$| BD | \sin ( \alpha )$和$| BD | \cos ( \alpha )$就可以解决了对吧.</p>
 <p>这两个怎么求得呢?我们发现$BD$是$\alpha$的一条临边.观察正弦定理和余弦定理可知,正弦定理可以帮助我们求出$| BD | \sin \alpha$,余弦定理可以帮助我们求出$| BD | \cos \alpha$.</p>
 <p>然而,如果我们再冷静一下,会得到一个更厉害一点的做法:</p>
@@ -1053,14 +1053,14 @@ $$</p>
 <p>对于$\triangle ABC$内一点$P$,立有$S_{ \triangle PBC } \overrightarrow{ PA } + S_{ \triangle PAC } \overrightarrow{ PB } + S_{ \triangle PAB } \overrightarrow{ PC } = \vec{ 0 }$.</p>
 <p>看到的证明都略麻烦,下面给出一个容易理解的证明.</p>
 <p>我们物理上学过拉密定理,其实也就是运用三角形法则以及正弦定理.利用拉密定理,令$a = PA , b = PB , c = PC$,我们要证奔驰定理,也就是要证明:</p>
-<p>$$
+$$
 \begin{aligned}
 bc \sin \alpha \overrightarrow{ PA } + ac \sin \beta \overrightarrow{ PB } + ab \sin \gamma \overrightarrow{ PC } &amp; = \vec{ 0 } \\
 abc \sin \alpha \frac{ \overrightarrow{ PA } }{ a } + abc \sin \beta \frac{ \overrightarrow{ PB } }{ b } + abc \sin \gamma \frac{ \overrightarrow{ PC } }{ c } &amp; = \vec{ 0 } \\
 \sin \alpha \frac{ \overrightarrow{ PA } }{ a } + \sin \beta \frac{ \overrightarrow{ PB } }{ b } + \sin \gamma \frac{ \overrightarrow{ PC } }{ c } &amp; = \vec{ 0 } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>考虑$| \frac{ \overrightarrow{ PA } }{ a } | = | \frac{ \overrightarrow{ PB } }{ b } | = | \frac{ \overrightarrow{ PC } }{ c } | = 1$,后者根据拉密定理显然成立.</p>
 <h5 id="toc-138">外心</h5>
 <p>有正弦定理,$| \overrightarrow{ OA } | = | \overrightarrow{ OB } | = | \overrightarrow{ OC } | = \frac{ a }{ 2 \sin A }$.</p>
@@ -1072,12 +1072,12 @@ $$</p>
 <p>在没学奔驰定理之前,我们看到这个外心,第一反应肯定是使用$| OA | = | OB | = | OC |$,也就是这三个长度都是好求的.因此,我们考虑对上面的式子两边平方,得到一个关于$p , q$的方程.但是这样没有解决问题.</p>
 <p>考虑我们只用了$| OA |$,用上$| OB |$,这样的话我们两边同时加上$\overrightarrow{ BA }$,就可以得到$p , q$的另一个方程,可以解出两组解,直接舍也可以舍,不然的话根据$| OC |$也可以舍一个解.</p>
 <p>但是这样太蠢了啊,我们考虑直接凑奔驰定理:</p>
-<p>$$
+$$
 \begin{aligned}
 \overrightarrow{ AO } &amp; = p \overrightarrow{ AB } + q \overrightarrow{ AC } \\
 \vec{ 0 } &amp; = ( p + q - 1 ) \overrightarrow{ OA } + p \overrightarrow{ OB } + q \overrightarrow{ OC }
 \end{aligned}
-$$</p>
+$$
 <p>考察奔驰定理,立有$\frac{ p + q - 1 }{ \sin ( 2 A ) } = \frac{ p }{ \sin ( 2 B ) } = \frac{ q }{ \sin ( 2 C ) }$,简单题.</p>
 <h6 id="toc-140">Example2</h6>
 <p>已知相异两点$O , H$分别为$\triangle ABC$的外心和垂心,若$\overrightarrow{ OH } = m ( \overrightarrow{ OA } + \overrightarrow{ OB } + \overrightarrow{ OC } )$,求$m$.</p>
@@ -1099,26 +1099,26 @@ $$</p>
 <h4 id="toc-145">基本概念</h4>
 <h5 id="toc-146">直线</h5>
 <p>使用直线的方向向量$\vec{ s } = ( n , m , p )$和直线上一点$M_0 = ( x_0 , y_0 , z_0 )$.那么方程显然为:</p>
-<p>$$
+$$
 \frac{ x - x_0 }{ n } = \frac{ y - y_0 }{ m } = \frac{ z - z_0 }{ p }
-$$</p>
+$$
 <p>如果换元,我们还有参数方程:</p>
-<p>$$
+$$
 \begin{cases}
 x = x_0 + nt \\
 y = y_0 + mt \\
 z = z_0 + pt
 \end{cases}
-$$</p>
+$$
 <h5 id="toc-147">平面</h5>
 <p>使用平面上的一点$P_0 ( x_0 , y_0 , z_0 )$和该平面的法向量$\vec{ n }$来表示一个平面,不妨设$\vec{ n } = ( A , B , C )$,则该平面的方程显然为:</p>
-<p>$$
+$$
 A ( x - x_0 ) + B ( y - y_0 ) + C ( z - z_0 ) = 0
-$$</p>
+$$
 <p>如果我们令$D = - ( Ax_0 + By_0 + Cz_)$,那么平面方程为:</p>
-<p>$$
+$$
 Ax + By + Cz + D = 0
-$$</p>
+$$
 <h5 id="toc-148">夹角</h5>
 <h6 id="toc-149">两直线夹角.</h6>
 <p>直接求方向向量的夹角,然后取正值.</p>
@@ -1289,13 +1289,13 @@ $$</p>
 <p>那么联立方程是:$( n + mk^2 ) x^2 + 2 k \varphi mx + m ( \varphi^2 - n ) = 0$.</p>
 <p>判别式:$\Delta = 4 mn ( n + mk^2 - \varphi^2 )$.</p>
 <p>韦达定理:</p>
-<p>$$
+$$
 \begin{aligned}
 x_1 + x_2 &amp; = \frac{ - 2 km \varphi }{ n + mk^2 } \\
 x_1 x_2 &amp; = \frac{ m ( \varphi^2 - n ) }{ n + mk^2 } \\
 | x_1 - x_2 | &amp; = \frac{ \sqrt{ \Delta } }{ n + mk^2 }
 \end{aligned}
-$$</p>
+$$
 <h6 id="toc-190">配凑法</h6>
 <p>参考:<a href="https://zhuanlan.zhihu.com/p/521025768" target="_blank" rel="noopener noreferrer">https://zhuanlan.zhihu.com/p/521025768</a>.</p>
 <p>先猜结论,再对着结论构造一个对称式子,从而声明这个式子就是答案.</p>
@@ -1307,43 +1307,43 @@ $$</p>
 <p>注意到$k_1$和$k_2$之间的关系很复杂,这个时候就别惦记你那小联立了,老老实实拿大联立做吧.</p>
 <p>设$AB : y = kx + b$,则$A ( x_1 , kx_1 + b ) , B ( x_2 , kx_2 + b )$,显然$k_1 = k + \frac{ b }{ x_1 } , k_2 = k + \frac{ b }{ x_2 }$.</p>
 <p>直接带入方程,有:</p>
-<p>$$
+$$
 \begin{aligned}
 ( k + \frac{ b }{ x_1 } ) ( k + \frac{ b }{ x_2 } ) - 4 &amp; = 4 ( 2 k + \frac{ b }{ x_1 } + \frac{ b }{ x_2 } ) \\
 k^2 + kb ( \frac{ 1 }{ x_1 } + \frac{ 1 }{ x_2 } ) + \frac{ b^2 }{ x_1 x_2 } - 4 &amp; = 8 k + 4 b ( \frac{ 1 }{ x_1 } + \frac{ 1 }{ x_2 } ) \\
 
 \end{aligned}
-$$</p>
+$$
 <p>而直接大联立得到的式子是:</p>
-<p>$$
+$$
 \begin{aligned}
 k^2 x^2 + ( 2 kb - 4 ) x + b^2 &amp; = 0 \\
 \Delta &amp; = 16 - 16 kb &gt; 0 , kb &lt; 1 \\
 x_1 x_2 &amp; = \frac{ b^2 }{ k^2 } , x_1 + x_2 = \frac{ 4 - 2 kb }{ k^2 } , \frac{ 1 }{ x_1 } + \frac{ 1 }{ x_2 } = \frac{ 4 - 2 kb }{ b^2 }
 \end{aligned}
-$$</p>
+$$
 <p>带入,得到$k - b = 4$,因此过定点$( - 1 , - 4 )$,与$kb &lt; 1$联立得到$k &lt; 2 + \sqrt{ 5 }$.</p>
 <p>还没完,这种题一定要检查一遍条件.注意到$AB$为$x$轴上方两点的性质没用到,这意味着$y_1 y_2 &gt; 0 \land y_1 + y_2 &gt; 0$,带入方程得到:</p>
-<p>$$
+$$
 \begin{aligned}
 b^2 + b ( \frac{ 4 - 2 kb }{ k } ) + b^2 &amp; &gt; 0 \\
 \frac{ 4 - 2 kb }{ k } + 2 b &amp; &gt; 0
 \end{aligned}
-$$</p>
+$$
 <p>化简得到$\begin{cases}b &gt; 0 \\ k &gt; 0\end{cases}$,解得$k &gt; 4$,于是$k \in ( 4 , 2 + \sqrt{ 5 } )$.</p>
 <p>这啥暴力计算啊...没啥好方法嘛?</p>
 <p>首先显然的一点是:由于是在做抛物线,直线方程设成反式肯定会好算很多.<s>(整理到这里才意识到可以设反式,但是懒得改前面的内容了)</s></p>
 <p>看上去式子太复杂确实不太可能用小联立做.问题在于,$OA$和$OB$的斜率看上去都很好表示,为何不能用点参做呢?</p>
 <p>我们尝试直接用点参:</p>
-<p>$$
+$$
 \begin{aligned}
 k_{ OA } &amp; = \frac{ y_1 }{ x_1 } , k_{ OB } = \frac{ y_2 }{ x_2 } \\
 \frac{ y_1 y_2 }{ x_1 x_2 } - 4 &amp; = 4 ( \frac{ y_1 }{ x_1 } + \frac{ y_2 }{ x_2 } ) \\
 16 - 4 y_1 y_2 &amp; = 16 ( y_1 + y_2 )
 \end{aligned}
-$$</p>
+$$
 <p>我们毫不费力就导出了用反式之后做的式子,这仿佛在预示我们点参是有用的,让我们继续:</p>
-<p>$$
+$$
 \begin{aligned}
 &amp; AB : \\
 x - x_1 = &amp; ( y - y_1 ) \frac{ x 1 - x_2 }{ y_1 - y_2 } \\
@@ -1351,7 +1351,7 @@ x - \frac{ y_1^2 }{ 4 } = &amp; ( y - y_1 ) \frac{ 1 }{ 4 } ( y_1 + y_2 ) \\
 x = &amp; \frac{ y_1 + y_2 }{ 4 } y - \frac{ y_1 y_2 }{ 4 } \\
 x = &amp; \frac{ y_1 + y_2 }{ 4 } y - 1 + ( y_1 + y_2 )
 \end{aligned}
-$$</p>
+$$
 <p>显然过定点$( - 1 , - 4 )$,并且通过$y_1$和$y_2$的关系也很好求斜率的范围.</p>
 <p>另外值得一提的是,通常情况下,不要用那个$\frac{ x - x_1 }{ x_1 - x_2 } = \frac{ y - y_1 }{ y_1 - y_2 }$的方程直接表示直线,你做抛物线的很重要的一个目标是通过消参来让式子变得更简洁,而不是去硬着头皮算,上面这个直线方程咋消参啊.</p>
 <p><strong>Example2(齐次化)</strong></p>
@@ -1361,7 +1361,7 @@ $$</p>
 <p>显然?这咋配的啊.</p>
 <p>其实简单来说也就是令$x &#39; = x - 2 , y &#39; = y$,我们有$x = x &#39; + 2 , y = y &#39;$,带入就可以得到关于$x &#39; , y &#39;$的方程,然后再带回$x$和$y$就行.</p>
 <p>我们开始推导:</p>
-<p>$$
+$$
 \begin{aligned}
 \frac{ ( x - 2 )^2 }{ 4 } + ( x - 2 ) + y^2 = 0 \\
 ( x - 2 )^2 + 4 ( x - 2 ) + 4 y^2 = 0 \\
@@ -1370,7 +1370,7 @@ $$</p>
 4 n + 1 + 4 m \frac{ y }{ x - 2 } + 4 ( \frac{ y }{ x - 2 } )^2 = 0 \\
 
 \end{aligned}
-$$</p>
+$$
 <p>令$k = \frac{ y }{ x - 2 }$,也就得到了$4 n + 1 + 4 mk + 4 k^2 = 0$.用一遍韦达定理,有:$k_1 k_2 = \frac{ 4 n + 1 }{ 4 } = \frac{ 1 }{ 20 } , n = - \frac{ 1 }{ 5 }$.</p>
 <p>也就有:$PQ : - \frac{ 1 }{ 5 } ( x - 2 ) + my = 1$,显然过定点$( - 3 , 0 )$.</p>
 <p><strong>Example3(小联立)</strong></p>
@@ -1378,17 +1378,17 @@ $$</p>
 <p>出现了两条直线!提问:使用大联立还是小联立.</p>
 <p>考虑这么一个事实:大联立的用处应该体现在直线$PQ$很重要的时候,而这个题除了$P , Q$两点以外,和$PQ$半毛钱关系都没有.而且如果使用小联立,那么两个斜率之间的关系也很好表示,因此我们选择小联立.</p>
 <p>设$P ( x_1 , y_1 ) , Q ( x_2 , y_2 )$,$k = \frac{ y_1 }{ x_1 } , - \frac{ 1 }{ k } = \frac{ y_2 }{ x_2 }$:</p>
-<p>$$
+$$
 \begin{aligned}
 2 S &amp; = | x_1 y_1 | + | x_2 y_2 | \\
 &amp; = | x_1^2 k - \frac{ 1 }{ k } x_2^2 | \\
 
 \end{aligned}
-$$</p>
+$$
 <p>而联立方程,有:</p>
-<p>$$
+$$
 x_1^2 = \frac{ 1 }{ \frac{ 1 }{ 9 } + k } , x_2^2 = \frac{ 1 }{ \frac{ 1 }{ 9 } - \frac{ 1 }{ k } }
-$$</p>
+$$
 <p>代入计算即可求解.</p>
 <p>当然这个题斜率形式很好看,拿点参肯定也是可以做的,但是没啥必要,因为斜率关系很好看.</p>
 <p>等一下,大联立真的没啥希望嘛?</p>
@@ -1396,15 +1396,15 @@ $$</p>
 <p><strong>Example4(非对称性韦达定理)</strong></p>
 <p>已知椭圆$\frac{ x^2 }{ 2 } + y^2 = 1$,$F ( 1 , 0 )$,直线$l$过$F$且交椭圆于$A , B$两点.求问:$x$轴上是否存在异于$F$的一点$Q$,使得$\frac{ k_{ QA } }{ k_{ QB } }$是定值.</p>
 <p>直接设$AB : x = ky + 1$,$Q ( q , 0 )$.我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 \frac{ k_{ QA } }{ k_{ QB } } &amp; = \frac{ y_1 ( q - x_2 ) }{ y_2 ( q - x_1 ) } \\
 &amp; = - \frac{ ky_1 y_2 + y_1 - qy_1 }{ ky_1 y_2 + y_2 - qy_2 }
 \end{aligned}
-$$</p>
+$$
 <p>坏了,这咋做.</p>
 <p>我们用一下韦达定理得到:</p>
-<p>$$
+$$
 \begin{aligned}
 ( k^2 + 2 ) y^2 + 2 ky - 1 &amp; = 0 \\
 \Delta &amp; = 8 k^2 + 8 &gt; 0 \\
@@ -1412,40 +1412,40 @@ y_1 + y_2 &amp; = - \frac{ 2 k }{ k^2 + 2 } \\
 y_1 y_2 &amp; = - \frac{ 1 }{ k^2 + 2 } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>注意到$\frac{ ( y_1 + y_2 ) }{ 2 } = k ( y_1 y_2 )$,代入,有:</p>
-<p>$$
+$$
 \begin{aligned}
 \frac{ k_{ QA } }{ k_{ QB } } &amp; = - \frac{ y_1 + y_2 + 2 y_1 - 2 qy_1 }{ y_1 + y_2 + 2 y_2 - 2 qy_2 } \\
 &amp; = - \frac{ ( 3 - 2 q ) y_1 + y_2 }{ ( 3 - 2 q ) y_2 + y_1 }
 \end{aligned}
-$$</p>
+$$
 <p>若是定值,那么就有:$\frac{ 3 - 2 q }{ 1 } = \frac{ 1 }{ 3 - 2 q }$,解得$q_1 = 1 ( F )$,$q_2 = 2 ( Q )$.</p>
 <p>所以$Q ( 2 , 0 )$.</p>
 <p><strong>Example5(配凑法)</strong></p>
 <p>已知椭圆$\frac{ x^2 }{ 4 } + \frac{ y^2 }{ 3 } = 1$,过$F ( - 1 , 0 )$的直线交椭圆于$M , N$两点,过$M$作直线$x = - 4$的垂线,垂足为$E$,求证:$EN$过定点.</p>
 <p>根据对称原理,显然这个定点一定在$x$轴上.</p>
 <p>我们先写大联立的式子:设$MN : x = - 1 + ky$,带入有$( 3 m^2 + 4 ) y^2 - 6 my - 9 = 0$.再设$M ( x_1 , y_1 ) , N ( x_2 , y_2 )$,自然有:</p>
-<p>$$
+$$
 \begin{cases}
 \Delta = 144 k^2 + 144 \\
 y_1 + y_2 = \frac{ 6 k }{ 3 k^2 + 4 } \\
 y_1 y_2 = \frac{ - 9 }{ 3 k^2 + 4 }
 \end{cases}
-$$</p>
+$$
 <p>接下来呢,我们想一下我们要求什么:我们要求出$EN$的表达式:形如$y - m = k ( x - n )$,然后声明$( n , m )$是定点.</p>
 <p>这又意味着啥呢,这意味着在这条直线上,除了那个定点以外,一定有$k = \frac{ y - m }{ x - n }$.而我们现在有两个点$E ( - 4 , y_1 )$和$N ( x_2 , y_2 )$,又猜出$m = 0$,也就是我们要找到一个$n$满足$\frac{ y_1 }{ - 4 - n } = \frac{ y_2 }{ x_2 - n }$.</p>
 <p>我们倒着推:</p>
-<p>$$
+$$
 \begin{aligned}
 \frac{ y_1 }{ - 4 - n } &amp; = \frac{ y_2 }{ x_2 - n } \\
 \frac{ y_1 }{ - 4 - n } &amp; = \frac{ y_2 }{ ky_2 - 1 - n }
 \end{aligned}
-$$</p>
+$$
 <p>这是啥,这是非对称性韦达定理.</p>
 <p>这一步已经可以暴力化简了.但那样还不如直接做呢.所以我们直接选择从非对称性韦达定理的角度推过来.</p>
 <p>观察韦达定理的关系式,我们有:</p>
-<p>$$
+$$
 \begin{aligned}
 ky_1 y_2 + \frac{ 3 }{ 2 } ( y_1 + y_2 ) &amp; = 0 \\
 ( x_2 + \frac{ 5 }{ 2 } ) y_1 &amp; = - \frac{ 3 }{ 2 } y_2 \\
@@ -1454,7 +1454,7 @@ y_1 &amp; = \frac{ - 3 }{ 2 } \frac{ y_2 }{ x_2 + \frac{ 5 }{ 2 } } \\
 \frac{ y_1 }{ - 4 + \frac{ 5 }{ 2 } } &amp; = \frac{ y_2 }{ x_2 + \frac{ 5 }{ 2 } } \\
 
 \end{aligned}
-$$</p>
+$$
 <p>做到这一步发现要做完了,不难发现$n = \frac{ 5 }{ 2 }$.</p>
 <p>等一下,最后咋就这么巧就凑出来了呢?</p>
 <p>因为你都确定了$m = 0$了,肯定是可以凑出来的,除非它真的不过定点.</p>
@@ -1512,9 +1512,9 @@ $$</p>
 <p>大概是这样的:</p>
 <p>拿椭圆举例子,我们假设椭圆方程是$\frac{ x^2 }{ a^2 } + \frac{ y^2 }{ b^2 } = 1$.</p>
 <p>我们将$y$看作$x$的函数,对两边求导,自然得到:</p>
-<p>$$
+$$
 \frac{ 2 x }{ a^2 } + \frac{ 2 yy &#39; }{ b^2 } = 0
-$$</p>
+$$
 <p>这是个方程,你可以解得$y &#39; = - \frac{ b^2 x }{ a^2 y }$.而这就是椭圆过$( x , y )$这一点切线的斜率.用点斜式就可以得到方程.</p>
 <p>目前没发现这方法在除了推导切线方程以外有啥用.</p>
 <h5 id="toc-197">线性变换</h5>
@@ -1534,7 +1534,7 @@ $$</p>
 <p>我们注意到圆的方程是$( x &#39; )^2 + ( y &#39; )^2 = 1$,而椭圆的方程形如$\frac{ x^2 }{ a^2 } + \frac{ y^2 }{ b^2 } = 1$.</p>
 <p>我们注意到上面的式子等价于:$( \frac{ x }{ a } )^2 + ( \frac{ y }{ b } )^2 = 1$.我们将原坐标系中的所有坐标$( x , y )$全部变成$( \frac{ x }{ a } , \frac{ y }{ b } )$之后,就得到了一个新的坐标系.在新的坐标系中,我们只需要对着圆做就行.</p>
 <p>换成线性代数语言,令$\vec{ f } = ( x , y )$满足椭圆方程,令$\vec{ g } = ( x &#39; , y &#39; )$满足圆的方程,自然有:</p>
-<p>$$
+$$
 \begin{aligned}
 \begin{bmatrix}
 \frac{ 1 }{ a } , 0 \\
@@ -1542,13 +1542,13 @@ $$</p>
 \end{bmatrix} \vec{ f } &amp; = \vec{ g } \\
 
 \end{aligned}
-$$</p>
-<p>$$
+$$
+$$
 \begin{bmatrix}
 a , 0 \\
 0 ,{ b }
 \end{bmatrix} \vec{ g } = \vec{ f }
-$$</p>
+$$
 <h6 id="toc-200">双曲线转化为反比例函数</h6>
 <p>注意到反比例函数的方程是$x &#39; y &#39; = 1$,而双曲线的方程是$\frac{ x^2 }{ a^2 } - \frac{ y^2 }{ b^2 } = 1$.</p>
 <p>这个要硬配可能有些抽象.我们拿矩阵导一导.</p>
@@ -1562,21 +1562,21 @@ $$</p>
 <p>\frac{1}{a},\frac{1}{b}</p>
 <p>\end{bmatrix}</p>
 <p>验证一下,我们有$x &#39; = \frac{ x }{ a } - \frac{ y }{ b } , y &#39; = \frac{ x }{ a } + \frac{ y }{ b }$.带入反比例函数的方程:</p>
-<p>$$
+$$
 x &#39; y &#39; = \frac{ x^2 }{ a^2 } - \frac{ y^2 }{ b^2 } = 1
-$$</p>
+$$
 <p>对着矩阵求逆一下得到:逆矩阵为</p>
 <p>\frac{a}{2},\frac{a}{2}\</p>
 <p>-\frac{b}{2},\frac{b}{2}</p>
 <p>\end{bmatrix}</p>
 <p>验证一下,我们有$x = \frac{ a }{ 2 } ( x &#39; + y &#39; ) , y = \frac{ b }{ 2 } ({ y &#39; - x &#39; } )$,带入双曲线方程得到:</p>
-<p>$$
+$$
 \begin{aligned}
 ( \frac{ x }{ a } )^2 - ( \frac{ y }{ b } )^2 &amp; = 1 \\
 ( x &#39; + y &#39; )^2 - ( x &#39; - y &#39; )^2 &amp; = 4 \\
 x &#39; y &#39; &amp; = 1
 \end{aligned}
-$$</p>
+$$
 <p>要觉得矩阵部分比较魔怔也可以直接看上面的普通描述.</p>
 <h6 id="toc-201">抛物线转化为二次函数</h6>
 <p>这个比较简单,交换$x , y$即可,小问题.</p>
@@ -1586,7 +1586,7 @@ $$</p>
 <p>$\rho$有可能取负,我们通常认为$( - \rho , \theta ) = ( \rho , \theta + \pi )$.</p>
 <p>通常情况下默认$0 \leq \theta &lt; 2 \pi , \rho \geq 0$.如果遇到和直角坐标系结合的问题,通常默认原点为极点,$x$轴正半轴为极轴且二者单位长度相等.下文如无特殊说明均按此建立极坐标.</p>
 <p>注意到若$M$在直角坐标系中坐标为$( x , y )$,在极坐标中坐标为$( \rho , \theta )$,若$M \ne O$自然有:</p>
-<p>$$
+$$
 \begin{aligned}
 x &amp; = \rho \cos \theta , y = \rho \sin \theta \\
 \rho^2 &amp; = x^2 + y^2 , \theta = \begin{cases}
@@ -1595,36 +1595,36 @@ x &amp; = \rho \cos \theta , y = \rho \sin \theta \\
 \arctan ( \frac{ y }{ x } ) &amp; x \ne 0
 \end{cases}
 \end{aligned}
-$$</p>
+$$
 <p>看到这里,聪明的你可能已经发现了不对劲:那这玩意怎么做坐标系变换呢?这玩意难道能乱乘矩阵嘛?这俩项单位都不一样欸.</p>
 <p>别急,你注意到这个东西看上去不太能整什么抽象的坐标系,做的时候直接考虑转化为平面直角坐标系再做.</p>
 <h6 id="toc-203">圆的极坐标方程</h6>
 <p>显然是$\rho^2 = r^2$.</p>
 <p>另外,如果中心在$C ( \rho_0 , \theta_0 )$,半径为$r$的方程咋求呢?</p>
 <p>我们考虑本质是坐标系变换,想都别想先转平面直角坐标系,自然有:</p>
-<p>$$
+$$
 \begin{aligned}
 r^2 &amp; = ( \rho \cos \theta - \rho_0 \cos \theta_0 )^2 + ( \rho \sin \theta - \rho_0 \sin \theta_0 ) \\
 r^2 &amp; = \rho^2 + \rho_0^2 - 2 \rho \rho_0 \cos \theta \cos \theta_0 - 2 \rho \rho_0 \sin \theta \sin \theta_0 \\
 r^2 &amp; = \rho^2 + \rho_0^2 - 2 \rho \rho_0 \cos ( \theta - \theta_0 )
 \end{aligned}
-$$</p>
+$$
 <p>另外由于$\cos \theta = \cos ( - \theta )$,这个公式应该不难背.</p>
 <h6 id="toc-204">直线的极坐标方程</h6>
 <p>过定点$( \rho_1 , \theta_1 )$,且倾斜角为$\alpha$:$\rho \sin ( \alpha - \theta ) = \rho_1 \sin ( \alpha - \theta_1 )$.</p>
 <p>这个咋推的呢,先换回平面直角坐标系,假设过定点$( x_1 , y_1 )$,倾斜角为$\alpha$,我们自然有$( x - x_1 ) \sin \alpha = ( y - y_1 ) \cos \alpha$.</p>
 <p>于是有:</p>
-<p>$$
+$$
 \begin{aligned}
 ( x - x_1 ) \sin \alpha &amp; = ( y - y_1 ) \cos \alpha \\
 ( \rho \cos \theta - \rho_1 \cos \theta_1 ) \sin \alpha &amp; = ( \rho \sin \theta - \rho_1 \sin \theta_1 ) \cos \alpha \\
 \rho \sin ( \alpha - \theta ) &amp; = \rho_1 \sin ( \alpha - \theta_1 )
 \end{aligned}
-$$</p>
+$$
 <p>其实本质还是极坐标轴变换,因为过极点的直线是显然的.</p>
 <p>我们再来考虑一个:求过定点$( \rho_1 , \theta_1 )$和$( \rho_2 , \theta_2 )$的直线方程.</p>
 <p>同理的:</p>
-<p>$$
+$$
 \begin{aligned}
 ( x - x_1 ) ( y_2 - y_1 ) &amp; = ( y - y_1 ) ( x_2 - x_1 ) \\
 \\
@@ -1638,7 +1638,7 @@ $$</p>
 \\
 \rho \rho_2 \sin ( \theta_2 - \theta ) + \rho \rho_1 \sin ( \theta - \theta_1 ) + \rho_1 \rho_2 \sin ( \theta_1 - \theta_2 ) &amp; = 0
 \end{aligned}
-$$</p>
+$$
 <p>太丑了吧,甚至不对称?</p>
 <p>(网上的资料这一步可以继续往下化简,用一些三角函数知识).</p>
 <p>这个故事教给我们:极坐标系下是很难表示一些直线的.</p>
@@ -1648,13 +1648,13 @@ $$</p>
 <p>我们注意到圆锥曲线的一种定义是:到准线距离$d$和到定点距离$r$之比为常数的曲线.令$e = \frac{ r }{ d }$.</p>
 <p>假定定点为原点,极轴垂直于准线,$h$为定点到准线的距离,又设曲线上一点为$M ( \rho , \theta )$,自然有:$r = \rho , d = h + \rho \cos \theta$.</p>
 <p>于是有:</p>
-<p>$$
+$$
 \begin{aligned}
 e &amp; = \frac{ \rho }{ h + \rho \cos \theta } \\
 he + e \rho \cos \theta &amp; = \rho \\
 \rho &amp; = \frac{ he }{ 1 - e \cos \theta }
 \end{aligned}
-$$</p>
+$$
 <p>值得一提的是这玩意不能将圆理解为$e = 0$的圆锥曲线.</p>
 <h5 id="toc-206">参数方程</h5>
 <p>在平面直角坐标系中,曲线上任意一点的坐标$x , y$都是某个变量$t$的函数$\begin{cases}x = f ( t ) \\ y = g ( t )\end{cases}$.</p>
@@ -1680,13 +1680,13 @@ $$</p>
 <p><strong>Example1</strong></p>
 <p>圆$O : x^2 + ( y - 2 )^2 = 1$上有一点$P$,双曲线$x^2 - y^2 = 1$上有一点$Q$,求$| PQ |_{ \min }$.</p>
 <p>设$Q ( \sec \theta , \tan \theta )$,则:</p>
-<p>$$
+$$
 \begin{aligned}
 | OQ |^2 &amp; = \sec^2 \theta + ( \tan \theta - 2 )^2 \\
 &amp; = \tan^2 \theta + 1 ( \tan \theta - 2 )^2 \\
 &amp; = 2 ( \tan \theta - 1 )^2 + 3
 \end{aligned}
-$$</p>
+$$
 <p>$| OQ |_{ \min } = \sqrt{ 3 } , | PQ |_{ \min } = \sqrt{ 3 } - 1$.</p>
 <p><strong>Example2</strong></p>
 <p>求证:等轴双曲线平行于实轴的弦在两顶点所张的角均为直角.</p>
@@ -1706,14 +1706,14 @@ $$</p>
 <p><strong>Example2</strong></p>
 <p>$A , B$是抛物线$y^2 = 2 px$上异于顶点的两动点,且$OA \bot OB$,$AB$上有一点$M$满足$OM \bot AB$,求$M$的轨迹方程.</p>
 <p>设$M ( x , y ) , A ( 2 pt_1^2 , 2 pt_1 ) , B ( 2 pt_2^2 , 2 pt_2 )$,注意到:</p>
-<p>$$
+$$
 \begin{aligned}
 \overrightarrow{ OM } &amp; = ( x , y ) \\
 \overrightarrow{ OA } &amp; = ( 2 pt_1^2 , 2 pt_1 ) \\
 \overrightarrow{ OB } &amp; = ( 2 pt_2^2 , 2 pt_2 ) \\
 \overrightarrow{ AB } &amp; = ( 2 p ( t_2^2 - t_1^2 ) , 2 p ( t_2 - t_1 ) )
 \end{aligned}
-$$</p>
+$$
 <p>因为$\overrightarrow{ OA } \bot \overrightarrow{ OB }$,所以$( 2 pt_1 t_2 )^2 + ( 2 p )^2 t_1 t_2 = 0$,$t_1 t_2 = - 1$.</p>
 <p>因为$\overrightarrow{ AB } \bot \overrightarrow{ OM }$,又有$k_{ AB } = \frac{ 1 }{ t_1 + t_2 }$,所以$k_{ OM } = - ( t_1 + t_2 )$,$\frac{ y }{ x } = - ( t_1 + t_2 )$.</p>
 <p>接下来咋做捏?注意到我们好像忘记了$ABM$三点共线的性质,拿向量做这个东西.</p>
@@ -1723,12 +1723,12 @@ $$</p>
 <p>等一下,这咋想到的啊.</p>
 <p>首先注意到我们有两个点$A , B$,自然要设出它们的参数方程.然后呢?然后我们发现最后$M$一定和$t_1 , t_2$有关.但是我们要求的是$M$的方程,其中不能带有$t_1 , t_2$,因此考虑把$M$的坐标设出来,再用这个坐标表示$t_1 , t_2$,表示不出来表示$t_1 t_2 , t_1 + t_2$也可以,然后消掉即可.</p>
 <p>当然这题还有一个做法,注意到$M$一定在以$| OA |$为直径的圆上,$B$同理,这两个圆的方程分别为:</p>
-<p>$$
+$$
 \begin{aligned}
 x^2 + y^2 - 2 pt_1^2 x - 2 pt_1 y &amp; = 0 \\
 x^2 + y^2 - 2 pt_2^2 x - 2 pt_2 y &amp; = 0
 \end{aligned}
-$$</p>
+$$
 <p>也就是说,$t_1 , t_2$是同一个方程的两个根,根据韦达定理自然有$t_1 t_2 = \frac{ - ( x^2 + y^2 ) }{ 2 px } = - 1$,于是直接有$x^2 + y^2 - 2 px = 0$.</p>
 <p>还没完,注意到$O$一定是一个根,要去掉,所以答案就是$x^2 + y^2 - 2 px = 0 ( x \ne 0 )$.</p>
 <p><strong>Example3</strong></p>
