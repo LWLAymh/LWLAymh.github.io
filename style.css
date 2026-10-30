@@ -371,8 +371,8 @@ mark { background: #ffd66b; color: #3a2f00; border-radius: 2px; padding: 0 2px; 
   cursor: not-allowed; color: var(--text-muted);
 }
 .ban-error-wall {
-  position: absolute; inset: 18px 22px; pointer-events: none;
-  overflow: hidden; color: var(--text-muted);
+  position: absolute; inset: 0 22px 0 0; pointer-events: none;
+  overflow: hidden; color: var(--ban-red);
   font: 10px/1.38 var(--font-mono); letter-spacing: -0.025em;
   text-align: left;
 }
