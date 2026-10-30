@@ -21,7 +21,7 @@
     var retry = timeText === undefined
       ? remainingText(endAt - Date.now())
       : timeText;
-    var normal = "ERROR: user 'LWLAymh' not found. The requested user record is unavailable and cannot be loaded. Retry in " + retry + '.';
+    var normal = "ERROR: user 'LWLAymh' not found. The requested user record cannot be loaded. Retry in " + retry + '.';
     return [
       normal,
       normal.replace('found', 'founnd'),
@@ -75,7 +75,7 @@
       var digits = [];
       for (var i = 0; i < clean.length; i++) if (/\d/.test(clean[i])) digits.push(i);
       var at = digits[Math.floor(random() * digits.length)];
-      var glyphs = ['█', '░', '?', '�', '∅', 'X'];
+      var glyphs = ['O', 'l', 'x', '?', '/', ';'];
       clean = clean.slice(0, at) + glyphs[Math.floor(random() * glyphs.length)] + clean.slice(at + 1);
     }
     state.display = clean;

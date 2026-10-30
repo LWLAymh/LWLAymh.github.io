@@ -390,7 +390,6 @@ mark { background: #ffd66b; color: #3a2f00; border-radius: 2px; padding: 0 2px; 
 .ban-status-success { background: #79ba86; box-shadow: 0 0 3px #79ba8640; }
 .ban-error-row-merged .ban-error-entry + .ban-error-entry .ban-status-dot { margin-left: 2px; }
 .post-ban-body.is-banned, .home-full-post.is-banned { min-height: 230px; }
-.ban-article-notice { position: relative; height: 160px; margin-bottom: 38px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius); }
 .ban-redacted-post { padding: 6px 2px 36px; }
 .ban-redacted-post p { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 2.15; margin: 0 0 1.5em; }
 .ban-redacted-post .redacted-text { color: #111015; background: #111015; box-shadow: 0 0 1px #000; border-radius: 0; }
@@ -400,6 +399,10 @@ a[data-ban-kind="link"].is-banned:hover,
 [data-ban-kind="toc"].is-banned a {
   color: var(--ban-red); cursor: not-allowed;
   text-decoration: line-through; text-decoration-color: var(--ban-red); text-decoration-thickness: 1.5px;
+}
+.category-is-banned {
+  color: var(--ban-red); text-decoration: line-through;
+  text-decoration-color: var(--ban-red); text-decoration-thickness: 1.5px;
 }
 .cat-post-link.is-banned { text-decoration: none !important; }
 .cat-post-link.is-banned .cat-post-title, .search-item.is-banned .s-title {
