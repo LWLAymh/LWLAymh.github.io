@@ -86,12 +86,10 @@
   function init(win, doc) {
     var rules = (win.BLOG_CONFIG || {}).categoryBans || [];
     if (!rules.length) return;
-    var noiseAt = 0;
     var clockStates = new WeakMap();
     refresh = function (scope) {
       var now = Date.now();
       var reduced = !!(win.matchMedia && win.matchMedia('(prefers-reduced-motion: reduce)').matches);
-      var evolve = now - noiseAt > 3200 && !reduced;
       (scope || doc).querySelectorAll('[data-ban-locked]').forEach(function (node) {
         var rule = lockedRule(rules, node.getAttribute('data-ban-category'));
         if (!rule) return;
@@ -101,24 +99,6 @@
           node.setAttribute('aria-disabled', 'true');
           node.setAttribute('title', '暂时封禁');
         }
-        if (evolve) {
-          // 只扰动少数异常行，避免整面文字逐渐全部损坏。
-          var lines = node.querySelectorAll('[data-ban-error-line][data-ban-anomaly]');
-          if (lines.length) {
-            var variants = errorLines(rule.endAt);
-            // 一次只让一行出错，原文永远不参与装饰文字的生成。
-            var line = lines[Math.floor(Math.random() * lines.length)];
-            var variant = Math.floor(Math.random() * variants.length);
-            var replacement = variants[variant];
-            var limit = Number(line.getAttribute('data-ban-error-limit'));
-            if (limit) line.textContent = replacement.slice(0, limit);
-            else {
-              var parts = errorParts(rule.endAt, variant, now, line.hasAttribute('data-ban-opening'));
-              line.querySelector('[data-ban-prefix]').textContent = parts.prefix;
-              line.querySelector('[data-ban-suffix]').textContent = parts.suffix;
-            }
-          }
-        }
         node.querySelectorAll('[data-ban-clock="countdown"]').forEach(function (clock) {
           var state = clockStates.get(clock);
           if (!state) { state = {}; clockStates.set(clock, state); }
@@ -126,7 +106,6 @@
           clock.textContent = countdownFrame(state, rule.endAt, now, behavior);
         });
       });
-      if (evolve) noiseAt = now;
     };
 
     function preventBannedNavigation(event) {
