@@ -1,4 +1,4 @@
-/* 封禁状态由构建固定，浏览器只让重复报错逐行失真。 */
+/* 封禁和普通文字异常由构建固定，浏览器仅更新倒计时。 */
 (function (root, factory) {
   'use strict';
   var api = factory();
@@ -105,6 +105,16 @@
           var behavior = reduced ? 'steady' : clock.getAttribute('data-ban-clock-behavior');
           clock.textContent = countdownFrame(state, rule.endAt, now, behavior);
         });
+        node.querySelectorAll('.ban-error-wall').forEach(function (wall) {
+          var bottom = wall.getBoundingClientRect().bottom;
+          var clipped = false;
+          wall.querySelectorAll('.ban-error-row').forEach(function (row) {
+            // 保留布局高度，只隐藏放不下的整条记录，手机换行时也不露半条。
+            if (row.getBoundingClientRect().bottom > bottom + 0.25) clipped = true;
+            var visibility = clipped ? 'hidden' : '';
+            if (row.style.visibility !== visibility) row.style.visibility = visibility;
+          });
+        });
       });
     };
 
@@ -118,8 +128,9 @@
     doc.addEventListener('auxclick', preventBannedNavigation, true);
     doc.addEventListener('visibilitychange', function () { if (!doc.hidden) refresh(); });
     win.addEventListener('pageshow', function () { refresh(); });
+    win.addEventListener('resize', function () { refresh(); });
     refresh();
-    // 此计时器只控制装饰报错的变化，不决定封禁状态。
+    // 此计时器只更新倒计时和完整行的可见性，不决定封禁状态。
     win.setInterval(function () { if (!doc.hidden) refresh(); }, 1000);
   }
 
