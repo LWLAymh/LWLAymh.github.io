@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
-(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+(function(){var t='dark';try{var s=localStorage.getItem("lwl-theme-ban-a840a9bc99496bec");if(s==='dark'||s==='light')t=s;}catch(e){}document.documentElement.setAttribute('data-theme',t);})();
 </script>
 <title>北大相关选拔数学真题汇总 · LWLAymh的备忘录</title>
 <meta name="description" content="前言 本博客的目的是整理一些选拔题供需要的朋友参考. 由于选拔题具有时效性, 因此可能不会及时更新新的题目. 当新的选拔题出现时, 如果有朋友愿意帮忙整理可以以任意方式联系博主, 十分感谢! 祝看到这篇博客的朋友顺利通过任意选拔考试! 20">
@@ -46,7 +46,7 @@ window.MathJax = {
     </a>
     <div class="header-actions">
     <nav class="site-nav" id="site-nav" aria-label="主导航">
-      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/links.html">友链</a>
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a>
     </nav>
     <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题">
         <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -68,7 +68,8 @@ window.MathJax = {
       
     </div>
   </header>
-  <div class="post-content"><h3 id="toc-0">前言</h3>
+  <div class="post-ban-body" data-ban-kind="article" data-ban-category="学习/大学课程">
+    <div data-ban-content><div class="post-content"><h3 id="toc-0">前言</h3>
 <p>本博客的目的是整理一些选拔题供需要的朋友参考.</p>
 <p>由于选拔题具有时效性, 因此可能不会及时更新新的题目. 当新的选拔题出现时, 如果有朋友愿意帮忙整理可以以任意方式联系博主, 十分感谢!</p>
 <p>祝看到这篇博客的朋友顺利通过任意选拔考试!</p>
@@ -985,10 +986,11 @@ $$
 <p>图论证明:令所有的交叉点为顶点.每个小矩形都有一边长为整数,我们把这两条边长为整数的边在图上标出(允许两顶点之间的重复边),另外两条边不连.这样除了大矩形的四个角以外每个顶点有$2$条边或者$4$条边(这是因为这个点,要么是处于一个丁字路口(两条边),要么是十字路口(四条边)),而大矩形四个角每个角只连了一条边.所以从大矩形一角开始存在一条欧拉路径在另一个角结束.因为图上连边的边长都是整数,把这个欧拉路径投影到大矩形的长宽,我们就得到了大矩形至少有一边长为整数.</p>
 <p>组合证明:考虑Sperner引理(和染色有关的那个).假设结论不成立.把每个小矩形画上对角线,然后把所有交叉点$( x , y )$染色:如果$x$是整数,染X颜色.如果$x$不是整数但$y$是整数,染Y颜色.如果都不是整数,染Z颜色.由Sperner引理,三顶点被染不同颜色的三角形有奇数个(简单来说就是,你考虑大矩阵的左侧两个点都是X颜色,右侧一个是Y一个是Z,并且在最下面这条边(两个端点分别被染成了X颜色和Y颜色)上面只可能出现X和Y两种颜色,由于这两种颜色交替出现,那么连接不同颜色的边就会有奇数个,同理对于全局来说,三条边上连接不同颜色的边总共奇数个,内部的每一条边会在两个三角形中被各算一次,因此三个顶点染成不同颜色的三角形应该有奇数个),但由题目条件这种三角形不存在(如果一个点被染成了X颜色,那么上面的点如果存在也该被染成了X颜色,Y颜色同理,俩总会矛盾一个),矛盾.</p>
 <p>扫描线证明:设大矩形为$[ 0 , a ] \times [ 0 , b ]$,并假设$b$不是整数.把所有小矩形的下边界去掉,然后令$f ( t )$为所有上边界$y$坐标不是整数,并且与直线$y = t$相交的小矩形的$x$方向边长之和.那么$f ( 0 ) = 0$,而且当$f ( t )$变化的时候,它一定会变成另一个整数(原因在于一个小矩阵(假设已加入扫描线)上方的矩阵,如果想要退出扫描线,则必然横向长度是整数.同理对于一个没有加入扫描线的小矩阵上方的矩阵,如果想要加入扫描线,也需要横向长度是整数).所以$f ( b )$是整数.而因为$b$不是整数,$f ( b )$就是最靠上的所有小矩形的宽之和,等于$a$,所以$a$是整数.</p>
-</div>
+</div></div>
+  </div>
   <nav class="post-nav">
-      <a class="post-nav-item" href="/posts/6-%E5%8F%8D%E6%BC%94%E4%B8%8E%E5%AE%B9%E6%96%A5.html"><span>← 上一篇</span>反演与容斥</a>
-      <a class="post-nav-item right" href="/posts/2-%E6%95%B0%E8%AE%BA%E7%9B%B8%E5%85%B3.html"><span>下一篇 →</span>数论相关</a>
+      <a class="post-nav-item" data-ban-kind="link" data-ban-category="学习/具体数学" href="/posts/6-%E5%8F%8D%E6%BC%94%E4%B8%8E%E5%AE%B9%E6%96%A5.html"><span>← 上一篇</span>反演与容斥</a>
+      <a class="post-nav-item right" data-ban-kind="link" data-ban-category="学习/具体数学" href="/posts/2-%E6%95%B0%E8%AE%BA%E7%9B%B8%E5%85%B3.html"><span>下一篇 →</span>数论相关</a>
     </nav>
   <section class="comments" id="comments">
     <h2 class="comments-title">评论</h2>
@@ -1005,9 +1007,9 @@ $$
   <div class="sidebar-inner">
     <section class="sidebar-nav-section" aria-label="折叠导航">
       <div class="toc-title">导航</div>
-      <nav class="sidebar-nav" aria-label="侧边栏主导航"><a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/links.html">友链</a></nav>
+      <nav class="sidebar-nav" aria-label="侧边栏主导航"><a class="nav-link" href="/">首页</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a></nav>
     </section>
-    <div class="sidebar-content sidebar-content-toc"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item"><a href="/posts/%E5%8C%97%E5%A4%A7%E7%9B%B8%E5%85%B3%E9%80%89%E6%8B%94%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98%E6%B1%87%E6%80%BB.html">北大相关选拔数学真题汇总</a></li><li class="toc-branch toc-leaf">
+    <div class="sidebar-content sidebar-content-toc"><div class="" data-ban-kind="toc" data-ban-category="学习/大学课程"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item"><a href="/posts/%E5%8C%97%E5%A4%A7%E7%9B%B8%E5%85%B3%E9%80%89%E6%8B%94%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98%E6%B1%87%E6%80%BB.html">北大相关选拔数学真题汇总</a></li><li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
         <a href="#toc-0">前言</a>
@@ -2086,12 +2088,13 @@ $$
       
     </li></ul>
     </li></ul>
-    </li></ul></div>
+    </li></ul></div></div>
   </div>
 </aside>
 <div class="sidebar-overlay" id="sidebar-overlay"></div>
 <button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
-<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8-opt.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8-opt.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]},"categoryBans":[{"category":"摸鱼","startAt":1793203200000,"endAt":1794499200000}],"theme":{"defaultTheme":"dark","storageKey":"lwl-theme-ban-a840a9bc99496bec"}};</script>
+<script src="/post-ban.js" defer></script>
 <script src="/main.js" defer></script>
 <script src="/comment.js" defer></script>
 <script src="/math-lazy.js" defer></script>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
-(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+(function(){var t='dark';try{var s=localStorage.getItem("lwl-theme-ban-a840a9bc99496bec");if(s==='dark'||s==='light')t=s;}catch(e){}document.documentElement.setAttribute('data-theme',t);})();
 </script>
 <title>反演与容斥 · LWLAymh的备忘录</title>
 <meta name="description" content="反演 假设有两个函数 和 满足: ,已知f求g的过程称为反演. 一般情况下,求反演只能高斯消元,但是有一些形式的反演有巧妙解法. 子集反演 一般形式: 证明: 不难发现,这个子集反演也就相当于在做高维前后缀和. Example1(2019z">
@@ -46,7 +46,7 @@ window.MathJax = {
     </a>
     <div class="header-actions">
     <nav class="site-nav" id="site-nav" aria-label="主导航">
-      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/links.html">友链</a>
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a>
     </nav>
     <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题">
         <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -68,7 +68,8 @@ window.MathJax = {
       
     </div>
   </header>
-  <div class="post-content"><h2 id="toc-0">反演</h2>
+  <div class="post-ban-body" data-ban-kind="article" data-ban-category="学习/具体数学">
+    <div data-ban-content><div class="post-content"><h2 id="toc-0">反演</h2>
 <p>假设有两个函数$f$和$g$满足:$f ( n ) = \sum_{ k } a_{ n , k } g ( k )$,已知f求g的过程称为反演.</p>
 <p>一般情况下,求反演只能高斯消元,但是有一些形式的反演有巧妙解法.</p>
 <h3 id="toc-1">子集反演</h3>
@@ -732,10 +733,11 @@ $$
 <p>我们不妨设$A$表示一定碰了一次上界的方案数,$B$表示一定碰了一次下界的方案数,$AB$表示一定碰了一次上界后碰了一次下界的方案数......</p>
 <p>最后的答案就是随便走$- A - B + AB + BA - ABA - BAB . . .$.</p>
 <p>考虑设步数为$n$,那显然长度最多为$\cfrac{ n }{ a - b }$.</p>
-</div>
+</div></div>
+  </div>
   <nav class="post-nav">
-      <a class="post-nav-item" href="/posts/%E5%AD%97%E7%AC%A6%E4%B8%B2.html"><span>← 上一篇</span>字符串</a>
-      <a class="post-nav-item right" href="/posts/%E5%8C%97%E5%A4%A7%E7%9B%B8%E5%85%B3%E9%80%89%E6%8B%94%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98%E6%B1%87%E6%80%BB.html"><span>下一篇 →</span>北大相关选拔数学真题汇总</a>
+      <a class="post-nav-item" data-ban-kind="link" data-ban-category="学习/OI" href="/posts/%E5%AD%97%E7%AC%A6%E4%B8%B2.html"><span>← 上一篇</span>字符串</a>
+      <a class="post-nav-item right" data-ban-kind="link" data-ban-category="学习/大学课程" href="/posts/%E5%8C%97%E5%A4%A7%E7%9B%B8%E5%85%B3%E9%80%89%E6%8B%94%E6%95%B0%E5%AD%A6%E7%9C%9F%E9%A2%98%E6%B1%87%E6%80%BB.html"><span>下一篇 →</span>北大相关选拔数学真题汇总</a>
     </nav>
   <section class="comments" id="comments">
     <h2 class="comments-title">评论</h2>
@@ -752,9 +754,9 @@ $$
   <div class="sidebar-inner">
     <section class="sidebar-nav-section" aria-label="折叠导航">
       <div class="toc-title">导航</div>
-      <nav class="sidebar-nav" aria-label="侧边栏主导航"><a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/links.html">友链</a></nav>
+      <nav class="sidebar-nav" aria-label="侧边栏主导航"><a class="nav-link" href="/">首页</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a></nav>
     </section>
-    <div class="sidebar-content sidebar-content-toc"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item"><a href="/posts/6-%E5%8F%8D%E6%BC%94%E4%B8%8E%E5%AE%B9%E6%96%A5.html">反演与容斥</a></li><li class="toc-branch collapsed">
+    <div class="sidebar-content sidebar-content-toc"><div class="" data-ban-kind="toc" data-ban-category="学习/具体数学"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item"><a href="/posts/6-%E5%8F%8D%E6%BC%94%E4%B8%8E%E5%AE%B9%E6%96%A5.html">反演与容斥</a></li><li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
         <a href="#toc-0">反演</a>
@@ -1024,12 +1026,13 @@ $$
       </div>
       
     </li></ul>
-    </li></ul></div>
+    </li></ul></div></div>
   </div>
 </aside>
 <div class="sidebar-overlay" id="sidebar-overlay"></div>
 <button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
-<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8-opt.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8-opt.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]},"categoryBans":[{"category":"摸鱼","startAt":1793203200000,"endAt":1794499200000}],"theme":{"defaultTheme":"dark","storageKey":"lwl-theme-ban-a840a9bc99496bec"}};</script>
+<script src="/post-ban.js" defer></script>
 <script src="/main.js" defer></script>
 <script src="/comment.js" defer></script>
 <script src="/math-lazy.js" defer></script>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
-(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+(function(){var t='dark';try{var s=localStorage.getItem("lwl-theme-ban-a840a9bc99496bec");if(s==='dark'||s==='light')t=s;}catch(e){}document.documentElement.setAttribute('data-theme',t);})();
 </script>
 <title>计算几何 · LWLAymh的备忘录</title>
 <meta name="description" content="二维计算几何 参考: https://www.luogu.com.cn/blog/command block/ji suan ji he suan fa hui zong. 这一部分比较常用,知识点也比较简单,会主要聚焦于写法. 基本函数 ">
@@ -1210,7 +1210,7 @@ mjx-c.mjx-c1D453.TEX-I::before {
     </a>
     <div class="header-actions">
     <nav class="site-nav" id="site-nav" aria-label="主导航">
-      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/links.html">友链</a>
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a>
     </nav>
     <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题">
         <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -1232,7 +1232,8 @@ mjx-c.mjx-c1D453.TEX-I::before {
       
     </div>
   </header>
-  <div class="post-content"><h2 id="toc-0">二维计算几何</h2>
+  <div class="post-ban-body" data-ban-kind="article" data-ban-category="学习/OI">
+    <div data-ban-content><div class="post-content"><h2 id="toc-0">二维计算几何</h2>
 <p>参考:<a href="https://www.luogu.com.cn/blog/command-block/ji-suan-ji-he-suan-fa-hui-zong" target="_blank" rel="noopener noreferrer">https://www.luogu.com.cn/blog/command-block/ji-suan-ji-he-suan-fa-hui-zong</a>.</p>
 <p>这一部分比较常用,知识点也比较简单,会主要聚焦于写法.</p>
 <h3 id="toc-1">基本函数</h3>
@@ -1460,10 +1461,11 @@ mjx-c.mjx-c1D453.TEX-I::before {
 <p>这个定理说明直线与平面的夹角,是所有包含直线的平面与这个平面形成的夹角中最小的那一个.并且偏移量决定了差距.</p>
 <h4 id="toc-41">三正弦定理(最大角定理)</h4>
 <p>这个定理说明二面角是另一个平面上的直线与平面的夹角中最大的那个,并且偏移量决定了差距.</p>
-</div>
+</div></div>
+  </div>
   <nav class="post-nav">
-      <a class="post-nav-item" href="/posts/1-%E9%80%92%E5%BD%92%E5%BC%8F%E4%B8%8E%E5%92%8C%E5%BC%8F.html"><span>← 上一篇</span>递归式与和式</a>
-      <a class="post-nav-item right" href="/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html"><span>下一篇 →</span>数据结构相关</a>
+      <a class="post-nav-item" data-ban-kind="link" data-ban-category="学习/具体数学" href="/posts/1-%E9%80%92%E5%BD%92%E5%BC%8F%E4%B8%8E%E5%92%8C%E5%BC%8F.html"><span>← 上一篇</span>递归式与和式</a>
+      <a class="post-nav-item right" data-ban-kind="link" data-ban-category="学习/OI" href="/posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html"><span>下一篇 →</span>数据结构相关</a>
     </nav>
   <section class="comments" id="comments">
     <h2 class="comments-title">评论</h2>
@@ -1480,9 +1482,9 @@ mjx-c.mjx-c1D453.TEX-I::before {
   <div class="sidebar-inner">
     <section class="sidebar-nav-section" aria-label="折叠导航">
       <div class="toc-title">导航</div>
-      <nav class="sidebar-nav" aria-label="侧边栏主导航"><a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/links.html">友链</a></nav>
+      <nav class="sidebar-nav" aria-label="侧边栏主导航"><a class="nav-link" href="/">首页</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a></nav>
     </section>
-    <div class="sidebar-content sidebar-content-toc"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item"><a href="/posts/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95.html">计算几何</a></li><li class="toc-branch collapsed">
+    <div class="sidebar-content sidebar-content-toc"><div class="" data-ban-kind="toc" data-ban-category="学习/OI"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item"><a href="/posts/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95.html">计算几何</a></li><li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
         <a href="#toc-0">二维计算几何</a>
@@ -1763,12 +1765,13 @@ mjx-c.mjx-c1D453.TEX-I::before {
       
     </li></ul>
     </li></ul>
-    </li></ul></div>
+    </li></ul></div></div>
   </div>
 </aside>
 <div class="sidebar-overlay" id="sidebar-overlay"></div>
 <button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
-<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8-opt.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8-opt.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]},"categoryBans":[{"category":"摸鱼","startAt":1793203200000,"endAt":1794499200000}],"theme":{"defaultTheme":"dark","storageKey":"lwl-theme-ban-a840a9bc99496bec"}};</script>
+<script src="/post-ban.js" defer></script>
 <script src="/main.js" defer></script>
 <script src="/comment.js" defer></script>
 </body>

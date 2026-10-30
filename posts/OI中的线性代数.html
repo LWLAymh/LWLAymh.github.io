@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
-(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+(function(){var t='dark';try{var s=localStorage.getItem("lwl-theme-ban-a840a9bc99496bec");if(s==='dark'||s==='light')t=s;}catch(e){}document.documentElement.setAttribute('data-theme',t);})();
 </script>
 <title>OI中的线性代数 · LWLAymh的备忘录</title>
 <meta name="description" content="OI中的线性代数 线性基 Example1 给定 个非平方因子数 ,求有多少种选取一个子集的方式满足每个质因子都在子集中恰好出现偶数次. . 考虑将每个数的质因子压成一个二进制数,那所求也就是问有多少种选取子集的方式使得子集内二进制数异或和">
@@ -1257,7 +1257,7 @@ mjx-c.mjx-c74::before {
     </a>
     <div class="header-actions">
     <nav class="site-nav" id="site-nav" aria-label="主导航">
-      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/links.html">友链</a>
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a>
     </nav>
     <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题">
         <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -1279,7 +1279,8 @@ mjx-c.mjx-c74::before {
       
     </div>
   </header>
-  <div class="post-content"><h3 id="toc-0">OI中的线性代数</h3>
+  <div class="post-ban-body" data-ban-kind="article" data-ban-category="学习/OI">
+    <div data-ban-content><div class="post-content"><h3 id="toc-0">OI中的线性代数</h3>
 <h4 id="toc-1">线性基</h4>
 <h5 id="toc-2">Example1</h5>
 <p>给定<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container>个非平方因子数<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math></mjx-container>,求有多少种选取一个子集的方式满足每个质因子都在子集中恰好出现偶数次.<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2264"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cD7"></mjx-c></mjx-mo><mjx-msup space="3"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.393em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c35"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2264"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.393em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c36"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math></mjx-container>.</p>
@@ -1357,10 +1358,11 @@ mjx-c.mjx-c74::before {
 <p>然后必要性,如果存在一个点没有这条路径,那这个点也必然不可能被回溯到,自然不可能出现一组解.</p>
 <p>这题关键在于发现流量平衡这个等价条件,然后知道我们可以求出一组状态,并只需要判定状态是否合法,找判定条件.</p>
 <p>然后写分数的人被卡常了,泪目.</p>
-</div>
+</div></div>
+  </div>
   <nav class="post-nav">
-      <a class="post-nav-item" href="/posts/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.html"><span>← 上一篇</span>动态规划相关</a>
-      <a class="post-nav-item right" href="/posts/OI%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E5%A5%97%E8%B7%AF.html"><span>下一篇 →</span>OI中的常见套路</a>
+      <a class="post-nav-item" data-ban-kind="link" data-ban-category="学习/OI" href="/posts/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.html"><span>← 上一篇</span>动态规划相关</a>
+      <a class="post-nav-item right" data-ban-kind="link" data-ban-category="学习/OI" href="/posts/OI%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E5%A5%97%E8%B7%AF.html"><span>下一篇 →</span>OI中的常见套路</a>
     </nav>
   <section class="comments" id="comments">
     <h2 class="comments-title">评论</h2>
@@ -1377,9 +1379,9 @@ mjx-c.mjx-c74::before {
   <div class="sidebar-inner">
     <section class="sidebar-nav-section" aria-label="折叠导航">
       <div class="toc-title">导航</div>
-      <nav class="sidebar-nav" aria-label="侧边栏主导航"><a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/links.html">友链</a></nav>
+      <nav class="sidebar-nav" aria-label="侧边栏主导航"><a class="nav-link" href="/">首页</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a></nav>
     </section>
-    <div class="sidebar-content sidebar-content-toc"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item"><a href="/posts/OI%E4%B8%AD%E7%9A%84%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0.html">OI中的线性代数</a></li><li class="toc-branch collapsed">
+    <div class="sidebar-content sidebar-content-toc"><div class="" data-ban-kind="toc" data-ban-category="学习/OI"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item"><a href="/posts/OI%E4%B8%AD%E7%9A%84%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0.html">OI中的线性代数</a></li><li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
         <a href="#toc-0">OI中的线性代数</a>
@@ -1451,12 +1453,13 @@ mjx-c.mjx-c74::before {
       
     </li></ul>
     </li></ul>
-    </li></ul></div>
+    </li></ul></div></div>
   </div>
 </aside>
 <div class="sidebar-overlay" id="sidebar-overlay"></div>
 <button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
-<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8-opt.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8-opt.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]},"categoryBans":[{"category":"摸鱼","startAt":1793203200000,"endAt":1794499200000}],"theme":{"defaultTheme":"dark","storageKey":"lwl-theme-ban-a840a9bc99496bec"}};</script>
+<script src="/post-ban.js" defer></script>
 <script src="/main.js" defer></script>
 <script src="/comment.js" defer></script>
 </body>

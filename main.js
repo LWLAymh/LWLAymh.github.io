@@ -16,14 +16,16 @@
   }
 
   /* ---- 主题 ---- */
-  var themeKey = 'lwl-theme';
+  var themeConfig = cfg.theme || {};
+  var themeKey = themeConfig.storageKey || 'lwl-theme';
   function applyTheme(t) {
     document.documentElement.setAttribute('data-theme', t);
     if (document.body) document.body.setAttribute('data-theme', t);
   }
   function currentTheme() {
     var saved = safeGet(themeKey);
-    if (saved) return saved;
+    if (saved === 'dark' || saved === 'light') return saved;
+    if (themeConfig.defaultTheme === 'dark' || themeConfig.defaultTheme === 'light') return themeConfig.defaultTheme;
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
   applyTheme(currentTheme());
@@ -161,12 +163,15 @@
 
       results.innerHTML = hits.map(function (p) {
         var catStr = p.category ? esc(p.category) : '';
-        return '<a class="search-item" href="' + p.url + '">' +
+        return '<a class="search-item' + (p.banned ? ' is-banned' : '') + '" data-ban-kind="link"' +
+          (p.banned ? ' data-ban-locked aria-disabled="true"' : '') +
+          ' data-ban-category="' + esc(p.category || '') + '" href="' + esc(p.url) + '">' +
           '<div class="s-title">' + highlight(p.title, q) + '</div>' +
           '<div class="s-meta">' + esc(p.date) + (catStr ? ' · ' + catStr : '') + '</div>' +
           '<div class="s-excerpt">' + highlight(p.excerpt, q) + '</div>' +
           '</a>';
       }).join('') || '<div class="search-item">无匹配结果</div>';
+      if (window.BlogBans) window.BlogBans.refresh(results);
       results.classList.add('open');
       hitLinks = Array.prototype.slice.call(results.querySelectorAll('a.search-item'));
       activeIndex = -1;

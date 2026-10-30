@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
-(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+(function(){var t='dark';try{var s=localStorage.getItem("lwl-theme-ban-a840a9bc99496bec");if(s==='dark'||s==='light')t=s;}catch(e){}document.documentElement.setAttribute('data-theme',t);})();
 </script>
 <title>近世代数 · LWLAymh的备忘录</title>
 <meta name="description" content="前言 本笔记是Paolo Aluffi《Algebra: Chapter0》一书的笔记.并在过程中参考李文威《代数学讲义》和《代数学方法》,复旦大学出版社的《集合论: 对无穷概念的探索》.中途也许会部分重复指涉本人的高等代数笔记,以及网络资">
@@ -1031,7 +1031,7 @@ mjx-c.mjx-c47.TEX-C::before {
     </a>
     <div class="header-actions">
     <nav class="site-nav" id="site-nav" aria-label="主导航">
-      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/links.html">友链</a>
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a>
     </nav>
     <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题">
         <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -1053,7 +1053,8 @@ mjx-c.mjx-c47.TEX-C::before {
       
     </div>
   </header>
-  <div class="post-content"><h2 id="toc-0">前言</h2>
+  <div class="post-ban-body" data-ban-kind="article" data-ban-category="学习/大学课程">
+    <div data-ban-content><div class="post-content"><h2 id="toc-0">前言</h2>
 <p>本笔记是Paolo Aluffi《Algebra: Chapter0》一书的笔记.并在过程中参考李文威《代数学讲义》和《代数学方法》,复旦大学出版社的《集合论: 对无穷概念的探索》.中途也许会部分重复指涉本人的高等代数笔记,以及网络资料.</p>
 <p>本文应该会只在<a href="lwlaymh.github.io">个人博客</a>上连载,标题大概率会取《近世代数》.也许会在luogu博客逐章搬运一份,但肯定也是不保证可读性的(luogu博客不支持xymatrix等语法).也许于此之前又要找时间把个人博客再翻新一下,换个国内的服务器部署......但总之,作为一本饱受盛誉的教材,笔者希冀于此中翻新与重塑曾经学过的知识.</p>
 <p>教材是英文的,而且这个方向好像比较冷门,所以后面的名词可能会逐渐变为英文.</p>
@@ -1286,10 +1287,11 @@ $$
 <p>我们接下来将谈论一个特殊的范畴<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c47"></mjx-c><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c70"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math></mjx-container>,它实际上是所有群组成的范畴.</p>
 <p>一个很好的对群的定义是&quot;单元素的广群&quot;,它实际上揭示的道理是群中的每个&quot;元素&quot;实际上应该被看作一种&quot;自同构&quot;.总之我们下面不妨直接用<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo></mjx-math></mjx-container>来指代这个唯一的元素,而用<mjx-container class="MathJax" jax="CHTML"><mjx-math class=" MJX-TEX"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c47 TEX-C"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math></mjx-container>来代表此广群.</p>
 <p>我们不会在这里牵扯太多基础的事情.</p>
-</div>
+</div></div>
+  </div>
   <nav class="post-nav">
-      <a class="post-nav-item" href="/posts/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90.html"><span>← 上一篇</span>数学分析</a>
-      <a class="post-nav-item right" href="/posts/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA.html"><span>下一篇 →</span>计算理论</a>
+      <a class="post-nav-item" data-ban-kind="link" data-ban-category="学习/大学课程" href="/posts/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90.html"><span>← 上一篇</span>数学分析</a>
+      <a class="post-nav-item right" data-ban-kind="link" data-ban-category="学习/大学课程" href="/posts/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA.html"><span>下一篇 →</span>计算理论</a>
     </nav>
   <section class="comments" id="comments">
     <h2 class="comments-title">评论</h2>
@@ -1306,9 +1308,9 @@ $$
   <div class="sidebar-inner">
     <section class="sidebar-nav-section" aria-label="折叠导航">
       <div class="toc-title">导航</div>
-      <nav class="sidebar-nav" aria-label="侧边栏主导航"><a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/links.html">友链</a></nav>
+      <nav class="sidebar-nav" aria-label="侧边栏主导航"><a class="nav-link" href="/">首页</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a></nav>
     </section>
-    <div class="sidebar-content sidebar-content-toc"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item"><a href="/posts/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0.html">近世代数</a></li><li class="toc-branch toc-leaf">
+    <div class="sidebar-content sidebar-content-toc"><div class="" data-ban-kind="toc" data-ban-category="学习/大学课程"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item"><a href="/posts/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0.html">近世代数</a></li><li class="toc-branch toc-leaf">
       <div class="toc-row">
         <span class="toc-toggle-spacer"></span>
         <a href="#toc-0">前言</a>
@@ -1456,12 +1458,13 @@ $$
         <a href="#toc-21">Groups, first encounter</a>
       </div>
       
-    </li></ul></div>
+    </li></ul></div></div>
   </div>
 </aside>
 <div class="sidebar-overlay" id="sidebar-overlay"></div>
 <button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
-<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8-opt.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8-opt.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]},"categoryBans":[{"category":"摸鱼","startAt":1793203200000,"endAt":1794499200000}],"theme":{"defaultTheme":"dark","storageKey":"lwl-theme-ban-a840a9bc99496bec"}};</script>
+<script src="/post-ban.js" defer></script>
 <script src="/main.js" defer></script>
 <script src="/comment.js" defer></script>
 </body>

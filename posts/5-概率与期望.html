@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
-(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+(function(){var t='dark';try{var s=localStorage.getItem("lwl-theme-ban-a840a9bc99496bec");if(s==='dark'||s==='light')t=s;}catch(e){}document.documentElement.setAttribute('data-theme',t);})();
 </script>
 <title>概率与期望 · LWLAymh的备忘录</title>
 <meta name="description" content="离散概率 基本定义 概率空间 :在一个给定问题中可能发生的所有情况. 事件: 的一个子集. 基本事件 : 中的单个元素,也可以看作集合大小为 的事件. 概率:若 ,我们称它发生的概率为 ,有 且 . 随机变量:在概率空间的基本事件上定义的函">
@@ -46,7 +46,7 @@ window.MathJax = {
     </a>
     <div class="header-actions">
     <nav class="site-nav" id="site-nav" aria-label="主导航">
-      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/links.html">友链</a>
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a>
     </nav>
     <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题">
         <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -68,7 +68,8 @@ window.MathJax = {
       
     </div>
   </header>
-  <div class="post-content"><h2 id="toc-0">离散概率</h2>
+  <div class="post-ban-body" data-ban-kind="article" data-ban-category="学习/具体数学">
+    <div data-ban-content><div class="post-content"><h2 id="toc-0">离散概率</h2>
 <h3 id="toc-1">基本定义</h3>
 <p>概率空间$\Omega$:在一个给定问题中可能发生的所有情况.</p>
 <p>事件:$\Omega$的一个子集.</p>
@@ -1421,10 +1422,11 @@ $$
 <p>TODO</p>
 <h4 id="toc-105">Lasso回归</h4>
 <p>最小化$Q_\lambda(\vec \beta)=\sum (y_i-\vec x_i^t\vec \beta)^2+\lambda \Vert\vec \beta\Vert_1$.</p>
-</div>
+</div></div>
+  </div>
   <nav class="post-nav">
-      <a class="post-nav-item" href="/posts/%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E6%88%91%E6%89%8D%E8%83%BD%E6%95%99%E4%BC%9A%E8%A2%9C%E5%AD%90%E6%8A%8A%E8%87%AA%E5%B7%B1%E6%B4%97%E5%A5%BD.html"><span>← 上一篇</span>什么时候我才能教会袜子把自己洗好</a>
-      <a class="post-nav-item right" href="/posts/1-%E7%BA%A2%E8%89%B2%E9%B8%A2%E5%B0%BE%E8%8A%B1.html"><span>下一篇 →</span>红色鸢尾花</a>
+      <a class="post-nav-item is-banned" data-ban-kind="link" data-ban-category="摸鱼/随笔" data-ban-locked aria-disabled="true" title="暂时封禁" href="/posts/%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E6%88%91%E6%89%8D%E8%83%BD%E6%95%99%E4%BC%9A%E8%A2%9C%E5%AD%90%E6%8A%8A%E8%87%AA%E5%B7%B1%E6%B4%97%E5%A5%BD.html"><span>← 上一篇</span>什么时候我才能教会袜子把自己洗好</a>
+      <a class="post-nav-item right is-banned" data-ban-kind="link" data-ban-category="摸鱼/HAVOC" data-ban-locked aria-disabled="true" title="暂时封禁" href="/posts/1-%E7%BA%A2%E8%89%B2%E9%B8%A2%E5%B0%BE%E8%8A%B1.html"><span>下一篇 →</span>红色鸢尾花</a>
     </nav>
   <section class="comments" id="comments">
     <h2 class="comments-title">评论</h2>
@@ -1441,9 +1443,9 @@ $$
   <div class="sidebar-inner">
     <section class="sidebar-nav-section" aria-label="折叠导航">
       <div class="toc-title">导航</div>
-      <nav class="sidebar-nav" aria-label="侧边栏主导航"><a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/links.html">友链</a></nav>
+      <nav class="sidebar-nav" aria-label="侧边栏主导航"><a class="nav-link" href="/">首页</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a></nav>
     </section>
-    <div class="sidebar-content sidebar-content-toc"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item"><a href="/posts/5-%E6%A6%82%E7%8E%87%E4%B8%8E%E6%9C%9F%E6%9C%9B.html">概率与期望</a></li><li class="toc-branch collapsed">
+    <div class="sidebar-content sidebar-content-toc"><div class="" data-ban-kind="toc" data-ban-category="学习/具体数学"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item"><a href="/posts/5-%E6%A6%82%E7%8E%87%E4%B8%8E%E6%9C%9F%E6%9C%9B.html">概率与期望</a></li><li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
         <a href="#toc-0">离散概率</a>
@@ -2152,12 +2154,13 @@ $$
       
     </li></ul>
     </li></ul>
-    </li></ul></div>
+    </li></ul></div></div>
   </div>
 </aside>
 <div class="sidebar-overlay" id="sidebar-overlay"></div>
 <button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
-<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8-opt.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8-opt.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]},"categoryBans":[{"category":"摸鱼","startAt":1793203200000,"endAt":1794499200000}],"theme":{"defaultTheme":"dark","storageKey":"lwl-theme-ban-a840a9bc99496bec"}};</script>
+<script src="/post-ban.js" defer></script>
 <script src="/main.js" defer></script>
 <script src="/comment.js" defer></script>
 <script src="/math-lazy.js" defer></script>

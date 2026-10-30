@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
-(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+(function(){var t='dark';try{var s=localStorage.getItem("lwl-theme-ban-a840a9bc99496bec");if(s==='dark'||s==='light')t=s;}catch(e){}document.documentElement.setAttribute('data-theme',t);})();
 </script>
 <title>计算理论 · LWLAymh的备忘录</title>
 <meta name="description" content="Regular Languages 略 DFA 略. NFA 考虑一个五元组 ,比起DFA,这里的 ,也即现在一个点可能会有若干条字符相同的边指向若干其它结点. 利用NFA容易证明当 是正则语言的时候, 都是正则语言. GNFA 考虑一个五">
@@ -46,7 +46,7 @@ window.MathJax = {
     </a>
     <div class="header-actions">
     <nav class="site-nav" id="site-nav" aria-label="主导航">
-      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/links.html">友链</a>
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a>
     </nav>
     <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题">
         <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -68,7 +68,8 @@ window.MathJax = {
       
     </div>
   </header>
-  <div class="post-content"><h3 id="toc-0">Regular Languages</h3>
+  <div class="post-ban-body" data-ban-kind="article" data-ban-category="学习/大学课程">
+    <div data-ban-content><div class="post-content"><h3 id="toc-0">Regular Languages</h3>
 <p>略</p>
 <h4 id="toc-1">DFA</h4>
 <p>略.</p>
@@ -525,10 +526,11 @@ $$
 <p>而如果在中间的步骤呢?prover显然不敢发一个真正的满足$s(x)=\lor_{b_2\in \{0,1\}}\cdots g(x,\cdots,b_n)$的多项式$s(x)$过去,不然verifier立刻就可以检查$s(0)$和$s(1)$判断对方在说谎.因此,prover必须伪造一个多项式$s&#39;(x)\not\equiv \lor_{b_2\in \{0,1\}}\cdots g(x,\cdots,b_n)$.</p>
 <p>此时,verifier随机一个$a$,如果随机后的结果满足$s&#39;(a)=\lor_{b_2\in \{0,1\}}\cdots h_a(b_2,\cdots,b_n)$,那prover就赢麻了,它后面只需要一直说实话就可以让verifier承认它一开始的命题.可是如果$s&#39;(a)\neq\lor_{b_2\in \{0,1\}}\cdots h_a(b_2,\cdots,b_n)$,prover就不得不继续说谎.</p>
 <p>因此,prover成功说谎的概率,就是中间存在某一处选到了能使两边真正相等的$a$.不妨设这个多项式的次数为$d$,我们知道它实际上只有$d$个根,因此说谎成功的概率就不超过$n\frac{d}{p}$,而多项式的次数是$2^n$级别的,因此这个概率就被控制在了$\leq \frac{n}{2^n}$,这就搞定了.</p>
-</div>
+</div></div>
+  </div>
   <nav class="post-nav">
-      <a class="post-nav-item" href="/posts/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0.html"><span>← 上一篇</span>近世代数</a>
-      <a class="post-nav-item right" href="/posts/%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E6%88%91%E6%89%8D%E8%83%BD%E6%95%99%E4%BC%9A%E8%A2%9C%E5%AD%90%E6%8A%8A%E8%87%AA%E5%B7%B1%E6%B4%97%E5%A5%BD.html"><span>下一篇 →</span>什么时候我才能教会袜子把自己洗好</a>
+      <a class="post-nav-item" data-ban-kind="link" data-ban-category="学习/大学课程" href="/posts/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0.html"><span>← 上一篇</span>近世代数</a>
+      <a class="post-nav-item right is-banned" data-ban-kind="link" data-ban-category="摸鱼/随笔" data-ban-locked aria-disabled="true" title="暂时封禁" href="/posts/%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E6%88%91%E6%89%8D%E8%83%BD%E6%95%99%E4%BC%9A%E8%A2%9C%E5%AD%90%E6%8A%8A%E8%87%AA%E5%B7%B1%E6%B4%97%E5%A5%BD.html"><span>下一篇 →</span>什么时候我才能教会袜子把自己洗好</a>
     </nav>
   <section class="comments" id="comments">
     <h2 class="comments-title">评论</h2>
@@ -545,9 +547,9 @@ $$
   <div class="sidebar-inner">
     <section class="sidebar-nav-section" aria-label="折叠导航">
       <div class="toc-title">导航</div>
-      <nav class="sidebar-nav" aria-label="侧边栏主导航"><a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/links.html">友链</a></nav>
+      <nav class="sidebar-nav" aria-label="侧边栏主导航"><a class="nav-link" href="/">首页</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a></nav>
     </section>
-    <div class="sidebar-content sidebar-content-toc"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item"><a href="/posts/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA.html">计算理论</a></li><li class="toc-branch collapsed">
+    <div class="sidebar-content sidebar-content-toc"><div class="" data-ban-kind="toc" data-ban-category="学习/大学课程"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item"><a href="/posts/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA.html">计算理论</a></li><li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
         <a href="#toc-0">Regular Languages</a>
@@ -695,12 +697,13 @@ $$
       </div>
       
     </li></ul>
-    </li></ul></div>
+    </li></ul></div></div>
   </div>
 </aside>
 <div class="sidebar-overlay" id="sidebar-overlay"></div>
 <button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
-<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8-opt.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8-opt.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]},"categoryBans":[{"category":"摸鱼","startAt":1793203200000,"endAt":1794499200000}],"theme":{"defaultTheme":"dark","storageKey":"lwl-theme-ban-a840a9bc99496bec"}};</script>
+<script src="/post-ban.js" defer></script>
 <script src="/main.js" defer></script>
 <script src="/comment.js" defer></script>
 <script src="/math-lazy.js" defer></script>

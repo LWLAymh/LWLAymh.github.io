@@ -346,6 +346,71 @@ mark { background: #ffd66b; color: #3a2f00; border-radius: 2px; padding: 0 2px; 
 }
 
 /* ---- 徽章与 chip ---- */
+/* ---- 定时分类封禁：保留卡片与目录的位置，封条在原内容上覆盖 ---- */
+:root { --ban-red: #a62937; }
+[data-theme="dark"] { --ban-red: #d98b8b; }
+.post-card, .home-full-post, .post-ban-body { position: relative; }
+[data-ban-content] { transition: filter 0.6s ease, opacity 0.6s ease; }
+.is-banned > [data-ban-content] { filter: blur(3px); opacity: 0.3; pointer-events: none; user-select: none; }
+.post-card.is-banned {
+  border-color: var(--border);
+  background: var(--bg-elevated); box-shadow: none;
+}
+.post-card.is-banned > [data-ban-content] { opacity: 0; }
+.post-card.is-banned:hover { transform: none; }
+.ban-placeholder { min-height: 52px; padding-top: 6px; }
+.ban-placeholder span { display: block; height: 8px; margin: 8px 0; width: 88%; border-radius: 8px; background: var(--text-muted); }
+.ban-placeholder span:nth-child(2) { width: 72%; }
+.ban-placeholder span:nth-child(3) { width: 54%; }
+.post-ban-body.is-banned > [data-ban-content],
+.home-full-post.is-banned > [data-ban-content] { max-height: 320px; overflow: hidden; }
+.ban-seal[hidden] { display: none; }
+.ban-seal {
+  position: absolute; inset: 0; z-index: 4; border-radius: inherit;
+  display: grid; place-items: center; overflow: hidden; isolation: isolate;
+  cursor: not-allowed; color: var(--text-muted);
+}
+.ban-error-wall {
+  position: absolute; inset: 18px 22px; pointer-events: none;
+  overflow: hidden; color: var(--text-muted);
+  font: 10px/1.38 var(--font-mono); letter-spacing: -0.025em;
+  text-align: left;
+}
+.ban-error-row { display: block; white-space: pre; }
+.ban-error-entry, .ban-error-line { display: inline; white-space: pre; }
+.ban-entry-spaced .ban-error-line { margin-left: 1ch; }
+.ban-error-clock { font-variant-numeric: tabular-nums; white-space: nowrap; }
+@media (max-width: 640px) {
+  .ban-error-row, .ban-error-entry, .ban-error-line { white-space: normal; overflow-wrap: anywhere; }
+}
+.ban-status-dot {
+  display: inline-block; width: 5px; height: 5px; margin: 0 6px 1px 1px;
+  border-radius: 50%; background: #df6571; box-shadow: 0 0 3px #df657140;
+}
+.ban-status-success { background: #79ba86; box-shadow: 0 0 3px #79ba8640; }
+.ban-error-row-merged .ban-error-entry + .ban-error-entry .ban-status-dot { margin-left: 2px; }
+.post-ban-body.is-banned, .home-full-post.is-banned { min-height: 230px; }
+.ban-article-notice { position: relative; height: 160px; margin-bottom: 38px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius); }
+.ban-redacted-post { padding: 6px 2px 36px; }
+.ban-redacted-post p { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 2.15; margin: 0 0 1.5em; }
+.ban-redacted-post .redacted-text { color: #111015; background: #111015; box-shadow: 0 0 1px #000; border-radius: 0; }
+[data-theme="dark"] .ban-redacted-post .redacted-text { color: #050507; background: #050507; box-shadow: 0 0 1px #42363d; }
+a[data-ban-kind="link"].is-banned,
+a[data-ban-kind="link"].is-banned:hover,
+[data-ban-kind="toc"].is-banned a {
+  color: var(--ban-red); cursor: not-allowed;
+  text-decoration: line-through; text-decoration-color: var(--ban-red); text-decoration-thickness: 1.5px;
+}
+.cat-post-link.is-banned { text-decoration: none !important; }
+.cat-post-link.is-banned .cat-post-title, .search-item.is-banned .s-title {
+  color: var(--ban-red); text-decoration: line-through; text-decoration-thickness: 1.5px;
+}
+.search-item.is-banned { text-decoration: none !important; }
+.search-item.is-banned .s-excerpt { visibility: hidden; }
+@media (prefers-reduced-motion: reduce) {
+  [data-ban-content] { transition: none; }
+}
+
 .pin-badge {
   display: inline-block; padding: 2px 10px; border: 1px solid transparent; border-radius: 999px;
   background: linear-gradient(135deg, var(--accent), var(--accent-deep));

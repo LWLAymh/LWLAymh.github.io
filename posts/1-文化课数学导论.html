@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
-(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+(function(){var t='dark';try{var s=localStorage.getItem("lwl-theme-ban-a840a9bc99496bec");if(s==='dark'||s==='light')t=s;}catch(e){}document.documentElement.setAttribute('data-theme',t);})();
 </script>
 <title>文化课数学导论 · LWLAymh的备忘录</title>
 <meta name="description" content="概统导论 习惯的更改 这一部分主要是和组合相关,文化课中的组合内容有一些很奇怪的形式,比如竞赛中为了避免巨量的字母符号所带来的丑陋形式,会将 写作 ,而文化课中不允许此类更改,再者文化课中将 称作二项式的第 项(从第 项开始编号),此等同样">
@@ -46,7 +46,7 @@ window.MathJax = {
     </a>
     <div class="header-actions">
     <nav class="site-nav" id="site-nav" aria-label="主导航">
-      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/links.html">友链</a>
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a>
     </nav>
     <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题">
         <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -68,7 +68,8 @@ window.MathJax = {
       
     </div>
   </header>
-  <div class="post-content"><h2 id="toc-0">概统导论</h2>
+  <div class="post-ban-body" data-ban-kind="article" data-ban-category="学习/中学文化课">
+    <div data-ban-content><div class="post-content"><h2 id="toc-0">概统导论</h2>
 <h3 id="toc-1">习惯的更改</h3>
 <p>这一部分主要是和组合相关,文化课中的组合内容有一些很奇怪的形式,比如竞赛中为了避免巨量的字母符号所带来的丑陋形式,会将$C_{ n }^k$写作$\binom{ n }{ k }$,而文化课中不允许此类更改,再者文化课中将$C_{ n }^k a^{ n - k } b^k$称作二项式的第$k + 1$项(从第$1$项开始编号),此等同样是一个需要改正的习惯.</p>
 <h3 id="toc-2">从线性角度审视</h3>
@@ -1750,10 +1751,11 @@ $$
 <p><strong>抛物线的蒙日圆方程</strong></p>
 <p>设抛物线$y^2 = 2 px$,其蒙日圆方程为$x = - \frac{ p }{ 2 }$.</p>
 <p>有一说一,直线是半径无穷大的圆.</p>
-</div>
+</div></div>
+  </div>
   <nav class="post-nav">
-      <a class="post-nav-item" href="/posts/%E4%BD%A0%E6%9C%89%E6%83%B3%E5%8E%BB%E7%9A%84%E5%9C%B0%E6%96%B9%E5%90%97.html"><span>← 上一篇</span>你有想去的地方吗</a>
-      <a class="post-nav-item right" href="/posts/5-%E7%9C%BC.html"><span>下一篇 →</span>眼</a>
+      <a class="post-nav-item is-banned" data-ban-kind="link" data-ban-category="摸鱼/随笔" data-ban-locked aria-disabled="true" title="暂时封禁" href="/posts/%E4%BD%A0%E6%9C%89%E6%83%B3%E5%8E%BB%E7%9A%84%E5%9C%B0%E6%96%B9%E5%90%97.html"><span>← 上一篇</span>你有想去的地方吗</a>
+      <a class="post-nav-item right is-banned" data-ban-kind="link" data-ban-category="摸鱼/青鸟与蔷薇" data-ban-locked aria-disabled="true" title="暂时封禁" href="/posts/5-%E7%9C%BC.html"><span>下一篇 →</span>眼</a>
     </nav>
   <section class="comments" id="comments">
     <h2 class="comments-title">评论</h2>
@@ -1770,9 +1772,9 @@ $$
   <div class="sidebar-inner">
     <section class="sidebar-nav-section" aria-label="折叠导航">
       <div class="toc-title">导航</div>
-      <nav class="sidebar-nav" aria-label="侧边栏主导航"><a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/links.html">友链</a></nav>
+      <nav class="sidebar-nav" aria-label="侧边栏主导航"><a class="nav-link" href="/">首页</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a></nav>
     </section>
-    <div class="sidebar-content sidebar-content-toc"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item"><a href="/posts/1-%E6%96%87%E5%8C%96%E8%AF%BE%E6%95%B0%E5%AD%A6%E5%AF%BC%E8%AE%BA.html">文化课数学导论</a></li><li class="toc-branch collapsed">
+    <div class="sidebar-content sidebar-content-toc"><div class="" data-ban-kind="toc" data-ban-category="学习/中学文化课"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item"><a href="/posts/1-%E6%96%87%E5%8C%96%E8%AF%BE%E6%95%B0%E5%AD%A6%E5%AF%BC%E8%AE%BA.html">文化课数学导论</a></li><li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
         <a href="#toc-0">概统导论</a>
@@ -3202,12 +3204,13 @@ $$
     </li></ul>
     </li></ul>
     </li></ul>
-    </li></ul></div>
+    </li></ul></div></div>
   </div>
 </aside>
 <div class="sidebar-overlay" id="sidebar-overlay"></div>
 <button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
-<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8-opt.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8-opt.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]},"categoryBans":[{"category":"摸鱼","startAt":1793203200000,"endAt":1794499200000}],"theme":{"defaultTheme":"dark","storageKey":"lwl-theme-ban-a840a9bc99496bec"}};</script>
+<script src="/post-ban.js" defer></script>
 <script src="/main.js" defer></script>
 <script src="/comment.js" defer></script>
 <script src="/math-lazy.js" defer></script>

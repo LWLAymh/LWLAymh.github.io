@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
-(function(){try{var t=localStorage.getItem('lwl-theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+(function(){var t='dark';try{var s=localStorage.getItem("lwl-theme-ban-a840a9bc99496bec");if(s==='dark'||s==='light')t=s;}catch(e){}document.documentElement.setAttribute('data-theme',t);})();
 </script>
 <title>数学分析 · LWLAymh的备忘录</title>
 <meta name="description" content="实数 首先我们拿到了有理数,然后我们按照以下步骤定义无理数: 首先我们注意到有理数是不连续的.问题在于我们要将其中不连续的部分给补上.首先我们应当去发现一下如何去发现有理数中的一个断点: 设 是一个全序非空集合,我们找到它的两个非空子集 ,">
@@ -46,7 +46,7 @@ window.MathJax = {
     </a>
     <div class="header-actions">
     <nav class="site-nav" id="site-nav" aria-label="主导航">
-      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/links.html">友链</a>
+      <a class="nav-link" href="/">首页</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a>
     </nav>
     <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换亮/暗主题">
         <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -68,7 +68,8 @@ window.MathJax = {
       
     </div>
   </header>
-  <div class="post-content"><h3 id="toc-0">实数</h3>
+  <div class="post-ban-body" data-ban-kind="article" data-ban-category="学习/大学课程">
+    <div data-ban-content><div class="post-content"><h3 id="toc-0">实数</h3>
 <p>首先我们拿到了有理数,然后我们按照以下步骤定义无理数:</p>
 <p>首先我们注意到有理数是不连续的.问题在于我们要将其中不连续的部分给补上.首先我们应当去发现一下如何去发现有理数中的一个断点:</p>
 <p>设$S$是一个全序非空集合,我们找到它的两个非空子集$A , B$,若满足:</p>
@@ -6049,10 +6050,11 @@ $$
 <p>求$\lim_{(x,y)\to (0,0)}\frac{x^2}{x^2+y^2}$.</p>
 <p>仍取$y=kx$,上述极限为$\frac{1}{1+k^2}$,因此极限不存在.</p>
 <p>但是它的累次极限是存在的,显然$\lim_{y\to 0}\lim_{x\to 0}f(x,y)=0$,$\lim_{x\to 0}\lim_{y\to 0}f(x,y)=1$.</p>
-</div>
+</div></div>
+  </div>
   <nav class="post-nav">
-      <a class="post-nav-item" href="/posts/%E5%9B%BE%E8%AE%BA.html"><span>← 上一篇</span>图论</a>
-      <a class="post-nav-item right" href="/posts/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0.html"><span>下一篇 →</span>近世代数</a>
+      <a class="post-nav-item" data-ban-kind="link" data-ban-category="学习/OI" href="/posts/%E5%9B%BE%E8%AE%BA.html"><span>← 上一篇</span>图论</a>
+      <a class="post-nav-item right" data-ban-kind="link" data-ban-category="学习/大学课程" href="/posts/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0.html"><span>下一篇 →</span>近世代数</a>
     </nav>
   <section class="comments" id="comments">
     <h2 class="comments-title">评论</h2>
@@ -6069,9 +6071,9 @@ $$
   <div class="sidebar-inner">
     <section class="sidebar-nav-section" aria-label="折叠导航">
       <div class="toc-title">导航</div>
-      <nav class="sidebar-nav" aria-label="侧边栏主导航"><a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/links.html">友链</a></nav>
+      <nav class="sidebar-nav" aria-label="侧边栏主导航"><a class="nav-link" href="/">首页</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a></nav>
     </section>
-    <div class="sidebar-content sidebar-content-toc"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item"><a href="/posts/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90.html">数学分析</a></li><li class="toc-branch collapsed">
+    <div class="sidebar-content sidebar-content-toc"><div class="" data-ban-kind="toc" data-ban-category="学习/大学课程"><div class="toc-title">目录</div><ul class="toc-list"><li class="toc-item"><a href="/posts/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90.html">数学分析</a></li><li class="toc-branch collapsed">
       <div class="toc-row">
         <button class="toc-toggle" type="button" aria-expanded="false" aria-label="折叠/展开" title="折叠/展开"></button>
         <a href="#toc-0">实数</a>
@@ -8268,12 +8270,13 @@ $$
       
     </li></ul>
     </li></ul>
-    </li></ul></div>
+    </li></ul></div></div>
   </div>
 </aside>
 <div class="sidebar-overlay" id="sidebar-overlay"></div>
 <button class="back-top" id="back-top" aria-label="回到顶部" title="回到顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
-<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8-opt.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]}};</script>
+<script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8-opt.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]},"categoryBans":[{"category":"摸鱼","startAt":1793203200000,"endAt":1794499200000}],"theme":{"defaultTheme":"dark","storageKey":"lwl-theme-ban-a840a9bc99496bec"}};</script>
+<script src="/post-ban.js" defer></script>
 <script src="/main.js" defer></script>
 <script src="/comment.js" defer></script>
 <script src="/math-lazy.js" defer></script>
