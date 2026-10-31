@@ -61,22 +61,36 @@
   function countdownFrame(state, endAt, now, behavior, random) {
     random = random || Math.random;
     var clean = remainingText(endAt - now);
-    if (endAt <= now) { state.until = 0; state.display = '00:00:00'; return state.display; }
+    if (endAt <= now) { state.until = 0; state.corruptUntil = 0; state.display = '00:00:00'; return state.display; }
     var second = Math.floor(now / 1000);
     if (state.second === second) return state.display;
     state.second = second;
     if (behavior !== 'steady' && state.until > now) return state.display;
     if (state.until) { state.until = 0; state.display = clean; return clean; }
-    if (behavior === 'freeze' && state.display && random() < 0.18) {
+    if (behavior === 'freeze' && state.display && random() < 0.28) {
       state.until = now + (3 + Math.floor(random() * 6)) * 1000;
       return state.display;
     }
-    if (behavior === 'corrupt' && random() < 0.28) {
+    if (behavior === 'corrupt') {
+      // 同一处 ASCII 失真持续数秒，其余数字仍按真实时间跳动。
+      if (state.corruptUntil && state.corruptUntil <= now) {
+        state.corruptUntil = 0;
+        state.display = clean;
+        return clean;
+      }
       var digits = [];
       for (var i = 0; i < clean.length; i++) if (/\d/.test(clean[i])) digits.push(i);
-      var at = digits[Math.floor(random() * digits.length)];
-      var glyphs = ['O', 'l', 'x', '?', '/', ';'];
-      clean = clean.slice(0, at) + glyphs[Math.floor(random() * glyphs.length)] + clean.slice(at + 1);
+      if (!state.corruptUntil && random() < 0.28) {
+        // 从右数数字位置，跨天时也让异常留在原来的时间位。
+        state.corruptDigit = Math.floor(random() * digits.length);
+        var glyphs = ['O', 'l', 'x', '?', '/', ';'];
+        state.corruptGlyph = glyphs[Math.floor(random() * glyphs.length)];
+        state.corruptUntil = now + (3 + Math.floor(random() * 4)) * 1000;
+      }
+      if (state.corruptUntil > now) {
+        var at = digits[Math.max(0, digits.length - 1 - state.corruptDigit)];
+        clean = clean.slice(0, at) + state.corruptGlyph + clean.slice(at + 1);
+      }
     }
     state.display = clean;
     return clean;
