@@ -7,14 +7,14 @@
 (function(){var t='dark';try{var s=localStorage.getItem("lwl-theme-ban-a840a9bc99496bec");if(s==='dark'||s==='light')t=s;}catch(e){}document.documentElement.setAttribute('data-theme',t);})();
 </script>
 <title>Paper Reading · LWLAymh的备忘录</title>
-<meta name="description" content="本页展示我对一些读过的论文的整理与评价 [45] Daniel A. Jiménez, Calvin Lin Dynamic Branch Prediction with Perceptrons . 2001. In Proceedings">
+<meta name="description" content="本页展示我对一些读过的论文的整理与评价 [46] Lars Birkedal, Kristian Støvring, Jacob Thamsborg The category-theoretic solution of recursive ">
 <meta name="author" content="LWLAymh">
 <link rel="canonical" href="https://LWLAymh.github.io/posts/paper-reading.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="LWLAymh的备忘录">
 <meta property="og:url" content="https://LWLAymh.github.io/posts/paper-reading.html">
 <meta property="og:title" content="Paper Reading · LWLAymh的备忘录">
-<meta property="og:description" content="本页展示我对一些读过的论文的整理与评价 [45] Daniel A. Jiménez, Calvin Lin Dynamic Branch Prediction with Perceptrons . 2001. In Proceedings">
+<meta property="og:description" content="本页展示我对一些读过的论文的整理与评价 [46] Lars Birkedal, Kristian Støvring, Jacob Thamsborg The category-theoretic solution of recursive ">
 <link rel="icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
 <link rel="apple-touch-icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
 <link rel="stylesheet" href="/style.css">
@@ -52,7 +52,7 @@
   <header class="post-header">
     <h1 class="post-title">Paper Reading</h1>
     <div class="post-meta">
-      <time>2026-10-29</time>
+      <time>2026-11-01</time>
       <a class="chip chip-cat" href="/categories.html#%E5%AD%A6%E4%B9%A0" title="学习 / Reading">学习 / Reading</a>
       
     </div>
@@ -60,26 +60,33 @@
   <div class="post-ban-body" data-ban-kind="article" data-ban-category="学习/Reading">
     <div data-ban-content><div class="post-content"><p class="paper-intro">本页展示我对一些读过的论文的整理与评价</p><div class="listing" data-listing>
   <div class="listing-filter" data-listing-filter hidden></div>
-  <ol class="acm-cites"><li class="acm-cite" data-listing-item data-tags="Sys-Arch" data-rating="good">
+  <ol class="acm-cites"><li class="acm-cite" data-listing-item data-tags="PL-FM" data-rating="reading">
     <div class="acm-cite-main">
-      <span class="cite-num">[45]</span>
-      <div class="acm-cite-content">Daniel A. Jiménez, Calvin Lin <strong>Dynamic Branch Prediction with Perceptrons</strong>. 2001. In <strong>Proceedings of the 7th International Symposium on High-Performance Computer Architecture (HPCA)</strong>. 197–206. <a href="https://doi.org/10.1109/HPCA.2001.903263" target="_blank" rel="noopener">https://doi.org/10.1109/HPCA.2001.903263</a><div class="paper-tags"><span class="tag-chip" title="Sys-Arch">Sys-Arch</span></div><details class="paper-abstract"><summary>Abstract</summary><div class="paper-abstract-text">This paper presents a new method for branch prediction. The key idea is to use one of the simplest possible neural networks, the perceptron as an alternative to the commonly used two-bit counters. Our predictor achieves increased accuracy by making use of long branch histories, which are possible because the hardware resources for our method scale linearly with the history length. By contrast, other purely dynamic schemes require exponential resources. We describe our design and evaluate it with respect to two well known predictors. We show that for a 4K byte hardware budget our method improves misprediction rates for the SPEC 2000 benchmarks by 10.1% over the gshare predictor. Our experiments also provide a better understanding of the situations in which traditional predictors do and do not perform well. Finally, we describe techniques that allow our complex predictor to operate in one cycle.</div></details></div>
+      <span class="cite-num">[46]</span>
+      <div class="acm-cite-content">Lars Birkedal, Kristian Støvring, Jacob Thamsborg <strong>The category-theoretic solution of recursive metric-space equations</strong>. 2010. In <strong>Theoretical Computer Science</strong>. 4102–4122. <a href="https://doi.org/10.1016/j.tcs.2010.07.010" target="_blank" rel="noopener">https://doi.org/10.1016/j.tcs.2010.07.010</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages &amp; Formal Methods">PL-FM</span></div><details class="paper-abstract"><summary>Abstract</summary><div class="paper-abstract-text">It is well known that one can use an adaptation of the inverse-limit construction to solve recursive equations in the category of complete ultrametric spaces. We show that this construction generalizes to a large class of categories with metric-space structure on each set of morphisms: the exact nature of the objects is less important. In particular, the construction immediately applies to categories where the objects are ultrametric spaces with ‘extra structure’, and where the morphisms preserve this extra structure. The generalization is inspired by classical domain-theoretic work by Smyth and Plotkin. For many of the categories we consider, there is a natural subcategory in which each set of morphisms is required to be a compact metric space. Our setting allows for a proof that such a subcategory always inherits solutions of recursive equations from the full category. As another application, we present a construction that relates solutions of generalized domain equations in the sense of Smyth and Plotkin to solutions of equations in our class of categories. Our primary motivation for solving generalized recursive metric-space equations comes from recent and ongoing work on Kripke-style models in which the sets of worlds must be recursively defined. We show a series of examples motivated by this line of work.</div></details></div>
     </div>
-    <span class="paper-rating rating-good">good</span>
+    <span class="paper-rating rating-reading">reading</span>
   </li>
 <li class="acm-cite" data-listing-item data-tags="GPU" data-rating="reading">
     <div class="acm-cite-main">
-      <span class="cite-num">[44]</span>
+      <span class="cite-num">[45]</span>
       <div class="acm-cite-content">Hoda Naghibijouybari, Ajaya Neupane, Zhiyun Qian, Nael Abu-Ghazaleh <strong>Rendered Insecure: GPU Side Channel Attacks are Practical</strong>. 2018. In <strong>Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security</strong>. 2139–2153. <a href="https://doi.org/10.1145/3243734.3243831" target="_blank" rel="noopener">https://doi.org/10.1145/3243734.3243831</a><div class="paper-tags"><span class="tag-chip" title="GPU">GPU</span></div><details class="paper-abstract"><summary>Abstract</summary><div class="paper-abstract-text">Graphics Processing Units (GPUs) are commonly integrated with computing devices to enhance the performance and capabilities of graphical workloads. In addition, they are increasingly being integrated in data centers and clouds such that they can be used to accelerate data intensive workloads. Under a number of scenarios the GPU can be shared between multiple applications at a fine granularity allowing a spy application to monitor side channels and attempt to infer the behavior of the victim. For example, OpenGL and WebGL send workloads to the GPU at the granularity of a frame, allowing an attacker to interleave the use of the GPU to measure the side-effects of the victim computation through performance counters or other resource tracking APIs. We demonstrate the vulnerability using two applications. First, we show that an OpenGL based spy can fingerprint websites accurately, track user activities within the website, and even infer the keystroke timings for a password text box with high accuracy. The second application demonstrates how a CUDA spy application can derive the internal parameters of a neural network model being used by another CUDA application, illustrating these threats on the cloud. To counter these attacks, the paper suggests mitigations based on limiting the rate of the calls, or limiting the granularity of the returned information.</div></details></div>
     </div>
     <span class="paper-rating rating-reading">reading</span>
   </li>
-<li class="acm-cite" data-listing-item data-tags="PL-FM-CSL-Iris" data-rating="reading">
+<li class="acm-cite" data-listing-item data-tags="Sys-Arch" data-rating="good">
+    <div class="acm-cite-main">
+      <span class="cite-num">[44]</span>
+      <div class="acm-cite-content">Daniel A. Jiménez, Calvin Lin <strong>Dynamic Branch Prediction with Perceptrons</strong>. 2001. In <strong>Proceedings of the 7th International Symposium on High-Performance Computer Architecture (HPCA)</strong>. 197–206. <a href="https://doi.org/10.1109/HPCA.2001.903263" target="_blank" rel="noopener">https://doi.org/10.1109/HPCA.2001.903263</a><div class="paper-tags"><span class="tag-chip" title="Sys-Arch">Sys-Arch</span></div><details class="paper-abstract"><summary>Abstract</summary><div class="paper-abstract-text">This paper presents a new method for branch prediction. The key idea is to use one of the simplest possible neural networks, the perceptron as an alternative to the commonly used two-bit counters. Our predictor achieves increased accuracy by making use of long branch histories, which are possible because the hardware resources for our method scale linearly with the history length. By contrast, other purely dynamic schemes require exponential resources. We describe our design and evaluate it with respect to two well known predictors. We show that for a 4K byte hardware budget our method improves misprediction rates for the SPEC 2000 benchmarks by 10.1% over the gshare predictor. Our experiments also provide a better understanding of the situations in which traditional predictors do and do not perform well. Finally, we describe techniques that allow our complex predictor to operate in one cycle.</div></details></div>
+    </div>
+    <span class="paper-rating rating-good">good</span>
+  </li>
+<li class="acm-cite" data-listing-item data-tags="PL-FM-CSL-Iris" data-rating="good">
     <div class="acm-cite-main">
       <span class="cite-num">[43]</span>
       <div class="acm-cite-content">Ralf Jung, Robbert Krebbers, Lars Birkedal, Derek Dreyer <strong>Higher-order ghost state</strong>. 2016. In <strong>Proceedings of the 21st ACM SIGPLAN International Conference on Functional Programming</strong>. 256–269. <a href="https://doi.org/10.1145/2951913.2951943" target="_blank" rel="noopener">https://doi.org/10.1145/2951913.2951943</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages / Formal Methods / CSL / Iris">PL-FM-CSL-Iris</span></div><details class="paper-abstract"><summary>Abstract</summary><div class="paper-abstract-text">The development of concurrent separation logic (CSL) has sparked a long line of work on modular verification of sophisticated concurrent programs. Two of the most important features supported by several existing extensions to CSL are higher-order quantification and custom ghost state. However, none of the logics that support both of these features reap the full potential of their combination. In particular, none of them provide general support for a feature we dub &quot;higher-order ghost state&quot;: the ability to store arbitrary higher-order separation-logic predicates in ghost variables. In this paper, we propose higher-order ghost state as a interesting and useful extension to CSL, which we formalize in the framework of Jung et al.&#39;s recently developed Iris logic. To justify its soundness, we develop a novel algebraic structure called CMRAs (&quot;cameras&quot;), which can be thought of as &quot;step-indexed partial commutative monoids&quot;. Finally, we show that Iris proofs utilizing higher-order ghost state can be effectively formalized in Coq, and discuss the challenges we faced in formalizing them.</div></details></div>
     </div>
-    <span class="paper-rating rating-reading">reading</span>
+    <span class="paper-rating rating-good">good</span>
   </li>
 <li class="acm-cite" data-listing-item data-tags="PL-FM" data-rating="awesome">
     <div class="acm-cite-main">
