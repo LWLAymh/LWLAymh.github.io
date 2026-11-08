@@ -5,7 +5,7 @@
      每一项前面有复选框，勾上层会把下层全部勾上，取消上层会把下层全部取消；
      下层只勾了一部分时上层显示半选（mixed）。父级可折叠，默认全部折叠。
    - 默认「全部勾上」= 没有筛选，页面就是全部条目；取消任何一项才开始筛。
-     底部两个按钮：「全选」恢复默认（全部勾上），「清空」清空所有勾选；
+     评分与标签各有「全选」与「清空」，只改变对应分组的勾选；
      当前状态下没有意义的那一个会自动禁用。
    - 没有打标签 / 没写评分的条目不受对应筛选影响，始终显示。
    - 每个 [data-listing] 独立初始化，同页多个榜单互不干扰；
@@ -161,14 +161,41 @@
     head.appendChild(status);
     box.appendChild(head);
 
-    function addGroup(label, content) {
+    var actionGroups = [];
+    function addGroup(label, content, values, selected) {
       if (!content) return null;
       var group = document.createElement('div');
       group.className = 'listing-filter-group';
       var name = document.createElement('span');
       name.className = 'listing-filter-label';
       name.textContent = label;
-      group.appendChild(name);
+      var groupHead = document.createElement('div');
+      groupHead.className = 'listing-filter-group-head';
+      groupHead.appendChild(name);
+      if (values && values.length) {
+        var actions = document.createElement('div');
+        actions.className = 'listing-filter-actions';
+        function action(text, on) {
+          var button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'filter-chip ' + (on ? 'filter-select-all' : 'filter-reset');
+          button.textContent = text;
+          button.setAttribute('aria-label', label + '：' + text);
+          button.addEventListener('click', function () {
+            values.forEach(function (value) {
+              if (on) selected[value] = true;
+              else delete selected[value];
+            });
+            refresh();
+          });
+          actions.appendChild(button);
+          return button;
+        }
+        actionGroups.push({ values: values, selected: selected,
+          selectAll: action('全选', true), clearAll: action('清空', false) });
+        groupHead.appendChild(actions);
+      }
+      group.appendChild(groupHead);
       group.appendChild(content);
       box.appendChild(group);
       return group;
@@ -247,7 +274,7 @@
       var ratingWrap = document.createElement('div');
       ratingWrap.className = 'listing-filter-ratings';
       ratingChecks.forEach(function (check) { ratingWrap.appendChild(check); });
-      addGroup('评分', ratingWrap);
+      addGroup('评分', ratingWrap, ratingValues, ratingOn);
     }
 
     var treeHtml = null;
@@ -296,35 +323,9 @@
         treeHtml.appendChild(row);
         rows[node.path] = { row: row, check: check, mark: check.listeners.mark, caret: caret };
       });
-      addGroup('标签', treeHtml);
+      addGroup('标签', treeHtml, allTags, checked);
       renderTree(); // 默认折叠：先把各父级的后代行收起来
     }
-
-    var actions = document.createElement('div');
-    actions.className = 'listing-filter-actions';
-    var selectAll = document.createElement('button');
-    selectAll.type = 'button';
-    selectAll.className = 'filter-chip filter-select-all';
-    selectAll.textContent = '全选';
-    selectAll.addEventListener('click', function () {
-      allTags.forEach(function (t) { checked[t] = true; });
-      ratingValues.forEach(function (rating) { ratingOn[rating] = true; });
-      refresh();
-    });
-
-    var clearAll = document.createElement('button');
-    clearAll.type = 'button';
-    clearAll.className = 'filter-chip filter-reset';
-    clearAll.textContent = '清空';
-    clearAll.addEventListener('click', function () {
-      allTags.forEach(function (t) { delete checked[t]; });
-      ratingValues.forEach(function (rating) { delete ratingOn[rating]; });
-      refresh();
-    });
-
-    actions.appendChild(selectAll);
-    actions.appendChild(clearAll);
-    if (allTags.length || ratingValues.length) box.appendChild(actions);
 
     var empty = document.createElement('p');
     empty.className = 'empty listing-filter-empty';
@@ -349,11 +350,11 @@
       });
       empty.hidden = shown > 0;
       status.textContent = active ? '显示 ' + shown + ' / ' + total + ' 条' : '共 ' + total + ' 条';
-      // 没有筛选 = 全部勾上 ->「全部选中」无事可做；一项都没勾 ->「全部取消」无事可做
-      var anyOn = allTags.some(function (t) { return checked[t]; })
-        || ratingValues.some(function (rating) { return ratingOn[rating]; });
-      selectAll.disabled = !active;
-      clearAll.disabled = !anyOn;
+      // 按各分组自己的勾选状态禁用无事可做的按钮，互不影响。
+      actionGroups.forEach(function (group) {
+        group.selectAll.disabled = group.values.every(function (value) { return group.selected[value]; });
+        group.clearAll.disabled = !group.values.some(function (value) { return group.selected[value]; });
+      });
       box.hidden = false;
     }
 
