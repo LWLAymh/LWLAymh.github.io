@@ -1137,6 +1137,29 @@ mjx-container[display="true"] + br { display: none; }
   color: var(--text-muted); background: var(--bg-soft);
   border-radius: 10px; line-height: 1.7;
 }
+.post-content .novel-comment-link-wrap { margin-top: 8px; }
+.post-content .acm-cites a.novel-comment-link {
+  display: inline-block; padding: 2px 10px; border-radius: 999px;
+  font-size: 0.78rem; line-height: 1.6;
+  border: 1px solid color-mix(in srgb, var(--accent) 36%, transparent);
+}
+.post-content .novel-comment-link:hover { background: var(--accent-soft); text-decoration: none; }
+.post-content .novel-comment-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.post-content .novel-short-comment { margin-top: 8px; }
+.post-content .novel-short-comment > summary {
+  width: fit-content; padding: 2px 10px; border-radius: 999px;
+  cursor: pointer; user-select: none; color: var(--accent);
+  font-size: 0.78rem; line-height: 1.6;
+  border: 1px solid color-mix(in srgb, var(--accent) 36%, transparent);
+}
+.post-content .novel-short-comment > summary:hover { background: var(--accent-soft); }
+.post-content .novel-short-comment > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.post-content .novel-short-comment-text {
+  margin-top: 8px; padding: 10px 12px; border-radius: 10px;
+  background: var(--bg-soft); color: var(--text);
+  font-size: 0.9rem; line-height: 1.8;
+  white-space: pre-wrap; overflow-wrap: anywhere;
+}
 .post-content .paper-rating {
   flex: 0 0 auto; align-self: flex-start;
   font-size: 0.72rem; padding: 3px 10px; border-radius: 999px;
