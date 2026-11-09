@@ -7,14 +7,14 @@
 (function(){var t=((window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');try{var s=localStorage.getItem("lwl-theme");if(s==='dark'||s==='light')t=s;}catch(e){}document.documentElement.setAttribute('data-theme',t);})();
 </script>
 <title>Paper Reading · LWLAymh的备忘录</title>
-<meta name="description" content="本页展示我对一些读过的论文的整理与评价 [46] Lars Birkedal, Kristian Støvring, Jacob Thamsborg The category-theoretic solution of recursive ">
+<meta name="description" content="本页展示我对一些读过的论文的整理与评价 [47] Lars Birkedal, Kristian Støvring, Jacob Thamsborg The category-theoretic solution of recursive ">
 <meta name="author" content="LWLAymh">
 <link rel="canonical" href="https://LWLAymh.github.io/posts/paper-reading.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="LWLAymh的备忘录">
 <meta property="og:url" content="https://LWLAymh.github.io/posts/paper-reading.html">
 <meta property="og:title" content="Paper Reading · LWLAymh的备忘录">
-<meta property="og:description" content="本页展示我对一些读过的论文的整理与评价 [46] Lars Birkedal, Kristian Støvring, Jacob Thamsborg The category-theoretic solution of recursive ">
+<meta property="og:description" content="本页展示我对一些读过的论文的整理与评价 [47] Lars Birkedal, Kristian Støvring, Jacob Thamsborg The category-theoretic solution of recursive ">
 <link rel="icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
 <link rel="apple-touch-icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
 <link rel="stylesheet" href="/style.css">
@@ -52,7 +52,7 @@
   <header class="post-header">
     <h1 class="post-title">Paper Reading</h1>
     <div class="post-meta">
-      <time>2026-11-01</time>
+      <time>2026-11-09</time>
       <a class="chip chip-cat" href="/categories.html#%E5%AD%A6%E4%B9%A0" title="学习 / Reading">学习 / Reading</a>
       
     </div>
@@ -62,10 +62,17 @@
   <div class="listing-filter" data-listing-filter hidden></div>
   <ol class="acm-cites"><li class="acm-cite" data-listing-item data-tags="PL-FM" data-rating="reading">
     <div class="acm-cite-main">
-      <span class="cite-num">[46]</span>
+      <span class="cite-num">[47]</span>
       <div class="acm-cite-content">Lars Birkedal, Kristian Støvring, Jacob Thamsborg <strong>The category-theoretic solution of recursive metric-space equations</strong>. 2010. In <strong>Theoretical Computer Science</strong>. 4102–4122. <a href="https://doi.org/10.1016/j.tcs.2010.07.010" target="_blank" rel="noopener">https://doi.org/10.1016/j.tcs.2010.07.010</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages &amp; Formal Methods">PL-FM</span></div><details class="paper-abstract"><summary>Abstract</summary><div class="paper-abstract-text">It is well known that one can use an adaptation of the inverse-limit construction to solve recursive equations in the category of complete ultrametric spaces. We show that this construction generalizes to a large class of categories with metric-space structure on each set of morphisms: the exact nature of the objects is less important. In particular, the construction immediately applies to categories where the objects are ultrametric spaces with ‘extra structure’, and where the morphisms preserve this extra structure. The generalization is inspired by classical domain-theoretic work by Smyth and Plotkin. For many of the categories we consider, there is a natural subcategory in which each set of morphisms is required to be a compact metric space. Our setting allows for a proof that such a subcategory always inherits solutions of recursive equations from the full category. As another application, we present a construction that relates solutions of generalized domain equations in the sense of Smyth and Plotkin to solutions of equations in our class of categories. Our primary motivation for solving generalized recursive metric-space equations comes from recent and ongoing work on Kripke-style models in which the sets of worlds must be recursively defined. We show a series of examples motivated by this line of work.</div></details></div>
     </div>
     <span class="paper-rating rating-reading">reading</span>
+  </li>
+<li class="acm-cite" data-listing-item data-tags="PL-FM-CSL-Iris" data-rating="good">
+    <div class="acm-cite-main">
+      <span class="cite-num">[46]</span>
+      <div class="acm-cite-content">Aleš Bizjak, Daniel Gratzer, Robbert Krebbers, Lars Birkedal <strong>Iron: Managing Obligations in Higher-Order Concurrent Separation Logic</strong>. 2019. In <strong>Proceedings of the ACM on Programming Languages (POPL)</strong>. 65:1–65:30. <a href="https://doi.org/10.1145/3290378" target="_blank" rel="noopener">https://doi.org/10.1145/3290378</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages / Formal Methods / CSL / Iris">PL-FM-CSL-Iris</span></div><details class="paper-abstract"><summary>Abstract</summary><div class="paper-abstract-text">Precise management of resources and the obligations they impose, such as the need to dispose of memory, close locks, and release file handles, is hard—especially in the presence of concurrency, when some resources are shared, and different threads operate on them concurrently. We present Iron, a novel higher-order concurrent separation logic that allows for precise reasoning about resources that are transferable among dynamically allocated threads. In particular, Iron can be used to show the correctness of challenging examples, where the reclamation of memory is delegated to a forked-off thread. We show soundness of Iron by means of a model of Iron, defined on top of the Iris base logic, and we use this model to prove that memory resources are accounted for precisely and not leaked. We have formalized all of the developments in the Coq proof assistant.</div></details></div>
+    </div>
+    <span class="paper-rating rating-good">good</span>
   </li>
 <li class="acm-cite" data-listing-item data-tags="GPU" data-rating="reading">
     <div class="acm-cite-main">
