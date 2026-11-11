@@ -91,10 +91,8 @@
   var headerMenuToggle = document.getElementById('header-menu-toggle');
   var sidebarClose = document.getElementById('sidebar-close');
   var sidebarOpener = null;
-  var pinnedToc = false;
   var modalOpen = false;
   var inertBefore = new Map();
-  var wideScreen = window.matchMedia('(min-width: 1440px)');
   function focusableSidebar() {
     return Array.prototype.filter.call(sidebar.querySelectorAll('a[href], button, input, [tabindex="0"]'), function (el) {
       return !el.disabled && !el.closest('[inert]') && el.getClientRects().length;
@@ -102,16 +100,15 @@
   }
   function setSidebar(open) {
     if (!sidebar) return;
-    var modal = !!open && !pinnedToc;
+    var modal = !!open;
     if (modal && !modalOpen) sidebarOpener = document.activeElement;
     sidebar.classList.toggle('open', modal);
-    sidebar.classList.toggle('pinned-toc', pinnedToc);
     if (sidebarOverlay) sidebarOverlay.classList.toggle('open', modal);
-    sidebar.inert = !(modal || pinnedToc);
+    sidebar.inert = !modal;
     sidebar.setAttribute('aria-hidden', String(sidebar.inert));
     if (modal) { sidebar.setAttribute('role', 'dialog'); sidebar.setAttribute('aria-modal', 'true'); }
     else { sidebar.removeAttribute('role'); sidebar.removeAttribute('aria-modal'); }
-    if (sidebarToggle) sidebarToggle.setAttribute('aria-expanded', String(modal || pinnedToc));
+    if (sidebarToggle) sidebarToggle.setAttribute('aria-expanded', String(modal));
     if (headerMenuToggle) headerMenuToggle.setAttribute('aria-expanded', String(modal));
     document.body.classList.toggle('sidebar-modal-open', modal);
     if (modal && !modalOpen) {
@@ -126,13 +123,6 @@
     }
     modalOpen = modal;
   }
-  function syncSidebarMode() {
-    pinnedToc = !!(sidebar && wideScreen.matches && !document.documentElement.classList.contains('nav-collapsed') &&
-      document.body.classList.contains('page-post') && sidebar.querySelectorAll('.toc-list a[href^="#"]').length);
-    document.body.classList.toggle('has-pinned-toc', pinnedToc);
-    setSidebar(modalOpen);
-  }
-  if (wideScreen.addEventListener) wideScreen.addEventListener('change', syncSidebarMode);
   if (sidebarToggle) sidebarToggle.addEventListener('click', function () { setSidebar(!modalOpen); });
   if (sidebarOverlay) sidebarOverlay.addEventListener('click', function () { setSidebar(false); });
   if (sidebarClose) sidebarClose.addEventListener('click', function () { setSidebar(false); });
@@ -178,7 +168,6 @@
     var required = siteBrand.offsetWidth + siteNav.scrollWidth + themeToggle.offsetWidth + 36;
     document.documentElement.classList.remove('nav-measuring');
     document.documentElement.classList.toggle('nav-collapsed', required > available);
-    syncSidebarMode();
   }
   function scheduleAdaptiveNav() {
     if (navMeasurePending) return;

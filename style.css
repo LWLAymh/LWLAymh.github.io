@@ -145,10 +145,7 @@ body {
 .mermaid-block .mermaid { overflow-x: auto; }
 .mermaid-source summary { cursor: pointer; color: var(--text-muted); font-size: 0.85rem; }
 .mermaid-status:empty { display: none; }
-@media (min-width: 1440px) {
-  .has-pinned-toc .sidebar.pinned-toc { transform: none; top: 100px; left: max(20px, calc(50vw - 700px)); width: 280px; height: calc(100dvh - 130px); z-index: 30; box-shadow: none; border: 0; border-radius: 12px; }
-  .has-pinned-toc .sidebar-close, .has-pinned-toc .sidebar-toggle { display: none; }
-}
+
 
 a { color: var(--accent); text-decoration: none; transition: color 0.15s ease; }
 a:hover { text-decoration: underline; }

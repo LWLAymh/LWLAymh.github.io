@@ -10,7 +10,7 @@
   var queued = [];
   var running = false;
   var observed = new WeakSet();
-  var selector = 'p,li,h1,h2,h3,h4,h5,h6,td,th,blockquote,figcaption';
+  var selector = '.math-display,p,li,h1,h2,h3,h4,h5,h6,td,th,blockquote,figcaption';
   var mathRe = /\$\$[\s\S]+?\$\$|\$[^$\n]+?\$|\\\([\s\S]+?\\\)|\\\[[\s\S]+?\\\]/;
 
   function hasNestedCandidate(el) {
@@ -30,6 +30,7 @@
     var el = queued.shift();
     MathJax.typesetPromise([el]).then(function () {
       el.dataset.mathReady = '1';
+      document.dispatchEvent(new CustomEvent('lwl:content-resized'));
     }).catch(function () {
       el.dataset.mathFailed = '1';
     }).then(function () {
@@ -49,11 +50,13 @@
   }
 
   function observeRoot(root) {
-    if (!root || observed.has(root)) return;
-    observed.add(root);
+    if (!root || root.hidden || observed.has(root)) return;
 
     MathJax.startup.promise.then(function () {
+      if (observed.has(root)) return;
       var blocks = collect(root);
+      if (!blocks.length) return;
+      observed.add(root);
       if (!('IntersectionObserver' in window)) {
         blocks.forEach(enqueue);
         return;
