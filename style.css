@@ -121,6 +121,35 @@ body {
   outline-offset: 2px;
 }
 
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.sidebar-modal-open, .image-modal-open { overflow: hidden; }
+.sidebar-close { display: block; margin: 0 0 20px auto; }
+.sidebar-close, .code-copy, .heading-copy, .reading-resume, .image-close, .mermaid-block button, [data-search-retry] {
+  font: inherit; font-size: 0.8rem; color: var(--accent); background: var(--bg-elevated);
+  border: 1px solid var(--border); border-radius: 6px; padding: 5px 10px; cursor: pointer;
+}
+.sidebar { max-height: 100dvh; }
+.code-block { position: relative; margin: 1.4em 0; }
+.post-content .code-block pre { margin: 0; padding-top: 44px; }
+.code-copy { position: absolute; top: 6px; right: 8px; z-index: 1; }
+.heading-copy { margin-left: 0.5em; padding: 0 0.35em; vertical-align: middle; opacity: 0.55; }
+.heading-copy:hover, .heading-copy:focus-visible { opacity: 1; }
+.reading-resume { margin-top: 12px; }
+.image-zoom { display: inline-block; max-width: 100%; border: 0; background: transparent; padding: 0; cursor: zoom-in; vertical-align: middle; }
+.image-zoom img { display: block; }
+.image-dialog { max-width: 96vw; max-height: 94dvh; padding: 45px 12px 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-elevated); color: var(--text); }
+.image-dialog::backdrop { background: rgba(0, 0, 0, 0.75); }
+.image-dialog img { display: block; max-width: 90vw; max-height: 80dvh; object-fit: contain; }
+.image-close { position: absolute; right: 10px; top: 8px; }
+.mermaid-block { margin: 1.5em 0; }
+.mermaid-block .mermaid { overflow-x: auto; }
+.mermaid-source summary { cursor: pointer; color: var(--text-muted); font-size: 0.85rem; }
+.mermaid-status:empty { display: none; }
+@media (min-width: 1440px) {
+  .has-pinned-toc .sidebar.pinned-toc { transform: none; top: 100px; left: max(20px, calc(50vw - 700px)); width: 280px; height: calc(100dvh - 130px); z-index: 30; box-shadow: none; border: 0; border-radius: 12px; }
+  .has-pinned-toc .sidebar-close, .has-pinned-toc .sidebar-toggle { display: none; }
+}
+
 a { color: var(--accent); text-decoration: none; transition: color 0.15s ease; }
 a:hover { text-decoration: underline; }
 

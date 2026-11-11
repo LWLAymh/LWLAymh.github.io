@@ -57,8 +57,9 @@
       <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
       <path d="M20 20l-3.2-3.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
     </svg>
-    <input id="search-input" type="search" placeholder="搜索文章标题 / 分类 / 内容…" autocomplete="off" aria-label="搜索">
-    <div id="search-results" class="search-results"></div>
+    <input id="search-input" type="search" placeholder="搜索文章标题 / 分类 / 内容…" autocomplete="off" aria-label="搜索" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="search-results">
+    <div id="search-results" class="search-results" role="listbox" aria-label="搜索结果"></div>
+    <div id="search-status" class="sr-only" role="status"></div>
   </div>
 </section><section class="post-list"><article class="post-card" data-ban-kind="card" data-ban-category="摸鱼/随笔">
   <div data-ban-content>
@@ -186,8 +187,9 @@
   <div class="footer-copy">© 2026 LWLAymh</div>
 </footer>
 <button class="sidebar-toggle sidebar-toggle-categories" id="sidebar-toggle" aria-label="打开分类" aria-controls="sidebar" aria-expanded="false" title="分类"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-<aside class="sidebar" id="sidebar" aria-hidden="true">
+<aside class="sidebar" id="sidebar" aria-label="分类" aria-hidden="true" inert tabindex="-1">
   <div class="sidebar-inner">
+    <button id="sidebar-close" class="sidebar-close" type="button" aria-label="关闭侧边栏">关闭 ×</button>
     <section class="sidebar-nav-section" aria-label="折叠导航">
       <div class="toc-title">导航</div>
       <nav class="sidebar-nav" aria-label="侧边栏主导航"><a class="nav-link active" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/links.html">友链</a></nav>
@@ -223,7 +225,7 @@
       <div class="sidebar-category-children"><ul class="sidebar-category-posts"><li><a class="sidebar-category-post" data-ban-kind="link" data-ban-category="摸鱼/莉娃丽尔故事集" href="/posts/1-%E7%BA%A2%E8%88%9E%E9%9E%8B.html">红舞鞋</a></li><li><a class="sidebar-category-post" data-ban-kind="link" data-ban-category="摸鱼/莉娃丽尔故事集" href="/posts/2-%E5%8D%96%E7%81%AB%E6%9F%B4%E7%9A%84%E5%B0%8F%E5%A5%B3%E5%AD%A9.html">卖火柴的小女孩</a></li><li><a class="sidebar-category-post" data-ban-kind="link" data-ban-category="摸鱼/莉娃丽尔故事集" href="/posts/3-%E6%B5%B7%E7%9A%84%E5%A5%B3%E5%84%BF.html">海的女儿</a></li><li><a class="sidebar-category-post" data-ban-kind="link" data-ban-category="摸鱼/莉娃丽尔故事集" href="/posts/4-%E4%B8%83%E6%98%9F.html">七星</a></li></ul></div>
     </details><details class="sidebar-category-node">
       <summary><span class="sidebar-category-name">习作</span><span class="sidebar-category-count">2</span></summary>
-      <div class="sidebar-category-children"><ul class="sidebar-category-posts"><li><a class="sidebar-category-post" data-ban-kind="link" data-ban-category="摸鱼/习作" href="/posts/0-%E4%B9%A0%E4%BD%9C%E9%9B%B6.html">习作零</a></li><li><a class="sidebar-category-post" data-ban-kind="link" data-ban-category="摸鱼/习作" href="/posts/3-%E4%B9%A0%E4%BD%9C%E4%B8%89.html">习作三</a></li></ul></div>
+      <div class="sidebar-category-children"><ul class="sidebar-category-posts"><li><a class="sidebar-category-post" data-ban-kind="link" data-ban-category="摸鱼/习作" href="/posts/0-%E4%B9%A0%E4%BD%9C%E9%9B%B6.html">习作零</a></li><li><a class="sidebar-category-post" data-ban-kind="link" data-ban-category="摸鱼/习作" href="/posts/3-%E4%B9%A0%E4%BD%9C%E4%B8%89-%E9%9D%92%E8%9B%99%E7%8E%8B%E5%AD%90.html">习作三-青蛙王子</a></li></ul></div>
     </details><details class="sidebar-category-node">
       <summary><span class="sidebar-category-name">HAVOC</span><span class="sidebar-category-count">2</span></summary>
       <div class="sidebar-category-children"><ul class="sidebar-category-posts"><li><a class="sidebar-category-post" data-ban-kind="link" data-ban-category="摸鱼/HAVOC" href="/posts/1-%E7%BA%A2%E8%89%B2%E9%B8%A2%E5%B0%BE%E8%8A%B1.html">红色鸢尾花</a></li><li><a class="sidebar-category-post" data-ban-kind="link" data-ban-category="摸鱼/HAVOC" href="/posts/2-%E7%9F%A2%E8%BD%A6%E8%8F%8A.html">矢车菊</a></li></ul></div>
@@ -239,6 +241,7 @@
 <script>window.BLOG_CONFIG = {"avatar":{"url":"/images/头像1.jpg","list":["/images/头像1.jpg","/images/头像2.jpg"]},"background":{"url":"/images/background8-opt.jpg","list":[],"overlay":0.72},"signature":{"text":"不过是白日梦里一瞬息","list":[]},"comment":{"serverURL":"https://my-repository-jade-beta-79.vercel.app","anonymousNames":["Alice","Bob","Carol","Dave","Eve","Frank","Grace","Heidi","Ivan","Judy","Mallory","Oscar","Peggy","Rupert","Sybil","Trent","Victor","Wendy"]},"categoryBans":[],"theme":{"defaultTheme":"","storageKey":"lwl-theme"}};</script>
 <script src="/post-ban.js" defer></script>
 <script src="/main.js" defer></script>
-
+<script src="/search-core.js" defer></script>
+<script src="/search.js" defer></script>
 </body>
 </html>

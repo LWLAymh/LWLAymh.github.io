@@ -7,14 +7,14 @@
 (function(){var t=((window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');try{var s=localStorage.getItem("lwl-theme");if(s==='dark'||s==='light')t=s;}catch(e){}document.documentElement.setAttribute('data-theme',t);})();
 </script>
 <title>Paper Reading · LWLAymh的备忘录</title>
-<meta name="description" content="本页展示我对一些读过的论文的整理与评价 [47] Lars Birkedal, Kristian Støvring, Jacob Thamsborg The category-theoretic solution of recursive ">
+<meta name="description" content="本页展示我对一些读过的论文的整理与评价 [48] Lars Birkedal, Kristian Støvring, Jacob Thamsborg The category-theoretic solution of recursive ">
 <meta name="author" content="LWLAymh">
 <link rel="canonical" href="https://LWLAymh.github.io/posts/paper-reading.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="LWLAymh的备忘录">
 <meta property="og:url" content="https://LWLAymh.github.io/posts/paper-reading.html">
 <meta property="og:title" content="Paper Reading · LWLAymh的备忘录">
-<meta property="og:description" content="本页展示我对一些读过的论文的整理与评价 [47] Lars Birkedal, Kristian Støvring, Jacob Thamsborg The category-theoretic solution of recursive ">
+<meta property="og:description" content="本页展示我对一些读过的论文的整理与评价 [48] Lars Birkedal, Kristian Støvring, Jacob Thamsborg The category-theoretic solution of recursive ">
 <link rel="icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
 <link rel="apple-touch-icon" href="/images/%E5%A4%B4%E5%83%8F1.jpg?v=3">
 <link rel="stylesheet" href="/style.css">
@@ -62,15 +62,22 @@
   <div class="listing-filter" data-listing-filter hidden></div>
   <ol class="acm-cites"><li class="acm-cite" data-listing-item data-tags="PL-FM" data-rating="reading">
     <div class="acm-cite-main">
-      <span class="cite-num">[47]</span>
+      <span class="cite-num">[48]</span>
       <div class="acm-cite-content">Lars Birkedal, Kristian Støvring, Jacob Thamsborg <strong>The category-theoretic solution of recursive metric-space equations</strong>. 2010. In <strong>Theoretical Computer Science</strong>. 4102–4122. <a href="https://doi.org/10.1016/j.tcs.2010.07.010" target="_blank" rel="noopener">https://doi.org/10.1016/j.tcs.2010.07.010</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages &amp; Formal Methods">PL-FM</span></div><details class="paper-abstract"><summary>Abstract</summary><div class="paper-abstract-text">It is well known that one can use an adaptation of the inverse-limit construction to solve recursive equations in the category of complete ultrametric spaces. We show that this construction generalizes to a large class of categories with metric-space structure on each set of morphisms: the exact nature of the objects is less important. In particular, the construction immediately applies to categories where the objects are ultrametric spaces with ‘extra structure’, and where the morphisms preserve this extra structure. The generalization is inspired by classical domain-theoretic work by Smyth and Plotkin. For many of the categories we consider, there is a natural subcategory in which each set of morphisms is required to be a compact metric space. Our setting allows for a proof that such a subcategory always inherits solutions of recursive equations from the full category. As another application, we present a construction that relates solutions of generalized domain equations in the sense of Smyth and Plotkin to solutions of equations in our class of categories. Our primary motivation for solving generalized recursive metric-space equations comes from recent and ongoing work on Kripke-style models in which the sets of worlds must be recursively defined. We show a series of examples motivated by this line of work.</div></details></div>
     </div>
     <span class="paper-rating rating-reading">reading</span>
   </li>
 <li class="acm-cite" data-listing-item data-tags="GPU" data-rating="reading">
     <div class="acm-cite-main">
-      <span class="cite-num">[46]</span>
+      <span class="cite-num">[47]</span>
       <div class="acm-cite-content">Hoda Naghibijouybari, Ajaya Neupane, Zhiyun Qian, Nael Abu-Ghazaleh <strong>Rendered Insecure: GPU Side Channel Attacks are Practical</strong>. 2018. In <strong>Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security</strong>. 2139–2153. <a href="https://doi.org/10.1145/3243734.3243831" target="_blank" rel="noopener">https://doi.org/10.1145/3243734.3243831</a><div class="paper-tags"><span class="tag-chip" title="GPU">GPU</span></div><details class="paper-abstract"><summary>Abstract</summary><div class="paper-abstract-text">Graphics Processing Units (GPUs) are commonly integrated with computing devices to enhance the performance and capabilities of graphical workloads. In addition, they are increasingly being integrated in data centers and clouds such that they can be used to accelerate data intensive workloads. Under a number of scenarios the GPU can be shared between multiple applications at a fine granularity allowing a spy application to monitor side channels and attempt to infer the behavior of the victim. For example, OpenGL and WebGL send workloads to the GPU at the granularity of a frame, allowing an attacker to interleave the use of the GPU to measure the side-effects of the victim computation through performance counters or other resource tracking APIs. We demonstrate the vulnerability using two applications. First, we show that an OpenGL based spy can fingerprint websites accurately, track user activities within the website, and even infer the keystroke timings for a password text box with high accuracy. The second application demonstrates how a CUDA spy application can derive the internal parameters of a neural network model being used by another CUDA application, illustrating these threats on the cloud. To counter these attacks, the paper suggests mitigations based on limiting the rate of the calls, or limiting the granularity of the returned information.</div></details></div>
+    </div>
+    <span class="paper-rating rating-reading">reading</span>
+  </li>
+<li class="acm-cite" data-listing-item data-tags="PL-FM-CSL-Iris" data-rating="reading">
+    <div class="acm-cite-main">
+      <span class="cite-num">[46]</span>
+      <div class="acm-cite-content">Ralf Jung, Rodolphe Lepigre, Gaurav Parthasarathy, Marianna Rapoport, Amin Timany, Derek Dreyer, Bart Jacobs <strong>The Future is Ours: Prophecy Variables in Separation Logic</strong>. 2020. In <strong>Proceedings of the ACM on Programming Languages (POPL)</strong>. 45:1–45:32. <a href="https://doi.org/10.1145/3371113" target="_blank" rel="noopener">https://doi.org/10.1145/3371113</a><div class="paper-tags"><span class="tag-chip" title="Programming Languages / Formal Methods / CSL / Iris">PL-FM-CSL-Iris</span></div><details class="paper-abstract"><summary>Abstract</summary><div class="paper-abstract-text">Early in the development of Hoare logic, Owicki and Gries introduced auxiliary variables as a way of encoding information about the history of a program’s execution that is useful for verifying its correctness. Over a decade later, Abadi and Lamport observed that it is sometimes also necessary to know in advance what a program will do in the future. To address this need, they proposed prophecy variables, originally as a proof technique for refinement mappings between state machines. However, despite the fact that prophecy variables are a clearly useful reasoning mechanism, there is (surprisingly) almost no work that attempts to integrate them into Hoare logic. In this paper, we present the first account of prophecy variables in a Hoare-style program logic that is flexible enough to verify logical atomicity (a relative of linearizability) for classic examples from the concurrency literature like RDCSS and the Herlihy-Wing queue. Our account is formalized in the Iris framework for separation logic in Coq. It makes essential use of ownership to encode the exclusive right to resolve a prophecy, which in turn lets us enforce soundness of prophecies with a very simple set of proof rules.</div></details></div>
     </div>
     <span class="paper-rating rating-reading">reading</span>
   </li>
@@ -407,8 +414,9 @@
   <div class="footer-copy">© 2026 LWLAymh</div>
 </footer>
 <button class="sidebar-toggle sidebar-toggle-filter" id="sidebar-toggle" aria-label="打开筛选" aria-controls="sidebar" aria-expanded="false" title="筛选"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg></button>
-<aside class="sidebar" id="sidebar" aria-hidden="true">
+<aside class="sidebar" id="sidebar" aria-label="筛选" aria-hidden="true" inert tabindex="-1">
   <div class="sidebar-inner">
+    <button id="sidebar-close" class="sidebar-close" type="button" aria-label="关闭侧边栏">关闭 ×</button>
     <section class="sidebar-nav-section" aria-label="折叠导航">
       <div class="toc-title">导航</div>
       <nav class="sidebar-nav" aria-label="侧边栏主导航"><a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/links.html">友链</a></nav>
@@ -422,5 +430,6 @@
 <script src="/post-ban.js" defer></script>
 <script src="/main.js" defer></script>
 <script src="/comment.js" defer></script>
+<script src="/reading.js" defer></script>
 </body>
 </html>

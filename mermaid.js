@@ -1,56 +1,66 @@
-/* ==========================================================================
-   Mermaid 图（Typora ```mermaid 代码块）。
-   只有文章出现 mermaid 代码块时本脚本才会被引入；按需从 CDN 加载 mermaid，
-   把 <pre><code class="language-mermaid"> 转成图表。
-   ========================================================================== */
+/* Keep source and retry controls available when the CDN or a diagram fails. */
 (function () {
   'use strict';
-
-  var selector = 'pre code.language-mermaid';
-  var loading = false;
-  var loaded = false;
-
-  function render() {
-    var blocks = document.querySelectorAll(selector);
-    if (!blocks.length) return;
-
-    function run() {
-      if (!window.mermaid) return;
-      try {
-        var dark = document.body.getAttribute('data-theme') === 'dark';
-        mermaid.initialize({ startOnLoad: false, theme: dark ? 'dark' : 'default' });
-        Array.prototype.forEach.call(blocks, function (code) {
-          var pre = code.parentNode;
-          var div = document.createElement('div');
-          div.className = 'mermaid';
-          div.textContent = code.textContent;
-          pre.parentNode.replaceChild(div, pre);
-        });
-        mermaid.run({ querySelector: '.mermaid' }).catch(function () {});
-      } catch (e) {}
-    }
-
-    if (window.mermaid) { run(); return; }
-    if (loading) return;
-    loading = true;
-    var s = document.createElement('script');
-    s.src = 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js';
-    s.onload = function () { loaded = true; run(); };
-    s.onerror = function () {
-      var els = document.querySelectorAll(selector);
-      Array.prototype.forEach.call(els, function (code) {
-        var pre = code.parentNode;
-        var p = document.createElement('p');
-        p.className = 'empty';
-        p.textContent = 'Mermaid 图表加载失败，请检查网络。';
-        pre.parentNode.replaceChild(p, pre);
-      });
-    };
-    document.head.appendChild(s);
+  var records = [], library = null, running = false, requested = false, serial = 0;
+  function load() {
+    if (window.mermaid) return Promise.resolve();
+    if (!library) library = new Promise(function (resolve, reject) {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js';
+      script.onload = function () { if (window.mermaid) resolve(); else reject(new Error('mermaid unavailable')); };
+      script.onerror = function () { script.remove(); reject(new Error('mermaid download')); };
+      document.head.appendChild(script);
+    }).catch(function (error) { library = null; throw error; });
+    return library;
   }
-
+  function collect() {
+    document.querySelectorAll('pre code.language-mermaid').forEach(function (code) {
+      if (code.closest('.mermaid-source')) return;
+      var pre = code.parentNode;
+      var original = pre.parentNode.classList.contains('code-block') ? pre.parentNode : pre;
+      var container = document.createElement('div'); container.className = 'mermaid-block';
+      var diagram = document.createElement('div'); diagram.id = 'blog-diagram-' + (++serial); diagram.className = 'mermaid';
+      var source = document.createElement('details'); source.className = 'mermaid-source'; source.open = true;
+      var summary = document.createElement('summary'); summary.textContent = '图表源码'; source.appendChild(summary);
+      var status = document.createElement('p'); status.className = 'mermaid-status'; status.setAttribute('role', 'status');
+      var retry = document.createElement('button'); retry.type = 'button'; retry.textContent = '重试图表'; retry.hidden = true;
+      retry.addEventListener('click', render);
+      original.parentNode.insertBefore(container, original);
+      source.appendChild(original);
+      container.appendChild(diagram); container.appendChild(status); container.appendChild(retry); container.appendChild(source);
+      records.push({ diagram: diagram, source: source, text: code.textContent, status: status, retry: retry });
+    });
+  }
+  function failed(record, message) {
+    record.diagram.hidden = true; record.source.open = true;
+    record.status.textContent = message; record.retry.hidden = false;
+  }
+  async function render() {
+    collect();
+    if (!records.length) return;
+    if (running) { requested = true; return; }
+    running = true;
+    do {
+      requested = false;
+      records.forEach(function (r) { r.retry.hidden = true; r.status.textContent = '正在绘制图表…'; });
+      try {
+        await load();
+        window.mermaid.initialize({ startOnLoad: false, theme: document.body.getAttribute('data-theme') === 'dark' ? 'dark' : 'default' });
+        for (var record of records) {
+          record.diagram.hidden = false;
+          record.diagram.removeAttribute('data-processed');
+          record.diagram.textContent = record.text;
+          try {
+            await window.mermaid.run({ querySelector: '#' + record.diagram.id });
+            record.status.textContent = ''; record.source.open = false;
+          } catch (error) { failed(record, '图表渲染失败，源码已保留。'); }
+        }
+      } catch (error) { records.forEach(function (r) { failed(r, '图表加载失败，源码已保留，请重试。'); }); }
+      document.dispatchEvent(new CustomEvent('lwl:content-resized'));
+    } while (requested);
+    running = false;
+  }
   render();
-
-  // 加密文章解密后再渲染一次
   document.addEventListener('lwl:decrypted', render);
+  document.addEventListener('themechange', render);
 })();

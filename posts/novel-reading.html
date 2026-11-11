@@ -421,8 +421,9 @@
   <div class="footer-copy">© 2026 LWLAymh</div>
 </footer>
 <button class="sidebar-toggle sidebar-toggle-filter" id="sidebar-toggle" aria-label="打开筛选" aria-controls="sidebar" aria-expanded="false" title="筛选"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg></button>
-<aside class="sidebar" id="sidebar" aria-hidden="true">
+<aside class="sidebar" id="sidebar" aria-label="筛选" aria-hidden="true" inert tabindex="-1">
   <div class="sidebar-inner">
+    <button id="sidebar-close" class="sidebar-close" type="button" aria-label="关闭侧边栏">关闭 ×</button>
     <section class="sidebar-nav-section" aria-label="折叠导航">
       <div class="toc-title">导航</div>
       <nav class="sidebar-nav" aria-label="侧边栏主导航"><a class="nav-link" href="/">首页</a><a class="nav-link" href="/about.html">关于我</a><a class="nav-link" href="/categories.html">分类</a><a class="nav-link" href="/files.html">文件</a><a class="nav-link" href="/links.html">友链</a></nav>
@@ -436,5 +437,6 @@
 <script src="/post-ban.js" defer></script>
 <script src="/main.js" defer></script>
 <script src="/comment.js" defer></script>
+<script src="/reading.js" defer></script>
 </body>
 </html>
